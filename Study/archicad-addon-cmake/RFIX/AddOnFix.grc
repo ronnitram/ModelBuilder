@@ -1,0 +1,8 @@
+'MDID' 32500 "Add-On Identifier" {
+	712074798 /* Set as your developer id. */
+	3264365035 /* Set as your local id. */
+}
+
+'GICN' 10001 "AddOnIcon" {
+	"AddOnIcon"
+}
