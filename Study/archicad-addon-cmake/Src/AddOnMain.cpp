@@ -763,7 +763,6 @@ static GSErrCode MenuCommandHandler (const API_MenuParams *menuParams)
 
 					// Try searching each gdl library part in the sourcefile directory
 					DBPrintf("\n\nCreate Hotlink Node\n");
-					IO::Location parentLocation("C:\\FREELANCE\\Archicad\\SJT-GDL\\Resources\\");
 					std::map<Int32, API_Guid> libIndTo2DHotlinknode;
 					for (auto libPart : libraryPartList) {
 						std::string libPartFileName{ ((GS::UniString)libPart.second.file_UName).ToCStr() };
@@ -773,7 +772,7 @@ static GSErrCode MenuCommandHandler (const API_MenuParams *menuParams)
 						if (strInd == std::string::npos) continue;
 
 						// Create 2D hotlink
-						std::string hotlinkFile = "C:\\FREELANCE\\Archicad\\SJT-GDL\\Resources\\2D MOD\\" + libPartFileName.substr(0, strInd) + ".mod";
+						std::string hotlinkFile = "C:\\FREELANCE\\Archicad\\ModelBuilder\\Study\\Resources\\2D MOD\\" + libPartFileName.substr(0, strInd) + ".mod";
 						IO::Location sourceFileLoc(GS::UniString(hotlinkFile.c_str()));
 
 						// Try creating a hotlink node
@@ -807,6 +806,7 @@ static GSErrCode MenuCommandHandler (const API_MenuParams *menuParams)
 							DBPrintf("GDL Has Memo: %d\n", elemList[i].object.head.hasMemo);
 
 							// Get GDL element memo parameters
+							std::string masterId{};
 							if (elemList[i].object.head.hasMemo) {
 								API_ElementMemo  elementMemo = {};
 								err = ACAPI_Element_GetMemo(elemList[i].header.guid, &elementMemo);
@@ -827,6 +827,10 @@ static GSErrCode MenuCommandHandler (const API_MenuParams *menuParams)
 										}
 										else if ((*elementMemo.params)[i].typeID == APIParT_CString) {
 											GS::UniString valueStr((*elementMemo.params)[i].value.uStr);
+
+											if (paramName == "ID") {
+												masterId = valueStr.ToCStr().Get();
+											}
 											DBPrintf("    Memo Param Name: %s\n", GS::UniString(paramName.c_str()).ToCStr().Get());
 											DBPrintf("    Memo Param Type: %d\n", (*elementMemo.params)[i].typeID);
 											DBPrintf("    Memo Param Value: %s\n", valueStr.ToCStr().Get());
@@ -857,16 +861,25 @@ static GSErrCode MenuCommandHandler (const API_MenuParams *menuParams)
 							hotlinkElement.hotlink.hotlinkNodeGuid = libIndTo2DHotlinknode[key];
 
 							err = ACAPI_CallUndoableCommand("Element Test - Create Hotlink Node and Place an Instance", [&]() -> GSErrCode {
-								return ACAPI_Element_Create(&hotlinkElement, nullptr);
-								});
+								// Set master Id
+								if (!masterId.empty()) {
+									API_ElementMemo	elementMemo = {};
+									elementMemo.elemInfoString = new GS::UniString(masterId.c_str());
+									return ACAPI_Element_Create(&hotlinkElement, &elementMemo);
+								}
+								else {
+									return ACAPI_Element_Create(&hotlinkElement, nullptr);
+								}
+
+							});
 							if (err != NoError) return err;
 
+
 							// Delete GDL Element
-							//err = ACAPI_Element_Delete({elemList[i].header.guid});
 							err = ACAPI_CallUndoableCommand("Element Test - Delete GDL Element", [&]() -> GSErrCode {
 								return ACAPI_Element_Delete({ elemList[i].header.guid });
-								});
-							//if (err != NoError) return err;
+							});
+							if (err != NoError) return err;
 							DBPrintf("--------------------\n");
 						}
 
@@ -1031,7 +1044,7 @@ static GSErrCode MenuCommandHandler (const API_MenuParams *menuParams)
 					if (err != NoError)
 						return err;
 
-					//// Check each hotlink element convert 2D to 3D hotlink
+					//// Check each hotlink element 
 					API_Element  element;
 					GSErrCode elemErr;
 					std::vector<API_Element> elemList;
@@ -1055,6 +1068,31 @@ static GSErrCode MenuCommandHandler (const API_MenuParams *menuParams)
 							DBPrintf("Floor Diff:%d\n", element.hotlink.floorDifference);
 							std::string hotlinkNodeSrcLoc = GetHotlinkNodeSrcLocation(element.hotlink.hotlinkNodeGuid, true);
 							DBPrintf("--------------------------\n");
+
+							// Get hotlink element memo parameters 
+							// Not working. I added a master id but the hasMemo flag is false
+							if (element.hotlink.head.hasMemo) {
+								API_ElementMemo  elementMemo = {};
+								err = ACAPI_Element_GetMemo(element.header.guid, &elementMemo);
+								if (err == NoError)
+								{
+
+									DBPrintf("    --------- MEMO PARAMS START ---------\n");
+									DBPrintf("Display Current HLM Info\n");
+									DBPrintf("    Memo Param Name: %s\n", (*elementMemo.elemInfoString).ToCStr().Get());
+									DBPrintf("    --------- MEMO PARAMS END ---------\n");
+								}
+							}
+							API_ElementMemo  elementMemo = {};
+							err = ACAPI_Element_GetMemo(element.header.guid, &elementMemo);
+							if (err == NoError)
+							{
+
+								DBPrintf("    --------- MEMO PARAMS START ---------\n");
+								DBPrintf("Display Current HLM Info\n");
+								DBPrintf("    Memo Param Name: %s\n", (*elementMemo.elemInfoString).ToCStr().Get());
+								DBPrintf("    --------- MEMO PARAMS END ---------\n");
+							}
 						}
 					}
 					DBPrintf("pause\n\n");
