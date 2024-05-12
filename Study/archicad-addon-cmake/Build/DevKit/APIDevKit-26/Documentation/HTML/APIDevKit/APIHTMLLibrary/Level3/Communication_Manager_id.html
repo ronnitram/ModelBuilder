@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Communication Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Communication_Manager_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Communication Manager</h1>
+
+    <p><br>
+    The Communication Manager is a very powerful new service introduced in API v3.1.</p>
+
+    <p>In the previous versions of the API add-ons could be called by Archicad only. There were two ways to do that. The add-on could be called because of a direct user interaction, or there was a need to post a notification to it. It was not possible to call one add-on from another.</p>
+
+    <p>From API v3.1 add-ons can call each other.</p>
+
+    <p>All of the communication manager functions begin with the <b>ACAPI_Command_</b> prefix. They are as follows:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_Command_Test.html">ACAPI_Command_Test</a><br>
+        <a href="../Functions/ACAPI_Command_Call.html">ACAPI_Command_Call</a><br>
+        <a href="../Functions/ACAPI_Command_ExternalCall.html">ACAPI_Command_ExternalCall</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12">
+        <a href="../Functions/ACAPI_Command_CallFromEventLoop.html">ACAPI_Command_CallFromEventLoop</a>&nbsp; <img border="0" src="../../APIImageLibrary/19.png" alt="Featuring API 19" width="19" height="12">
+    </blockquote>
+
+    <p>There are some functions to provide easy and controlled mechanism for parameter passing. They are:</p>
+
+    <blockquote>
+        <!--NoIndex--><a href="../Functions/APIAny_InitMDCLParameterListID.html">APIAny_InitMDCLParameterListID</a><br>
+        <!--NoIndex--><a href="../Functions/APIAny_GetMDCLParameterNumID.html">APIAny_GetMDCLParameterNumID</a><br>
+        <!--NoIndex--><a href="../Functions/APIAny_GetMDCLParameterID.html">APIAny_GetMDCLParameterID</a><br>
+        <!--NoIndex--><a href="../Functions/APIAny_AddMDCLParameterID.html">APIAny_AddMDCLParameterID</a><br>
+        <!--NoIndex--><a href="../Functions/APIAny_ChangeMDCLParameterID.html">APIAny_ChangeMDCLParameterID</a><br>
+        <!--NoIndex--><a href="../Functions/APIAny_FreeMDCLParameterListID.html">APIAny_FreeMDCLParameterListID</a>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Entry points</h4>
+
+    <p>What is an entry point of an add-on? It is a function or service which can be called from another add-on with the support of the Communication Manager.</p>
+
+    <p>The entry points are interface independent. It means that there isn't any relationship between the commands put into the Archicad menu structure and the entry points. The first set is controlled by the <!--NoIndex--><a href="../Functions/ACAPI_Register_Menu.html">ACAPI_Register_Menu</a> or <!--NoIndex--><a href="../Functions/ACAPI_Register_FileType.html">ACAPI_Register_FileType</a> and the like, the second type entry points are given by <!--NoIndex--><a href="../Functions/ACAPI_Register_SupportedService.html">ACAPI_Register_SupportedService</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Registration</h4>
+
+    <p>An add-on can have as many entry points as it wants, and each of them has to be registered in the <!--NoIndex--><a href="../Functions/RegisterInterface.html">RegisterInterface</a> function of your add-on with <!--NoIndex--><a href="../Functions/ACAPI_Register_SupportedService.html">ACAPI_Register_SupportedService</a>. This function tells Archicad that the add-on can be called by another. The parameters of this function are the following:</p>
+
+    <ul>
+        <li>the identifier of the entry point,</li>
+
+        <li>the version of the entry point,</li>
+    </ul>
+
+    <p>Refer to the function description for more details.</p>
+
+    <p>Later in the Initialize function the add-on has to register callback function to handle the different supported commands. The <!--NoIndex--><a href="../Functions/ACAPI_Install_ModulCommandHandler.html">ACAPI_Install_ModulCommandHandler</a> function's parameters identify the command (with its ID and version number), and the last parameter supplies the module command handler callback function. This callback function then receives the parameters, may optionally pass back its results in a separate pointer, and is also informed whether it should run in silent mode.</p>
+
+    <h4>&nbsp;</h4>
+
+    <h4>Entry point identification</h4>
+
+    <p>An entry point is identified by the following two components:</p>
+
+    <ul>
+        <li>an add-on identifier. For this purposes the API uses the <!--NoCHM--><a href="../Resources/MDID.html">'MDID'</a> resource. Simply put the ID of the target add-on into an <!--NoCHM--><a href="../Structures/API_ModulID.html">API_ModulID</a> structure to identify it.</li>
+
+        <li>an entry point identifier. This should be the same what the target add-on used as the first parameter of the <!--NoIndex--><a href="../Functions/ACAPI_Register_SupportedService.html">ACAPI_Register_SupportedService</a>.</li>
+
+        <li>the version of the entry point.</li>
+    </ul>
+
+    <p>This means that entry point IDs must be unique in the world of an add-on. Different add-ons may have the same entry point IDs, but locally an add-on is not allowed to specify the same ID more than once.</p>
+
+    <p>On the caller add-ons side, it may check for the existence of the necessary entry points of the target add-on in its own <!--NoIndex--><a href="../Functions/RegisterInterface.html">RegisterInterface</a> function, with <!--NoIndex--><a href="../Functions/ACAPI_Register_RequiredService.html">ACAPI_Register_RequiredService</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Version control</h4>
+
+    <p>The last issue is version control. The caller add-on must specify the required version of the entry point also. The API assumes backward compatibility. When an add-on tests for an entry point's availability, the following cases may occur (assuming the identification was successful):</p>
+
+    <ul>
+        <li>the entry point version is less than the requested one. In this case an error is returned.</li>
+
+        <li>the entry point version is greater or equal with the requested one. The API returns successfully, as it assumes backward compatibility.</li>
+    </ul>
+
+    <p>When you assign a version number to an entry point, you must adhere to the following rules:</p>
+
+    <ul>
+        <li>when backward compatibility can be assured, simply increase the version number.</li>
+
+        <li>when the compatibility cannot be assured, change the entry point identifier.</li>
+    </ul>
+
+    <p>Note that the most general cases where the compatibility issues are important are:</p>
+
+    <ul>
+        <li>there are changes in the interface (the parameters, which the caller can pass, have to be modified)</li>
+
+        <li>there are changes in the algorithm (the output will differ on the same parameters passed)</li>
+    </ul>
+
+    <p>In either cases keep the compatibility, if possible. Upon a call of an entry point, the Communication Manager first identifies the command. If&nbsp; it is available, it checks the entry point version. If there isn't any version problem, it calls the entry point by passing the required version number. Use this data to ensure the same environment and behavior.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Control of execution</h4>
+
+    <p>It is very important to understand what happens in the background when the API calls an add-on.</p>
+
+    <p>In general the API allocates a unique environment to each executed add-on. Normally only one add-on is executed by the API, only one add-on is in one of its callback functions. However there are cases when there are more add-ons in the call stack.</p>
+
+    <ul>
+        <li>when there is a need to post a notification to certain add-ons.</li>
+
+        <li>the add-on has the right to call another add-on's functionality.</li>
+    </ul>
+
+    <p>In these cases more add-ons are executed at the same time, they are all in their notification or module command handler&nbsp; functions.&nbsp;</p>
+
+    <p>Note, that <b>this is not a real multiprocessing architecture</b>.</p>
+
+    <p>The API maintains a call stack all the time, and only the top-most add-on has the right to call the API services. This is the add-on whose environment is the active one. Once the top-most add-on has returned from its callback function, the API takes the next add-on on the stack, and makes its environment to be the active one.</p>
+
+    <p>So, the structure is nested, instead of being parallel.</p>
+
+    <p>The figure below tries to explain the system. The user has called a command which is implemented in the add-on <b>A</b>. add-on <b>A</b> calls a function of add-on <b>B</b>. It performs an operation which results to post a notification to add-on <b>C</b>.</p>
+
+    <p align="center"><img border="0" src="../../APIImageLibrary/ClientStack.png" class="size2x" width="227" alt="client stack"></p>
+
+    <p align="center"><i>Figure #1: the API call stack and client environments</i></p>
+
+    <p align="left">The vertical lines show which environment is the active one. On the right side the call stack maintained by the API is shown.</p>
+
+    <p align="left">On Figure #2 you can see how the <b>CommunicationManager</b> and <b>CommunicationClient</b> example projects communicate to each other.</p>
+
+    <p align="center"><img border="0" src="../../APIImageLibrary/ClientCall.png" class="size2x" width="498" alt="client call"></p>
+
+    <p align="center"><i>Figure #2: communication architectures</i></p>
+
+    <p>On the left side of the picture the normal situation is shown.</p>
+
+    <p>Client <b>A</b> (which is the CommunicationManager example project) wants to call the entry point <code>'CMD1'</code> (command 1) of client <b>B</b> (the CommunicationClient example project). It calls the <!--NoCHM--><a href="../Functions/ACAPI_Command_Call.html">ACAPI_Command_Call</a> function with the necessary IDs. The API loads the add-on <b>B</b>, and calls its module command handler function, registered for the <code>'CMD1'</code> command. When <b>B</b> has returned, the control goes back to the API, into the <!--NoCHM--><a href="../Functions/ACAPI_Command_Call.html">ACAPI_Command_Call</a> function. It switches the environment back to the one owned by <b>A</b>,&nbsp;&nbsp;and returns. Client <b>A</b> gets the control and can continue working.</p>
+
+    <p>This system is quite simple, however sometimes it is not strong enough. The <!--NoCHM--><a href="../Functions/ACAPI_Command_Call.html">ACAPI_Command_Call</a> function is a very robust one, with a lot of overhead. First, it has to decide whether the addressed add-on is installed. Then it has to be loaded into the memory and initialized; of course just if it is was not loaded before. The caller add-on may want to pass some parameters too, the method to do that also has a strong overhead (the details are explained later in this paper).</p>
+
+    <p>On the right side of the picture a more complex architecture is shown, where the two add-ons can call each other directly. For this purpose client <b>B</b> has implemented two special entry points:</p>
+
+    <ul>
+        <li><code>'BEGB'</code> is to setup a binary link. Actually it just fills up a function table, or returns a pointer to a class with virtual functions initialized. The most important, that it calls the <!--NoCHM--><a href="../Functions/ACAPI_KeepInMemory.html">ACAPI_KeepInMemory</a> function to force&nbsp; the API to keep it in the memory. When the <!--NoCHM--><a href="../Functions/ACAPI_Command_Call.html">ACAPI_Command_Call</a> function returns to client <b>A</b>, he gets the necessary function pointers, and as client <b>B</b> is in the memory, they are valid, they can be called. From this point, client <b>A</b> is also allowed to pass function pointers to client <b>B.</b> So, an environment is set up where two add-ons can call each other directly, with the standard C/C++ calls, without the assistance of the <b>Communication Manager</b>.&nbsp;</li>
+
+        <li><code>'ENDB'</code> is just to dispose the binary link. Actually the only task it has to do is to call the <!--NoCHM--><a href="../Functions/ACAPI_KeepInMemory.html">ACAPI_KeepInMemory</a> function to sign that it can be unloaded.</li>
+    </ul>
+
+    <p>What is <b>very important to know is</b>, that in this architecture client <b>B</b> is running under the API environment of client <b>A</b>. He can call any of the API services, but the API handles client <b>A</b> as the active one. The API will process these request in a way, as they would be called by client <b>A</b>. This critical session is shown by a zigzag type line on the picture.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12">&nbsp; Please note that from Archicad 10 it is a possible to make an add-on command execute in an external Archicad instance to perform operation on a different project file. For more details refer to the <a href="../Functions/ACAPI_Command_ExternalCall.html">ACAPI_Command_ExternalCall</a> function.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/19.png" alt="Featuring API 19" width="19" height="12">&nbsp; Please note that from Archicad 19 you can execute add-on command forced from main event loop using <a href="../Functions/ACAPI_Command_CallFromEventLoop.html">ACAPI_Command_CallFromEventLoop</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4><!-- comment --><a name="Parameter_Passing" id="Parameter_Passing"></a>Parameter passing</h4>
+
+    <p>Parameters should be passed in the <code>params</code> argument to the <!--NoCHM--><a href="../Functions/ACAPI_Command_Call.html">ACAPI_Command_Call</a> function. This handle -whose internal format is not public- is owned by the API. The content is not checked&nbsp; by the API, it just simply passed to the called entry point.</p>
+
+    <p>The parameters should be listed in the public header file of the add-on. Each parameter is identified by its name. Each parameter has a value type, which can be either a string, integer or float type. The API does not check the passed parameters, it merely passes those onto the called add-on. Consistency must be validated by the called add-on's entry function.</p>
+
+    <p>The workflow is:</p>
+
+    <ul>
+        <li>the caller add-on must initialize a parameter list with the <!--NoCHM--><a href="../Functions/APIAny_InitMDCLParameterListID.html">APIAny_InitMDCLParameterListID</a> function,</li>
+
+        <li>the required parameters can be appended to this list with the <!--NoCHM--><a href="../Functions/APIAny_AddMDCLParameterID.html">APIAny_AddMDCLParameterID</a> function,</li>
+
+        <li>the called add-on can explode the passed parameters with the <!--NoCHM--><a href="../Functions/APIAny_GetMDCLParameterNumID.html">APIAny_GetMDCLParameterNumID</a> and <!--NoCHM--><a href="../Functions/APIAny_GetMDCLParameterID.html">APIAny_GetMDCLParameterID</a> functions,</li>
+
+        <li>parameters may be modified with the <!--NoCHM--><a href="../Functions/APIAny_ChangeMDCLParameterID.html">APIAny_ChangeMDCLParameterID</a> function.</li>
+
+        <li>the parameter list must be disposed by the caller with the help of <!--NoCHM--><a href="../Functions/APIAny_FreeMDCLParameterListID.html">APIAny_FreeMDCLParameterListID</a> function.</li>
+    </ul>
+
+    <p>It is very <b>important</b>, that the parameters must be relative to the <b>factory default</b> parameters of the called add-on. The called add-on first must set up its factory default parameters, then while retrieving the passed parameters one by one, the defaults should be modified. If no parameters were passed (<code>params == nullptr</code>) the factory default parameters should be used without any modification. Another important note is that the parameters must be <b>interpreted in the same order</b> as they have been passed.&nbsp;</p>
+
+    <p><b>The above rules ensure that the execution of the entry points will not be context sensitive.</b> No matter what the current defaults are (saved into the preferences), parameters are interpreted based on the factory defaults. It doesn't matter that some parameters are not passed to the client, as they have defaults.&nbsp;</p>
+
+    <p>Let's take an example.</p>
+
+    <p>The DXF/DWG add-on exports an entry point the open an AutoCAD drawing. Its options dialog also has a Default button to set and use the factory default parameters. The add-on emulates the behavior of this dialog while interpreting the passed parameters.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Interface control</h4>
+
+    <p>The caller add-on can disable all interface elements of the called add-on with the <code>silentMode</code> parameter.</p>
+
+    <p>If this parameter is set to <code>true</code>, the called add-on is not allowed to open its dialogs and alerts. In the case it is <code>false</code> the option dialog must appear; of course after processing the passed parameters. The user is allowed to modify any parameter. In the case the modifications may have an effect on the passed parameters, use the <!--NoCHM--><a href="../Functions/APIAny_ChangeMDCLParameterID.html">APIAny_ChangeMDCLParameterID</a> function to allow the caller add-on to track the changes.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Return values</h4>
+
+    <p>There are two ways to return parameters to the caller.</p>
+
+    <p>The default option is to use the return value of the <!--NoCHM--><a href="../Functions/ACAPI_Command_Call.html">ACAPI_Command_Call</a> call. The value returned by this function is the value returned by the client's module command handler function.</p>
+
+    <p>The other way is to use the <code>resultData</code> parameter. This is a simple pointer, which can be used for any purpose. The specification must be given by the called add-on.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Documentation</h4>
+
+    <p>It is absolutely necessary to provide developer documentation for each add-on which publishes its interface. This document should give details what the functionality of the entry point is, what parameters can be passed, how they are interpreted and what return vales are provided.</p>
+
+    <p>By default put this document into the same folder where your add-on is installed.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 30, 2015<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

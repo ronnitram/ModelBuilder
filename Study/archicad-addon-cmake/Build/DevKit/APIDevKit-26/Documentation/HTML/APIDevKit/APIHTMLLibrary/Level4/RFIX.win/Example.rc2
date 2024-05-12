@@ -1,0 +1,7 @@
+﻿/* *****************************************************************************
+// Resource description
+// API Development Kit; Windows resources
+// ****************************************************************************/
+
+#include "ExampleGRC.grc.rc2"
+#include "ExampleFixGRC.grc.rc2"

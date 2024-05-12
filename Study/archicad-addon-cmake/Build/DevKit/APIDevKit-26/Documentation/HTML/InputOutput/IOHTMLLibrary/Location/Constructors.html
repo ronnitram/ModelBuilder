@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <title>Location constructor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/Location/Constructors.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="Location.html">Location</a>::Location&nbsp;&nbsp; <font size="2">(4)</font></h1><br>
+    Location constructors.<br>
+    <br>
+    <pre class="syntax">
+<b>Location (
+);</b>
+</pre>
+
+    <h3>Description</h3>
+
+    <p>This default constructor initializes the given instance to refer to the local root of the current machine. This constructor will always succeed.<br>
+    InputOutput module already contains a public default Location instance as IO::localRoot. It is declared constant.</p>
+
+    <p>Instances can be created with this constructor before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>explicit Location (
+</b>    <b>const char* targetPath
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetPath</em></dt>
+
+        <dd>
+            Text representation (as C string) of the file system address (path) referring to the desired target.<br>
+            It can be current platform's text representation or URL representation. URL representation uses the nonexisting "<font face="Courier New"><b>lan:</b></font>" protocol (LAN = Local Area Network) with the following syntax:
+
+            <p><font face="Courier New">&nbsp;&nbsp;&nbsp; "<b>lan://</b>" <i>networkAddress</i> "<b>/</b>" <i>localAddress</i></font></p>
+
+            <p><font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>networkAddress</i> = (<b>networkName</b> ("<b>.</b>" <b>networkName</b>)*)? | "<b>localhost</b>"</font></p>
+
+            <p><font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>localAddress</i>&nbsp;&nbsp; = (<b>localName</b> ("<b>/</b>" <b>localName</b>)*)?</font></p>
+
+            <p>'*' means 0 or more, '?' means 0 or 1 (optional) and '|' means or. <i>networkName</i> can contain any character but '.', while <i>localName</i> can contain any character but '/'.<br>
+            Note that in URL network address (host) is represented in reverse order, that is first part from the left is the lowest order name (in contrast to the local address which is represented in "normal" order, that is first part from the left is the highest order name).<br>
+            For example: <font face="Courier New">"lan://Server.Subnetwork/Share/Folder/File.ext".</font></p>
+        </dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to refer to the target specified by <i>targetPath</i>. The target doesn't need to exist. If the <i>targetPath</i> is syntactically illegal (or the memory has been exhausted), then status of the Location instance becomes invalid.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances <b>should not</b> be created with this constructor before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>explicit Location (
+</b>    <b>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&amp; targetPath
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetPath</em></dt>
+
+        <dd>Text representation (as Unicode UTF-16 string) of the file system address (path) referring to the desired target.<br></dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to refer to the target specified by <i>targetPath</i>. The target doesn't need to exist. If the <i>targetPath</i> is syntactically illegal (or the memory has been exhausted), then status of the Location instance becomes invalid.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances <b>should not</b> be created with this constructor before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>explicit Location (
+</b>    <b>const FSSpec&amp; targetSpec
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetSpec</em></dt>
+
+        <dd>Native Macintosh representation of the file system address referring to the desired target.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to refer to the target specified by <i>targetSpec</i>. The target doesn't need to exist, but the volume specified by <i>targetSpec</i> must be mounted. This constructor is naturally platform dependent. If the <i>targetSpec</i> is illegal from some reason (or the memory has been exhausted), then status of the Location instance becomes invalid.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances <b>should not</b> be created with this constructor before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>explicit Location (
+</b>    <b>const FSRef&amp; targetRef
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetRef</em></dt>
+
+        <dd>Native Macintosh representation of the file system address referring to the desired target.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to refer to the target specified by <i>targetRef</i>. This method is used for only existing entries. This constructor is naturally platform dependent. If the <i>targetRef</i> is illegal from some reason (or the memory has been exhausted), then status of the Location instance becomes invalid.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances <b>should not</b> be created with this constructor before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>explicit Location (
+</b>    <b>const CFURLRef&amp; targetRef
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetRef</em></dt>
+
+        <dd>Native Macintosh URL representation of the desired target.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to refer to the target specified by <i>targetRef</i>. Note that there are locations for which there is no valid CFURL representation (e.g. local root is virtual on Macintosh). For such locations Error is returned.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances <b>should not</b> be created with this constructor before the module initialization!<br></p>
+
+    <p><a href="http://developer.apple.com/documentation/CoreFoundation/Reference/CFURLRef/index.html">More about CFURL ...</a><br>
+    <br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>Location (
+    const Location&amp; parent,
+    const <a href="../Name/Name.html">Name</a>&amp; name
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>parent</em></dt>
+
+        <dd>Base address of the new Location instance.</dd>
+
+        <dt><em>name</em></dt>
+
+        <dd>Last name of the new Location instance.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to refer to the target obtained by appending <i>name</i> to the content of the <i>parent</i>. The target doesn't need to exist. If the memory has been exhausted, then status of the Location instance becomes invalid.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances can be created with this constructor before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>Location (
+    <a href="POSIXPathSelector.html">POSIXPathSelector</a> selector,
+    const char* path
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>selector</em></dt>
+
+        <dd>It's an enum which determines this is a standard UNIX representation. Its only one value is: IO::Location:POSIXPath.</dd>
+
+        <dt><em>path</em></dt>
+
+        <dd>Text representation (as C string) of the file system address (path) referring to the desired target.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to refer to the target specified by <i>path</i> in standard UNIX representation. The target doesn't need to exist. If the <i>path</i> is syntactically illegal (or the memory has been exhausted), then status of the Location instance becomes invalid.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances <b>should not</b> be created with this constructor before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>Location (
+    <a href="POSIXPathSelector.html">POSIXPathSelector</a> selector,
+    const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&amp; path
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>selector</em></dt>
+
+        <dd>It's an enum which determines this is a standard UNIX representation. Its only one value is: IO::Location:POSIXPath.</dd>
+
+        <dt><em>name</em></dt>
+
+        <dd>Text representation (as Unicode UTF-16 string) of the file system address (path) referring to the desired target.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to refer to the target specified by <i>path</i> in standard UNIX representation. The target doesn't need to exist. If the <i>path</i> is syntactically illegal (or the memory has been exhausted), then status of the Location instance becomes invalid.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances <b>should not</b> be created with this constructor before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,804 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>GS Namespace</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/GS.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<a href="Abs.html">Abs</A><A href="AdjacentFind.html">AdjacentFind</A><A href="Array/Array.html">Array</A><A href="ArrayFB/ArrayFB.html">ArrayFB</A><A href="AssociativeContainer/AssociativeContainer.html">AssociativeContainer</A><A href="BidirectionalIterator/BidirectionalIterator.html">BidirectionalIterator</A><A href="BinarySearch.html">BinarySearch</A><A href="ConstBidirectionalIterator/ConstBidirectionalIterator.html">ConstBidirectionalIterator</A><A href="ConstForwardIterator/ConstForwardIterator.html">ConstForwardIterator</A><A href="ConstRandomIterator/ConstRandomIterator.html">ConstRandomIterator</A><A href="Container/Container.html">Container</A><A href="Copy.html">Copy</A><A href="CopyBackward.html">CopyBackward</A><A href="CopyIf.html">CopyIf</A><A href="CopyIfBackward.html">CopyIfBackward</A><A href="Count.html">Count</A><A href="CountIf.html">CountIf</A><A href="CutToMax.html">CutToMax</A><A href="CutToMin.html">CutToMin</A><A href="CutToRange.html">CutToRange</A><A href="EqualRange.html">EqualRange</A><A href="Event/Event.html">Event</A><A href="EventObserver/EventObserver.html">EventObserver</A><A href="EventSource/EventSource.html">EventSource</A><A href="Fill.html">Fill</A><A href="FillN.html">FillN</A><A href="Find.html">Find</A><A href="FindEnd.html">FindEnd</A><A href="FindFirstOf.html">FindFirstOf</A><A href="FindIf.html">FindIf</A><A href="ForEach.html">ForEach</A><A href="ForwardIterator/ForwardIterator.html">ForwardIterator</A><A href="Generate.html">Generate</A><A href="GenerateN.html">GenerateN</A><A href="Guid/Guid.html">Guid</A><A href="HashTable/HashTable.html">HashTable</A><A href="IChannel/IChannel.html">IChannel</A><A href="Includes.html">Includes</A><A href="InplaceMerge.html">InplaceMerge</A><A href="IProtocol/IProtocol.html">IProtocol</A><A href="IsBetween.html">IsBetween</A><A href="IsEqual.html">IsEqual</A><A href="IteratorBase/IteratorBase.html">IteratorBase</A><A href="IterSwap.html">IterSwap</A><A href="LexicographicalCompare.html">LexicographicalCompare</A><A href="LowerBound.html">LowerBound</A><A href="MakeHeap.html">MakeHeap</A><A href="Max.html">Max</A><A href="MaxElement.html">MaxElement</A><A href="Merge.html">Merge</A><A href="Min.html">Min</A><A href="MinElement.html">MinElement</A><A href="Mismatch.html">Mismatch</A><A href="NewPair.html">NewPair</A><A href="NextPermutation.html">NextPermutation</A><A href="NthElement.html">NthElement</A><A href="Object/Object.html">Object</A><A href="OChannel/OChannel.html">OChannel</A><A href="OProtocol/OProtocol.html">OProtocol</A><A href="PagedArray/PagedArray.html">PagedArray</A><A href="Pair/Pair.html">Pair</A><A href="PartialSort.html">PartialSort</A><A href="PartialSortCopy.html">PartialSortCopy</A><A href="Partition.html">Partition</A><A href="PopHeap.html">PopHeap</A><A href="PrevPermutation.html">PrevPermutation</A><A href="PushHeap.html">PushHeap</A><A href="RandomContainer/RandomContainer.html">RandomContainer</A><A href="RandomIterator/RandomIterator.html">RandomIterator</A><A href="RandomShuffle.html">RandomShuffle</A><A href="Remove.html">Remove</A><A href="RemoveCopy.html">RemoveCopy</A><A href="RemoveCopyIf.html">RemoveCopyIf</A><A href="RemoveIf.html">RemoveIf</A><A href="Replace.html">Replace</A><A href="ReplaceCopy.html">ReplaceCopy</A><A href="ReplaceCopyIf.html">ReplaceCopyIf</A><A href="ReplaceIf.html">ReplaceIf</A><A href="Reverse.html">Reverse</A><A href="ReverseCopy.html">ReverseCopy</A><A href="Rotate.html">Rotate</A><A href="RotateCopy.html">RotateCopy</A><A href="Search.html">Search</A><A href="SearchN.html">SearchN</A><A href="SetDifference.html">SetDifference</A><A href="SetIntersection.html">SetIntersection</A><A href="SetSymmetricDifference.html">SetSymmetricDifference</A><A href="SetUnion.html">SetUnion</A><A href="Sort.html">Sort</A><A href="SortHeap.html">SortHeap</A><A href="StableArray/StableArray.html">StableArray</A><A href="StablePartition.html">StablePartition</A><A href="StableSort.html">StableSort</A><A href="Swap.html">Swap</A><A href="SwapRanges.html">SwapRanges</A><A href="Transform.html">Transform</A><A href="UniChar/UniChar.html">UniChar</A><A href="Unique.html">Unique</A><A href="UniqueCopy.html">UniqueCopy</A><A href="UniString/UniString.html">UniString</A><A href="UpperBound.html">UpperBound</A>--><H2>GS Namespace</H2><!--exp="GS Namespace"-->
+<P></P><topic id="$GS.Description">
+    This namespace contains the base infrastructure: Object root class, containers, strings, serialization, event sources / observers etc.
+  </topic><P><A href="#Algorithms">Algorithms</A><BR><A href="#Containers">Containers</A><BR><A href="#Events">Events</A><BR><A href="#Iterators">Iterators</A><BR><A href="#Object">Object</A><BR><A href="#Serialization">Serialization</A><BR><A href="#Text">Text</A><BR><A href="#Utility classes functions">Utility classes functions</A><BR></P>
+<H3><A name="Object"></A>Object</H3>
+<p><topic id="$GS.$Object.CategoryDescription"></topic></p>
+<table width="90%" class="summary">
+<TR VALIGN="top">
+<TH width="30%">Class</TH>
+<TH width="70%">Description</TH>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="Object/Object.html">Object</A></TD>
+<TD width="70%"><topic id="$GS.$Object.BriefDescription">
+    Root class.
+  </topic></TD>
+</TR>
+</table>
+<H3><A name="Serialization"></A>Serialization</H3>
+<p><topic id="$GS.$Serialization.CategoryDescription"></topic></p>
+<table width="90%" class="summary">
+<TR VALIGN="top">
+<TH width="30%">Class</TH>
+<TH width="70%">Description</TH>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="IChannel/IChannel.html">IChannel</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.BriefDescription">
+    Sequential data source (input).
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="OChannel/OChannel.html">OChannel</A></TD>
+<TD width="70%"><topic id="$GS.$OChannel.BriefDescription">
+    Sequential data destination (output).
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="IProtocol/IProtocol.html">IProtocol</A></TD>
+<TD width="70%"><topic id="$GS.$IProtocol.BriefDescription">
+    Type composer interface used during serialization.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="OProtocol/OProtocol.html">OProtocol</A></TD>
+<TD width="70%"><topic id="$GS.$OProtocol.BriefDescription">
+    Type decomposer interface used during serialization.
+  </topic></TD>
+</TR>
+</table>
+<H3><A name="Containers"></A>Containers</H3>
+<p><topic id="$GS.$Containers.CategoryDescription"></topic></p>
+<table width="90%" class="summary">
+<TR VALIGN="top">
+<TH width="30%">Class</TH>
+<TH width="70%">Description</TH>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="Container/Container.html">Container</A></TD>
+<TD width="70%"><topic id="$GS.$Container.BriefDescription">
+    Root class of all container classes.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="RandomContainer/RandomContainer.html">RandomContainer</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.BriefDescription">
+    Base class of random accessible containers.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="Array/Array.html">Array</A></TD>
+<TD width="70%"><topic id="$GS.$Array.BriefDescription">
+    Random container using one continuous reallocating buffer.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="ArrayFB/ArrayFB.html">ArrayFB</A></TD>
+<TD width="70%"><topic id="$GS.$ArrayFB.BriefDescription">
+    Array with built-in initial buffer of fixed size.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="PagedArray/PagedArray.html">PagedArray</A></TD>
+<TD width="70%"><topic id="$GS.$PagedArray.BriefDescription">
+    Random container using separate memory pages without reallocation.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="StableArray/StableArray.html">StableArray</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.BriefDescription">
+    Random container that holds addresses of items unchanged.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="AssociativeContainer/AssociativeContainer.html">AssociativeContainer</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.BriefDescription">
+    Base class of associative containers.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="HashTable/HashTable.html">HashTable</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.BriefDescription">
+    Associative container using hashing method.
+  </topic></TD>
+</TR>
+</table>
+<H3><A name="Iterators"></A>Iterators</H3>
+<p><topic id="$GS.$Iterators.CategoryDescription"></topic></p>
+<table width="90%" class="summary">
+<TR VALIGN="top">
+<TH width="30%">Class</TH>
+<TH width="70%">Description</TH>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="IteratorBase/IteratorBase.html">IteratorBase</A></TD>
+<TD width="70%"><topic id="$GS.$IteratorBase.BriefDescription">
+    Root class of all iterator classes.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="ForwardIterator/ForwardIterator.html">ForwardIterator</A></TD>
+<TD width="70%"><topic id="$GS.$ForwardIterator.BriefDescription">
+    Iterator for forward enumeration of sequence of items.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="BidirectionalIterator/BidirectionalIterator.html">BidirectionalIterator</A></TD>
+<TD width="70%"><topic id="$GS.$BidirectionalIterator.BriefDescription">
+    Iterator for bidirectional enumeration of sequence of items.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="RandomIterator/RandomIterator.html">RandomIterator</A></TD>
+<TD width="70%"><topic id="$GS.$RandomIterator.BriefDescription">
+    Iterator for random enumeration of sequence of items.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="ConstForwardIterator/ConstForwardIterator.html">ConstForwardIterator</A></TD>
+<TD width="70%"><topic id="$GS.$ConstForwardIterator.BriefDescription">
+    Iterator for forward enumeration of sequence of constant items.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="ConstBidirectionalIterator/ConstBidirectionalIterator.html">ConstBidirectionalIterator</A></TD>
+<TD width="70%"><topic id="$GS.$ConstBidirectionalIterator.BriefDescription">
+    Iterator for bidirectional enumeration of sequence of constant items.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="ConstRandomIterator/ConstRandomIterator.html">ConstRandomIterator</A></TD>
+<TD width="70%"><topic id="$GS.$ConstRandomIterator.BriefDescription">
+    Iterator for random enumeration of sequence of constant items.
+  </topic></TD>
+</TR>
+</table>
+<H3><A name="Algorithms"></A>Algorithms</H3>
+<p><topic id="$GS.$Algorithms.CategoryDescription"></topic></p>
+<table width="90%" class="summary">
+<TR VALIGN="top">
+<TH width="30%">Function</TH>
+<TH width="70%">Description</TH>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Abs.html">Abs</A></TD>
+<TD width="70%"><topic id="$GS.$Abs.BriefDescription">
+    Calculates the absolute value.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="AdjacentFind.html">AdjacentFind</A></TD>
+<TD width="70%"><topic id="$GS.$AdjacentFind.BriefDescription">
+    Searches for two adjacent elements that are either equal or satisfy a specified condition.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="BinarySearch.html">BinarySearch</A></TD>
+<TD width="70%"><topic id="$GS.$BinarySearch.BriefDescription">
+    Tests whether there is an element in a sorted range that is equal to a
+    specified value or that is equivalent to it in a sense specified by a binary
+    predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Copy.html">Copy</A></TD>
+<TD width="70%"><topic id="$GS.$Copy.BriefDescription">
+    Assigns the values of elements from a source range to a destination range,
+    iterating through the source sequence of elements and assigning them new
+    positions in a forward direction.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="CopyBackward.html">CopyBackward</A></TD>
+<TD width="70%"><topic id="$GS.$CopyBackward.BriefDescription">
+    Assigns the values of elements from a source range to a destination range,
+    iterating through the source sequence of elements and assigning them new
+    positions in a backward direction.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="CopyIf.html">CopyIf</A></TD>
+<TD width="70%"><topic id="$GS.$CopyIf.BriefDescription">
+    Assigns the values of elements from a source range to a destination range whose values satisfy a specified condition,
+    iterating through the source sequence of elements and assigning them new
+    positions in a forward direction.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="CopyIfBackward.html">CopyIfBackward</A></TD>
+<TD width="70%"><topic id="$GS.$CopyIfBackward.BriefDescription">
+    Assigns the values of elements from a source range to a destination range,
+    iterating through the source sequence of elements and assigning them new
+    positions in a backward direction.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Count.html">Count</A></TD>
+<TD width="70%"><topic id="$GS.$Count.BriefDescription">
+    Returns the number of elements in a range whose values match a specified value.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="CountIf.html">CountIf</A></TD>
+<TD width="70%"><topic id="$GS.$CountIf.BriefDescription">
+    Returns the number of elements in a range whose values satisfy a specified condition.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="CutToMax.html">CutToMax</A></TD>
+<TD width="70%"><topic id="$GS.$CutToMax.BriefDescription">
+    Cuts the first parameter to an upper bound.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="CutToMin.html">CutToMin</A></TD>
+<TD width="70%"><topic id="$GS.$CutToMin.BriefDescription">
+    Cuts the first parameter to a lower bound.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="CutToRange.html">CutToRange</A></TD>
+<TD width="70%"><topic id="$GS.$CutToRange.BriefDescription">
+    Cuts the first parameter to a range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EqualRange.html">EqualRange</A></TD>
+<TD width="70%"><topic id="$GS.$EqualRange.BriefDescription">
+    Finds a pair of positions in an ordered range, the first less than or
+    equivalent to the position of a specified element and the second greater than
+    the element's position, where the sense of equivalence or ordering used to
+    establish the positions in the sequence may be specified by a binary
+    predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Fill.html">Fill</A></TD>
+<TD width="70%"><topic id="$GS.$Fill.BriefDescription">
+    Assigns the same new value to every element in a specified range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FillN.html">FillN</A></TD>
+<TD width="70%"><topic id="$GS.$FillN.BriefDescription">
+    Assigns a new value to a specified number of elements in a range beginning with a particular element.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Find.html">Find</A></TD>
+<TD width="70%"><topic id="$GS.$Find.BriefDescription">
+    Locates the position of the first occurrence of an element in a range that has a specified value.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FindEnd.html">FindEnd</A></TD>
+<TD width="70%"><topic id="$GS.$FindEnd.BriefDescription">
+    Looks in a range for the last subsequence that is identical to a specified
+    sequence or that is equivalent in a sense specified by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FindFirstOf.html">FindFirstOf</A></TD>
+<TD width="70%"><topic id="$GS.$FindFirstOf.BriefDescription">
+    Searches for the first occurrence of any of several values within a target range
+    or for the first occurrence of any of several elements that are equivalent in a
+    sense specified by a binary predicate to a specified set of the elements.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FindIf.html">FindIf</A></TD>
+<TD width="70%"><topic id="$GS.$FindIf.BriefDescription">
+    Locates the position of the first occurrence of an element in a range that
+    satisfies a specified condition.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ForEach.html">ForEach</A></TD>
+<TD width="70%"><topic id="$GS.$ForEach.BriefDescription">
+    Applies a specified predicate to each element in a forward order within a
+    range and returns the predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Generate.html">Generate</A></TD>
+<TD width="70%"><topic id="$GS.$Generate.BriefDescription">
+    Assigns the values generated by a predicate to each element in a range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GenerateN.html">GenerateN</A></TD>
+<TD width="70%"><topic id="$GS.$GenerateN.BriefDescription">
+    Assigns the values generated by a function object to a specified number of
+    element in a range and returns to the position one past the last assigned value.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Includes.html">Includes</A></TD>
+<TD width="70%"><topic id="$GS.$Includes.BriefDescription">
+    Tests whether one sorted range contains all the elements contained in a second
+    sorted range, where the ordering or equivalence criterion between elements may
+    be specified by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="InplaceMerge.html">InplaceMerge</A></TD>
+<TD width="70%"><topic id="$GS.$InplaceMerge.BriefDescription">
+    Combines the elements from two consecutive sorted ranges into a single sorted
+    range, where the ordering criterion may be specified by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsBetween.html">IsBetween</A></TD>
+<TD width="70%"><topic id="$GS.$IsBetween.BriefDescription">
+    Returns whether is the given value in a specified range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsEqual.html">IsEqual</A></TD>
+<TD width="70%"><topic id="$GS.$IsEqual.BriefDescription">
+    Compares two ranges element by element either for equality or equivalence in a
+    sense specified by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IterSwap.html">IterSwap</A></TD>
+<TD width="70%"><topic id="$GS.$IterSwap.BriefDescription">
+    Exchanges two values referred to by a pair of specified iterators.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="LexicographicalCompare.html">LexicographicalCompare</A></TD>
+<TD width="70%"><topic id="$GS.$LexicographicalCompare.BriefDescription">
+    Compares element by element between two sequences to determine which is lesser of the two.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="LowerBound.html">LowerBound</A></TD>
+<TD width="70%"><topic id="$GS.$LowerBound.BriefDescription">
+    Finds the position where the first element in an ordered range is or would be
+    if it had a value that is less than or equivalent to a specified value, where
+    the sense of equivalence may be specified by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="MakeHeap.html">MakeHeap</A></TD>
+<TD width="70%"><topic id="$GS.$MakeHeap.BriefDescription">
+    Converts elements from a specified range into a heap in which the first
+    element is the largest and for which a sorting criterion may be specified with a
+    binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Max.html">Max</A></TD>
+<TD width="70%"><topic id="$GS.$Max.BriefDescription">
+    Compares two objects and returns the larger of the two, where the ordering
+    criterion may be specified by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="MaxElement.html">MaxElement</A></TD>
+<TD width="70%"><topic id="$GS.$MaxElement.BriefDescription">
+    Finds the first occurrence of largest element in a specified range where the
+    ordering criterion may be specified by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Merge.html">Merge</A></TD>
+<TD width="70%"><topic id="$GS.$Merge.BriefDescription">
+    Combines all of the elements from two sorted source ranges into a single, sorted
+    destination range, where the ordering criterion may be specified by a binary
+    predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Min.html">Min</A></TD>
+<TD width="70%"><topic id="$GS.$Min.BriefDescription">
+    Compares two objects and returns the lesser of the two, where the ordering
+    criterion may be specified by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="MinElement.html">MinElement</A></TD>
+<TD width="70%"><topic id="$GS.$MinElement.BriefDescription">
+    Finds the first occurrence of smallest element in a specified range where the
+    ordering criterion may be specified by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Mismatch.html">Mismatch</A></TD>
+<TD width="70%"><topic id="$GS.$Mismatch.BriefDescription">
+    Compares two ranges element by element either for equality or equivalent in a
+    sense specified by a binary predicate and locates the first position where a
+    difference occurs.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="NextPermutation.html">NextPermutation</A></TD>
+<TD width="70%"><topic id="$GS.$NextPermutation.BriefDescription">
+    Reorders the elements in a range so that the original ordering is replaced by
+    the lexicographically next greater permutation if it exists, where the sense of
+    next may be specified with a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="NthElement.html">NthElement</A></TD>
+<TD width="70%"><topic id="$GS.$NthElement.BriefDescription">
+    Partitions a range of elements, correctly locating the <I>N</I>th element of the
+    sequence in the range so that all the elements in front of it are less than or
+    equal to it and all the elements that follow it in the sequence are greater than
+    or equal to it.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="PartialSort.html">PartialSort</A></TD>
+<TD width="70%"><topic id="$GS.$PartialSort.BriefDescription">
+    Arranges a specified number of the smaller elements in a range into a
+    nondescending order or according to an ordering criterion specified by a binary
+    predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="PartialSortCopy.html">PartialSortCopy</A></TD>
+<TD width="70%"><topic id="$GS.$PartialSortCopy.BriefDescription">
+    Copies elements from a source range into a destination range where the source
+    elements are ordered by either less than or another specified binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Partition.html">Partition</A></TD>
+<TD width="70%"><topic id="$GS.$Partition.BriefDescription">
+    Classifies elements in a range into two disjoint sets, with those elements
+    satisfying a unary predicate preceding those that fail to satisfy it.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="PopHeap.html">PopHeap</A></TD>
+<TD width="70%"><topic id="$GS.$PopHeap.BriefDescription">
+    Removes the largest element from the front of a heap to the next-to-last
+    position in the range and then forms a new heap from the remaining elements.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="PrevPermutation.html">PrevPermutation</A></TD>
+<TD width="70%"><topic id="$GS.$PrevPermutation.BriefDescription">
+    Reorders the elements in a range so that the original ordering is replaced by
+    the lexicographically next greater permutation if it exists, where the sense of
+    next may be specified with a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="PushHeap.html">PushHeap</A></TD>
+<TD width="70%"><topic id="$GS.$PushHeap.BriefDescription">
+    Adds an element that is at the end of a range to an existing heap consisting of
+    the prior elements in the range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="RandomShuffle.html">RandomShuffle</A></TD>
+<TD width="70%"><topic id="$GS.$RandomShuffle.BriefDescription">
+    Rearranges a sequence of <I>N</I> elements in a range into one of <I>N</I>!
+    possible arrangements selected at random.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Remove.html">Remove</A></TD>
+<TD width="70%"><topic id="$GS.$Remove.BriefDescription">
+    Eliminates a specified value from a given range without disturbing the order of
+    the remaining elements and returning the end of a new range free of the
+    specified value.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="RemoveCopy.html">RemoveCopy</A></TD>
+<TD width="70%"><topic id="$GS.$RemoveCopy.BriefDescription">
+    Copies elements from a source range to a destination range, except that elements
+    of a specified value are not copied, without disturbing the order of the
+    remaining elements and returning the end of a new destination range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="RemoveCopyIf.html">RemoveCopyIf</A></TD>
+<TD width="70%"><topic id="$GS.$RemoveCopyIf.BriefDescription">
+    Copies elements from a source range to a destination range, except that
+    satisfying a predicate are not copied, without disturbing the order of the
+    remaining elements and returning the end of a new destination range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="RemoveIf.html">RemoveIf</A></TD>
+<TD width="70%"><topic id="$GS.$RemoveIf.BriefDescription">
+    Eliminates elements that satisfy a predicate from a given range without
+    disturbing the order of the remaining elements and returning the end of a new
+    range free of the specified value.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Replace.html">Replace</A></TD>
+<TD width="70%"><topic id="$GS.$Replace.BriefDescription">
+    Examines each element in a range and replaces it if it matches a specified value.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ReplaceCopy.html">ReplaceCopy</A></TD>
+<TD width="70%"><topic id="$GS.$ReplaceCopy.BriefDescription">
+    Examines each element in a source range and replaces it if it matches a
+    specified value while copying the result into a new destination range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ReplaceCopyIf.html">ReplaceCopyIf</A></TD>
+<TD width="70%"><topic id="$GS.$ReplaceCopyIf.BriefDescription">
+    Examines each element in a source range and replaces it if it satisfies a
+    specified predicate while copying the result into a new destination range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ReplaceIf.html">ReplaceIf</A></TD>
+<TD width="70%"><topic id="$GS.$ReplaceIf.BriefDescription">
+    Examines each element in a range and replaces it if it satisfies a specified predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Reverse.html">Reverse</A></TD>
+<TD width="70%"><topic id="$GS.$Reverse.BriefDescription">
+    Reverses the order of the elements within a range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ReverseCopy.html">ReverseCopy</A></TD>
+<TD width="70%"><topic id="$GS.$ReverseCopy.BriefDescription">
+    Reverses the order of the elements within a source range while copying them into
+    a destination range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Rotate.html">Rotate</A></TD>
+<TD width="70%"><topic id="$GS.$Rotate.BriefDescription">
+    Exchanges the elements in two adjacent ranges.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="RotateCopy.html">RotateCopy</A></TD>
+<TD width="70%"><topic id="$GS.$RotateCopy.BriefDescription">
+    Exchanges the elements in two adjacent ranges within a source range and copies
+    the result to a destination range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Search.html">Search</A></TD>
+<TD width="70%"><topic id="$GS.$Search.BriefDescription">
+    Searches for the first occurrence of a sequence within a target range whose
+    elements are equal to those in a given sequence of elements or whose elements
+    are equivalent in a sense specified by a binary predicate to the elements in the
+    given sequence.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SearchN.html">SearchN</A></TD>
+<TD width="70%"><topic id="$GS.$SearchN.BriefDescription">
+    Searches for the first subsequence in a range that of a specified number of
+    elements having a particular value or a relation to that value as specified by a
+    binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetDifference.html">SetDifference</A></TD>
+<TD width="70%"><topic id="$GS.$SetDifference.BriefDescription">
+    Unites all of the elements that belong to one sorted source range, but not to a
+    second sorted source range, into a single, sorted destination range, where the
+    ordering criterion may be specified by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetIntersection.html">SetIntersection</A></TD>
+<TD width="70%"><topic id="$GS.$SetIntersection.BriefDescription">
+    Unites all of the elements that belong to both sorted source ranges into a
+    single, sorted destination range, where the ordering criterion may be specified
+    by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetSymmetricDifference.html">SetSymmetricDifference</A></TD>
+<TD width="70%"><topic id="$GS.$SetSymmetricDifference.BriefDescription">
+    Unites all of the elements that belong to one, but not both, of the sorted
+    source ranges into a single, sorted destination range, where the ordering
+    criterion may be specified by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetUnion.html">SetUnion</A></TD>
+<TD width="70%"><topic id="$GS.$SetUnion.BriefDescription">
+    Unites all of the elements that belong to at least one of two sorted source
+    ranges into a single, sorted destination range, where the ordering criterion may
+    be specified by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Sort.html">Sort</A></TD>
+<TD width="70%"><topic id="$GS.$Sort.BriefDescription">
+    Arranges the elements in a specified range into a nondescending order or
+    according to an ordering criterion specified by a binary predicate.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SortHeap.html">SortHeap</A></TD>
+<TD width="70%"><topic id="$GS.$SortHeap.BriefDescription">
+    Converts a heap into a sorted range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="StablePartition.html">StablePartition</A></TD>
+<TD width="70%"><topic id="$GS.$StablePartition.BriefDescription">
+    Classifies elements in a range into two disjoint sets, with those elements
+    satisfying a unary predicate preceding those that fail to satisfy it, preserving
+    the relative order of equivalent elements.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="StableSort.html">StableSort</A></TD>
+<TD width="70%"><topic id="$GS.$StableSort.BriefDescription">
+    Arranges the elements in a specified range into a nondescending order or
+    according to an ordering criterion specified by a binary predicate and preserves
+    the relative ordering of equivalent elements.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Swap.html">Swap</A></TD>
+<TD width="70%"><topic id="$GS.$Swap.BriefDescription">
+    Exhanges content of two variables.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SwapRanges.html">SwapRanges</A></TD>
+<TD width="70%"><topic id="$GS.$SwapRanges.BriefDescription">
+    Exchanges the elements of one range with the elements of another, equal sized range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Transform.html">Transform</A></TD>
+<TD width="70%"><topic id="$GS.$Transform.BriefDescription">
+    Applies a specified predicate to each element in a source range or to a
+    pair of elements from two source ranges and copies the return values of the
+    predicate into a destination range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Unique.html">Unique</A></TD>
+<TD width="70%"><topic id="$GS.$Unique.BriefDescription">
+    Removes duplicate elements that are adjacent to each other in a specified range.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="UniqueCopy.html">UniqueCopy</A></TD>
+<TD width="70%"><topic id="$GS.$UniqueCopy.BriefDescription">
+    Copies elements from a source range into a destination range except for the
+    duplicate elements that are adjacent to each other.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="UpperBound.html">UpperBound</A></TD>
+<TD width="70%"><topic id="$GS.$UpperBound.BriefDescription">
+    Finds the position of the first element in an ordered range that has a value
+    that is greater than a specified value, where the ordering criterion may be
+    specified by a binary predicate.
+  </topic></TD>
+</TR>
+</table>
+<H3><A name="Text"></A>Text</H3>
+<p><topic id="$GS.$Text.CategoryDescription"></topic></p>
+<table width="90%" class="summary">
+<TR VALIGN="top">
+<TH width="30%">Class</TH>
+<TH width="70%">Description</TH>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="UniChar/UniChar.html">UniChar</A></TD>
+<TD width="70%"><topic id="$GS.$UniChar.BriefDescription">
+    Unicode character.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="UniString/UniString.html">UniString</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.BriefDescription">
+    Unicode string.
+  </topic></TD>
+</TR>
+</table>
+<H3><A name="Events"></A>Events</H3>
+<p><topic id="$GS.$Events.CategoryDescription"></topic></p>
+<table width="90%" class="summary">
+<TR VALIGN="top">
+<TH width="30%">Class</TH>
+<TH width="70%">Description</TH>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="Event/Event.html">Event</A></TD>
+<TD width="70%"><topic id="$GS.$Event.BriefDescription">
+    Root event class.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="EventObserver/EventObserver.html">EventObserver</A></TD>
+<TD width="70%"><topic id="$GS.$EventObserver.BriefDescription">
+    Root event observer class.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="EventSource/EventSource.html">EventSource</A></TD>
+<TD width="70%"><topic id="$GS.$EventSource.BriefDescription">
+    Root event source class.
+  </topic></TD>
+</TR>
+</table>
+<H3><A name="Utility classes functions"></A>Utility classes functions</H3>
+<p><topic id="$GS.$Utility classes functions.CategoryDescription"></topic></p>
+<table width="90%" class="summary">
+<TR VALIGN="top">
+<TH width="30%">Class</TH>
+<TH width="70%">Description</TH>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><a href="Guid/Guid.html">Guid</A></TD>
+<TD width="70%">
+    A class that represents a Universally Unique Identifier.
+</TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Pair/Pair.html">Pair</A></TD>
+<TD width="70%"><topic id="$GS.$Pair.BriefDescription">
+    A class that provides for the ability to treat two objects as a single object.
+  </topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="NewPair.html">NewPair</A></TD>
+<TD width="70%"><topic id="$GS.$NewPair.BriefDescription">
+    Creates a new Pair instance.
+  </topic></TD>
+</TR>
+</table>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

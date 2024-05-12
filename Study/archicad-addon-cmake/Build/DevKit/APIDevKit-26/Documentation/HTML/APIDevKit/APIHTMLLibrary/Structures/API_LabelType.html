@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_LabelType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_LabelType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_LabelType</h1>
+
+    <p>Represents a textual or a symbol label.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>union</strong> {
+             <a href="API_Elem_Head.html"><strong>API_Elem_Head</strong></a>    <em>   head</em>;
+             <a href="API_TextType.html"><strong>API_TextType</strong></a>     <em>   text</em>;
+             <a href="API_ObjectType.html"><strong>API_ObjectType</strong></a>   <em>   symbol</em>;
+        } <em>u</em>;
+        <strong><a href="API_LblClassID.html">API_LblClassID</a></strong>       <em>labelClass</em>;
+        <strong>Int32</strong>                <em>filler_1</em>;
+        <strong><a href="API_DirID.html">API_DirID</a></strong>            <em>textWay</em>;
+        <strong>Int32</strong>                <em>filler_2[5]</em>;
+        <strong>bool</strong>                 <em>filler_3[2]</em>;
+        <strong>short</strong>                <em>font</em>;
+        <strong>unsigned short</strong>       <em>faceBits</em>;
+        <strong>bool</strong>                 <em>flipEnabled</em>;
+        <strong>bool</strong>                 <em>nonBreaking</em>;
+        <strong>double</strong>               <em>textSize</em>;
+        <strong>bool</strong>                 <em>filler_4</em>;
+        <strong>bool</strong>                 <em>useBgFill</em>;
+        <strong>short</strong>                <em>fillBgPen</em>;
+        <strong>Int32</strong>                <em>effectsBits</em>;
+        <strong>short</strong>                <em>pen</em>;
+        <strong>short</strong>                <em>filler_5</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>   <em>ltypeInd</em>;
+        <strong>double</strong>               <em>contourOffset</em>;
+        <strong>bool</strong>                 <em>framed</em>;
+        <strong>bool</strong>                 <em>hasLeaderLine</em>;
+        <strong>char</strong>                 <em>filler_6[6]</em>;
+        <strong><a href="API_ArrowData.html">API_ArrowData</a></strong>        <em>arrowData</em>;
+        <strong><a href="API_LblAnchorID.html">API_LblAnchorID</a></strong>      <em>anchorPoint</em>;
+        <strong><a href="API_LeaderLineShapeID.html">API_LeaderLineShapeID</a></strong>  <em>leaderShape</em>;
+        <strong>double</strong>               <em>squareRootAngle</em>;
+        <strong>Int32</strong>                <em>filler_7[4]</em>;
+        <strong><a href="API_ElemType.html">API_ElemType</a></strong>         <em>parentType</em>;
+        <strong>bool</strong>                 <em>filler_8[4]</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>             <em>parent</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>            <em>begC</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>            <em>midC</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>            <em>endC</em>;
+        <strong>bool</strong>                 <em>createAtDefaultPosition</em>;
+        <strong>char</strong>                 <em>filler_9[23]</em>;
+    <strong>}</strong> <em>API_LabelType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>u::head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>u::text</b></dt>
+
+        <dd>Describes the details of the textual label. The <code>typeID</code> field of the <code>head</code> should be set to API_LabelID (!).</dd>
+
+        <dt><b>u::symbol</b></dt>
+
+        <dd>Describes the details of the symbol label. The <code>typeID</code> field of the <code>head</code> should be set to API_LabelID (!).</dd>
+
+        <dt><b>labelClass</b></dt>
+
+        <dd>Type (class) of the label (see <a href="API_LblClassID.html">API_LblClassID</a>).</dd>
+
+        <dt><b>textWay</b></dt>
+
+        <dd>Direction of text for textual labels (see <a href="API_DirID.html">API_DirID</a> and the <a href="#labelway">picture</a> under Remarks). For labels only <code>APIDir_Parallel</code>, <code>APIDir_Horizontal</code>, <code>APIDir_Vertical</code>, and <code>APIDir_General</code> can be used.</dd>
+
+        <dt><b>font</b></dt>
+
+        <dd>Font attribute index (for symbol labels only).</dd>
+
+        <dt><b>faceBits</b></dt>
+
+        <dd>Style (face) of text (for symbol labels only):</dd>
+
+        <dd>
+            <table>
+                <tr>
+                    <td>
+                        <p><code>APIFace_Plain</code></p>
+                    </td>
+
+                    <td>
+                        <p>Plain text</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIFace_Bold</code></p>
+                    </td>
+
+                    <td>
+                        <p>Bold</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIFace_Italic</code></p>
+                    </td>
+
+                    <td>
+                        <p>Italic</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIFace_Underline</code></p>
+                    </td>
+
+                    <td>
+                        <p>Underline</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIFace_Outline</code></p>
+                    </td>
+
+                    <td>
+                        <p>Outlined (Macintosh only)</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIFace_Shadow</code></p>
+                    </td>
+
+                    <td>
+                        <p>Shadow (Macintosh only)</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>flipEnabled</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="New in API 19" width="19" height="12"></dt>
+
+        <dd>True, if the Label is set to be "Always Readable".</dd>
+
+        <dt><b>nonBreaking</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="New in API 19" width="19" height="12"></dt>
+
+        <dd>True, if "Wrap Text" is turned off for this Label.</dd>
+
+        <dt><b>textSize</b></dt>
+
+        <dd>Size of the text in mm (for symbol labels only).</dd>
+
+        <dt><b>useBgFill</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="New in API 16" width="19" height="12"></dt>
+
+        <dd>Switches opaque background for symbol labels.</dd>
+
+        <dt><b>fillBgPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="New in API 16" width="19" height="12"></dt>
+
+        <dd>Defines the background pen for symbol labels; effective only if <code>useBgFill</code> is <code>true</code>.</dd>
+
+        <dt><b>effectsBits</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="New in API 16" width="19" height="12"></dt>
+
+        <dd>Text effects to be applied for symbol labels:</dd>
+
+        <dd>
+            <table>
+                <tr>
+                    <td><code>APIEffect_StrikeOut</code></td>
+
+                    <td>Strikethrough text</td>
+                </tr>
+
+                <tr>
+                    <td><code>APIEffect_SuperScript</code></td>
+
+                    <td>Superscript</td>
+                </tr>
+
+                <tr>
+                    <td><code>APIEffect_SubScript</code></td>
+
+                    <td>Subscript</td>
+                </tr>
+
+                <tr>
+                    <td><code>APIEffect_Fractional</code></td>
+
+                    <td>Fractional text (not used)</td>
+                </tr>
+
+                <tr>
+                    <td><code>APIEffect_Protected</code></td>
+
+                    <td>Protected text (autotext reference) &nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>pen</b></dt>
+
+        <dd>Pen attribute index of the leader line.</dd>
+
+        <dt><b>ltypeInd</b></dt>
+
+        <dd>Line type attribute index of the leader line.</dd>
+
+        <dt><b>framed</b></dt>
+
+        <dd>Put a frame around the content? (For both Symbol and Text Labels.)</dd>
+
+        <dt><b>contourOffset</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="New in API 19" width="19" height="12"></dt>
+
+        <dd>The padding of the Label's frame (i.e. the distance between the frame and the text).</dd>
+
+        <dt><b>hasLeaderLine</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="New in API 19" width="19" height="12"></dt>
+
+        <dd>Add a Leader Line (i.e. pointer line) to the Label? (For both Symbol and Text Labels.)</dd>
+
+        <dt><b>arrowData</b></dt>
+
+        <dd>The arrow type.</dd>
+
+        <dt><b>anchorPoint</b></dt>
+
+        <dd>Anchor point the label pointer line is connected to. See <a href="API_LblAnchorID.html">API_LblAnchorID</a>.</dd>
+
+        <dt><b>leaderShape</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="New in API 19" width="19" height="12"></dt>
+
+        <dd>Leader line shape. For the list of available shapes see <a href="API_LeaderLineShapeID.html">API_LeaderLineShapeID</a>.</dd>
+
+        <dt><b>squareRootAngle</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="New in API 19" width="19" height="12"></dt>
+
+        <dd>Used only if <code>leaderShape == API_SquareRoot</code>. Valid range: 1° &lt;= <code>squareRootAngle</code> &lt;= 179°, in radians.
+        For the meaning of the angle see the <a href="#squareRootAngle">picture</a> under Remarks.</dd>
+
+        <dt><b>parentType</b></dt>
+
+        <dd>The type of the parent element is returned in it, or <code>API_ZombieElemID</code> if the Label is independent. At Label creation it is ignored.<br>
+        When getting the Label defaults the labelable element type can be given in it. <a href="../Functions/ACAPI_Element_GetDefaults.html">ACAPI_Element_GetDefaults</a> will return the Label default for the given element type.</dd>
+
+        <dt><b>parent</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>When creating new Labels,
+        <ul>
+            <li>set this to <code>APINULLGuid</code> to create an independent Label; or</li>
+            <li>set this to the GUID of the owner element (a labelable element) to create an associative Label.</li>
+        </ul>
+        When getting or changing a Label, this member will be filled with the GUID of the owner element, or <code>APINULLGuid</code>, if the Label is independent.
+        It is not allowed to make an existing associative Label independent, or make an existing independent Label associative.</dd>
+
+        <dt><b>begC</b></dt>
+
+        <dd>Beginning coordinate of the leader line.</dd>
+
+        <dt><b>midC</b></dt>
+
+        <dd>Middle coordinate of the leader line.</dd>
+
+        <dt><b>endC</b></dt>
+
+        <dd>End coordinate of the leader line.</dd>
+
+        <dt><b>createAtDefaultPosition</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="New in API 19" width="19" height="12"></dt>
+
+        <dd>When creating associative Labels,
+        <ul>
+            <li>if set to <code>true</code>, the Label will be created at its default position (<code>begC</code>, <code>midC</code>, <code>endC</code> is ignored);</li>
+            <li>if set to <code>false</code>, the Label will be created at <code>begC</code>, <code>midC</code>, <code>endC</code>.</li>
+        </ul></dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For label related memo data (e.g. content, additional parameters) see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>The interpretation of the <code>textWay</code> field is:</p>
+
+    <blockquote>
+        <a id="labelway"><img src="../../APIImageLibrary/labelway.png" class="size2x" width="182" height="160" align="bottom" alt="Label direction"></a>
+    </blockquote>
+
+    <p>The <code>squareRootAngle</code> is marked with β on the following picture:</p>
+
+    <blockquote>
+        <a id="squareRootAngle"><img src="../../APIImageLibrary/squareRootAngle.png" class="size2x" width="584" alt="Square root angle"></a>
+    </blockquote>
+
+    <p>The <code>titleTyp</code> field has been removed in API 21.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"> From version 26 the type of the <tt>parentType</tt> member was changed into <a href="../Structures/API_ElemType.html">API_ElemType</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_LblClassID.html">API_LblClassID</a>, <a href="API_TextType.html">API_TextType</a>, <a href="API_ObjectType.html">API_ObjectType</a>,<br>
+    <a href="API_DirID.html">API_DirID</a>, <a href="API_ArrowData.html">API_ArrowData</a>, <a href="API_ElemType.html">API_ElemType</a>, <a href="API_Coord.html">API_Coord</a>, <a href="API_Element.html">API_Element</a>,<br>
+    <a href="API_ElementMemo.html">API_ElementMemo</a>,<br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 03, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

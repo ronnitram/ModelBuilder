@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_ModulData_Store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_ModulData_Store.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_ModulData_Store</h1>
+
+    <p>Saves a custom data section into the project database.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_ModulData_Store</strong> (
+        <strong>const <a href="../Structures/API_ModulData.html">API_ModulData</a>*</strong>     <em>info</em>,
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&amp;</strong>     <em>modulName = ""</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>info</em></dt>
+
+        <dd>[in] The module data to store. It also includes platform and version information.</dd>
+
+        <dt><em>modulName</em>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="API 13 feature" width="19" height="12"></dt>
+
+        <dd>[in] Identifier name of the modul data (optional).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>the function completed successfully</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>the passed <code>dataHdl</code> parameter is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_BADPLATFORMSIGN</code></dt>
+
+        <dd>the <code>platformSign</code> passed in <code>info</code> is not valid</dd>
+
+        <dt><code>APIERR_NOMODULEDATA</code></dt>
+
+        <dd>no custom data section is saved into the project file to be deleted</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>failed memory allocation</dd>
+
+        <dt><code>APIERR_GENERAL</code></dt>
+
+        <dd>a general error</dd>
+    </dl>
+
+    <p>For other common errors see the <a href="../Level2/Error_Codes.html">list of error codes</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to embed a custom data section into the project database.</p>
+
+    <p>The data section in the project is identified uniquely using the <a href="../Resources/MDID.html">'MDID'</a> of the caller add-on and the passed <em>modulName</em> identifier.</p>
+
+    <p>The <em>dataHdl</em> handle has to be allocated and released using the <!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/BMManagers/BMManager_Documentation_id.html">BM memory manager functions</a> of the <strong>GSRoot module</strong>. The data content can be copied into the handle directly, or you can use the allocated memory block as a memory channel (see <a href="../../../InputOutput/IOHTMLLibrary/MemoryOChannel/MemoryOChannel.html">IO::MemoryOChannel</a>).</p>
+
+    <p>In order to remove the saved module data from the project, you can simply pass <code>nullptr</code> pointer in the <em>info</em> parameter. The same effect can be achieved with the <a href="ACAPI_ModulData_Delete.html">ACAPI_ModulData_Delete</a> function.</p>
+
+    <p>To retrieve the stored section use the <a href="ACAPI_ModulData_GetInfo.html">ACAPI_ModulData_GetInfo</a> and <a href="ACAPI_ModulData_Get.html">ACAPI_ModulData_Get</a> functions.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/13.png" alt="API 13 feature" width="19" height="12">&nbsp; You can also get a list of names of all modules stored by the add-on with the <a href="ACAPI_ModulData_GetList.html">ACAPI_ModulData_GetList</a> function.</p>
+
+    <p>If you need to save different format moduldata back into previous version project file, you should implement an <a href="APIModulDataSaveOldFormatHandlerProc.html">APIModulDataSaveOldFormatHandlerProc</a> callback function, which prepares the necessary data in the format corresponding to the project version.</p>
+
+    <p>You might also need to merge data of the modules conflicting due to a merge or Teamwork receive operation. In order to properly resolve the conflicts you can implement an <a href="APIModulDataMergeHandlerProc.html">APIModulDataMergeHandlerProc</a> callback function. For further details refer to the <a href="../Level3/ModulData_Manager_id.html">ModulData Manager</a> overview.</p>
+
+    <p>This function is a non-undoable data structure modifier function. See more details on this topic at <a href="../Level2/Command_Overview.html">Command Overview</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+GSErrCode MyDataClass::SaveIntoModulData (void)
+{
+    GSErrCode err = NoError;
+
+    API_ModulData info;
+    BNZeroMemory (&amp;info, sizeof (API_ModulData));
+    info.dataVersion = 1;
+    info.platformSign = GS::Act_Platform_Sign;
+    info.dataHdl = BMAllocateHandle (sizeof (myDataClassIntMember), 0, 0);
+    if (info.dataHdl != nullptr) {
+        *(reinterpret_cast&lt;Int32*&gt; (*info.dataHdl)) = myDataClassIntMember;
+        err = ACAPI_ModulData_Store (&amp;info, "MyFirstDataBlock");
+        BMKillHandle (&amp;info.dataHdl);
+    } else {
+        err = APIERR_MEMFULL;
+    }
+
+    return err;
+}
+</code></pre>
+    </blockquote>
+
+    <p>For more hints you can also study the <strong>ModulData Manager</strong> example add-on.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_ModulData.html">API_ModulData</a><br>
+    <a href="ACAPI_ModulData_GetInfo.html">ACAPI_ModulData_GetInfo</a><br>
+    <a href="ACAPI_ModulData_Get.html">ACAPI_ModulData_Get</a><br>
+    <a href="ACAPI_ModulData_GetList.html">ACAPI_ModulData_GetList</a><br>
+    <a href="ACAPI_ModulData_Delete.html">ACAPI_ModulData_Delete</a><br>
+    <a href="APIModulDataSaveOldFormatHandlerProc.html">APIModulDataSaveOldFormatHandlerProc</a><br>
+    <a href="APIModulDataMergeHandlerProc.html">APIModulDataMergeHandlerProc</a><br>
+    <a href="../Level3/ModulData_Manager_id.html">ModulData Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 6, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

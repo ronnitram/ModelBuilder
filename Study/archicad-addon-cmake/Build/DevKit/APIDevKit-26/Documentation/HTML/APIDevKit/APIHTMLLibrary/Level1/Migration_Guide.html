@@ -1,0 +1,737 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Migration Guide</title>
+    <meta name="author" content="Akos Somorjai">
+    <meta name="description" content="This document describes the update process for the Archicad 8 API.">
+    <meta name="keywords" content="Archicad, API, 8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level1/Migration_Guide.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API Migration Guide to Archicad 8 and 8.1</h1>
+
+    <p><strong>Summary:</strong> This document discusses the steps every developer should perform to port her/his add-on to Archicad 8 and 8.1.</p>
+
+    <ol type="1" start="0">
+        <li><a href="#Intro">Introduction</a></li>
+
+        <li>
+            <a href="#Areas">Areas of modification</a>
+
+            <ol type="a">
+                <li><a href="#Resources">Resources</a></li>
+
+                <li><a href="#Code">Code changes</a></li>
+
+                <li><a href="#Module">Module changes</a></li>
+            </ol>
+        </li>
+
+        <li>
+            <a href="#Detail">Changes in detail</a>
+
+            <ol type="a">
+                <li><a href="#Config">Add-on configuration</a></li>
+
+                <li><a href="#String">ACAPI_String_xxx is dead</a></li>
+
+                <li><a href="#Handle">ACAPI_xxxHandle is dead</a></li>
+
+                <li><a href="#File">ACAPI_File_xxx, ACAPI_Folder_xxx, ACAPI_FileDefRec_xxx are dead</a></li>
+
+                <li><a href="#Mac">Macintosh-specific types and constants removed</a></li>
+
+                <li><a href="#Selection">Selection handling</a></li>
+
+                <li><a href="#Undo">Undo</a></li>
+
+                <li><a href="#Userdata">Element linking and user data</a></li>
+
+                <li><a href="#Notifications">Notifications</a></li>
+
+                <li><a href="#Preferences">Storing and retrieving preferences</a></li>
+
+                <li><a href="#Dimensions">Dimensions</a></li>
+
+                <li><a href="#Modeless">ACAPI_ModelessInit dead</a></li>
+
+                <li><a href="#Entry">(Mac) extra entry points eliminated</a></li>
+
+                <li><a href="#Carbon">(Mac) Carbonization</a></li>
+
+                <li><a href="#UC">User controls</a></li>
+
+                <li><a href="#ResFile">ACAPI_UseOwnResFile/ACAPI_ResetResFile renamed</a></li>
+
+                <li><a href="#LibParts">Built-in library parts</a></li>
+
+                <li><a href="#Elements">Changes in elements</a></li>
+
+                <li><a href="#CreatingLPs">Creating library parts</a></li>
+            </ol>
+        </li>
+    </ol>
+    <hr class="separator_line">
+
+    <h2><a name="Intro" id="Intro">0. Introduction</a></h2>
+
+    <p>If you already have migrated to Archicad 8, you will not have too much to do. The API interface is <a href="Compatibility.html">source compatible</a> between these two versions, which means you have to re-compile your add-on with this DevKit, and it will run with Archicad 8.1. In order to maintain the correct functionality please pay attention to the <a href="New_Features_Old.html#v81">New Features</a>, and adjust your code if it is necessary.</p>
+
+    <p>If you have not migrated to Archicad 8 yet, then be prepared for a long and adventurous journey through the realms of the API for Archicad 8 and 8.1.</p>
+
+    <p>We felt it was time for a change. From its first appearance as such in Archicad 6.0, through 6.5 up to the recent 7.0 version the API kept its backward compatibility, so you could get your 6.0 add-on running with 7.0 without any problem. Hey, we even kept the bugs which existed in the past versions, so that you shouldn't change your code...</p>
+
+    <p>With the arrival of Archicad 8, the vision of a new, more robust, more powerful API emerged. As Archicad itself was cut neatly into many separate modules, so was the API changing. Things disappeared, many new possibilities opened up. This was also the reason why we dropped the idea of binary compatibility in a quite early stage of the development of Archicad 8.</p>
+
+    <p>We are also sure that many more small modifications will be necessary because of the restructuring of Archicad; we'll try to cover as much as possible by extending this document, and later with additional technical notes.</p>
+
+    <p>Let's see step-by-step what this means to YOU.</p>
+    <hr class="separator_line">
+
+    <h2><a name="Areas" id="Areas">1. Areas of modification</a></h2>
+
+    <p>Below you'll find a short checklist of the issues you may encounter when using the new General API DevKit 4.x.</p>
+
+    <h3><a name="Resources" id="Resources">1.a Resources</a></h3>
+
+    <ul type="disc">
+        <li>ACNF is not used any more</li>
+
+        <li>grc format of UserControls has changed</li>
+
+        <li>control IDs cannot be used any more</li>
+
+        <li>OWND resource is not needed any more</li>
+
+        <li>menu strings now should have prompt strings</li>
+
+        <li>a new menu item modifier was added to enable add-ons over Detail windows (<code>^ED</code>)</li>
+    </ul>
+
+    <h3><a name="Code" id="Code">1.b Code changes</a></h3>
+
+    <ul type="disc">
+        <li>ACAPI_String_xxx functions are dead</li>
+
+        <li>ACAPI_xxxHandle functions are dead</li>
+
+        <li>ACAPI_File_xxx, ACAPI_Folder_xxx, ACAPI_FileDefRec_xxx functions are dead</li>
+
+        <li>Macintosh-specific variables and types are replaced with own types</li>
+
+        <li>selection handling changed</li>
+
+        <li>more control over undoable steps</li>
+
+        <li>element linking has changed</li>
+
+        <li>notifications were changed</li>
+
+        <li>DoCommand is replaced by individual callback functions</li>
+
+        <li>CheckEnvironment and RegisterInterface functions are introduced instead of the ACNF resource</li>
+
+        <li>saving preferences-like data has changed</li>
+
+        <li>API_MenuItemRef is used now instead of API_MenuParams</li>
+
+        <li>dimension handling has changed</li>
+
+        <li>ACAPI_ModelessInit is dead</li>
+
+        <li>(Mac) the extra entry points for C++ are not necessary any more</li>
+
+        <li>(Mac) Carbonization</li>
+
+        <li>ACAPI_UseOwnResFile/ACAPI_ResetResFile has been renamed</li>
+
+        <li>you can build library parts into your add-on</li>
+    </ul>
+
+    <p>Some of these changes are a simple matter of replacing the old function names with new ones, whereas some other changes require restructuring or rewriting parts of your code. Other subtle changes are also happening; this document will be extended with those issues when they become relevant to you.</p>
+
+    <h3><a name="Module" id="Module">1.c Module changes</a></h3>
+
+    <ul type="disc">
+        <li>GSRoot instead of GSBase</li>
+
+        <li>DG now has an optional C++ interface</li>
+
+        <li>DG now has file/folder dialogs</li>
+
+        <li>new modules were introduced: IO (more to come)</li>
+
+        <li>UserControls now have callback functions</li>
+    </ul>
+    <hr class="separator_line">
+
+    <h2><a name="Detail" id="Detail">2. Changes in detail</a></h2>
+
+    <p>Let's see these changes in detail.</p>
+
+    <h4><a name="Config" id="Config">2.a Add-on configuration</a></h4>
+
+    <p>The functionality of the <code>ACNF</code> resource has been replaced by a more flexible registration mechanism, where Archicad calls special callback functions (<a href="../Functions/CheckEnvironment.html">CheckEnvironment</a> and <a href="../Functions/RegisterInterface.html">RegisterInterface</a>) in your add-on while enumerating the add-ons. These functions should return what functionality your add-on provides for Archicad and for other add-ons, and what interface elements (file types, menu items, toolbox icon) it would like to add to Archicad's interface. Also here you can check the running environment of your add-on, and decide whether it can run under the given conditions (e.g. disable it in the demo version of Archicad).</p>
+
+    <p>Instead of one single entry point (<code>DoCommand</code>), your add-on should now register callback functions to handle requests from the server application. This should happen in the Initialize function of the add-on. So far saved preferences were passed onto the add-on as a parameter of the <code>DoCommand</code> function; this is replaced by the <a href="../Functions/ACAPI_GetPreferences.html">ACAPI_GetPreferences</a>/<a href="../Functions/ACAPI_SetPreferences.html">ACAPI_SetPreferences</a> functions. These routines now include a version number to enhance compatibility between different add-on versions; see the <a href="#Preferences">preferences example</a> below.</p>
+
+    <p>Your add-on also received project event notifications automatically whenever it chose to stay in memory. This is no longer the case; you'll have to register with <a href="../Functions/ACAPI_Notify_CatchProjectEvent.html">ACAPI_Notify_CatchProjectEvent</a> to receive these events as well.</p>
+
+    <p>Installing a notification handler also means that your add-on is kept in memory, without calling <a href="../Functions/ACAPI_KeepInMemory.html">ACAPI_KeepInMemory</a>.</p>
+
+    <p>Example:</p>
+
+    <blockquote>In the grc file:</blockquote>
+    <blockquote>
+        <pre><code>
+'STR#' 32500 "Menu String" {
+/* [  1] */ "Active Layer^32500"
+}
+
+'STR#' 32520 "Menu prompt string" {
+/* [  1] */ "Sets the active layer"
+}
+
+'STR#' 32000 "Add-On info strings" {
+/* [  1] */ "Active Layer"
+/* [  2] */ "All subsequently placed elements can use one common layer or their own layer."
+}
+
+</code></pre>
+    </blockquote>
+
+    <blockquote>In the source file:</blockquote>
+    <blockquote>
+        <pre><code>
+// -----------------------------------------------------------------------------
+// Dependency definitions
+// -----------------------------------------------------------------------------
+API_AddonType    __ACENV_CALL    CheckEnvironment (API_EnvirParams* envir)
+{
+    RSGetIndString (&amp;envir-&gt;addOnInfo.name, 32000, 1, ACAPI_GetOwnResModule ());
+    RSGetIndString (&amp;envir-&gt;addOnInfo.description, 32000, 2, ACAPI_GetOwnResModule ());
+
+    return APIAddon_Normal;
+}        // CheckEnvironment
+
+
+// -----------------------------------------------------------------------------
+// Interface definitions
+// -----------------------------------------------------------------------------
+GSErrCode    __ACENV_CALL    RegisterInterface (void)
+
+{
+    //
+    // Register menu(s)
+    //
+    GSErrCode err = ACAPI_Register_Menu (32500, 32520, MenuCode_Options1, MenuFlag_Default);
+
+    return err;
+}       // RegisterInterface
+
+
+// -----------------------------------------------------------------------------
+// Called after the add-on has been loaded into memory
+// -----------------------------------------------------------------------------
+GSErrCode    __ACENV_CALL Initialize (void)
+
+{
+    GSErrCode      err;
+
+    err = ACAPI_Install_MenuHandler (32500, MenuCommandHandler);
+    if (err != NoError)
+        DBPrintf ("Initialize(): ACAPI_Install_MenuHandler failed\n");
+
+    return err;
+}        // Initialize
+</code></pre>
+    </blockquote>
+
+    <h4><a name="String" id="String">2.b ACAPI_String_xxx is dead</a></h4>
+
+    <p>These routines have been replaced by the <code>CHxxx</code> routines in the GSRoot module (see the CH.hpp header file). Most of these changes can be automated with a Perl script. Note that in some cases the order of parameters have been reversed (like <code>ACAPI_String_Copy</code> vs <code>CHCopyC</code>). The table below shows the old function names and the replacement routines.</p>
+
+    <blockquote>
+        <table border="1" cellspacing="0">
+            <tr>
+                <th bgcolor="#C0C0C0">Old routine</th>
+
+                <th bgcolor="#C0C0C0">Replacement routine</th>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_String_Cmp (str1, str2, true/false)</code></td>
+
+                <td><code>CHCompareCStrings (str1, str2, CS_CaseSensitive/CS_CaseInsensitive, CC_Default)</code></td>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_String_Copy (dest, source, size)</code></td>
+
+                <td><code>CHTruncate (source, dest, sizeof (dest))</code></td>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_StringCharBytesSys (...)</code></td>
+
+                <td><code>CHCharBytes (...)</code></td>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_String_Truncate (str, maxlen)</code></td>
+
+                <td><code>CHTruncate (str, targetStr, maxlen + 1)</code></td>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_String_Equal (str1, str2, true/false)</code></td>
+
+                <td><code>CHEqualCStrings (str1, str2, CS_CaseSensitive/CS_CaseInsensitive, CC_Default)</code></td>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_String_SearchRChr (str, ch)</code></td>
+
+                <td><code>CHSearchCharRight (ch, str, strlen (str), CC_Default)</code></td>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_String_SearchLChr (str, ch)</code></td>
+
+                <td><code>CHSearchCharLeft (ch, str, strlen (str), CC_Default)</code></td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>Beside these the <code>CHxxx</code> routines provide additional functionality, for example conversion between UniCode and ANSI.</p>
+
+    <h4><a name="Handle" id="Handle">2.c ACAPI_xxxHandle is dead</a></h4>
+
+    <p>This functionality is now available solely through the GSRoot package. In the 2.2 version of the API the use of the BMxxx routines was optional; those who made the transition back at that time spare some time now.</p>
+
+    <p>The table below shows the old function names and their new equivalents.</p>
+
+    <blockquote>
+        <table border="1" cellspacing="0">
+            <tr>
+                <th bgcolor="#C0C0C0">Old API name</th>
+
+                <th bgcolor="#C0C0C0">Full new name</th>
+
+                <th bgcolor="#C0C0C0">Short new name</th>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_NewHandle (size)</code></td>
+
+                <td><code>BMAllocateHandle (size, ALLOCATE_CLEAR, 0)</code></td>
+
+                <td><code>BMhAll (size)</code></td>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_DisposeHandle ((Handle) h)</code></td>
+
+                <td><code>BMKillHandle ((GSHandle *) &amp;h)</code></td>
+
+                <td><code>BMhKill (&amp;h)</code></td>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_Resize_Handle (...)</code></td>
+
+                <td><code>BMReallocHandle (...,REALLOC_CLEAR, 0)</code></td>
+
+                <td><code>BMhSetSize (...)</code></td>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_GetHandleSize (...)</code></td>
+
+                <td><code>BMGetHandleSize (...)</code></td>
+
+                <td><code>BMhSize (...)</code></td>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_LockHandle (a)</code></td>
+
+                <td><code>hs = BMModifyHandleState (a, HANDLE_STATE_LOCK, 0)</code><br>
+                (type of hs is char)</td>
+
+                <td><code>BMhLock ()</code></td>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_UnLockHandle (a)</code></td>
+
+                <td><code>BMModifyHandleState (a, HANDLE_STATE_SET, hs)</code></td>
+
+                <td><code>BMhUnlock ()</code></td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p class="mini">Note: MacOS X is much more sensible to memory errors. See the Carbonization Guide for more details.</p>
+
+    <h4><a name="File" id="File">2.d ACAPI_File_xxx, ACAPI_Folder_xxx, ACAPI_FileDefRec_xxx are dead</a></h4>
+
+    <p>The functionality of these functions are now available in the new <code>IO</code> module. The <code>FileDefRec</code> structure for storing platform-independent paths is replaced by the <code>IO::Location</code> class. This affects all those API structures that worked with <code>FileDefRec</code>-s before. It is not straightforward to rewrite your code to use the new module, watch your hands carefully.</p>
+
+    <p>Also, the new file and folder dialogs in the DG module work with <code>IO::Location</code>-s.</p>
+
+    <h4><a name="Mac" id="Mac">2.e Macintosh-specific types and constants removed</a></h4>
+
+    <p>The following Macintosh-specific constants and types were removed from the API interface, and were replaced by platform-independent types and constants.</p>
+
+    <blockquote>
+        <table border="1" cellspacing="0">
+            <tr>
+                <th bgcolor="#C0C0C0">Mac type</th>
+
+                <th bgcolor="#C0C0C0">GS type</th>
+            </tr>
+
+            <tr>
+                <td><code>Boolean</code></td>
+
+                <td><code>bool</code></td>
+            </tr>
+
+            <tr>
+                <td><code>Handle</code></td>
+
+                <td><code>GSHandle</code></td>
+            </tr>
+
+            <tr>
+                <td><code>nil</code></td>
+
+                <td><code>nullptr</code></td>
+            </tr>
+
+            <tr>
+                <td><code>OSErr</code></td>
+
+                <td><code>GSErrCode</code></td>
+            </tr>
+
+            <tr>
+                <td><code>noErr</code></td>
+
+                <td><code>NoError</code></td>
+            </tr>
+
+            <tr>
+                <td><code>Ptr</code></td>
+
+                <td><code>GSPtr</code></td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>Also, API error codes will be moved to their own namespace.</p>
+
+    <h4><a name="Selection" id="Selection">2.f Selection handling</a></h4>
+
+    <p>In previous API versions you had to loop through the selection, retrieve each selected element one by one, then work on it. In many cases this lead to two loops: in the first you collected the selected elements, then worked on this collection later somewhere else in your code. Now the API contains an <a href="../Functions/ACAPI_Selection_Get.html">ACAPI_Selection_Get</a> routine, which combines the <code>ACAPI_Selection_Init</code> and <code>ACAPI_Selection_GetNext</code> functions into one single routine, and returns the selected elements in a <code>GSHandle</code>. It also replaces the <code>ACAPI_Selection_GetInfo</code> function, returning the same information in its first parameter. Along with this, the <a href="../Functions/ACAPI_Element_Select.html">ACAPI_Element_Select</a> function has also changed. You can now call it with more than one element.</p>
+
+    <p>Don't forget to dispose the allocated GSHandle!</p>
+
+    <p><strong>GSErrCode <a href="../Functions/ACAPI_Selection_Get.html">ACAPI_Selection_Get</a></strong> (<strong>API_SelectionInfo</strong> <em>*selectionInfo</em>, <strong>API_Neig</strong><em>*** selNeigs</em>, <strong>bool</strong> <em>onlyEditable</em>);</p>
+
+    <p><strong>GSErrCode <a href="../Functions/ACAPI_Element_Select.html">ACAPI_Element_Select</a></strong> (<strong>API_Neig</strong> <em>**selNeig</em>, <strong>Int32</strong> <em>nItem</em>, <strong>bool</strong> <em>add</em>);</p>
+
+    <h4><a name="Undo" id="Undo">2.g Undo</a></h4>
+
+    <p>Your add-on is now responsible telling Archicad when and where it would like to perform an undoable step. This also means you'll have to provide a character string that appears in the Edit menu, after "Undo ". The function that performs the undoable action has to be encapsulated in a command scope:</p>
+
+    <p><strong>GSErrCode <a href="../Functions/ACAPI_CallUndoableCommand.html">ACAPI_CallUndoableCommand</a></strong> (<strong>GS::UniString</strong>&amp; <em>undoString</em>, <strong>const std::function&lt;GSErrCode ()&gt;</strong>&amp; <em>command</em>);</p>
+
+    <p>An add-on can only add one undoable step in one session. If you forget to call database modifications (e.g. <a href="../Functions/ACAPI_Element_Create.html">ACAPI_Element_Create</a>, or <a href="../Functions/ACAPI_Element_Change.html">ACAPI_Element_Change</a>) in an undoable command scope (<a href="../Functions/ACAPI_CallUndoableCommand.html">ACAPI_CallUndoableCommand</a>), those database modifier API functions will return <code>APIERR_REFUSEDCMD</code>. However, there are certain exceptions to this rule: those operations that cannot be "undone" (e.g. element creation in an I/O add-on, or in an API listing window) won't return with this error.</p>
+
+    <p>One more note about using undo and rebuild: please close the undoable session before you issue any rebuild command; if you do that in reverse order, you'll mess up the drawing update.</p>
+
+    <h4><a name="Userdata" id="Userdata">2.h Element linking and user data</a></h4>
+
+    <p>The format of the APIElement_UserData structure has changed, new fields store the information which you had to set previously in the OWND resource. The limitation on the size of user data (128 bytes in previous API versions) is completely removed, now the information is stored in a handle. The owner ID will be the same as the module ID, you'll also have to provide version and platform information. A new function has been introduced, which removes the user data from an element: <code>ACAPI_Element_DeleteUserData</code>.</p>
+
+    <p>So far the most widely used way of linking two elements was to store the unique IDs of the linked elements in every element as user data. The original purpose of introducing element based user data was to store information characteristic to that element, for example heat loss in a certain wall. The user data goes back to its original roots in 8; and the API provides new routines to link elements together. These are:</p>
+
+    <p><strong>GSErrCode <a href="../Functions/ACAPI_Element_Link.html">ACAPI_Element_Link</a></strong> (<strong><a href="../Structures/API_Guid.html">API_Guid</a></strong> <em>guid_linkFrom</em>, <strong><a href="../Structures/API_Guid.html">API_Guid</a></strong> <em>guid_linkTo</em>, <strong>GSFlags</strong> <em>linkFlags</em>);</p>
+
+    <p><strong>GSErrCode <a href="../Functions/ACAPI_Element_Unlink.html">ACAPI_Element_Unlink</a></strong> (<strong><a href="../Structures/API_Guid.html">API_Guid</a></strong> <em>guid_linkFrom</em>, <strong><a href="../Structures/API_Guid.html">API_Guid</a></strong> <em>guid_linkTo</em>);</p>
+
+    <p><strong>GSErrCode <a href="../Functions/ACAPI_Element_GetLinks.html">ACAPI_Element_GetLinks</a></strong> (<strong><a href="../Structures/API_Guid.html">API_Guid</a></strong> <em>guid_linkFrom</em>, <strong><a href="../Structures/API_Guid.html">API_Guid</a></strong> <em>***guid_linkTo</em>, <strong>Int32</strong> <em>*nLinks</em>);</p>
+
+    <p><strong>GSErrCode <a href="../Functions/ACAPI_Element_GetLinkFlags.html">ACAPI_Element_GetLinkFlags</a></strong> (<strong><a href="../Structures/API_Guid.html">API_Guid</a></strong> <em>guid_linkFrom</em>, <strong><a href="../Structures/API_Guid.html">API_Guid</a></strong> <em>guid_linkTo</em>, <strong>GSFlags</strong> <em>*linkFlags</em>);</p>
+
+    <p>When two elements are linked together, you'll also have to install an element observer (with a callback function), which is then called whenever the observed element changes. The add-on then retrieves the element(s) linked to the observed element, and updates those elements accordingly. To reduce complexity, the add-on should provide only one single callback function for all observed elements. You can add some custom data to link in last parameter of the <a href="../Functions/ACAPI_Element_Link.html">ACAPI_Element_Link</a> function, and you can get that information back with <a href="../Functions/ACAPI_Element_GetLinkFlags.html">ACAPI_Element_GetLinkFlags</a>.</p>
+
+    <h4><a name="Notifications" id="Notifications">2.i Notifications</a></h4>
+
+    <p>The notification mechanism has slightly changed. In 8 you'll have to register callback functions to those events you are interested in. So instead of the original <code>Boolean</code> parameter to switch the sending of the notifications on/off you'll find callback functions (see below). Also, add-ons staying in memory won't be notified automatically about open/save/etc., you'll have to register your add-on to receive the notification for these events with <a href="../Functions/ACAPI_Notify_CatchProjectEvent.html">ACAPI_Notify_CatchProjectEvent</a>.</p>
+
+    <p><strong>GSErrCode <a href="../Functions/ACAPI_Notify_CatchProjectEvent.html">ACAPI_Notify_CatchProjectEvent</a></strong> (<strong>GSFlags</strong> <em>eventTypes</em>, <strong>APIProjectEventHandlerProc</strong> <em>*handlerProc</em>);</p>
+
+    <p><strong>GSErrCode <a href="../Functions/ACAPI_Notify_CatchToolChange.html">ACAPI_Notify_CatchToolChange</a></strong> (<strong>APIToolChangeHandlerProc</strong> <em>*handlerProc</em>);</p>
+
+    <p><strong>GSErrCode <a href="../Functions/ACAPI_Notify_CatchSelectionChange.html">ACAPI_Notify_CatchSelectionChange</a></strong> (<strong>APISelectionChangeHandlerProc</strong> <em>*handlerProc</em>);</p>
+
+    <p><strong>GSErrCode <a href="../Functions/ACAPI_Notify_CatchChangeDefaults.html">ACAPI_Notify_CatchChangeDefaults</a></strong> (<strong>const API_ToolBoxItem</strong> <em>*elemType</em>, <strong>APIDefaultsChangeHandlerProc</strong> <em>*handlerProc</em>);</p>
+
+    <p><strong>GSErrCode <a href="../Functions/ACAPI_Notify_CatchNewElement.html">ACAPI_Notify_CatchNewElement</a></strong> (<strong>const API_ToolBoxItem</strong> <em>*elemType</em>, <strong>APIElementEventHandlerProc</strong> <em>*handlerProc</em>);</p><strong>GSErrCode <a href="../Functions/ACAPI_Notify_InstallElementObserver.html">ACAPI_Notify_InstallElementObserver</a></strong> (<strong>APIElementEventHandlerProc</strong> <em>*handlerProc</em>);
+
+    <p>The only new functionality here is the last routine, which switches the working method to an Observer model (see Design Patterns). You don't have to assign any user data or establish a link for a certain element to receive notifications when it is modified/deleted. This handler function will be called when you tell Archicad you would like to monitor changes of a certain element with <a href="../Functions/ACAPI_Element_AttachObserver.html">ACAPI_Element_AttachObserver</a>.</p>
+
+    <p>A new notification method for custom windows is also introduced, where you also have to provide a callback procedure when you create a new custom window. Notifications on library changes are also posted.</p>
+
+    <h4><a name="Preferences" id="Preferences">2.j Storing and retrieving preferences</a></h4>
+
+    <p>Previously preferences-like data was passed onto your add-on as a parameter of the DoCommand function. As this single entry point vanished in 8, the API provides you two new functions (<a href="../Functions/ACAPI_GetPreferences.html">ACAPI_GetPreferences</a>, <a href="../Functions/ACAPI_SetPreferences.html">ACAPI_SetPreferences</a>) to achieve the same functionality. The <code>ACAPI_SetPreferences</code> routine is a simple replacement for <code>ACAPI_RestoreOptions</code>.</p>
+
+    <p><strong>GSErrCode ACAPI_SetPreferences</strong> (<strong>Int32</strong> <em>version</em>, <strong>GSSize</strong> <em>nByte</em>, <strong>const void</strong><em>* data</em>);</p>
+
+    <p><strong>GSErrCode ACAPI_GetPreferences</strong> (<strong>Int32</strong><em>* version</em>, <strong>GSSize</strong><em>* nByte</em>, <strong>void</strong><em>* data</em>);</p>
+
+    <p>Example for retrieving the preferences:</p>
+
+    <blockquote>
+        <pre><code>
+    Int32       version;
+    GSSize      nBytes;
+    GSPtr       pref;
+
+    ACAPI_GetPreferences (&amp;version, &amp;nBytes, nullptr);             // (1) get version and size
+    if (version == MY_PREFERENCES_VERSION) {                    // (2) check version
+        pref = BMAllocatePtr (nBytes, ALLOCATE_CLEAR, 0);       // allocate memory for preferences
+        if (pref != nullptr) {
+            ACAPI_GetPreferences (&amp;version, &amp;nBytes, pref);     // get actual preferences
+            // do something with the preferences data
+
+            BMKillPtr (&amp;pref);                                  // dispose allocated pointer
+        }
+    }
+</code></pre>
+    </blockquote>
+
+    <p class="mini">Notes:</p>
+
+    <ol type="1">
+        <li>Setting the last parameter to nullptr means the API will return only the version number and the size of the preferences data. If the size or the version number is 0, then no preferences were stored.</li>
+
+        <li>Version information can be used to convert older preferences to the current format.</li>
+    </ol>
+
+    <h4><a name="Dimensions" id="Dimensions">2.k Dimensions</a></h4>
+
+    <p>The internal structure of <a href="../Structures/API_DimElem.html">API_DimElem</a> has changed.</p>
+
+    <h4><a name="Modeless" id="Modeless">2.l ACAPI_ModelessInit dead</a></h4>
+
+    <p>You have to use <code>DGModelessInit</code> (<code>DG::Palette</code> if you plan to use the C++ interface of DG) instead. Still, you'll have to inform the API that your add-on opens a modeless palette, so that Archicad should be aware of your window. This is now achieved by calling <a href="../Functions/ACAPI_RegisterModelessWindow.html">ACAPI_RegisterModelessWindow</a> in the initialization section of your dialog callback function, and <a href="../Functions/ACAPI_UnregisterModelessWindow.html">ACAPI_UnregisterModelessWindow</a> in the termination section of the callback.</p>
+
+    <p><strong>GSErrCode ACAPI_RegisterModelessWindow</strong> (<strong>Int32</strong> <em>referenceID</em>, <strong>APIPaletteControlCallBackProc</strong><em>* callBackProc</em>, <strong>GSFlags</strong> <em>controlFlags</em>);</p>
+
+    <p><strong>GSErrCode ACAPI_UnregisterModelessWindow</strong> (<strong>Int32</strong> <em>referenceID</em>);</p>
+
+    <p>The flags which informed the API when and where you wanted your window appear now became the last parameter of the <code>ACAPI_RegisterModelessWindow</code> function. The second parameter of this function is another callback function. So far the API sent special DG messages to the palette's callback function to inform your add-on about certain changes in the environment (e.g. the user was performing an input). These messages (palette hide/show, disable/enable items etc.) are now passed onto this <code>APIPaletteControlCallBackProc</code>.</p>
+
+    <h4><a name="Entry" id="Entry">2.m (Mac) extra entry points eliminated</a></h4>
+
+    <p>On Macintosh, if you wrote your add-on in C++, special shared library entry and termination points were needed, otherwise all static and global variable constructors and destructors were not called correctly. This code has been moved to the appropriate functions in ACAPlib.o, so you can remove this part of your code (these functions were usually called <code>InitAPX</code> and <code>TerminateAPX</code>).</p>
+
+    <h4><a name="Carbon" id="Carbon">2.n (Mac) Carbonization</a></h4>
+
+    <p>If you haven't done so, you should <em>"carbonize"</em> your add-on, i.e. make it work on MacOS X. The details of this process can be found in a separate Carbonization Guide (downloadable from the developers' <a href="http://develop.graphisoft.com">web site</a>).</p>
+
+    <h4><a name="UC" id="UC">2.o User controls</a></h4>
+
+    <p>In 7.0 you could use the attributes in the server application by simply specifying the appropriate constants in the grc file. This was implemented by using the default callback functions of the server application. These were removed in 8, but to help you we still provide default callbacks in API to set up the user controls with the actual attribute set.</p>
+
+    <p>Example:</p>
+
+    <blockquote>
+        <pre><code>
+    API_UCCallbackType   ucb;
+    GSErrCode            err;
+
+    // in <strong>DG_MSG_INIT</strong>
+    // initialize user controls
+    BNZeroMemory (&amp;ucb, sizeof (ucb));
+    ucb.dialogID = dialogID;                        // dialog ID
+    ucb.type     = APIUserControlType_Layer;        // this is a layer popup
+    ucb.itemID   = itemID;                          // user control's item ID
+    err = ACAPI_Interface (APIIo_SetUserControlCallbackID, &amp;ucb, nullptr);
+
+</code></pre>
+    </blockquote>
+
+    <p>Also, the grc format of user control 257 and 261 has changed, those constants which describe the type, appearance and other characteristics of the popup were modified.</p>
+
+    <p>Change your GRC file: the general rule for UC 257 is:</p>
+
+    <ul>
+        <li>chop off the first three 0-s from the five short values</li>
+
+        <li>add a 0 at the end</li>
+
+        <li>clear the upper byte of the original 4th short, e.g. if it was 0x0704, then it should become 0x0004.</li>
+    </ul>
+
+    <p>Example:</p>
+
+    <blockquote>Material control in 7.0:</blockquote>
+    <blockquote>
+        <pre>
+  0  0  0  0x0704  0x3100
+</pre>becomes material control in 8:
+        <pre>
+  0x0004 0x3100 0
+</pre>
+    </blockquote>
+
+    <p>More examples:</p>
+
+    <blockquote>
+        <table border="1" cellspacing="0">
+            <tr>
+                <th bgcolor="#C0C0C0">Control type</th>
+
+                <th bgcolor="#C0C0C0">GRC</th>
+            </tr>
+
+            <tr>
+                <td>layer</td>
+
+                <td>
+                    <pre>
+ /* [ 12] */ UserControl    41  484  190   21  257 0x0006 0x0000 0
+</pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td>material</td>
+
+                <td>
+                    <pre>
+ /* [ 13] */ UserControl    41  451  190   24  257 0x0004 0x3100 0
+</pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td>pen</td>
+
+                <td>
+                    <pre>
+ /* [ 14] */ UserControl    87   82   33   19  257 0x0001 0x1100 0
+</pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td>small button menu</td>
+
+                <td>
+                    <pre>
+ /* [ 15] */ UserControl   311  331   12   12  257 0x0005 0x0600 0
+</pre>
+                </td>
+            </tr>
+
+            <tr>
+                <td>line type</td>
+
+                <td>
+                    <pre>
+ /* [ 16] */ UserControl   348   39  170   40 261 0x0100
+</pre>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4><a name="ResFile" id="ResFile">2.p ACAPI_UseOwnResFile/ACAPI_ResetResFile has been renamed</a></h4>
+
+    <p>Both of the functions has been renamed to be more consistent with the new interface. Also, the type of the return value and the parameters were changed from <code>short</code> to <code>GSResModule</code>. Beware: this type is a <code>Int32</code>, not a <code>short</code>!</p>
+
+    <blockquote>
+        <table border="1" cellspacing="0">
+            <tr>
+                <th bgcolor="#C0C0C0">Old name</th>
+
+                <th bgcolor="#C0C0C0">New name</th>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_UseOwnResFile</code></td>
+
+                <td><code>ACAPI_UseOwnResModule</code></td>
+            </tr>
+
+            <tr>
+                <td><code>ACAPI_UseOwnResFile</code></td>
+
+                <td><code>ACAPI_UseOwnResModule</code></td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <h4><a name="LibParts" id="LibParts">2.q Built-in library parts</a></h4>
+
+    <p>With the new subtype system, you have a lot more control over library parts coming with your add-on. Actually these can be embedded into the add-on, and Archicad can load the library parts directly from it. The only thing you'll have to do to call <a href="../Functions/ACAPI_Register_BuiltInLibrary.html">ACAPI_Register_BuiltInLibrary</a>. You can also register new subtypes with <a href="../Functions/ACAPI_Register_Subtype.html">ACAPI_Register_Subtype</a>.</p>
+
+    <h4><a name="Elements" id="Elements">2.r Changes in elements</a></h4>
+
+    <p>Two new element types were introduced, <a href="../Structures/API_PolyLineType.html">API_PolyLineType</a> and <a href="../Structures/API_DetailType.html">API_DetailType</a>, to handle the new elements in Archicad 8. The polyline data is very similar to that of the <code>API_Polygon</code>, the difference is that the x component of the coordinate 0 is set to -1.0. The detail drawing marker covers the marker on the floor plan; its handling is -to a certain extent- is similar to the section mark.</p>
+
+    <p>The dimension marker for windows and doors became library-part based. This means that form now on you'll have to access the dimension marker's parameters through the well-known <a href="../Structures/API_AddParType.html">API_AddParType</a> structure.</p>
+
+    <p>The <a href="../Functions/ACAPI_Element_Change.html">ACAPI_Element_Change</a> function has been turbocharged to handle all element types correctly.</p>
+
+    <h4><a name="CreatingLPs" id="CreatingLPs">2.s Creating library parts</a></h4>
+
+    <p>Set the <code>isPlaceable</code> field of the <a href="../Structures/API_LibPart.html">API_LibPart</a> structure before calling <a href="../Functions/ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a>, so that the user will be able to place the created library onto the floor plan.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 21, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_GetPreferences_Platform</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_GetPreferences_Platform.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_GetPreferences_Platform</h1>
+
+    <p>Returns the stored preferences of the add-on.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_GetPreferences_Platform</strong> (
+        <strong>Int32*</strong>              <em>version</em>,
+        <strong>GSSize*</strong>             <em>nByte</em>,
+        <strong>void*</strong>               <em>data</em>,
+        <strong>unsigned short*</strong>     <em>platformSign</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>version</em></dt>
+
+        <dd>[out] On return contains the version of the stored preferences, or <code>0</code> if no preferences were found.</dd>
+
+        <dt><em>nByte</em></dt>
+
+        <dd>[out] On return contains the size of the stored preferences in bytes, or <code>0</code> if no preferences were found.</dd>
+
+        <dt><em>data</em></dt>
+
+        <dd>[in/out] On return contains the stored preferences.</dd>
+
+        <dt><em>platformSign</em></dt>
+
+        <dd>[out] On return contains the platform identifier of the stored preferences.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <p>For common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Use this function to retrieve the preferences data stored into the preferences or the plan file currently opened. The preferences could have been saved into the plan on the other platform; in this case it is your responsibility to convert data structures stored in opposite byte order.</p>
+
+    <p>All the parameters can be <code>nullptr</code>.</p>
+
+    <p>The <code>data</code> pointer should be allocated and disposed by the add-on, thus first you should call this function to retrieve only the version number and the size of the preferences data.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+Int32           version = 0;
+GSSize          nBytes = 0;
+GSPtr           pref;
+unsigned short  platformSign = GS::Act_Platform_Sign;
+
+<font color="#FF0066">ACAPI_GetPreferences_Platform</font> (&amp;version, &amp;nBytes, nullptr, nullptr);      // get version and size
+if (version == MY_PREFERENCES_VERSION) {                            // check version
+    pref = BMAllocatePtr (nBytes, ALLOCATE_CLEAR, 0);               // allocate memory for preferences
+    if (pref != nullptr) {
+        <font color="#FF0066">ACAPI_GetPreferences_Platform</font> (&amp;version, &amp;nBytes, pref, &amp;platformSign);     // get actual preferences
+        if (platformSign != GS::Act_Platform_Sign) {
+            // swap the necessary bytes
+        }
+
+        // do something with the preferences data
+        BMKillPtr (&amp;pref);                                          // dispose the allocated pointer
+    }
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 6.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Level3/Preferences_Save.html">Saving Add-On data into the Preferences and the Project File</a><br>
+    <a href="ACAPI_GetPreferences.html">ACAPI_GetPreferences</a><br>
+    <a href="ACAPI_SetPreferences.html">ACAPI_SetPreferences</a><br>
+    <a href="ACAPI_SetPreferences_OldVersion.html">ACAPI_SetPreferences_OldVersion</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

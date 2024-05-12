@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Mikl&oacute;s Fazekas">
+
+    <title>CHUnicode2ANSI</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/StringManager/CHUnicode2ANSI.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>CHUnicode2ANSI</h1>
+
+    <p>Convert a unicode string to ANSI string.</p>
+    <pre class="syntax">
+    <strong>long CHUnicode2ANSI</strong> (
+      <strong>const GS::uchar_t</strong>*  <em>pWChars</em>,                            // unciode string to convert
+      <strong>long</strong>                <em>nWChars</em>,                            // number of chars in string
+      <strong>char</strong>*               <em>pChars</em>,                             // buffer for new string
+      <strong>long</strong>                <em>maxChars</em>,                           // size of buffer
+      <strong><a href="GSCharCode.html">GSCharCode</a></strong>          <em>charCode</em> = CC_Default,
+      <strong>bool</strong>                <em>lossyConversion</em> = true,             // unconvertable paremeters are converted to platfrom replacement char
+      <strong>CHUnicode2ANSICacheRef*</strong>  <em>cache</em> = NULL           // can be used to cache conversion result, if called twice
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>pWChars</em></dt>
+
+        <dd>[in] Points to the unicode wide-character string to be converted.</dd>
+
+        <dt><em>nWChars</em></dt>
+
+        <dd>[in] Specifies the number of wide characters in the string pointed to by the <i>pWChars</i> parameter. If this value is -1, the string is assumed to be null-terminated and the length is calculated automatically. The length will include the null-terminator.</dd>
+
+        <dt><em>pChars</em></dt>
+
+        <dd>[out] Points to a buffer that receives the converted string.</dd>
+
+        <dt><em>maxChars</em></dt>
+
+        <dd>[in] Specifies the size, in bytes, of the buffer pointed to by the <i>pChars</i> parameter. If this value is zero, the function returns the number of bytes required for the buffer. (In this case, the <i>pChars</i> buffer is not used.)</dd>
+
+        <dt><em>charCode=CC_Default</em></dt>
+
+        <dd>[in] Specifies the code page used to perform the conversion. CC_UTF8 is valid for this parameter.</dd>
+
+        <dt><em>lossyConversion</em></dt>
+
+        <dd>[in] If true the unrepresentable characters are translated to system dependent default replacement character on Windows and to '?' on MacOS. If false the conversion fails if it encounters an unrepresentable character.</dd>
+
+        <dt><em>cache</em></dt>
+
+        <dd>
+            [in/out] If not null caches the conversion result for two-pase calls. Typically you call the conversion twice with the same unicode string. First to calculate the lenght of the result, so you can allocate a buffer, then to store a result in the buffer. You can use this parameter to cache the converted string used for lenght calculation so it can be reused at the conversion. If <i>maxChars</i> is zero and <i>cache</i> is not NULL, it should point to a NULL Unicode2ANSICacheRef. If there's any reusable infomration it will be stored in this reference. The reference is freed by either the next call to CHUnicode2ANSI, or CHFreeUnicode2ANSICache. If <i>maxChars</i> is non zero and <i>cache</i> is not NULL, and points to a valid cache, the conversion uses this cache to help the conversion. In case the cache is non-zero the function might use the cache data instead of <i>pWChars</i> and <i>nWChars</i>. The cache will be released, and zeroed after it's use.
+            <pre>
+GS::Unicode2ANSICacheRef cache = 0;
+</pre>
+            <pre>
+len = CHUnicode2ANSI (uniStr, GS::CStringLen, 0, 0, CC_Default, true, &amp;cache);
+</pre>
+            <pre>
+if (len &gt; 0) {
+</pre>
+            <pre>
+  try {
+</pre>
+            <pre>
+    p = new char [len];
+</pre>
+            <pre>
+    res = CHUnicode2ANSI (uniStr, GS::CStringLen, p, len, CC_Default, true, &amp;cache);
+</pre>
+            <pre>
+  } catch (std::bad_alloc&amp; ) {
+</pre>
+            <pre>
+    if (cache)
+</pre>
+            <pre>
+      CHFreeUnicode2ANSICache (cache);
+</pre>
+            <pre>
+  }
+</pre>
+            <pre>
+}
+</pre>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>If the function succeeds, and <i>maxChars</i> is nonzero, the return value is the number of bytes written to the buffer pointed to by <i>pChars</i>. The number includes the byte for the null terminator.</p>
+
+    <p>If the function succeeds, and <i>maxChars</i> is zero, the return value is the required size, in bytes, for a buffer that can receive the translated string.</p>
+
+    <p>If the function fails, the return value is zero. The function can fail if:</p>
+
+    <p>-the provided buffer is too small</p>
+
+    <p>-invalid parameters</p>
+
+    <p>-not enough resources(memory) to perform the conversion</p>
+
+    <p>-<i>lossyConversion</i> is false and there's characters in input string that cannot be represented in target codepage.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <i>pChars</i> and <i>pWChars</i> pointers must not be the same, or overlap. If they do the result of this function is undefined!</p>
+
+    <p>This function is implemented using CoreFoundation String services on MacOS, and MultiByteToWideChar on Windows.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.3 or later</dd>
+
+        <dd><b>Header:</b> CH.hpp</dd>
+
+        <dd><b>Import Library:</b> GSRootImp.lib</dd>
+
+        <dd><b>Module:</b> GSRoot</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="CHANSI2Unicode.html">CHANSI2Unicode</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on October 10, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

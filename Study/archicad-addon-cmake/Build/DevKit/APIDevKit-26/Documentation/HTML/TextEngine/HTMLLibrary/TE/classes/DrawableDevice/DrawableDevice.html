@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>TE::DrawableDevice Class</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <!-- Index -->
+  
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTMLLibrary/TE/classes/DrawableDevice/DrawableDevice.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">TextEngine</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TE::DrawableDevice Class</h1>
+    <!--exp="TE::DrawableDevice Class"-->
+    <p>
+      
+    It is an interface for platform independent handling of graphic contexts (devices).
+  
+    </p>
+    <pre class="Syntax"><span class="SyntaxKeyword">class</span> <span class="SyntaxIdentifier">DrawableDevice</span></pre>
+    <h2 class="SectionHeading" id="members">Members</h2>
+    <p>
+      <!-- Don't index --><a href="#PublicMethods">Public Methods</a><br>
+      <!-- Don't index --><a href="#PublicEnums">Public Enums</a><br>
+    </p>
+    
+    <h2 class="SectionHeading" id="PublicMethods">Public Methods</h2>
+    <p>
+      
+    </p>
+    <table class="Summary">
+      <tr>
+        <th class="LinkColumn">Method</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td class="LinkColumn">
+          <a href="DisableDraw.html">DisableDraw</a>
+        </td>
+        <td>
+          
+    In some cases you must disable drawing on the graphic device returned by inherited object.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="Constructors.html">DrawableDevice</a>
+        </td>
+        <td>
+          
+    Default constructor. Sets the EnablewDraw to true.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="Destructor.html">~DrawableDevice</a>
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="EnableDraw._nable_raw.html">EnableDraw</a>
+        </td>
+        <td>
+          
+    Allows to enable drawing after calling <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">DisableDraw</b>.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetDeviceType.html">GetDeviceType</a>
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="IsDrawEnabled.html">IsDrawEnabled</a>
+        </td>
+        <td>
+          
+    Returns false after calling <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">DisableDraw</b>.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="SetDrawContext.html">SetDrawContext</a>
+        </td>
+        <td>
+          
+  It is pure virtual method. Call this function to pass a drawable graphic context to store.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="VectorialDraw.html">VectorialDraw</a>
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    </table>
+    
+    <h2 class="SectionHeading" id="PublicEnums">Public Enums</h2>
+    <p>
+      
+    </p>
+    <table class="Summary">
+      <tr>
+        <th class="LinkColumn">Enum</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td class="LinkColumn">
+          <a href="DeviceType.html">DeviceType</a>
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    </table>
+    <h2 class="SectionHeading">Description</h2>
+    <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">WinDrawableDevice</b> and <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">MacDrawableDevice</b> are the implementation of <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">DrawableDevice</b>.
+  TextEngine gets the graphic devices through the implemented interfaces depending on current platform.
+  
+    <h2 class="SectionHeading">Example</h2>
+    <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="Invalid link: ../../Examples/DrawableDevice.html" shape="rect">Example for using DrawableDevice</a>
+    <h2 class="SectionHeading">Requirements</h2>
+    <p>
+      <span class="RequirementsSection">Namespace:</span> <!-- Don't index --><a href="../../TE.html">TE</a>
+    </p>
+    <p>
+      <span class="RequirementsSection">Header:</span> DrawableDevice.hpp
+    </p>
+    <p>
+      <span class="RequirementsSection">Platforms:</span> 
+    TextEngine Version 9.0.0 R1 (6306 / 1812)<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Windows 2000, Windows XP, OSX 10.2x, OSX 10.3x
+  
+    </p>
+    <h2 class="SectionHeading">See Also</h2>
+    <p>
+      
+        <!-- Don't index --><a href="../MacDrawableDevice/MacDrawableDevice.html">TE::MacDrawableDevice</a> | 
+        <!-- Don't index --><a href="../PDFDrawableDevice/PDFDrawableDevice.html">TE::PDFDrawableDevice</a> | 
+        <!-- Don't index --><a href="../WinDrawableDevice/WinDrawableDevice.html">TE::WinDrawableDevice</a>
+    </p>
+  
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ShadingContoursID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ShadingContoursID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ShadingContoursID</h1>
+
+    <p>Contour visibility options for shaded image mode in the 3D window.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>APIShadContours_Draft</em>,
+        <em>APIShadContours_Off</em>,
+        <em>APIShadContours_Best</em>
+    <strong>}</strong> <em>API_ShadingContoursID</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>APIShadContours_Draft</b></dt>
+
+        <dd>
+            <dl>
+                <dt>Rough contours are drawn in the shaded image</dt>
+            </dl>
+        </dd>
+
+        <dt><b>APIShadContours_Off</b></dt>
+
+        <dd>
+            <dl>
+                <dt>Contours are not visible in the shaded image</dt>
+            </dl>
+        </dd>
+
+        <dt><b>APIShadContours_Best</b></dt>
+
+        <dd>
+            <dl>
+                <dt>Fine contours are drawn in the shaded image</dt>
+            </dl>
+        </dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <code>API_ShadingContoursID</code> type is used in the <a href="API_3DWindowInfo.html">API_3DWindowInfo</a> structure.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIEnv_Get3DWindowSetsID.html">APIEnv_Get3DWindowSetsID</a><br>
+    <a href="../Functions/APIEnv_Change3DWindowSetsID.html">APIEnv_Change3DWindowSetsID</a><br>
+    <a href="API_3DWindowInfo.html">API_3DWindowInfo</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 11, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

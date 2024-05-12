@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DG_MSG_HOTKEY</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_HOTKEY.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_HOTKEY</h1>
+
+    <p>A registered hotkey is pressed.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>Not used, always zero.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>Hotkey identifier returned by the <a href="DGRegisterHotKey.html">DGRegisterHotKey</a> function.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The hotkey is not handled. Processing of the keyboard event is going on.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>1</td>
+
+                    <td>The hotkey is handled and further processing of the keyboard event is omitted.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>A hotkey is a keystroke or combination of keystrokes that generates a <tt>DG_MSG_HOTKEY</tt> message for a dialog. Hotkeys in DG are similar to menu accelerators and to the <a href="OSShortcuts.html">Operating System shortcuts</a>. They also provide faster, more direct access to frequently used commands than menus and toolbars do. Moreover, they have some other special features.</p>
+
+    <p>Hotkeys can be registered to any type of dialogs by calling the <b>DGRegisterHotKey</b> function. If a hotkey is successfully registered, later it has to be referred by the <tt><strong>short</strong></tt> identifier that <b>DGRegisterHotKey</b> returns. There are some key combinations that can not be registered as hotkeys (see the description of the <b>DGRegisterHotKey</b> function, the Operating System shortcuts and the <a href="DialogKBInterface.html">dialog keyboard interface</a> page). Note that a hotkey can also be registered to more than one dialog. Use <a href="DGUnregisterHotKey.html">DGUnregisterHotKey</a> to unregister a hotkey previously registered to a dialog.</p>
+
+    <p>Hotkeys can be enabled or disabled. When hotkeys are registered they are automatically enabled. The status of all hotkeys belonging to a dialog can be set to disabled by calling the <a href="DGDisableHotKeys.html">DGDisableHotKeys</a> function. Use <a href="DGEnableHotKeys.html">DGEnableHotKeys</a> to enable these hotkeys again.</p>
+
+    <p>If a <a href="ModalDialogs.html">modal dialog</a> is opened, only its hotkeys (if any) are active and other dialogs can not receive <tt>DG_MSG_HOTKEY</tt> messages.</p>
+
+    <p>In case of <a href="PaletteDialogs.html">palette</a> and <a href="ModelessDialogs.html">modeless</a> dialogs the situation is a bit more complicated. Suppose that only palette and modeless dialogs are opened and the user presses a hotkey. In the application's message loop the platform specific keyboard event should be passed to the <a href="DGModelessHandler.html">DGModelessHandler</a> function. During processing this message, DG first tests whether the hotkey belongs to the active dialog. (A dialog is active if one of its item has the keyboard focus, or it is on the top of the palette and modeless dialogs' queue.) If it does, DG sends a <tt>DG_MSG_HOTKEY</tt> message to the active dialog. If the hotkey message is handled by the application (i.e. the <a href="CallbackFunctions.html">callback function</a> returns 1) the processing of the message is terminated and <b>DGModelessHandler</b> returns. Otherwise, DG similarly tests all of the opened palettes in the order of their positions in the dialogs' queue. If none of the palette dialogs can handle the hotkey message DG finally tests the topmost modeless dialog (if any).</p>
+
+    <p>Note that an application can register one or more of its menu accelerators as hotkeys, too. If the user presses a key or key combination of this type, the application first should consider it as a menu accelerator. If the corresponding menu or menu item is not enabled, the message should be passed to <b>DGModelessHandler</b> that handles it as a hotkey.</p>
+
+    <p>When handling <tt>DG_MSG_HOTKEY</tt> messages in a dialog callback function the application can perform any appropriate tasks then it can return 0 or 1. The return value of 1 means that the hotkey message is handled and further processing of the keyboard event should be omitted. If the application returns 0, however, the processing of the keyboard event is going on and for example other dialogs can receive the same <tt>DG_MSG_HOTKEY</tt> message.</p>
+
+    <p>Hotkeys are context sensitive that may be the most important feature of them. The context sensitivity can be explain as follows: suppose that the simple 'a' key is registered as a hotkey to a dialog and the dialog has a text-type <a href="EditControl.html">edit control</a> which currently has the keyboard focus. When the user presses the 'a' key an 'a' character is entered into the edit control, instead of considering the keyboard event as a hotkey. Of course, if a numeric-type edit control had the keyboard focus in the same situation, the 'a' key would not be "filtered" out by the edit control and it could act as a hotkey.</p>
+
+    <p>The above automatic hotkey filtering is implemented in DG by the following algorithm: when a focusable dialog item gains the keyboard focus all of the hotkeys that the item can accept as a normal keystroke are temporarily disabled until the item has the focus. The following table summarizes which hotkeys are temporarily disabled until a focusable item has the keyboard focus. The table essentially based on the <a href="DlgItemKBInterface.html">dialog item keyboard interfaces</a> of the both (Macintosh and Windows) platforms.</p>
+
+    <dl>
+        <dd>
+            <table border="0" cellpadding="6">
+                <tr valign="top">
+                    <th align="left">Item type</th>
+
+                    <th align="left">Key</th>
+
+                    <th align="left">Modifier</th>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="ListBox.html">List Box</a><br>
+                    <a href="ListView.html">List View</a><br>
+                    <a href="TreeView.html">Tree View</a></td>
+
+                    <td><tt>DG_KEY_LEFT</tt><br>
+                    <tt>DG_KEY_RIGHT</tt><br>
+                    <tt>DG_KEY_UP</tt><br>
+                    <tt>DG_KEY_DOWN</tt><br>
+                    <tt>DG_KEY_HOME</tt><br>
+                    <tt>DG_KEY_END</tt><br>
+                    <tt>DG_KEY_PAGEUP</tt><br>
+                    <tt>DG_KEY_PAGEDOWN</tt></td>
+
+                    <td>None or <tt>DG_MOD_SHIFT</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Any valid text key</td>
+
+                    <td>None</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DateTimeControl.html">Date &amp; Time Control</a></td>
+
+                    <td><tt>DG_KEY_LEFT</tt><br>
+                    <tt>DG_KEY_RIGHT</tt><br>
+                    <tt>DG_KEY_UP</tt><br>
+                    <tt>DG_KEY_DOWN</tt><br>
+                    <tt>DG_KEY_HOME</tt><br>
+                    <tt>DG_KEY_END</tt><br>
+                    '-', '+', '0'..'9'</td>
+
+                    <td>None</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="4">Edit Control<br>
+                    <a href="RichEditControl.html">Rich Edit Control</a></td>
+
+                    <td><tt>DG_KEY_BACK</tt><br>
+                    <tt>DG_KEY_LEFT</tt><br>
+                    <tt>DG_KEY_RIGHT</tt><br>
+                    <tt>DG_KEY_DELETE</tt><br>
+                    <tt>DG_KEY_HOME</tt><br>
+                    <tt>DG_KEY_END</tt><br>
+                    Any valid numeric or text key</td>
+
+                    <td>None</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_LEFT</tt><br>
+                    <tt>DG_KEY_RIGHT</tt><br>
+                    'x', 'X', 'c', 'C', 'v', 'V'</td>
+
+                    <td><tt>DG_MOD_COMMAND</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_LEFT</tt><br>
+                    <tt>DG_KEY_RIGHT</tt><br>
+                    <tt>DG_KEY_DELETE</tt><br>
+                    <tt>DG_KEY_HOME</tt><br>
+                    <tt>DG_KEY_END</tt></td>
+
+                    <td><tt>DG_MOD_SHIFT</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_LEFT</tt><br>
+                    <tt>DG_KEY_RIGHT</tt></td>
+
+                    <td><tt>DG_MOD_COMMAND</tt> | <tt>DG_MOD_SHIFT</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Text-type Edit Controls</td>
+
+                    <td>Any key</td>
+
+                    <td><tt>DG_MOD_OPTION</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="3">Multi-line Edit Control<br>
+                    Rich Edit Control</td>
+
+                    <td><tt>DG_KEY_ENTER</tt><br>
+                    <tt>DG_KEY_RETURN</tt><br>
+                    <tt>DG_KEY_UP</tt><br>
+                    <tt>DG_KEY_DOWN</tt><br>
+                    <tt>DG_KEY_PAGEUP</tt><br>
+                    <tt>DG_KEY_PAGEDOWN</tt></td>
+
+                    <td>None</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_HOME</tt><br>
+                    <tt>DG_KEY_END</tt></td>
+
+                    <td><tt>DG_MOD_COMMAND</tt> or<br>
+                    <tt>DG_MOD_COMMAND</tt> | <tt>DG_MOD_SHIFT</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_UP</tt><br>
+                    <tt>DG_KEY_DOWN</tt><br>
+                    <tt>DG_KEY_PAGEUP</tt><br>
+                    <tt>DG_KEY_PAGEDOWN</tt></td>
+
+                    <td><tt>DG_MOD_SHIFT</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Rich Edit Control</td>
+
+                    <td><tt>DG_KEY_TAB</tt></td>
+
+                    <td>None or <tt>DG_MOD_SHIFT</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>The "any valid numeric or text key" phrase in the above table refers to the characters that can pass through the automatic type-sensitive character filtering of edit controls (for details see <a href="EditControl.html">Edit Controls</a>).</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="ModalDialogs.html">Modal Dialogs</a>, <a href="ModelessDialogs.html">Modeless Dialogs</a>, <a href="PaletteDialogs.html">Palette Dialogs</a>, <a href="DateTimeControl.html">Date &amp; Time Control</a>, <a href="EditControl.html">Edit Control</a>, <a href="ListBox.html">List Box</a>, <a href="ListView.html">List View</a>, <a href="RichEditControl.html">Rich Edit Control</a>, <a href="TreeView.html">Tree View</a><br>
+    <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGDisableHotKeys.html">DGDisableHotKeys</a>, <a href="DGEnableHotKeys.html">DGEnableHotKeys</a>, <a href="DGModelessHandler.html">DGModelessHandler</a>, <a href="DGRegisterHotKey.html">DGRegisterHotKey</a>, <a href="DGUnregisterHotKey.html">DGUnregisterHotKey</a><br>
+    <a href="DialogKBInterface.html">Dialog keyboard interface</a>, <a href="DlgItemKBInterface.html">Dialog item keyboard interface</a>, <a href="OSShortcuts.html">Operating System shortcuts</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on March 17, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

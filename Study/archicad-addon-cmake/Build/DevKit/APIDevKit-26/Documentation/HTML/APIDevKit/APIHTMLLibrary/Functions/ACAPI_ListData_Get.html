@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_ListData_Get</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_ListData_Get.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_ListData_Get</h1>
+
+    <p>Retrieves the data of a listdata.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_ListData_Get</strong> (
+        <strong><a href="../Structures/API_ListData.html">API_ListData</a>*</strong>     <em>listdata</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>listdata</em></dt>
+
+        <dd>[in/out] Parameters of the listdata. The type of the listdata, the index of the set and the index of the listdata must be passed in the <code>typeID</code>, the <code>setIndex</code> and the <code>index</code> fields in the listdata header. Other fields of the structure are filled in automatically.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADINDEX</code></dt>
+
+        <dd>Invalid listdata index was passed.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>Invalid listdata type was passed.</dd>
+
+        <dt><code>APIERR_DELETED</code></dt>
+
+        <dd>Invalid listdata was deleted.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to get a listdata, defined by <code>the typeID,</code> the <code>setIndex</code> and the <code>index</code> fields of the listdata header. The information of a given listdata is returned in the fields of the listdata.</p>
+
+    <p>This function is faster than <a href="ACAPI_ListData_GetLocal.html">ACAPI_ListData_GetLocal</a>.</p>
+
+    <p>When getting the listdata, the applicable fields should be filled in.</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p align="left">API_ListData_Head</p>
+                </th>
+
+                <th></th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>setIndex</code></p>
+                </td>
+
+                <td>
+                    <p>required; must be &gt;= 1</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>typeID</code></p>
+                </td>
+
+                <td>
+                    <p>required</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>index</code></p>
+                </td>
+
+                <td>
+                    <p>required</p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>If you are retrieving a descriptor, don't forget to dispose of the name handle when you're finished.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_ListData  listdata;
+GSErrCode     err;
+
+BNZeroMemory (&amp;listdata, sizeof (API_ListData));
+listdata.header.setIndex = 1;
+listdata.header.typeID   = API_DescriptorID;
+listdata.header.index    = 1;
+
+err = ACAPI_ListData_Get (&amp;listdata);
+
+BMKillHandle (&amp;listdata.descriptor.name);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_ListData.html">API_ListData</a>,<br>
+    <a href="ACAPI_ListData_GetLocal.html">ACAPI_ListData_GetLocal</a>,<br>
+    <a href="../Level3/Listing_Manager_id.html">Listing Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 1, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

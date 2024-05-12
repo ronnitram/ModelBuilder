@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>TRANMAT</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Matrix/TRANMAT.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TRANMAT</h1>
+
+    <p>The homogeneous transformation matrix used in Geometry.</p>
+    <pre class="syntax">
+    <strong>typedef struct</strong> TRANMAT {
+      <strong>short</strong>    <em>status</em>;
+      <strong>short</strong>    <em>dummy1</em>;
+      <strong>short</strong>    <em>dummy2</em>;
+      <strong>short</strong>    <em>dummy3</em>;
+      <strong>double</strong>   <em>tmx[12]</em>;
+    } <em>TRANMAT</em>;
+
+</pre>
+
+    <table border="2">
+        <tr>
+            <td><strong>Constant</strong></td>
+
+            <td><strong>Description</strong></td>
+        </tr>
+
+        <tr>
+            <td>TR_IDENT</td>
+
+            <td>Identical transformation. (Ones in the diagonal.)</td>
+        </tr>
+
+        <tr>
+            <td>TR_DET_1</td>
+
+            <td>The determinant of the upper left 3x3 matrix is one.</td>
+        </tr>
+
+        <tr>
+            <td>TR_SINGULAR</td>
+
+            <td>The determinant of the upper left 3x3 matrix is zero.</td>
+        </tr>
+
+        <tr>
+            <td>TR_MIRROR</td>
+
+            <td>The transformation described by the matrix changes the orientation of the elements.</td>
+        </tr>
+
+        <tr>
+            <td>TR_TRANSL_ONLY</td>
+
+            <td>The transformation described by the matrix is translation only.</td>
+        </tr>
+
+        <tr>
+            <td>TR_SCALE_ONLY</td>
+
+            <td>The transformation described by the matrix is a scale only.</td>
+        </tr>
+
+        <tr>
+            <td>TR_ROTATE_ONLY</td>
+
+            <td>The transformation described by the matrix is a rotation only.</td>
+        </tr>
+
+        <tr>
+            <td>TR_TRANSL_INCL</td>
+
+            <td>The transformation described by the matrix includes translation.</td>
+        </tr>
+
+        <tr>
+            <td>TR_SCALE_INCL</td>
+
+            <td>The transformation described by the matrix includes scaling.</td>
+        </tr>
+
+        <tr>
+            <td>TR_ROTATE_INCL</td>
+
+            <td>The transformation described by the matrix includes rotation.</td>
+        </tr>
+
+        <tr>
+            <td>TR_UNDECOMPOSED</td>
+
+            <td>Used by Archicad internally. (BG.c)</td>
+        </tr>
+    </table>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>status</b></dt>
+
+        <dd>Various statuses.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>dummy1, dummy2, dummy3</b></dt>
+
+        <dd>Dummy fields for right aligning.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>tmx[12]</b></dt>
+
+        <dd>The matrix members in three rows and four columns.</dd>
+
+        <dd>&nbsp;</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>It differs from the usual transformation matrices in that its size is not 4x4, but 3x4. The missing row is supposed to be {0, 0, 0, 1}.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b>1.0 or later</dd>
+
+        <dd><b>Header:</b> TRANMAT.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Matrix_id.html">Matrix functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 6, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIIo_SettingsDialogID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIIo_SettingsDialogID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIIo_SettingsDialogID</h1>
+
+    <p>Opens a tool settings dialog.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_interface_id.html">ACAPI_Interface</a></strong> (
+        <strong>APIIo_SettingsDialogID</strong>,
+        <strong><a href="../Structures/API_ToolBoxItem.html">API_ToolBoxItem</a>*</strong>     <em>toolBoxItem</em>,
+        <strong><a href="../Structures/API_Guid.html">API_Guid</a>*</strong>     <em>guid</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>toolBoxItem</em></dt>
+
+        <dd>[in] The parameters to open the dialog with.</dd>
+
+        <dt><em>guid</em>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API version 21" width="19" height="12"></dt>
+
+        <dd>[in] Special unique identifier of the dialog, used in automated testing.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd><code>toolBoxItem-&gt;type</code> is invalid.</dd>
+
+        <dt><code>APIERR_CANCEL</code></dt>
+
+        <dd>CANCEL was hit.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The Settings dialog is identified with <code>toolBoxItem-&gt;type</code>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+GSErrCode SettingsDialog (void)
+{
+    const API_Guid mySettingsDlgGuid = APIGuidFromString ("2A92ACAC-1E8C-40EC-9FAF-3171A07E1729");
+
+    API_ToolBoxItem tbi = {};
+    tbi.type = API_WallID;
+
+    return ACAPI_Interface (<font color="#FF0066">APIIo_SettingsDialogID</font>, &amp;tbi, &amp;mySettingsDlgGuid);
+}
+
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_ToolBoxItem.html">API_ToolBoxItem</a>, <a href="acapi_interface_id.html">ACAPI_Interface</a>,<br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 10, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

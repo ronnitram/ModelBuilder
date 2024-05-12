@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <title>GSAPI::IAttributeProxy interface</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Framework/IAttributeProxy.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GSAPI::IAttributeProxy interface</h1>
+
+    <p>This interface provides the necessary abstract methods to cache and later request the used <!-- Don't index --><a href="../Structures/API_Attribute.html">API_Attribute</a>s during <!-- Don't index --><a href="../Structures/API_Element.html">API_Element</a> or <!-- Don't index --><a href="../Structures/API_PrimElement.html">API_PrimElement</a> output.</p>
+
+    <p>Creating a proxy or cache for <!-- Don't index --><a href="../Structures/API_Attribute.html">API_Attribute</a>s was necessary due to different reasons:</p>
+
+    <ul>
+        <li>If the attributes are output (or accessed) inline during element output then querying the same attribute through the API quite possibly many times would introduce a big overhead.</li>
+
+        <li>If the attributes are output (or accessed) after the element output then we need to know at least which attributes were used in the <!-- Don't index --><a href="../Structures/API_Element.html">API_Element</a>s or <!-- Don't index --><a href="../Structures/API_PrimElement.html">API_PrimElement</a>s.</li>
+
+        <li>Some attributes (namely the attributes stored inside a drawing) are only accessible during the primitive decomposition (inside the <!-- Don't index --><a href="../Functions/ShapePrimsProc.html">ShapePrimsProc ()</a> call), so to access these later when outputting the <!-- Don't index --><a href="../Structures/API_PrimElement.html">API_PrimElement</a>s, it is necessary to store them somewhere during the decomposition.</li>
+    </ul>
+
+    <p>This interface enhances the <!-- Don't index --><a href="IAPIPseudoContainer.html">IAPIPseudoContainer</a> interface (from which it is derived from) with abstract methods to get and store attributes, get their additional <!-- Don't index --><a href="../Structures/API_AttributeDefExt.html">API_AttributeDefExt</a> info structures, and also new <i>Begin ()</i> and <i>End ()</i> methods which allow for enumerating only parts of this container: only attributes inside a database or even only a given type of attribute inside that database.</p>
+
+    <p>There's a class in the <b>DefaultImplementation</b> folder which implements this interface in an effective way (<b>AttributeProxy</b>).</p>
+
+    <p>Caching the used attributes works much like outputting the elements. For each element loaded through the container's <i>GetNext ()</i> method the iterators request an attribute adapter from an attribute adapter factory, and then use that adapter to cache the attributes used by the element.</p>
+
+    <h2 class="SectionHeading">Requirements</h2>
+
+    <p><span class="RequirementsSection">Namespace:</span> GSAPI</p>
+
+    <p><span class="RequirementsSection">Header:</span> IAttributeProxy.hpp</p>
+
+    <p><span class="RequirementsSection">Version:</span> API 10.21 or later</p>
+
+    <h2 class="SectionHeading">See Also</h2>
+
+    <p><!-- Don't index --><a href="IAPIPseudoContainer.html">IAPIPseudoContainer interface</a> | <!-- Don't index --><a href="IAPIAttributeAdapter.html">IAPIAttributeAdapter interface</a> | <!-- Don't index --><a href="IAPIAttributeAdapterFactory.html">IAPIAttributeAdapterFactory interface</a></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Push Menu Control</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/PushMenuControl.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Push Menu Control</h1>
+
+    <p>The push menu control looks like a push-style <a href="CheckBox.html">check box</a> or <a href="RadioButton.html">radio button</a> with a small arrow in its bottom-right corner. In addition to the standard push-style controls' behavior, a DG push menu control can show a pop-up palette with icon buttons.</p>
+
+    <p>The user can pop-up this palette by pressing the (left) mouse button on the push menu control for a short time. The currently selected item appears pushed on the pop-up menu. The user can then select a menu item with keyboard or mouse click. The selected item becomes the active (visible) item of the push menu control and the push menu control itself becomes checked.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/PushMenuIcon_Mac.png" width="151" height="80" alt="PushMenuIcon_Mac">&nbsp;&nbsp;&nbsp;&nbsp;<img src="../DGImageLibrary/PushMenuIcon_Win.png" alt="PushMenuIcon_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Item types</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_CHECKBOX</tt><br>
+        <tt>DG_ITM_RADIOBUTTON</tt></dd>
+    </dl>
+
+    <h4>Subtype</h4>
+
+    <dl>
+        <dd><tt>DG_BT_PUSHMENUICON</tt></dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    IconMenuCheck    <i>x  y  dx  dy</i>  [iconID<b>1</b>] ... [iconID<b>i</b>] ... [iconID<b>n</b>]
+    IconMenuRadio    <i>x  y  dx  dy  groupID</i>  [iconID<b>1</b>] ... [iconID<b>i</b>] ... [iconID<b>n</b>]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the push menu control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>groupID</em> defines the 1-based index of a group of radio buttons to which the control belongs. If the optional <em>iconID<b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) parameters are present, they initialize <em>n</em> pieces of push menu items by giving the icon resource IDs of the icon buttons in the pop-up palette. These icon IDs can be wrapped into more rows.</p>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>The checked state or the selected menu item of the push menu control is changed. To retrieve the previous state or the previously selected menu item of the push menu control from the message data, use <a href="DGGetPrevItemVal.html">DGGetPrevItemVal</a> and <a href="DGGetPrevMenuItem.html">DGGetPrevMenuItem</a> macros, respectively.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a></td>
+
+                    <td>The push menu control is double clicked. The message data parameter is always zero.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p>The <a href="DGPushMenuCheck.html">DGPushMenuCheck</a> function sets the push menu control's modification flag except if it is called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. The flag can also be set by user actions that generate <tt>DG_MSG_CHANGE</tt> messages. Note that in the case of radio button-type push menu controls, the modification flag of all the radio buttons in the same group are also set. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>Call <a href="DGPushMenuSetItemCount.html">DGPushMenuSetItemCount</a> to increase or decrease the number of menu items in a push menu control. The number of menu items currently in a push menu control can be retrieved by <a href="DGPushMenuGetItemCount.html">DGPushMenuGetItemCount</a>. Before DG version 1.1.1 these functions are not available, use <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a> and <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a> instead.</p>
+
+    <p>There are two ways to set an icon of a push menu control item. One possibility is to specify the icon with its icon handle by <a href="DGPushMenuSetItemIcon.html">DGPushMenuSetItemIcon</a>, the other is to set it with its resource ID by <a href="DGPushMenuSetItemIconId.html">DGPushMenuSetItemIconId</a> or by <a href="DGPushMenuSetItemIconResource.html">DGPushMenuSetItemIconResource</a>. The icon handle can be retrieved by <a href="DGPushMenuGetItemIcon.html">DGPushMenuGetItemIcon</a>, the icon ID and the resource module ID of the icon can be retrieved by <a href="DGPushMenuGetItemIconId.html">DGPushMenuGetItemIconId</a> and <a href="DGPushMenuGetItemIconResource.html">DGPushMenuGetItemIconResource</a>, respectively.</p>
+
+    <p>The menu items on the pop-up palette can be disabled by <a href="DGPushMenuDisableItem.html">DGPushMenuDisableItem</a>. Disabled menu items appear grayed on the palette and they are not selectable. The <b>DGPushMenuDisableItem</b> function should not be used on the currently selected push menu item. This means there must be at least one enabled menu item in the push menu. If all the menu items are to be disabled, use <a href="DGDisableItem.html">DGDisableItem</a> to disable the push menu control itself. Previously disabled menu items can be re-enabled by <a href="DGPushMenuEnableItem.html">DGPushMenuEnableItem</a>. To test whether a menu item is enabled or not call <a href="DGPushMenuIsItemEnabled.html">DGPushMenuIsItemEnabled</a>.</p>
+
+    <p>A push menu control has one and only one selected (active) menu item. The icon of the currently selected menu item is shown on the button face of the control. When the push menu pop-up palette is on, the user can change the current selection by mouse clicks or by keypresses through the usual ways. The selection can be changed not only by user actions but from program code, too, by calling the <a href="DGPushMenuSelectItem.html">DGPushMenuSelectItem</a> function. The currently selected menu item can be retrieved by <a href="DGPushMenuGetSelected.html">DGPushMenuGetSelected</a>.</p>
+
+    <p>If the item type of the push menu control is <tt>DG_ITM_RADIOBUTTON</tt>, it can be grouped with other radio buttons of the same dialog or tab page. The grouping information can be specified in the GRC only. When switching on a radio button of a group (either by user action or from program code), DG automatically switches off the other radio buttons of the group. If a radio button in a group is switched on by user action, the dialog callback function is called with <tt>DG_MSG_CHANGE</tt> only for the radio button pressed. However, the modification flag of all the radio buttons in the group are set (<b>DGModified</b> will return 1). Use <a href="DGGetCheckedRadio.html">DGGetCheckedRadio</a> to retrieve the 1-based index of the checked radio button in a group.</p>
+
+    <p>To switch on (check) or switch off (uncheck) a push menu control call <b>DGPushMenuCheck</b>. Note that radio button-type push menu controls can not be unchecked by this function call. Use <a href="DGPushMenuIsChecked.html">DGPushMenuIsChecked</a> to retrieve the checked state of a push menu control. Before DG version 1.1.1 <a href="DGSetItemValLong.html">DGSetItemValLong</a> and <a href="DGGetItemValLong.html">DGGetItemValLong</a> can be used instead of <b>DGPushMenuCheck</b> and <b>DGPushMenuIsChecked</b>.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="CheckBox.html">Check Box</a>, <a href="RadioButton.html">Radio Button</a><br>
+    <a href="PushMenuSpecific_id.html">Push menu specific functions</a>, <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a>, <a href="DGGetItemValLong.html">DGGetItemValLong</a>, <a href="DGModified.html">DGModified</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a>, <a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 27, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

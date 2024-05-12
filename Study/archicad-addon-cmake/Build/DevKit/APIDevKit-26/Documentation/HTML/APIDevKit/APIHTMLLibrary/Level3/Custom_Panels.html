@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Custom panels in settings dialogs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Custom_Panels.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Custom panels in settings dialogs</h1>
+
+    <p><br>
+    From Archicad 8 you have possibility to add user interface components integrated into the standard settings dialogs to handle your custom element and attribute data.<br>
+    You can append your additional panels into the</p>
+
+    <ul>
+        <li>element settings dialogs</li>
+
+        <li>attribute settings dialogs</li>
+
+        <li>info box</li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <h4>Registration of panels</h4>
+
+    <p>First in the <!--NoIdx--><a href="../Functions/RegisterInterface.html">RegisterInterface</a> function you should let the server application know that the add-on wants to add a custom panel into one of the settings dialogs. The dialog is specified with element ID and variation in case of element settings, or the attribute ID in case of attribute settings. You must also pass the resource IDs of the relevant interface resources, such as the icon and the title string of the panel and the tabpage dialog itself.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/11.png" alt="API 11" width="19" height="12">&nbsp; From Archicad 11 an optional <code>visibleByDefault</code> parameter is added to control the default appearance of the panel. If you pass <em>true</em>, the panel will be visible on the specified settings dialog or info box, unless the effective Work Environment settings override the actual visibility of the panel.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/12.png" alt="API 12" width="19" height="12">&nbsp; In Archicad 12 an optional <code>growType</code> parameter is added to control the grow type (none/horizontal/vertical/both) of the element and attribute settings panel.</p>
+
+    <p>The details can be found at the description of the functions:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_Register_SettingsPanel.html">ACAPI_Register_SettingsPanel</a><br>
+        <a href="../Functions/ACAPI_Register_AttributePanel.html">ACAPI_Register_AttributePanel</a><br>
+        <a href="../Functions/ACAPI_Register_InfoBoxPanel.html">ACAPI_Register_InfoBoxPanel</a><br>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Installing the panel handlers</h4>
+
+    <p>After registering the custom panels the add-on should initialize the handlers in its <!--NoIdx--><a href="../Functions/Initialize.html">Initialize</a> function. In order to be called in the program starting phase the add-on must be preloaded type, that is the return value of the <!--NoIdx--><a href="../Functions/CheckEnvironment.html">CheckEnvironment</a> must be <strong>APIAddon_Preload</strong>.</p>
+
+    <p>The element or attribute settings panel is represented by an object derived from the <code>TBUI::APIToolUIPanel</code> or <code>VBAD::APIAttrUIPanel</code> classes respectively. These classes contain an observer to the tabpage including the element or attribute data, and a reference to the dialog item itself. The observers are supposed to handle the corresponding database and dialog user action events.</p>
+
+    <p>In order to utilize these classes the add-on must include the <strong><em>UCLib</em></strong>, <strong><em>UDLib</em></strong> and <strong><em>VBElemDialogs</em></strong> modules. <em>(The interface of these modules are not documented.)</em></p>
+
+    <p>When the panel objects are successfully constructed, the panel creation and destruction handler functions should be passed to the API with <a href="../Functions/ACAPI_Install_PanelHandler.html">ACAPI_Install_PanelHandler</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Creating and destroying the tabpages</h4>
+
+    <p>It is inportant to know that the tab pages as dialog items are constructed only on demand, that is when the user chooses to open a settings dialog, in which your add-on has registered a custom panel, the Dialog Manager builds up the dialog panel-by-panel. When the dialog construction process arrives to your panel, it calls the installed <a href="../Functions/APIPanelCreateProc.html">APIPanelCreateProc</a>, where the add-on can create the dialog items themselves and attach an observer to the tabpage. After closing the settings dialog all panels are destroyed; the <a href="../Functions/APIPanelDestroyProc.html">APIPanelDestroyProc</a> is called to detach the observer and destruct the tabpage object.</p>
+
+    <p>In case of info box panels the create-destroy events happen when the info box switches to and from the corresponding toolbox mode.</p>
+
+    <p>&nbsp;</p>
+
+    <p>You can get more experience regarding this topic by studying the <strong><em>Panel_Test</em></strong> example add-on.</p>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on June 11, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

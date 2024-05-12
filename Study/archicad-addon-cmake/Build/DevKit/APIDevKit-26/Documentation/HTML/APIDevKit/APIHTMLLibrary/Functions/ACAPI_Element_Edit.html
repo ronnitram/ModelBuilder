@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_Edit</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_Edit.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_Edit</h1>
+
+    <p>Transforms a set of elements.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_Edit</strong> (
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../Structures/API_Neig.html">API_Neig</a>&gt;*</strong>    <em>elemNeigs</em>,
+        <strong>const <a href="../Structures/API_EditPars.html">API_EditPars</a>&amp;</strong>     <em>pars</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>elemNeigs</em></dt>
+
+        <dd>[in-out] An Array of <a href="../Structures/API_Neig.html">API_Neig</a> objects which enables you to work not only on an element as a whole, but on its internal parts too.</dd>
+
+        <dt><em>pars</em></dt>
+
+        <dd>[in] The details of the editing operation.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADDATABASE</code></dt>
+
+        <dd>The current database is not proper for the operation.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>The element guid is invalid.</dd>
+
+        <dt><code>APIERR_DELETED</code></dt>
+
+        <dd>The element does not exist in the database</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>Not enough memory to complete the operation</dd>
+
+        <dt><code>APIERR_REFUSEDPAR</code></dt>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The edit parameters are incorrect.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function transforms a set of elements with the parameters passed in the <a href="../Structures/API_EditPars.html">API_EditPars</a> structure. These parameters identify both the operation code (drag, rotate, mirror...) and the transformation parameters.</p>
+
+    <p>If <code>elemNeigs</code> is <code>nullptr</code> or empty, then this function works on the selection; otherwise the set of elements passed will be the target.</p>
+
+    <p>What elements are transformed in the last case? The <code>elemNeigs</code> array is an <a href="../Structures/API_Neig.html">API_Neig</a> list which enables you to work on not just a whole element, but on its internal parts as well. If you pass for example a neig to a slab hole, only the given hole will be transformed, without touching the base contour of the element.</p>
+
+    <p>Elements which cannot be edited for some reason are ignored. Such causes can be:</p>
+
+    <ul>
+        <li>it is locked,</li>
+
+        <li>it is on a locked layer,</li>
+
+        <li>it is part of a group, and suspend groups is OFF</li>
+
+        <li>it is not in the users workspace, etc.</li>
+    </ul>
+
+    <p>The following notes are absolutely important:</p>
+
+    <ul>
+        <li>the list of target elements will be automatically extended with the other group members; if there is a group member in the set and suspend groups is OFF</li>
+
+        <li>all the edited elements keep their unique ID</li>
+
+        <li>all the inter-element links will be adjusted; including dimensioning also</li>
+    </ul>
+
+    <p>The new element's GUID will be returned for each edited element in the <code>guid</code> field.</p>
+
+    <p>Note that this function is working on Section/Elevation databases also, which may have references to the plan database; they called virtual symbols identified by the <code>API_SectElemID</code> element type. From Archicad 6.50 R2/V2 these elements can be edited directly in the section database, with the limitation that the section window must be the front window.</p>
+
+    <p>You can also change the geometry data of an element with the <a href="ACAPI_Element_Change.html">ACAPI_Element_Change</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Neig.html">API_Neig</a>, <a href="../Structures/API_EditPars.html">API_EditPars</a>,<br>
+    <a href="ACAPI_Element_Change.html">ACAPI_Element_Change</a>,<br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on October 5, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

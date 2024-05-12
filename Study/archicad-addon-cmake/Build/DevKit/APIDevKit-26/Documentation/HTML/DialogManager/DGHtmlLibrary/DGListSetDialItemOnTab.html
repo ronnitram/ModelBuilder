@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGListSetDialItemOnTab</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListSetDialItemOnTab.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListSetDialItemOnTab</h1>
+
+    <p>This function is obsolete, use the <a href="DGListSetDialItemOnTabField.html">DGListSetDialItemOnTabField</a> function instead.</p>
+
+    <p>Sets the index of a dialog item that will appear on a given tabulator field of the currently selected item in a single- or multi-selection <a href="ListBox.html">list box</a>.</p>
+    <pre class="syntax">
+    <strong>void DGListSetDialItemOnTab</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>short</strong>  <em>tabIndex</em>,
+      <strong>short</strong>  <em>dialItem</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>tabIndex</em></dt>
+
+        <dd>1-based index of tabulator field.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>dialItem</em></dt>
+
+        <dd>1-based index of the dialog item that will appear on the list box.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>Dialog items that appear on a list box are called ontab items. Not all of the DG dialog items can be used as ontab items. Only items of the following types can be referred by the <em>dialItem</em> parameter: <a href="CheckBox.html">Check Box</a>, <a href="DateTimeControl.html">Date &amp; Time Control</a>, <a href="EditControl.html">Single Line Edit Control</a>, <a href="Pop-upControl.html">Pop-up Control</a>, <a href="ProgressBar.html">Progress Bar</a>, <a href="PushButton.html">Push Button</a>, <a href="RadioButton.html">Radio Button</a>, <a href="ScrollBar.html">Scroll Bar</a>, <a href="SliderBar.html">Slider Bar</a>, <a href="SpinControl.html">Spin Control</a>, <a href="UserControl.html">User Control</a>. Note that <a href="Icon.html">Icon</a> and <a href="Picture.html">Picture</a> dialog items are not permitted here, because icons can be inserted into a list item in a more elegant manner (see <a href="DGListSetItemText.html">DGListSetItemText</a>). Instead of ontab user dialog items, DG gives the possibility of owner draw list tabulator fields (see <a href="DGListSetTabUpdateFlag.html">DGListSetTabUpdateFlag</a>).</p>
+
+    <p>Although simple (non-push-like) check boxes, can be ontab items, it is advisable to use special built-in icons instead of them to display check boxes on list items. Possible icon IDs:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LIST_CHECKEDICON</tt></td>
+
+                    <td>Checked check box icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LIST_GRAYCHECKICON</tt></td>
+
+                    <td>Grayed check box icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LIST_MIXEDCHECKICON</tt></td>
+
+                    <td>Filled check box icon, used to indicate mixed or undefined selection.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LIST_FRAMELESSCHECKEDICON</tt></td>
+
+                    <td>Frameless check box icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LIST_UNCHECKEDICON</tt></td>
+
+                    <td>Unchecked check box icon.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>The main advantage of these check box icons is that they are transparent and sizeable. If the application uses these check boxes, it should handle the <a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a> message and change the check box icons when the user clicks on them. To test whether the user clicks on a check box, the application should compare the horizontal position of the click with the start and end points of the tabulator fields.</p>
+
+    <p>From the 2.2 version of DG not only single-selection, but multi-selection list boxes also can have ontab dialog items. The list box (<em>item</em>) and the ontab item (<em>dialItem</em>) must be on the same dialog or tab page and the ontab item must precede the list box in the resource item list (<em>dialItem</em> &lt; <em>item</em>). A tabulator field can contain only one ontab item, which is justified in the tabulator field according to the justification flag defined by <a href="DGListSetTabData.html">DGListSetTabData</a>. Ontab items are vertically centered within the list item rectangle.</p>
+
+    <p>Ontab dialog items must be hidden by <a href="DGHideItem.html">DGHideItem</a> when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. It is advisable to determine the height of the highest ontab item belonging to a list box (use <a href="DGGetItemRect.html">DGGetItemRect</a>) and set the list item height to this value plus two or four by <a href="DGListSetItemHeight.html">DGListSetItemHeight</a>. This method ensures that all of the ontab items will fit into the list item rectangle and there will be a frame of selection color around the items. Use frameless edit controls as ontab items.</p>
+
+    <p>Ontab items can appear on the currently selected list item only. When a previously selected list item loses the selection, DG automatically removes the ontab items from it. An ontab item is applied to the following selected list item and it stays alive until that item is deselected. This means that <b>DGListSetDialItemOnTab</b> should be called whenever the selection in the list box is changed and ontab item(s) should be shown on the new selection. (I.e. this routine should be call when handling <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a> messages for the list box in the dialog callback function.) Ontab items do not require more handling from the application. Other tasks associated with them (for example scrolling, moving, showing, hiding, etc.) are done by DG internally.</p>
+
+    <p>When handling <tt>DG_MSG_CHANGE</tt> message the application should retrieve the values of the hidden ontab items and display these values on the list item that just lost the selection. Then the new values should be transferred from the currently selected list item to the ontab items.</p>
+
+    <p>To remove the previously set ontab dialog item from a tabulator field call <b>DGListSetDialItemOnTab</b> with zero <em>dialItem</em> parameter.</p>
+
+    <p>Ontab items are considered as normal dialog items. They can be handled by the usual way with their type related DG functions.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib (DGEmu.lib) [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll (DGEmu.dll) [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="ListBox.html">List Box</a><br>
+    <a href="DGGetItemRect.html">DGGetItemRect</a>, <a href="DGHideItem.html">DGHideItem</a>, <a href="DGListSetItemHeight.html">DGListSetItemHeight</a>, <a href="DGListSetItemText.html">DGListSetItemText</a>, <a href="DGListSetTabData.html">DGListSetTabData</a>, <a href="DGListSetTabUpdateFlag.html">DGListSetTabUpdateFlag</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a>, <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 20, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

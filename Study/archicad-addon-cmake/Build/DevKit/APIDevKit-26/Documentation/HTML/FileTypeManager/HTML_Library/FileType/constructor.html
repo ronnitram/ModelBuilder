@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>FileType constructor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta name="Author" content="Magyari Denes">
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta name="ProgId" content="FrontPage.Editor.Document">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/FileType/constructor.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">File&nbsp;Type&nbsp;Manager</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>FileType::FileType</h1>
+
+    <p>&nbsp;</p>
+
+    <p>Default constructor</p>
+    <pre class="syntax">
+    <strong>FileType (</strong>
+    );
+</pre>
+
+    <p>Copy constructor</p>
+    <pre class="syntax">
+    <strong>FileType (</strong>
+      <strong>const <a href="filetype.html">FileType</a>&amp;        </strong>   <em>source</em>
+    );
+</pre>
+
+    <p>Simple constructor</p>
+    <pre class="syntax">
+    <strong>FileType (</strong>
+      <strong>const char*</strong>               <em>description</em>,
+      <strong>const char*</strong>               <em>fileExt</em>,
+      <strong>unsigned long</strong>             <em>creator</em>,
+      <strong>unsigned long</strong>             <em>macType</em>,
+      <strong>int                    </strong>   <em>iconID</em>,
+      <strong><a href="../typefiletypeinspectorcallback.html">FileTypeInspectorCallBack</a></strong> <em>pCallback = NULL</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>source</em></dt>
+
+        <dd>The source of the copy operation.</dd>
+
+        <dt><em>description</em></dt>
+
+        <dd>Description of the file type. Could be used in dialogs such as OpenFile.&nbsp;&nbsp;</dd>
+
+        <dt><em>fileExt</em></dt>
+
+        <dd>Character string that lists the extensions used to identify the file type. Use ';' as separator between extensions. Do not insert separator at the end unless you want to add the empty extension.&nbsp;Only valid file name characters are allowed. (Excluding '/', '\', ':', '*', '?', '"', '&lt;', '&gt;', "|")</dd>
+
+        <dt><em>creator</em></dt>
+
+        <dd>Macintosh creator id.</dd>
+
+        <dt><em>macType</em></dt>
+
+        <dd>Macintosh file type id.</dd>
+
+        <dt><em>iconID</em></dt>
+
+        <dd>Resource id of the icon representing the file type.</dd>
+
+        <dt><em>pCallback&nbsp;</em></dt>
+
+        <dd>Pointer to the callback function, that identifies the file type in case of extension collision.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>Use the default constructor if you want to create a return object for some function.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> Input-Output Library 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> FileTypeManager.hpp</dd>
+
+        <dd><b>Import Library:</b> InputOutput.lib [WIN]</dd>
+
+        <dd><b>Module:</b> InputOutputLib [MAC], InputOutput.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="../../FileTypeManager.html">File Type Manager</a>, <a href="filetype.html#members">Class Members</a></p>
+
+    
+
+    <p>&nbsp;</p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on Aug 15, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

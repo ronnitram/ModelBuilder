@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>CheckEnvironment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/CheckEnvironment.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>CheckEnvironment</h1>
+
+    <p>Defines the behavior of the add-on based on the current running environment.</p>
+    <pre class="syntax">
+    <strong><a href="../Structures/API_AddonType.html">API_AddonType</a>  CheckEnvironment</strong> (
+        <strong><a href="../Structures/API_EnvirParams.html">API_EnvirParams</a>*</strong>     <em>envirParams</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>envirParams</em></dt>
+
+        <dd>[in/out] Contains information on the environment. The add-on should also return a textual description of its purpose.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This is one of the main entry points of add-ons; each add-on should implement this function. It is called when the Add-On Manager is enumerating the add-ons during application startup. After collecting the all the information from the different add-ons, the Add-On Manager performs a dependency check, then calls the <a href="RegisterInterface.html">RegisterInterface</a> function of the "good" add-ons.</p>
+
+    <p>The add-on can check the running environment (server application, main and sub-version), and return whether it can run under the given conditions. For example, you can disable your add-on in the demo version of Archicad; or enable/disable certain commands.</p>
+
+    <p>This function is also the place to inform other add-ons about the availability of certain services of your add-on (see <a href="ACAPI_Register_SupportedService.html">ACAPI_Register_SupportedService</a>), and also to tell the server application that your add-on requires services of other add-ons (see <a href="ACAPI_Register_RequiredService.html">ACAPI_Register_RequiredService</a>).</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+// -----------------------------------------------------------------------------
+// Dependency definitions
+// -----------------------------------------------------------------------------
+API_AddonType    __ACDLL_CALL    <font color="#FF0066">CheckEnvironment</font> (API_EnvirParams* envir)
+{
+    //
+    // Fill in the necessary information
+    //
+    RSGetIndString (&amp;envir-&gt;addOnInfo.name, 32000, 1, ACAPI_GetOwnResModule ());
+    RSGetIndString (&amp;envir-&gt;addOnInfo.description, 32000, 2, ACAPI_GetOwnResModule ());
+
+    //
+    // Register command services
+    //
+    GSErrCode err = ACAPI_Register_SupportedService ('ABCD', 4L);
+    if (err != NoError)
+        return APIAddon_DontRegister;
+
+    return APIAddon_Normal;
+}   // CheckEnvironment
+
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_EnvirParams.html">API_EnvirParams</a>,<br>
+    <a href="ACAPI_Register_SupportedService.html">ACAPI_Register_SupportedService</a>, <a href="ACAPI_Register_RequiredService.html">ACAPI_Register_RequiredService</a>, <a href="RegisterInterface.html">RegisterInterface</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 21, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

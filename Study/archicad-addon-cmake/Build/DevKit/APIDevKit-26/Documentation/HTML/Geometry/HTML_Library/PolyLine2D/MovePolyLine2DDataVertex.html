@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>MovePolyLine2DDataVertex</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/PolyLine2D/MovePolyLine2DDataVertex.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>MovePolyLine2DDataVertex</h1>
+
+    <p>Moves a vertex of a polyline. The result will be regularized.</p>
+    <pre class="syntax">
+    <strong> GSErr</strong> MovePolyLine2DDataVertex (
+      <strong>const <a href="../Polygon2D/Polygon2DData.html">Polygon2DData</a></strong>&amp;     <em>poly</em>,
+      <strong>long</strong>                     <em>vertIdx</em>,
+      <strong>const <a href="../Vector2D/Coord.html">Coord</a></strong>&amp;             <em>newPosition</em>,
+      <strong>VAArray&lt;<a href="../Polygon2D/Polygon2DData.html">Polygon2DData</a>&gt;</strong>*  <em>resultPolys</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>poly</em></dt>
+
+        <dd>The polyline whose vertex is to be moved.</dd>
+
+        <dt><em>vertIdx</em></dt>
+
+        <dd>Index of the vertex.</dd>
+
+        <dt><em>newPosition</em></dt>
+
+        <dd>Coordinates of the destination position of the vertex.</dd>
+
+        <dt><em>resultPolys</em></dt>
+
+        <dd>Pointer to array of the result polylines.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Returns <code>NoError</code>, if operation is completed successfully.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Polygon2DData.h</dd>
+
+        <dd><b>Import Library:</b> GeometryImp.lib [Win]</dd>
+
+        <dd><b>Module:</b> Geometry.dll [WIN] GeometryLib [Mac]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="PolyLine2D_id.html">PolyLine2D functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 6, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

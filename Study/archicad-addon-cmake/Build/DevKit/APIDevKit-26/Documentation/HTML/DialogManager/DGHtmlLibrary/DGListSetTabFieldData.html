@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Vegh Miklos">
+
+    <title>DGListSetTabFieldData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListSetTabFieldData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListSetTabFieldData</h1>
+
+    <p>Sets the properties of a tabulator field in a <a href="ListBox.html">list box</a>.</p>
+    <pre class="syntax">
+    <strong>void DGListSetTabFieldData</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>short</strong>  <em>tabIndex</em>,
+      <strong>short</strong>  <em>begPos</em>,
+      <strong>short</strong>  <em>endPos</em>,
+      <strong>short</strong>  <em>justFlag</em>,
+      <strong>short</strong>  <em>truncFlag</em>,
+      <strong>bool</strong>   <em>hasSeparator</em>,
+      <strong>bool</strong>   <em>status</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>tabIndex</em></dt>
+
+        <dd>1-based index of the tabulator field.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>begPos</em></dt>
+
+        <dd>Tabulator field left position in pixels, relative to the client rectangle of the list box.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>endPos</em></dt>
+
+        <dd>Tabulator field right position in pixels, relative to the client rectangle of the list box.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>justFlag</em></dt>
+
+        <dd>Justification of the content in the tabulator field. For left/center/right justification use <tt>DG_IS_LEFT</tt>, <tt>DG_IS_CENTER</tt>, <tt>DG_IS_RIGHT</tt>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>truncFlag</em></dt>
+
+        <dd>How the text of the tabulator field should be truncated if it does not fit into the tabulator field. Possible values are:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Flag</th>
+
+                    <th align="left">Action</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_NOTRUNC</tt></td>
+
+                    <td>No truncation.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_TRUNCEND</tt></td>
+
+                    <td>Truncates at the end.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_TRUNCMIDDLE</tt></td>
+
+                    <td>Truncates in the middle (leaves the same number of characters from both ends of the text).</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>hasSeparator</em></dt>
+
+        <dd>If this flag is set, a separator line is drawn at the right edge of this tabulator field in each list box item. The separator line color can be set or modified by the <a href="DGListSetSeparatorLineColor.html">DGListSetSeparatorLineColor</a> function.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>status</em></dt>
+
+        <dd>If this flag is set to <tt>false</tt>, the tabulator field is disabled, otherwise it is enabled.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The number of tabulator fields in a list box is set by <a href="DGListSetTabFieldCount.html">DGListSetTabFieldCount</a>. By default every list box has one tabulator field which extends from the left of the list's client area to the left edge of the vertical scrollbar. The content of this item is left aligned and truncated at the end if the list box has no horizontal scrollbar otherwise not truncated.</p>
+
+    <p>If the tabulator fields overlap or do not fit the list box item then they will be set to equal size and forced to fit the listbox item. If the list box has horizontal scrollbar then the tabulator fields are allowed to extend the list item size.</p>
+
+    <p>The extent of the horizontal scrollbar is calculated depending the properties of the last tabulator field. If the truncation flag or the user update flag is turned on in this field then the scrollbar's extent equals the end position of the last tabulator field, otherwise it is dynamically calculated from the content of the longest listbox item.</p>
+
+    <p>Use <a href="DGListGetTabFieldData.html">DGListGetTabFieldData</a> to retrieve the current properties of a tabulator field.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ListBox.html">List Box</a>, <a href="DGListGetTabFieldData.html">DGListGetTabFieldData</a><br>
+    <a href="DGListSetTabFieldCount.html">DGListSetTabFieldCount</a>, <a href="DGListGetTabFieldCount.html">DGListGetTabFieldCount</a>, <a href="DGListSetTabItemText.html">DGListSetTabItemText</a>, <a href="DGListGetTabItemText.html">DGListGetTabItemText</a>, <a href="DGListSetTabItemIcon.html">DGListSetTabItemIcon</a>, <a href="DGListGetTabItemIcon.html">DGListGetTabItemIcon</a>, <a href="DGListGetTabItemIconId.html">DGListGetTabItemIconId</a>, <a href="DGListSetTabItemIconId.html">DGListSetTabItemIconId</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 4, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

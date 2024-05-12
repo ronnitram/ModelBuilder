@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGListViewUpdateData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListViewUpdateData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListViewUpdateData</h1>
+
+    <p>If the image type of a <a href="ListView.html">list view</a> item is <tt>DG_LVIT_OWNERDRAW</tt> and this item should be redrawn, DG sends a <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a> message to the <a href="CallbackFunctions.html">dialog callback function</a>. The message data parameter of this message is a pointer to a <b>DGListViewUpdateData</b> structure that contains all the necessary information to draw the image by the application.</p>
+    <pre class="syntax">
+    <strong>struct</strong> <em>DGListViewUpdateData</em> {
+      <strong>void*</strong>  <em>drawContext</em>;
+      <strong>short</strong>  <em>listItem</em>;
+      <strong>short</strong>  <em>width</em>;
+      <strong>short</strong>  <em>height</em>;
+      <strong>short</strong>  <em>left</em>;
+      <strong>short</strong>  <em>top</em>;
+      <strong>short</strong>  <em>filler</em>;
+    };
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>drawContext</b></dt>
+
+        <dd>The drawing context of the image field. Cast this value to <strong><tt>CGContextRef</tt></strong> on Macintosh or <strong><tt>HDC</tt></strong> on Windows.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>listItem</b></dt>
+
+        <dd>1-based index of the list view item</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>width</b></dt>
+
+        <dd>Width of the image field in pixels. On return: Width of the currently drawn image in pixels.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>height</b></dt>
+
+        <dd>Height of the image field in pixels. On return: Height of the currently drawn image in pixels.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>left</b></dt>
+
+        <dd>On return: Horizontal position of the currently drawn image in pixels, relative to the item rectangle.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>top</b></dt>
+
+        <dd>On return: Vertical position of the currently drawn image in pixels, relative to the item rectangle.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>filler</b></dt>
+
+        <dd>Reserved.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The origin of the drawing context defined by the <b>drawContext</b> member is set to the upper left corner of the image rectangle of the list view item. Within this rectangle the application can draw the image anywhere and in arbitrary size.</p>
+
+    <p>The application should just draw the image. Graying and blending are handled by DG after the dialog callback function returns. From DG version 1.1.1, in order to blend the right area only, the application can set <b>left</b> and <b>top</b> and modify <b>width</b> and <b>height</b> members on return to refer the actual rectangle of the drawn image.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Structures_id.html">DG Structures</a>, <a href="ListView.html">List View</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 2, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

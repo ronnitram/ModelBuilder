@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Teamwork Control</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Teamwork_Control_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Teamwork Control</h1>
+
+    <p><br>
+    This bunch of functions lets your add-on operate in the new Teamwork environment introduced in Archicad 13.</p>
+
+    <h4>Functions</h4>
+
+    <p>for checking the project status and the online-offline mode:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_TeamworkControl_HasConnection.html">ACAPI_TeamworkControl_HasConnection</a><br>
+        <a href="../Functions/ACAPI_TeamworkControl_IsOnline.html">ACAPI_TeamworkControl_IsOnline</a><br>
+    </blockquote>
+
+    <p>for checking the user privileges of lockable object sets:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_TeamworkControl_HasCreateRight.html">ACAPI_TeamworkControl_HasCreateRight</a><br>
+        <a href="../Functions/ACAPI_TeamworkControl_HasDeleteModifyRight.html">ACAPI_TeamworkControl_HasDeleteModifyRight</a><br>
+    </blockquote>
+
+    <p>for lockable object set reservation:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_TeamworkControl_GetLockableStatus.html">ACAPI_TeamworkControl_GetLockableStatus</a><br>
+        <a href="../Functions/ACAPI_TeamworkControl_FindLockableObjectSet.html">ACAPI_TeamworkControl_FindLockableObjectSet</a><br>
+        <a href="../Functions/ACAPI_TeamworkControl_ReserveLockable.html">ACAPI_TeamworkControl_ReserveLockable</a><br>
+        <a href="../Functions/ACAPI_TeamworkControl_ReleaseLockable.html">ACAPI_TeamworkControl_ReleaseLockable</a><br>
+    </blockquote>
+
+    <p>for element reservation:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_TeamworkControl_ReserveElements.html">ACAPI_TeamworkControl_ReserveElements</a><br>
+        <a href="../Functions/ACAPI_TeamworkControl_ReleaseElements.html">ACAPI_TeamworkControl_ReleaseElements</a><br>
+    </blockquote>
+
+    <p>for reservation of the Hotlink/XRef Management</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_TeamworkControl_ReserveHotlinkCacheManagement.html">ACAPI_TeamworkControl_ReserveHotlinkCacheManagement</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="Featuring API 18" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_TeamworkControl_ReleaseHotlinkCacheManagement.html">ACAPI_TeamworkControl_ReleaseHotlinkCacheManagement</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="Featuring API 18" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_TeamworkControl_GetHotlinkCacheManagementOwner.html">ACAPI_TeamworkControl_GetHotlinkCacheManagementOwner</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="Featuring API 18" width="19" height="12"><br>
+    </blockquote>
+
+    <p>for monitoring reservation changes:</p>
+
+    <blockquote>
+        <!--NI--><a href="../Functions/ACAPI_Notify_CatchElementReservationChange.html">ACAPI_Notify_CatchElementReservationChange</a> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"><br>
+        <!--NI--><a href="../Functions/ACAPI_Notify_CatchLockableReservationChange.html">ACAPI_Notify_CatchLockableReservationChange</a> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"><br>
+    </blockquote>
+
+    <p>for determining if a given library part is loaded from the BIM server:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_TeamworkControl_IsServerLibPart.html">ACAPI_TeamworkControl_IsServerLibPart</a> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"><br>
+    </blockquote>
+
+    <p>for collecting information about the team project, the actual workspace and the effective privileges of the Team Member:</p>
+
+    <blockquote>
+        <a href="../Functions/APIEnv_ProjectSharingID.html">APIEnv_ProjectSharingID</a><br>
+        <a href="../Functions/APIEnv_GetTWAccessRightID.html">APIEnv_GetTWAccessRightID</a> &nbsp;<img border="0" src="../../APIImageLibrary/14.png" alt="Featuring API 14" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_TeamworkControl_GetUsernameFromId.html">ACAPI_TeamworkControl_GetUsernameFromId</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="Featuring API 25" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_TeamworkControl_GetTeamworkProjectDetails.html">ACAPI_TeamworkControl_GetTeamworkProjectDetails</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="Featuring API 25" width="19" height="12"><br>
+    </blockquote>
+
+    <p>for sending or receiving changes to or from the BIM server:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_TeamworkControl_SendChanges.html">ACAPI_TeamworkControl_SendChanges</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="Featuring API 25" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_TeamworkControl_ReceiveChanges.html">ACAPI_TeamworkControl_ReceiveChanges</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="Featuring API 25" width="19" height="12"><br>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4><a name="Lockable_Object_Sets" id="Lockable_Object_Sets">Lockable Object Sets</a></h4>
+
+    <p>Lockable object sets are groups of objects (or may consist of a single object) which can be modified separately from the other part of the Teamwork project. Typically attribute containers are lockable object sets. These sets have a special reservation panel on their settings dialog in Teamwork mode to control the exclusive lock on that particular part of the project.</p>
+
+    <p>On the API interface lockable object sets are referenced by their object guid. These guids can be obtained with the <a href="../Functions/ACAPI_TeamworkControl_FindLockableObjectSet.html">ACAPI_TeamworkControl_FindLockableObjectSet</a> function using pre-defined identifiers.</p>
+
+    <p>In some cases two or more lockable object sets need to be handled simultaneously, for example they can be locked only in the same user interface at the same time, like the Layers and Layer Combinations in the Layer Settings dialog. These sets are grouped under a special lockable object set, which is called compound lockable object set. Compounds are referenced by a pre-defined name, and their guid can also be retrieved by the <a href="../Functions/ACAPI_TeamworkControl_FindLockableObjectSet.html">ACAPI_TeamworkControl_FindLockableObjectSet</a> function.</p>
+
+    <p>The pre-defined identifier strings of lockable object sets are listed in the Remarks section of <a href="../Functions/ACAPI_TeamworkControl_FindLockableObjectSet.html#LockableObjectSetIdentifiersTable">ACAPI_TeamworkControl_FindLockableObjectSet</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>The <b>Teamwork_Control</b> example project of the APIDevKit shows samples how to use these functions.</p>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 15, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

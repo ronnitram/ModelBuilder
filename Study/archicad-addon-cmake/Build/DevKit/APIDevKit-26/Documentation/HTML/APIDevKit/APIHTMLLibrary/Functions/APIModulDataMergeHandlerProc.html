@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIModulDataMergeHandlerProc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIModulDataMergeHandlerProc.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIModulDataMergeHandlerProc</h1>
+
+    <p>User supplied callback procedure for handling module data merge operations.</p>
+    <pre class="syntax">
+    <strong>typedef GSErrCode  APIModulDataMergeHandlerProc</strong> (
+        <strong><a href="../Structures/API_MDSetCmd.html">API_MDSetCmd</a></strong>             <em>mode</em>,
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&amp;</strong>     <em>modulName</em>,
+        <strong>const <a href="../Structures/API_ModulData.html">API_ModulData</a>*</strong>     <em>originalInfo</em>,
+        <strong>const <a href="../Structures/API_ModulData.html">API_ModulData</a>*</strong>     <em>toMergeInfo</em>,
+        <strong><a href="../Structures/API_ModulData.html">API_ModulData</a>*</strong>           <em>destInfo</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>mode</em></dt>
+
+        <dd>[in] The operation the add-on is called for.</dd>
+
+        <dt><em>modulName</em>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="API 13 feature" width="19" height="12"></dt>
+
+        <dd>[in] Identifier name of the modul data (for modules stored in previous versions this parameter is always empty string).</dd>
+
+        <dt><em>originalInfo</em></dt>
+
+        <dd>[in] The original module data in the to which data has to be merged into.</dd>
+
+        <dt><em>toMergeInfo</em></dt>
+
+        <dd>[in] The incoming module data.</dd>
+
+        <dt><em>destInfo</em></dt>
+
+        <dd>[out] The result module data. Your add-on should put the result of the merge in here.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This is the function to be called when two conflicting modules need to be merged by your add-on. The handler function pointer must be passed with <!--NI--><a href="ACAPI_Install_ModulDataMergeHandler.html">ACAPI_Install_ModulDataMergeHandler</a>.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/13.png" alt="API 13 feature" width="19" height="12">&nbsp; It is also necessary to register this functionality of the add-on with calling <a href="ACAPI_Register_ModulDataHandler.html">ACAPI_Register_ModulDataHandler</a>.</p>
+
+    <p>The details of the notification process are described in the <a href="../Level3/ModulData_Manager_id.html">ModulData Manager</a> section.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>Registration and installing callback:</p>
+
+    <blockquote>
+        <pre><code>
+GSErrCode __ACENV_CALL  RegisterInterface (void)
+{
+    ACAPI_Register_ModulDataHandler ();
+    return NoError;
+}
+
+GSErrCode __ACENV_CALL  Initialize (void)
+{
+    GSErrCode err = ACAPI_Install_ModulDataMergeHandler (APIModulDataMergeHandler);
+    return err;
+}
+</code></pre>
+    </blockquote>
+
+    <p>Implementation of the handler function:</p>
+
+    <blockquote>
+        <pre><code>
+GSErrCode __ACENV_CALL  APIModulDataMergeHandler (API_MDSetCmd          mode,
+                                                  const GS::UniString&amp;  /*modulName*/,
+                                                  const API_ModulData*  originalInfo,
+                                                  const API_ModulData*  toMergeInfo,
+                                                  API_ModulData*        destInfo)
+{
+    if (toMergeInfo == nullptr || destInfo == nullptr)
+        return APIERR_BADPARS;
+
+    const API_ModulData* modulDataToKeep = (mode == APIMDSetMerge_TW || originalInfo == nullptr) ? toMergeInfo : originalInfo;
+
+    if (modulDataToKeep-&gt;dataHdl != nullptr) {
+        BNZeroMemory (destInfo, sizeof (API_ModulData));
+        destInfo-&gt;dataVersion = modulDataToKeep-&gt;dataVersion;
+        destInfo-&gt;platformSign = modulDataToKeep-&gt;platformSign;
+        BMHandleToHandle (modulDataToKeep-&gt;dataHdl, &amp;destInfo-&gt;dataHdl);
+    } else
+        return APIERR_BADPARS;
+
+    return NoError;
+}
+</code></pre>
+    </blockquote>
+
+    <p>Refer to the <strong>ModulData Manager</strong> example add-on for more hints.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Callback.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_MDSetCmd.html">API_MDSetCmd</a><br>
+    <a href="../Structures/API_ModulData.html">API_ModulData</a><br>
+    <a href="ACAPI_Install_ModulDataMergeHandler.html">ACAPI_Install_ModulDataMergeHandler</a><br>
+    <a href="ACAPI_Register_ModulDataHandler.html">ACAPI_Register_ModulDataHandler</a><br>
+    <a href="../Level3/ModulData_Manager_id.html">ModulData Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 10, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>About Date &amp; Time Manager</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/TimeManagers/DateTimeManager/about.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>About Date &amp; Time Manager</h1>
+
+    <p>The Time &amp; Date Manager is used to manage the current date and time in a platform independent manner. The manager defines the platform independent <strong>GSTime</strong> date-time format to represent the current date and time. The manager provides functions to obtain the current time and date and to convert between time formats for ease of comparison and display. The Time &amp; Date Manager can handle three different date-time formats: the <strong>GSTime</strong> time format, the Windows time format and the Macintosh time format. The manager provides functions to convert among these time formats.</p>
+
+    <p>The Time &amp; Date manager defines the <a href="../../../GSRootHTMLLibrary/TimeManagers/DateTimeManager/reference/types_id.html#GSTime"><strong>GSTime</strong></a> type as a platform-independent format for representing time. The <strong>GSTime</strong> is a raw date-time format, for representing the date and time in a easy-use format, use the <a href="../../../GSRootHTMLLibrary/TimeManagers/DateTimeManager/reference/types_and_structures/GSTimeRecord.html"><strong>GSTimeRecord</strong></a> structure which contains each element of the current date and the current time as members within the structure. If you want to convert between the previously mentioned formats, you can use the <a href="reference/TIGetGSTime.html"><strong>TIGetGSTime</strong></a> function to convert from <strong>GSTimeRecord</strong> to <strong>GSTime</strong> or the <a href="reference/TIGetTimeRecord.html"><strong>TIGetTimeRecord</strong></a> function to convert from <strong>GSTime</strong> to <strong>GSTimeRecord</strong>.</p>
+
+    <p>The <a href="reference/TIGetTime.html"><strong>TIGetTime</strong></a> function is used to get the current time in <strong>GSTime</strong> format. If you want to get the current time in Windows format call the <a href="reference/TIGetWinTime.html"><strong>TIGetWinTime</strong></a> function or use the <a href="reference/TIGetMacTime.html"><strong>TIGetMacTime</strong></a> function to get it in Macintosh format.</p>
+
+    <p>If you want to convert from Macintosh time format to <strong>GSTime</strong> format then use the <a href="reference/TIMac2GSTime.html"><strong>TIMac2GSTime</strong></a> function. For the opposite directional conversion call the <a href="reference/TIGS2MacTime.html"><strong>TIGS2MacTime</strong></a> function. If you want to convert from Windows time format to <strong>GSTime</strong> format then use the <a href="reference/TIWin2GSTime.html"><strong>TIWin2GSTime</strong></a> function. For the opposite directional conversion call the <a href="reference/TIGS2WinTime.html"><strong>TIGS2WinTime</strong></a> function.</p>
+
+    <p>The <a href="reference/TIGetTimeString.html"><strong>TIGetTimeString</strong></a> function creates a time string from a <strong>GSTimeRecord</strong>.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

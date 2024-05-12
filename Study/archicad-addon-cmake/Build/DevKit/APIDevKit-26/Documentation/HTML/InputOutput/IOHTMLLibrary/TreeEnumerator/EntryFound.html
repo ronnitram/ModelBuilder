@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>EntryFound</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/TreeEnumerator/EntryFound.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="TreeEnumerator.html">TreeEnumerator</a>::EntryFound</h1><br>
+    Callback method which is invoked for each entry encountered during the enumeration.<br>
+    <br>
+    <pre class="syntax">
+<b>virtual bool  EntryFound (
+    const <a href="../Name/Name.html">Name</a>&amp; entryName,
+    bool        isComposite
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>entryName</em></dt>
+
+        <dd>Name of the current entry.</dd>
+
+        <dt><em>isComposite</em></dt>
+
+        <dd>True if the particular entry is composite (e.g. folder), otherwise false.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>Controls further processing of the entry. With the value true (which is the default implementation) either <a href="FileFound.html">FileFound</a>, <a href="FolderFound.html">FolderFound</a> or <a href="LinkFound.html">LinkFound</a> method will be invoked depending on the type of the entry, otherwise next entry will be processed.</p>
+
+    <h3>Description</h3>
+
+    <p>This method is invoked for each file system entry (file, folder, link) encountered during the enumeration and is intended to be overridden by the user. It receives name of the entry and some kind of type information. Return value controls further processing (classification) of the entry. Default implementation does nothing and enables further processing.<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

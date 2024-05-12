@@ -1,0 +1,2070 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Urban Eszter">
+
+    <title>GRC Specification of the Dialog Item Types</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/GRC_DialogItemTypes.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GRC Specification of the Dialog Item Types</h1>
+
+    <p>There are two ways for creating dialog items with the help of the <em>DG module</em>. Either from code see or from resoruce script. To create dialog items, which are defined in a resource script, the application must supply a <tt>GDLG</tt> resource in a GRC file to describe the items. This page helps in accessing all the necessary information about the GRC specification of supported dialog item types by the <em>DG module</em>.</p>
+
+    <p><a href="#CheckBox">Check Box</a><br>
+    <a href="#DateTimeControl">Date &amp; Time Control</a><br>
+    <a href="#EditControl">Edit Control</a><br>
+    <a href="#GroupBox">Group Box</a><br>
+    <a href="#ListBox">List Box</a><br>
+    <a href="#ListView">List View</a><br>
+    <a href="#Pop-upControl">Pop-up Control</a><br>
+    <a href="#ProgressBar">Progress Bar</a><br>
+    <a href="#PushButton">Push Button</a><br>
+    <a href="#PushMenuControl">Push Menu Control</a><br>
+    <a href="#RadioButton">Radio Button</a><br>
+    <a href="#RichEditControl">Rich Edit Control</a><br>
+    <a href="#ScrollBar">Scroll Bar</a><br>
+    <a href="#SeparatorItem">Separator Item</a><br>
+    <a href="#SliderBar">Slider Bar</a><br>
+    <a href="#SpinControl">Spin Control</a><br>
+    <a href="#Splitter">Splitter Control</a><br>
+    <a href="#StaticText">Static Text</a><br>
+    <a href="#TabControl">Tab Control</a><br>
+    <a href="#TreeView">Tree View</a><br>
+    <a href="#UserControl">User Control</a><br>
+    <a href="#UserItem">User Item</a></p><a name="CheckBox" id="CheckBox"></a>
+
+    <h4>GRC Specification of <a href="CheckBox.html">Check Boxes</a></h4>
+    <pre class="syntax">
+    CheckBox         <i>x  y  dx  dy  fontSpec  "text"</i>
+    PushCheck        <i>x  y  dx  dy  fontSpec  "text"</i>
+
+    IconCheckBox     <i>x  y  dx  dy  iconID</i>
+    IconPushCheck    <i>x  y  dx  dy  iconID</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the check box, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the check box <em>text</em>. <em>iconID</em> defines the icon resource ID of an icon-style check box.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Suggested sizes</h4>
+
+    <p>For text-style check boxes the following item heights are suggested. It is advised to use these values in GRC or when check boxes are created from program code.</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left"><tt>dy</tt> (pixels)</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_TEXT</tt></td>
+
+                    <td>18</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_PUSHTEXT</tt></td>
+
+                    <td>20</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><a name="DateTimeControl" id="DateTimeControl"></a>
+
+    <h4>GRC Specification of <a href="DateTimeControl.html">Date &amp; Time Control</a></h4>
+    <pre class="syntax">
+    DateControl    <i>x  y  dx  dy</i>  [Calendar]
+    TimeControl    <i>x  y  dx  dy</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the date &amp; time control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. On Macintosh, the optional <em>Calendar</em> flag has no effect, the control is always drawn with the <tt>DG_DT_DATE</tt> subtype.</p>
+
+    <p>Possible values of <em>Calendar</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Standard</tt></td>
+
+                    <td>Control with the <tt>DG_DT_DATE</tt> subtype. <tt>Standard</tt> is the default value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Calendar</tt></td>
+
+                    <td>Control with the <tt>DG_DT_CALENDAR</tt> subtype (Windows only).</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Suggested sizes</h4>
+
+    <p>For date &amp; time controls the suggested item height is 22 pixels. It is advisable to use this value in GRC or when date &amp; time controls are created from program code.</p><a name="EditControl" id="EditControl"></a>
+
+    <h4>GRC Specification of the <a href="EditControl.html">Edit Control</a></h4>
+    <pre class="syntax">
+    TextEdit          <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>maxCount</i>
+    MultiLineEdit     <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>scrollMode</i>
+    PasswordEdit      <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>maxCount</i>
+
+    RealEdit          <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    AngleEdit         <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    PolarAngleEdit    <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    LengthEdit        <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    AreaEdit          <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    VolumeEdit        <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    MMPointEdit       <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+
+    IntEdit           <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    PosIntEdit        <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    SAMQuantityEdit   <i>x  y  dx  dy  fontSpec</i>  subType  [editFlag]  <i>"minVal"  "maxVal"</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the edit control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the size and style of the control's font. The optional <em>editFlag</em> parameter can be any <tt>OR(|)</tt> combination of the frame, absolute/relative input, font change, update and read-only flags. If you need the default value of each flags, <em>editFlag</em> can be omitted. <em>maxCount</em> specifies the maximum number of characters that can be typed into single-line text and password edit controls. <em>scrollMode</em> defines whether the multi-line edit control should have horizontal and/or vertical scrollbars. <em>"minVal"</em> and <em>"maxVal"</em> strings initialize the range of numeric-type edit controls. Double values must be written in their usual string representation here.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the frame flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>frame</tt></td>
+
+                    <td>The <tt>DG_ET_FRAME</tt> flag is set. This is the default value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noFrame</tt></td>
+
+                    <td>The <tt>DG_ET_NOFRAME</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the absolute/relative input flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>absolute</tt></td>
+
+                    <td>The <tt>DG_ET_ABSOLUTE</tt> flag is set. This is the default value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>relative</tt></td>
+
+                    <td>The <tt>DG_ET_RELATIVE</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the font change flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>changeFont</tt></td>
+
+                    <td>The <tt>DG_ET_CHANGEFONT</tt> flag is set. This is the default value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noChangeFont</tt></td>
+
+                    <td>The <tt>DG_ET_NOCHANGEFONT</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the update flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>update</tt></td>
+
+                    <td>The <tt>DG_ET_UPDATE</tt> flag is set. This is the default value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noUpdate</tt></td>
+
+                    <td>The <tt>DG_ET_NOUPDATE</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noDelay</tt></td>
+
+                    <td>The <tt>DG_ET_NODELAY</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the read-only flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>editable</tt></td>
+
+                    <td>The <tt>DG_ET_EDITABLE</tt> flag is set. This is the default value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>readOnly</tt></td>
+
+                    <td>The <tt>DG_ET_READONLY</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>scrollMode</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HScroll</tt></td>
+
+                    <td>Edit control with horizontal scrollbar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>VScroll</tt></td>
+
+                    <td>Edit control with vertical scrollbar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HVScroll</tt></td>
+
+                    <td>Edit control with both horizontal and vertical scrollbars.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoScroll</tt></td>
+
+                    <td>Edit control without any scrollbars.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Suggested sizes</h4>
+
+    <p>The following item height values can be suggested for single-line edit controls:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Font size</th>
+
+                    <th align="left">Frame type</th>
+
+                    <th align="left">Item height in pixels</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+
+                    <td><tt>DG_ET_FRAME</tt></td>
+
+                    <td>16</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+
+                    <td><tt>DG_ET_NOFRAME</tt></td>
+
+                    <td>12</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_SMALL</tt></td>
+
+                    <td><tt>DG_ET_FRAME</tt></td>
+
+                    <td>21</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_SMALL</tt></td>
+
+                    <td><tt>DG_ET_NOFRAME</tt></td>
+
+                    <td>17</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_LARGE</tt></td>
+
+                    <td><tt>DG_ET_FRAME</tt></td>
+
+                    <td>24</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_LARGE</tt></td>
+
+                    <td><tt>DG_ET_NOFRAME</tt></td>
+
+                    <td>20</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>When a single-line edit control is created either from GRC or from program code by <a href="DGAppendDialogItem.html">DGAppendDialogItem</a>, DG automatically adjusts its height to the above values so that the center of the control does not move. The same happens if the size of the edit control's font is altered by <b>DGSetItemFont</b>.</p><a name="GroupBox" id="GroupBox"></a>
+
+    <h4>GRC Specification of the <a href="GroupBox.html">Group Box</a></h4>
+    <pre class="syntax">
+    GroupBox    <i>x  y  dx  dy  fontSpec  groupStyle  "text"</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the group box, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the caption <em>text</em>. <em>groupStyle</em> specifies the appearance of the control on Macintosh. This flag has no effect on Windows.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>groupStyle</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Primary</tt></td>
+
+                    <td>The <tt>DG_GT_PRIMARY</tt> subtype is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Secondary</tt></td>
+
+                    <td>The <tt>DG_GT_SECONDARY</tt> subtype is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><a name="ListBox" id="ListBox"></a>
+
+    <h4>GRC Specification of the <a href="ListBox.html">List Box</a></h4>
+    <pre class="syntax">
+    SingleSelList    <i>x  y  dx  dy  fontSpec  partItems</i>  [<i>scrollType</i>]  <i>itemSize</i>  [<i>headerFlag  headerSize</i>]
+    MultiSelList     <i>x  y  dx  dy  fontSpec  partItems</i>  [<i>scrollType</i>]  <i>itemSize</i>  [<i>headerFlag  headerSize</i>]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the list box, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the list items. <em>partItems</em> is used to set the <tt>DG_LT_NOPARTIALITEMS</tt> flag. If the optional <em>scrollType</em> flag is not present, the list box has vertical scrollbar. <em>itemSize</em> is the height of list items in pixels. If the optional <i>headerFlag</i> is present, the header size also must be specified.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>partItems</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>PartialItems</tt></td>
+
+                    <td>The <tt>DG_LT_NOPARTIALITEMS</tt> flag is not set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoPartialItems</tt></td>
+
+                    <td>The <tt>DG_LT_NOPARTIALITEMS</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>scrollType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoScroll</tt></td>
+
+                    <td>The <tt>DG_LT_NOSCROLL</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>VScroll</tt></td>
+
+                    <td>The <tt>DG_LT_VSCROLL</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HScroll</tt></td>
+
+                    <td>The <tt>DG_LT_HSCROLL</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HVScroll</tt></td>
+
+                    <td>The <tt>DG_LT_HSCROLL | DG_LT_VSCROLL</tt> flag combination is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>headerFlag</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0" id="Table1">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HasHeader</tt></td>
+
+                    <td>The <tt>DG_LT_HEADER</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><a name="ListView" id="ListView"></a>
+
+    <h4>GRC Specification of the <a href="ListView.html">List View</a></h4>
+    <pre class="syntax">
+    SingleSelListView    <i>x  y  dx  dy  fontSpec  imWidth  imHeight  cellWidth  cellHeight  lvModeFlag</i>  [<i>NoScroll</i>]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the list view, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the item labels. <em>cellWidth</em>, <em>cellHeight</em> and <em>imWidth</em>, <em>imHeight</em> are the width and height of the list view items and item images in pixels, respectively. <em>lvModeFlag</em> defines the view mode of the list view control. By the optional <em>NoScroll</em> flag the list view control is created without the default vertical scrollbar.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>lvModeFlag</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>bottomText</tt></td>
+
+                    <td>The <tt>DG_LVVM_BOTTOMTEXT</tt> view mode is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>rightText</tt></td>
+
+                    <td>The <tt>DG_LVVM_RIGHTTEXT</tt> view mode is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>singleColumn</tt></td>
+
+                    <td>The <tt>DG_LVVM_SINGLECOLUMN</tt> view mode is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><a name="Pop-upControl" id="Pop-upControl"></a>
+
+    <h4>GRC Specification of the <a href="Pop-upControl.html">Pop-up Control</a></h4>
+    <pre class="syntax">
+    PopupControl    <i>x  y  dx  dy  listHeight  textOffset</i>
+                    [iconID<b>1</b>  itemText<b>1</b>]
+                           ....
+                    [iconID<b>i</b>  itemText<b>i</b>]
+                           ....
+                    [iconID<b>n</b>  itemText<b>n</b>]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the pop-up control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. The <em>listHeight</em> and <em>textOffset</em> are not optional, but they are used on Windows only. <em>listHeight</em> is the height of the drop-down list in pixels. <em>textOffset</em> is the pixel offset of pop-up items' text from the left. If the optional <em>iconID<b>i</b></em> and <em>itemText<b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) parameters are present, they initialize <em>n</em> pieces of pop-up items. <em>iconID<b>i</b></em> and <em>itemText<b>i</b></em> defines the icon and the text (given between two quotation marks) of the i-th pop-up item, respectively. Although <em>iconID<b>i</b></em> and <em>itemText<b>i</b></em> parameters are optional they must be used or omitted in pairs, i.e. <em>iconID<b>i</b></em> or <em>itemText<b>i</b></em> alone is not allowed.</p>
+
+    <p>Possible values of <i>iconID<b>i</b></i>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoIcon</tt></td>
+
+                    <td>The pop-up item has no icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>257 &lt;= iconID &lt;= 511</tt></td>
+
+                    <td>The pop-up item has an icon given in resource.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>A pop-up item can have an icon and / or an item text. The icon is always on the left side of the item text. On Macintosh, the item text is rendered to the left if the item has no icon. On Windows, however, the text keeps its position given by the <em>textOffset</em> parameter in GRC.</p>
+
+    <p>The width of the drop-down list depends on the length of the longest string among the pop-up items. If the drop-down list is not wide enough to display the longest pop-up item, it is extended automatically.</p>
+
+    <p><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></p>
+
+    <dl>
+        <dd>The height of the system combo box is determined by its font. DG modifies this default height so that the height of an item is equal to the size specified in GRC.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dd>The <em>listHeight</em> parameter of the GRC specification defines the height of the drop-down list in pixels. The list is automatically shortened by the system to show full pop-up items only. If the list is not large enough to display all the pop-up items at once, a vertical scroll bar appears.</dd>
+    </dl><a name="ProgressBar" id="ProgressBar"></a>
+
+    <h4>GRC Specification of the <a href="ProgressBar.html">Progress Bar</a></h4>
+    <pre class="syntax">
+    ProgressBar    <i>x  y  dx  dy  min  max</i>  [frameType]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the progress bar, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>min</em> and <em>max</em> define the initial range of the progress bar. If the optional <em>frameType</em> flag is omitted, the progress bar is drawn with a thin three-dimensional border.</p>
+
+    <p>Possible values of <em>frameType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="160">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>StaticEdge</tt></td>
+
+                    <td>The <tt>DG_FT_STATIC</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ClientEdge</tt></td>
+
+                    <td>The <tt>DG_FT_CLIENT</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ModalFrame</tt></td>
+
+                    <td>The <tt>DG_FT_MODAL</tt> frame type is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><a name="PushButton" id="PushButton"></a>
+
+    <h4>GRC Specification of the <a href="PushButton.html">Push Button</a></h4>
+    <pre class="syntax">
+    Button        <i>x  y  dx  dy  fontSpec  [frameType]    [appearanceType]  "text"</i>
+    IconButton    <i>x  y  dx  dy  iconID    [frameType]    [appearanceType]</i>
+    SplitButton   <i>x  y  dx  dy  fontSpec  [appearanceType]  iconID  "text"</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the push button, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the button <em>text</em>. <em>iconID</em> defines the icon resource ID of the icon-style push button. If the optional <em>frameType</em> flag is omitted, the push button is drawn with a three-dimensional raised border. If you want a frameless push button set this flag to <tt>noFrame</tt>.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>frameType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="250">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noFrame</tt></td>
+
+                    <td>The push button will be frameless.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>frame</tt></td>
+
+                    <td>The push button will have three-dimensional raised border.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <em>appearanceType</em>: (only affects the push button on Macintosh)</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Normal</tt></td>
+
+                    <td>This is the default. The push button has normal edge (<tt>DG_BA_NORMAL</tt>).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>BevelEdge</tt></td>
+
+                    <td>The push button has bevel edge (<tt>DG_BA_BEVEL</tt>).</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Suggested sizes</h4>
+
+    <p>For simple text push buttons the suggested item height is 20 pixels. Note that on Windows, DG automatically increases the height of simple text push buttons by 4 pixels in order to make enough room for the focus rectangle.</p>
+
+    <p>In case of icon buttons the button size should be greater than the icon size at least by 8 pixels in both direction. It is advisable to use these values in GRC or when push buttons are created from program code.</p><a name="PushMenuControl" id="PushMenuControl"></a>
+
+    <h4>GRC Specification of the <a href="PushMenuControl.html">Push Menu Control</a></h4>
+    <pre class="syntax">
+    IconMenuCheck    <i>x  y  dx  dy</i>  [iconID<b>1</b>] ... [iconID<b>i</b>] ... [iconID<b>n</b>]
+    IconMenuRadio    <i>x  y  dx  dy  groupID</i>  [iconID<b>1</b>] ... [iconID<b>i</b>] ... [iconID<b>n</b>]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the push menu control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>groupID</em> defines the 1-based index of a group of radio buttons to which the control belongs. If the optional <em>iconID<b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) parameters are present, they initialize <em>n</em> pieces of push menu items by giving the icon resource IDs of the icon buttons in the pop-up palette. These icon IDs can be wrapped into more rows.</p>
+
+    <h4>Remarks</h4>
+
+    <p>If the item type of the push menu control is <tt>DG_ITM_RADIOBUTTON</tt>, it can be grouped with other radio buttons of the same dialog or tab page. The grouping information can be specified in the GRC only. When switching on a radio button of a group (either by user action or from program code), DG automatically switches off the other radio buttons of the group.</p><a name="RadioButton" id="RadioButton"></a>
+
+    <h4>GRC Specification of the <a href="RadioButton.html">Radio Button</a></h4>
+    <pre class="syntax">
+    RadioButton        <i>x  y  dx  dy  fontSpec  groupID  "text"</i>
+    PushRadio          <i>x  y  dx  dy  fontSpec  groupID  "text"</i>
+
+    IconRadioButton    <i>x  y  dx  dy  groupID  iconID</i>
+    IconPushRadio      <i>x  y  dx  dy  groupID  iconID</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the radio button, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>groupID</em> defines the 1-based index of a group of radio buttons to which the control belongs. <em>fontSpec</em> declares the font size and style of the radio button <em>text</em>. <em>iconID</em> defines the icon resource ID of the icon-style radio button.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Suggested sizes</h4>
+
+    <p>For text-style radio buttons the following item heights are suggested. It is advised to use these values in GRC or when radio buttons are created from program code.</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left"><tt>dy</tt> (pixels)</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_TEXT</tt></td>
+
+                    <td>18</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_PUSHTEXT</tt></td>
+
+                    <td>20</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>A radio button can be grouped with other radio buttons of the same dialog or tab page. The grouping information can be specified in the GRC only. When switching on a radio button of a group (either by user action or from program code), DG automatically switches off the other radio buttons of the group.</p><a name="RichEditControl" id="RichEditControl"></a>
+
+    <h4>GRC Specification of the <a href="RichEditControl.html">Rich Edit Control</a></h4>
+    <pre class="syntax">
+    RichEdit    <i>x  y  dx  dy  fontSpec  [readonlyFlag]  scrollMode</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the rich edit control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the size and style of the control's font. <em>scrollMode</em> defines whether the control should have horizontal and/or vertical scrollbars.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>readonlyFlag</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>editable</tt></td>
+
+                    <td>The rich edit control is editable.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>readOnly</tt></td>
+
+                    <td>The rich edit control is read-only.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>scrollMode</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HScroll</tt></td>
+
+                    <td>Rich edit control with horizontal scrollbar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>VScroll</tt></td>
+
+                    <td>Rich edit control with vertical scrollbar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HVScroll</tt></td>
+
+                    <td>Rich edit control with both horizontal and vertical scrollbars.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoScroll</tt></td>
+
+                    <td>Rich edit control without any scrollbars.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><a name="ScrollBar" id="ScrollBar"></a>
+
+    <h4>GRC Specification of the <a href="ScrollBar.html">Scroll Bar</a></h4>
+    <pre class="syntax">
+    ScrollBar    <i>x  y  dx  dy  pageSize  min  max [styleFlag]</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the scroll bar, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>pageSize</em> defines the page size of the scroll bar (see Remarks for details). <em>min</em> and <em>max</em> specifies the initial range of the scroll bar. The optional <em>styleFlag</em> parameter can be any <tt>OR(|)</tt> combination of the proportional, focusable and autoscroll flags.</p>
+
+    <p>Possible values of the proportional flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Normal</tt></td>
+
+                    <td>Normal scroll bar. Not proportional.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Proportional</tt></td>
+
+                    <td>Proportional scroll bar. The scroll box size changes automatically, when the page size is changed.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the focusable flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Focusable</tt></td>
+
+                    <td>The scroll bar can have the keyboard focus.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NonFocusable</tt></td>
+
+                    <td>The scroll bar cannot have the keyboard focus.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the autoscroll flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>AutoScroll</tt></td>
+
+                    <td>The scroll bar handles the scroll bar specific events itself, the dialog callback function is notified just about the beginning, finishing, and during tracking.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoAutoScroll</tt></td>
+
+                    <td>The scroll bar handles only the <tt>DG_TSM_THUMBTRACK</tt> sub-message, the other sub-messages should be handled by the dialog callback function, so the application is responsible to move the scroll box according to the event.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>When the user clicks in the gray area of a scroll bar, or on Windows presses the <tt>PageUp</tt> or <tt>PageDown</tt> keys while the scroll bar has the keyboard focus, the scroll box position is modified by the value of the page size. The page size is initialized from GRC.</p><a name="SeparatorItem" id="SeparatorItem"></a>
+
+    <h4>GRC Specification of the <a href="SeparatorItem.html">Separator Item</a></h4>
+    <pre class="syntax">
+    Separator    <i>x  y  dx  dy</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the separator item, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels.</p>
+
+    <h4>Remarks</h4>
+
+    <p>When a separator item is created from GRC or from program code, DG determines its type from the specified horizontal and vertical sizes. If both sizes are greater than 3 pixels DG creates a separator rectangle. If only the horizontal or the vertical size is greater than 3 pixels DG creates a horizontal or a vertical separator line, respectively.</p><a name="SliderBar" id="SliderBar"></a>
+
+    <h4>GRC Specification of the <a href="SliderBar.html">Slider Bar</a></h4>
+    <pre class="syntax">
+    Slider    <i>x  y  dx  dy  stepVal  min  max</i>  [sliderStyle]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the slider bar, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. If <em>stepVal</em> is zero, the drawing of thick marks is disabled; otherwise the thick marks are enabled and <em>stepVal</em> defines the page size of the slider bar by the following formula: <em>pageSize</em> = (<em>max - min</em>) / <em>stepVal</em> (for details see Remarks). <em>min</em> and <em>max</em> specifies the initial range of the slider bar. The optional <em>sliderStyle</em> flag specifies the subtype of the slider bar. If this flag is omitted, by default the <tt>DG_SL_BOTTOMRIGHT</tt> subtype is set.</p>
+
+    <p>Possible values of <em>sliderStyle</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>BottomRight</tt></td>
+
+                    <td>The <tt>DG_SL_BOTTOMRIGHT</tt> subtype is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>TopLeft</tt></td>
+
+                    <td>The <tt>DG_SL_TOPLEFT</tt> subtype is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The position of the slider is derived from the current value based on the minimum and maximum value. The relative position is calculated using the following formula: <em>relative position</em> = (<em>value - minimum</em>) / (<em>maximum - minimum</em>). On Windows, if the minimum and maximum values are equal, the slider is placed at the beginning of the control. However, on Macintosh, the slider bar becomes disabled in this case.</p>
+
+    <p>When the user clicks in the bar area of a slider bar, or on Windows presses the <tt>PageUp</tt> or <tt>PageDown</tt> keys while the slider bar has the keyboard focus, the slider position is modified by the value of the page size. The page size is initialized from GRC by the following formula: <em>pageSize</em> = (<em>maximum - minimum</em>) / <em>stepVal</em> (<em>stepVal</em> must be greater than zero). When the range of the scroll bar is altered by <a href="DGSetItemMinLong.html">DGSetItemMinLong</a> or <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a>, the <em>pageSize</em> value is automatically recalculated and the tick marks, if they are enabled, are redrawn according to this new page size. If <em>stepVal</em> is set to zero in GRC no tick marks are drawn. In this case the page size is not defined by DG, the slider bar uses the system default value.</p><a name="SpinControl" id="SpinControl"></a>
+
+    <h4>GRC Specification of the <a href="SpinControl.html">Spin Control</a></h4>
+    <pre class="syntax">
+    SingleSpin    <i>x  y  dx  dy  min  max</i>
+    EditSpin      <i>x  y  dx  dy  editID</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the spin control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>min</em> and <em>max</em> specifies the initial range of the single spin control. <em>editID</em> is the dialog item identifier of the edit control associated with the edit spin control. The edit control's type must be integer or positive integer (<tt>DG_ET_INT</tt> or <tt>DG_ET_POSINT</tt>) and <em>editID</em> must be one less than the ID of the edit spin control.</p>
+
+    <h4>Remarks</h4>
+
+    <p>A single spin control functions as a sort of simplified scroll bar. It can be positioned anywhere in a dialog and used whenever needed to provide a scrolling input. On Windows, when you create a single spin control, DG automatically determines its orientation according to the specified horizontal and vertical sizes. If the horizontal size is greater than the vertical one DG creates a horizontal spin control. In the opposite case DG creates a vertical spin control. On Macintosh, only vertical single spin controls are supported.</p>
+
+    <p>An edit spin control is always associated with an edit control of integer or positive integer type. The edit spin control and the edit control can be associated with each other only when they are created. The edit spin control must be just after its companion edit control in the dialog item list and it must be positioned next to the right of the edit control. On Windows, DG closes up these controls so that they look like a single control that is sometimes referred to as a spinner control. Edit spin controls always have vertical orientation. Clicking the up or down arrows increments or decrements the values of both controls. On Windows, when the companion edit control has the keyboard focus, the value of the controls can be modified not only by mouse clicks but by pressing the up or down arrow keys as well.</p><a name="Splitter" id="Splitter"></a>
+
+    <h4>GRC Specification of the <a href="Splitter.html">Splitter Control</a></h4>
+    <pre class="syntax">
+    Splitter    <i>x  y  dx  dy</i>  [Transparent]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the splitter, <em>dx</em> and <em>dy</em> are the item width and height in pixels. Set the optional <em>Transparent</em> flag to draw a transparent splitter. If the optional <em>Transparent</em> flag is omitted, a normal splitter control is drawn. The horizontal and the vertical subtype depend on the the item width and the height of the control, however the orientation property is set from code.</p>
+
+    <h4>Suggested sizes</h4>
+
+    <p>The thickness of the splitter control is defined in the resource - the suggested minimum thickness is 7 pixels.</p><a name="StaticText" id="StaticText"></a>
+
+    <h4>GRC Specification of the <a href="StaticText.html">Static Text</a></h4>
+    <pre class="syntax">
+    LeftText      <i>x  y  dx  dy  fontSpec</i>  [textFlag]  [frameType]  <i>"text"</i>
+    CenterText    <i>x  y  dx  dy  fontSpec</i>  [textFlag]  [frameType]  <i>"text"</i>
+    RightText     <i>x  y  dx  dy  fontSpec</i>  [textFlag]  [frameType]  <i>"text"</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the static text control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the control <em>text</em>. The optional <em>textFlag</em> parameter is the <tt>OR(|)</tt> combination of the vertical alignment and truncation flags. If this parameter is omitted the text is aligned to the top and no truncation is applied. If the optional <em>frameType</em> flag is omitted, the static text control is drawn without frame.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the vertical alignment flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>vTop</tt></td>
+
+                    <td>The <tt>DG_IS_VTOP</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>vCenter</tt></td>
+
+                    <td>The <tt>DG_IS_VCENTER</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>vBottom</tt></td>
+
+                    <td>The <tt>DG_IS_VBOTTOM</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the truncation flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noTrunc</tt></td>
+
+                    <td>The <tt>DG_IS_NOTRUNC</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>truncEnd</tt></td>
+
+                    <td>The <tt>DG_IS_TRUNCEND</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>truncMiddle</tt></td>
+
+                    <td>The <tt>DG_IS_TRUNCMIDDLE</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>frameType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Default</tt></td>
+
+                    <td>The <tt>DG_FT_NONE</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>StaticEdge</tt></td>
+
+                    <td>The <tt>DG_FT_STATIC</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ClientEdge</tt></td>
+
+                    <td>The <tt>DG_FT_CLIENT</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ModalFrame</tt></td>
+
+                    <td>The <tt>DG_FT_MODAL</tt> frame type is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Suggested sizes</h4>
+
+    <dl>
+        <dd>The following item height values can be suggested for static text controls:</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Font size</th>
+
+                    <th align="left">Item height in pixels</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+
+                    <td>12</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_SMALL</tt></td>
+
+                    <td>14</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_LARGE</tt></td>
+
+                    <td>16</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dd>If the static text control has a frame, increase the above values by 4 pixels in order to make enough room for the frame rectangle.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>A static text control can contain multiple lines of text. If no truncation is specified and the text doesn't fit horizontally in the control rectangle, DG automatically breaks it into multiple lines on word boundaries. Vertically partial lines are not displayed so the second and further lines can be seen only if the control is high enough to display them fully. Texts can be explicitly break into more lines by inserting new line (<tt>\n</tt>) characters into them.</p>
+
+    <p>When any truncation is specified the situation is a little different. First DG calculates how many full height lines can be displayed in the control's rectangle. Then it truncates the text with an ellipse character in the middle or at the end. Finally the gained text is justified according to the specified horizontal and vertical alignments.</p>
+
+    <p>Sometimes when labeling a control with a static text, it is advisable to set the height of both controls to the same value and assign the <em>vCenter</em> alignment flag to the static text in GRC. This way the static text will be vertically centered to the labeled control.</p><a name="TabControl" id="TabControl"></a>
+
+    <h4>GRC Specification of the <a href="TabControl.html">Tab Control</a></h4>
+    <pre class="syntax">
+    NormalTab    <i>x  y  dx  dy</i>
+                 <i>dlgID<b>1</b>  iconID<b>1</b>  "labelText<b>1</b>"</i>
+                           ...
+                 <i>dlgID<b>i</b>  iconID<b>i</b>  "labelText<b>i</b>"</i>
+                           ...
+                 <i>dlgID<b>n</b>  iconID<b>n</b>  "labelText<b>n</b>"</i>
+
+    SimpleTab    <i>x  y  dx  dy</i>  [frameType]
+                 <i>dlgID<b>1</b></i>
+                   ...
+                    <i>dlgID<b>i</b></i>
+                   ...
+                 <i>dlgID<b>n</b></i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the tab control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. The <em>dlgID<b>i</b></em>, <em>iconID<b>i</b></em> and <em>labelText<b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) parameters initialize <em>n</em> pieces of tab pages and their tab items. <em>dlgID<b>i</b></em> is the resource ID of the i-th tab page resource in GRC. <em>iconID<b>i</b></em> and <em>labelText<b>i</b></em> defines the icon and the label text (given between two quotation marks) of the i-th tab item. If the optional <em>frameType</em> flag is omitted, the simple tab control is drawn with a three-dimensional raised border. If you want a frameless simple tab control set this flag to <tt>noFrame</tt>.</p>
+
+    <p>Possible values of <i>iconID<b>i</b></i>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="250">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoIcon</tt></td>
+
+                    <td>The i-th tab item has no icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>129 &lt;= iconID &lt;= SHRT_MAX</tt></td>
+
+                    <td>The i-th tab item has an icon given in resource. The size of the icon must be <tt>16x16</tt> pixels.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>frameType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="250">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noFrame</tt></td>
+
+                    <td>The simple tab control will be frameless.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>frame</tt></td>
+
+                    <td>The simple tab control will have three-dimensional raised border.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><a name="TreeView" id="TreeView"></a>
+
+    <h4>GRC Specification of the <a href="TreeView.html">Tree View</a></h4>
+    <pre class="syntax">
+    SingleSelTreeView    <i>x  y  dx  dy  fontSpec  niWidth  niHeight  siWidth  siHeight  editable  dragable  maxChCount</i>  [noRootButton]
+    MultiSelTreeView     <i>x  y  dx  dy  fontSpec  niWidth  niHeight  siWidth  siHeight  editable  dragable  maxChCount</i>  [noRootButton]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the tree view, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the item labels. <em>niWidth</em>, <em>niHeight</em> and <em>siWidth</em>, <em>siHeight</em> are the width and height of the normal and status icons in pixels, respectively. The <em>editable</em> and <em>dragable</em> flags define whether the item labels can be edited and the drag and drop feature is enabled. If the optional <tt>noRootButton</tt> flag is present, the root item has no plus (+) or minus (-) button on Windows.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>editable</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>labelEdit</tt></td>
+
+                    <td>The <tt>DG_TVT_LABELEDIT</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noLabelEdit</tt></td>
+
+                    <td>The <tt>DG_TVT_LABELEDIT</tt> flag is not set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>dragable</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>dragDrop</tt></td>
+
+                    <td>The <tt>DG_TVT_DRAGDROP</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noDragDrop</tt></td>
+
+                    <td>The <tt>DG_TVT_DRAGDROP</tt> flag is not set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>Label editing and drag and drop capability can be enabled from GRC only, by setting the <tt>labelEdit</tt> and <tt>dragDrop</tt> flags, respectively. A tree view can receive <tt>DG_MSG_CHANGE</tt> message with <tt>DG_TVCF_EDITBEGIN</tt> or <tt>DG_TVCF_EDITEND</tt> action flag only if it has the <tt>DG_TVT_LABELEDIT</tt> flag.</p><a name="UserControl" id="UserControl"></a>
+
+    <h4>GRC Specification of the <a href="UserControl.html">User Control</a></h4>
+    <pre class="syntax">
+    UserControl    <i>x  y  dx  dy  cdefID</i>
+                   [data<b>1</b>  ...  data<b>i</b>  ...  data<b>n</b>]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the user control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>cdefID</em> is the control definition procedure ID (it must be within the range of 512 &lt;= <i>ldefID</i> &lt;= 999). The optional <em>data</em><em><b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) short parameters may initialize the user control (n can be zero). These parameters can be given both in decimal or hexadecimal formats and they can be written in more lines.</p><a name="UserItem" id="UserItem"></a>
+
+    <h4>GRC Specification of the <a href="UserItem.html">User Item</a></h4>
+    <pre class="syntax">
+    UserItem    <i>x  y  dx  dy</i>  [PartialUpdate]  [frameType]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the user item, <em>dx</em> and <em>dy</em> are the item width and height in pixels. Set the optional <em>PartialUpdate</em> flag to enable partial update. If the optional <em>frameType</em> flag is omitted, the user item is drawn without frame.</p>
+
+    <p>Possible values of <em>frameType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Default</tt></td>
+
+                    <td>The <tt>DG_FT_NONE</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>StaticEdge</tt></td>
+
+                    <td>The <tt>DG_FT_STATIC</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ClientEdge</tt></td>
+
+                    <td>The <tt>DG_FT_CLIENT</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ModalFrame</tt></td>
+
+                    <td>The <tt>DG_FT_MODAL</tt> frame type is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="GRC_DialogTypes.html">GRC specification of the Dialog Types</a>, <a href="GRC_DialogHelps.html">GRC specification of the Dialog Helps</a>, <a href="GRC_ImageTypes.html">GRC specification of the Image Types</a><br>
+    <a href="CheckBox.html">Check Box</a>, <a href="DateTimeControl.html">Date &amp; Time Control</a>, <a href="EditControl.html">Edit Control</a>, <a href="GroupBox.html">Group Box</a>, <a href="ListBox.html">List Box</a>, <a href="ListView.html">List View</a>, <a href="Pop-upControl.html">Pop-up Control</a>, <a href="ProgressBar.html">Progress Bar</a>, <a href="PushButton.html">Push Button</a>, <a href="PushMenuControl.html">Push Menu Control</a>, <a href="RadioButton.html">Radio Button</a>, <a href="RichEditControl.html">Rich Edit Control</a>, <a href="ScrollBar.html">Scroll Bar</a>, <a href="SeparatorItem.html">Separator Item</a>, <a href="SliderBar.html">Slider Bar</a>, <a href="SpinControl.html">Spin Control</a>, <a href="StaticText.html">Static Text</a>, <a href="TabControl.html">Tab Control</a>, <a href="TreeView.html">Tree View</a>, <a href="UserControl.html">User Control</a>, <a href="UserItem.html">User Item</a><br>
+    <a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="DGSetItemFont.html">DGSetItemFont</a>, <a href="DGAppendDialogItem.html">DGAppendDialogItem</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a>, <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on November 29, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

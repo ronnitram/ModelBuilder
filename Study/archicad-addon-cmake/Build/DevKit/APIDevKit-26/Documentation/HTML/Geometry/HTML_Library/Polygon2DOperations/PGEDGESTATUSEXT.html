@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title></title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Polygon2DOperations/PGEDGESTATUSEXT.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <a href="PGEDGESTATUSEXT.html">PGEDGESTATUSEXT</a>
+
+    <h1>PGEDGESTATUSEXT</h1>
+
+    <p>The statuses of a <a href="../Polygon2DOperations/PGEDGEEXT.html">PGEDGEEXT</a>. It is the part of it.</p>
+    <pre class="syntax">
+    <strong>struct</strong> PGEDGESTATUSEXT {
+      <strong>long</strong>             <em>isArc</em>             : 1;
+      <strong>long</strong>             <em>isArcRevoriented</em>  : 1;
+      <strong>long</strong>             <em>isBegHole</em>         : 1;
+      <strong>long</strong>             <em>isEndContour</em>      : 1;
+      <strong>long</strong>             <em>isEndPolygon</em>      : 1;
+      <strong>long</strong>             <em>isSplitLine</em>       : 1;
+    };
+
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>isArc</b></dt>
+
+        <dd>True if this edge is an arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>isArcRevoriented</b></dt>
+
+        <dd>True if the arc of this edge is negative oriented.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>isBegHole</b></dt>
+
+        <dd>True if this edge is the beginnig of a hole. (Contour other than the first.)</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>isEndContour</b></dt>
+
+        <dd>True if this edge is the last in a contour. (Including the first.) Must be set even if it is an end of the polygon too.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>isEndPolygon</b></dt>
+
+        <dd>True if this edge is the last in the polygon.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>isSplitLine</b></dt>
+
+        <dd>True if this line is a splitter line. It's created when a plane splits a polygon on an other plane.</dd>
+
+        <dd>&nbsp;</dd>
+    </dl><!--
+<h4>Remarks</h4>
+
+<p>@@@_Detailed_description_of_the_entity_@@@
+-->
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Polygon2DOperations.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Polygon2DOperations_id.html">2D Polygon operations</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Close</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/File/Close.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="File.html">File</a>::Close</h1><br>
+    Closes access to the content of the file.<br>
+    <br>
+    <pre class="syntax">
+<b>virtual GSErrCode  Close (
+    void
+);</b>
+</pre>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="396">
+        <tr>
+            <th width="115">Value</th>
+
+            <th width="239">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="115">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="239">OK</td>
+        </tr>
+
+        <tr>
+            <td width="169">GS::OChannel::OutputIsFull</td>
+
+            <td width="238">output device is full</td>
+        </tr>
+
+        <tr>
+            <td width="169">GS::OChannel::WriteError</td>
+
+            <td width="238">write error on the output device</td>
+        </tr>
+
+        <tr>
+            <td width="115">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="239">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>If the file content was previously opened by the <a href="Open.html">Open</a> method, then this method closes access to it. Internal (and OS) buffers are flushed to the output device. Anyway, if the file content was left opened, it will be automatically closed at the destruction time. After this method was invoked, file content is treated closed without respect to possible errors.</p>
+
+    <p>If the file content was not opened (or was already closed), then this method does nothing.<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

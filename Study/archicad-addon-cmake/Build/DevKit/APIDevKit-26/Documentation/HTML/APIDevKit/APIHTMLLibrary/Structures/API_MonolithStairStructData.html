@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>API_MonolithStairStructData</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_MonolithStairStructData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_MonolithStairStructData</h1>
+    <p>Represents the data of a monolithic Stair Structure element.</p>
+
+<pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>bool</strong>                               <em>thinning</em>;
+        <strong>bool</strong>                               <em>materialsChained</em>;
+        <strong>short</strong>                              <em>filler_1</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>sideFill</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>buildingMaterial</em>;
+        <strong>short</strong>                              <em>filler_2[2]</em>;
+        <strong>double</strong>                             <em>monolithThickness</em>;
+        <strong>double</strong>                             <em>bottomOversize</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>            <em>topMaterial</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>            <em>leftMaterial</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>            <em>rightMaterial</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>            <em>bottomMaterial</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>cutLineType</em>;
+        <strong>short</strong>                              <em>cutLinePen</em>;
+        <strong>short</strong>                              <em>pen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>lineType</em>;
+        <strong>short</strong>                              <em>filler_3[2]</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>            <em>cutFillPen</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>            <em>cutFillBackPen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>surfaceMaterial</em>;
+        <strong>bool</strong>                               <em>uniformDrainings</em>;
+        <strong>bool</strong>                               <em>filler_4[3]</em>;
+        <strong><a href="API_StairStructureDrainingData.html">API_StairStructureDrainingData</a></strong>     <em>draining[API_StairDrainSideNum]</em>;
+    <strong>}</strong> <em>API_MonolithStairStructData</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+    <dl>
+        <dt><b>thinning</b></dt>
+        <dd>True, if the structure is thinned.</dd>
+
+        <dt><b>materialsChained</b></dt>
+        <dd>True, if the structure's materials are chained.</dd>
+
+        <dt><b>sideFill</b></dt>
+        <dd>The fill of the building material.</dd>
+
+        <dt><b>buildingMaterial</b></dt>
+        <dd>The index of the structure's building material.</dd>
+
+        <dt><b>filler_1</b></dt>
+        <dd>UNUSED PARAMETER</dd>
+
+        <dt><b>monolithThickness</b></dt>
+        <dd>The thickness of the monolith.</dd>
+
+        <dt><b>bottomOversize</b></dt>
+        <dd>The size of the horizontal bottom.</dd>
+
+        <dt><b>topMaterial</b></dt>
+        <dd>The top material of the structure.</dd>
+
+        <dt><b>leftMaterial</b></dt>
+        <dd>The left side material of the structure.</dd>
+
+        <dt><b>rightMaterial</b></dt>
+        <dd>The right side material of the structure.</dd>
+
+        <dt><b>bottomMaterial</b></dt>
+        <dd>The bottom material of the structure.</dd>
+
+        <dt><b>cutLinePen</b></dt>
+        <dd>The index of the cut parts' 2D representation's pen.</dd>
+
+        <dt><b>cutLineType</b></dt>
+        <dd>The index of the cut parts' 2D representation's line type.</dd>
+
+        <dt><b>pen</b></dt>
+        <dd>The index of the 2D representation's pen.</dd>
+
+        <dt><b>lineType</b></dt>
+        <dd>The index of the 2D representation's line type.</dd>
+
+        <dt><b>cutFillPen</b></dt>
+        <dd>The cut fill pen of the Stair Structure.</dd>
+
+        <dt><b>cutFillBackPen</b></dt>
+        <dd>The cut fill background pen of the Stair Structure.</dd>
+
+        <dt><b>surfaceMaterial</b></dt>
+        <dd>The Stair Structure's surface material.</dd>
+
+        <dt><b>uniformDrainings</b></dt>
+        <dd>Uniform Drainings on left and right side.</dd>
+
+        <dt><b>draining</b></dt>
+        <dd>Data about the Stair Structure's drainings.
+            <table>
+                <tr>
+                    <td><p><code>APIDS_Left</code></p></td>
+                    <td><p>Draining on the left side.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIDS_Right</code></p></td>
+                    <td><p>Draining on the right side.</p></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+    <p>
+	    <a href="API_AttributeIndex.html">API_AttributeIndex</a>
+        <a href="API_Element.html">API_Element</a>,
+        <a href="API_StairType.html">API_StairType</a>,
+        <a href="API_StairStructureType.html">API_StairStructureType</a>
+        <br>
+        <a href="../Level3/Element_Manager_id.html">Element Manager</a>,
+        <a href="API_Types.html">API Types</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 13, 2018
+<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

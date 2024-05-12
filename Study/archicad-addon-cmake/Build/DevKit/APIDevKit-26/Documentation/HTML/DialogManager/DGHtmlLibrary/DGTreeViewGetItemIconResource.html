@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Urban Eszter">
+
+    <title>DGTreeViewGetItemIconResource</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGTreeViewGetItemIconResource.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGTreeViewGetItemIconResource</h1>
+
+    <p>Retrieves the resource module ID of the state or the normal icon of a <a href="TreeView.html">tree view</a> item.</p>
+    <pre class="syntax">
+    <strong>GSResModule DGTreeViewGetItemIconResource</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>Int32</strong>  <em>treeItem</em>,
+      <strong>short</strong>  <em>iconType</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>treeItem</em></dt>
+
+        <dd>ID of the tree view item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>iconType</em></dt>
+
+        <dd>The type of the queried icon of the tree view item:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVIT_NORMAL</tt></td>
+
+                    <td>The normal icon of the item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVIT_STATE</tt></td>
+
+                    <td>The state icon of the item.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The resource module ID of the icon of the specified tree view item, depending on the <strong>iconType</strong> parameter. <tt>InvalidResModule</tt> is returned if the specified tree view item does not contain the specified type of icon, if the icon was set by <a href="DGTreeViewSetItemIcon.html">DGTreeViewSetItemIcon</a>, or if the function parameters are incorrect.</p>
+
+    <h4>Remarks</h4>
+
+    <p>A tree view item can have two types of icons: the state icon and the normal icon. The icons are always on the left side of the item text. If the tree view has both types of icons, the state icon is the leftmost.</p>
+
+    <p>The number of different state icons in a tree view is limited to 12. There is no such limitation for the normal icons.</p>
+
+    <p>There are two ways to set an icon of a tree view item. One possibility is to specify the icon with its resource ID by <a href="DGTreeViewSetItemIconId.html">DGTreeViewSetItemIconId</a> or by <a href="DGTreeViewSetItemIconResource.html">DGTreeViewSetItemIconResource</a>, the other is to set it with its icon handle by <a href="DGTreeViewSetItemIcon.html">DGTreeViewSetItemIcon</a>. If the icon was set by its resource ID, the icon ID can be retrieved by <strong>DGTreeViewGetItemIconId</strong> and the resource module ID can be retrieved by <strong>DGTreeViewGetItemIconResource</strong>, in this case <a href="DGTreeViewGetItemIcon.html">DGTreeViewGetItemIcon</a> returns <tt>nullptr</tt>.</p>
+
+    <p>If the icon is not set yet, an empty area is displayed instead of shifting the content of the item to the left.</p>
+
+    <p>Either of the icon types can be omitted by setting its size to zero either from resource or by a call to <a href="DGTreeViewSetIconSize.html">DGTreeViewSetIconSize</a>. These settings apply to the whole tree view, i.e. to all tree items.</p>
+
+    <p>The resource module of the dialog can be set and retrieved by <a href="DGSetDialogResourceModule.html">DGSetDialogResourceModule</a> or <a href="DGSetDialogResourceModules.html">DGSetDialogResourceModules</a> and <a href="DGGetDialogResourceModule.html">DGGetDialogResourceModule</a> or <a href="DGGetDialogIconResourceModule.html">DGGetDialogIconResourceModule</a>, respectively.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="TreeView.html">Tree View</a>, <a href="DGTreeViewSetItemIconResource.html">DGTreeViewSetItemIconResource</a><br>
+    <a href="DGTreeViewGetItemIcon.html">DGTreeViewGetItemIcon</a>, <a href="DGTreeViewGetItemIconId.html">DGTreeViewGetItemIconId</a><br>
+    <a href="DGTreeViewSetItemIcon.html">DGTreeViewSetItemIcon</a>, <a href="DGTreeViewSetItemIconId.html">DGTreeViewSetItemIconId</a><br>
+    <a href="DGTreeViewGetIconSize.html">DGTreeViewGetIconSize</a>, <a href="DGTreeViewSetIconSize.html">DGTreeViewSetIconSize</a>, <a href="DGGetDialogResourceModule.html">DGGetDialogResourceModule</a>, <a href="DGGetDialogIconResourceModule.html">DGGetDialogIconResourceModule</a>, <a href="DGSetDialogResourceModule.html">DGSetDialogResourceModule</a>, <a href="DGSetDialogResourceModules.html">DGSetDialogResourceModules</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 27, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

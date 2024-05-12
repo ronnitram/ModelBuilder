@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ArrayFB Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/ArrayFB/ArrayFB.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="Constructors.html">ArrayFB</A>--><H2>ArrayFB Class</H2><!--exp="ArrayFB Class"-->
+<P><topic id="$GS.$ArrayFB.BriefDescription">
+		Array with built-in initial buffer of fixed size.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>Type</I>, <B>USize</B> <I>BufferCapacity</I><B>&gt;
+</B>class ArrayFB : public <!----><a class="nodecorate" href="../Array/Array.html">Array&lt; Type &gt;</A></B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>Type</I></DT><DD><topic id="$GS.$ArrayFB.$Type.TemplateParamDescription">
+		Type of items the ArrayFB stores.
+	</topic></DD><DT><I>BufferCapacity</I></DT><DD><topic id="$GS.$ArrayFB.$BufferCapacity.TemplateParamDescription">
+		Capacity of the built-in initial buffer in items.
+	</topic></DD>
+</DL>
+<H4>Members</H4>
+<P><B><A name="PublicMethods"></A>Public Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">ArrayFB</A></TD>
+<TD width="70%"><topic id="$GS.$ArrayFB.$ArrayFB.BriefDescription">
+		ArrayFB constructor.
+	</topic></TD>
+</TR>
+</table>
+<H4>Description</H4>
+<P><topic id="$GS.$ArrayFB.LongDescription">
+		ArrayFB is an Array with built-in initial buffer of fixed size. This buffer will be used
+		until its capacity is exceeded. When this happens a new (larger) buffer will be allocated
+		on the heap.<br>
+		This kind of array is useful when number of items in most cases does not exceed a well-known
+		(smaller) limit. In such cases this class will be fast because it will allocate no memory from
+		the heap. For example it can be used for computations inside methods and functions as local
+		objects, or as member variables in classes when small number of items is expected (from the
+		layout view items will be stored in the containing object).
+	</topic></P>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../GS.html">GS</A></P>
+<P><B>Header: </B>Array.hpp</P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

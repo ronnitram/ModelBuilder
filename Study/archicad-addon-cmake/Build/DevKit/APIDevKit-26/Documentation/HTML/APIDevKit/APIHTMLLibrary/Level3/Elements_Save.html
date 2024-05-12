@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Save data into the Element records</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Elements_Save.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Save data into the Element records</h1>
+
+    <p><br>
+    This paper give hints on:</p>
+
+    <ul>
+        <li>how you can assign additional information to, or</li>
+
+        <li>with other words how you can save own data into</li>
+    </ul>
+
+    <p>any elements placed onto the floor plan.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Limitations</h4>
+
+    <p>All Archicad elements can hold extra information (the previous 128-byte limit has been removed in Archicad 8). The registration table is global for the whole project; add-ons are identified by their module ID. It means that one add-on can save the same number of bytes to any kind of element.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <p>The structure of the user data is unified for Archicad 8, and it contains the following required fields:</p>
+
+    <ul>
+        <li>The version number of the data -- this enforces future compatibility.</li>
+
+        <li>The platform where the data was stored.</li>
+
+        <li>And, of course, the data itself, which can contain an arbitrary number of bytes.</li>
+    </ul>
+
+    <h4>&nbsp;</h4>
+
+    <h4>Data Structure</h4>
+
+    <p>The registration table is saved into the project file. Archicad never deletes any registration data. This ensures that your custom data will be preserved, even if your add-on is not installed. It can happen if the user moves a project onto another Archicad installation. If you pass a nullptr handle in the appropriate part of the user data, the custom data will be erased.</p>
+
+    <p>The registration itself does not ensure that the data structure of every database element will be extended automatically by the requested number of bytes. These extra bytes are allocated on your request only.</p>
+
+    <p>To add your extra bytes to a given element, you should call the <a href="../Functions/ACAPI_Element_SetUserData.html">ACAPI_Element_SetUserData</a> function, and you can get your data assigned to any element with the <a href="../Functions/ACAPI_Element_GetUserData.html">ACAPI_Element_GetUserData</a> function. On the parameter list you have to pass an <a href="../Structures/API_ElementUserData.html">API_ElementUserData</a> structure to store the requested data.</p>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 13, 1999<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_GetConnectedElements</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_GetConnectedElements.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_GetConnectedElements</h1>
+
+    <p>Returns a list of elements connected to the given element.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_GetConnectedElements</strong> (
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>          <em>guid</em>,
+        <strong>const <a href="../Structures/API_ElemType.html">API_ElemType</a></strong>&amp;      <em>connectedElemType</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;*</strong>     <em>connectedElements</em>,
+        <strong>API_ElemFilterFlags</strong>      <em>filterBits           = APIFilt_None</em>,
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>          <em>renovationFilterGuid = APINULLGuid</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>guid</em></dt>
+
+        <dd>[in] Identifier of the element having other elements connected to it.</dd>
+
+        <dt><em>connectedElemType</em></dt>
+
+        <dd>[in] The type of the connected elements to be retrieved. Currently applicable types:
+            <code>API_WindowID</code>, <code>API_DoorID</code> (with Wall elements),
+            <code>API_SkylightID</code> (with Roof and Shell elements),
+            <code>API_LabelID</code> (with all labelable elements, i.e. modeling elements, Curtain Wall subelements, and Fill elements),
+            <code>API_OpeningID&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="21" width="19" height="12"></code> (with Wall, Slab, Mesh and Beam elements),
+        </dd>
+
+        <dt><em>connectedElements</em></dt>
+
+        <dd>[out] Guid list of the connected elements retrieved.</dd>
+
+        <dt><em>filterBits</em></dt>
+
+        <dd>[in] The flags used for filtering (see <a href="ACAPI_Element_Filter.html#filterbits">ACAPI_Element_Filter</a>). The default value is <code>APIFilt_None</code>.</dd>
+
+        <dt><em>renovationFilterGuid</em>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>[in] Optional global unique identifier of the renovation filter. This parameter is currently ignored.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The <em>connectedElements</em> pointer is <code>nullptr</code>.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>The <em>guid</em> parameter does not identify a valid element. Or the given element type cannot be in connection with elements of the requested type.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function can be used to get the elements of the given type and variation, that are connected in an ownership relation with a given element, and match the criteria defined by <code>filterbits</code> (see the filterbits flag values described in the table of <a href="ACAPI_Element_Filter.html#filterbits">ACAPI_Element_Filter</a>).</p>
+
+    <p>Available connections:</p>
+
+    <table border="1" cellpadding="5">
+        <tr>
+            <th align="left">Type of the owner element (specified with <em>guid</em>)</th>
+
+            <th align="left">Connected element type (<em>connectedElemTypeID</em>)</th>
+        </tr>
+
+        <tr>
+            <td><code>API_WallID</code></td>
+
+            <td><code>API_WindowID</code>, <code>API_DoorID</code></td>
+        </tr>
+
+        <tr>
+            <td><code>API_RoofID</code>, <code>API_ShellID</code></td>
+
+            <td><code>API_SkylightID</code></td>
+        </tr>
+
+        <tr>
+            <td width="700">
+                All labelable elements
+            </td>
+            <td><code>API_LabelID</code></td>
+        </tr>
+        <tr>
+            <td><code>API_OpeningID&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="21" width="19" height="12"></code></td>
+            <td><code>API_WallID</code>, <code>API_SlabID</code>, <code>API_MeshID</code>, <code>API_BeamID</code></td>
+        </tr>
+        
+    </table>
+
+    <p>The windows and doors of a given wall element can also be retrieved with the <a href="ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function (<em>wallWindows</em>, <em>wallDoors</em> members of <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>).</p>
+
+    <p>When querying the Labels of an element, if the returned GUID array is not empty, the first GUID will be the GUID of the "Listing Label". It is the Label, which can be listed in Interactive Schedule.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"> From version 26 the <tt>connectedElemTypeID</tt> and <tt>variationID</tt> parameters were merged into a single <a href="../Structures/API_ElemType.html">API_ElemType</a> parameter.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+// list Skylights of the Shell elements
+
+GS::Array&lt;API_Guid&gt; shells;
+GSErrCode err = ACAPI_Element_GetElemList (API_ShellID, &amp;shells);
+if (err == NoError) {
+    GS::UniString reportString;
+    for (GS::Array&lt;API_Guid&gt;::ConstIterator it = shells.Enumerate (); it != nullptr; ++it) {
+        API_Guid shellGuid = *it;
+        GS::UniString shellGuidString = APIGuid2GSGuid (shellGuid).ToUniString ();
+        GS::Array&lt;API_Guid&gt; skylights;
+        err = <font color="#FF0066">ACAPI_Element_GetConnectedElements</font> (shellGuid, API_SkylightID, &amp;skylights);
+        if (err == NoError) {
+            if (skylights.IsEmpty ()) {
+                reportString = GS::UniString::Printf ("Shell {%T} has no Skylights", shellGuidString.ToPrintf ());
+            } else {
+                reportString = GS::UniString::Printf ("Skylights in Shell {%T}:", shellGuidString.ToPrintf ());
+                for (UIndex i = 0; i &lt; skylights.GetSize (); i++) {
+                    API_Element element;
+                    BNZeroMemory (&amp;element, sizeof (API_Element));
+                    element.header.guid = skylights[i];
+                    if (ACAPI_Element_Get (&amp;element) == NoError) {
+                        API_LibPart libPart;
+                        BNZeroMemory (&amp;libPart, sizeof (API_LibPart));
+                        libPart.index = element.skylight.openingBase.libInd;
+                        if (ACAPI_LibPart_Get (&amp;libPart) == NoError) {
+                            reportString.Append (" \"");
+                            reportString.Append (libPart.docu_UName);
+                            reportString.Append ("\"");
+                        }
+                        delete libPart.location;
+                    }
+                }
+            }
+        } else {
+            reportString = GS::UniString::Printf ("Failed to get Skylights for Shell {%T}", shellGuidString.ToPrintf ());
+        }
+        ACAPI_WriteReport (reportString.ToCStr ().Get (), false);
+    }
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 15 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_Element_Filter.html">ACAPI_Element_Filter</a>, <a href="ACAPI_Element_GetElemList.html">ACAPI_Element_GetElemList</a>, <a href="ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 03, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

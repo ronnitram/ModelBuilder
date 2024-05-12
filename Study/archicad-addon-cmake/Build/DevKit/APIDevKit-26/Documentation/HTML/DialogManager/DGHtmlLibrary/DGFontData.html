@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGFontData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGFontData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGFontData</h1>
+
+    <p>The <b>DGFontData</b> structure contains information about font typeface, size and style of a <a href="RichEditControl.html">rich edit control</a>.</p>
+    <pre class="syntax">
+    <strong>struct</strong> <em>DGFontData</em> {
+      <strong>float</strong>  <em>angle;</em>
+      <strong>short</strong>  <em>size;</em>
+      <strong>UChar</strong>  <em>bold;</em>
+      <strong>UChar</strong>  <em>italic;</em>
+      <strong>UChar</strong>  <em>underline;</em>
+      <strong>UChar</strong>  <em>outline;</em>       // Macintosh only!
+      <strong>UChar</strong>  <em>shadow;</em>        // Macintosh only!
+      <strong>UChar</strong>  <em>strikeOut;</em>     // Windows only!
+      <strong>UChar</strong>  <em>charSet;</em>       // Windows only!
+      <strong>char</strong>   <em>filler[3];</em>
+      <strong>char</strong>   <em>faceName[256];</em>
+    };
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>angle</b></dt>
+
+        <dd>Angle of base line from x-axis in radians.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>size</b></dt>
+
+        <dd>Character size of the font in points.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>bold</b></dt>
+
+        <dd>Bold flag. Value 1 means <b>bold</b>, 0 means normal.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>italic</b></dt>
+
+        <dd>Italic flag. Value 1 means <i>italic</i>, 0 means normal.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>underline</b></dt>
+
+        <dd>Underline flag. Value 1 means <u>underlined</u>, 0 means normal.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>filler</b></dt>
+
+        <dd>Reserved.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>faceName</b></dt>
+
+        <dd>Typeface name of the font.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><img src="../DGImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh only:</b></dt>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>outline</b></dt>
+
+        <dd>Outline flag. Value 1 means outlined, 0 means normal.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>shadow</b></dt>
+
+        <dd>Shadow flag. Value 1 means shadowed, 0 means normal.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></dt>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>strikeOut</b></dt>
+
+        <dd>Strikeout flag. Value 1 means stricken-out, 0 means normal.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>charSet</b></dt>
+
+        <dd>Character set of the font (ANSI, Latin-2/Central European, etc.).</dd>
+
+        <dd>&nbsp;</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The <b>DGFontData</b> structure is used only by the <a href="DGRichEditGetFont.html">DGRichEditGetFont</a> and <a href="DGRichEditSetFont.html">DGRichEditSetFont</a> functions.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Structures_id.html">DG Structures</a>, <a href="RichEditControl.html">Rich Edit Control</a>, <a href="DGRichEditGetFont.html">DGRichEditGetFont</a>, <a href="DGRichEditSetFont.html">DGRichEditSetFont</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 5, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

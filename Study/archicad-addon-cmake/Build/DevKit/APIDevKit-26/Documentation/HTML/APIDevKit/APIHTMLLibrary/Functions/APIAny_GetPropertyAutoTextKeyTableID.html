@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIAny_GetPropertyAutoTextKeyTableID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIAny_GetPropertyAutoTextKeyTableID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIAny_GetPropertyAutoTextKeyTableID</h1>
+
+    <p>Retrieves the context dependent autotexts keys.</p>
+
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a></strong> (
+        <strong>APIAny_GetPropertyAutoTextKeyTableID</strong>,
+        <strong><a href="../Structures/API_Guid.html">API_GUID</a>*</strong>                                       <em>guid</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/HashTable/HashTable.html">GS::HashTable</a>&lt;<a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>,<a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&gt;</strong>      <em>keyGuidTable</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>guID</em></dt>
+
+        <dd>[in] A pointer to a <code>API_Guid</code> that represents an object like a wall or slab. It can be <code>APINULLGuid</code>, but then only the general autotexts can be received like "Area", "Element ID" (which are common in all element types), and not the element specific ones like "Thickness of the wall".</dd>
+
+        <dt><em>keyGuidTable</em></dt>
+
+        <dd>[out] Pointer to a hash table where the resulting autotext names and keys will be stored for a given <code>guid</code>.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed parameters are invalid.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function will fill the passed hast table with the autotexts' name and key for any given an element like a wall. The names are the same as they can be seen in Archicad while inserting an autotext into a text field, for example "Area". </p> 
+    
+    <p>The function allows for an <code>APINULLGuid input</code>. But keep in mind that in this case only the general autotexts will be returned.</p>
+    
+    <p>The resulting autotext keys can be used to create autotexts or to access the value of certain parameters associated with an object using the function <a href="APIAny_InterpretAutoTextID.html">APIAny_InterpretAutoTextID</a>. 
+    These property keys usually look like PROPERTY-69A58F6F-DD3B-478D-B5EF-09A16BD0C548.</p>
+
+    <p>To create an embeddable autotext from its key surround the key with inequality signs: &lt;PROPERTY-69A58F6F-DD3B-478D-B5EF-09A16BD0C548&gt;, then insert this text into the chosen text field.</p>
+    
+    <p>&nbsp;</p>
+    
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_Guid guid;
+
+if (!ClickAnElem ("Click on a slab to acquire its area.", API_SlabID, nullptr, nullptr, &amp;guid)) {
+    WriteReport_Alert ("No slab was clicked!");
+    return;
+}
+else {
+    WriteReport ("Slab clicked!");
+    GS::HashTable&lt;GS::UniString, GS::UniString&gt; properties{ GS::HashTable&lt;GS::UniString, GS::UniString&gt;() };
+    GSErrCode err = ACAPI_Goodies (APIAny_GetPropertyAutoTextKeyTableID, &amp;guid, &amp;properties);
+    if (err == NoError) {
+        if (properties.ContainsKey (GS::UniString ("Area"))) {
+            GS::UniString area = properties.Get (GS::UniString ("Area"));
+            GS::UniString value;
+            err = ACAPI_Goodies(APIAny_InterpretAutoTextID, &amp;area, &amp;guid, &amp;value);
+            if (err == NoError) {
+                WriteReport ("Area is: %T", value.ToPrintf ());
+            } else {
+                WriteReport ("Autotext for Area could not be resolved.");
+            }
+        } else {
+            WriteReport ("Autotext key for Area could not be found.");
+        }
+    } else {
+        WriteReport ("Error while retrieving the property autotext key table.");
+    }
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Goodies.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p>
+    <a href="APIAny_InterpretAutoTextID.html">APIAny_InterpretAutoTextID</a><br>
+    <a href="APIAny_GetAutoTextKeysID.html">APIAny_GetAutoTextKeysID</a><br>
+    <a href="APIAny_GetAutoTextsID.html">APIAny_GetAutoTextsID</a><br>
+    <a href="APIAny_SetAnAutoTextID.html">APIAny_SetAnAutoTextID</a><br>
+    <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 30, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

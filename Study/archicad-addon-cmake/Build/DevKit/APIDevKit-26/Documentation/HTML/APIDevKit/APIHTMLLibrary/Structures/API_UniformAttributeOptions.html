@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_UniformAttributeOptions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_UniformAttributeOptions.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_UniformAttributeOptions</h1>
+
+    <p>General representation of a Model Display in 3D Document.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>bool</strong>                           <em>shouldUseUniformCutAttributes</em>;
+        <strong>bool</strong>                           <em>filler_1</em>;
+        <strong>short</strong>                          <em>uniformLineType</em>;
+        <strong>short</strong>                          <em>uniformFillPen</em>;
+        <strong>short</strong>                          <em>uniformFillBkgPen</em>;
+        <strong>bool</strong>                           <em>shouldUseUncutSurfaceFill</em>;
+        <strong>bool</strong>                           <em>filler_2[3]</em>;
+        <strong><a href="API_3DCutSurfFills.html">API_3DCutSurfFills</a></strong>             <em>fillCutSurfacesWith</em>;
+        <strong><a href="API_3DUncutSurfaceFillType.html">API_3DUncutSurfaceFillType</a></strong>     <em>uncutSurfaceFillType</em>;
+        <strong>short</strong>                          <em>uncutSurfaceBkgPen</em>;
+        <strong>bool</strong>                           <em>shouldUseElemPen</em>;
+        <strong>bool</strong>                           <em>filler_3</em>;
+        <strong>short</strong>                          <em>elemPen</em>;
+        <strong>short</strong>                          <em>shadFillPen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>             <em>shadFill</em>;
+        <strong>short</strong>                          <em>shadFillBkgPen</em>;
+        <strong>short</strong>                          <em>shadContPen</em>;
+        <strong><a href="API_3DHiddenEdgeVisibility.html">API_3DHiddenEdgeVisibility</a></strong>     <em>hiddenEdgeVisibility</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>             <em>hiddenEdgeLineType</em>;
+        <strong>short</strong>                          <em>hiddenEdgeLinePen</em>;
+        <strong>short</strong>                          <em>filler_4</em>;
+        <strong><a href="API_3DOnCutPlaneVisibility.html">API_3DOnCutPlaneVisibility</a></strong>     <em>onCutPlaneVisibility</em>;
+        <strong>short</strong>                          <em>filler_5[2]</em>;
+    <strong>}</strong> <em>API_UniformAttributeOptions</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>shouldUseUniformCutAttributes</b></dt>
+
+        <dd>Use uniform cut attributes.</dd>
+
+        <dt><b>uniformLineType</b></dt>
+
+        <dd>Uniform line type index.</dd>
+
+        <dt><b>uniformFillPen</b></dt>
+
+        <dd>Uniform fill index.</dd>
+
+        <dt><b>uniformFillBkgPen</b></dt>
+
+        <dd>Background color of the uniform fill.</dd>
+
+        <dt><b>shouldUseUncutSurfaceFill</b></dt>
+
+        <dd>Use uncut surface fill.</dd>
+
+        <dt><b>fillCutSurfacesWith</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>How to display the cut surfaces.</dd>
+
+        <dt><b>uncutSurfaceFillType</b></dt>
+
+        <dd>How to display the uncut surfaces.</dd>
+
+        <dt><b>uncutSurfaceBkgPen</b></dt>
+
+        <dd>Background color of the uncut surface.</dd>
+
+        <dt><b>shouldUseElemPen</b></dt>
+
+        <dd>Use elem pen.</dd>
+
+        <dt><b>elemPen</b></dt>
+
+        <dd>Elem pen index.</dd>
+
+        <dt><b>shadFill</b></dt>
+
+        <dd>Shadow fill index.</dd>
+
+        <dt><b>shadFillPen</b></dt>
+
+        <dd>Shadow fill pen.</dd>
+
+        <dt><b>shadFillBkgPen</b></dt>
+
+        <dd>Shadow fill background pen.</dd>
+
+        <dt><b>shadContPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>Shadow contour pen.</dd>
+
+        <dt><b>hiddenEdgeVisibility</b></dt>
+
+        <dd>Show or hide hidden edges.</dd>
+
+        <dt><b>hiddenEdgeLineType</b></dt>
+
+        <dd>Hidden edge line type.</dd>
+
+        <dt><b>hiddenEdgeLinePen</b></dt>
+
+        <dd>Hidden edge line pen.</dd>
+
+        <dt><b>onCutPlaneVisibility</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Show or hide hidden cut lines.</dd>
+   </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You are able to get and change the default settings of 3D document via <a href="../Functions/APIEnv_GetDocumentFrom3DDefaultsID.html">APIEnv_GetDocumentFrom3DDefaultsID</a> and <a href="../Functions/APIEnv_ChangeDocumentFrom3DDefaultsID.html">APIEnv_ChangeDocumentFrom3DDefaultsID</a> functions.<br>
+    <a href="../Functions/APIEnv_GetDocumentFrom3DSettingsID.html">APIEnv_GetDocumentFrom3DSettingsID</a> and <a href="../Functions/APIEnv_ChangeDocumentFrom3DSettingsID.html">APIEnv_ChangeDocumentFrom3DSettingsID</a> function retrieves and modifies the settings of an existing 3D document database.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 12 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_3DUncutSurfaceFillType.html">API_3DUncutSurfaceFillType</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 14, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

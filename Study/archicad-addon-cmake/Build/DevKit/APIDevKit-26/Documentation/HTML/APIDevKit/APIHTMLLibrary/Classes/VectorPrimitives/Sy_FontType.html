@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Sy_FontType</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/VectorPrimitives/Sy_FontType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Sy_FontType</h1>
+
+    <p>Defines a font record.</p>
+    <pre class="syntax">
+<strong>struct</strong> Sy_FontType {
+    <strong>long</strong>             item_Len;
+    <strong>unsigned char</strong>    item_Typ;
+    <strong>char</strong>             dummyC;
+    <strong>short</strong>            familytype;
+    <strong>char</strong>             fontName[32];
+    <strong>long</strong>             styleind;
+    <strong>unsigned char</strong>    face;
+    <strong>char</strong>             centre;
+    <strong>short</strong>            just;
+    <strong>double</strong>           slant;
+    <strong>double</strong>           size;
+    <strong>double</strong>           spac;
+};
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><em>item_Len</em></dt>
+
+        <dd>The length of the data record = sizeof(Sy_FontType).</dd>
+
+        <dt><em>item_Typ</em></dt>
+
+        <dd>Constant SyFont.</dd>
+
+        <dt><em>dummyC</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>familytype</em></dt>
+
+        <dd>Font family type: GDLFONTFAMILYNAME, GDLPLOTTERFONT, GDLPLOTMAKERFONT.</dd>
+
+        <dt><em>fontName</em></dt>
+
+        <dd>The name of the font family as a C string.</dd>
+
+        <dt><em>styleind</em></dt>
+
+        <dd>Reserved, the engine will it fill, should be set to 0.</dd>
+
+        <dt><em>face</em></dt>
+
+        <dd>Style of the text.</dd>
+
+        <dt><em>centre</em></dt>
+
+        <dd>The position of the anchor point (1..9). if less than zero, it is a nonbreaking style.</dd>
+
+        <dt><em>just</em></dt>
+
+        <dd>Justification of text.</dd>
+
+        <dt><em>slant</em></dt>
+
+        <dd>Slant of text letters in rad (pi/2 is plain text).</dd>
+
+        <dt><em>size</em></dt>
+
+        <dd>Letter size in mm in paper space.</dd>
+
+        <dt><em>spac</em></dt>
+
+        <dd>Spacing between text lines in mm.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The font record is the only exception because it is not a drawing primitive but an attribute.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10.0 or later, ModelerGraphics 8 or later</dd>
+
+        <dd><b>Header:</b> Symb2D.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><!-- Not Index --><a href="../VectorImage/VectorImage.html">VectorImage</a> <!-- FOOTER  FOOTEREND --></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 3, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

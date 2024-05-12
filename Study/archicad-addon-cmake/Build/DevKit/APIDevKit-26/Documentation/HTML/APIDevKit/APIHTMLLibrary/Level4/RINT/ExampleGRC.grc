@@ -1,0 +1,39 @@
+﻿
+/*--- Example Dialog ------------------------------------------------------------*/
+
+'GDLG'  10000  Modal			    0    0  453  160  "Example Dialog" {
+/* [  1] */ Button				  353  130   90   20	LargePlain  "OK"
+/* [  2] */ Button				  253  130   90   20	LargePlain  "Cancel"
+/* [  3] */ LeftText			  170   10  110   20	LargePlain  vCenter  "Toolbox icons:"
+/* [  4] */ LeftText			  293   10  144   20	LargePlain  vCenter  "Teamwork traffic lights:"
+/* [  5] */ Icon				    0    0  155  160	10000
+/* [  6] */ Icon				  180   40   18   18	20000
+/* [  7] */ Icon				  235   40   18   18	20001
+/* [  8] */ Icon				  180   80   18   18	20002
+/* [  9] */ Icon				  235   80   18   18	20003
+/* [ 10] */ Icon				  313   40   16   16	30000
+/* [ 11] */ Icon				  375   40   16   16	30001
+}
+
+/*--- Example Dialog Help -------------------------------------------------------*/
+
+'DLGH'  10000  DLG_ID_Example_Dialog {
+1	""							Button_0
+2	""							Button_1
+3	""							LeftText_1
+4	""							LeftText_0
+5	""							IconItem_0
+6	""							IconItem_1
+7	""							IconItem_2
+8	""							IconItem_3
+9	""							IconItem_4
+10	""							IconItem_5
+11	""							IconItem_6
+}
+
+/*--- Strings for Add-On --------------------------------------------------------*/
+
+'STR#' 10000 "Add-On info strings" {
+/* [  1] */		"GRC Example"
+/* [  2] */		"API GRC Example Add-On"
+}

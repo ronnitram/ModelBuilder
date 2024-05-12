@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ProfileAttrType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ProfileAttrType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ProfileAttrType</h1>
+
+    <p>Attribute representing the custom profiles for walls, beams, and columns.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Attr_Head.html">API_Attr_Head</a></strong>     <em>head</em>;
+        <strong>bool</strong>              <em>wallType</em>;
+        <strong>bool</strong>              <em>beamType</em>;
+        <strong>bool</strong>              <em>coluType</em>;
+        <strong>bool</strong>              <em>handrailType</em>;
+        <strong>bool</strong>              <em>otherGDLObjectType</em>;
+        <strong>bool</strong>              <em>filler_1</em>;
+        <strong>bool</strong>              <em>filler_2</em>;
+        <strong>bool</strong>              <em>filler_3</em>;
+        <strong>Int32</strong>             <em>filler_4[7]</em>;
+    <strong>}</strong> <em>API_ProfileAttrType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>The attribute header.</dd>
+
+        <dt><b>wallType</b></dt>
+
+        <dd>Profile available for walls.</dd>
+
+        <dt><b>beamType</b></dt>
+
+        <dd>Profile available for beams.</dd>
+
+        <dt><b>coluType</b></dt>
+
+        <dd>Profile available for columns.</dd>
+
+        <dt><b>handrailType</b><img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+
+        <dd>Profile available for handrails.</dd>
+
+        <dt><b>otherGDLObjectType</b><img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+
+        <dd>Profile available for other GDL based objects.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Additional data for this attribute is contained in the <code>profile_vectorImageItems</code> field of the <a href="API_AttributeDefExt.html">API_AttributeDefExt</a> structure. This extended data holds simple 2D elements: hotspots, lines, arcs, hatches, splines, texts, and images in a serialized form.</p>
+
+    <p>A simple example for creating and parsing a profile attribute can be found in the Attribute_Test example.</p>
+
+    <p>The <code>flags</code> in <code>ProfileItem</code> of <code>ProfileFillData</code> (the profile description) may have the following values:</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><b>Value</b></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APISkin_HatchAngle</code></p>
+                </td>
+
+                <td>
+                    <p>The fill direction is determined by the project origin (if not set), or the element's origin (if set).</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APISkin_Core</code></p>
+                </td>
+
+                <td>
+                    <p>The skin's fill is part of the core.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APISkin_Finish</code></p>
+                </td>
+
+                <td>
+                    <p>The skin's fill is part of the finish.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APISkin_HatchFit</code>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="Featuring API 13" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>The skin's fill is distorted to fit the skin's polygon.</p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Attributes.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeDefExt.html">API_AttributeDefExt</a>,<br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 26, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

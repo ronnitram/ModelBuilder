@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Graphisoft Resource Compiler</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level4/Tools_ResConv_Mac_Params.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Graphisoft Resource Compiler Parameters on Macintosh</h1><br>
+    Usage:<br>
+
+    <pre>ResConv [-m r]
+
+        -i &lt;input_file_name&gt;
+        -o &lt;output_file_name&gt;
+        -t &lt;target&gt;
+        [-x &lt;config_file_name&gt;]
+        [-f &lt;input_format&gt;]
+        [-c &lt;script&gt;]
+        [-n]
+        [-p &lt;paths&gt;]
+        [-q utf8 &lt;script_code&gt;]
+        [-w &lt;HiDPI image size list&gt;]
+        [-d &lt;ID1&gt;] [-d &lt;ID2&gt;] ... [-d &lt;IDn&gt;]</pre><br>
+
+    <table border="0" cellspacing="1" cellpadding="1">
+        <tr>
+            <td><tt>target:</tt></td>
+
+            <td><tt>w = Windows, m = Macintosh</tt></td>
+        </tr>
+
+        <tr>
+            <td><tt>input_format:</tt></td>
+
+            <td><tt>w = Windows, m = Macintosh</tt> (default: current platform)</td>
+        </tr>
+
+        <tr>
+            <td><tt>script:</tt></td>
+
+            <td><tt>0, 1, 2, 3, 21</tt> (default: <tt>0</tt>)</td>
+        </tr>
+
+        <tr>
+            <td><tt>-n</tt></td>
+
+            <td>no input BOM check on source GRC coming from C prerocessor</td>
+        </tr>
+
+        <tr>
+            <td><tt>paths:</tt></td>
+
+            <td>additional paths separated with <tt>';'</tt> for some resources</td>
+        </tr>
+
+        <tr>
+            <td><tt>script_code:</tt></td>
+
+            <td><img border="0" src="../../APIImageLibrary/18.png" alt="API version 18" width="19" height="12">should be set to <tt>utf16</tt></td>
+        </tr>
+
+        <tr>
+            <td><tt>HiDPI image size list:</tt></td>
+
+            <td><img border="0" src="../../APIImageLibrary/20.png" alt="API version 20" width="19" height="12">the list of the HiDPI image size multipliers (example: 2 3 4.5)</td>
+        </tr>
+
+        <tr>
+            <td><tt>IDi:</tt></td>
+
+            <td>preprocessor definitions</td>
+        </tr>
+    </table>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 1, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

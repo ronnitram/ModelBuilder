@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>CHc2pascal</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/StringManager/CHc2pascal.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>CHc2pascal</h1>
+
+    <p>Converts a 0-terminated C-string to Pascal string.</p>
+    <pre class="syntax">
+    <strong>long CHc2pascal</strong> (
+      <strong>const char</strong>*     <em>pCString</em>,
+      <strong>unsigned char</strong>*  <em>pPascalString</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>pCString</em></dt>
+
+        <dd>[in] The input, a null terminated C string.</dd>
+
+        <dt><em>pPascalString</em></dt>
+
+        <dd>[out] The output, a buffer for a pascal string.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Returns the length of the string <i>pPascalString</i>, after the conversion. This is the length of <i>pCString</i> truncated to 255.</p>
+
+    <h4>Remarks</h4>
+
+    <p>If the length of <i>pCString</i> is more than 255 the function will succeed, and <i>pPascalString</i> will contain the first 255 characters.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> GSRoot 1.3 or later</dd>
+
+        <dd><b>Header:</b> CH.hpp</dd>
+
+        <dd><b>Import Library:</b> GSRootImp.lib.lib</dd>
+
+        <dd><b>Module:</b> GSRoot</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="CHpascal2c.html">CHpascal2c</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on October 10, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

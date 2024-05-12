@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_SkylightType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_SkylightType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_SkylightType</h1>
+
+    <p>Represents a skylight element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>             <em>head</em>;
+        <strong><a href="API_OpeningBaseType.html">API_OpeningBaseType</a></strong>       <em>openingBase</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                  <em>owner</em>;
+        <strong>UInt32</strong>                    <em>vertexID</em>;
+        <strong><a href="API_SkylightFixModeID.html">API_SkylightFixModeID</a></strong>     <em>fixMode</em>;
+        <strong><a href="API_SkylightAnchorID.html">API_SkylightAnchorID</a></strong>      <em>anchorPoint</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                 <em>anchorPosition</em>;
+        <strong>double</strong>                    <em>anchorLevel</em>;
+        <strong>double</strong>                    <em>azimuthAngle</em>;
+        <strong>double</strong>                    <em>elevationAngle</em>;
+    <strong>}</strong> <em>API_SkylightType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>openingBase</b></dt>
+
+        <dd>Common part of windows, doors and skylights (see <a href="API_OpeningBaseType.html">API_OpeningBaseType</a>).</dd>
+
+        <dt><b>owner</b></dt>
+
+        <dd>Reference to the container roof or shell.</dd>
+
+        <dt><b>vertexID</b></dt>
+
+        <dd>For polyroofs it is the ID of the vertex of the pivot polygon. For plane roofs it is always 0.</dd>
+
+        <dt><b>fixMode</b></dt>
+
+        <dd>Defines how the skylight is constrained in case the angle or the vertical position of the owner roof or shell changes (see <a href="API_SkylightFixModeID.html">API_SkylightFixModeID</a>).</dd>
+
+        <dt><b>anchorPosition</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>The point that the position of the skylight object is anchored by (see <a href="API_SkylightAnchorID.html">API_SkylightAnchorID</a>).</dd>
+
+        <dt><b>anchorPosition</b></dt>
+
+        <dd>The global XY cooordinate of the anchor point (see fixPoint)</dd>
+
+        <dt><b>anchorLevel</b></dt>
+
+        <dd>The global Z coordinate of the anchor point.</dd>
+
+        <dt><b>azimuthAngle</b></dt>
+
+        <dd>The rotation angle measured clockwise in the horizontal plane.</dd>
+
+        <dt><b>elevationAngle</b></dt>
+
+        <dd>The elevation angle of the roof at the insert position.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>For skylight related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 15 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_OpeningBaseType.html">API_OpeningBaseType</a>, <a href="API_SkylightFixModeID.html">API_SkylightFixModeID</a>, <a href="API_SkylightAnchorID.html">API_SkylightAnchorID</a><br>
+    <a href="API_Element.html">API_Element</a>, <a href="API_WindowType.html">API_WindowType</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 23, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

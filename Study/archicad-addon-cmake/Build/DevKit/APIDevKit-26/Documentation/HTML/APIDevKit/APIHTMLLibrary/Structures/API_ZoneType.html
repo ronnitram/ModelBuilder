@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ZoneType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ZoneType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ZoneType</h1>
+
+    <p>Represents a zone stamp.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>             <em>head</em>;
+        <strong>short</strong>                     <em>pen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>        <em>catInd</em>;
+        <strong>bool</strong>                      <em>useStampPens</em>;
+        <strong>bool</strong>                      <em>manual</em>;
+        <strong>bool</strong>                      <em>refLineFlag</em>;
+        <strong>bool</strong>                      <em>show_found_poly</em>;
+        <strong>char</strong>                      <em>filler_1[16]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>               <em>roomName [API_UniLongNameLen]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>               <em>roomNoStr [32]</em>;
+        <strong>double</strong>                    <em>roomBaseLev</em>;
+        <strong>double</strong>                    <em>roomHeight</em>;
+        <strong>double</strong>                    <em>roomTopOffset</em>;
+        <strong>double</strong>                    <em>roomFlThick</em>;
+        <strong>double</strong>                    <em>roomLSize</em>;
+        <strong>double</strong>                    <em>reducePercent</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>        <em>material</em>;
+        <strong>Int32</strong>                     <em>filler_2[2]</em>;
+        <strong>double</strong>                    <em>stampAngle</em>;
+        <strong>bool</strong>                      <em>fixedAngle</em>;
+        <strong>bool</strong>                      <em>oneMat</em>;
+        <strong>short</strong>                     <em>floorFillPen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>        <em>floorFillInd</em>;
+        <strong>short</strong>                     <em>floorFillBGPen</em>;
+        <strong>short</strong>                     <em>floorContLPen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>        <em>floorContLType</em>;
+        <strong>bool</strong>                      <em>useContourLine</em>;
+        <strong>bool</strong>                      <em>useLocalOrigo</em>;
+        <strong>bool</strong>                      <em>use3DHatching</em>;
+        <strong>bool</strong>                      <em>useFloorFill</em>;
+        <strong>Int32</strong>                     <em>libInd</em>;
+        <strong><a href="API_LinkToSettings.html">API_LinkToSettings</a></strong>        <em>linkToSettings</em>;
+        <strong>short</strong>                     <em>relativeTopStory</em>;
+        <strong>short</strong>                     <em>filler_3[3]</em>;
+        <strong><a href="API_Polygon.html">API_Polygon</a></strong>               <em>poly</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                 <em>pos</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                 <em>refPos</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                 <em>locOrigo</em>;
+        <strong>double</strong>                    <em>fillAngle</em>;
+        <strong><a href="API_Polygon.html">API_Polygon</a></strong>               <em>refPoly</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                  <em>stampGuid</em>;
+    <strong>}</strong> <em>API_ZoneType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>pen</b></dt>
+
+        <dd>Pen attribute index for the zone stamp. Used only if <code>useStampPens</code> is <code>false</code>.</dd>
+
+        <dt><b>catInd</b></dt>
+
+        <dd>Index of the actual zone category.</dd>
+
+        <dt><b>useStampPens</b></dt>
+
+        <dd>Draw with a single pen (<code>false</code>) or use the pens defined in the zone category library part (<code>true</code>)?</dd>
+
+        <dt><b>manual</b></dt>
+
+        <dd>Manually created zone; all edges static, no reference point (<code>refPos</code>).</dd>
+
+        <dt><b>refLineFlag</b></dt>
+
+        <dd>Surrounded by walls' reference lines, not side lines.</dd>
+
+        <dt><b>show_found_poly</b></dt>
+
+        <dd>If <code>true</code>, then Archicad uses the reference line of the walls surrounding the zone for calculations; otherwise it uses the inner edges of the walls. (Can be used only if <code>refLineFlag</code> is <code>true</code>.)</dd>
+
+        <dt><b>roomName[API_UniLongNameLen]</b>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="Modified in API 18" width="19" height="12"></dt>
+
+        <dd>Name of the room.</dd>
+
+        <dt><b>roomNoStr[32]</b>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="Modified in API 18" width="19" height="12"></dt>
+
+        <dd>Number of the room in string form.</dd>
+
+        <dt><b>roomBaseLev</b></dt>
+
+        <dd>Base level of the room, measured from the floor level.</dd>
+
+        <dt><b>roomHeight</b></dt>
+
+        <dd>Height of the room.</dd>
+
+        <dt><b>roomTopOffset</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>The offset from top floor if zone is top linked.</dd>
+
+        <dt><b>roomFlThick</b></dt>
+
+        <dd>Sub-floor thickness of the room.</dd>
+
+        <dt><b>roomLSize</b></dt>
+
+        <dd>Room letter size in mm.</dd>
+
+        <dt><b>reducePercent</b></dt>
+
+        <dd>Reduce the zone area with this value [%].</dd>
+
+        <dt><b>material</b></dt>
+
+        <dd>Material attribute index of the 3D zone's (free or all) surfaces.</dd>
+
+        <dt><b>stampAngle</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Rotation angle of the room stamp [radian].</dd>
+
+        <dt><b>fixedAngle</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>The stampAngle will not change when the element is rotated and this flag is true.</dd>
+
+        <dt><b>oneMat</b></dt>
+
+        <dd>Use <code>material</code> for all surfaces if true; otherwise inherit boundary walls' and trimming elements' materials.</dd>
+
+        <dt><b>floorFillPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Pen attribute index of zone's cover fill.</dd>
+
+        <dt><b>floorFillBGPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Background pen attribute index of the zone's cover fill.</dd>
+
+        <dt><b>floorFillInd</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Fill attribute index of the zone's cover fill.</dd>
+
+        <dt><b>floorContLPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Pen attribute index of zone's contour.</dd>
+
+        <dt><b>floorContLType</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Line type attribute index of zone's contour.</dd>
+
+        <dt><b>useContourLine</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Draw contour line?</dd>
+
+        <dt><b>useLocalOrigo</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Use local origo for cover fill drawing?</dd>
+
+        <dt><b>use3DHatching</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Use Vectorial 3D Hatch patterns in Floor Plan view? This will apply the Vectorial 3D Hatch set for the element's top side material.</dd>
+
+        <dt><b>useFloorFill</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Use cover fill?</dd>
+
+        <dt><b>libInd</b></dt>
+
+        <dd>Index to the zone category library part in the library.</dd>
+
+        <dt><b>linkToSettings</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Mode of linking to home story.</dd>
+
+        <dt><b>relativeTopStory</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>The top linked story (relative to home story). Negative values are invalid. 0 = not top linked.</dd>
+
+        <dt><b>poly</b></dt>
+
+        <dd>Polygon of the zone.</dd>
+
+        <dt><b>pos</b></dt>
+
+        <dd>Position of the origin of the zone stamp.</dd>
+
+        <dt><b>refPos</b></dt>
+
+        <dd>Reference point to find zone if it was not created manually.</dd>
+
+        <dt><b>locOrigo</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Base coordinate of zone's cover fill reference vector if it's linked to the element.</dd>
+
+        <dt><b>fillAngle</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Angle of zone's cover fill reference vector if it's linked to the element.</dd>
+
+        <dt><b>refPoly</b></dt>
+
+        <dd>The found polygon of the zone. You can access the geometry through the <a href="API_ElementMemo.html">API_ElementMemo</a> of the zone.</dd>
+
+        <dt><b>stampGuid</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>GUID of the zone stamp object.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The additional parameters of the zone category can be found in the <code>params</code> field of <a href="API_ElementMemo.html">API_ElementMemo</a>.</p>
+
+    <p>With the help of <a href="../Functions/ACAPI_Element_GetRelations.html">ACAPI_Element_GetRelations</a> you can find out what and how many construction elements and objects are in the zone.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_Coord.html">API_Coord</a>, <a href="API_Element.html">API_Element</a>,<br>
+    <a href="API_Polygon.html">API_Polygon</a>, <a href="API_AddParType.html">API_AddParType</a>, <a href="API_ElementMemo.html">API_ElementMemo</a>,<br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 16, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

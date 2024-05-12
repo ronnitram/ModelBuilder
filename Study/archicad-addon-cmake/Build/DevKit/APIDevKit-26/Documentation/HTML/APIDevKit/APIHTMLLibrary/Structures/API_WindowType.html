@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_WindowType, API_DoorType</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_WindowType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_WindowType, API_DoorType</h1>
+
+    <p>Represents a window/door element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                           <em>head</em>;
+        <strong><a href="API_OpeningBaseType.html">API_OpeningBaseType</a></strong>                     <em>openingBase</em>;
+        <strong><a href="#API_WindowDoorRevealDepthLocationID">API_WindowDoorRevealDepthLocationID</a></strong>     <em>revealDepthLocation</em>;
+        <strong>double</strong>                                  <em>revealDepthOffset</em>;
+        <strong>double</strong>                                  <em>revealDepthFromSide</em>;
+        <strong>double</strong>                                  <em>jambDepthHead</em>;
+        <strong>double</strong>                                  <em>jambDepthSill</em>;
+        <strong>double</strong>                                  <em>jambDepth</em>;
+        <strong>double</strong>                                  <em>jambDepth2</em>;
+        <strong>bool</strong>                                    <em>reveal</em>;
+        <strong>bool</strong>                                    <em>filler_1[7]</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                                <em>owner</em>;
+        <strong>double</strong>                                  <em>objLoc</em>;
+        <strong>double</strong>                                  <em>lower</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                               <em>startPoint</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                               <em>dirVector</em>;
+        <strong><a href="#API_WindowDoorDirectionTypes">API_WindowDoorDirectionTypes</a></strong>            <em>directionType</em>;
+        <strong>short</strong>                                   <em>fixPoint</em>;
+        <strong>short</strong>                                   <em>filler_2</em>;
+    <strong>}</strong> <em>API_WindowType, API_DoorType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>openingBase</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Common part of windows, doors and skylights (see <a href="API_OpeningBaseType.html">API_OpeningBaseType</a>).</dd>
+
+        <dt><b>revealDepthLocation</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>
+            The location of the reveal depth reference line.
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th colspan="2" align="left">
+                        <p><b><code><a name="API_WindowDoorRevealDepthLocationID" id="API_WindowDoorRevealDepthLocationID">API_WindowDoorRevealDepthLocationID</a></code></b></p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIWDRevealDepth_Side</code></p>
+                    </td>
+
+                    <td>
+                        <p>The reference line location is on the clicked side of the wall.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIWDRevealDepth_Core</code></p>
+                    </td>
+
+                    <td>
+                        <p>The reference line location is on the core (clicked side) skin of the composite structure.</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>revealDepthOffset</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Inset from the clicked side of wall or core (according to <em>revealDepthLocation</em>).</dd>
+
+        <dt><b>revealDepthFromSide</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Calculated inset from the clicked side of wall.</dd>
+
+        <dt><b>jambDepthHead</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Inset on top.</dd>
+
+        <dt><b>jambDepthSill</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Inset on bottom.</dd>
+
+        <dt><b>jambDepth</b></dt>
+
+        <dd>Inset on left.</dd>
+
+        <dt><b>jambDepth2</b></dt>
+
+        <dd>Inset on right.</dd>
+
+        <dt><b>reveal</b></dt>
+
+        <dd>True if the opening has reveal.</dd>
+
+        <dt><b>owner</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Reference to the container wall (see <a href="API_Guid.html">API_Guid</a>).</dd>
+
+        <dt><b>objLoc</b></dt>
+
+        <dd>Location of the center of the window. If the container wall is polygonal, this value is not used.</dd>
+
+        <dt><b>lower</b></dt>
+
+        <dd>Parapet height.</dd>
+
+        <dt><b>startPoint</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>The location of the center point of the opening. It is measured from the beginning corner of the wall roof etc., rotated into the direction of the wall reference edge starting from the first corner. Note that this location can be outside of the wall polygon.</dd>
+
+        <dt><b>dirVector</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>The direction vector of the opening in a polygonal wall, relative to the wall reference edge starting from the first corner.</dd>
+
+        <dt><b>directionType</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>
+            Type of the plane orientation of the window placed into slanted wall.
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th>
+                        <p><b><code><a name="API_WindowDoorDirectionTypes" id="API_WindowDoorDirectionTypes">API_WindowDoorDirectionTypes</a></code></b></p>
+                    </th>
+
+                    <th>
+                        <p><b>Meaning</b></p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_WDAssociativeToWall</code></p>
+                    </td>
+
+                    <td>
+                        <p>The plane of the window follows the plane of the wall</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_WDVertical</code></p>
+                    </td>
+
+                    <td>
+                        <p>The window is placed vertically regardless of the plane of the wall it is placed into</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>fixPoint</b></dt>
+
+        <dd>The fixed (placement) point of the window/door (relative to the owning wall's reference line):</dd>
+
+        <dd>
+            <table border="1" cellpadding="5">
+                <tr>
+                    <td>
+                        <p><code>APIHoleAnchor_BegFix</code></p>
+                    </td>
+
+                    <td>
+                        <p>Beginning point is fixed.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIHoleAnchor_CenterFix</code></p>
+                    </td>
+
+                    <td>
+                        <p>Center point is fixed.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIHoleAnchor_EndFix</code></p>
+                    </td>
+
+                    <td>
+                        <p>End point is fixed.</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For window/door related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_OpeningBaseType.html">API_OpeningBaseType</a><br>
+    <a href="API_Element.html">API_Element</a>, <a href="API_SkylightType.html">API_SkylightType</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on October 17, 2012<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

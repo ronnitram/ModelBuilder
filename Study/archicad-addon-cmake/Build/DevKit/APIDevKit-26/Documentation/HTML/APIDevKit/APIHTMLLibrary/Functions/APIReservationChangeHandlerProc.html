@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIReservationChangeHandlerProc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIReservationChangeHandlerProc.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIReservationChangeHandlerProc</h1>
+
+    <p>User supplied callback procedure for handling element reservation changes.</p>
+    <pre class="syntax">
+    <strong>typedef GSErrCode  APIReservationChangeHandlerProc</strong> (
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/HashTable/HashTable.html">GS::HashTable</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>, short&gt;&amp;</strong>   <em>reserved</em>,
+        <strong>const <a href="ddid://GSRoot.HashSet Class">GS::HashSet</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;&amp;</strong>            <em>released</em>,
+        <strong>const <a href="ddid://GSRoot.HashSet Class">GS::HashSet</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;&amp;</strong>            <em>deleted</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>reserved</em></dt>
+
+        <dd>[in] List of elements recently reserved. The hash key in the hash table is the element guid, the paired value is the Teamwork owner identifier of the member who reserved the element.</dd>
+
+        <dt><em>released</em></dt>
+
+        <dd>[in] List of elements recently released.</dd>
+
+        <dt><em>deleted</em></dt>
+
+        <dd>[in] List of elements deleted during the recent Teamwork operations. Element deletions are reported when the member who deleted the elements sends the changes to the BIM Server.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This callback function should be implemented and set with <!--NI--><a href="ACAPI_Notify_CatchElementReservationChange.html">ACAPI_Notify_CatchElementReservationChange</a> in order to receive notifications of element reservation changes.</p>
+
+    <p>You can retrieve information of the members with the <a href="APIEnv_ProjectSharingID.html">APIEnv_ProjectSharingID</a> environment function. Note that the handler receives reservation changes effected by the current team member as well.</p>
+
+    <p>In the reservation change handler try to avoid calling functions that would modify the database.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+// -----------------------------------------------------------------------------
+//
+// -----------------------------------------------------------------------------
+GSErrCode __ACENV_CALL  ElementReservationChangeHandler (const GS::HashTable&lt;API_Guid, short&gt;&amp;  reserved,
+                                                         const GS::HashSet&lt;API_Guid&gt;&amp;           /*released*/,
+                                                         const GS::HashSet&lt;API_Guid&gt;&amp;           /*deleted*/)
+{
+    GS::HashTable&lt;API_ElemTypeID,Int32&gt; reservedStat;
+
+    for (GS::HashTable&lt;API_Guid, short&gt;::ConstPairIterator it = reserved.EnumeratePairs (); it != nullptr; ++it) {
+        API_Elem_Head elemHead;
+        BNZeroMemory (&amp;elemHead, sizeof (API_Elem_Head));
+        elemHead.guid = *(it-&gt;key);
+        if (ACAPI_Element_GetHeader (&amp;elemHead) == NoError)
+            ++(reservedStat.Retrieve (elemHead.typeID, 0));     // counting elements of the same type
+    }
+
+    if (!reservedStat.IsEmpty ()) {                             // print statistics of reserved elements
+        GS::UniString reportString ("=  Recently reserved elements: ");
+        for (GS::HashTable&lt;API_ElemTypeID,Int32&gt;::PairIterator it = reservedStat.EnumeratePairs (); it != nullptr; ++it) {
+            GS::UniString elemTypeName;
+            ACAPI_Goodies (APIAny_GetElemTypeNameID, (void*) *(it-&gt;key), &amp;elemTypeName);
+            GS::UniString elemCountStr = GS::UniString::Printf ("  %T:%d", elemTypeName.ToPrintf (), *(it-&gt;value));
+            reportString.Append (elemCountStr);
+        }
+        ACAPI_WriteReport (reportString.ToCStr ().Get (), false);
+    }
+
+    return NoError;
+}
+
+
+// -----------------------------------------------------------------------------
+//
+// -----------------------------------------------------------------------------
+void    CatchElementReservationChanges (bool enableNotifications)
+{
+    if (enableNotifications)
+        ACAPI_Notify_CatchElementReservationChange (ElementReservationChangeHandler);
+    else
+        ACAPI_Notify_CatchElementReservationChange (nullptr);
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 15 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Callback.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_Notify_CatchElementReservationChange.html">ACAPI_Notify_CatchElementReservationChange</a><br>
+    <a href="../Level3/Teamwork_Control_id.html">Teamwork Control</a><br>
+    <a href="../Level3/notification_manager_id.html">Notification Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 11, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

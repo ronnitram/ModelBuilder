@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <title>Set</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="Marosi Balazs" name="Author">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/Location/Set.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="Location.html">Location</a>::Set&nbsp;&nbsp; <font size="2">(6)</font></h1><br>
+    Sets target of the location.<br>
+    <br>
+    <pre class="syntax">
+<b>GSErrCode Set (<br>   const char* targetPath
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetPath</em></dt>
+
+        <dd>
+            Text representation (as C string) of the file system address (path) referring to the desired target.<br>
+            It can be current platform's text representation or URL style representation. URL style representation uses the nonexisting "<font face="Courier New"><b>lan:</b></font>" protocol (LAN = Local Area Network) with the following syntax:
+
+            <p><font face="Courier New">&nbsp;&nbsp;&nbsp; "<b>lan://</b>" <i>networkAddress</i> "<b>/</b>" <i>localAddress</i></font></p>
+
+            <p><font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>networkAddress</i> = (<b>networkName</b> ("<b>.</b>" <b>networkName</b>)*)? | "<b>localhost</b>"</font></p>
+
+            <p><font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>localAddress</i>&nbsp;&nbsp; = (<b>localName</b> ("<b>/</b>" <b>localName</b>)*)?</font></p>
+
+            <p>'*' means 0 or more, '?' means 0 or 1 (optional) and '|' means or. <i>networkName</i> can contain any character but '.', while <i>localName</i> can contain any character but '/'.<br>
+            Note that in URL network address (host) is represented in reverse order, that is first part from the left is the lowest order name (in contrast to the local address which is represented in "normal" order, that is first part from the left is the highest order name).<br>
+            For example: <font face="Courier New">"lan://Server.Subnetwork/Share/Folder/File.ext".</font></p>
+        </dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="301">
+        <tr>
+            <th width="96">Value</th>
+
+            <th width="163">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="96">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">OK</td>
+        </tr>
+
+        <tr>
+            <td width="96">IllegalAddress<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="163">illegal address was passed</td>
+        </tr>
+
+        <tr>
+            <td width="96">ErrMemoryFull<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">out of memory</td>
+        </tr>
+
+        <tr>
+            <td width="96">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Location class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method sets the location to refer to the target specified by the <i>targetPath</i>. The target doesn't need to exist.<br>
+    Set works properly even if the state of the instance is invalid (it will reset both content and internal status of the instance).<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br>
+    <i>(Obsoleted)</i></p>
+    <pre class="syntax">
+<b>GSErrCode Set (<br>   const FSSpec&amp; targetSpec
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetSpec</em></dt>
+
+        <dd>Native Macintosh representation of the file system address referring to the desired target.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="301">
+        <tr>
+            <th width="96">Value</th>
+
+            <th width="163">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="96">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">OK</td>
+        </tr>
+
+        <tr>
+            <td width="96">IllegalAddress<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="163">illegal address was passed</td>
+        </tr>
+
+        <tr>
+            <td width="96">ErrMemoryFull<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">out of memory</td>
+        </tr>
+
+        <tr>
+            <td width="96">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Location class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope<br></p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method sets the location to refer to the target specified by the <i>targetSpec</i>. The target doesn't need to exist, but the volume specified by <i>targetSpec</i> must be mounted. This method is naturally platform dependent.<br>
+    Set works properly even if the state of the instance is invalid (it will reset both content and internal status of the instance).<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>GSErrCode Set (<br>   const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&amp; targetPath
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetPath</em></dt>
+
+        <dd>Text representation (as Unicode UTF-16 string) of the file system address (path) referring to the desired target.&nbsp;</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" id="Table1" width="301">
+        <tr>
+            <th width="96">Value</th>
+
+            <th width="163">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="96">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">OK</td>
+        </tr>
+
+        <tr>
+            <td width="96">IllegalAddress<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="163">illegal address was passed</td>
+        </tr>
+
+        <tr>
+            <td width="96">ErrMemoryFull<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">out of memory</td>
+        </tr>
+
+        <tr>
+            <td width="96">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Location class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope<br></p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method sets the location to refer to the target specified by the <i>targetPath</i>. The target doesn't need to exist, but the volume specified by <i>targetPath</i> must be mounted.<br>
+    Set works properly even if the state of the instance is invalid (it will reset both content and internal status of the instance).<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b><br>GSErrCode Set (<br>   const FSRef&amp; targetRef<br>);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetRef</em></dt>
+
+        <dd>Native Macintosh representation of the file system address referring to the desired target.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" id="Table2" width="301">
+        <tr>
+            <th width="96">Value</th>
+
+            <th width="163">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="96">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">OK</td>
+        </tr>
+
+        <tr>
+            <td width="96">IllegalAddress<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="163">illegal address was passed</td>
+        </tr>
+
+        <tr>
+            <td width="96">ErrMemoryFull<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">out of memory</td>
+        </tr>
+
+        <tr>
+            <td width="96">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Location class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope<br></p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method sets the location to refer to the target specified by the <i>targetRef</i>. The target needs to exist. This method is naturally platform dependent.<br>
+    Set works properly even if the state of the instance is invalid (it will reset both content and internal status of the instance).<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>GSErrCode Set (<br>   const CFURLRef&amp; targetURL
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetUrl</em></dt>
+
+        <dd>native Macintosh URL&nbsp;representation of the file system address referring to the desired target.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" id="Table3" width="301">
+        <tr>
+            <th width="96">Value</th>
+
+            <th width="163">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="96">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">OK</td>
+        </tr>
+
+        <tr>
+            <td width="96">IllegalAddress<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="163">illegal address was passed</td>
+        </tr>
+
+        <tr>
+            <td width="96">ErrMemoryFull<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">out of memory</td>
+        </tr>
+
+        <tr>
+            <td width="96">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Location class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope<br></p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method sets the location to refer to the target specified by the <i>targetURL</i>. CFURL is the native Macintosh URL representation of the location's target. The target doesn't need to exist.<br>
+    This method is naturally platform dependent.<br>
+    Set works properly even if the state of the instance is invalid (it will reset both content and internal status of the instance).</p>
+
+    <p><a href="http://developer.apple.com/documentation/CoreFoundation/Reference/CFURLRef/index.html">More about CFURL ...</a><br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>GSErrCode Set (<br>   POSIXPathSelector selector, <br>   const char* posixPath
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>selector</em></dt>
+
+        <dd>Defines it will be the standard UNIX representation of the file system.</dd>
+
+        <dt><em>posixPath</em></dt>
+
+        <dd>standard UNIX text representation of the file system address referring to the desired target.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" id="Table4" width="301">
+        <tr>
+            <th width="96">Value</th>
+
+            <th width="163">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="96">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">OK</td>
+        </tr>
+
+        <tr>
+            <td width="96">IllegalAddress<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="163">illegal address was passed</td>
+        </tr>
+
+        <tr>
+            <td width="96">ErrMemoryFull<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">out of memory</td>
+        </tr>
+
+        <tr>
+            <td width="96">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Location class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope<br></p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method sets the location to refer to the target specified by the <i>targetPath</i>. The desired target is represented in standard UNIX text representation of the file system by <i>selector</i>. This method is naturally platform dependent.<br>
+    The target doesn't need to exist.</p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>GSErrCode Set ( <br>   POSIXPathSelector selector, <br>   const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&amp; posixPath
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>selector</em></dt>
+
+        <dd>Defines it will be the standard UNIX representation of the file system.</dd>
+
+        <dt><em>posixPath</em></dt>
+
+        <dd>standard UNIX Unicode UTF-16 text representation of the file system address referring to the desired target.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" id="Table5" width="301">
+        <tr>
+            <th width="96">Value</th>
+
+            <th width="163">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="96">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">OK</td>
+        </tr>
+
+        <tr>
+            <td width="96">IllegalAddress<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="163">illegal address was passed</td>
+        </tr>
+
+        <tr>
+            <td width="96">ErrMemoryFull<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">out of memory</td>
+        </tr>
+
+        <tr>
+            <td width="96">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="163">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Location class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope<br></p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method sets the location to refer to the target specified by the <i>targetPath</i>. The desired target is represented in standard UNIX&nbsp;Unicode UTF-16&nbsp;text representation of the file system by <i>selector</i>. This method is naturally platform dependent.<br>
+    The target doesn't need to exist.</p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

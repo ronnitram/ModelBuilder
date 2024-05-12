@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>IChannel Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/IChannel/IChannel.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="Available.html">Available</A><A href="ConvertObjectReadError.html">ConvertObjectReadError</A><A href="CopyBin.html">CopyBin</A><A href="DirectInputAccess.html">DirectInputAccess</A><A href="GetInputProtocol.html">GetInputProtocol</A><A href="GetInputStatus.html">GetInputStatus</A><A href="Constructors.html">IChannel</A><A href="IsEOI.html">IsEOI</A><A href="Look.html">Look</A><A href="PushBack.html">PushBack</A><A href="Read.html">Read</A><A href="ReadBin.html">ReadBin</A><A href="ResetInputStatus.html">ResetInputStatus</A><A href="SetDefaultInputProtocol.html">SetDefaultInputProtocol</A><A href="SetInputProtocol.html">SetInputProtocol</A><A href="Skip.html">Skip</A>--><H2>IChannel Class</H2><!--exp="IChannel Class"-->
+<P><topic id="$GS.$IChannel.BriefDescription">
+		Sequential data source (input).
+	</topic></P>
+<PRE class="syntax"><B>class IChannel</B></PRE>
+<H4>Members</H4>
+<P><B><A name="ProtectedConstructors"></A>Protected constructors</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">IChannel</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$IChannel.BriefDescription">
+		IChannel constructor.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="BinaryInput"></A>Binary input</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ReadBin.html">ReadBin</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$ReadBin.BriefDescription">
+		Reads binary data from the input channel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="CopyBin.html">CopyBin</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$CopyBin.BriefDescription">
+		Copies binary data from the input channel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Look.html">Look</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$Look.BriefDescription">
+		Looks ahead on the input channel to the specified character.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Skip.html">Skip</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$Skip.BriefDescription">
+		Skips (removes) binary data on the input channel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="PushBack.html">PushBack</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$PushBack.BriefDescription">
+		Pushes data back to the input channel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DirectInputAccess.html">DirectInputAccess</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$DirectInputAccess.BriefDescription">
+		Makes content of the input channel directly accessible.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Available.html">Available</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$Available.BriefDescription">
+		Tries to determine number of characters left on the input channel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsEOI.html">IsEOI</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$IsEOI.BriefDescription">
+		Returns whether has been the end of input reached.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="TypedInput"></A>Typed input</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Read.html">Read</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$Read.BriefDescription">
+		Reads the next simple C++ type (or <!----><a href="../Object/Object.html">Object</a>) from the input channel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ConvertObjectReadError.html">ConvertObjectReadError</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$ConvertObjectReadError.BriefDescription">
+		Converts error codes during the type composition.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetInputProtocol.html">SetInputProtocol</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$SetInputProtocol.BriefDescription">
+		Sets the given input protocol object.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetInputProtocol.html">GetInputProtocol</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$GetInputProtocol.BriefDescription">
+		Returns the current input protocol object.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetDefaultInputProtocol.html">SetDefaultInputProtocol</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$SetDefaultInputProtocol.BriefDescription">
+		Sets the default input protocol object.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="InputStatusControl"></A>Input status control</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetInputStatus.html">GetInputStatus</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$GetInputStatus.BriefDescription">
+		Returns input status of the input channel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ResetInputStatus.html">ResetInputStatus</A></TD>
+<TD width="70%"><topic id="$GS.$IChannel.$ResetInputStatus.BriefDescription">
+		Resets input status of the input channel.
+	</topic></TD>
+</TR>
+</table>
+<H4>Description</H4>
+<P><topic id="$GS.$IChannel.LongDescription">
+		IChannel is an abstract base class representing sequential data source (input).
+		It can be thought of as possibly infinite sequence of characters (character stream).
+		After a character is consumed, the next one becomes available for the next read
+		(access) operation.<br>
+		IChannel can be used on two different levels.<br>
+		<br>
+		The lower level is the binary (or character) level, where there is no any conversion
+		on the input, it is passed to the user as it was read from the data source behind
+		the input channel.<br>
+		<br>
+		The higher level is the typed level, where simple C++ types (and objects) can be read
+		from the input channel. Methods belonging to this level perform the read operation through
+		the <!----><a href="../IProtocol/IProtocol.html">IProtocol</a> (input protocol) object which
+		is currently selected into the input channel. When the input channel is invoked
+		to read a particular type, it passes that request to its current IProtocol object,
+		which uses the binary level of the channel to obtain new data, from which it composes the
+		requested type and returns it to the channel which will return it to the caller.<br>
+		This indirection allows user to use the same code over the input channel without regard to the
+		real representation of simple C++ types on the data source, that is, user should always
+		read shorts or doubles from the input channel in the same way after the appropriate input
+		protocol has been set. Request to read an object is also passed through the input protocol.<br>
+		Input protocols may change the byte order or may interpret and convert text representation
+		of the data etc. They know how the particular type should be composed from its real
+		representation. Every input channel should have a default IProtocol object.<br>
+		<br>
+		To make the error handling easier, input channel stores the input status.
+		This status is NoError until an error occures. After that it stores the error
+		code (e.g. EndOfInput or ReadError) until the input status is reseted by the user.
+		After an error has been occurred, methods performing read-like operations do nothing
+		and immediately return with the input status. By reseting the input status, these
+		methods will behave normally and will try the reading again.
+	</topic></P>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../GS.html">GS</A></P>
+<P><B>Header: </B>Channel.hpp</P>
+<H4>See Also</H4>
+<P><topic id="$GS.$IChannel.SeeAlso">
+		<!----><a href="../OChannel/OChannel.html">OChannel</a> | <!----><a href="../IProtocol/IProtocol.html">IProtocol</a>
+	</topic> | <a href="../Channel/Channel.html">Channel</A></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

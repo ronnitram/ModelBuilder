@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_OverrideStyle</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_OverrideStyle.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_OverrideStyle</h1>
+
+    <p>Specifies what is overridden and how, for an API_Element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>        <em>lineType</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>        <em>lineMarkerTextPen</em>;
+        <strong>bool</strong>                           <em>overrideLinePenThickness</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>        <em>cutFillType</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>        <em>cutFillFGPen</em>;
+        <strong><a href="API_OverriddenAttributeOrRGB.html">API_OverriddenAttributeOrRGB</a></strong>   <em>cutFillBGPen</em>;
+        <strong>bool</strong>                           <em>overrideCutFillFGThickness</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>        <em>coverFillType</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>        <em>coverFillFGPen</em>;
+        <strong><a href="API_OverriddenAttributeOrRGB.html">API_OverriddenAttributeOrRGB</a></strong>   <em>coverFillBGPen</em>;
+        <strong>bool</strong>                           <em>overrideCoverFillFGThickness</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>        <em>draftFillType</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>        <em>draftFillFGPen</em>;
+        <strong><a href="API_OverriddenAttributeOrRGB.html">API_OverriddenAttributeOrRGB</a></strong>   <em>draftFillBGPen</em>;
+        <strong>bool</strong>                           <em>overrideDraftFillFGThickness</em>;
+        <strong><a href="API_OverriddenAttributeOrRGB.html">API_OverriddenAttributeOrRGB</a></strong>   <em>cutSurfaceType</em>;
+        <strong><a href="API_OverriddenAttributeOrRGB.html">API_OverriddenAttributeOrRGB</a></strong>   <em>uncutSurfaceType</em>;
+        <strong>bool</strong>                           <em>showSkinSeparators</em>;
+        <strong>bool</strong>                           <em>hideCutContours</em>;
+        <strong>bool</strong>                           <em>hideUncutContours</em>;
+    <strong>}</strong> <em>API_OverrideStyle</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>lineType</b></dt>
+
+        <dd>Specifies how the line type should be overridden</dd>
+
+        <dt><b>lineMarkerTextPen</b></dt>
+
+        <dd>Specifies how the line/marker/text pen should be overridden</dd>
+
+        <dt><b>overrideLinePenThickness</b></dt>
+
+        <dd>Specifies if line and pen thickness should be overridden</dd>
+
+        <dt><b>cutFillType</b></dt>
+
+        <dd>Specifies how the cut fills should be overridden</dd>
+
+        <dt><b>cutFillFGPen</b></dt>
+
+        <dd>Specifies how the cut fill foregrounds should be overridden</dd>
+
+        <dt><b>cutFillBGPen</b></dt>
+
+        <dd>Specifies how the cut fill backgrounds should be overridden</dd>
+
+        <dt><b>overrideCutFillFGThickness</b></dt>
+
+        <dd>Specifies whether the cut fill foreground pen thickness should be overridden</dd>
+
+        <dt><b>coverFillType</b></dt>
+
+        <dd>Specifies how the cover fills should be overridden</dd>
+
+        <dt><b>coverFillFGPen</b></dt>
+
+        <dd>Specifies how the cover fill foregrounds should be overridden</dd>
+
+        <dt><b>coverFillBGPen</b></dt>
+
+        <dd>Specifies how the cover fill backgrounds should be overridden</dd>
+
+        <dt><b>overrideCoverFillFGThickness</b></dt>
+
+        <dd>Specifies whether the cover fill foreground pen thickness should be overridden</dd>
+
+        <dt><b>draftFillType</b></dt>
+
+        <dd>Specifies how the draft fills should be overridden</dd>
+
+        <dt><b>draftFillFGPen</b></dt>
+
+        <dd>Specifies how the draft fill foregrounds should be overridden</dd>
+
+        <dt><b>draftFillBGPen</b></dt>
+
+        <dd>Specifies how the draft fill backgrounds should be overridden</dd>
+
+        <dt><b>overrideDraftFillFGThickness</b></dt>
+
+        <dd>Specifies whether the draft fill foreground pen thickness should be overridden</dd>
+
+        <dt><b>cutSurfaceType</b></dt>
+
+        <dd>Specifies how the cut surfaces should be overridden</dd>
+
+        <dt><b>uncutSurfaceType</b></dt>
+
+        <dd>Specifies how the uncut surfaces should be overridden</dd>
+
+        <dt><b>showSkinSeparators</b></dt>
+
+        <dd>Specifies if the skin separators should be shown</dd>
+
+        <dt><b>hideCutContours</b></dt>
+
+        <dd>Specifies if the contours of the cut surface should be hidden</dd>
+
+        <dt><b>hideUncutContours</b></dt>
+
+        <dd>Specifies if the contours of the uncut surface should be hidden</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+		
+    <h4>Remarks</h4>
+
+	<p><img border="0" src="../../APIImageLibrary/25.png" alt="New in API 25" width="19" height="12">&nbsp;In version 25, the <em>cutFillBGPen</em>, <em>coverFillBGPen</em>, <em>draftingFillBGPen</em>, <em>cutSurfaceType</em> and <em>uncutSurfaceType</em> members type are changed to <a href="API_OverriddenAttributeOrRGB.html">API_OverriddenAttributeOrRGB</a></p>
+	<p><img border="0" src="../../APIImageLibrary/25.png" alt="New in API 25" width="19" height="12">&nbsp;In version 25, the <em>hideCutContours</em> and <em>hideUncutContours</em> are added</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 20 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Level3/Override_id.html#Others">Visual Override</a>,<br><a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 30, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

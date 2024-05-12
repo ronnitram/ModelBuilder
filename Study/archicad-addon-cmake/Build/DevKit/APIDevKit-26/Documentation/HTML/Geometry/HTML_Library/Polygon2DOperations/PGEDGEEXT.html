@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title></title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Polygon2DOperations/PGEDGEEXT.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <a href="../Polygon2DOperations/PGEDGEEXT.html">PGEDGEEXT</a>
+
+    <h1>PGEDGEEXT</h1>
+
+    <p>Descripion of a Segment (vertex + following edge) in the Callback polygon operations.</p>
+    <pre class="syntax">
+    <strong>struct</strong> PGEDGEEXT {
+      <strong><a href="PGEDGESTATUSEXT.html">PGEDGESTATUSEXT</a></strong>  <em>status</em>;
+      <strong>long</strong>             <em>filler2</em>;
+      <strong>double</strong>           <em>invlen</em>;
+      <strong><a href="../Vector2D/Coord.html">Coord</a></strong>            <em>begPt</em>;
+      <strong><a href="../Vector2D/Coord.html">Coord</a></strong>            <em>center</em>;
+      <strong>double</strong>           <em>radius</em>;
+      <strong>double</strong>           <em>fi1</em>;
+      <strong>double</strong>           <em>fi2</em>;
+      <strong>GSSize</strong>           <em>sizeOfVertexData</em>;
+      <strong>GSPtr</strong>            <em>vertexData</em>;
+      <strong>GSPtr</strong>            <em>defaultVertexData</em>;
+      <strong>GSSize</strong>           <em>sizeOfInhEdgeData</em>;
+      <strong>GSPtr</strong>            <em>inhEdgeData</em>;
+      <strong>GSPtr</strong>            <em>defaultInhEdgeData</em>;
+      <strong>GSSize</strong>           <em>sizeOfUniqEdgeData</em>;
+      <strong>GSPtr</strong>            <em>uniqEdgeData</em>;
+      <strong>GSPtr</strong>            <em>defaultUniqEdgeData</em>;
+      <strong>PGEDGEEXT</strong>
+   };
+
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>status</b></dt>
+
+        <dd>Status information of the edge. See detailed description at <a href="PGEDGESTATUSEXT.html">PGEDGESTATUSEXT</a>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>filler2</b></dt>
+
+        <dd>Reserved. Must be zero.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>invlen</b></dt>
+
+        <dd>The length of the edge or in case of curved edge: the distance of the starting and the ending vertices in inverted format: 1/length. Eg.: if the straight edge length is 2.0 the value of this field 0.5.<br>
+        You can use two constants here too: InvLen_NotInited, which means that you leave to the operation to bother with this field. The other is InvLen_ZeroEdge, which means this edge has no length.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>begPt</b></dt>
+
+        <dd>The starting vertex of the edge.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>center</b></dt>
+
+        <dd>This field only valid if the edge is arced. The center of the arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>radius</b></dt>
+
+        <dd>This field only valid if the edge is arced. The radius of the arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>fi1</b></dt>
+
+        <dd>This field only valid if the edge is arced. The starting direction-angle of the arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>fi2</b></dt>
+
+        <dd>This field only valid if the edge is arced. The ending direction-angle of the arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>sizeOfVertexData</b></dt>
+
+        <dd>Size of attached data of the starting vertex.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>vertexData</b></dt>
+
+        <dd>The attached data of the starting vertex.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>defaultVertexData</b></dt>
+
+        <dd>It is only a reference! The data is pointed from the <a href="PGPOLYEXT.html">PGPOLYEXT</a>. The default attached data of the starting vertex. Used for the new starting vertex if the edge splits.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>sizeOfInhEdgeData</b></dt>
+
+        <dd>Size of attached inheriting data of the edge.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>inhEdgeData</b></dt>
+
+        <dd>Attached inheriting data of the edge. It will inherit to all descendant piece of this edge.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>defaultInhEdgeData</b></dt>
+
+        <dd>It is only a reference! The data is pointed from the <a href="PGPOLYEXT.html">PGPOLYEXT</a>. The default attached inheriting data of the edge. Used for a brand-new edge. (NOT FOR SPLITS.)</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>sizeOfUniqEdgeData</b></dt>
+
+        <dd>Size of attached unique data of the edge.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>uniqEdgeData</b></dt>
+
+        <dd>Attached unique data of the edge. It will inherit only to ONE descendant piece of this edge.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>defaultUniqEdgeData</b></dt>
+
+        <dd>It is only a reference! The data is pointed from the <a href="PGPOLYEXT.html">PGPOLYEXT</a>. The default attached unique data of the edge. Used for all descendant edges but one.</dd>
+
+        <dd>&nbsp;</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>There is two possibility to use the attached data.<br>
+    The first is you give the attached data and its size, and the operations will copy it at the beginning and when the edge copies (for example splits). This method is safer as the second. You should use it if you give attached data which can change meanwhile the operation.<br>
+    The second is you give the attached data, but give ZERO AS SIZE. In this case only the appropriate pointer (the data or the default) will copy. In this case its common that two or more pointers points to the same memory adress. So you can use it if the attached memory will be thrown away separatly. This method is quicker as the first.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Polygon2DOperations.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Polygon2DOperations_id.html">2D Polygon operations</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

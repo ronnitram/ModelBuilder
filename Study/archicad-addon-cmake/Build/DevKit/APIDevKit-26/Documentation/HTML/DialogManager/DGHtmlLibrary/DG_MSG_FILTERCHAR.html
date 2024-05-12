@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DG_MSG_FILTERCHAR</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_FILTERCHAR.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_FILTERCHAR</h1>
+
+    <p>A key is pressed while an <a href="EditControl.html">edit control</a> has the keyboard focus.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>The character code of the key pressed.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The character will <u>not</u> be filtered out.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>1</td>
+
+                    <td>The character will be filtered out.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>When the user enters text into an edit control, the typed characters are automatically filtered by DG according to the type of the control. For example an 'a' character can not be entered into an integer-type edit control (DG beeps instead). If a character passes through this automatic filtering DG sends a <tt>DG_MSG_FILTERCHAR</tt> message to the <a href="CallbackFunctions.html">dialog callback function</a> giving the application a chance to filter out the character. If the application wants to do so for some reason, it should respond 1 to this message.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="EditControl.html">Edit Control</a>, <a href="CallbackFunctions.html">Callback functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 4, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

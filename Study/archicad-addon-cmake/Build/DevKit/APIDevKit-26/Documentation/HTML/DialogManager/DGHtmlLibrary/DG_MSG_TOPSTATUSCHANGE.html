@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Bende Laszlo">
+
+    <title>DG_MSG_TOPSTATUSCHANGE</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_TOPSTATUSCHANGE.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_TOPSTATUSCHANGE</h1>
+
+    <p>A <a href="ModelessDialogs.html">modeless dialog</a> is activated or deactivated or a <a href="PaletteDialogs.html">palette dialog</a> is activated.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>Not used, always zero.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>Pointer to a <a href="DGTopStatusMsgData.html">DGTopStatusMsgData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Not used, should be set to zero.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <a href="CallbackFunctions.html">dialog callback function</a> receives this message as a result of a user action or of a <a href="DGActivateModelessDialog.html">DGActivateModelessDialog</a> function call. If a dialog is activated, a <tt>DG_MSG_TOPSTATUSCHANGE</tt> message with <tt>DG_TSM_TOPSTATUSLOST</tt> submessage is sent to the currently active dialog (which will be deactivated), then a <tt>DG_MSG_TOPSTATUSCHANGE</tt> message with <tt>DG_TSM_TOPSTATUSGAINED</tt> submessage is sent to the dialog which is being activated.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="ModelessDialogs.html">Modeless Dialogs</a>, <a href="PaletteDialogs.html">Palette Dialogs</a><br>
+    <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGActivateModelessDialog.html">DGActivateModelessDialog</a><br>
+    <a href="DGTopStatusMsgData.html">DGTopStatusMsgData</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 16, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

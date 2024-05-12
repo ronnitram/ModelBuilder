@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIEnv_CanChangePlaceSetsID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIEnv_CanChangePlaceSetsID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIEnv_CanChangePlaceSetsID</h1>
+
+    <p>May the current user change the place settings now?</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_environment_id.html">ACAPI_Environment</a></strong> (
+        <strong>APIEnv_CanChangePlaceSetsID</strong>,
+        <strong>bool*</strong>                   <em>withDialog</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>withDialog</em></dt>
+
+        <dd>[in] If the user don't have permisson to change the place settings now, then the Location Dialog will open if this parameter is <code>true</code>, otherwise it will just return whether the user can or can not change the place settings now. 
+        This parameter is optional; if you pass nullptr, it defaults to <code>true</code>.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The user is allowed to change the place settings.</dd>
+
+        <dt><code>APIERR_NOTEDITABLE</code></dt>
+
+        <dd>The user is not allowed to change the place settings.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+   <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+        bool withDialog = false;
+        ACAPI_Environment (APIEnv_CanChangePlaceSetsID, &amp;withDialog);
+        </code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 20 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="acapi_environment_id.html">ACAPI_Environment</a>,<br>
+    <a href="APIEnv_ChangePlaceSetsID.html">APIEnv_ChangePlaceSetsID</a>, <a href="APIEnv_GetPlaceSetsID.html">APIEnv_GetPlaceSetsID</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on March 9, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

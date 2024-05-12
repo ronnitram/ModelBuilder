@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <title>GSAPI::IAPIOutputAdapter and GSAPI::IAPIOutputAdapterBase interfaces</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Framework/IAPIOutputAdapter.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GSAPI::IAPIOutputAdapter and GSAPI::IAPIOutputAdapterBase interfaces</h1>
+
+    <p>The <b>IAPIOutputAdapter</b> template interface provides a simple abstract method to output an API structure or enum on a <!-- Don't index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/OChannel/OChannel.html">GS::OChannel</a>. (There's a compulsory <i>operator&gt;&gt; ()</i> overload which is usually a wrapper for the compulsory <i>Output ()</i> method.)</p>
+
+    <p>The <b>IAPIOutputAdapterBase</b> interface provides Get/Set methods and data members for information necessary during the output:</p>
+
+    <ul>
+        <li>an <!-- Don't index --><a href="IAPIOutputManager.html">IAPIOutputManager</a>, to get the output channel from for contained types</li>
+
+        <li>an <!-- Don't index --><a href="IAPIOutputAdapterFactory.html">IAPIOutputAdapterFactory</a> to get output adapters for contained types</li>
+
+        <li>the <!-- Don't index --><a href="../Structures/API_WindowInfo.html">API_DatabaseInfo</a> of the structure/enum</li>
+
+        <li>an optional <!-- Don't index --><a href="IAttributeProxy.html">IAttributeProxy</a>, to cache attributes of the structure</li>
+
+        <li>the attribute output type (<b>GSAPI::DoNotOutput</b> by default)</li>
+    </ul>
+
+    <p>The derived <b>IAPIOutputAdapter</b> template interface provides additional type-dependent Get/Set methods and data members for information necessary during the output:</p>
+
+    <ul>
+        <li>the structure/enum to output</li>
+
+        <li style="list-style: none">the <!-- Don't index --><a href="../Structures/API_ElementMemo.html">API_ElementMemo</a> for an <!-- Don't index --><a href="../Structures/API_Element.html">API_Element</a> structure</li>
+    </ul>
+
+    <p>There's a simple implementation in the <b>DefaultImplementation</b> folder, which basically does nothing (<b>NullTypeOutputAdapter</b>).</p>
+
+    <h2 class="SectionHeading">Requirements</h2>
+
+    <p><span class="RequirementsSection">Namespace:</span> GSAPI</p>
+
+    <p><span class="RequirementsSection">Header:</span> IAPIOutputAdapter.hpp</p>
+
+    <p><span class="RequirementsSection">Version:</span> API 10.21 or later</p>
+
+    <h2 class="SectionHeading">See Also</h2>
+
+    <p><!-- Don't index --><a href="IAPIOutputManager.html">IAPIOutputManager interface</a> | <!-- Don't index --><a href="IAPIOutputAdapterFactory.html">IAPIOutputAdapterFactory interface</a> | <!-- Don't index --><a href="IAttributeProxy.html">IAttributeProxy interface</a></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

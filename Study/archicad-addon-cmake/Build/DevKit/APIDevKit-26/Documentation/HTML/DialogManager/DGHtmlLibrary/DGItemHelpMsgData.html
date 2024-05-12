@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Bende Laszlo">
+
+    <title>DGItemHelpMsgData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGItemHelpMsgData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGItemHelpMsgData</h1>
+
+    <p>If the <a href="CallbackFunctions.html">dialog callback function</a> receives a <a href="DG_MSG_ITEMHELP.html"><tt>DG_MSG_ITEMHELP</tt></a> message for a dialog item, the <i>msgData</i> parameter is a pointer to a <b>DGItemHelpMsgData</b> structure that contains information about the help event.</p>
+    <pre class="syntax">
+    <strong>struct</strong> <em>DGItemHelpMsgData</em> {
+      <strong>short</strong>          <em>subMessage;</em>
+      <strong>short</strong>          <em>itemId;</em>
+      <strong>Int32</strong>          <em>treeItem;</em>
+      <strong>short</strong>          <em>listItem;</em>
+      <strong>short</strong>          <em>filler;</em>
+      <strong>Int32</strong>          <em>tabBarItemId;</em>
+      <strong>GS::UniString</strong>  <em>toolTipText;</em>
+      <strong>GS::UniString</strong>  <em>contextHelpAnchor;</em>
+    };
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>subMessage</b></dt>
+
+        <dd>It can be one of the following values:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">subMessage</th>
+
+                    <th align="left">meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_HSM_TOOLTIP</tt></td>
+
+                    <td>Tooltip text is going to be displayed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_HSM_CONTEXTHELP</tt></td>
+
+                    <td>Context sensitive help is going to be displayed according to the specified help anchor.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>itemId</b></dt>
+
+        <dd>1-based index of the dialog item above the message should be displayed.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>treeItem</b></dt>
+
+        <dd>If the dialog item is a treeview, it is the tree view item above which the help was requested, otherwise it is zero.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>listItem</b></dt>
+
+        <dd>If the help is requested above a ListView or ListBox item type, DG places 1-based index of the listItem above the help is requested.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>filler</b></dt>
+
+        <dd>Reserved.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>tabBarItemId</b></dt>
+
+        <dd>1-based index of the TabBar item identifier above which the help is requested.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>toolTipText</b></dt>
+
+        <dd>If the <b>subMessage</b> is <tt>DG_HSM_TOOLTIP</tt>, the application can fill this field with a text pointer containing the message to display. This pointer must be allocated by <b>BMAllocatePtr</b>. It is advisable to store the corresponding tooltip and help anchor pairs in a DHLP resource. You can load the help anchor with the <a href="DGGetDynamicHelpStrings.html">DGGetDynamicHelpStrings</a> function. After the message was displayed, DG frees the allocated memory by calling the <b>BMKillPtr</b> function. If <b>toolTipText</b> is set to <tt>nullptr</tt>, DG tries to get the tooltip text from the GRC resource. On Windows platform ToolTip text can be 8192 characters long. On Windows multiple tooltips can be specified with "\n", but "\t" characters are replaced with spaces.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>contextHelpAnchor</b></dt>
+
+        <dd>If the <b>subMessage</b> is <tt>DG_HSM_CONTEXTHELP</tt>, the application can fill this field with a text pointer containing the help anchor to be passed as parameter to the help engine registered with (DGRegisterAdditionalHelpLocation or DG::Application::RegisterHelpLocation in case of a standalone application). This pointer must be allocated by <b>BMAllocatePtr</b>. It is advisable to store the corresponding tooltip and help anchor pairs in a DHLP resource. You can load the help anchor with the <a href="DGGetDynamicHelpStrings.html">DGGetDynamicHelpStrings</a> function. After the help engine was launched with the help anchor parameter, DG frees the allocated memory by calling the <b>BMKillPtr</b> function. If <b>contextHelpText</b> is set to <tt>nullptr</tt>, DG tries to get the context help text from the GRC resource.</dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Structures_id.html">DG Structures</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DG_MSG_ITEMHELP.html"><tt>DG_MSG_ITEMHELP</tt></a> <a href="DGDisplayContextHelp.html">DGDisplayContextHelp</a>, <a href="DGGetDynamicHelpStrings.html">DGGetDynamicHelpStrings</a>, <a href="DGShowContextHelpWithAnchor.html">DGShowContextHelpWithAnchor</a><br>
+    <a href="DGDisableToolTips.html">DGDisableToolTips</a>, <a href="DGEnableToolTips.html">DGEnableToolTips</a><br>
+    <a href="GRC_DialogHelps.html">GRC Specification of the Dialog Helps</a><br>
+    <a href="DGRegisterAdditionalHelpLocation.html">DGRegisterAdditionalHelpLocation</a>, <a href="DGUnregisterAdditionalHelpLocation.html">DGUnregisterAdditionalHelpLocation</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 20, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Check Box</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CheckBox.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Check Box</h1>
+
+    <p>A check box is a two-state interactive dialog item. There are two basic kinds of check boxes: simple and button-like. Check boxes are used to enable or disable one or more options from a set. When an option is selected, a check mark appears in the box or the button appears pushed according to the check box subtype.</p>
+
+    <p>Check boxes are used when more than one option in a set can be selected at the same time. In contrast, a <a href="RadioButton.html">radio button</a> should be used if one and only one of the options in the set can be selected at any given time.</p>
+
+    <p>In DG there is another special kind of check box, the so called push menu control (<tt>DG_BT_PUSHMENUICON</tt> subtype). The push menu control is a check box combined with a pop-up menu of icon buttons. In addition to the standard button-like check box's behavior, this control has some special functionality. This is why it has a set of handling functions in DG. For details see <a href="PushMenuControl.html">push menu control</a> and <a href="PushMenuSpecific_id.html">push menu specific functions</a>.</p>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_CHECKBOX</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left" colspan="2">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_TEXT</tt></td>
+
+                    <td>Simple text check box.<br>
+                    <br>
+                    <img src="../DGImageLibrary/CheckBoxText_Mac.png" width="100" height="79" alt="CheckBoxText_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/CheckBoxText_Win.png" alt="CheckBoxText_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_ICON</tt></td>
+
+                    <td>Simple icon check box.<br>
+                    <br>
+                    <img src="../DGImageLibrary/CheckBoxIcon_Mac.png" width="50" height="60" alt="CheckBoxIcon_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/CheckBoxIcon_Win.png" alt="CheckBoxIcon_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_PUSHTEXT</tt></td>
+
+                    <td>Button-like text check box.<br>
+                    <br>
+                    <img src="../DGImageLibrary/CheckBoxPushText_Mac.png" width="98" height="49" alt="CheckBoxPushText_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/CheckBoxPushText_Win.png" alt="CheckBoxPushText_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_PUSHICON</tt></td>
+
+                    <td>Button-like icon check box.<br>
+                    <br>
+                    <img src="../DGImageLibrary/CheckBoxPushIcon_Mac.png" width="58" height="70" alt="CheckBoxPushIcon_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/CheckBoxPushIcon_Win.png" alt="CheckBoxPushIcon_Win"><br>
+                    <br></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    CheckBox         <i>x  y  dx  dy  fontSpec  "text"</i>
+    PushCheck        <i>x  y  dx  dy  fontSpec  [frameType]    [appearanceType]     "text"</i>
+
+    IconCheckBox     <i>x  y  dx  dy  iconID</i>
+    IconPushCheck    <i>x  y  dx  dy  iconID    [frameType]    [appearanceType]</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the check box, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the check box <em>text</em>. <em>iconID</em> defines the icon resource ID of an icon-style check box.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>frameType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="250">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noFrame</tt></td>
+
+                    <td>The push check will be frameless.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>frame</tt></td>
+
+                    <td>The push check will have three-dimensional raised border.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <em>appearanceType</em>: (only affects the push check on Macintosh)</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Normal</tt></td>
+
+                    <td>This is the default. The push check has normal edge (<tt>DG_BA_NORMAL</tt>).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>BevelEdge</tt></td>
+
+                    <td>The push check has bevel edge (<tt>DG_BA_BEVEL</tt>).</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+
+    <h4>Suggested sizes</h4>
+
+    <p>For text-style check boxes the following item heights are suggested. It is advised to use these values in GRC or when check boxes are created from program code.</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left"><tt>dy</tt> (pixels)</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_TEXT</tt></td>
+
+                    <td>18</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_PUSHTEXT</tt></td>
+
+                    <td>20</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>The checked state of the check box is changed. The message data parameter contains the previous state of the check box.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a></td>
+
+                    <td>The check box is double clicked. The message data parameter is always zero. The <a href="CallbackFunctions.html">dialog callback function</a> receives this message for button-like check boxes (<tt>DG_BT_PUSHTEXT</tt>, <tt>DG_BT_PUSHICON</tt>) only.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p>The <a href="DGSetItemValLong.html">DGSetItemValLong</a> function sets the check box's modification flag except if it is called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the dialog callback function. The flag can also be set by user actions that generate <tt>DG_MSG_CHANGE</tt> messages. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>There are two states of a check box: checked (pressed) and unchecked (released). In DG these states are represented by the item values of the check box. Item value of 1 means the checked, while zero the unchecked state. To set and retrieve the state of a check box call <b>DGSetItemValLong</b> and <a href="DGGetItemValLong.html">DGGetItemValLong</a>.</p>
+
+    <p>The text of a text-style check box (<tt>DG_BT_TEXT</tt>, <tt>DG_BT_PUSHTEXT</tt>) can be set, modified and retrieved by <a href="DGSetItemText.html">DGSetItemText</a>, <a href="DGCatItemText.html">DGCatItemText</a> and <a href="DGGetItemText.html">DGGetItemText</a>, respectively. The text can be displayed with any type of DG fonts. The font can be specified not only in GRC, but by the <a href="DGSetItemFont.html">DGSetItemFont</a> function as well. Use <a href="DGGetItemFont.html">DGGetItemFont</a> to retrieve the font currently assigned to a check box.</p>
+
+    <p>The icon of an icon-style check box (<tt>DG_BT_ICON</tt>, <tt>DG_BT_PUSHICON</tt>) can be assigned either by the resource ID or by the handle of the icon. To set and retrieve the icon of a check box use <a href="DGSetItemImageId.html">DGSetItemImageId</a> or <a href="DGSetItemImage.html">DGSetItemImage</a> and <a href="DGGetItemImageId.html">DGGetItemImageId</a> or <a href="DGGetItemImage.html">DGGetItemImage</a>, respectively. Note that the icon resource ID can be defined in GRC, too.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="PushMenuControl.html">Push Menu Control</a>, <a href="RadioButton.html">Radio Button</a><br>
+    <a href="PushMenuSpecific_id.html">Push menu specific functions</a>, <a href="DGCatItemText.html">DGCatItemText</a>, <a href="DGGetItemFont.html">DGGetItemFont</a>, <a href="DGGetItemImage.html">DGGetItemImage</a>, <a href="DGGetItemImageId.html">DGGetItemImageId</a>, <a href="DGGetItemText.html">DGGetItemText</a>, <a href="DGGetItemValLong.html">DGGetItemValLong</a>, <a href="DGModified.html">DGModified</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetItemFont.html">DGSetItemFont</a>, <a href="DGSetItemImage.html">DGSetItemImage</a>, <a href="DGSetItemImageId.html">DGSetItemImageId</a>, <a href="DGSetItemText.html">DGSetItemText</a>, <a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on November 30, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

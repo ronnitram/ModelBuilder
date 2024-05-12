@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_PropertyConversionUtilsInterface</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_PropertyConversionUtilsInterface.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_PropertyConversionUtilsInterface</h1>
+
+    <p>An interface for getting units of measurement for string to property value conversion.</p>
+
+    <p>The class which implements the interface has to return the appropriate units of measurement and delimiters. It is only used for <a href="../Functions/ACAPI_Property_SetPropertyValueFromString.html">ACAPI_Property_SetPropertyValueFromString</a>.</p>
+
+    <pre class="syntax">
+	<strong>class</strong> <em>API_PropertyConversionUtilsInterface</em> {
+	public:
+		virtual ~API_PropertyConversionUtilsInterface () = default;
+
+		virtual const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>& GetDegreeSymbol1	() const = 0;
+		virtual const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>& GetDegreeSymbol2	() const = 0;
+		virtual const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>& GetMinuteSymbol	() const = 0;
+		virtual const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>& GetSecondSymbol	() const = 0;
+
+		virtual const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>& GetGradientSymbol	() const = 0;
+		virtual const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>& GetRadianSymbol	() const = 0;
+
+		virtual const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>& GetNorthSymbol () const = 0;
+		virtual const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>& GetSouthSymbol () const = 0;
+		virtual const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>& GetEastSymbol	() const = 0;
+		virtual const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>& GetWestSymbol	() const = 0;
+
+		virtual GS::uchar_t			GetDecimalDelimiterChar		() const = 0;
+		virtual GS::Optional&lt;GS::UniChar&gt	GetThousandSeparatorChar	() const = 0;
+
+		virtual <a href="API_LengthTypeID.html">API_LengthTypeID</a>	GetLengthType	() const = 0;
+		virtual <a href="API_AreaTypeID.html">API_AreaTypeID</a>		GetAreaType		() const = 0;
+		virtual <a href="API_VolumeTypeID.html">API_VolumeTypeID</a>	GetVolumeType	() const = 0;
+		virtual <a href="API_AngleTypeID.html">API_AngleTypeID</a>		GetAngleType	() const = 0;
+	};
+	</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Interface class for passing in the desired units of measurement to <a href="../Functions/ACAPI_Property_SetPropertyValueFromString.html">ACAPI_Property_SetPropertyValueFromString</a>.</p>
+
+    <p>For a detailed example see the Property_Test test add-on.</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 25 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Properties.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Property.html">API_Property</a><br>
+    <p><a href="API_PropertyDefinition.html">API_PropertyDefinition</a><br>
+    <p><a href="API_PropertyValue.html">API_PropertyValue</a><br>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 28, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>SetHeaderItemFont (ListBox)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/ListBox/SetHeaderItemFont.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="ListBox.html">ListBox</A>::SetHeaderItemFont</H2><!--exp="ListBox::SetHeaderItemFont"-->
+<P><topic id="$DG.$ListBox.$SetHeaderItemFont.BriefDescription">
+		Sets the font of a header item in the list box control.
+	</topic></P>
+<PRE class="syntax"><B>void SetHeaderItemFont (</B>
+    <B>short               </B><I>headerItem</I>,
+    <B><a class="nodecorate" href="../../DG_Font/Size.html">DG::Font::Size &amp;</A>    </B><I>size</I>,
+    <B><a class="nodecorate" href="../../DG_Font/Style.html">DG::Font::Style &amp;</A>   </B><I>style</I>
+<B>);</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>headerItem</I></DT><DD><topic id="$DG.$ListBox.$SetHeaderItemFont.$headerItem.ParamDescription">
+		1-based index of the header item.
+	</topic></DD><DT><I>size</I></DT><DD><topic id="$DG.$ListBox.$SetHeaderItemFont.$size.ParamDescription">
+		The new <a href="../../DG_Font/Size.html">font size</a> of the header item text.
+	</topic></DD><DT><I>style</I></DT><DD><topic id="$DG.$ListBox.$SetHeaderItemFont.$style.ParamDescription">
+		The new <a href="../../DG_Font/Style.html">font style</a> of the header item text.
+	</topic></DD>
+</DL>
+<H4>Description</H4>
+<P><topic id="$DG.$ListBox.$SetHeaderItemFont.LongDescription">
+		If the <em>isSynchron</em> state is set to <tt>true</tt> on the list box header,
+		the font style and size of the header items are synchronized with the corresponding
+		tabulator fields automatically, otherwise they should be handled independently
+		by the application. Use <a href="SetHeaderSynchronState.html">SetHeaderSynchronState</a>
+		to change the synchron state of the header.
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>InplaceMerge</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/InplaceMerge.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>InplaceMerge</H2><!--exp="InplaceMerge Enum"-->
+<P><topic id="$GS.$InplaceMerge.BriefDescription">
+		Combines the elements from two consecutive sorted ranges into a single sorted 
+		range, where the ordering criterion may be specified by a binary predicate.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>Bi</I><B>&gt;
+</B>void InplaceMerge (</B>
+    <B>Bi                  </B><I>first</I>,
+    <B>Bi                  </B><I>mid</I>,
+    <B>Bi                  </B><I>last</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>Bi</I>, <B>class</B> <I>BinPred</I><B>&gt;
+</B>void InplaceMerge (</B>
+    <B>Bi                  </B><I>first</I>,
+    <B>Bi                  </B><I>mid</I>,
+    <B>Bi                  </B><I>last</I>,
+    <B>BinPred             </B><I>pred</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>Bi</I></DT><DD><topic id="$GS.$InplaceMerge.$Bi.TemplateParamDescription">
+		Bidirectional iterator.
+	</topic></DD><DT><I>BinPred</I></DT><DD><topic id="$GS.$InplaceMerge.$BinPred.TemplateParamDescription">
+		Binary predicate.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first</I></DT><DD><topic id="$GS.$InplaceMerge.$first.ParamDescription">
+		A bidirectional iterator addressing the position of the first element in the 
+		first of two consecutive sorted ranges to be combined and sorted into a single 
+		range.
+	</topic></DD><DT><I>mid</I></DT><DD><topic id="$GS.$InplaceMerge.$mid.ParamDescription">
+		A bidirectional iterator addressing the position of the first element in the 
+		second of two consecutive sorted ranges to be combined and sorted into a single 
+		range.
+	</topic></DD><DT><I>last</I></DT><DD><topic id="$GS.$InplaceMerge.$last.ParamDescription">
+		A bidirectional iterator addressing the position one past the last element in 
+		the second of two consecutive sorted ranges to be combined and sorted into a 
+		single range.
+	</topic></DD><DT><I>pred</I></DT><DD><topic id="$GS.$InplaceMerge.$pred.ParamDescription">
+		User-defined predicate function object that defines the sense in which one 
+		element is greater than another. The binary predicate takes two arguments and 
+		should return <B>true </B>when the first element is less than the second element 
+		and <B>false</B> otherwise.
+	</topic></DD>
+</DL>
+<H4>Description</H4>
+<P><topic id="$GS.$InplaceMerge.LongDescription">
+		<B>InplaceMerge</B> combines two consecutive sorted ranges <TT>[first, 
+		mid)</TT> and <TT>[mid, last)</TT> into a single sorted range <TT>[first, 
+		last)</TT>. That is, it starts with a range <TT>[first, last)</TT> that consists 
+		of two pieces each of which is in ascending order, and rearranges it so that the 
+		entire range is in ascending order. <B>InplaceMerge</B> is stable, meaning 
+		both that the relative order of elements within each input range is preserved, 
+		and that for equivalent elements in both input ranges the 
+		element from the first range precedes the element from the second. 
+		The two versions of <B>InplaceMerge</B> differ in how elements are 
+		compared. The first version uses <TT>operator&lt;</TT>. That is, the input 
+		ranges and the output range satisfy the condition that for every pair of 
+		iterators <TT>i</TT> and <TT>j</TT> such that <TT>i</TT> precedes <TT>j</TT>, 
+		<TT>*j &lt; *i</TT> is <TT>false</TT>. The second version uses the predicate 
+		<TT>pred</TT>. That is, the input ranges and the output range satisfy the 
+		condition that for every pair of iterators <TT>i</TT> and <TT>j</TT> such that 
+		<TT>i</TT> precedes <TT>j</TT>, <TT>pred(*j, *i)</TT> is <TT>false</TT>.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$InplaceMerge.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

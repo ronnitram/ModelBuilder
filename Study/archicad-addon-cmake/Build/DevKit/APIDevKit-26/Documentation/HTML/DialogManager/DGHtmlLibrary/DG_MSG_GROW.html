@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DG_MSG_GROW</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_GROW.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_GROW</h1>
+
+    <p>This message is obsolete, and kept for backward compatibility only. In new applications the <a href="DG_MSG_RESIZE.html">DG_MSG_RESIZE</a> message should be used which gives more information about the resize event.</p>
+
+    <p>The dialog has been resized.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>Not used, always zero.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>Long value containing horizontal and vertical growth's.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Not used, should be set to zero.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <a href="CallbackFunctions.html">dialog callback function</a> receives <tt>DG_MSG_GROW</tt> messages when the user resizes the dialog or the application calls the <a href="DGGrowDialog.html">DGGrowDialog</a> or <a href="DGSetDialogSize.html">DGSetDialogSize</a> functions. A dialog is resizable only if one of the <em>hGrow</em>, <em>vGrow</em> or <em>grow</em> flags is set in its GRC specification.</p>
+
+    <p>When the callback function receives the <tt>DG_MSG_GROW</tt> message, the dialog already has its new size. The horizontal and vertical growth can be retrieved from the <em>msgData</em> message parameter by using the <a href="DGGetHGrow.html">DGGetHGrow</a> and <a href="DGGetVGrow.html">DGGetVGrow</a> macros, respectively. Positive values mean growth, negative values mean shrink.</p>
+
+    <p>When handling a <tt>DG_MSG_GROW</tt> message, the application typically needs to move and/or resize dialog items according to the new size of the dialog. Use <a href="DGGrowItem.html">DGGrowItem</a>, <a href="DGMoveItem.html">DGMoveItem</a> and <a href="DGMoveGrowItem.html">DGMoveGrowItem</a> functions to do this task. To avoid unwanted screen flickering it is advised to enclose these function calls by the <a href="DGBeginMoveGrowItems.html">DGBeginMoveGrowItems</a> <a href="DGEndMoveGrowItems.html">DGEndMoveGrowItems</a> function pair.</p><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b>
+
+    <p>If the <em>fulldrag</em> system flag is on and the user begins to resize a dialog, the callback function permanently receives <tt>DG_MSG_GROW</tt> messages until the user finishes the resizing.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGBeginMoveGrowItems.html">DGBeginMoveGrowItems</a>, <a href="DGEndMoveGrowItems.html">DGEndMoveGrowItems</a>, <a href="DGGetHGrow.html">DGGetHGrow</a>, <a href="DGGetVGrow.html">DGGetVGrow</a>, <a href="DGGrowDialog.html">DGGrowDialog</a>, <a href="DGGrowItem.html">DGGrowItem</a>, <a href="DGMoveItem.html">DGMoveItem</a>, <a href="DGMoveGrowItem.html">DGMoveGrowItem</a>, <a href="DGSetDialogSize.html">DGSetDialogSize</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 7, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

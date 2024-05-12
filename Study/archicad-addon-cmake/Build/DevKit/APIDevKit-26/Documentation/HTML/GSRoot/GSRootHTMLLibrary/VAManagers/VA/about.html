@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>About Virtual Arrays</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/VAManagers/VA/about.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><b>About Virtual Arrays</b></h1>
+
+    <p>&nbsp;</p>
+
+    <p>The Virtual Array (VA) is a dynamic array of which size can be increased or decreased according to the number of elements stored in it. The Virtual Array is represented by the <a href="reference/DESC.html"><strong>DESC</strong></a> structure. The <strong>DESC</strong> structure defines the attributes of a Virtual Array.</p>
+
+    <p>The <strong>DESC</strong> structure contains a memory buffer in which the elements of the Virtual Array are stored. The Virtual Array Manager provides functions to increase or decrease the size of this buffer, but the get/set operations must be done manually. The <strong>DESC</strong> structure has two indices which point to the last allocated (<strong>maxind</strong>) and the last used (<strong>lastind</strong>) cell of the buffer. If you are performing get/set operations on a Virtual Array you must consider this indices. Note that the VA is indexed from 1 to the <strong>lastind</strong> member of the <strong>DESC.</strong> The index range is always continuous, the cells of the index range are always in use. If the Virtual Array must be enlarged or shrunken then the size will be increased or decreased by the number of elements specified by the <strong>npage</strong> member of the <strong>DESC</strong> structure.</p>
+
+    <p>Before using Virtual Arrays you must initialize them by calling the <a href="reference/VAInit.html"><strong>VAInit</strong></a> function. <strong>VAInit</strong> allocates the buffer, and initializes the members of the <strong>DESC</strong> structure. After initializing you can increase the size of the Virtual Array with <a href="reference/VASpac.html"><strong>VASpac</strong></a>, <a href="reference/VANspac.html"><strong>VANspac</strong></a> <a href="reference/VANspac.html"></a>or <strong><a href="reference/VAReal.html">VAReal</a></strong> functions. The previous functions maintain the members of the <strong>DESC</strong> structure and increase continuously the size of the buffer if necessary.</p>
+
+    <p>Because the index range is continuous, if you want to add a new element to the VA, first you must increase the size of the VA by one with the <strong>VASpac</strong> function. The <strong>VASpac</strong> increases the size of the buffer in DESC and updates <strong>maxind</strong> and <strong>lastind</strong> members. The new value of the <strong>lastind</strong> member will be increased by one. Because the <strong>lastind</strong> member points to the last cell of the VA which is empty (after calling <strong>VASpac</strong>), you can copy the new element to add into the cell pointed by <strong>lastind</strong>. Note that you can add new elements only to the end of the VA, that is you can append but not insert elements.</p>
+
+    <p>If you want to decrease the size of the Virtual Array you can use the <a href="reference/VADecr.html"><strong>VaDecr</strong></a> and <a href="reference/VARelease.html"><strong>VARelease</strong></a> functions. They update the members of the <strong>DESC</strong> structure and decrease the size of the buffer if necessary.</p>
+
+    <p>After using the Virtual Array you must call the <strong><a href="reference/VAFree.html">VAFree</a></strong> function to release its buffer. After it you can call the <a href="reference/VAUnused.html"><strong>VAUnused</strong></a> function to mark the Virtual Array unused.</p>
+
+    <p>If you want to clear an element of the Virtual Array you can do this with the <a href="reference/VAClearIndex.html"><strong>VAClearIndex</strong></a> function. Note that the <strong>VAClearIndex</strong> decreases the index range, because it releases the cleared cell of the VA. The <a href="reference/VACopyAll.html"><strong>VACopyAll</strong></a> function copies the content of a Virtual Array into an other VA. If you have to add more than one element to a Virtual Array, you can use the <a href="reference/VACopyToEnd.html"><strong>VACopyToEnd</strong></a> and <strong><a href="reference/VAAddFromArr.html">VAAddFromArr</a></strong> copy functions. The <a href="reference/VASort.html"><strong>VASort</strong></a> function are to sort the members of a Virtual Array whereas the <a href="reference/VASearch.html"><strong>VASearch</strong></a> function are to search the index of an element in a Virtual Array.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

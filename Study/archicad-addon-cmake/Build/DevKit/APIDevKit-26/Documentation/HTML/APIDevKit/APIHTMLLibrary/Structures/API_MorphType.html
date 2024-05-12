@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_MorphType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_MorphType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_MorphType</h1>
+
+    <p>Represents a morph element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                      <em>head</em>;
+        <strong>char</strong>                               <em>filler_1[16]</em>;
+        <strong>bool</strong>                               <em>isAutoOnStoryVisibility</em>;
+        <strong>bool</strong>                               <em>filler_2[7]</em>;
+        <strong><a href="API_StoryVisibility.html">API_StoryVisibility</a></strong>                <em>showContour</em>;
+        <strong><a href="API_StoryVisibility.html">API_StoryVisibility</a></strong>                <em>showFill</em>;
+        <strong><a href="API_LinkToSettings.html">API_LinkToSettings</a></strong>                 <em>linkToSettings</em>;
+        <strong><a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a></strong>           <em>displayOption</em>;
+        <strong><a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a></strong>     <em>viewDepthLimitation</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>buildingMaterial</em>;
+        <strong><a href="API_PenOverrideType.html">API_PenOverrideType</a></strong>                <em>penOverride</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>cutLineType</em>;
+        <strong>short</strong>                              <em>cutLinePen</em>;
+        <strong>short</strong>                              <em>uncutLinePen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>uncutLineType</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>overheadLineType</em>;
+        <strong>short</strong>                              <em>overheadLinePen</em>;
+        <strong>bool</strong>                               <em>useCoverFillType</em>;
+        <strong>bool</strong>                               <em>outlineContourDisplay</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>coverFillType</em>;
+        <strong>short</strong>                              <em>coverFillPen</em>;
+        <strong>short</strong>                              <em>coverFillBGPen</em>;
+        <strong>bool</strong>                               <em>use3DHatching</em>;
+        <strong>bool</strong>                               <em>filler_3[3]</em>;
+        <strong>Int32</strong>                              <em>filler_4[8]</em>;
+        <strong><a href="API_HatchOrientation.html">API_HatchOrientation</a></strong>               <em>coverFillOrientation</em>;
+        <strong>bool</strong>                               <em>useDistortedCoverFill</em>;
+        <strong>bool</strong>                               <em>filler_5[5]</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>            <em>material</em>;
+        <strong><a href="API_TextureProjectionTypeID.html">API_TextureProjectionTypeID</a></strong>        <em>textureProjectionType</em>;
+        <strong>Int32</strong>                              <em>filler_6[21]</em>;
+        <strong><a href="API_Coord3D.html">API_Coord3D</a></strong>                        <em>textureProjectionCoords[4]</em>;
+        <strong>double</strong>                             <em>level</em>;
+        <strong><a href="API_MorphBodyTypeID.html">API_MorphBodyTypeID</a></strong>                <em>bodyType</em>;
+        <strong><a href="API_MorphEdgeTypeID.html">API_MorphEdgeTypeID</a></strong>                <em>edgeType</em>;
+        <strong>bool</strong>                               <em>castShadow</em>;
+        <strong>bool</strong>                               <em>receiveShadow</em>;
+        <strong>bool</strong>                               <em>filler_7[6]</em>;
+        <strong>Int32</strong>                              <em>filler_8[18]</em>;
+        <strong><a href="API_Tranmat.html">API_Tranmat</a></strong>                        <em>tranmat</em>;
+        <strong>bool</strong>                               <em>filler_9[8]</em>;
+    <strong>}</strong> <em>API_MorphType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>edgeLinePen</b></dt>
+
+        <dd>Pen index of the edges.</dd>
+
+        <dt><b>isAutoOnStoryVisibility</b></dt>
+
+        <dd>Is Auto On Story Visibility.</dd>
+
+        <dt><b>showContour</b></dt>
+
+        <dd>The option to define which stories display the contour of the morph.&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dd>
+
+        <dt><b>showFill</b></dt>
+
+        <dd>The option to define which stories display the fill of the morph.&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dd>
+
+        <dt><b>linkToSettings</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Mode of linking to home story.</dd>
+
+        <dt><b>displayOption</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Display options of the element on the floor plan (see <a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a>).</dd>
+
+        <dt><b>viewDepthLimitation</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Defines the range within the element is shown on the floor plan (see <a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a>).</dd>
+
+        <dt><b>buildingMaterial</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Building Material index of morph's hatch.</dd>
+
+        <dt><b>penOverride</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Cut fill pens set in the building material can be overridden on the element level.</dd>
+
+        <dt><b>cutLineType</b></dt>
+
+        <dd>Line Type of the cut contour.</dd>
+
+        <dt><b>cutLinePen</b></dt>
+
+        <dd>Pen of the cut contour.</dd>
+
+        <dt><b>uncutLineType</b></dt>
+
+        <dd>Line Type of the contour.</dd>
+
+        <dt><b>uncutLinePen</b></dt>
+
+        <dd>Pen of the contour.</dd>
+
+        <dt><b>overheadLineType</b></dt>
+
+        <dd>Line Type of view above (Floor plan only).</dd>
+
+        <dt><b>overheadLinePen</b></dt>
+
+        <dd>Pen of view above (Floor plan only).</dd>
+
+        <dt><b>useCoverFillType</b></dt>
+
+        <dd>Use Floor plan fill.</dd>
+
+         <dt><b>outlineContourDisplay</b>&nbsp;<img alt="Featuring API 18" border="0" height="12" src="../../APIImageLibrary/18.png" width="19"></dt>
+
+        <dd>Outline Contour Display.</dd>
+
+       <dt><b>coverFillType</b></dt>
+
+        <dd>Floor plan fill type.</dd>
+
+        <dt><b>coverFillPen</b></dt>
+
+        <dd>Floor plan fill pen.</dd>
+
+        <dt><b>coverFillBGPen</b></dt>
+
+        <dd>Floor plan fill background pen.</dd>
+
+        <dt><b>use3DHatching</b></dt>
+
+        <dd>Floor plan fill from material.</dd>
+
+        <dt><b>coverFillOrientation</b></dt>
+
+        <dd>Floor plan local origo type of fill.</dd>
+
+        <dt><b>useDistortedCoverFill</b></dt>
+
+        <dd>Show hatching as projected onto a plane.</dd>
+
+        <dt><b>material</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Material override structure of non customized surfaces.</dd>
+
+        <dt><b>autoSegmentationType</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="16" width="19" height="12"></dt>
+
+        <dd>Automatic segmentation type of edges and surfaces.</dd>
+
+        <dt><b>autoSegmentationNumber</b></dt>
+
+        <dd>Segmentation number for automatic segmentation.</dd>
+
+        <dt><b>textureProjectionType</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="16" width="19" height="12"></dt>
+
+        <dd>Projection type of texture.</dd>
+
+        <dt><b>textureProjectionCoords</b></dt>
+
+        <dd>Texture projection coordinate system.</dd>
+
+        <dt><b>level</b></dt>
+
+        <dd>Z position of the free shape.</dd>
+
+        <dt><b>bodyType</b></dt>
+
+        <dd>Type of the body (Solid, Surface).</dd>
+
+        <dt><b>edgeType</b></dt>
+
+        <dd>Type of the edge (Soft, Sharp).</dd>
+
+        <dt><b>castShadow</b></dt>
+
+        <dd>Body casts shadow.</dd>
+
+        <dt><b>receiveShadow</b></dt>
+
+        <dd>Body receives shadow.</dd>
+
+        <dt><b>tranmat</b></dt>
+
+        <dd>Tranmat of the morph element.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the the elements' cut fill foreground and background pens inherit from the building material, and can be overridden on the element level.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the the elements' surface materials inherit from the building material, and can be overridden on the element level.</p>
+
+    <p>For morph related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 16 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_Tranmat.html">API_Tranmat</a>, <a href="API_Element.html">API_Element</a>, <a href="API_StoryVisibility.html">API_StoryVisibility</a><br>
+    <a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a>, <a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 13, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

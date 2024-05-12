@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Tab Control</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/TabControl.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Tab Control</h1>
+
+    <p>A tab control defines multiple pages for the same area of a dialog. Each page consists of a group of controls that the application displays when the user selects the corresponding tab. There are two types of tab controls: the normal tab control and the simple tab control.</p>
+
+    <p>Every tab control has a display area in which the application displays the current page. Tab pages are assigned to the tab control items. See <a href="TabPages.html">Tab Pages</a> for details of how to create, destroy and modify parameters of tab pages.</p>
+
+    <p>A normal tab control has a three-dimensional raised border and it displays one row of tab item labels above the display area. The user can click on the labels to change the currently displayed page. On Windows, tab controls can have the keyboard focus that is indicated by a focus rectangle drawn around the label of the currently selected page. When a tab control has the keyboard focus, the user can select other tab items by pressing <tt>Home</tt>, <tt>End</tt> or the horizontal arrow keys. Each tab item label consists of an optional icon and a text, the icon is always adjusted to the left of the text. On Windows, if not all labels can be shown at the same time, the tab control displays a horizontal spin control so that the user can scroll additional tab item labels into view. On Macintosh, there is no such feature of tab controls, tab item labels are clipped at the end of the row.</p>
+
+    <p>A simple tab control is not an interactive dialog item, it simply serves as a container of tab pages. This type of tab control has no tab item labels, it can be operated by other controls of the same dialog. For example, a group of push-like radio buttons is a good choice for this purpose. The application can link the radio buttons and the simple tab control so when the user clicks on a radio button, the corresponding tab page will be displayed. By default, a simple tab control has no frame, but it can have a three-dimensional raised border.</p>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_TABCONTROL</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TT_NORMALTAB</tt></td>
+
+                    <td>Normal tab control.<br>
+                    <br>
+                    <img src="../DGImageLibrary/TabControl_Mac.png" width="227" height="182" alt="TabControl_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/TabControl_Win.png" alt="TabControl_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TT_SIMPLETAB</tt></td>
+
+                    <td>Simple tab control.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    NormalTab    <i>x  y  dx  dy</i>
+                 <i>dlgID<b>1</b>  iconID<b>1</b>  "labelText<b>1</b>"</i>
+                           ...
+                 <i>dlgID<b>i</b>  iconID<b>i</b>  "labelText<b>i</b>"</i>
+                           ...
+                 <i>dlgID<b>n</b>  iconID<b>n</b>  "labelText<b>n</b>"</i>
+
+    SimpleTab    <i>x  y  dx  dy</i>  [frameType]
+                 <i>dlgID<b>1</b></i>
+                   ...
+                    <i>dlgID<b>i</b></i>
+                   ...
+                 <i>dlgID<b>n</b></i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the tab control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. The <em>dlgID<b>i</b></em>, <em>iconID<b>i</b></em> and <em>labelText<b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) parameters initialize <em>n</em> pieces of tab pages and their tab items. <em>dlgID<b>i</b></em> is the resource ID of the i-th tab page resource in GRC. <em>iconID<b>i</b></em> and <em>labelText<b>i</b></em> defines the icon and the label text (given between two quotation marks) of the i-th tab item. If the optional <em>frameType</em> flag is omitted, the simple tab control is drawn with a three-dimensional raised border. If you want a frameless simple tab control set this flag to <tt>noFrame</tt>.</p>
+
+    <p>Possible values of <i>iconID<b>i</b></i>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="250">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoIcon</tt></td>
+
+                    <td>The i-th tab item has no icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>129 &lt;= iconID &lt;= SHRT_MAX</tt></td>
+
+                    <td>The i-th tab item has an icon given in resource. The size of the icon must be <tt>16x16</tt> pixels.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>frameType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="250">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noFrame</tt></td>
+
+                    <td>The simple tab control will be frameless.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>frame</tt></td>
+
+                    <td>The simple tab control will have three-dimensional raised border.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>The current (displayed) tab page of a normal tab control is changed. The message data parameter contains the 1-based index of the previously selected tab item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a></td>
+
+                    <td>The current tab page of a normal tab control is about to change. The message data parameter contains the 1-based index of the tab item that the user clicked. Return 1 to avoid changing tab pages, or zero to allow it.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p><a href="DGTabControlSelectItem.html">DGTabControlSelectItem</a> function sets the modification flag of the tab control except if it is called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. In case of normal tab controls the flag can also be set by user actions that generate <tt>DG_MSG_CLICK</tt> or <tt>DG_MSG_CHANGE</tt> messages. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>Tab pages are special dialogs, because they have no dialog callback function. Messages for controls on tab pages are sent to the callback function of the main dialog (the dialog that contains the tab control). For these messages, however, the ID of the tab page subdialog is passed to the callback function in the <em>dialId</em> parameter instead of the ID of the main dialog. The tab page IDs passed to the callback function are usually the same as the IDs defined in GRC, but in special cases they can be different. For example, if you have a <a href="ModelessDialogs.html">modeless dialog</a> with a multi-page tab control, DG passes the tab page IDs given in the GRC to the callback function. Suppose, however, you want an other instance of the modeless dialog. Since in DG every dialog and tab page must have a unique ID, DG assigns internally generated unique (negative) IDs to the second dialog and its tab pages when creating them. Later you must refer to this dialog and its tab pages by the internally generated IDs. The ID of a tab page subdialog attached to a tab control item can be retrieved by the <a href="DGTabControlGetTabPageId.html">DGTabControlGetTabPageId</a> function when handling the <tt>DG_MSG_INIT</tt> message in the dialog callback function. Use <a href="DGGetTabPageParentId.html">DGGetTabPageParentId</a> to retrieve the ID of the main dialog of a tab page.</p>
+
+    <p>Normal and simple tab controls can either be defined in the GRC script or created dynamically with the <a href="DGAppendDialogItem.html">DGAppendDialogItem</a> function. In the GRC script the number of tab control items and the assignment of tab page resources are described in the tab control item resource. A new item is inserted to a tab control with the <a href="DGTabControlInsertItem.html">DGTabControlInsertItem</a> function regardless of wether the tab control was defined in a resource file or created with the <strong>DGAppendDialogItem</strong> function. To this initially empty tab item a tab page can be assigned with the <a href="DGCreateTabPage.html">DGCreateTabPage</a> or the <a href="DGCreateBlankTabPage.html">DGCreateBlankTabPage</a> function. Tab control items can be deleted with the <a href="DGTabControlDeleteItem.html">DGTabControlDeleteItem</a> function only if the assigned tab page was removed first with <a href="DGDestroyTabPage.html">DGDestroyTabPage</a>. The number of tab items is retrieved by the <a href="DGTabControlGetItemCount.html">DGTabControlGetItemCount</a> function.</p>
+
+    <p>In case of normal tab controls the user can click on the tab item labels to change the currently displayed page. When the user clicks the mouse on a label, DG first sends a <tt>DG_MSG_CLICK</tt> message to the callback function. If the application responds 1 to this message, processing of the message is cancelled and the previously selected tab page remains selected, returning zero allows DG to change the tab pages and send a <tt>DG_MSG_CHANGE</tt> message. When handling the <tt>DG_MSG_CLICK</tt> message, use <a href="DGTabControlGetSelectedItem.html">DGTabControlGetSelectedItem</a> to retrieve the 1-based index of the currently selected tab item. The index of the clicked tab item can be retrieved from the message data parameter.</p>
+
+    <p>The active (selected) page of a normal tab control can be set not only by user actions but from program code as well. To set and retrieve the index of the currently selected tab item use <b>DGTabControlSelectItem</b> and <b>DGTabControlGetSelectedItem</b>, respectively. Simple tab controls are not interactive dialog items thus they can not receive <tt>DG_MSG_CLICK</tt> and <tt>DG_MSG_CHANGE</tt> messages and their tab pages can be switched from program code only.</p>
+
+    <p>Every tab page of a tab control has a status flag. The status flag can be modified or retrieved by using <a href="DGTabControlEnableItem.html">DGTabControlEnableItem</a>, <a href="DGTabControlDisableItem.html">DGTabControlDisableItem</a>, <a href="DGTabControlSetItemStatus.html">DGTabControlSetItemStatus</a> and <a href="DGTabControlIsItemEnabled.html">DGTabControlIsItemEnabled</a> functions. When a tab page is disabled, all controls on it are automatically disabled by DG. <b>DGTabControlEnableItem</b> enables not only the specified tab page but all its controls as well. If a tab page of a normal tab control is disabled the corresponding tab label is grayed and the user is not able to select the tab item by clicking the mouse on it.</p>
+
+    <p>There are two ways to set a label icon of a normal tab control item. One possibility is to specify the icon with its icon handle by <a href="DGTabControlSetItemIcon.html">DGTabControlSetItemIcon</a>, the other is to set it with its resource ID by <a href="DGTabControlSetItemIconId.html">DGTabControlSetItemIconId</a> or by <a href="DGTabControlSetItemIconResource.html">DGTabControlSetItemIconResource</a>. The icon handle can be retrieved by <a href="DGTabControlGetItemIcon.html">DGTabControlGetItemIcon</a>, the icon ID and the resource module ID of the icon can be retrieved by <a href="DGTabControlGetItemIconId.html">DGTabControlGetItemIconId</a> and <a href="DGTabControlGetItemIconResource.html">DGTabControlGetItemIconResource</a>, respectively.</p>
+
+    <p>The label text of a normal tab control's tab item can be modified and retrieved with <a href="DGTabControlSetItemText.html">DGTabControlSetItemText</a> and <a href="DGTabControlGetItemText.html">DGTabControlGetItemText</a> functions. By default, the label text is displayed with the large plain font. Use <a href="DGSetItemFont.html">DGSetItemFont</a> to change the label text's font from program code, and <a href="DGGetItemFont.html">DGGetItemFont</a> to retrieve the font currently assigned to the normal tab control.</p>
+
+    <p>The tab control can be resized with <a href="DGTabControlSetClientSize.html">DGTabControlSetClientSize</a> so that its display (client) area is modified to the desired size. The display area size is retrieved by <a href="DGTabControlGetClientSize.html">DGTabControlGetClientSize</a> and <a href="DGTabControlGetClientRect.html">DGTabControlGetClientRect</a> functions.</p>
+
+    <p>Use <a href="DGTabControlClientToFrame.html">DGTabControlClientToFrame</a> and <a href="DGTabControlFrameToClient.html">DGTabControlFrameToClient</a> to calculate the frame size of a tab contrlol from a given client size and vice versa.</p>
+
+    <p>Note that nested tab controls are not allowed in DG, i.e. you should not place a tab control on a tab page of another tab control.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="TabControlSpecific_id.html">Tab control specific functions</a>, <a href="TabPages.html">Tab Pages</a>, <a href="ModelessDialogs.html">Modeless Dialogs</a><br>
+    <a href="DGAppendDialogItem.html">DGAppendDialogItem</a>, <a href="DGGetItemFont.html">DGGetItemFont</a>, <a href="DGGetTabPageParentId.html">DGGetTabPageParentId</a>, <a href="DGModified.html">DGModified</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetItemFont.html">DGSetItemFont</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 4, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

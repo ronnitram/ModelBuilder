@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Enumerate</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/Folder/Enumerate.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="Folder.html">Folder</a>::Enumerate&nbsp;&nbsp; <font size="2">(4)</font></h1><br>
+    Enumerates entries in the folder.<br>
+    <br>
+    <pre class="syntax">
+<b><font color="#008080">1. constant</font>
+
+    virtual GSErrCode  Enumerate (
+        <a href="EnumCallbackConst.html">EnumCallbackConst</a> ec,
+        void*             userData = NULL
+    ) const;</b>
+</pre>
+    <pre class="syntax">
+<b><font color="#008080">2. non-constant</font>
+
+    virtual GSErrCode  Enumerate (
+        <a href="EnumCallback.html">EnumCallback</a> ec,
+        void*        userData = NULL
+    );</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>ec</em></dt>
+
+        <dd>
+            Enumerator callback function which will be invoked for each entry in the folder. Its declaration is:
+            <pre>
+<font color="#008080"><b>1. constant</b></font>
+
+    typedef bool  (CCALL *EnumCallbackConst) (const Folder&amp; parent, const Name&amp; entryName, bool isFolder, void* userData);
+</pre>
+            <pre>
+<font color="#008080"><b>2. non-constant</b></font>
+
+    typedef bool  (CCALL *EnumCallback) (Folder&amp; parent, const Name&amp; entryName, bool isFolder, void* userData);
+</pre>
+
+            <ul>
+                <li><i>parent</i> is <b>this</b> folder under enumeration</li>
+
+                <li><i>entryName</i> is the name of the particular entry</li>
+
+                <li><i>isFolder</i> determines whether is the particular entry a folder</li>
+
+                <li><i>userData</i> is an arbitrary value passed by the user through this (Enumerate) method</li>
+            </ul>
+
+            <p>If the return value from the callback function is true, then enumeration will continue, otherwise it will be stopped (in this case the return value from this method is NoError).</p>
+        </dd>
+
+        <dt><em>userData</em></dt>
+
+        <dd>An arbitrary value which will be passed to the callback function for the user.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="358">
+        <tr>
+            <th width="94">Value</th>
+
+            <th width="222">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="94">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="222">OK</td>
+        </tr>
+
+        <tr>
+            <td width="94">AccessDenied<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="222">operation is not allowed on this folder</td>
+        </tr>
+
+        <tr>
+            <td width="94">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="222">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Folder class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method enumerates file system entries (files, folder and links) in the folder through a callback function, which is invoked for each entry in the folder. An arbitrary user value can be passed to the callback function. Each invocation of the callback function supplies a name of an entry in the folder until enumeration is over or user break is encountered.<br>
+    Enumeration works properly even if the <b>current</b> entry is deleted. However this is not true for deleting of other entries and for other operations that modify content of the folder.</p>
+
+    <p>Folder is responsible for its <b>direct</b> content (direct children) which can be enumerated through this method. However often recursive enumeration of a whole folder tree is needed. This task is supported by the class <!-- Not Index --><a href="../TreeEnumerator/TreeEnumerator.html">TreeEnumerator</a>.<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b><font color="#008080">1. constant</font></b>
+<b>
+    virtual GSErrCode  Enumerate (
+        <a href="EnumCallbackConst.html">EnumCallbackConst</a> ec,
+        <a href="LinkProcessing.html">LinkProcessing</a>    lp,
+        unsigned long     typeFilter,
+        void*             userData = NULL
+    ) const;</b>
+</pre>
+    <pre class="syntax">
+<font color="#008080"><b>2. non-constant</b></font>
+<b>
+    virtual GSErrCode  Enumerate (
+        <a href="EnumCallback.html">EnumCallback</a>   ec,
+        <a href="LinkProcessing.html">LinkProcessing</a> lp,
+        unsigned long  typeFilter,
+        void*          userData = NULL
+    );</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>ec</em></dt>
+
+        <dd>
+            Enumerator callback function which will be invoked for each <b>appropriate</b> entry in the folder. Its declaration is:
+            <pre>
+<font color="#008080"><b>1. constant</b></font>
+
+    typedef bool  (CCALL *EnumCallbackConst) (const Folder&amp; parent, const Name&amp; entryName, bool isFolder, void* userData);
+</pre>
+            <pre>
+<font color="#008080"><b>2. non-constant</b></font>
+
+    typedef bool  (CCALL *EnumCallback) (Folder&amp; parent, const Name&amp; entryName, bool isFolder, void* userData);
+</pre>
+
+            <ul>
+                <li><i>parent</i> is <b>this</b> folder under enumeration</li>
+
+                <li><i>entryName</i> is the name of the particular entry</li>
+
+                <li><i>isFolder</i> determines whether is the particular entry a folder</li>
+
+                <li><i>userData</i> is an arbitrary value passed by the user through this (Enumerate) method</li>
+            </ul>
+
+            <p>If the return value from the callback function is true, then enumeration will continue, otherwise it will be stopped (in this case the return value from this method is NoError).</p>
+        </dd>
+
+        <dt><em>lp</em></dt>
+
+        <dd>
+            Determines processing (treatment) of links encountered during the enumeration. Possible values are:
+
+            <dl>
+                <dd>
+                    <blockquote>
+                        <table class="enumeration" width="393">
+                            <tr>
+                                <th width="87">Value</th>
+
+                                <th width="264">Meaning</th>
+                            </tr>
+
+                            <tr>
+                                <td width="87">ResolveLinks</td>
+
+                                <td width="264">links are resolved, type of their final target is used for the type filtering</td>
+                            </tr>
+
+                            <tr>
+                                <td width="87">PreserveLinks</td>
+
+                                <td width="264">links are not resolved, type link is used for the type filtering</td>
+                            </tr>
+                        </table>
+                    </blockquote>
+                </dd>
+            </dl>
+        </dd>
+
+        <dt><em>typeFilter</em></dt>
+
+        <dd>
+            Determines type of entries that should be supplied to the user during the enumeration. It can be arbitrary 'or' combination of the following values:
+
+            <dl>
+                <dd>
+                    <blockquote>
+                        <table class="enumeration" width="433">
+                            <tr>
+                                <th width="122">Value</th>
+
+                                <th width="269">Meaning</th>
+                            </tr>
+
+                            <tr>
+                                <td width="122">FilterFiles</td>
+
+                                <td width="269">supply files</td>
+                            </tr>
+
+                            <tr>
+                                <td width="122">FilterFolders</td>
+
+                                <td width="269">supply folders</td>
+                            </tr>
+
+                            <tr>
+                                <td width="122">FilterLinks</td>
+
+                                <td width="269">supply links</td>
+                            </tr>
+
+                            <tr>
+                                <td width="122">FilterUnknownTypes</td>
+
+                                <td width="269">supply unknown types like inaccessible entries and dead links that should be resolved&nbsp;</td>
+                            </tr>
+                        </table>
+                    </blockquote>
+                </dd>
+            </dl>
+
+            <p>Some common combinations are predefined:</p>
+
+            <dl>
+                <dd>
+                    <blockquote>
+                        <table class="enumeration" width="493">
+                            <tr>
+                                <th width="111">Value</th>
+
+                                <th width="340">Meaning</th>
+                            </tr>
+
+                            <tr>
+                                <td width="111">FilterFinalTypes</td>
+
+                                <td width="340">FilterFiles | FilterFolders</td>
+                            </tr>
+
+                            <tr>
+                                <td width="111">FilterNormalTypes</td>
+
+                                <td width="340">FilterFiles | FilterFolders | FilterLinks</td>
+                            </tr>
+
+                            <tr>
+                                <td width="111">FilterAllTypes</td>
+
+                                <td width="340">FilterFiles | FilterFolders | FilterLinks | FilterUnknownTypes</td>
+                            </tr>
+                        </table>
+                    </blockquote>
+                </dd>
+            </dl>
+        </dd>
+
+        <dt><em>userData</em></dt>
+
+        <dd>An arbitrary value which will be passed to the callback function for the user.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="358">
+        <tr>
+            <th width="94">Value</th>
+
+            <th width="222">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="94">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="222">OK</td>
+        </tr>
+
+        <tr>
+            <td width="94">AccessDenied<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="222">operation is not allowed on this folder</td>
+        </tr>
+
+        <tr>
+            <td width="94">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="222">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Folder class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method enumerates file system entries (files, folder and links) of selected types in the folder through a callback function. Callback function is invoked for each entry in the folder which is of the appropriate type: file, folder, link, unknown type or any combination of these types. Before the type filtering processing (treatment) of links can be also controlled. Without the automatic link resolvation type of a link entry is link. Using the automatic link resolvation type of a link entry is the type if its final target (which can be file or folder). The resulting type is used for the type filtering. For example if want to enumerate entries of file type only, then without the automatic link resolvation we get names of entries which are really files, while using the automatic link resolvation we also get names of links which refer to files.<br>
+    An arbitrary user value can be passed to the callback function. Each invocation of the callback function supplies a name of an <b>appropriate</b> entry in the folder until enumeration is over or user break is encountered.</p>
+
+    <p>Enumeration works properly even if the <b>current</b> entry is deleted. However this is not true for deleting of other entries and for other operations that modify content of the folder.</p>
+
+    <p>Folder is responsible for its <b>direct</b> content (direct children) which can be enumerated through this method. However often recursive enumeration of a whole folder tree is needed. This task is supported by the class <!-- Not Index --><a href="../TreeEnumerator/TreeEnumerator.html">TreeEnumerator</a>.<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>FileDialog Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/FileDialog/FileDialog.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="AddFilter.html">AddFilter</A><A href="AddFilterGroupChildren.html">AddFilterGroupChildren</A><A href="AddFilterTypeChildren.html">AddFilterTypeChildren</A><A href="DeselectFile.html">DeselectFile</A><A href="DisablePreview.html">DisablePreview</A><A href="EnablePreview.html">EnablePreview</A><A href="ExtensionOptions.html">ExtensionOptions</A><A href="Constructors.html">FileDialog</A><A href="GetFilterCount.html">GetFilterCount</A><A href="GetFilterData.html">GetFilterData</A><A href="GetFilterId.html">GetFilterId</A><A href="GetFilterText.html">GetFilterText</A><A href="GetFolder.html">GetFolder</A><A href="GetSelectedFile.html">GetSelectedFile</A><A href="GetSelectedFilter.html">GetSelectedFilter</A><A href="GetSelectionCount.html">GetSelectionCount</A><A href="InsertFilter.html">InsertFilter</A><A href="IsFileSelected.html">IsFileSelected</A><A href="IsPreviewEnabled.html">IsPreviewEnabled</A><A href="IsPreviewVisible.html">IsPreviewVisible</A><A href="Refresh.html">Refresh</A><A href="RemoveFilter.html">RemoveFilter</A><A href="ReplaceFilter.html">ReplaceFilter</A><A href="SearchFilter.html">SearchFilter</A><A href="SelectFile.html">SelectFile</A><A href="SelectFilter.html">SelectFilter</A><A href="SetFilterData.html">SetFilterData</A><A href="SetFilterId.html">SetFilterId</A><A href="SetFilterRoot.html">SetFilterRoot</A><A href="SetFilterText.html">SetFilterText</A><A href="SetFolder.html">SetFolder</A><A href="SortFilters.html">SortFilters</A><A href="Type.html">Type</A>--><H2>FileDialog Class</H2><!--exp="FileDialog Class"--><P><topic id="$DG.$FileDialog.BriefDescription">
+		Class for displaying a file selection dialog.
+	</topic></P>
+<PRE class="syntax"><B>class FileDialog : public <!----><a class="nodecorate" href="../SystemDialog/SystemDialog.html">SystemDialog</A></B></PRE>
+<H4>Members</H4>
+<P><B><A name="PublicMethods"></A>Public Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DisablePreview.html">DisablePreview</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$DisablePreview.BriefDescription">
+		Disables preview.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnablePreview.html">EnablePreview</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$EnablePreview.BriefDescription">
+		Enables preview.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">FileDialog</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$FileDialog.BriefDescription">
+		FileDialog constructor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetFolder.html">GetFolder</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$GetFolder.BriefDescription">
+		Returns the current folder of the file dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsPreviewEnabled.html">IsPreviewEnabled</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$IsPreviewEnabled.BriefDescription">
+		Returns if preview is enabled.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsPreviewVisible.html">IsPreviewVisible</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$IsPreviewVisible.BriefDescription">
+		Returnes if preview plane if currently displayed.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Refresh.html">Refresh</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$Refresh.BriefDescription">
+		Refreshes the file list in the file dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetFolder.html">SetFolder</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$SetFolder.BriefDescription">
+		Changes the current folder of the file dialog.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicTypes"></A>Public Types</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ExtensionOptions.html">ExtensionOptions</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$ExtensionOptions.BriefDescription">
+		Option for displaying extensions in filter selection popup.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Type.html">Type</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$Type.BriefDescription">
+		Type of the file dialog.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="FileSelection"></A>File Selection</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DeselectFile.html">DeselectFile</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$DeselectFile.BriefDescription">
+		Deselects a file.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSelectedFile.html">GetSelectedFile</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$GetSelectedFile.BriefDescription">
+		Returns the file selected by user.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSelectionCount.html">GetSelectionCount</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$GetSelectionCount.BriefDescription">
+		Returns the number of selected files.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsFileSelected.html">IsFileSelected</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$IsFileSelected.BriefDescription">
+		Returns if a file is in the current selection.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SelectFile.html">SelectFile</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$SelectFile.BriefDescription">
+		Selects a file.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="FilterMethods"></A>Filter Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="AddFilter.html">AddFilter</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$AddFilter.BriefDescription">
+		Adds a new item to the end of the filter selection popup.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="AddFilterGroupChildren.html">AddFilterGroupChildren</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$AddFilterGroupChildren.BriefDescription">
+		Adds multiple new items to the end of the filter selection popup.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="AddFilterTypeChildren.html">AddFilterTypeChildren</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$AddFilterTypeChildren.BriefDescription">
+		Adds multiple new items to the end of the filter selection popup.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetFilterCount.html">GetFilterCount</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$GetFilterCount.BriefDescription">
+		Returns the number of items in the filter selection popup.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetFilterData.html">GetFilterData</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$GetFilterData.BriefDescription">
+		Returns user data stored in an item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetFilterId.html">GetFilterId</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$GetFilterId.BriefDescription">
+		Returns the file type manager ID stored in an item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetFilterText.html">GetFilterText</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$GetFilterText.BriefDescription">
+		Returns displayed text of the item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSelectedFilter.html">GetSelectedFilter</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$GetSelectedFilter.BriefDescription">
+		Returns the curently selected filter index.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="InsertFilter.html">InsertFilter</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$InsertFilter.BriefDescription">
+		Inserts a new item into the filter selection popup.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="RemoveFilter.html">RemoveFilter</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$RemoveFilter.BriefDescription">
+		Removes an item from the filter selection popup.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ReplaceFilter.html">ReplaceFilter</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$ReplaceFilter.BriefDescription">
+		Changes an item in the filter selection popup.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SearchFilter.html">SearchFilter</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$SearchFilter.BriefDescription">
+		Searches for an item based on extension.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SelectFilter.html">SelectFilter</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$SelectFilter.BriefDescription">
+		Changes the currently selected filter item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetFilterData.html">SetFilterData</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$SetFilterData.BriefDescription">
+		Stores a user data in an item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetFilterId.html">SetFilterId</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$SetFilterId.BriefDescription">
+		Stores a file type manager ID in an item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetFilterRoot.html">SetFilterRoot</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$SetFilterRoot.BriefDescription">
+		Sets the root group for the file filtering process.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetFilterText.html">SetFilterText</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$SetFilterText.BriefDescription">
+		Sets the displayed text of an item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SortFilters.html">SortFilters</A></TD>
+<TD width="70%"><topic id="$DG.$FileDialog.$SortFilters.BriefDescription">
+		Sorts items in filter selection popup.
+	</topic></TD>
+</TR>
+</table>
+<H4>Description</H4>
+<P><topic id="$DG.$FileDialog.LongDescription">
+		Displays a system specific, native file selection dialog. Can be used as save or open
+		dialog, also can be customized with a <!-- --><a href="../SystemDialogPanel/SystemDialogPanel.html">SystemDialogPanel</a>.
+	</topic></P>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../DG.html">DG</A></P>
+<P><B>Header: </B>DGFileDialog.hpp</P>
+<P><B>Platforms: </B><topic id="$DG.$FileDialog.Platforms">
+		Windows NT 4.0, Windows 2000, Windows XP, Mac OSX 10.6 or above
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

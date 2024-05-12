@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>New API features in Archicad 26</title><!--SUA_UpdAPIVers_PrevToNextVersionNumber_DONOTDELETETHISCOMMENT-->
+    <meta name="description" content="This document summarizes the new API features of Archicad 26."><!--SUA_UpdAPIVers_PrevToNextVersionNumber_DONOTDELETETHISCOMMENT-->
+    <meta name="keywords" content="Archicad, API">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level1/New_Features_of_the_API.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>New API features in Archicad 26</h1><!--SUA_UpdAPIVers_PrevToNextVersionNumber_DONOTDELETETHISCOMMENT-->
+
+    <p>This outline summarizes the major new features and changes in the API available with Archicad 26 (<img border="0" src="../../APIImageLibrary/26.png" alt="API version 26" width="19" height="12">).<br></p><!--SUA_UpdAPIVers_PrevToNextVersionNumber_DONOTDELETETHISCOMMENT_3-->
+
+    <ol>
+        <li>
+            <strong>Technical changes</strong>
+            <ul>
+                <li>All of the ACAPI_AnalyticalModel functions now require parameters as references, instead of pointers, where nullptr was an invalid input.</li>
+                <li><a href="../Structures/API_ElemTypeID.html">API_ElemTypeID</a> and <a href="../Structures/API_ElemVariationID.html">API_ElemVariationID</a> were replaced by <a href="../Structures/API_ElemType.html">API_ElemType</a> in structures and functions.<br><br>
+                    Modified structures are: <a href="../Structures/API_Elem_Head.html">API_Elem_Head</a>, <a href="../Structures/API_ObjectType.html">API_ObjectType</a>, <a href="../Structures/API_Base.html">API_Base</a>, <a href="../Structures/API_LevelDimensionType.html">API_LevelDimensionType</a>, <a href="../Structures/API_LabelType.html">API_LabelType</a>, <a href="../Structures/API_SectElemType.html">API_SectElemType</a>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="../Structures/API_RoomRelation.html">API_RoomRelation</a>, <a href="../Structures/API_PrimElemRef.html">API_PrimElemRef</a>, <a href="../Structures/API_ToolBoxItem.html">API_ToolBoxItem</a>, <a href="../Structures/API_ConditionalElementRule.html">API_ConditionalElementRule</a>, <a href="../Structures/API_ElemSearchPars.html">API_ElemSearchPars</a>, <a href="../Structures/API_ParamOwnerType.html">API_ParamOwnerType</a>.<br><br>
+                    Modified functions are: <a href="../Functions/ACAPI_Register_SettingsPanel.html">ACAPI_Register_SettingsPanel</a>, <a href="../Functions/ACAPI_Register_InfoBoxPanel.html">ACAPI_Register_InfoBoxPanel</a>, <a href="../Functions/ACAPI_Register_SettingsObserver.html">ACAPI_Register_SettingsObserver</a>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="../Functions/ACAPI_Install_SettingsHandler.html">ACAPI_Install_SettingsHandler</a>, <a href="../Functions/ACAPI_Element_GetElemList.html">ACAPI_Element_GetElemList</a>, <a href="../Functions/ACAPI_Element_GetConnectedElements.html">ACAPI_Element_GetConnectedElements</a>, <a href="../Functions/ACAPI_Element_GetRelations.html">ACAPI_Element_GetRelations</a>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="../Functions/ACAPI_Element_GetCategoryValueDefault.html">ACAPI_Element_GetCategoryValueDefault</a>, <a href="../Functions/ACAPI_Element_SetCategoryValueDefault.html">ACAPI_Element_SetCategoryValueDefault</a>, <a href="../Functions/ACAPI_Element_GetClassificationItemsDefault.html">ACAPI_Element_GetClassificationItemsDefault</a>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="../Functions/ACAPI_Element_GetClassificationInSystemDefault.html">ACAPI_Element_GetClassificationInSystemDefault</a>, <a href="../Functions/ACAPI_Element_AddClassificationItemDefault.html">ACAPI_Element_AddClassificationItemDefault</a>, <a href="../Functions/ACAPI_Element_RemoveClassificationItemDefault.html">ACAPI_Element_RemoveClassificationItemDefault</a>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="../Functions/ACAPI_Element_IsClassificationItemVisibleDefault.html">ACAPI_Element_IsClassificationItemVisibleDefault</a>, <a href="../Functions/ACAPI_Element_GetPropertyDefinitionsOfDefaultElem.html">ACAPI_Element_GetPropertyDefinitionsOfDefaultElem</a>, <a href="../Functions/ACAPI_Element_GetPropertyValueOfDefaultElem.html">ACAPI_Element_GetPropertyValueOfDefaultElem</a>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="../Functions/ACAPI_Element_GetPropertyValuesOfDefaultElem.html">ACAPI_Element_GetPropertyValuesOfDefaultElem</a>, <a href="../Functions/ACAPI_Element_GetPropertyValuesOfDefaultElemByGuid.html">ACAPI_Element_GetPropertyValuesOfDefaultElemByGuid</a>, <a href="../Functions/ACAPI_Element_SetPropertyOfDefaultElem.html">ACAPI_Element_SetPropertyOfDefaultElem</a>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="../Functions/ACAPI_Element_SetPropertiesOfDefaultElem.html">ACAPI_Element_SetPropertiesOfDefaultElem</a>, <a href="../Functions/ACAPI_Element_IsPropertyDefinitionValueEditableDefault.html">ACAPI_Element_IsPropertyDefinitionValueEditableDefault</a>, <a href="../Functions/ACAPI_Element_IsPropertyDefinitionAvailableDefault.html">ACAPI_Element_IsPropertyDefinitionAvailableDefault</a>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="../Functions/ACAPI_Element_IsPropertyDefinitionVisibleDefault.html">ACAPI_Element_IsPropertyDefinitionVisibleDefault</a>, <a href="../Functions/ACAPI_Favorite_GetNum.html">ACAPI_Favorite_GetNum</a>.
+                </li>
+                <li>These functionalities were moved from ACAPI_Database into separate functions:
+                    <ul>
+                        <li>APIDb_GetLast3DDefLevelsID &rArr; <a href="../Functions/ACAPI_Database_GetLast3DDefLevels.html">ACAPI_Database_GetLast3DDefLevels</a></li>
+                        <li>APIDb_SetLast3DDefLevelsID &rArr; <a href="../Functions/ACAPI_Database_SetLast3DDefLevels.html">ACAPI_Database_SetLast3DDefLevels</a></li>
+                    </ul>
+                </li>
+                <li>These functionalities were moved from ACAPI_Goodies into separate functions:
+                    <ul>
+                        <li>APIAny_GetMarkerParentID &rArr; <a href="../Functions/ACAPI_Goodies_GetMarkerParent.html">ACAPI_Goodies_GetMarkerParent</a></li>
+                        <li>APIAny_GetElemTypeNameID &rArr; <a href="../Functions/ACAPI_Goodies_GetElemTypeName.html">ACAPI_Goodies_GetElemTypeName</a></li>
+                        <li>APIAny_NeigIDToElemTypeID &rArr; <a href="../Functions/ACAPI_Goodies_NeigIDToElemType.html">ACAPI_Goodies_NeigIDToElemType</a></li>
+                        <li>APIAny_ElemTypeToNeigID &rArr; <a href="../Functions/ACAPI_Goodies_ElemTypeToNeigID.html">ACAPI_Goodies_ElemTypeToNeigID</a></li>
+						<li>APIAny_APIGuidToIFCGuidID &rArr; <a href="../Functions/ACAPI_IFC_APIGuidToIFCGuid.html">ACAPI_IFC_APIGuidToIFCGuid</a></li>
+						<li>APIAny_GetIFCDifferenceID &rArr; <a href="../Functions/ACAPI_IFC_GetIFCDifference.html">ACAPI_IFC_GetIFCDifference</a></li>
+						<li>APIAny_GetIFCDifferenceStateID &rArr; <a href="../Functions/ACAPI_IFC_GetIFCDifferenceState.html">ACAPI_IFC_GetIFCDifferenceState</a></li>
+						<li>APIAny_GetIFCExportTranslatorsListID &rArr; <a href="../Functions/ACAPI_IFC_GetIFCExportTranslatorsList.html">ACAPI_IFC_GetIFCExportTranslatorsList</a></li>
+						<li>APIAny_GetIFCRelationshipDataID &rArr; <a href="../Functions/ACAPI_IFC_GetIFCRelationshipData.html">ACAPI_IFC_GetIFCRelationshipData</a></li>
+                        <li>APIAny_IFCGuidToAPIGuidID &rArr; <a href="../Functions/ACAPI_IFC_IFCGuidToAPIGuid.html">ACAPI_IFC_IFCGuidToAPIGuid</a></li>
+                        <li>APIAny_InvokeIFCDifferenceExportSettingsDlgID &rArr; <a href="../Functions/ACAPI_IFC_InvokeIFCDifferenceExportSettingsDlg.html">ACAPI_IFC_InvokeIFCDifferenceExportSettingsDlg</a></li>
+                    </ul>
+                </li>
+                <li>These functionalities were moved from ACAPI_Interface into separate functions:
+                    <ul>
+                        <li>APIIo_HighlightElementsID &rArr; <a href="../Functions/ACAPI_Interface_SetElementHighlight.html">ACAPI_Interface_SetElementHighlight</a> and <a href="../Functions/ACAPI_Interface_ClearElementHighlight.html">ACAPI_Interface_ClearElementHighlight</a></li>
+                    </ul>
+                </li>
+				<li>&nbsp;The notification handlers of the following types were reworked and removed from the <a href="../Functions/ACAPI_Notify_CatchProjectEvent.html">ACAPI_Notify_CatchProjectEvent</a>.
+				<ol>
+					<li>Classification Item</li>
+					<li>Classification System</li>
+					<li>Property Definition</li>
+					<li>Property Group</li>
+				</ol>
+				</li>
+			</ul>
+            <ul>
+				<li>The <code>DG::Browser</code> class has been changed. From Archicad 26 only asynchronous JS objects can be registered.
+                    Use the <code>RegisterAsynchJSObject</code> function instead of the removed <code>RegisterJSObject</code> and prepare for asynchronous behaviour.</li>
+			</ul>
+            <ul>
+				<li>Separate functions were added for querying protection information as a direct replacement of <code>APIEnv_ProtectionDataID</code> and <code>API_ProtectionInfo</code>.</li>
+                <li><code>APIEnv_CheckDongleID</code> was removed.</li>
+			</ul>
+        </li>
+
+        <li>
+            <strong>New functionality</strong>
+			<ul>
+                <li>Add-ons can now save SAF file via automation function</li>
+                <li>
+                    Attributes can now be organized into folders. The functions handling attribute folders are the following:
+                    <a href="../Functions/ACAPI_Attribute_GetFolder.html">ACAPI_Attribute_GetFolder</a>,
+                    <a href="../Functions/ACAPI_Attribute_CreateFolder.html">ACAPI_Attribute_CreateFolder</a>,
+					<a href="../Functions/ACAPI_Attribute_DeleteFolder.html">ACAPI_Attribute_DeleteFolder</a>,
+                    <a href="../Functions/ACAPI_Attribute_RenameFolder.html">ACAPI_Attribute_RenameFolder</a>,
+                    <a href="../Functions/ACAPI_Attribute_GetFolderContent.html">ACAPI_Attribute_GetFolderContent</a>,
+                    <a href="../Functions/ACAPI_Attribute_Move.html">ACAPI_Attribute_Move</a>.
+                </li>
+				 <li>
+                    Attributes pickers can be used in a new way. On these new pickers, the folder structure and searching functionality is enabled:
+                    <a href="../Functions/ACAPI_Interface_CreateAttributePicker.html">ACAPI_Interface_CreateAttributePicker</a>,
+                    <a href="../Functions/ACAPI_Attribute_CreateAttributeFolderPicker.html">ACAPI_Attribute_CreateAttributeFolderPicker</a>.
+                </li>
+                <li>Add-ons can now declare their dependency on a Graphisoft Forward subscription (see <a href="../Structures/API_AddOnInfo.html">API_AddOnInfo</a>), and can also query its availability (see <a href="../Functions/ACAPI_Protection_IsSSALevelAtLeast.html">ACAPI_Protection_IsSSALevelAtLeast</a>).</li>
+			</ul>
+        </li>
+
+        <li>
+            <strong>Modified/new structures</strong>
+            <ul>
+                <li><a href="../Structures/API_FTypeID.html">API_FTypeID</a> &rArr;  SAF File format added</li>
+                <li><a href="../Structures/API_SavePars_Saf.html">API_SavePars_Saf</a> &rArr;  new structure that describes the parameters for automated SAF file export</li>
+                <li><a href="../Structures/API_ElementsToSAFExportID.html">API_ElementsToSAFExportID</a> &rArr;  new structure that describes the export filter type for SAF file</li>
+                <li><a href="../Structures/API_Token.html">API_Token</a> &rArr;  new structure that serves as a unique identifier associated with every Add-On</li>
+                <li><a href="../Structures/API_ElemType.html">API_ElemType</a> &rArr;  new structure that contains an <a href="../Structures/API_ElemTypeID.html">API_ElemTypeID</a>, <a href="../Structures/API_ElemVariationID.html">API_ElemVariationID</a> and an <a href="../Structures/API_Guid.html">API_Guid</a>.</li>
+                <li>APINotify_ClassificationItemChanged was removed from the <a href="../Structures/API_NotifyEventID.html">API_NotifyEventID</a>.</li>
+				<li>APINotify_PropertyDefinitionChanged was removed from the <a href="../Structures/API_NotifyEventID.html">API_NotifyEventID</a>.</li>
+				<li><a href="../Structures/API_IClassificationItemEventHandler.html">API_IClassificationItemEventHandler</a> interface was introduced in order to specify the Classification Item notifications.</li>
+				<li><a href="../Structures/API_IClassificationSystemEventHandler.html">API_IClassificationSystemEventHandler</a> interface was introduced in order to specify the Classification System notifications.</li>
+				<li><a href="../Structures/API_IPropertyGroupEventHandler.html">API_IPropertyGroupEventHandler</a> interface was introduced in order to specify the Property Group notifications.</li>
+				<li><a href="../Structures/API_IPropertyDefinitionEventHandler.html">API_IPropertyDefinitionEventHandler</a> interface was introduced in order to specify the Property Definition notifications.</li>
+				<li><a href="../Structures/API_AddOnCommand.html">API_AddOnCommand</a> new member function was introduced: <em>IsProcessWindowVisible</em>.</li>
+				<li>&nbsp;<a href="../Structures/API_NoteAutotextID.html">API_NoteAutotextID </a> &rArr; new structure that identifies the note's autotexts.</li>
+				<li><a href="../Structures/API_NoteAutotextID.html">API_NoteAutotextID </a> &rArr; new structure that identifies the note's autotexts.</li>
+				<li><a href="../Structures/API_AddOnInfo.html">API_AddOnInfo</a> the member containing whether the Add-On is SSA-dependent was changed to reflect the required level of SSA subscription instead.</li>
+                <li><a href="../Structures/API_ServerApplicationInfo.html">API_ServerApplicationInfo</a> the member containing whether the current license has an SSA subscription was removed (<a href="../Functions/ACAPI_Protection_IsSSALevelAtLeast.html">ACAPI_Protection_IsSSALevelAtLeast</a> should be used instead).</li>
+                <li><code>APIPROT_SSA_MASK</code> was removed from the protection mode bit field members (<a href="../Functions/ACAPI_Protection_IsSSALevelAtLeast.html">ACAPI_Protection_IsSSALevelAtLeast</a> should be used instead)</li>
+				<li>&nbsp;API_CityType was removed from <a href="../Structures/API_AttrTypeID.html">API_AttrTypeID</a> and <a href="../Structures/API_Attribute.html">API_Attribute</a>.</li>
+				<li>&nbsp;<a href="../Structures/API_SavePars_Ifc.html">API_SavePars_Ifc </a> &rArr; new member was introduced: <em>includeBoundingBoxGeometry</em>.</li>
+				<li>&nbsp;<a href="../Structures/APIMenuCodeID.html">APIMenuCodeID </a> &rArr; new enum value was introduced: <em>MenuCode_ModelCheck</em>.</li>
+				<li><a href="../Structures/API_3DImageInfo.html">API_3DImageInfo</a> has been renamed to <a href="../Structures/API_3DFilterModeID.html">API_3DFilterModeID</a>. <b>From now on, you should NOT use BNZeroMemory to initialize this struct!</b></li>
+                <li><a href="../Structures/API_BeamSegmentQuantity.html">API_BeamSegmentQuantity</a> <code>conditionalVolume</code> has been removed.</li>
+			</ul>
+		</li>
+
+        <li>
+            <strong>Modified/new functions</strong>
+            <ul>
+				<li><a href="../Functions/APIDb_GetHotlinkSourceStatusID.html">APIDb_GetHotlinkSourceStatusID</a>  &rArr;  queries the status of the hotlink source. </li>
+                <li><a href="../Functions/APIDo_SaveID.html">APIDo_SaveID</a>  &rArr;  SAF File format supported </li>
+				<li><a href="../Functions/ACAPI_GetToken.html">ACAPI_GetToken</a>  &rArr;  gets the API_Token associated with the Add-On </li>
+				<li><a href="../Functions/ACAPI_Register_AttributeImportFormat.html">ACAPI_Register_AttributeImportFormat</a>  &rArr;  registers an attribute manager format which can be used in attribute manager import. </li>
+				<li><a href="../Functions/ACAPI_Install_AttrManagerImportMethod.html">ACAPI_Install_AttrManagerImportMethod</a>  &rArr;  installs the callback function for the new attribute import format. </li>
+				<li><a href="../Functions/ACAPI_Attribute_GetCurrentAttributeSetReader.html">ACAPI_Attribute_GetCurrentAttributeSetReader</a>: Use this function when an attribute reader is required as a parameter of other functions. For example when retrieving the 3D model by using the EXPGetModel function.</li>
+				<li><a href="../Functions/ACAPI_Notify_CatchAttributeReplacement.html">ACAPI_Notify_CatchAttributeReplacement</a> &rArr; New function to catch attribute modifications.</li>
+                <li><a href="../Functions/ACAPI_Notify_RegisterEventHandler.html">ACAPI_Notify_RegisterEventHandler</a> &rArr; New function to register a specific event handler.</li>
+				<li><a href="../Functions/ACAPI_Notify_UnregisterEventHandler.html">ACAPI_Notify_UnregisterEventHandler</a> &rArr; New function to unregister a specific event handler.</li>
+				<li><a href="Invalid link: ../Functions/ACAPI_Analytical_SetGenerationSettingsToNoRule.html">ACAPI_Analytical_SetGenerationSettingsToNoRule</a>  &rArr;  sets the current analytical model's generation settings to no rules. </li>
+				<li><a href="Invalid link: ../Functions/ACAPI_Analytical_SetVisibilitySettings.html">ACAPI_Analytical_SetVisibilitySettings</a>  &rArr;  sets the current analytical model's visibility settings. </li>
+				<li><a href="Invalid link: ../Functions/ACAPI_Analytical_GetVisibilitySettings.html">ACAPI_Analytical_GetVisibilitySettings</a>  &rArr;  get the current analytical model's visibility settings. </li>
+				<li><a href="../Functions/APIAny_ActivateSessionReportID.html">APIAny_ActivateSessionReportID</a> &rArr; New function to activate the session report window.</li>
+				<li><a href="../Functions/ACAPI_Attribute_Delete.html">ACAPI_Attribute_Delete</a>  &rArr;  the type of parameter was changed from pointer to reference.</li>
+				<li><a href="../Functions/ACAPI_Attribute_DeleteMore.html">ACAPI_Attribute_DeleteMore</a>  &rArr;  the type of parameters were changed, but the functionality remained the same.</li>
+				<li><a href="../Functions/ACAPI_IFC_ComplementIFCDifferenceAndMergeIFCRelationshipData.HTML">ACAPI_IFC_ComplementIFCDifferenceAndMergeIFCRelationshipData</a> &rArr; 
+					New function to complete <a href="../Structures/API_IFCDifference.html">API_IFCDifference</a> with the deleted items and merge two <a href="../Structures/API_IFCRelationshipData.html">API_IFCRelationshipData</a>.
+				</li>
+				<li><a href="../Functions/ACAPI_Install_PublisherTranslatorGetter.html">ACAPI_Install_PublisherTranslatorGetter</a>  &rArr;  installs the translator getter function for the Publisher </li>
+				<li><a href="../Functions/ACAPI_Install_PublisherDefaultTranslatorGetter.html">ACAPI_Install_PublisherDefaultTranslatorGetter</a>  &rArr;  installs the default translator getter function for the Publisher </li>
+				<li>&nbsp;<a href="../Functions/APIEnv_Get3DImageSetsID.html">APIEnv_Get3DImageSetsID</a> &rArr; Now uses <a href="../Structures/API_3DFilterAndCutSettings.html">API_3DFilterAndCutSettings</a><br> as a parameter instead of the old <a href="../Structures/API_3DFilterModeID.html">API_3DFilterModeID</a>.</li>
+				<li>&nbsp;<a href="../Functions/APIEnv_Change3DImageSetsID.html">APIEnv_Change3DImageSetsID</a> &rArr; Now uses <a href="../Structures/API_3DFilterAndCutSettings.html">API_3DFilterAndCutSettings</a><br> as a parameter instead of the old <a href="../Structures/API_3DImageInfo.html">API_3DImageInfo</a>.</li>
+				<li><a href="../Functions/ACAPI_Element_GetNoteAutotexts.html">ACAPI_Element_GetNoteAutotexts</a>  &rArr;  new function to get the available autotexts for a note owner element.</li>
+				<li><a href="../Functions/ACAPI_Element_GetNoteKeywordForAutotextID.html">ACAPI_Element_GetNoteKeywordForAutotextID</a>  &rArr;  new function to get the keyword for the note autotext ID.</li>
+				<li><a href="../Functions/ACAPI_Protection_IsSSALevelAtLeast.html">ACAPI_Protection_IsSSALevelAtLeast</a> &rArr; new function that can be used to check whether a certain SSA subscription is available.</li>
+				<li><a href="../Functions/ACAPI_Protection_GetProtectionMode.html">ACAPI_Protection_GetProtectionMode</a> &rArr; replacement for the <em>protectionMode</em> member in <code>API_ProtectionInfo</code>.</li>
+				<li><a href="../Functions/ACAPI_Protection_GetSerialNumber.html">ACAPI_Protection_GetSerialNumber</a> &rArr; replacement for the <em>keySerialNumber</em> member in <code>API_ProtectionInfo</code>.</li>
+				<li><a href="../Functions/ACAPI_Protection_GetBoxMask.html">ACAPI_Protection_GetBoxMask</a> &rArr; replacement for the <em>keyBoxMask</em> member in <code>API_ProtectionInfo</code>.</li>
+				<li><a href="../Functions/ACAPI_Protection_GetConfigurationNumber.html">ACAPI_Protection_GetConfigurationNumber </a> &rArr; replacement for the <em>configurationNumber</em> out paramteter in <code>APIEnv_ProtectionDataID</code>.</li>
+				<li><a href="../Functions/ACAPI_Protection_GetNumberOfLicenses.html">ACAPI_Protection_GetNumberOfLicenses</a> &rArr; replacement for the <em>numberOfLicenses</em> member in <code>API_ProtectionInfo</code>.</li>
+				<li><a href="../Functions/ACAPI_Protection_GetExpirationTime.html">ACAPI_Protection_GetExpirationTime</a> &rArr; replacement for the <em>expirationTime</em> member in <code>API_ProtectionInfo</code>.</li>
+				<li><a href="../Functions/ACAPI_Protection_GetPartnerId.html">ACAPI_Protection_GetPartnerId</a> &rArr; replacement for the <em>partnerID</em> member in <code>API_ProtectionInfo</code>.</li>
+				<li><a href="../Functions/ACAPI_Attribute_Create.html">ACAPI_Attribute_Create</a>  &rArr;  no longer accepts API_CityID.</li>
+				<li><a href="../Functions/ACAPI_Attribute_CreateExt.html">ACAPI_Attribute_CreateExt</a>  &rArr;  no longer accepts API_CityID.</li>
+				<li><a href="Invalid link: ../Functions/ACAPI_Interface_InvokeForwardDialog.html">ACAPI_Interface_InvokeForwardDialog</a>  &rArr;  shows the Graphisoft Forward Dialog. It is useful in case if we want to inform certain users about the necessity of Forward licence to grand access to the given features.</li>
+			</ul>
+        </li>
+    </ol>
+	<p><b>Please note:</b> writing elements in raw binary format (for example, storing raw structures in API_ModulData's dataHdl field) is not supported. Please use the dedicated serialization functionality of the API to do this.</p>
+
+    <p><em>Note:</em> You may also check the list of the <a href="New_Features_Old.html">new API features in the former Archicad versions</a>.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

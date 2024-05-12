@@ -1,0 +1,87 @@
+﻿
+/*---- This file was created by GRC compiler --------------------------------------------*/
+/*                                                                                       */
+/*     Source file: C:\W\Main\Bin.Win\Objects_VS10_64.fin\APITools\DG_Test\RINT\ExampleGRC.grc.rc2.i        Code table: NUL              */
+/*                                                                                       */
+/*---- Version 2.0 - Windows ------------------------------ (c) 1996-2016 by Graphisoft -*/
+
+/*------------------ Includes ----------------------------------------------*/
+
+#include "DGDefs.h"
+
+/*------------------ Resources ---------------------------------------------*/
+
+
+10000 STRS
+BEGIN
+	35, 0,
+	0x5247,0x2043,0x7845,0x6D61,0x6C70,0x0065,0x5041,0x2049,
+	0x5247,0x2043,0x7845,0x6D61,0x6C70,0x2065,0x6441,0x2D64,
+	0x6E4F,"\x00",
+END
+
+10000 GSDG
+BEGIN
+	277, 0,
+	DG_DT_MODAL, 0,
+	0, 0, 453, 160,
+	0x7845,0x6D61,0x6C70,0x2065,0x6944,0x6C61,0x676F,"\x00",
+	11,
+	  1, DG_ITM_BUTTON, DG_BT_ICONTEXT, 353, 128,  90,  24, DG_IS_LARGE | DG_IS_PLAIN, DG_BF_FRAME,
+			0x4B4F,"\x00",
+	  2, DG_ITM_BUTTON, DG_BT_ICONTEXT, 253, 128,  90,  24, DG_IS_LARGE | DG_IS_PLAIN, DG_BF_FRAME,
+			0x6143,0x636E,0x6C65,"\x00",
+	  3, DG_ITM_STATICTEXT, DG_IS_LEFT | DG_IS_VCENTER | DG_IS_NOTRUNC, 170,  10, 110,  20, 0, DG_IS_LARGE | DG_IS_PLAIN,
+			0x6F54,0x6C6F,0x6F62,0x2078,0x6369,0x6E6F,0x3A73,"\x00",
+	  4, DG_ITM_STATICTEXT, DG_IS_LEFT | DG_IS_VCENTER | DG_IS_NOTRUNC, 293,  10, 144,  20, 0, DG_IS_LARGE | DG_IS_PLAIN,
+			0x6554,0x6D61,0x6F77,0x6B72,0x7420,0x6172,0x6666,0x6369,
+			0x6C20,0x6769,0x7468,0x3A73,"\x00",
+	  5, DG_ITM_ICONITEM, 0,   0,   0, 155, 160, 0, 10000,
+	  6, DG_ITM_ICONITEM, 0, 180,  40,  18,  18, 0, 20000,
+	  7, DG_ITM_ICONITEM, 0, 235,  40,  18,  18, 0, 20001,
+	  8, DG_ITM_ICONITEM, 0, 180,  80,  18,  18, 0, 20002,
+	  9, DG_ITM_ICONITEM, 0, 235,  80,  18,  18, 0, 20003,
+	 10, DG_ITM_ICONITEM, 0, 313,  40,  16,  16, 0, 30000,
+	 11, DG_ITM_ICONITEM, 0, 375,  40,  16,  16, 0, 30001,
+END
+
+10000 DLGH
+BEGIN
+	174, 0,
+	"DLG_ID_Example_Dialog\0",
+	11,
+	1,
+		"\x00",
+		0x7542,0x7474,0x6E6F,0x305F,"\x00",
+	2,
+		"\x00",
+		0x7542,0x7474,0x6E6F,0x315F,"\x00",
+	3,
+		"\x00",
+		0x654C,0x7466,0x6554,0x7478,0x315F,"\x00",
+	4,
+		"\x00",
+		0x654C,0x7466,0x6554,0x7478,0x305F,"\x00",
+	5,
+		"\x00",
+		0x6349,0x6E6F,0x7449,0x6D65,0x305F,"\x00",
+	6,
+		"\x00",
+		0x6349,0x6E6F,0x7449,0x6D65,0x315F,"\x00",
+	7,
+		"\x00",
+		0x6349,0x6E6F,0x7449,0x6D65,0x325F,"\x00",
+	8,
+		"\x00",
+		0x6349,0x6E6F,0x7449,0x6D65,0x335F,"\x00",
+	9,
+		"\x00",
+		0x6349,0x6E6F,0x7449,0x6D65,0x345F,"\x00",
+	10,
+		"\x00",
+		0x6349,0x6E6F,0x7449,0x6D65,0x355F,"\x00",
+	11,
+		"\x00",
+		0x6349,0x6E6F,0x7449,0x6D65,0x365F,"\x00",
+END
+

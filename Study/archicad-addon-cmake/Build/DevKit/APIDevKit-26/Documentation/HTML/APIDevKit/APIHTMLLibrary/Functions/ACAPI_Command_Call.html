@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Command_Call</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Command_Call.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Command_Call</h1>
+
+    <p>Call a command of an other add-on.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Command_Call</strong> (
+        <strong>const <a href="../Structures/API_ModulID.html">API_ModulID</a>*</strong>     <em>mdid</em>,
+        <strong>GSType</strong>                 <em>cmdID</em>,
+        <strong>Int32</strong>                  <em>cmdVersion</em>,
+        <strong>GSHandle</strong>               <em>params</em>,
+        <strong>GSPtr</strong>                  <em>resultData</em>,
+        <strong>bool</strong>                   <em>silentMode</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>mdid</em></dt>
+
+        <dd>[in] the identifier of the target add-on. It is defined by the <a href="../Resources/MDID.html">'MDID'</a> resource.</dd>
+
+        <dt><em>cmdID</em></dt>
+
+        <dd>[in] the identifier of the command to be executed.</dd>
+
+        <dt><em>cmdVersion</em></dt>
+
+        <dd>[in] the required command version</dd>
+
+        <dt><em>params</em></dt>
+
+        <dd>[in/out] passed parameters (optional). See the Inter-add-on communication section of the <a href="../Functions/ACAPI_Goodies_id.html#API_GoodiesID">ACAPI_Goodies</a> functions</dd>
+
+        <dt><em>resultData</em></dt>
+
+        <dd>[out] results returned by the command (optional)</dd>
+
+        <dt><em>silentMode</em></dt>
+
+        <dd>[in] instruct the target add-on to work in silent mode. No option dialogs, error alerts ...etc.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>the function completed successfully</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>the <code>mdid</code> parameter is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_MODULNOTINSTALLED</code></dt>
+
+        <dd>the referenced add-on is not installed</dd>
+
+        <dt><code>APIERR_MODULCMDNOTSUPPORTED</code></dt>
+
+        <dd>the referenced command is not supported by the target add-on</dd>
+
+        <dt><code>APIERR_MODULCMDVERSNOTSUPPORTED</code></dt>
+
+        <dd>the requested command version is too new; not supported by the target add-on</dd>
+    </dl>
+
+    <p>For other common errors see the <a href="../Level2/Error_Codes.html">list of error codes</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to call a command implemented in an other add-on.</p>
+
+    <p>Refer to the <a href="ACAPI_Command_Test.html">ACAPI_Command_Test</a> function to test the command availability.</p>
+
+    <p>Refer to the <a href="../Level3/Communication_Manager_id.html">Communication Manager</a> for more detailed description on</p>
+
+    <ul>
+        <li>how to pass parameters,</li>
+
+        <li>how to get return values,</li>
+
+        <li>how the heaps and API environments are managed by the API.</li>
+    </ul>
+
+    <p><img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12">&nbsp; From Archicad 10 you can execute add-on command with <a href="ACAPI_Command_ExternalCall.html">ACAPI_Command_ExternalCall</a> on a different plan loaded into another instance of Archicad.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/19.png" alt="Featuring API 19" width="19" height="12">&nbsp; From Archicad 19 you can execute add-on command forced from main event loop with <a href="ACAPI_Command_CallFromEventLoop.html">ACAPI_Command_CallFromEventLoop</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>The following sample retrieves the location of the default translator currently set for the DXF/DWG add-on (provided that the add-on is currently loaded):</p>
+
+    <blockquote>
+        <pre><code>
+IO::Location configFile;                        // translator location to be returned
+API_ModulID mdid = { 1198731108, 1322668197 };  // MDID of the DXF/DWG add-on
+GSHandle parHdl = nullptr;                         // handle of command call parameters
+
+GSErrCode err = ACAPI_Goodies (APIAny_InitMDCLParameterListID, &amp;parHdl, nullptr);
+if (err == NoError) {
+    API_MDCLParameter par;                      // parameter describing the output file
+    BNZeroMemory (&amp;par, sizeof (API_MDCLParameter));
+    par.name = "Mode";
+    par.type = MDCLPar_string;
+    par.string_par = "Default";
+
+    err = ACAPI_Goodies (APIAny_AddMDCLParameterID, parHdl, &amp;par);
+    IO::Location loc;
+    if (err == NoError) 
+        err = <font color="#FF0066">ACAPI_Command_Call</font> (&amp;mdid, 'GDCO', 1, parHdl, (GSPtr)&loc, true);
+    
+    if (err == NoError) 
+	    configFile.Set (loc.ToDisplayText ());
+    
+    
+    ACAPI_Goodies (APIAny_FreeMDCLParameterListID, &amp;parHdl);
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_ModulID.html">API_ModulID</a>, <a href="../Resources/MDID.html">'MDID'</a><br>
+    <a href="APIModulCommandProc.html">APIModulCommandProc</a><br>
+    <a href="ACAPI_Command_Test.html">ACAPI_Command_Test</a><br>
+    <a href="ACAPI_Command_ExternalCall.html">ACAPI_Command_ExternalCall</a><br>
+    <a href="ACAPI_Command_CallFromEventLoop.html">ACAPI_Command_CallFromEventLoop</a><br>
+    <a href="../Level3/Communication_Manager_id.html">Communication Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 30, 2015<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

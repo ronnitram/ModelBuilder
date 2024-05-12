@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGAlert</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGAlert.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGAlert</h1>
+
+    <p>Invokes a standard DG <a href="Alerts.html">alert</a>.</p>
+    <pre class="syntax">
+    <strong>short DGAlert</strong> (
+      <strong>short</strong>                 <em>alertType</em>,
+      <strong>const GS::UniString&amp;</strong>  <em>titleText</em>,
+      <strong>const GS::UniString&amp;</strong>  <em>largeText</em>,
+      <strong>const GS::UniString&amp;</strong>  <em>smallText</em>,
+      <strong>const GS::UniString&amp;</strong>  <em>button1Text</em>,
+      <strong>const GS::UniString&amp;</strong>  <em>button2Text</em>,
+      <strong>const GS::UniString&amp;</strong>  <em>button3Text</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>alertType</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ERROR</tt></td>
+
+                    <td>Stop alert on Macintosh; Error alert on Windows.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_WARNING</tt></td>
+
+                    <td>Caution alert on Macintosh; Warning alert on Windows.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_INFORMATION</tt></td>
+
+                    <td>Note alert on Macintosh; Information alert on Windows.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Any positive number</td>
+
+                    <td>Resource ID of a color icon to be displayed in the alert.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>titleText</em></dt>
+
+        <dd>Alert title. This parameter can be empty.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>largeText</em></dt>
+
+        <dd>First static text of the alert. This parameter can be empty.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>smallText</em></dt>
+
+        <dd>Second static text of alert. This parameter can be empty.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>button1Text</em></dt>
+
+        <dd>Text of first (right, default) button. This parameter can be empty.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>button2Text</em></dt>
+
+        <dd>Text of second (middle, cancel) button. This parameter can be empty.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>button3Text</em></dt>
+
+        <dd>Text of third (left) button. This parameter can be empty.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_OK</tt></td>
+
+                    <td>The first button is clicked.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_CANCEL</tt></td>
+
+                    <td>The second button is clicked.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_THIRD</tt></td>
+
+                    <td>The third button is clicked.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>If the function parameters are incorrect, zero is returned.</p>
+
+    <p>On Windows, if the user clicks the close box in the caption, <b>DGAlert</b> returns <tt>DG_CANCEL</tt>. If there is no second button in the alert <tt>DG_OK</tt> is returned.</p>
+
+    <h4>Remarks</h4>
+
+    <p><b>DGAlert</b> has the same behavior as of <a href="DGResAlert.html">DGResAlert</a>. The only difference is in the way how the icon and the alert and button texts are specified.</p>
+
+    <p>If <em>titleText</em> is empty, there is no title on Macintosh. On Windows, in this case DG uses one of the standard alert titles given in <a href="DGInit.html">DGInit</a>. The first and second alert texts are drawn using the large plain and small plain fonts, respectively. If <em>largeText</em> or <em>smallText</em> is empty, there is no first or second static text. However, one of the <em>largeText</em> or <em>smallText</em> has to be non-empty. If <em>button1Text</em>, <em>button2Text</em> or <em>button3Text</em> is empty, there is no first, second or third button, respectively. One of the <em>button1Text</em> and <em>button2Text</em> has to be non-empty.</p>
+
+    <p>Alerts are sized automatically to the minimal size that contains all of the given elements. If the first and/or the second alert text does not fit into one line, DG automatically breaks it/them into more lines. Of course, these texts can contain explicit line breaks as well.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="Alerts.html">Alerts</a>, <a href="DGResAlert.html">DGResAlert</a>, <a href="DGResAlertParam.html">DGResAlertParam</a>, <a href="DGInit.html">DGInit</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

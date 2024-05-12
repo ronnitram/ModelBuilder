@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_NewWindowPars</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_NewWindowPars.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_NewWindowPars</h1>
+
+    <p>Parameters to open a new window.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_WindowTypeID.html">API_WindowTypeID</a></strong>     <em>typeID</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>             <em>userRefId</em>;
+        <strong>GS::Int8</strong>             <em>filler_1</em>;
+        <strong>bool</strong>                 <em>useOriginalPenWeight</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>          <em>wTitle[API_UniLongNameLen]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>          <em>wFile[API_UniLongNameLen]</em>;
+        <strong>Int32</strong>                <em>filler_2[8]</em>;
+    <strong>}</strong> <em>API_NewWindowPars</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>typeID</b></dt>
+
+        <dd>type of the database; only <code>APIWind_MyTextID</code> and <code>APIWind_MyDrawID</code> are allowed.</dd>
+
+        <dt><b>userRefId</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Modified in API 22" width="19" height="12"></dt>
+
+        <dd>free to use identifier of the window. Returned in notifications.</dd>
+
+        <dt><b>useOriginalPenWeight</b></dt>
+
+        <dd>The window uses original weight of pen attributes at line drawing instead of hairline.</dd>
+
+        <dt><b>wTitle[API_UniLongNameLen]</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Modified in API 11" width="19" height="12"></dt>
+
+        <dd>the title of the window (Unicode, UTF-8 encoding)</dd>
+
+        <dt><b>wFile[API_UniLongNameLen]</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Modified in API 11" width="19" height="12"></dt>
+
+        <dd>the default filename (Unicode, UTF-8 encoding)</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Refer to the <a href="../Functions/APIDb_NewWindowID.html">APIDb_NewWindowID</a> function for more details.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_WindowTypeID.html">API_WindowTypeID</a><br>
+    <a href="../Functions/APIDb_NewWindowID.html">APIDb_NewWindowID</a><br>
+    <a href="../Functions/APIDb_NewDatabaseID.html">APIDb_NewDatabaseID</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

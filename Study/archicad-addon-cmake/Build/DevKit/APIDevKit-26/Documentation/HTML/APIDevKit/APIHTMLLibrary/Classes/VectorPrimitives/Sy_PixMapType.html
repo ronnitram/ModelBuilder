@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Sy_PixMapType</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/VectorPrimitives/Sy_PixMapType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Sy_PixMapType</h1>
+
+    <p>Defines a raster image in an arbitrary format which has a registered mime type.</p>
+    <pre class="syntax">
+<strong>struct</strong> Sy_PixMapType {
+    <strong>long</strong>             item_Len;
+    <strong>unsigned char</strong>    item_Typ;
+    <strong>char</strong>             drwIndex;
+    <strong>short</strong>            sy_layer;
+    <strong>bool</strong>             mirrored;
+    <strong>char</strong>             anchorPoint;
+    <strong>short</strong>            colorDepth;
+    <strong>short</strong>            pixelSizeX;
+    <strong>short</strong>            pixelSizeY;
+    <strong>unsigned long</strong>    pixMapFormat;
+    <strong>long</strong>             filler_2;
+    <strong>Box2DData</strong>        destBox;
+    <strong>Box2DData</strong>        origBox;
+    <strong>char</strong>             pixName[32];
+    <strong>double</strong>           rotAngle;
+    <strong>long</strong>             pixHdlLen;
+    <strong>long</strong>             pixHdlOff;
+    <strong>bool</strong>             transparent;
+    <strong>char</strong>             filler_3_1;
+    <strong>short</strong>            filler_3;
+    <strong>long</strong>             mimeTypeLen;
+    <strong>long</strong>             mimeTypeOff;
+    <strong>long</strong>             filler_6;
+};
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><em>item_Len</em></dt>
+
+        <dd>The length of the data record = mimeTypeOff+ROUND_UP_8(mimeTypeLen).</dd>
+
+        <dt><em>item_Typ</em></dt>
+
+        <dd>Constant SyPixMap.</dd>
+
+        <dt><em>drwIndex</em></dt>
+
+        <dd>Index in drawing order or 0.</dd>
+
+        <dt><em>sy_layer</em></dt>
+
+        <dd>The number of the fragment (layer) this element belongs to (Ranges 1 - 16).</dd>
+
+        <dt><em>mirrored</em></dt>
+
+        <dd>True, if mirrored to local vertical axis.</dd>
+
+        <dt><em>anchorPoint</em></dt>
+
+        <dd>The anchor point type (1..9).</dd>
+
+        <dt><em>colorDepth</em></dt>
+
+        <dd>The color depth of the pixmap.</dd>
+
+        <dt><em>pixelSizeX</em></dt>
+
+        <dd>The pixel size in X direction.</dd>
+
+        <dt><em>pixelSizeY</em></dt>
+
+        <dd>The pixel size in Y direction.</dd>
+
+        <dt><em>pixMapFormat</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>filler_2</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>destBox</em></dt>
+
+        <dd>The destination box.</dd>
+
+        <dt><em>origBox</em></dt>
+
+        <dd>The original box.</dd>
+
+        <dt><em>pixName</em></dt>
+
+        <dd>The stored name of the picture.</dd>
+
+        <dt><em>rotAngle</em></dt>
+
+        <dd>The rotation of the picture.</dd>
+
+        <dt><em>pixHdlLen</em></dt>
+
+        <dd>The size of the figure data in bytes.</dd>
+
+        <dt><em>pixHdlOff</em></dt>
+
+        <dd>Offset of the figure data from record start = sizeof(Sy_PixMapType).</dd>
+
+        <dt><em>transparent</em></dt>
+
+        <dd>If true the white pixels will be fully transparent.</dd>
+
+        <dt><em>filler_3_1</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>filler_3</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>mimeTypeLen</em></dt>
+
+        <dd>The size of the mime type data in bytes.</dd>
+
+        <dt><em>mimeTypeOff</em></dt>
+
+        <dd>Offset of the figure data from record start = pixHdlOff + ROUND_UP_8(pixHdlLen).</dd>
+
+        <dt><em>filler_6</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>A pixmap is a raster image. Of course there are some formats which are legal, but Archicad won't display it because not able to decode. Our most supported formats at the time of writing is PNG and JPEG. We are not support GIFs, because of patent issues.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10.0 or later, ModelerGraphics 8 or later</dd>
+
+        <dd><b>Header:</b> Symb2D.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><!-- Not Index --><a href="../VectorImage/VectorImage.html">VectorImage</a> <!-- FOOTER  FOOTEREND --></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 3, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

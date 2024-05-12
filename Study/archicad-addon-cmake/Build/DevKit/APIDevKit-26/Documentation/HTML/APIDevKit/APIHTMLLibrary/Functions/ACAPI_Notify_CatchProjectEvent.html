@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Notify_CatchProjectEvent</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Notify_CatchProjectEvent.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Notify_CatchProjectEvent</h1>
+
+    <p>Register or unregister your add-on to be notified of application and project events.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Notify_CatchProjectEvent</strong> (
+        <strong>GSFlags</strong>                         <em>eventTypes</em>,
+        <strong><a href="APIProjectEventHandlerProc.html">APIProjectEventHandlerProc</a>*</strong>     <em>handlerProc</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>eventTypes</em></dt>
+
+        <dd>[in] A combination of different <a href="../Structures/API_NotifyEventID.html">API_NotifyEventID</a> values, specifying the types of project events you are interested in.</dd>
+
+        <dt><em>handlerProc</em></dt>
+
+        <dd>[in] The callback procedure to call when notifications are sent out on different project events. Specifying <code>nullptr</code> here means you don't need the notifications any more.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The requested operation finished successfully.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function enables the API tool add-on catch events happening to the project. Each time when such an event occurs the server application calls the supplied <code>handlerProc</code> of your those add-ons which have been registered for this event previously.</p>
+
+    <p>If you do not need to catch the project events any longer, please remember to unregister by calling <code>ACAPI_Notify_CatchProjectEvent</code> for the required element type with <code>nullptr</code> in the <code>handlerProc</code> parameter.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+// -----------------------------------------------------------------------------
+// Project event handler function
+// -----------------------------------------------------------------------------
+static GSErrCode __ACENV_CALL    NotificationHandler (API_NotifyEventID notifID, Int32 param)
+{
+    char    msgStr[256];
+
+    switch (notifID) {
+        case APINotify_New:                CHCopyC ("APINotify_New", msgStr);             break;
+        case APINotify_NewAndReset:        CHCopyC ("APINotify_NewAndReset", msgStr);     break;
+        case APINotify_Open:               CHCopyC ("APINotify_Open", msgStr);            break;
+        case APINotify_PreSave:            CHCopyC ("APINotify_PreSave", msgStr);         break;
+        case APINotify_Save:               CHCopyC ("APINotify_Save", msgStr);            break;
+        case APINotify_Close:              CHCopyC ("APINotify_Close", msgStr);           break;
+        case APINotify_Quit:               CHCopyC ("APINotify_Quit", msgStr);            break;
+
+        case APINotify_SendChanges:        CHCopyC ("APINotify_SendChanges", msgStr);     break;
+        case APINotify_ReceiveChanges:     CHCopyC ("APINotify_ReceiveChanges", msgStr);  break;
+
+        case APINotify_ChangeProjectDB:    CHCopyC ("APINotify_ChangeProjectDB", msgStr); break;
+        case APINotify_ChangeWindow:       CHCopyC ("APINotify_ChangeWindow", msgStr);    break;
+        case APINotify_ChangeFloor:        CHCopyC ("APINotify_ChangeFloor", msgStr);     break;
+        case APINotify_ChangeLibrary:      CHCopyC ("APINotify_ChangeLibrary", msgStr);   break;
+    }
+
+    ACAPI_WriteReport (msgStr, false);
+
+    return NoError;
+}   // NotificationHandler
+
+
+// -----------------------------------------------------------------------------
+// Called after the Add-On has been loaded into memory
+// -----------------------------------------------------------------------------
+GSErrCode    __ACENV_CALL    Initialize (void)
+
+{
+    // catch changes in project events
+    GSErrCode err = <font color="#FF0066">ACAPI_Notify_CatchProjectEvent</font> (API_AllProjectNotificationMask, NotificationHandler);
+
+    return err;
+}   // Initialize
+
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_NotifyEventID.html">API_NotifyEventID</a>, <a href="APIProjectEventHandlerProc.html">APIProjectEventHandlerProc</a>,<br>
+    <a href="../Level3/notification_manager_id.html">Notification Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on March 4, 2006<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Polygon2DData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Polygon2D/Polygon2DData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Polygon2DData</h1>
+
+    <p>A complete desctiption of a Graphisoft Geometry polygon.</p>
+    <pre class="syntax">
+    <strong>struct</strong> Polygon2DData {
+      <strong>struct</strong> {
+         <strong>unsigned long</strong> <em>isBoundBoxValid</em>                : 1;
+         <strong>unsigned long</strong> <em>isOrientationCorrect</em>   : 1;
+         <strong>unsigned long</strong> <em>isSameDirEdgeLegal</em>     : 1;
+      } <em>status</em>;
+      <strong><a href="../Box2D/Box2DData.html">Box2DData</a></strong>       <em>boundBox</em>;
+      <strong>long</strong>           <em>nVertices</em>;
+      <strong><a href="../Vector2D/Coord.html">Coord</a>**</strong>        <em>vertices</em>;
+      <strong>GSHandle</strong>       <em>vertexInfos</em>;
+      <strong>GSSize</strong>         <em>sizeOfVertexInfo</em>;
+      <strong>GSHandle</strong>       <em>defaultVertexInfo</em>;
+      <strong>GSHandle</strong>       <em>inhEdgeInfos</em>;
+      <strong>GSSize</strong>         <em>sizeOfInhEdgeInfo</em>;
+      <strong>GSHandle</strong>       <em>defaultInhEdgeInfo</em>;
+      <strong>GSHandle</strong>       <em>uniqEdgeInfos</em>;
+      <strong>GSSize</strong>         <em>sizeOfUniqEdgeInfo</em>;
+      <strong>GSHandle</strong>       <em>defaultUniqEdgeInfo</em>;
+      <strong>long</strong>           <em>nArcs</em>;
+      <strong><a href="../Polygon2D/PolyArcRec.html">PolyArcRec</a>**</strong>   <em>arcs</em>;
+      <strong>long</strong>           <em>nContours</em>;
+      <strong>long**</strong>         <em>contourEnds</em>;
+      <strong>GSHandle</strong>       <em>contourInfos</em>;
+      <strong>GSSize</strong>         <em>sizeOfContourInfo</em>;
+      <strong>GSHandle</strong>       <em>defaultContourInfo</em>;
+      <strong>GSHandle</strong>       <em>inhPolygonInfo</em>;
+      <strong>GSSize</strong>         <em>sizeOfInhPolygonInfo</em>;
+      <strong>GSHandle</strong>       <em>uniqPolygonInfo</em>;
+      <strong>GSSize</strong>         <em>sizeOfUniqPolygonInfo</em>;
+      <strong>GSHandle</strong>       <em>defaultUniqPolygonInfo</em>;
+    };
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>status.isBoundBoxValid</b></dt>
+
+        <dd>Must be set to 1 if the polygon is changed without refreshing its <em>boundBox</em>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>status.isOrientationCorrect</b></dt>
+
+        <dd>Must be set to 1 if the polygon is changed without checking the orientation.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>status.isSameDirEdgeLegal</b></dt>
+
+        <dd>Set to 1, if two suceeding edges with the same direction is legal</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>boundBox</b></dt>
+
+        <dd>The minimal bounding box of the polygon. It could be unfilled according to <em>status.isBoundBoxValid</em>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>nVertices</b></dt>
+
+        <dd>The number of vertices.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>vertices</b></dt>
+
+        <dd>A handle containing exactly <em>nVertices</em> <a href="../Vector2D/Coord.html">Coords</a> that describes all contours of the polygon.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>vertexInfos</b></dt>
+
+        <dd>A handle containing information attached to vertices. It must contain exactly <em>nVertices</em> items. You can use it, for example, to store the heights for a polygon-based mesh.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>sizeOfVertexInfo</b></dt>
+
+        <dd>The size of one attached vertex information.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>defaultVertexInfo</b></dt>
+
+        <dd>One piece of vertex information that has <em>sizeOfVertexInfo</em> size. This information will be attached to the new vertices created in operations performed later. With the aid of this field, you can easily trace the newly created vertices after complex operations.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>inhEdgeInfos</b></dt>
+
+        <dd>A handle containing information attached to edges. It must contain exactly <em>nVertices</em> items. If an edge splits into more than one new edges in an operation, this information will be inherited without change to all new edges created. You can use it for example to store the side angles of a roof.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>sizeOfInhEdgeInfo</b></dt>
+
+        <dd>The size of an attached inherited edge information.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>defaultInhEdgeInfo</b></dt>
+
+        <dd>One piece of inherited edge information which has <em>sizeOfInhEdgeInfo</em> size. To the brand new edges (not created with split) in operations performed later this information will be attached. With the aid of this you can easily trace the newly created edges after complex operations.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>uniqEdgeInfos</b></dt>
+
+        <dd>A handle containing information attached to edges. It must contain exactly <em>nVertices</em> items. If an edge splits into more pieces in an operation, this information will be inherited ONLY BY THE FIRST.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>sizeOfUniqEdgeInfo</b></dt>
+
+        <dd>The size of one attached unique edge information.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>defaultUniqEdgeInfo</b></dt>
+
+        <dd>One piece of unique edge information which has <em>sizeOfUniqEdgeInfo</em> size. To the brand new edges and edges created with split in later operations this information will be attached. With the aid of this you can easily trace the newly created edges after complex operations.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>nArcs</b></dt>
+
+        <dd>The number of arced edges in the polygon.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>arcs</b></dt>
+
+        <dd>The arc information for arced edges. The starting vertex, the destination vertex and the view-angle (deflection). This is a signed value, reflecting the orientation.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>nContours</b></dt>
+
+        <dd>The number of contours the polyogn consists of.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>contourEnds</b></dt>
+
+        <dd>An array which contains the index of the last vertex of the i-th contour. It must have exactly <em>nContours</em> items.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>contourInfos</b></dt>
+
+        <dd>A handle containing information attached to contours. It must contain exactly <em>nContours</em> items. If a contour splits into more than one pieces in an operation, this information will be inherited by all parts.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>sizeOfContourInfo</b></dt>
+
+        <dd>The size of one attached contour information.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>defaultContourInfo</b></dt>
+
+        <dd>One piece of contour information which has <em>sizeOfContourInfo</em> size. To the contours created with split in later operations this information will be attached.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>inhPolygonInfo</b></dt>
+
+        <dd>A handle containing information attached to the polygon. It is one piece. If the polygon breaks apart into more pieces, this information will be inherited by each piece.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>sizeOfInhPolygonInfo</b></dt>
+
+        <dd>The size of one attached inherited polygon information.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>uniqPolygonInfo</b></dt>
+
+        <dd>A handle containing information attached to the polygon. It is one piece. If the polygon breaks apart into more pieces, this information will be inherited ONLY BY THE FIRST.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>sizeOfUniqPolygonInfo</b></dt>
+
+        <dd>The size of one attached unique polygon information.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>defaultUniqPolygonInfo</b></dt>
+
+        <dd>One piece of contour information which has "sizeOfUniqPolygonInfo" size. To the polygons created with split in operations performed later this information will be attached.</dd>
+
+        <dd>&nbsp;</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The Graphisoft Geometry polygon is an extension of the conventional polygon. It can have holes and curved edges though these curved edges can be only circle-arcs.<br>
+    This polygon can contain or link to additional data for every vertex, edge, contour or for the entire polygon.<br>
+    In this structure - in contrast to C/C++ practice - all indices are from [1..n], so the 0th elen is unused, but the n-th elem must exist.<br>
+    Similarly to the rest of the Geometry module, the polygon must be always posively oriented by default.<br>
+    The first vertex must be always repeated in the last for all contours. So in this representation, a triangle have four vertices, where the first and the last vertex is identical.<br>
+    In a regular polygon the minimal distance between two neighboring vertices is MinPolygon2DDataVertexDistance.<br>
+    The first contour is the main contour, and it must contain the others.<br>
+    The first contour has a positive orientation, the others negative.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Polygon2DData.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Polygon2D_id.html">Polygon2D functions</a>, <a href="Example_InitAndValidate.html">Example</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 12, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

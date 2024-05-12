@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>SetClientRect (Dialog)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/Dialog/SetClientRect.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="Dialog.html">Dialog</A>::SetClientRect</H2><!--exp="Dialog::SetClientRect"-->
+<P><topic id="$DG.$Dialog.$SetClientRect.BriefDescription">
+		Sets the client area rectangle.
+	</topic></P>
+<PRE class="syntax"><B>void SetClientRect (</B>
+    <B><a class="nodecorate" href="../../DG/Rect/Rect.html">const Rect &amp;</A>        </B><I>rect</I>,
+    <B><a class="nodecorate" href="../../DG/Dialog/FixPoint.html">FixPoint</A>            </B><I>fixPoint</I><B> = TopLeft</B>,
+    <B>bool                </B><I>keepOld</I><B> = false</B>
+<B>);</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>rect</I></DT><DD><topic id="$DG.$Dialog.$SetClientRect.$rect.ParamDescription">
+		The <a href="../Rect/Rect.html">rectangle</a> of the client area.
+		The coordinates of the rectangle are either in screen or in global
+		coordinates depending on the type of the dialog:<br>
+		<table class="enumeration">
+			<tr>
+				<th width="106">Coordinate system</th>
+				<th width="352"><a href="DialogType.html">Dialog type</a></th>
+			</tr>
+			<tr>
+				<td>Global</td>
+				<td><a href="DialogType.html">Modeless</a></td>
+			</tr>
+			<tr>
+				<td>Screen</td>
+				<td><a href="DialogType.html">Modal</a></td>
+			</tr>
+			<tr>
+				<td>Screen</td>
+				<td><a href="DialogType.html">Palette</a></td>
+			</tr>
+		</table>
+	</topic></DD><DT><I>fixPoint</I></DT><DD><topic id="$DG.$Dialog.$SetClientRect.$fixPoint.ParamDescription">
+		This parameter determines the <a href="FixPoint.html">reference point</a>
+		that does not move during resizing, and defines whether the old content
+		of the dialog is to be kept at its original place.
+	</topic></DD><DT><I>keepOld</I></DT><DD><topic id="$DG.$Dialog.$SetClientRect.$keepOld.ParamDescription">
+		If <tt>true</tt>, the dialog keeps its old content. It means that
+		the old content is not invalidated nor erased during the resize.
+	</topic></DD>
+</DL>
+<H4>Description</H4>
+<P><topic id="$DG.$Dialog.$SetClientRect.LongDescription">
+		This method resizes the dialog so that its client area gains the
+		specified size.
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

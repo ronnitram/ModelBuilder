@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Mikl&oacute;s Fazekas">
+
+    <title>GSPref::SetLongValue, GSPref::SetBoolValue, GSPref::SetStringValue</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/PreferencesManager/reference/GetValue.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GSPref::GetLongValue, GSPref::GetBoolValue, GSPref::GetStringValue, GSPref::GetANSIStringValue</h1>
+
+    <p>Reads a typed data from the registry on<b>Windows</b>, preference file on <b>MacOS</b> .</p>
+    <pre class="syntax">
+<tt>    <strong><a name="GetLongValue" id="GetLongValue"></a>bool GetLongValue</strong> (
+      <strong>RootKeyRef</strong>  <em>root</em>,
+      <strong>const char*</strong>   <em>path</em>,
+      <strong>const char*</strong>    <em>valueName</em>,
+      <strong>long*</strong>    <em>oValue</em>,
+      <strong>const long</strong>       <em>iDefValue</em>,
+      <strong>WriteBackType</strong>    <em>iWriteBack</em>
+    );</tt>
+</pre>
+    <pre class="syntax">
+<tt>    <strong><a name="GetBoolValue" id="GetBoolValue"></a>bool GetBoolValue</strong> (
+      <strong>RootKeyRef</strong>  <em>root</em>,
+      <strong>const char*</strong>   <em>path</em>,
+      <strong>const char*</strong>    <em>valueName</em>,
+      <strong>bool*</strong>    <em>oValue</em>,
+      <strong>const bool</strong>       <em>iDefValue</em>,
+      <strong>WriteBackType</strong>    <em>iWriteBack</em>
+    );</tt>
+</pre>
+    <pre class="syntax">
+<tt>    <strong><a name="GetStringValue" id="GetStringValue"></a>bool GetStringValue</strong> (
+      <strong>RootKeyRef</strong>  <em>root</em>,
+      <strong>const char*</strong>   <em>path</em>,
+      <strong>const char*</strong>    <em>valueName</em>,
+      <strong>wchar_t*</strong>    <em>oValue</em>,
+      <strong>unsigned int</strong>     <em>iBufferByteSize</em>,
+      <strong>const wchar_t*</strong>   <em>iDefValue</em>,
+      <strong>WriteBackType</strong>    <em>iWriteBack</em>
+    );</tt>
+</pre>
+    <pre class="syntax">
+<tt>    <strong><a name="GetANISStringValue" id="GetANISStringValue"></a>bool GetANSIStringValue</strong> (
+      <strong>RootKeyRef</strong>  <em>root</em>,
+      <strong>const char*</strong>   <em>path</em>,
+      <strong>const char*</strong>    <em>valueName</em>,
+      <strong>wchar_t*</strong>    <em>oValue</em>,
+      <strong>unsigned int</strong>     <em>iBufferByteSize</em>,
+      <strong>const wchar_t*</strong>   <em>iDefValue</em>, 
+      <strong>const GSCharCode</strong>    <em>iCharCode</em>,
+      <strong>WriteBackType</strong>    <em>iWriteBack</em>     
+    );</tt>
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><i>root</i></dt>
+
+        <dd>[in]Pointer to the root key, created with <a href="Invalid link: GSPref::CreateRootKey">CreateRootKey</a>. See <a href="Invalid link: GSPref::RootKeyRef">RootKeyRef</a>.</dd>
+
+        <dt><i>path</i></dt>
+
+        <dd>
+            [in] Pointer to a string containing a '/' separated path. The value is read from to the sub-key specified by this path relative to the root. Use "" if you want to read direcly under the root key.
+
+            <p>The path name cannot begin or end with a '/'. The size of the path cannot exceed 1024 characters, and cannot be NULL. It can contain only ASCII characters.</p>
+        </dd>
+
+        <dt><i>valueName</i></dt>
+
+        <dd>
+            [in] Pointer to a string containing the name of the value to set. If a value with this name is not already present, the function creates it.
+
+            <p>The valueName cannot contain '/' characters, and it should contain only ASCII characters. The size of the name cannot exceed 255 characters.</p>
+        </dd>
+
+        <dt><i>oValue</i></dt>
+
+        <dd>
+            [out] The requested data is stored int this address.
+
+            <p><b>GetLongValue</b> The address of a 32-bit signed integer to be stored.</p>
+
+            <p><b>GetBoolValue</b> The address of a bool value.</p>
+
+            <p><b>GetStringValue</b> The address of a buffer for holding null-terminated unicode characters. The size (in bytes) of the buffer specified in <i>iBufferByteSize</i>.</p>
+
+            <p><b>GetANSIStringValue</b> The address of a buffer for holding null-terminated multi-byte characters. The string is converted from unicode based on the <i>iCharCode</i> param, and the converted value is stored. The size (in bytes) of the buffer specified in <i>iBufferByteSize</i>. If a character cannot be represented in the given code page, this character is replaced with a System specific replace character. See CHUnicode2ANSI for details.</p>
+        </dd>
+
+        <dt><i>iBufferByteSize</i></dt>
+
+        <dd>
+            <b>GetANSIStringValue</b>, <b>GetStringValue</b> [in] The length (in bytes) of the buffer specified by the <i>oValue</i>.
+
+            <p>If this value is too small to hold the default value, the result is undefined.</p>
+        </dd>
+
+        <dt><i>iDefValue</i></dt>
+
+        <dd>
+            [in] The default value. If the function cannot find the requested value, this data is copyed to the <i>oValue</i>.
+
+            <p><b>GetANSIStringValue</b>, <b>GetStringValue</b> This value cannot be NULL.</p>
+        </dd>
+
+        <dt><i>iCharCode</i></dt>
+
+        <dd><b>GetANSIStringValue</b> [in] The GSCharCode of the parameter <i>oValue</i>. The string is converted from unicode based on the parameter, and the converted value is stored in oValue.</dd>
+
+        <dt><i>iWriteBack</i></dt>
+
+        <dd>If this value is <i>WriteBack_True</i> and the function didn't find the requested value, the value defined in iDefValue parameter is written to the registry/preference.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>True if the function founds the requested value, false otherwise. Even if the function returns false the <i>oValue</i> will contain the iDefValue. If the function fails but <i>WriteBack_True</i> was defined, it tries to write back the defaultValue to the preferences/registry data. If the sub-key defined by path is not already present, and <i>WriteBack_True</i> is defined it is created.</p>This function may fail in the following cases:
+
+    <ul>
+        <li>The specified registry/prefence value/key was not found.</li>
+
+        <li>The specified key was found but it contained wrong type of data. Or it was a name of a sub-key.</li>
+
+        <li>Not enough resources.</li>
+
+        <li>Not enough rights to read the registry/preference file. (Unlikely)</li>
+
+        <li>Not enough rights to write the registry. If<i>writeBack</i> is <i>GSPref::WriteBack_True.</i></li>
+
+        <li>In case of<b>GetANSIStringValue</b> the <i>UnicodeToANSI</i> string conversion failed.</li>
+    </ul>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

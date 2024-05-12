@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_LibPart_GetHotspots</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_LibPart_GetHotspots.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_LibPart_GetHotspots</h1>
+
+    <p>Retrieves the hotspots of a registered Library Part.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_LibPart_GetHotspots</strong> (
+        <strong>Int32</strong>                  <em>libInd</em>,
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>        <em>instanceElemGuid</em>,
+        <strong>Int32*</strong>                 <em>nHotspots</em>,
+        <strong><a href="../Structures/API_PrimHotspot.html">API_PrimHotspot</a>***</strong>     <em>hotspots</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>libInd</em></dt>
+
+        <dd>[in] Index of the library part</dd>
+
+        <dt><em>instanceElemGuid</em>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>[in] Instance element GUID; if <tt>APINULLGuid</tt>, then the drawing parameters will be the default parameters of the library part (with no transformation, etc.), otherwise they are taken from the instance of the library part defined by this GUID.</dd>
+
+        <dt><em>nHotspots</em></dt>
+
+        <dd>[out] Numbers of hotspots.</dd>
+
+        <dt><em>hotspots</em></dt>
+
+        <dd>[out] Handle that contains the hotspot data on return.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>nHotspots</code> or <code>hotspots</code> parameter is <code>nullptr</code>, or invalid <code>libInd</code> has been passed</dd>
+
+        <dt><code>APIERR_BADINDEX</code></dt>
+
+        <dd>Invalid <code>instanceElemGuid</code> for the element type that <code>libInd</code> implies</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to retrieve the hotspots of the Libpart Part.<br>
+    The library part is identified the same way as <a href="ACAPI_LibPart_ShapePrims.html">ACAPI_LibPart_ShapePrims</a> does.</p>
+
+    <p>The hotspots return in an array of <a href="../Structures/API_PrimHotspot.html">API_PrimHotspot</a> structures. The coordinate values in the <code>loc</code> field are interpreted in the local coordinate system of the library part, however if the referred element instance has been resized, the coordinates follow the scale.<br>
+    If you would like to get the actual position of a hotspot of the specified element instance, use the <code>neig</code> field to convert the coordinates.</p>
+
+    <p>Do not forget to dispose the <code>hotspots</code> handle after the operation.</p>
+
+    <p>The function works only on Library Parts that can be placed onto the floor plan. Applicable type of Library Parts are:</p>
+
+    <ul class="syntax">
+        <li><a href="../Structures/API_LibTypeID.html">APILib_WindowID</a></li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_DoorID</a></li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_ObjectID</a></li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_LampID</a></li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_RoomID</a> (zone stamp)</li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_LabelID</a> (symbol label)</li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_PrimHotspot**   hotspots = nullptr;
+Int32       nHotspots = 0;
+Int32       libInd = 1990;          /* a given library part index */
+API_Guid    instanceElemGuid = element.header.guid;    /* GUID of an element placed on the floorplan with the corresponding libpart reference */
+
+GSErrCode err = ACAPI_LibPart_GetHotspots (libInd, instanceElemGuid, &amp;nHotspots, &amp;hotspots);
+if (err == NoError &amp;&amp; hotspots != nullptr) {
+    API_Element element;
+    BNZeroMemory (&amp;element, sizeof (API_Element));
+    element.header.typeID = API_HotspotID;
+    err = ACAPI_Element_GetDefaults (&amp;element, nullptr);
+    if (err == NoError) {
+        short ind;
+        for (ind = 0; ind &lt; nHotspots; ind++) {     // draw hotspots in local coordinates
+            element.hotspot.pen = ind;
+            element.hotspot.pos = (*hotspots)[ind].loc;
+            ACAPI_Element_Create (&amp;element, nullptr);
+        }
+
+        for (ind = 0; ind &lt; nHotspots; ind++) {     // draw hotspots according to the neigs
+            element.hotspot.pen = ind;
+            err = ACAPI_Goodies (APIAny_NeigToCoordID, &amp;(*hotspots)[ind].neig, &amp;element.hotspot.pos);
+            if (err == NoError)
+                ACAPI_Element_Create (&amp;element, nullptr);
+        }
+    }
+}
+
+BMKillHandle ((GSHandle*) &amp;hotspots);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 5.2 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_LibTypeID.html">API_LibTypeID</a><br>
+    <a href="ACAPI_LibPart_ShapePrims.html">ACAPI_LibPart_ShapePrims</a><br>
+    <a href="ACAPI_Element_ShapePrims.html">ACAPI_Element_ShapePrims</a><br>
+    <a href="../Level3/Library_Part_Manager_id.html">LibPart Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 24, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

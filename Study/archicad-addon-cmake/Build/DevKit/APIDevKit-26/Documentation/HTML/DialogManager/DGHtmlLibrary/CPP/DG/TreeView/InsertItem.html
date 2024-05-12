@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>InsertItem (TreeView)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/TreeView/InsertItem.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="TreeView.html">TreeView</A>::InsertItem</H2><!--exp="TreeView::InsertItem"-->
+<P><topic id="$DG.$TreeView.$InsertItem.BriefDescription">
+		Inserts an item to the tree view control.
+	</topic></P>
+<PRE class="syntax"><B>Int32 InsertItem (</B>
+    <B>Int32               </B><I>parentItem</I>,
+    <B>Int32               </B><I>tvItem</I>
+<B>);</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>parentItem</I></DT><DD><topic id="$DG.$TreeView.$InsertItem.$parentItem.ParamDescription">
+		ID of the parent item under which the new item should be placed as a child item.
+		<tt>RootItem</tt> specifies the root of the tree view. If <tt>tvItem</tt> is <tt>RootItem</tt>,
+		this parameter is ignored.
+	</topic></DD><DT><I>tvItem</I></DT><DD><topic id="$DG.$TreeView.$InsertItem.$tvItem.ParamDescription">
+		The tree view item after which the new item should appear on the same hierarchy level.
+		You can use the following predefined values, too.
+		<table class="enumeration">
+			<tr>
+				<th width="106">Value</th>
+				<th width="252">Meaning</th>
+			</tr>
+			<tr>
+				<td><tt>RootItem</tt></td>
+				<td>The new item will be the root of the tree view.</td>
+			</tr>
+			<tr>
+				<td><tt>TopItem</tt></td>
+				<td>Insert the new item at the top of the level below parentItem.</td>
+			</tr>
+			<tr>
+				<td><tt>BottomItem</tt></td>
+				<td>Insert the new item at the bottom of the level below parentItem.</td>
+			</tr>
+		</table>
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$DG.$TreeView.$InsertItem.ReturnDescription">
+		ID of the new tree view item, or <tt>NoItem</tt> if the function failed.
+	</topic></P>
+<H4>Description</H4>
+<P><topic id="$DG.$TreeView.$InsertItem.LongDescription">
+		Inserts an item to the tree view control. <br>
+		<p>The new item will have the following default properties:</p>
+		<table class="summary">
+			<tr>
+				<th width="106">Property</th>
+				<th width="252">Value</th>
+			</tr>
+			<tr>
+				<td>Color</td>
+				<td>The system default foreground (text) color.</td>
+			</tr>
+			<tr>
+				<td>Icon (normal)</td>
+				<td><tt>NoIcon</tt></td>
+			</tr>
+			<tr>
+				<td>Icon (state)</td>
+				<td><tt>NoIcon</tt></td>
+			</tr>
+			<tr>
+				<td>Long</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>Status</td>
+				<td><tt>Enabled</tt></td>
+			</tr>
+			<tr>
+				<td>Style</td>
+				<td>The style of the font of the tree view.</td>
+			</tr>
+			<tr>
+				<td>Text</td>
+				<td>empty</td>
+			</tr>
+		</table>
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

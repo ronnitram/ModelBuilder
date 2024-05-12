@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>How to use the CIO interface?</title><!-- index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/CIOInterface/HowToUse.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>How to use the CIO interface?</h1><br>
+
+    <ul>
+        <li>User should insert and compile the "<font face="Courier New"><b>CIOStub.cpp</b></font>" stub file into the project.</li>
+
+        <li style="list-style: none"><br>
+        <br></li>
+
+        <li>The subset of the "traditional" IO interface can be used in the "<font face="Courier New"><b>CIO</b></font>" namespace. This means that names of classes and methods (and their behaviour) remain the same, except that they are put into the "<font face="Courier New"><b>CIO</b></font>" namespace instead of "<font face="Courier New"><b>IO</b></font>" namespace, but only subset of classes and methods is available.</li>
+
+        <li style="list-style: none"><br>
+        <br></li>
+
+        <li>User should include the necessary header file for the particular class by prefixing the old header name with "<b>CIO</b>". For example if the Location class is needed, then user should include the "<font face="Courier New">CIOLocation.hpp</font>" header file (instead of "<font face="Courier New">Location.hpp</font>").</li>
+
+        <li style="list-style: none"><br>
+        <br></li>
+
+        <li>The corresponding subset of the documentation can be and should be used.</li>
+
+        <li style="list-style: none"><br>
+        <br></li>
+
+        <li>The InputOutput library (DLL) is of course needed, it must be accessible to the running program. Its initialization is performed automatically by the CIO interface.</li>
+    </ul>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

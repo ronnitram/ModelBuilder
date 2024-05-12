@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="Eisam Eldeen Amin" />
+
+    <title>Convert</title>
+
+    <meta http-equiv="Content-Language" content="en-US" />
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css" />
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GXImageBase/Convert.html" />
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GX&nbsp;Module</span><span class="TitleVersion">Version: 16</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Convert</h1>
+
+    <p>Convert an image to another image format.</p>
+    <pre class="syntax">
+    <strong>GSErrCode</strong> Convert (
+        <strong>GSHandle</strong>       <em>sourceImage</em>,
+
+        <strong>const char</strong>*    <em>sourceTypeMime</em>,
+        <strong>GSHandle</strong>*      <em>targetImage</em>,
+
+        <strong>const char</strong>*    <em>targetTypeMime</em>,
+        <strong>short</strong>          <em>quality</em>
+);
+</pre>
+
+    <h2>Parameters</h2>
+
+    <dl>
+        <dt>sourceImage</dt>
+
+        <dd>The image to be converted.</dd>
+
+        <dt>sourceTypeMime</dt>
+
+        <dd>The suggested format of the image.</dd>
+
+        <dt>targetImage</dt>
+
+        <dd>The address of the destination image.</dd>
+
+        <dt>targetTypeMime</dt>
+
+        <dd>The desired format type of the destination image.</dd>
+
+        <dt>quality</dt>
+
+        <dd>The desired pixel size in bits in the target.</dd>
+    </dl>
+
+    <h2>Return Values</h2>
+
+    <p>If the function succeeds, the return value is NoError. If the function fails, the return value is the error code.</p>
+
+    <h2>Remarks</h2>
+
+    <p>The destination GSHandle should be NULL-initialized.</p>
+
+    <p>This function also works if you do not supply the format of the image, but might be considerably slower.</p>
+
+    <p>There are some image formats which has no identifier sign (eg. TGA) in the image data. For these you are have to supply the format information.</p>
+
+    <h2>Requirements</h2>
+
+    <dl class="Requirements">
+        <dt>Version:</dt>
+
+        <dd>GX</dd>
+
+        <dt>Header:</dt>
+
+        <dd>GXImageBase.hpp</dd>
+
+        <dt>Import Library:</dt>
+
+        <dd>GXImageBase.lib</dd>
+
+        <dt>Module:</dt>
+
+        <dd>GXImageBase.dll [WIN], GXImageBase.framework [MAC]</dd>
+    </dl>
+
+    <h2>See Also</h2>
+
+    <p><a href="GXImageBase.html">GXImageBase</a></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

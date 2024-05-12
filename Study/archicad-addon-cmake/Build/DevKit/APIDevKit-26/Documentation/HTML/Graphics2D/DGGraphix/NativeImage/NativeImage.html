@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="Eisam Eldeen Amin" />
+
+    <title>NativeImage</title>
+
+    <meta http-equiv="Content-Language" content="en-US" />
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css" />
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGGraphix/NativeImage/NativeImage.html" />
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GX&nbsp;Module</span><span class="TitleVersion">Version: 16</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>NativeImage</h1>
+
+    <p>Graphisoft's own image implementation, optimized for drawing on a NativeContext.</p>
+
+    <h2>Constructors</h2>
+    <pre class="syntax">
+    NativeImage ();
+</pre>
+
+    <p>Create an empty NativeImage.</p>
+    <pre class="syntax">
+<strong>NativeImage</strong> (
+        <strong>UInt32</strong> <em>width</em>,
+        <strong>UInt32</strong> <em>height</em>,
+        <strong>const NativeImage</strong>&amp; <em>imageForColorData</em>
+);
+</pre>
+
+    <p>Create a NativeImage with another NativeImage's color settings.</p>
+    <pre class="syntax">
+NativeImage (
+        <strong>UInt32</strong> width,
+        <strong>UInt32</strong> height,
+        <strong>UInt32</strong> bitDepth,
+        <strong>const void</strong>* bits,
+        <strong>bool</strong> perPixelAlpha = false,
+        <strong>UInt32</strong> bytesPerRow = 0
+);
+</pre>
+
+    <p>Create a NativeImage from the data adressed by the "bits" parameter.</p>
+    <pre class="syntax">
+<strong>explicit</strong> NativeImage (
+        <strong>const char</strong>* <em>data</em>
+        <strong>UInt32</strong> <em>size</em>
+        <strong>Encoding</strong> <em>format</em>
+        );
+</pre>
+
+    <p>Create a NativeImage from the data pointed by "data" parameter.</p>
+    <pre class="syntax">
+<strong>explicit</strong> NativeImage (
+        <strong>GSResID</strong> <em>resID</em>
+        <strong>Encoding</strong> <em>format</em>
+        <strong>GSResModule</strong> <em>module</em>
+        );
+</pre>
+
+    <p>Create a NativeImage from the specified resource. The "module" parameter have a default AllResModule value.</p>
+
+    <h3>Macintosh constructors</h3>
+    <pre class="syntax">
+<strong>explicit</strong> NativeImage (
+        <strong>CGImageRef</strong> <em>image</em>,
+        <strong>bool</strong>&amp; <em>perPixelAlpha</em>
+        );
+
+</pre>
+
+    <p>Create a NativeImage from a CGIImageRef. The perPixelAlpha parameter has 'false' default value.</p>
+
+    <h3>Windows constructors</h3>
+    <pre class="syntax">
+<strong>explicit</strong> NativeImage (
+        <strong>HBITMAP</strong> <em>bitmap</em>
+        );
+</pre>
+
+    <p>Create a NativeImage from a HBITMAP.</p>
+    <pre class="syntax">
+<strong>explicit</strong> NativeImage (
+        <strong>HENHMETAFILE</strong> <em>metaFile</em>
+        <strong>UInt32</strong> <em>width</em>
+        <strong>UInt32</strong> <em>height</em>
+        );
+</pre>
+
+    <p>Create a NativeImage from a HENHMETAFILE.</p>
+
+    <h2>Member Functions</h2>
+
+    <p><a href="GetHeight.html">GetHeight</a></p>
+
+    <p><a href="GetWidth.html">GetWidth</a></p>
+
+    <p><a href="SetColorKey.html">SetColorKey</a></p>
+
+    <p><a href="GetContext.html">GetContext</a></p>
+
+    <p><a href="ReleaseContext.html">ReleaseContext</a></p>
+
+    <p><a href="Encode.html">Encode</a></p><br />
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

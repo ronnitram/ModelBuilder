@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_HatchOrientation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_HatchOrientation.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_HatchOrientation</h1>
+
+    <p>Fill orientation and distortion parameters.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="#API_HatchOrientationTypeID">API_HatchOrientationTypeID</a></strong>     <em>type</em>;
+        <strong>unsigned short</strong>                 <em>version</em>;
+        <strong>short</strong>                          <em>filler_1</em>;
+        <strong>Int32</strong>                          <em>flags</em>;
+        <strong>Int32</strong>                          <em>filler_2</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                      <em>origo</em>;
+        <strong>double</strong>                         <em>matrix00</em>;
+        <strong>double</strong>                         <em>matrix10</em>;
+        <strong>double</strong>                         <em>matrix01</em>;
+        <strong>double</strong>                         <em>matrix11</em>;
+        <strong>double</strong>                         <em>innerRadius</em>;
+    <strong>}</strong> <em>API_HatchOrientation</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>type</b></dt>
+
+        <dd>
+            Type of the cover fill orientation
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th>
+                        <p><b><code><a name="API_HatchOrientationTypeID" id="API_HatchOrientationTypeID">API_HatchOrientationTypeID</a></code></b></p>
+                    </th>
+
+                    <th>
+                        <p><b>Meaning</b></p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_HatchGlobal</code></p>
+                    </td>
+
+                    <td>
+                        <p>The fill is linked to Project Origin, the orientation of the hatching is always orthogonal independently of transformations made on the filled element</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_HatchRotated</code></p>
+                    </td>
+
+                    <td>
+                        <p>The fill is linked to Fill Origin, a single handle shows the orientation of the fill, and the fill pattern starts at the origin of the filled element</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_HatchDistorted</code></p>
+                    </td>
+
+                    <td>
+                        <p>The pattern of the fill is distorted in <em>x</em> and/or <em>y</em> directions</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_HatchCentered</code>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="Featuring API 13" width="19" height="12"></p>
+                    </td>
+
+                    <td>
+                        <p>The pattern is circular fill distorted.</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>version</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="Featuring API 13" width="19" height="12"></dt>
+
+        <dd>Version of the HatchOrientation</dd>
+
+        <dt><b>flags</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="Featuring API 13" width="19" height="12"></dt>
+
+        <dd>
+            Flags for HatchOrientation
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <td>
+                        <p><code>APIHatchOrinFlag_XAxisGlobal</code></p>
+                    </td>
+
+                    <td>
+                        <p>The fill origin's X coordinate is the global origin's X coordinate</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIHatchOrinFlag_YAxisGlobal</code></p>
+                    </td>
+
+                    <td>
+                        <p>The fill origin's Y coordinate is the global origin's Y coordinate</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIHatchOrinFlag_UseInnerRadius</code></p>
+                    </td>
+
+                    <td>
+                        <p>Radius for circular fill distortion; the origin of the base circle will be placed on the Y fill axis in the (0, -innerRadius) position</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIHatchOrinFlag_GlobalOrientation</code></p>
+                    </td>
+
+                    <td>
+                        <p>Use local orientation, or use the distortion matrix, when it is not set.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIHatchOrinFlag_FitX</code></p>
+                    </td>
+
+                    <td>
+                        <p>Reset the pattern's X size to the defined X vector's length (effective for symbol fills only)</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIHatchOrinFlag_FitY</code></p>
+                    </td>
+
+                    <td>
+                        <p>Reset the pattern's Y size to the defined Y vector's length (effective for symbol fills only)</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIHatchOrinFlag_KeepProportion</code></p>
+                    </td>
+
+                    <td>
+                        <p>Keep proportion of symbol fill pattern (effective for symbol fills only)</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>origo</b></dt>
+
+        <dd>The origo of the fill relative to the project origin</dd>
+
+        <dt><b>matrix00</b></dt>
+
+        <dd>The <em>x</em> component of the primary distortion (direction) vector (the cosine of the fill angle, if not distorted)</dd>
+
+        <dt><b>matrix10</b></dt>
+
+        <dd>The <em>y</em> component of the primary distortion (direction) vector (the sine of the fill angle, if not distorted)</dd>
+
+        <dt><b>matrix01</b></dt>
+
+        <dd>The <em>x</em> component of the secondary distortion vector (the cosine of the angle of the normal vector, if not distorted)</dd>
+
+        <dt><b>matrix11</b></dt>
+
+        <dd>The <em>y</em> component of the secondary distortion vector (the sine of the angle of the normal vector, if not distorted)</dd>
+
+        <dt><b>innerRadius</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>Radius for circular fill distortion.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure holds the orientation and distortion parameters of the cover fills of <a href="API_ShellBaseType.html">API_ShellBaseType</a>, <a href="API_SlabType.html">API_SlabType</a> and <a href="API_HatchType.html">API_HatchType</a> elements.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_ShellBaseType.html">API_ShellBaseType</a>, <a href="API_SlabType.html">API_SlabType</a>, <a href="API_HatchType.html">API_HatchType</a><br>
+    <a href="API_Coord.html">API_Coord</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 24, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

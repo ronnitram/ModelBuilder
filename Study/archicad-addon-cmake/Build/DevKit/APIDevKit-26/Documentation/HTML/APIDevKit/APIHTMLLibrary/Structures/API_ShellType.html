@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ShellType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ShellType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ShellType</h1>
+
+    <p>Represents a shell element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                    <em>head</em>;
+        <strong><a href="#API_ShellClassID">API_ShellClassID</a></strong>                 <em>shellClass</em>;
+        <strong>Int32</strong>                            <em>filler_1</em>;
+        <strong><a href="API_ShellBaseType.html">API_ShellBaseType</a></strong>                <em>shellBase</em>;
+        <strong><a href="API_Tranmat.html">API_Tranmat</a></strong>                      <em>basePlane</em>;
+        <strong>bool</strong>                             <em>isFlipped</em>;
+        <strong>bool</strong>                             <em>hasContour</em>;
+        <strong>short</strong>                            <em>filler_2</em>;
+        <strong>UInt32</strong>                           <em>numHoles</em>;
+        <strong><a href="API_ShellBaseContourEdgeTypeID.html">API_ShellBaseContourEdgeTypeID</a></strong>   <em>defEdgeType</em>;
+        <strong>Int32</strong>                            <em>filler_3</em>;
+        <strong>union {</strong>
+            <strong><a href="API_ExtrudedShellData.html">API_ExtrudedShellData</a></strong>        <em>extrudedShell</em>;
+            <strong><a href="API_RevolvedShellData.html">API_RevolvedShellData</a></strong>        <em>revolvedShell</em>;
+            <strong><a href="API_RuledShellData.html">API_RuledShellData</a></strong>           <em>ruledShell</em>;
+        <strong>} u;</strong>
+    <strong>}</strong> <em>API_ShellType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>shellClass</b></dt>
+
+        <dd>
+            <a name="API_ShellClassID" id="API_ShellClassID"></a>
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th>API_ShellClassID value</th>
+
+                    <th>Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><code>API_ExtrudedShellID</code></td>
+
+                    <td>Extruded shell type, use the <a href="API_ExtrudedShellData.html">API_ExtrudedShellData</a> member of the union</td>
+                </tr>
+
+                <tr>
+                    <td><code>API_RevolvedShellID</code></td>
+
+                    <td>Revolved shell type, use the <a href="API_RevolvedShellData.html">API_RevolvedShellData</a> member of the union</td>
+                </tr>
+
+                <tr>
+                    <td><code>API_RuledShellID</code></td>
+
+                    <td>Ruled shell type, use the <a href="API_RuledShellData.html">API_RuledShellData</a> member of the union</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>shellBase</b></dt>
+
+        <dd>Parameters common with all shell-based element types.</dd>
+
+        <dt><b>basePlane</b></dt>
+
+        <dd>Base plane of the shell element.</dd>
+
+        <dt><b>isFlipped</b></dt>
+
+        <dd>It tells what way (inside or out) the thickness must be applied from the shell's surfaces.</dd>
+
+        <dt><b>hasContour</b></dt>
+
+        <dd>The shell has body contour data. If the shell is cut with a body contour polygon, the data of the contour is stored in the first (0-indexed) record of the <code>shellContours</code> array of <a href="API_ElementMemo.html">API_ElementMemo</a>.</dd>
+
+        <dt><b>numHoles</b></dt>
+
+        <dd>Number of the shell hole contours. The data of the hole contours are stored in the <code>shellContours</code> array of <a href="API_ElementMemo.html">API_ElementMemo</a>, starting after the body contour if there is one, or from the first record if no body contour is given.</dd>
+
+        <dt><b>defEdgeType</b></dt>
+
+        <dd>Default edge type for the shell element (see <a href="API_ShellBaseContourEdgeTypeID.html">API_ShellBaseContourEdgeTypeID</a>).</dd>
+
+        <dt><b>u::extrudedShell</b></dt>
+
+        <dd>Extruded Shell specific data.</dd>
+
+        <dt><b>u::revolvedShell</b></dt>
+
+        <dd>Revolved Shell specific data.</dd>
+
+        <dt><b>u::ruledShell</b></dt>
+
+        <dd>Ruled Shell specific data.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For shell related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 15 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_ShellBaseType.html">API_ShellBaseType</a><br>
+    <a href="API_ExtrudedShellData.html">API_ExtrudedShellData</a>, <a href="API_RevolvedShellData.html">API_RevolvedShellData</a>, <a href="API_RuledShellData.html">API_RuledShellData</a><br>
+    <a href="API_Tranmat.html">API_Tranmat</a>, <a href="API_ShellBaseContourEdgeTypeID.html">API_ShellBaseContourEdgeTypeID</a><br>
+    <a href="API_Element.html">API_Element</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 24, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>EqualRange</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/EqualRange.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>EqualRange</H2><!--exp="EqualRange Enum"-->
+<P><topic id="$GS.$EqualRange.BriefDescription">
+		Finds a pair of positions in an ordered range, the first less than or 
+		equivalent to the position of a specified element and the second greater than 
+		the element's position, where the sense of equivalence or ordering used to 
+		establish the positions in the sequence may be specified by a binary 
+		predicate.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For</I>, <B>class</B> <I>T</I><B>&gt;
+</B><A href="../GS/Pair/Pair.html">Pair&lt; For, For &gt;</A> EqualRange (</B>
+    <B>For                 </B><I>first</I>,
+    <B>For                 </B><I>last</I>,
+    <B>const T &amp;           </B><I>value</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For</I>, <B>class</B> <I>T</I>, <B>class</B> <I>BinPred</I><B>&gt;
+</B><A href="../GS/Pair/Pair.html">Pair&lt; For, For &gt;</A> EqualRange (</B>
+    <B>For                 </B><I>first</I>,
+    <B>For                 </B><I>last</I>,
+    <B>const T &amp;           </B><I>value</I>,
+    <B>BinPred             </B><I>pred</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>For</I></DT><DD><topic id="$GS.$EqualRange.$For.TemplateParamDescription">
+		Forward iterator.
+	</topic></DD><DT><I>T</I></DT><DD><topic id="$GS.$EqualRange.$T.TemplateParamDescription">
+		T type template parameter.
+	</topic></DD><DT><I>BinPred</I></DT><DD><topic id="$GS.$EqualRange.$BinPred.TemplateParamDescription">
+		Binary predicate.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first</I></DT><DD><topic id="$GS.$EqualRange.$first.ParamDescription">
+		A forward iterator addressing the position of the first element in the range to be searched.
+	</topic></DD><DT><I>last</I></DT><DD><topic id="$GS.$EqualRange.$last.ParamDescription">
+		A forward iterator addressing the position one past the final element in the range to be searched.
+	</topic></DD><DT><I>value</I></DT><DD><topic id="$GS.$EqualRange.$value.ParamDescription">
+		The value in the ordered range that needs to be equivalent to the value of the 
+		element addressed by the first component of the pair returned and that needs to 
+		be less than the value of the element addressed by the second component of that 
+		pair returns.
+	</topic></DD><DT><I>pred</I></DT><DD><topic id="$GS.$EqualRange.$pred.ParamDescription">
+		User-defined predicate function object that is <B>true</B> when the left-hand 
+		argument is less than the right-hand argument. The user-defined predicate 
+		function should return <B>false</B> when its arguments are equivalent.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$EqualRange.ReturnDescription">
+		<P>A pair of forward iterators addressing two positions in an ordered range in 
+		which the first component of the pair refers to the position where an element is 
+		or would be if it had a value that is less than or equivalent to a specified 
+		value and the second component of the pair refers to the first position where an 
+		element has a value that is greater than the value specified, where the sense of 
+		equivalence or ordering may be specified by a binary predicate.</P>
+		Alternatively, the pair of forward iterators may be described as specify a 
+		subrange, contained within the range searched, in which all of the elements are 
+		equivalent to the specified value in the sense defined by the binary predicate 
+		used.
+	</topic></P><P><topic id="$GS.$EqualRange.1.ReturnDescription"></topic></P><P><topic id="$GS.$EqualRange.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$EqualRange.LongDescription">
+		<B>EqualRange</B> is a version of binary search: it attempts to find the 
+		element <TT>value</TT> in an ordered range <TT>[first, last)</TT>. 
+		The value returned by <B>EqualRange</B> is essentially a 
+		combination of the values returned by <B><A href="LowerBound.html">LowerBound</A>
+		</B>and<B><A href="UpperBound.html">UpperBound</A></B>: it returns a pair of iterators
+		<TT>i</TT> and <TT>j</TT> such that <TT>i</TT> is 
+		the first position where <TT>value</TT> could be inserted without violating the 
+		ordering and <TT>j</TT> is the last position where <TT>value</TT> could be 
+		inserted without violating the ordering. It follows that every element in the 
+		range <TT>[i, j)</TT> is equivalent to <TT>value</TT>, and 
+		that <TT>[i, j)</TT> is the largest subrange of <TT>[first, last)</TT> that has 
+		this property. The first version of <B>EqualRange</B> uses 
+		<TT>operator&lt;</TT> for comparison, and the first uses the predicate 
+		<TT>pred</TT>.
+		The first version of <B>EqualRange</B> returns a pair of iterators <TT>[i, 
+		j)</TT>. <TT>i</TT> is the furthermost iterator in <TT>[first, last)</TT> such 
+		that, for every iterator <TT>k</TT> in <TT>[first, i)</TT>, <TT>*k &lt; 
+		value</TT>. <TT>j</TT> is the furthermost iterator in <TT>[first, last)</TT> 
+		such that, for every iterator <TT>k</TT> in <TT>[first, j)</TT>, <TT>value &lt; 
+		*k</TT> is <TT>false</TT>. For every iterator <TT>k</TT> in <TT>[i, j)</TT>, 
+		neither <TT>value &lt; *k</TT> nor <TT>*k &lt; value</TT> is <TT>true</TT>.
+		The second version of <B>EqualRange</B> returns a pair of iterators 
+		<TT>[i, j)</TT>. <TT>i</TT> is the furthermost iterator in <TT>[first, 
+		last)</TT> such that, for every iterator <TT>k</TT> in <TT>[first, i)</TT>, 
+		<TT>comp(*k, value)</TT> is <TT>true</TT>. <TT>j</TT> is the furthermost 
+		iterator in <TT>[first, last)</TT> such that, for every iterator <TT>k</TT> in 
+		<TT>[first, j)</TT>, <TT>pred(value, *k)</TT> is <TT>false</TT>. For every 
+		iterator <TT>k</TT> in <TT>[i, j)</TT>, neither <TT>pred(value, *k)</TT> nor 
+		<TT>pred(*k, value)</TT> is <TT>true</TT>.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$EqualRange.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_Base</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_Base.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_Base</h1>
+
+    <p>The base of a non-static linear, angle or radial dimension element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_ElemType.html">API_ElemType</a></strong>       <em>type</em>;
+        <strong>bool</strong>               <em>line</em>;
+        <strong>bool</strong>               <em>special</em>;
+        <strong>short</strong>              <em>filler_1</em>;
+        <strong>Int32</strong>              <em>filler_2</em>;
+        <strong>Int32</strong>              <em>inIndex</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>           <em>guid</em>;
+        <strong>UInt32</strong>             <em>node_id</em>;
+        <strong>short</strong>              <em>node_status</em>;
+        <strong>short</strong>              <em>node_typ</em>;
+    <strong>}</strong> <em>API_Base</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>type</b></dt>
+
+        <dd>The type of the base element.</dd>
+
+        <dt><b>line</b></dt>
+
+        <dd>True in case of <code>APINeig_WallOn</code>, <code>APINeig_WallPlOn</code>, <code>APINeig_BeamOn</code>, <code>APINeig_CeilOn</code>, <code>APINeig_RoofOn</code>, <code>APINeig_MeshOn</code>, <code>APINeig_HatchOn</code>, <code>APINeig_LineOn</code>, <code>APINeig_ArcOn</code>, <code>APINeig_SplineOn</code></dd>
+
+        <dt><b>special</b></dt>
+
+        <dd>True in case of <code>APINeig_WallPl</code>, <code>APINeig_WallPlOn</code>, <code>APINeig_BeamHole</code>, <code>APINeig_WindHole</code>, <code>APINeig_DoorHole</code>, <code>APINeig_MeshRidge</code>, <code>APINeig_MeshRidgeOn</code></dd>
+
+        <dt><b>inIndex</b></dt>
+
+        <dd>InIndex of the base element's node (see <a href="API_Neig.html">API_Neig</a>).</dd>
+
+        <dt><b>guid</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>The unique identifier of the base element.</dd>
+
+        <dt><b>node_id</b></dt>
+
+        <dd>Polygon vertex id (from the <a href="API_ElementMemo.html">API_ElementMemo</a> of the elements which have a polygon).</dd>
+
+        <dt><b>node_status</b></dt>
+
+        <dd>For internal use (reserved for section dim).</dd>
+
+        <dt><b>node_typ</b></dt>
+
+        <dd>For internal use (reserved for section dim).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"> From version 26 the type of the <tt>typeID</tt> member was changed into <a href="../Structures/API_ElemType.html">API_ElemType</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Types.html">API Types</a>, <a href="API_Guid.html">API_Guid</a>, <a href="API_DimBase.html">API_DimBase</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 03, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

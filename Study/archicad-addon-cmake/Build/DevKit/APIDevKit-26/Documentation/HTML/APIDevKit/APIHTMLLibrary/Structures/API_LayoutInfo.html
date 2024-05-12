@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_LayoutInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_LayoutInfo.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_LayoutInfo</h1>
+
+    <p>Properties of an Archicad Layout.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>             <em>layoutName[API_UniLongNameLen]</em>;
+        <strong>double</strong>                  <em>sizeX</em>;
+        <strong>double</strong>                  <em>sizeY</em>;
+        <strong>double</strong>                  <em>leftMargin</em>;
+        <strong>double</strong>                  <em>topMargin</em>;
+        <strong>double</strong>                  <em>rightMargin</em>;
+        <strong>double</strong>                  <em>bottomMargin</em>;
+        <strong>char</strong>                    <em>customLayoutNumber[256]</em>;
+        <strong>bool</strong>                    <em>customLayoutNumbering</em>;
+        <strong>bool</strong>                    <em>doNotIncludeInNumbering</em>;
+        <strong>bool</strong>                    <em>showMasterBelow</em>;
+        <strong>bool</strong>                    <em>filler_1[5]</em>;
+        <strong>UInt32</strong>                  <em>layoutPageNumber</em>;
+        <strong>UInt32</strong>                  <em>actPageIndex</em>;
+        <strong>double</strong>                  <em>filler_2[2]</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/HashTable/HashTable.html">GS::HashTable</a>&lt;<a href="API_Guid.html">API_Guid</a>, <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&gt;</strong>*  <em>customData</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>             <em>currentRevisionId[API_UniLongNameLen]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>             <em>currentFinalRevisionId[API_UniLongNameLen]</em>;
+        <strong>bool</strong>                    <em>hasIssuedRevision</em>;
+        <strong>bool</strong>                    <em>hasActualRevision</em>;
+        <strong>bool</strong>                    <em>filler_3[6]</em>;
+    <strong>}</strong> <em>API_LayoutInfo</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>layoutName</b></dt>
+
+        <dd>The name of the layout.<br>From API 26 it contains unicode characters.<img src="../../APIImageLibrary/26.png" alt="12" width="19" height="12"></dd>
+
+        <dt><b>sizeX</b></dt>
+
+        <dd>Horizontal size of the layout in mm.</dd>
+
+        <dt><b>sizeY</b></dt>
+
+        <dd>Vertical size of the layout in mm.</dd>
+
+        <dt><b>leftMargin</b></dt>
+
+        <dd>Layout margin to the left side of the paper.</dd>
+
+        <dt><b>topMargin</b></dt>
+
+        <dd>Layout margin to the top side of the paper.</dd>
+
+        <dt><b>rightMargin</b></dt>
+
+        <dd>Layout margin to the right side of the paper.</dd>
+
+        <dt><b>bottomMargin</b></dt>
+
+        <dd>Layout margin to the bottom side of the paper.</dd>
+
+        <dt><b>customLayoutNumber</b>&nbsp;<img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Corresponds to the <em>Custom ID</em> field on the <em>Layout ID assignment</em> tab page in the <em>Layout Settings</em> dialog (see picture below).</dd>
+
+        <dt><b>customLayoutNumbering</b>&nbsp;<img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Corresponds to the <em>Use Automatic Book and Subset ID numbering</em>/<em>Custom ID</em> radio buttons on the <em>Layout ID assignment</em> tab page in the <em>Layout Settings</em> dialog (see picture below).</dd>
+
+        <dt><b>doNotIncludeInNumbering</b>&nbsp;<img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Corresponds to state of the <em>Do not include this Layout in ID sequence</em> check box on the <em>Layout ID assignment</em> tab page in the <em>Layout Settings</em> dialog (see picture below).</dd>
+
+        <dt><b>showMasterBelow</b>&nbsp;<img src="../../APIImageLibrary/18.png" alt="18" width="19" height="12"></dt>
+
+        <dd>Display master layout above or below the layout.</dd>
+
+        <dt><b>layoutPageNumber</b>&nbsp;<img src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>Number of layout (page) when this layout contains any MultiPage Drawing. (Drawing with "Split to more layouts" flag.)</dd>
+
+        <dt><b>actPageIndex</b>&nbsp;<img src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>The actual index of layout (page) inside the Multi Page Layout. (Layout what contains any drawing with "Split to more layouts" flag.)</dd>
+
+        <dt><b>customData</b>&nbsp;<img src="../../APIImageLibrary/18.png" alt="12" width="19" height="12"></dt>
+
+        <dd>Contains the custom data fields. The custom scheme GUID-value pairs are stored in a <a href="../../../GSRoot/GSRootHTMLLibrary/GS/HashTable/HashTable.html">GS::HashTable</a>.</dd>
+
+        <dt><b>currentRevisionId</b>&nbsp;<img src="../../APIImageLibrary/18.png" alt="12" width="19" height="12"></dt>
+
+        <dd>ID of the current document revision of the layout.</dd>
+
+        <dt><b>currentFinalRevisionId</b>&nbsp;<img src="../../APIImageLibrary/18.png" alt="12" width="19" height="12"></dt>
+
+        <dd>ID with optional suffix (- WIP) of the current document revision of the layout.</dd>
+
+        <dt><b>hasIssuedRevision</b>&nbsp;<img src="../../APIImageLibrary/18.png" alt="12" width="19" height="12"></dt>
+
+        <dd>One or more issued document revisions have already been created for the layout.</dd>
+
+        <dt><b>hasActualRevision</b>&nbsp;<img src="../../APIImageLibrary/18.png" alt="12" width="19" height="12"></dt>
+
+        <dd>Exists an opened document revision for the layout.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You can retrieve and modify the properties of a layout with the <a href="../Functions/APIEnv_GetLayoutSetsID.html">APIEnv_GetLayoutSetsID</a> and <a href="../Functions/APIEnv_ChangeLayoutSetsID.html">APIEnv_ChangeLayoutSetsID</a> environment functions, respectively.
+    Note that the paper size and margins are expressed in <b>mm</b>s, not in meters, and these parameters always apply to master layouts. Do not forget do delete <code>customData</code> pointer after <a href="../Functions/APIEnv_GetLayoutSetsID.html">APIEnv_GetLayoutSetsID</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <p align="center"><img src="../../APIImageLibrary/layout_id.png" class="size2x" width="454" height="160" alt="Layout ID"></p>
+
+    <p align="center">Layout ID assigment tab page&nbsp;<img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 5.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIEnv_GetLayoutSetsID.html">APIEnv_GetLayoutSetsID</a><br>
+    <a href="../Functions/APIEnv_ChangeLayoutSetsID.html">APIEnv_ChangeLayoutSetsID</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 25, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

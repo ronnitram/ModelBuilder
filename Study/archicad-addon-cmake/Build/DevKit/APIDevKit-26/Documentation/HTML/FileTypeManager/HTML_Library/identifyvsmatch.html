@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>File Type Manager introduction</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta name="Author" content="Magyari Denes">
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta name="ProgId" content="FrontPage.Editor.Document">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/identifyvsmatch.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">File&nbsp;Type&nbsp;Manager</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Identify vs. Match</h1>
+
+    <p>Although identifying functions (<a href="FileTypeManager/identify.html">Identify</a>, <a href="FileTypeManager/identifyown.html">IdentifyOwn</a>) of the <a href="FileTypeManager/filetypemanager.html">FileTypeManager</a> class have their important uses, they can be misused. These functions are the strongest identifying functions. Their goal is to find the best matching FileType based on <a href="matchingprecedence.html">match level</a>, using all the information supplied to a file type including (very often) the callback function, that opens a file to read its "magic number". This can be time and processing power consuming task. These functions should not be used in a situation where the goal is only to decide if a file is good or not for the specific case. The following example shows this bad usage.</p>
+    <pre>
+        FTM::GeneralID actFType = FTM::FileTypeManager::Identify (IO::Location(spec));
+        if (
+                actFType == ModulFile ||
+                actFType == PlanFile ||
+                actFType == A_PlanFile ||
+                actFType == Bak_PlanFile ||
+                actFType == WGProjFile ||
+                actFType == WGClientFile ||
+                actFType == A_WGProjFile ||
+                actFType == A_WGClientFile ||
+                actFType == Bak_WGProjFile ||
+                actFType == Bak_WGClientFile) {
+                        //do someting
+        }
+        else if (
+                actFType == PictFile ||
+                actFType == TIFFFile ||
+                actFType == GIFFile ||
+                actFType == JPEGFile ||
+                actFType == BMPFile) {
+                        //do someting else
+        }
+</pre>
+
+    <p>In this case we are wasting processing time on identifying all the types we are not interested in. For example if the type database is full of other types that are using some overlapping extensions and mac types than each time this code executes and none of the if braches are true, the Identify function will execute the callback functions of the types which we are not interested in, and extracts much more information than we need.</p>
+
+    <p>&nbsp;</p>
+
+    <p>The following code example shows a better approach.</p>
+    <pre>
+   IO::Location loc = IO::Location(spec);
+        if (
+                FTM::FileTypeManager::Match (loc, ModulFile) ||
+                FTM::FileTypeManager::Match (loc, PlanFile) ||
+                FTM::FileTypeManager::Match (loc, A_PlanFile) ||
+                FTM::FileTypeManager::Match (loc, Bak_PlanFile) ||
+                FTM::FileTypeManager::Match (loc, WGProjFile) ||
+                FTM::FileTypeManager::Match (loc, WGClientFile) ||
+                FTM::FileTypeManager::Match (loc, A_WGProjFile) ||
+                FTM::FileTypeManager::Match (loc, A_WGClientFile) ||
+                FTM::FileTypeManager::Match (loc, Bak_WGProjFile) ||
+                FTM::FileTypeManager::Match (loc, Bak_WGClientFile)) {
+                        //do someting
+        }
+        else if (
+                FTM::FileTypeManager::Match (loc, PictFile) ||
+                FTM::FileTypeManager::Match (loc, TIFFFile) ||
+                FTM::FileTypeManager::Match (loc, GIFFile) ||
+                FTM::FileTypeManager::Match (loc, JPEGFile) ||
+                FTM::FileTypeManager::Match (loc, BMPFile)) {
+                        //do someting else
+        }
+</pre>
+
+    <p>In this case only types involved in the expression are tested. Still decision inside the if branches is not necessary and needs extra processing. If we assume that types in the first if branch use the same extension we still try to decide which is the best match and we don not use this information. The better way is to make a group of commonly tested types and match against this group. In this case the Match function will not try to find out the best match only if there are other type outside the group that are candidates for same or better mach level. With careful grouping it is possible to avoid any need for calling callback functions.</p>
+    <pre>
+{
+
+//create
+        a local manager FTM::FileTypeManager
+        modulFTManager ("tempid");
+
+        //add groups to your manager
+        FTM::GroupID planTypes = modulFTManager.AddGroup ("Plan Types");
+        FTM::GroupID imageTypes = modulFTManager.AddGroup ("Image Types");
+
+        //insert types into your groups
+        modulFTManager.AddTypeToGroup (ModulFile, planTypes);
+        modulFTManager.AddTypeToGroup (PlanFile, planTypes);
+        modulFTManager.AddTypeToGroup (A_PlanFile, planTypes);
+        modulFTManager.AddTypeToGroup (Bak_PlanFile, planTypes);
+        modulFTManager.AddTypeToGroup (WGProjFile, planTypes);
+        modulFTManager.AddTypeToGroup (WGClientFile, planTypes);
+        modulFTManager.AddTypeToGroup (A_WGProjFile, planTypes);
+        modulFTManager.AddTypeToGroup (A_WGClientFile, planTypes);
+        modulFTManager.AddTypeToGroup (Bak_WGProjFile, planTypes);
+        modulFTManager.AddTypeToGroup (Bak_WGClientFile planTypes);
+
+        modulFTManager.AddTypeToGroup (PictFile, imageTypes);
+        modulFTManager.AddTypeToGroup (TIFFFile, imageTypes);
+        modulFTManager.AddTypeToGroup (GIFFile, imageTypes);
+        modulFTManager.AddTypeToGroup (JPEGFile, imageTypes);
+        modulFTManager.AddTypeToGroup (BMPFile imageTypes);
+
+        IO::Location loc = IO::Location(spec);
+
+        //test against the groups
+        if (FTM::FileTypeManager::Match (loc, planTypes)) {
+                        //do someting
+        }
+        else if (FTM::FileTypeManager::Match (loc, imageTypes)) {
+                        //do someting else
+        }
+
+        //on destruction of the local manager all items added through this manger
+        //(including types, groups, and connections between) are cleaned up
+}
+</pre>In this way the FileTypeManager will not try to decide between types using the same extension if they are grouped together for Match. If there are no other types outside the group with the same extension this operation will be very effective.
+
+    <h4>See Also</h4>
+
+    <p><a href="../FileTypeManager.html">File Type Manager</a>, <a href="FileTypeManager/filetypemanager.html">FileTypeManager class</a>, <a href="FileType/filetype.html">FileType class</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on Aug 15, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

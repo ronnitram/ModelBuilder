@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>GetVertexIndex</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Polygon/GetVertexIndex.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="Polygon.html">Polygon</a>::GetVertexIndex</h1><br>
+    Calculate body relative edge index.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>Int32  GetVertexIndex (
+    Int32   vertexIndex
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>vertexIndex</em></dt>
+
+        <dd>Index of the vertex. The index range is [1..n] where n = <a href="GetEdgeNum.html">GetEdgeNum</a> () (because the number of the edges and the number of the vertexes are equal).</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>The body relative index, or zero value, if it is a contour separator.</p>
+
+    <h3>Description</h3>
+
+    <p>The polygon stores reference of a vertex instead of vertex data itself. This method calculates the body relative vertex index from polygon relative vertex index. The returned zero value shows that this is not a valid vertex, but this is a contour separator. This index (if it is not zero) can be used to get the vertex from the body which contains <b>this</b> polygon. If <i>vertexIndex</i> is out of range, then it throws an exception.<br>
+    Here is an example how to enumerate polygons and their vertexes:</p>
+    <pre class="syntax">
+<b>
+// body: The body, which is enumerated.
+
+for (Int32 polygonIndex = 1; polygonIndex &lt;= body.<a href="Invalid link: ../Body/GetPolygonNum.html">GetPolygonNum</a> (); polygonIndex++) {
+    ModelerAPI::<a href="Polygon.html">Polygon</a> polygon;
+    body.<a href="../Body/GetPolygon.html">GetPolygon</a> (polygonIndex, &amp;polygon);
+    // Begin of polygon.
+    Int32 vertexIndex = 1;
+    while (vertexIndex &lt;= polygon.<a href="GetEdgeNum.html">GetEdgeNum</a> ()) {
+        // Begin of contour.
+        for ( ; vertexIndex &lt;= polygon.<a href="GetEdgeNum.html">GetEdgeNum</a> (); vertexIndex++) {
+            Int32 bodyVertexIndex = polygon.GetVertexIndex (vertexIndex);
+            if (bodyVertexIndex == 0) {
+                break;
+            }
+            ModelerAPI::<a href="../Vertex/Vertex.html">Vertex</a> vertex;
+            body.<a href="../Body/GetVertex.html">GetVertex</a> (bodyVertexIndex, &amp;vertex);
+            // vertex processing
+        }
+        // End of contour.
+        vertexIndex++;
+    }
+    // End of polygon.
+}
+</b>
+</pre>
+
+    <p><b>Available from version: 8</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

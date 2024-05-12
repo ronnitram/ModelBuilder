@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIIo_InitNeigFilterID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIIo_InitNeigFilterID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIIo_InitNeigFilterID</h1>
+
+    <p>Initializes the neig filter for an input.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_interface_id.html">ACAPI_Interface</a></strong> (
+        <strong>APIIo_InitNeigFilterID</strong>,
+        <strong><a href="../Structures/API_NeigFilter.html">API_NeigFilter</a>*</strong>          <em>neigFilter</em>,
+        <strong><a href="../Structures/API_InitNeigFilterID.html">API_InitNeigFilterID</a></strong>     <em>initNeigFilterID</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>neigFilter</em></dt>
+
+        <dd>[in] The neig filter.</dd>
+
+        <dt><em>initNeigFilterID</em></dt>
+
+        <dd>
+            [in] Type of the filter initialization. The possible values:
+
+            <blockquote>
+                <dl>
+                    <dd>
+                        <table>
+                            <tr>
+                                <td>
+                                    <p><code>APIInitNeigFilter_Full</code></p>
+                                </td>
+
+                                <td>
+                                    <p>Filter all neig types</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <p><code>APIInitNeigFilter_Empty</code></p>
+                                </td>
+
+                                <td>
+                                    <p>Filter nothing</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <p><code>APIInitNeigFilter_On</code></p>
+                                </td>
+
+                                <td>
+                                    <p>Filter line type neigs only</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <p><code>APIInitNeigFilter_Node</code></p>
+                                </td>
+
+                                <td>
+                                    <p>Filter node type neigs only</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </dd>
+                </dl>
+            </blockquote>
+        </dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>neigFilter</code> is nullptr or <code>initNeigFilterID</code> is not a valid <a href="../Structures/API_InitNeigFilterID.html">API_InitNeigFilterID</a> value</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to initialize the neig filter for an input process. Use neig filtering if you want to control the default behavior of the cursor sensitivity above a certain set of neig types. During a filtered input the cursor gravity works only for those neig types that are set in the neig filter, all the other neigs will be ignored.</p>
+
+    <p>To change certain filters in the <a href="../Structures/API_NeigFilter.html">API_NeigFilter</a> structure use the the <a href="APIIo_SetNeigFilterID.html">APIIo_SetNeigFilterID</a> and <a href="APIIo_ClearNeigFilterID.html">APIIo_ClearNeigFilterID</a> functions.</p>
+
+    <p>Note that the <code>changeFilter</code> field of the <a href="../Structures/API_NeigFilter.html">API_NeigFilter</a> structure must be set to <code>true</code>, in order to have the neig filter effect.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>See <a href="APIIo_DrawRubberLineID.html">APIIo_DrawRubberLineID</a> for example of using input neig filters.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_InitNeigFilterID.html">API_InitNeigFilterID</a>, <a href="../Structures/API_NeigFilter.html">API_NeigFilter</a>,<br>
+    <a href="APIIo_SetNeigFilterID.html">APIIo_SetNeigFilterID</a>, <a href="APIIo_ClearNeigFilterID.html">APIIo_ClearNeigFilterID</a>, <a href="APIIo_DrawRubberLineID.html">APIIo_DrawRubberLineID</a>, <a href="acapi_interface_id.html">ACAPI_Interface</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 1, 1999<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_LibPart_Search</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_LibPart_Search.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_LibPart_Search</h1>
+
+    <p>Searches for a registered Library Part in the loaded libraries.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_LibPart_Search</strong> (
+        <strong><a href="../Structures/API_LibPart.html">API_LibPart</a>*</strong>     <em>ancestor</em>,
+        <strong>bool</strong>             <em>createIfMissing</em>,
+        <strong>bool</strong>             <em>onlyPlaceable = false</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>ancestor</em></dt>
+
+        <dd>[in/out] The library part to search for</dd>
+
+        <dt><em>createIfMissing</em></dt>
+
+        <dd>[in] Set to true to create a reference if it is missing.</dd>
+
+        <dt><em>onlyPlaceable</em>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>[in] The search is limited to placeable library parts only. Optional parameter, can be omitted.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success, the Library Part has been found (or reference created successfully if <code>createIfMissing</code> is <code>true</code>)</dd>
+
+        <dt><code>APIERR_MISSINGDEF</code></dt>
+
+        <dd>The originating library part file is missing. The document name is still filled.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>ancestor</code> is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>no library part is found according to the given <code>ownUnID</code>, <code>parentUnID</code> or <code>typeID</code> parameters</dd>
+
+        <dt><code>APIERR_BADNAME</code></dt>
+
+        <dd>no library part is found with the given document or file name</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>the reference cannot be created; only when <code>createIfMissing</code> is <code>true</code></dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to search a Library Part in the loaded libraries.</p>
+
+    <p>The Library Part can be referenced by the following criteria:</p>
+
+    <ul>
+        <li>the most exact identification of a library part is the global unique ID. You can copy the unique ID string of the requested library part into the <code>ownUnID</code> field of the <a href="../Structures/API_LibPart.html">API_LibPart</a> structure. Since the revision part of the unique ID can be changed by minor modifications (see <a href="../Level3/Library_Part_Subtype.html">Library Part Subtypes</a> for more details), only main GUID match can meet the condition. If you search by <code>ownUnID</code>, set the <code>docu_Name</code> and <code>file_Name</code> fields to empty string</li>
+
+        <li>if you leave the <code>ownUnID</code> and <code>docu_Name</code> fields blank, but <code>file_Name</code> is given, the function will search by the name of the library part file</li>
+
+        <li>if <code>ownUnID</code> and <code>file_Name</code> are not specified, or <code>docu_Name</code> is not an empty string
+
+            <ul>
+                <li>if <code>docu_Name</code> is given, <code>ACAPI_LibPart_Search</code> tries to find a library part with that document name. Note that document names are not unique. You may reduce the chance of mismatch if you also specify the subtype <code>parentUnID</code></li>
+
+                <li>if <code>parentUnID</code> is given, but <code>docu_UName</code> is empty, the function retrieves the first library part in the enumerated libraries which is a descendant of the specified parent subtype</li>
+            </ul>
+        </li>
+    </ul>Please remember that library parts are classified according to the subtype hierarchy as it is explained in the <a href="../Level3/Library_Part_Subtype.html">Library Part Subtypes</a> chapter of this documentation. The expandable subtype system made the <code>typeID</code> based distinction of library parts obsolete, though you may use this field for searching by subtype instead of <code>parentUnID</code> for internal ancestor nodes (note that in this case <code>APILib_ObjectID</code> corresponds to Model Elements, and <code>API_ZombieLibID</code> marks the General Object subtype).
+
+    <p><code>ACAPI_LibPart_Search</code> can also create a virtual reference to a none existing library part (i.e. an index which can be referred to) if the library part has not found in the active libraries and <code>createIfMissing</code> was set <code>true</code>). Same effect appears when an opened plan refers to a library part which is not in the active libraries. In this case Archicad places a filled circle on the plan where a missing library part is referenced.</p>
+
+    <p>On success <code>ACAPI_LibPart_Search</code> fills out all the fields of the <a href="../Structures/API_LibPart.html">API_LibPart</a> structure, therefore remember to free the <code>location</code> pointer allocated by the function if you do not not need it any more.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>See the example of the <a href="ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_LibPart.html">API_LibPart</a><br>
+    <a href="ACAPI_LibPart_Get.html">ACAPI_LibPart_Get</a>, <a href="ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a><br>
+    <a href="../Level3/Library_Part_Manager_id.html">LibPart Manager</a>, <a href="../Level3/Library_Part_Subtype.html">Library Part Subtypes</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on March 24, 2012<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Unique</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/Unique.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>Unique</H2><!--exp="Unique Enum"-->
+<P><topic id="$GS.$Unique.BriefDescription">
+		Removes duplicate elements that are adjacent to each other in a specified range.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For</I><B>&gt;
+</B>For Unique (</B>
+    <B>For                 </B><I>first</I>,
+    <B>For                 </B><I>last</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For</I>, <B>class</B> <I>BinPred</I><B>&gt;
+</B>For Unique (</B>
+    <B>For                 </B><I>first</I>,
+    <B>For                 </B><I>last</I>,
+    <B>BinPred             </B><I>pred</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>For</I></DT><DD><topic id="$GS.$Unique.$For.TemplateParamDescription">
+		Forward iterator.
+	</topic></DD><DT><I>BinPred</I></DT><DD><topic id="$GS.$Unique.$BinPred.TemplateParamDescription">
+		Binary predicate.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first</I></DT><DD><topic id="$GS.$Unique.$first.ParamDescription">
+		A forward iterator addressing the position of the first element in the range to 
+		be scanned for duplicate removal.
+	</topic></DD><DT><I>last</I></DT><DD><topic id="$GS.$Unique.$last.ParamDescription">
+		A forward iterator addressing the position one past the final element in the 
+		range to be scanned for duplicate removal.
+	</topic></DD><DT><I>pred</I></DT><DD><topic id="$GS.$Unique.$pred.ParamDescription">
+		User-defined predicate function object that defines the condition to be 
+		satisfied if two elements are to be taken as equivalent. A binary predicate 
+		takes two arguments and returns <B>true</B> when satisfied and <B>false</B> when 
+		not satisfied.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$Unique.ReturnDescription">
+		A forward iterator to the new end of the modified sequence that contains no 
+		consecutive duplicates, addressing the position one past the last element not 
+		removed.
+	</topic></P><P><topic id="$GS.$Unique.1.ReturnDescription"></topic></P><P><topic id="$GS.$Unique.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$Unique.LongDescription">
+		Every time a consecutive group of duplicate elements appears in the range 
+		<TT>[first, last)</TT>, the algorithm <B>Unique</B> removes all but the first 
+		element. That is, <B>Unique</B> returns an iterator <TT>new_last</TT> such 
+		that the range <TT>[first, new_last)</TT> contains no two consecutive elements 
+		that are duplicates. The iterators in the range 
+		<TT>[new_last, last)</TT> are all still dereferenceable, but the elements that 
+		they point to are unspecified. <B>Unique</B> is stable, meaning that the 
+		relative order of elements that are not removed is unchanged. 
+		The reason there are two different versions of <B>Unique</B> is that there 
+		are two different definitions of what it means for a consecutive group of 
+		elements to be duplicates. In the first version, the test is simple equality: 
+		the elements in a range <TT>[f, l)</TT> are duplicates if, for every iterator 
+		<TT>i</TT> in the range, either <TT>i == f</TT> or else <TT>*i == *(i - 1)</TT>. 
+		In the second, the test is an arbitrary binary predicate 
+		<TT>pred</TT>: the elements in <TT>[f, l)</TT> are duplicates if, for 
+		every iterator <TT>i</TT> in the range, either <TT>i == f</TT> or else 
+		<TT>pred(*i, *(i - 1))</TT> is <TT>true</TT>.
+		These algorithms cannot be used on an associative container.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$Unique.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

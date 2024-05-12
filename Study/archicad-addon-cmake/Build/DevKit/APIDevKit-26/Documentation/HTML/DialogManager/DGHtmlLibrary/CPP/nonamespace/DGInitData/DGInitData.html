@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html xmlns:user="helpsystem">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>Class</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/nonamespace/DGInitData/DGInitData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h2>DGInitData Struct</h2><!--exp="DGInitData Struct"-->
+    <pre class="syntax">
+<b>struct
+{
+    UChar                           <i>mainVersion</i>;
+    UChar                           <i>subVersion</i>;
+    UChar                           <i>revision</i>;
+    Int8                            <i>filler1</i>;
+    GS::UniString                   <i>northSymb</i>;
+    GS::UniString                   <i>southSymb</i>;
+    GS::UniString                   <i>eastSymb</i>;
+    GS::UniString                   <i>westSymb</i>;
+    GS::UniString                   <i>gradSymb</i>;
+    GS::UniString                   <i>radSymb</i>;
+    GS::UniString                   <i>degSymb</i>;
+    GS::UniString                   <i>degreeSymb</i>;
+    GS::UniString                   <i>minuteSymb</i>;
+    GS::UniString                   <i>secondSymb</i>;
+    double                          <i>internalUnit</i>;
+    IO::Location *                  <i>pPrefsFileLoc</i>;
+    GSResModule                     <i>contextMenuResModule</i>;
+    short                           <i>contextMenuStrListId</i>;
+    GSResModule                     <i>applIconResModule</i>;
+    short                           <i>applIconId</i>;
+    UShort                          <i>applLanguageId</i>;
+    Int32                           <i>fontCharSet</i>;
+    Int32                           <i>largeFontSize</i>;
+    Int32                           <i>smallFontSize</i>;
+    Int32                           <i>xSmallFontSize</i>;
+    Int32                           <i>largeFontWeight</i>;
+    Int32                           <i>smallFontWeight</i>;
+    Int32                           <i>xSmallFontWeight</i>;
+    GS::UniString                   <i>largeFontName</i>;
+    GS::UniString                   <i>smallFontName</i>;
+    GS::UniString                   <i>xSmallFontName</i>;
+    GS::UniString                   <i>closeMenuText</i>;
+    GS::UniString                   <i>nextMenuText</i>;
+    GS::UniString                   <i>errorText</i>;
+    GS::UniString                   <i>warningText</i>;
+    GS::UniString                   <i>infoText</i>;
+    GS::UniString                   <i>applRegKey</i>;
+    GS::UniString                   <i>allFilesText</i>;
+    GS::UniString                   <i>allTypesText</i>;
+    DGMenuChoiceDialogUniStrings    <i>menuChoiceTexts</i>;
+    GSResModule                     <i>fileNameAlertResModule</i>;
+    short                           <i>fileNameAlertId</i>;
+    DGRulerUniStrings               <i>rulerStrings</i>;
+    GS::UniString                   <i>charPaletteName</i>;
+    GS::Int32                       <i>rtlOrder</i>;
+    GS::UniString                   <i>openingBracket</i>;
+    GS::UniString                   <i>closingBracket</i>;
+    DGFileDialogUniStrings          <i>fileDialogStrings</i>;
+    DGApplMenuUniStrings            <i>applMenuStrings</i>;
+    DGColorPanelUniStrings          <i>colorPanelStrings</i>;
+    GS::UniString                   <i>fileTypeTitleOpen</i>;
+    GS::UniString                   <i>fileTypeTitleSave</i>;
+    GS::UniString                   <i>chooseButtonTitle</i>;
+    GS::UniString                   <i>fontCollections</i>;
+};</b>
+</pre>
+
+    <h4>Member Variables</h4>
+
+    <dl>
+        <dt><i>mainVersion</i></dt>
+
+        <dt><i>subVersion</i></dt>
+
+        <dt><i>revision</i></dt>
+
+        <dt><i>filler1</i></dt>
+
+        <dt><i>northSymb</i></dt>
+
+        <dt><i>southSymb</i></dt>
+
+        <dt><i>eastSymb</i></dt>
+
+        <dt><i>westSymb</i></dt>
+
+        <dt><i>gradSymb</i></dt>
+
+        <dt><i>radSymb</i></dt>
+
+        <dt><i>degSymb</i></dt>
+
+        <dt><i>degreeSymb</i></dt>
+
+        <dt><i>minuteSymb</i></dt>
+
+        <dt><i>secondSymb</i></dt>
+
+        <dt><i>internalUnit</i></dt>
+
+        <dt><i>pPrefsFileLoc</i></dt>
+
+        <dt><i>contextMenuResModule</i></dt>
+
+        <dt><i>contextMenuStrListId</i></dt>
+
+        <dt><i>applIconResModule</i></dt>
+
+        <dt><i>applIconId</i></dt>
+
+        <dt><i>applLanguageId</i></dt>
+
+        <dt><i>fontCharSet</i></dt>
+
+        <dt><i>largeFontSize</i></dt>
+
+        <dt><i>smallFontSize</i></dt>
+
+        <dt><i>xSmallFontSize</i></dt>
+
+        <dt><i>largeFontWeight</i></dt>
+
+        <dt><i>smallFontWeight</i></dt>
+
+        <dt><i>xSmallFontWeight</i></dt>
+
+        <dt><i>largeFontName</i></dt>
+
+        <dt><i>smallFontName</i></dt>
+
+        <dt><i>xSmallFontName</i></dt>
+
+        <dt><i>closeMenuText</i></dt>
+
+        <dt><i>nextMenuText</i></dt>
+
+        <dt><i>errorText</i></dt>
+
+        <dt><i>warningText</i></dt>
+
+        <dt><i>infoText</i></dt>
+
+        <dt><i>applRegKey</i></dt>
+
+        <dt><i>allFilesText</i></dt>
+
+        <dt><i>allTypesText</i></dt>
+
+        <dt><i>menuChoiceTexts</i></dt>
+
+        <dt><i>fileNameAlertResModule</i></dt>
+
+        <dt><i>fileNameAlertId</i></dt>
+
+        <dt><i>rulerStrings</i></dt>
+
+        <dt><i>charPaletteName</i></dt>
+
+        <dt><i>rtlOrder</i></dt>
+
+        <dt><i>openingBracket</i></dt>
+
+        <dt><i>closingBracket</i></dt>
+
+        <dt><i>fileDialogStrings</i></dt>
+
+        <dt><i>applMenuStrings</i></dt>
+
+        <dt><i>colorPanelStrings</i></dt>
+
+        <dt><i>fileTypeTitleOpen</i></dt>
+
+        <dt><i>fileTypeTitleSave</i></dt>
+
+        <dt><i>chooseButtonTitle</i></dt>
+
+        <dt><i>fontCollections</i></dt>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <p><b>Namespace:</b> <!----><strong>-</strong></p>
+
+    <p><b>Header:</b> DG.h</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

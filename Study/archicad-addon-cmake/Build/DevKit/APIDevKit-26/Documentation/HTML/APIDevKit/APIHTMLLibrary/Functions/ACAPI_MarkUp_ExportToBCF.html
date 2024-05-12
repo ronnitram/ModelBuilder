@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_MarkUp_ExportToBCF</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_MarkUp_ExportToBCF.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_MarkUp_ExportToBCF</h1>
+
+    <p>Exports a BCF file to specified location.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_MarkUp_ExportToBCF</strong> (
+    <strong>const <a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a>&amp;</strong>			<em>fileLoc,</em>
+    <strong>const GS::Array&lt;API_Guid&gt;& </strong>		<em>markupEntryIds,</em>
+    <strong>const bool</strong>				<em>useExternalId = false</em>
+    <strong>const bool</strong>				<em>alignBySurveyPoint = true</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>fileLoc</em></dt>
+
+        <dd>[in] The location of the BCF file.</dd>
+    </dl>
+
+    <dl>
+        <dt><em>markupEntryIds</em></dt>
+
+        <dd>[in] An Array containing the MarkUp Entry identifiers to export.</dd>
+    </dl>
+
+    <dl>
+        <dt><em>useExternalId</em></dt>
+
+        <dd>[in] Use external IFC ID or Archicad IFC ID as referenced in BCF topics. </dd>
+    </dl>
+
+    <dl>
+        <dt><em>alignBySurveyPoint</em></dt>
+
+        <dd>[in] Align BCF views by Archicad Survey Point or Archicad Project Origin. <img border="0" src="../../APIImageLibrary/26.png" alt="Featuring API 26" width="19" height="12"> </dd>
+    </dl>
+
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+
+    <h4>Remarks</h4>
+
+    <p>Use this function to export BCF files.</p>
+    <p>For deatails about External IFC ID and Archicad IFC ID see: <a href="ACAPI_Element_GetIFCIdentifier.html">ACAPI_Element_GetIFCIdentifier</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+		
+GSErrCode DoBCFExport ()
+{
+	GS::Array<API_MarkUpType> markUps;
+	GS::Array<API_Guid> markupEntryIds;
+
+	GSErrCode err = ACAPI_MarkUp_GetList (APINULLGuid, &markUps);
+
+	for (const auto& markUp : markUps)
+		markupEntryIds.Push (markUp.guid);
+
+	if (err == NoError) {
+		DG::FileDialog exporteDLG (DG::FileDialog::Type::OpenFile);
+		if (exporteDLG.Invoke ())
+			err = <font color="#FF0066">ACAPI_MarkUp_ExportToBCF</font> (exporteDLG.GetSelectedFile (), markupEntryIds, false, true);
+	}
+
+	if (err != NoError)
+		ErrorBeep ("ACAPI_MarkUp_ExportToBCF failed", err);
+
+	return err;
+}
+</code></pre>
+    </blockquote>
+
+    For detailed examples, please see the MarkUp_Manager add-on.
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 23 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on June 1, 2021
+<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

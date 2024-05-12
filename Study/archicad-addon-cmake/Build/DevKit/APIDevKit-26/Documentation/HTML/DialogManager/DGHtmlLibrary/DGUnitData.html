@@ -1,0 +1,497 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGUnitData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGUnitData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGUnitData</h1>
+
+    <p>The <b>DGUnitData</b> structure contains information about the units, metrics and accuracy parameters used in DG.</p>
+    <pre class="syntax">
+    <strong>struct DGUnitData</strong> {
+      <strong>double</strong>  <em>north;</em>
+      <strong>Int32</strong>   <em>lengthType;</em>
+      <strong>Int32</strong>   <em>lengthDigits;</em>
+      <strong>Int32</strong>   <em>lengthFractions;</em>
+      <strong>Int32</strong>   <em>areaType;</em>
+      <strong>Int32</strong>   <em>areaDigits;</em>
+      <strong>Int32</strong>   <em>volumeType;</em>
+      <strong>Int32</strong>   <em>volumeDigits;</em>
+      <strong>Int32</strong>   <em>nonUnitDigits;</em>
+      <strong>Int32</strong>   <em>angleType;</em>
+      <strong>Int32</strong>   <em>angleDigits;</em>
+      <strong>Int32</strong>   <em>angleAccuracy;</em>
+      <strong>Int32</strong>   <em>polarAngleType;</em>
+      <strong>Int32</strong>   <em>polarAngleDigits;</em>
+      <strong>Int32</strong>   <em>polarAngleAccuracy;</em>
+      <strong>bool</strong>    <em>show0whole;</em>
+      <strong>bool</strong>    <em>show0inch;</em>
+    };
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>north</b></dt>
+
+        <dd>Angle of the project North in radians, used in polar angle type <a href="EditControl.html">edit controls</a> (subtype: <tt>DG_ET_POLARANGLE</tt>) if <b>polarAngleType</b> is <tt>DG_UNIT_SURVEYORS</tt>. Otherwise not used.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>lengthType</b></dt>
+
+        <dd>Unit of length-type edit controls (subtype: <tt>DG_ET_LENGTH</tt>). Possible values are:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_M</tt></td>
+
+                    <td>metre</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_CM</tt></td>
+
+                    <td>centimetre</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_MM</tt></td>
+
+                    <td>millimetre</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_KM</tt></td>
+
+                    <td>kilometre</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_DECINCH</tt></td>
+
+                    <td>decimal inch</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_FOOT_INCH</tt></td>
+
+                    <td>foot and fractional inch</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_INCH</tt></td>
+
+                    <td>fractional inch</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_FOOT_DECINCH</tt></td>
+
+                    <td>foot and decimal inch</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_DECFOOT</tt></td>
+
+                    <td>decimal foot</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>lengthDigits</b></dt>
+
+        <dd>Number of decimal digits for length-type edit controls (subtype: <tt>DG_ET_LENGTH</tt>), used if <b>lengthType</b> is <tt>DG_UNIT_M</tt>, <tt>DG_UNIT_CM</tt>, <tt>DG_UNIT_MM</tt>, <tt>DG_UNIT_KM</tt>, <tt>DG_UNIT_DECINCH</tt>, <tt>DG_UNIT_FOOT_DECINCH</tt> or <tt>DG_UNIT_DECFOOT</tt> (so anything except fractional inch units).</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>lengthFractions</b></dt>
+
+        <dd>Denominator of fraction for length-type edit controls (subtype: <tt>DG_ET_LENGTH</tt>), used if <b>lengthType</b> is <tt>DG_UNIT_FOOT_INCH</tt> or <tt>DG_UNIT_INCH</tt>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>areaType</b></dt>
+
+        <dd>Unit of area-type edit controls (subtype: <tt>DG_ET_AREA</tt>). Possible values are:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_MM2</tt></td>
+
+                    <td>square millimetre</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_CM2</tt></td>
+
+                    <td>square centimetre</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_DM2</tt></td>
+
+                    <td>square decimetre</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_M2</tt></td>
+
+                    <td>square metre</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_SQ_INCH</tt></td>
+
+                    <td>square inch</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_SQ_FOOT</tt></td>
+
+                    <td>square foot</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>areaDigits</b></dt>
+
+        <dd>Number of decimal digits for area-type edit controls (subtype: <tt>DG_ET_AREA</tt>), used if <b>areaType</b> is one of the mentioned values.</dd>
+        
+        <dd>&nbsp;</dd>
+
+        <dt><b>volumeType</b></dt>
+
+        <dd>Unit of volume-type edit controls (subtype: <tt>DG_ET_VOLUME</tt>). Possible values are:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_CM3</tt></td>
+
+                    <td>cubic centimetre</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_DM3_LITER</tt></td>
+
+                    <td>cubic decimetre (litre)</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_M3</tt></td>
+
+                    <td>cubic metre</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_CU_INCH</tt></td>
+
+                    <td>cubic inch</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_CU_FOOT</tt></td>
+
+                    <td>cubic foot</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_CU_YARD</tt></td>
+
+                    <td>cubic yard</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_US_GALLON</tt></td>
+
+                    <td>US gallon</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>volumeDigits</b></dt>
+
+        <dd>Number of decimal digits for volume-type edit controls (subtype: <tt>DG_ET_VOLUME</tt>), used if <b>volumeType</b> is one of the mentioned values.</dd>
+                
+        <dd>&nbsp;</dd>
+
+        <dt><b>nonUnitDigits</b></dt>
+
+        <dd>Number of digits in unitless edit controls (subtype: <tt>DG_ET_REAL</tt>, <tt>DG_ET_MM_OR_PT</tt>).</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>angleType</b></dt>
+
+        <dd>Unit of angle type edit controls (subtype: <tt>DG_ET_ANGLE</tt>). Possible values are:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_DECDEGREE</tt></td>
+
+                    <td>decimal degree</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_DEGMINSEC</tt></td>
+
+                    <td>degree, minute, second</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_GRAD</tt></td>
+
+                    <td>grad ("new degree")</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_RADIAN</tt></td>
+
+                    <td>radian</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>angleDigits</b></dt>
+
+        <dd>Number of decimal digits for angle type edit controls (subtype: <tt>DG_ET_ANGLE</tt>), used if <b>angleType</b> is <tt>DG_UNIT_DECDEGREE</tt>, <tt>DG_UNIT_GRAD</tt> or <tt>DG_UNIT_RADIAN</tt>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>angleAccuracy</b></dt>
+
+        <dd>Accuracy for angle type edit controls (subtype: <tt>DG_ET_ANGLE</tt>), used if <b>angleType</b> is <tt>DG_UNIT_DEGMINSEC</tt>. Possible values are:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ANGLE_DD</tt></td>
+
+                    <td>degree</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ANGLE_DDMM</tt></td>
+
+                    <td>degree, minute</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ANGLE_DDMMSS</tt></td>
+
+                    <td>degree, minute, second</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>&gt; 3</td>
+
+                    <td>number of digits of seconds (<b>angleAccuracy</b> - 2)</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>polarAngleType</b></dt>
+
+        <dd>Unit of polar angle type edit controls (subtype: <tt>DG_ET_POLARANGLE</tt>). Possible values are:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_DECDEGREE</tt></td>
+
+                    <td>decimal degree</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_DEGMINSEC</tt></td>
+
+                    <td>degree, minute, second</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_GRAD</tt></td>
+
+                    <td>grad ("new degree")</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_RADIAN</tt></td>
+
+                    <td>radian</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UNIT_SURVEYORS</tt></td>
+
+                    <td>surveyor unit</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>polarAngleDigits</b></dt>
+
+        <dd>Number of decimal digits for polar angle type edit controls (subtype: <tt>DG_ET_POLARANGLE</tt>), used if <b>polarAngleType</b> is <tt>DG_UNIT_DECDEGREE</tt>, <tt>DG_UNIT_GRAD</tt> or <tt>DG_UNIT_RADIAN</tt>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>polarAngleAccuracy</b></dt>
+
+        <dd>Accuracy for polar angle type edit controls (subtype: <tt>DG_ET_POLARANGLE</tt>), used if <b>polarAngleType</b> is <tt>DG_UNIT_DEGMINSEC</tt>, <tt>DG_UNIT_SURVEYORS</tt>. Possible values are:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ANGLE_DD</tt></td>
+
+                    <td>degree</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ANGLE_DDMM</tt></td>
+
+                    <td>degree, minute</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ANGLE_DDMMSS</tt></td>
+
+                    <td>degree, minute, second</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>&gt; 3</td>
+
+                    <td>number of digits of seconds (<b>polarAngleAccuracy</b> - 2)</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>show0whole</b></dt>
+
+        <dd>If <b>lengthType</b> is <tt>DG_UNIT_FOOT_INCH</tt> or <tt>DG_UNIT_FOOT_DECINCH</tt> and this flag is <tt>true</tt>, zero foot is displayed before inches.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>show0inch</b></dt>
+
+        <dd>If <b>lengthType</b> is <tt>DG_UNIT_FOOT_INCH</tt> or <tt>DG_UNIT_FOOT_DECINCH</tt> and this flag is <tt>true</tt>, zero inch is displayed after feet.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The structure is used by the <a href="DGGetUnit.html">DGGetUnit</a>, <a href="DGSetUnit.html">DGSetUnit</a>, <a href="DGDoubleToStringUnit.html">DGDoubleToStringUnit</a> and <a href="DGStringToDoubleUnit.html">DGStringToDoubleUnit</a> functions.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Structures_id.html">DG Structures</a>, <a href="EditControl.html">Edit Control</a>, <a href="DGGetUnit.html">DGGetUnit</a>, <a href="DGSetUnit.html">DGSetUnit</a>, <a href="DGDoubleToStringUnit.html">DGDoubleToStringUnit</a>, <a href="DGStringToDoubleUnit.html">DGStringToDoubleUnit</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 27, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

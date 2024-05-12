@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>GetPGEdgeProcExt</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Polygon2DOperations/GetPGEdgeProcExt.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GetPGEdgeProcExt callback</h1>
+
+    <p>User-defined callback function which can give back an edge with random indexing.</p>
+    <pre class="syntax">
+    <strong>typedef <a href="../Polygon2DOperations/PGEDGEEXT.html">PGEDGEEXT</a></strong> (*GetPGEdgeProcExt) (
+      <strong>const <a href="PGPOLYEXT.html">PGPOLYEXT</a>*</strong>  <em>polygon</em>,
+      <strong>long</strong>              <em>ind</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>polygon</em></dt>
+
+        <dd>The polygon which edge is queried. The function is the member of this polygon structure.</dd>
+
+        <dt><em>ind</em></dt>
+
+        <dd>The index of the queried edge.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Returns the edge of the indexed polygon.</p>
+
+    <h4>Remarks</h4>
+
+    <p>You can write this callback function so if it is called you make a <a href="../Polygon2DOperations/PGEDGEEXT.html">PGEDGEEXT</a> structure and give it back if and algorhytm needs it.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Polygon2DOperations.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Polygon2DOperations_id.html">2D Polygon operations</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 14, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGEndMoveGrowItems</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGEndMoveGrowItems.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGEndMoveGrowItems</h1>
+
+    <p>This function is used to enable and execute dialog update after moving or resizing more dialog items if previously <a href="DGBeginMoveGrowItems.html">DGBeginMoveGrowItems</a> was called to avoid screen flickering.</p>
+    <pre class="syntax">
+    <strong>void DGEndMoveGrowItems</strong> (
+      <strong>short</strong>  <em>dialId</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>Always use this function in pairs with <a href="DGBeginMoveGrowItems.html">DGBeginMoveGrowItems</a>.</p>
+
+    <p>These functions are typically used in a <a href="CallbackFunctions.html">dialog callback function</a> when handling a <a href="DG_MSG_GROW.html"><tt>DG_MSG_GROW</tt></a> message. However, they can be used anywhere if more items need to be resized/moved at the same time.</p>
+
+    <p>After a call to <b>DGBeginMoveGrowItems</b> the subsequent <a href="DGGrowItem.html">DGGrowItem</a>, <a href="DGMoveItem.html">DGMoveItem</a> and <a href="DGMoveGrowItem.html">DGMoveGrowItem</a> calls do not actually change the size and/or position of the item until <b>DGEndMoveGrowItems</b> is called. Therefore <a href="DGGetItemRect.html">DGGetItemRect</a> will not retrieve the new coordinates before calling <b>DGEndMoveGrowItems</b>.</p>
+
+    <p>If an item must be both resized and moved within a <b>DGBeginMoveGrowItems</b> - <b>DGEndMoveGrowItems</b> block, you have to use <b>DGMoveGrowItem</b> instead of subsequent <b>DGGrowItem</b> and <b>DGMoveItem</b> calls.</p>
+
+    <p>This function can<u>not</u> be used on a tab page.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.1.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="DGBeginMoveGrowItems.html">DGBeginMoveGrowItems</a>, <a href="DGGrowItem.html">DGGrowItem</a>, <a href="DGMoveItem.html">DGMoveItem</a>, <a href="DGMoveGrowItem.html">DGMoveGrowItem</a>, <a href="DGGetItemRect.html">DGGetItemRect</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DG_MSG_GROW.html"><tt>DG_MSG_GROW</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

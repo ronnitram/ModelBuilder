@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_ElementSet_Create</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_ElementSet_Create.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_ElementSet_Create</h1>
+
+    <p>Groups elements into an element set.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_ElementSet_Create</strong> (
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;*</strong>     <em>guids</em>,
+        <strong>const <a href="../Structures/API_UserData.html">API_UserData</a>*</strong>      <em>userData</em>,
+        <strong><a href="../Structures/API_Guid.html">API_Guid</a>*</strong>                <em>setGuid</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>guids</em>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>[in] Handle to the array of element GUIDs.</dd>
+
+        <dt><em>userData</em></dt>
+
+        <dd>[in] User data assigned to the set (optional, can be <code>nullptr</code>).</dd>
+
+        <dt><em>setGuid</em>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>[out] The unique ID of the newly created element set.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>guids</code> or <code>setGuid</code> parameter is <code>nullptr</code>.</dd>
+
+        <dt><code>APIERR_BADDATABASE</code>, <code>APIERR_NOTMINE</code></dt>
+
+        <dd>The function cannot operate on the current database.</dd>
+
+        <dt><code>APIERR_NEEDSUNDOSCOPE</code></dt>
+
+        <dd>The function must be undoable, it wasn't called from an <a href="ACAPI_CallUndoableCommand.html">undoable command scope</a>.</dd>
+
+        <dt><code>APIERR_BADPLATFORMSIGN</code></dt>
+
+        <dd>The given platform sign is invalid.</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>There is not enough memory to complete the operation.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You can use this function to create an element set for any kind of purpose. Similarly to <a href="ACAPI_Element_Link.html">ACAPI_Element_Link</a> it creates a logical record which contains a list of element GUIDs you are interested in. You may also add custom information to the element set, as you can store user data to separate elements with <a href="ACAPI_Element_SetUserData.html">ACAPI_Element_SetUserData</a>.</p>
+
+    <p>The reference GUID of the newly created element set is returned in the <code>setGuid</code> parameter.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+    GS::Array&lt;API_Guid&gt;  guids;
+
+    // get the guids of the first Wall, Column, Beam and Window (API_WallID + 4)
+    for (USize i = API_WallID; i &lt; static_cast&lt;USize&gt; (API_WallID) + 4; i++)
+    {
+        GS::Array&lt;API_Guid&gt; elemList;
+        const API_ElemTypeID typeID = static_cast&lt;API_ElemTypeID&gt; (i);
+        if (ACAPI_Element_GetElemList (typeID, &amp;elemList, APIFilt_OnVisLayer | APIFilt_OnActFloor) == NoError) {
+            if (!elemList.IsEmpty ())
+                guids.Push (elemList[0]);
+            else
+                guids.Push (APNULLGuid);
+        }
+    }
+
+    // write a note into the user data
+    API_UserData userData;
+    BNZeroMemory (&amp;userData, sizeof (userData));
+    userData.dataVersion = 4;
+    userData.platformSign = GS::Act_Platform_Sign;
+    userData.dataHdl = BMAllocateHandle (1024, ALLOCATE_CLEAR, 0);
+    if (userData.dataHdl != nullptr) {
+        sprintf (*userData.dataHdl, "Original element count: 4, guids [%s,%s,%s,%s]",
+                 (const char *) APIGuid2GSGuid (guids[0]).ToUniString ().ToCStr (),
+                 (const char *) APIGuid2GSGuid (guids[1]).ToUniString ().ToCStr (),
+                 (const char *) APIGuid2GSGuid (guids[2]).ToUniString ().ToCStr (),
+                 (const char *) APIGuid2GSGuid (guids[3]).ToUniString ().ToCStr ());
+    }
+
+    ACAPI_CallUndoableCommand ("Create Element Set",
+        [&amp;] () -&gt; GSErrCode {
+
+            API_Guid setGuid;
+            GSErrCode err = ACAPI_ElementSet_Create (&amp;guids, &amp;userData, &amp;setGuid);
+            if (err != NoError) {
+                DBPRINTF ("Create Element Set error: %d/n", err);
+            }
+
+            return err;
+        });
+
+    BMKillHandle (&amp;userData.dataHdl);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_UserData.html">API_UserData</a><br>
+    <a href="ACAPI_ElementSet_Delete.html">ACAPI_ElementSet_Delete</a><br>
+    <a href="ACAPI_ElementSet_GetData.html">ACAPI_ElementSet_GetData</a><br>
+    <a href="ACAPI_ElementSet_Identify.html">ACAPI_ElementSet_Identify</a><br>
+    <a href="../Level3/ElementSet_Manager_id.html">Element Set Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2012<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

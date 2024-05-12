@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>API_CWSegmentPatternData</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_CWSegmentPatternData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_CWSegmentPatternData</h1>
+    <p>Represents the horizontal (primary) or vertical (secondary) pattern of a Curtain Wall segment.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="#API_CWSegmentPatternLogicID">API_CWSegmentPatternLogicID</a></strong>        <em>logic</em>;
+        <strong><a href="API_CWSegmentGridOrigPosTypeID.html">API_CWSegmentGridOrigPosTypeID</a></strong>     <em>gridOriginType</em>;
+        <strong>UInt32</strong>                             <em>nPattern</em>;
+        <strong>UInt32</strong>                             <em>filler_1</em>;
+        <strong>double</strong>                             <em>*pattern</em>;
+        <strong>UInt32</strong>                             <em>*flexibleIDs</em>;
+        <strong>UInt32</strong>                             <em>nFlexibleIDs</em>;
+        <strong>UInt32</strong>                             <em>nDivisions</em>;
+        <strong>UInt32</strong>                             <em>infillPanelID</em>;
+        <strong>UInt32</strong>                             <em>endWithID</em>;
+    <strong>}</strong> <em>API_CWSegmentPatternData</em>;
+</pre>
+
+    <p>&nbsp;</p>
+    <h4>Members</h4>
+    <dl>
+        <a name="API_CWSegmentPatternLogicID"></a>
+        <dt><b>logic</b></dt>
+        <dd>
+            Describes how the pattern is stretched in segments.
+            <table>
+                <tr>
+                    <td><p><code>APICWSePL_FixedSizes</code></p></td>
+                    <td><p>The length of the pattern is given explicitly. This may result in incomplete patterns.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APICWSePL_BestDivision</code></p></td>
+                    <td><p>The length of the pattern is stretched, so that the least amount of stretching is done.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APICWSePL_NumberOfDivisions</code></p></td>
+                    <td><p>The length of the pattern is stretched, so that exactly <code>nDivisions</code> amount of patterns are placed.</p></td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>gridOriginType</b></dt>
+        <dd>Describes how the pattern is aligned in segments. See available value in the documentation of <a href="API_CWSegmentGridOrigPosTypeID.html">API_CWSegmentGridOrigPosTypeID</a> enum.</dd>
+
+        <dt><b>nPattern</b></dt>
+        <dd>Amount of columns/rows in the pattern.</dd>
+
+        <dt><b>pattern</b></dt>
+        <dd>The distances of each columns/rows.</dd>
+
+        <dt><b>flexibleIDs</b></dt>
+        <dd>The indices of columns/rows that can be stretched. Only used in case of <code>APICWSePL_BestDivision</code> or <code>APICWSePL_NumberOfDivisions</code> logic.</dd>
+
+        <dt><b>nFlexibleIDs</b></dt>
+        <dd>Amount of stretchable columns/rows. Only used in case of <code>APICWSePL_BestDivision</code> or <code>APICWSePL_NumberOfDivisions</code> logic.</dd>
+
+        <dt><b>nDivisions</b></dt>
+        <dd>Amount of divisions. Only used in case of <code>APICWSePL_NumberOfDivisions</code> logic.</dd>
+
+        <dt><b>infillPanelID</b></dt>
+        <dd>Class index of the panel, that fills the end of an incomplete pattern. Use <code>APICWInfillWithPartial</code> to fill with partial pattern. Only used in case of <code>APICWSePL_FixedSizes</code> logic.</dd>
+
+        <dt><b>endWithID</b></dt>
+        <dd>The index of the ending panel.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+    <h4>Requirements</h4>
+    <dl>
+        <dd><b>Version:</b> API 22.0 or later</dd>
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+    <h4>See Also</h4>
+    <p>
+        <a href="API_CWSegmentCategoryID.html">API_CWSegmentCategoryID</a>,
+        <a href="API_CWSegmentGridOrigPosTypeID.html">API_CWSegmentGridOrigPosTypeID</a>,
+        <a href="API_CWSegmentType.html">API_CWSegmentType</a>
+        <br />
+        <a href="API_CurtainWallType.html">API_CurtainWallType</a>,
+        <a href="API_CWAccessoryType.html">API_CWAccessoryType</a>,
+        <a href="API_CWFrameType.html">API_CWFrameType</a>,
+        <a href="API_CWJunctionType.html">API_CWJunctionType</a>,
+        <a href="API_CWPanelType.html">API_CWPanelType</a><br>
+        <a href="API_Guid.html">API_Guid</a>,
+        <a href="API_Coord3D.html">API_Coord3D</a>,
+        <a href="API_Elem_Head.html">API_Elem_Head</a>,
+        <a href="API_Element.html">API_Element</a>,
+        <a href="API_ElementMemo.html">API_ElementMemo</a>,
+        <a href="API_Types.html">API Types</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

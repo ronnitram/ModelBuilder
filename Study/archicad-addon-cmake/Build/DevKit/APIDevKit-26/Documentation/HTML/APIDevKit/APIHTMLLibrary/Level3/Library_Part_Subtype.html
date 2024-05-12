@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Library Part Subtypes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Library_Part_Subtype.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Library Part Subtypes</h1>
+
+    <p>This section gives an overview of the library part subtype idea introduced in Archicad 8.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Library Part Global Unique IDs</h4>
+
+    <p>From Archicad 8 every library part has unique identification, that is when one saves a library part, an ID is generated and stored into the library part file. This unique ID consists of two parts: a main and a revision GUID. Each one is a standard 128-bit unique identification string. The revision GUID can change when you modify and re-save the library part, while the main GUID remains the same for the whole life-cycle of the library part.</p>
+
+    <p>By this identification a certain library part can be referred everywhere in the world, no matter what its actual name is.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Subtype Hierarchy</h4>
+
+    <p>When creating a new library part you have to select a parent subtype specifying what properties the new library part would inherit. This action also determines the position of the library part in the subtype hierarchy tree. The whole ancestry information up to the Root Object is saved into a special section of the library part, that makes possible to reconstruct the hierarchy later.</p>
+
+    <p>You can find the subtype hierarchy tree, if you open the GDL editor and at the Details page you choose the Select Subtype button. The subtype nodes can be identified by their library part GUID. Whenever you need to refer to a library part, you can get its GUID string by copying from the Select Subtype dialog box.</p>
+
+    <p>For example you can see below where the door is located in the hierarchy tree.</p>
+
+    <p><img src="../../APIImageLibrary/LP_Subtype_Hierarchy.PNG" alt="Library part hierarchy"></p>
+
+    <p>&nbsp;</p>
+
+    <p>You can find some unique ID definitions of the internal subtype templates listed below. Be careful, always check the ID-s in the Select Subtype dialog, because these ID-s may change.</p>
+
+    <blockquote>
+    <pre><code>
+RootID                  "{F938E33A-329D-4A36-BE3E-85E126820996}-{00000000-0000-0000-0000-000000000000}"
+
+AttributeDefinitionID   "{12974DCB-3EC8-4A56-8738-E5495F5213A4}-{00000000-0000-0000-0000-000000000000}"
+DocumentationElemID     "{B176ABF1-5813-478F-926B-28EE7C5DC1F7}-{00000000-0000-0000-0000-000000000000}"
+LibraryMasterID         "{66B148A3-EF82-455A-80D9-AB9AFB5B6B9C}-{00000000-0000-0000-0000-000000000000}"
+ModelElemID             "{103E8D2C-8230-42E1-9597-46F84CCE28C0}-{00000000-0000-0000-0000-000000000000}"
+PropertiesID            "{8F157ABA-E5C9-48B6-9DCE-68F0F02A808E}-{00000000-0000-0000-0000-000000000000}"
+
+OpeningID               "{6ACDA889-69B2-4EC5-936C-CB1DA7032A92}-{00000000-0000-0000-0000-000000000000}"
+WallOpeningID           "{F6AE9687-2BC7-4D47-88C9-8F793E1DE2D6}-{00000000-0000-0000-0000-000000000000}"
+WallDoorID              "{11E85B84-8DD1-491B-A2FE-337454A91545}-{00000000-0000-0000-0000-000000000000}"
+WallDoorOpeningID       "{2EC5287F-2262-4CAB-BE0A-0C3307066128}-{00000000-0000-0000-0000-000000000000}"
+    </code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <p>You also have a bunch of goodie functions that help you manipulating with library part GUIDs, such as: <a href="../Functions/APIAny_GetBuiltInLibpartUnIdID.html">APIAny_GetBuiltInLibpartUnIdID</a>, <a href="../Functions/APIAny_CheckLibPartSubtypeOfID.html">APIAny_CheckLibPartSubtypeOfID</a>, <a href="../Functions/APIAny_CompareLibPartUnIdsID.html">APIAny_CompareLibPartUniqueIdsID</a>, <a href="../Functions/APIAny_GetElemCreatorToolUnIdID.html">APIAny_GetElemCreatorToolUnIdID</a>, <a href="../Functions/APIAny_SetEmptyHoleUnIdID.html">APIAny_SetEmptyHoleUnIdID</a>, and  <a href="../Functions/APIAny_GetElemLibPartUnIdID.html">APIAny_GetElemLibPartUnIdID</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Registering Subtypes into the Toolbox</h4>
+
+    <p>You may also add new object types to the Archicad toolbox. When you register a subtype with the <a href="../Functions/ACAPI_Register_Subtype.html">ACAPI_Register_Subtype</a> function, you extend the element database with a new element type, which has its own element defaults, settings dialog, and even a toolbox item. This functionality enables your add-on to distinguish easier its own special objects from other ones.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Level2/LibPart_Overview.html">Library Part Overview</a>, <a href="../Level3/Library_Part_Manager_id.html">Library Part Manager</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on Febr 01, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

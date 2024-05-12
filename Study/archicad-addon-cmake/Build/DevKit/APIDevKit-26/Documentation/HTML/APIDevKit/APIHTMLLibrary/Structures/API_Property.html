@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_Property</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_Property.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_Property</h1>
+
+    <p>A container that can store different types of data.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_PropertyDefinition.html">API_PropertyDefinition</a></strong>     <em>definition</em>;
+        <strong><a href="#API_PropertyValueStatus">API_PropertyValueStatus</a></strong>    <em>status</em>;
+        <strong><a href="API_PropertyValue.html">API_PropertyValue</a></strong>          <em>value</em>;
+        <strong>bool</strong>                       <em>isDefault</em>;
+    <strong>}</strong> <em>API_Property</em>;
+    </pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>definition</b></dt>
+
+		<dd>The definition of the property</dd>
+
+        <dt><b>status</b>&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="New in API 24" width="19" height="12"></dt>
+		<dd>Tells whether the property could be evaluated or not. If yes, then the value always contains the evaluated value (independently from the isDefault field). If not, the content of the value field is undefined.
+			<table border="1" cellpadding="5">
+                <tr>
+                    <th>
+                        <p><b><code><a name="API_PropertyValueStatus" id="API_PropertyValueStatus">API_PropertyValueStatus</a></code></b></p>
+                    </th>
+
+                    <th>
+                        <p><b>Meaning</b></p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_Property_NotAvailable</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property is not available for the element/attribute. Therefore the content of the value field is undefined.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_Property_NotEvaluated</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property could not be evaluated for the element/attribute. Therefore the content of the value field is undefined. This may be caused by several things, e.g. the property contains an expression which cannot be evaluated; a static built-in property is currently not evaluable (e.g. composite attribute index cannot be retrieved for a basic wall), etc.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_Property_HasValue</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property is available for the element/attribute and has been evaluated. The value field contains the evaluated value.</p>
+                    </td>
+                </tr>
+
+            </table>
+		</dd>
+
+        <dt><b>value</b></dt>
+
+        <dd>The evaluated value of the property. Valid only if the status is API_Property_HasValue, in this case this field always contains the evaluated value even if it's a default or custom value.</dd>
+
+        <dt><b>isDefault</b></dt>
+
+        <dd>Tells whether the value comes from the default value of the property. Note that the value field always contains the evaluated value even if it's coming from the default value of the property.</dd>
+
+    </dl>
+
+    <p>&nbsp;</p>
+
+ 	<h4>Remarks</h4>
+
+    <p><img border="0" src="../../APIImageLibrary/23.png" alt="New in API 23" width="19" height="12">&nbsp; You can easily convert the evaluated property value to display string with the <a href="../Functions/ACAPI_Property_GetPropertyValueString.html">ACAPI_Property_GetPropertyValueString</a> function.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 20 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Properties.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Level3/Properties_id.html#PropertyDefinitionManipulation">Properties</a><br>
+    <a href="../Functions/ACAPI_Property_GetPropertyValueString.html">ACAPI_Property_GetPropertyValueString</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 25, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

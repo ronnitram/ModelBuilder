@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="Faller Gyula" />
+
+    <title>GXDDB2DIB</title>
+
+    <meta http-equiv="Content-Language" content="en-US" />
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css" />
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GXHtmlLibrary/GXDDB2DIB.html" />
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GX&nbsp;Module</span><span class="TitleVersion">Version: 16</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GXDDB2DIB</h1>
+
+    <p>Convert from device dependent bitmap to device independent bitmap. On a palette device a correct logical palette has to be selected into the given DC.</p>
+    <pre class="syntax">
+    <strong>GSErr</strong> GXDDB2DIB (
+      <strong>HDC</strong>            <em>hDC</em>,
+      <strong>HBITMAP</strong>        <em>hBmp</em>,
+      <strong>GSPtr</strong>*         <em>pDIB</em>,
+      <strong>Int32</strong>*         <em>pSize</em>,
+      <strong>GSRect</strong>*        <em>rect</em>
+    );
+</pre>
+
+    <h2>Parameters</h2>
+
+    <dl class="Parameters">
+        <dt>hDC</dt>
+
+        <dd>Device context.</dd>
+
+        <dt>hBmp</dt>
+
+        <dd>Device dependent bitmap. If NULL, the DC's current bitmap is used for the conversion.</dd>
+
+        <dt>pDIB</dt>
+
+        <dd>Pointer to device independent bitmap.</dd>
+
+        <dt>pSize</dt>
+
+        <dd>Pointer to receive the size of the device independent bitmap.</dd>
+
+        <dt>rect</dt>
+
+        <dd>A partial region may be chosen for conversion by the use of this parameter. Can be NULL.</dd>
+    </dl>
+
+    <h2>Return Values</h2>
+
+    <p>If the function succeeds, the return value is NoError. If the function fails, the return value is the error code.</p>
+
+    <h2>Remarks</h2>
+
+    <p>This function exists only on Windows platform.</p>
+
+    <h2>Requirements</h2>
+
+    <dl class="Requirements">
+        <dt>Version:</dt>
+
+        <dd>GX 10 or later</dd>
+
+        <dt>Header:</dt>
+
+        <dd>Graphics2DWin.h</dd>
+
+        <dt>Import Library:</dt>
+
+        <dd>GXImp.lib</dd>
+
+        <dt>Module:</dt>
+
+        <dd>GX.dll [WIN], GX.framework [MAC]</dd>
+    </dl>
+
+    <h2>See Also</h2>
+
+    <p><a href="Graphics2DWin.html">Graphics Windows-specific functions</a></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

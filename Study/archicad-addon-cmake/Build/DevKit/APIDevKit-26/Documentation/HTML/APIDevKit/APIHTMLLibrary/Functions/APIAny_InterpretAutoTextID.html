@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIAny_InterpretAutoTextID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIAny_InterpretAutoTextID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIAny_InterpretAutoTextID</h1>
+
+    <p>Retrieves the context dependent autotext's value.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a></strong> (
+        <strong>APIAny_InterpretAutoTextID</strong>,
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>*</strong>      <em>autotext</em>,
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>*</strong>           <em>guid</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>*</strong>            <em>value</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>autotext</em></dt>
+
+        <dd>[in] A pointer to a GS::UniString containing the key for the context dependent autotexts key, without the '&lt;' and '&gt;' signs. For example the "&lt;The autotext key&gt;" should look like "The autotext key".</dd>
+
+        <dt><em>guid</em></dt>
+
+        <dd>[in] Pointer to a API_Guid element for context dependency resolution. This can be the guid of any object which can contain an autotext. For example a label's guid is sufficient to resolve the autotext's value present on that label.</dd>
+        
+        <dt><em>value</em></dt>
+
+        <dd>[out] A GS::UniString pointer that is either empty or contains the autotext's value.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>Either the <code>autotext</code> or the <code>value</code> was <code>nullptr</code>.</dd>
+        
+        <dt><code>APIERR_GENERAL</code></dt>
+
+        <dd>The passed <code>autotext</code> could not be resolved or it is has invalid formatting.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Use this function to find the value of context dependent autotext keys. In this context, context dependency means that the value of a given autotext is determined by the object that it is bound to.
+    For example a label with an autotext &lt;Element Id&gt; will show the object's Element Id that the label is bound to. These autotexts have a format similar to: &lt;PROPERTY-69A58F6F-DD3B-478D-B5EF-09A16BD0C548&gt;</p>
+
+    <p>Remember to dispose of the '&lt;' and '&gt;' signs before passing the function an autotext key. So the previous example should look similar to PROPERTY-69A58F6F-DD3B-478D-B5EF-09A16BD0C548.</p>
+    
+    <p>&nbsp;</p>
+    
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_Guid guid;
+
+if (!ClickAnElem ("Click on a slab to acquire all of its available properties.", API_SlabID, nullptr, nullptr, &amp;guid)) {
+    WriteReport_Alert ("No slab was clicked!");
+    return;
+} else {
+    WriteReport ("Slab clicked!");
+    GS::HashTable&lt;GS::UniString, GS::UniString&gt; properties;
+    ACAPI_Goodies (APIAny_GetPropertyAutoTextKeyTableID, (API_Guid *) &amp;APINULLGuid, &amp;properties);
+    GSErrCode err = ACAPI_Goodies (APIAny_GetPropertyAutoTextKeyTableID, &amp;guid, &amp;properties);
+    if (err == NoError) {
+        properties.EnumeratePairs (
+            [&amp;err, &amp;guid] (const GS::UniString&amp; propertyName, GS::UniString&amp; propertyKey) -> void {
+                GS::UniString value;
+                err = ACAPI_Goodies (APIAny_InterpretAutoTextID, &amp;propertyKey, &amp;guid, &amp;value);
+                if (err == NoError) {
+                    WriteReport ("%T is: %T", propertyName.ToPrintf (), value.ToPrintf ());
+                } else {
+                    WriteReport ("Autotext for %T could not be resolved.", propertyName.ToPrintf ());
+                }
+            });
+    } else {
+        WriteReport ("Error while retrieving the property autotext key table.");
+    }
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Goodies.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p>
+    <a href="APIAny_GetPropertyAutoTextKeyTableID.html">APIAny_GetPropertyAutoTextKeyTableID</a><br>
+    <a href="APIAny_GetAutoTextKeysID.html">APIAny_GetAutoTextKeysID</a><br>
+    <a href="APIAny_GetAutoTextsID.html">APIAny_GetAutoTextsID</a><br>
+    <a href="APIAny_SetAnAutoTextID.html">APIAny_SetAnAutoTextID</a><br>
+    <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 30, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

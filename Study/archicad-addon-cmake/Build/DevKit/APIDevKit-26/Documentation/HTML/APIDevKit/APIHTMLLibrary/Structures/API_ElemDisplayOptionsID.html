@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ElemDisplayOptionsID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ElemDisplayOptionsID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ElemDisplayOptionsID</h1>
+
+    <p>Floor plan display options of construction elements.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>API_Standard</em>,
+        <em>API_StandardWithAbstract</em>,
+        <em>API_CutOnly</em>,
+        <em>API_OutLinesOnly</em>,
+        <em>API_AbstractAll</em>,
+        <em>API_CutAll</em>
+    <strong>}</strong> <em>API_ElemDisplayOptionsID</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>API_Standard</b></dt>
+
+        <dd>Shows cut part of element, plus its uncut (downward) part in 3D-like form<br>
+        ('Projected' in the Settings dialog popups)</dd>
+
+        <dt><b>API_StandardWithAbstract</b></dt>
+
+        <dd>Shows cut part of element (e.g., as cut at the level of the Floor Plan Cut Plane), plus the element's overhead part (i.e. the part of the element that is above the Floor Plan Cut Plane<br>
+        ('Projected with Overhead' in the Settings dialog popups)</dd>
+
+        <dt><b>API_CutOnly</b></dt>
+
+        <dd>Displays only the cut part of element, as cut with the Floor Plan Cut Plane (symbolic representation, which means 2D full view in case of Door/Window)<br>
+        ('Cut Only' in the Settings dialog popups)</dd>
+
+        <dt><b>API_OutLinesOnly</b></dt>
+
+        <dd>The entire element's outline is shown using its uncut attributes (not available for Door/Window)<br>
+        ('Outlines Only' in the Settings dialog popups)</dd>
+
+        <dt><b>API_AbstractAll</b></dt>
+
+        <dd>The entire element's outline is shown using its overhead attributes<br>
+        ('Overhead All' in the Settings dialog popups)</dd>
+
+        <dt><b>API_CutAll</b></dt>
+
+        <dd>The whole floor plan projection of simple walls or vertical (simple or complex) columns will be displayed as cut, using their cut line and cut fill attributes, regardless of the elements' vertical position. This option is available only for simple straight walls or columns, or for complex columns, and only if the Show on Story control is set to "Current/Own Story only". The Floor Plan Cut plane settings do not affect the display of these elements.<br>
+        ('Symbolic Cut' in the Settings dialog popups)</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Element display option defines how a construction element appears on the floor plan.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_BeamType.html">API_BeamType</a>, <a href="API_ColumnType.html">API_ColumnType</a>, <a href="API_RoofType.html">API_RoofType</a>, <a href="API_WallType.html">API_WallType</a>, <a href="API_WindowType.html">API_WindowType</a><br>
+    <a href="API_FloorPlanCutDefinition.html">API_FloorPlanCutDefinition</a>, <a href="API_StoryVisibility.html">API_StoryVisibility</a><br>
+    <a href="API_Types.html">API Types</a><a href="API_ElemProjectionModesID.html">API_ElemProjectionModesID</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on October 11, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

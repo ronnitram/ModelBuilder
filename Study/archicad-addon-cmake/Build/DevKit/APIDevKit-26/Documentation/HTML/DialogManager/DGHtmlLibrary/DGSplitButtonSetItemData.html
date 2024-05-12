@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Somodi Karoly Akos">
+
+    <title>DGSplitButtonSetItemData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGSplitButtonSetItemData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGSplitButtonSetItemData</h1>
+
+    <p>Assigns a value to a split button popup item.</p>
+
+    <pre class="syntax">
+    <strong>void DGSplitButtonSetItemData</strong> (
+      <strong>short</strong>                 <em>dialId</em>,
+      <strong>short</strong>                 <em>item</em>,
+      <strong>short</strong>                 <em>popupItem</em>,
+      <strong>DGUserData</strong>            <em>value</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>popupItem</em></dt>
+
+        <dd>1-based indexed of the popup menu item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>value</em></dt>
+
+        <dd>The value for the data.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+	<p>Assigns a value to a split button popup item.</p>
+
+   <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 18.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p>
+    <a href="DlgItemTypes_id.html">Dialog item types</a><br>
+    <a href="DGCatItemText.html">DGCatItemText</a>,
+    <a href="DGGetItemFont.html">DGGetItemFont</a>,
+    <a href="DGGetItemImage.html">DGGetItemImage</a>,
+    <a href="DGGetItemImageId.html">DGGetItemImageId</a>,
+    <a href="DGGetItemText.html">DGGetItemText</a>,
+    <a href="DGModified.html">DGModified</a>,
+    <a href="DGResetModified.html">DGResetModified</a>,
+    <a href="DGSetItemFont.html">DGSetItemFont</a>,
+    <a href="DGSetItemImage.html">DGSetItemImage</a>,
+    <a href="DGSetItemImageId.html">DGSetItemImageId</a>,
+    <a href="DGSetItemText.html">DGSetItemText</a>,
+    <a href="DGSplitButtonSetItemText.html">DGSplitButtonSetItemText</a>,
+    <a href="DGSplitButtonGetItemText.html">DGSplitButtonGetItemText</a>,
+    <a href="DGSplitButtonSetItemFont.html">DGSplitButtonSetItemFont</a>,
+    <a href="DGSplitButtonGetItemFont.html">DGSplitButtonGetItemFont</a>,
+    <a href="DGSplitButtonSetItemIcon.html">DGSplitButtonSetItemIcon</a>,
+    <a href="DGSplitButtonGetItemIcon.html">DGSplitButtonGetItemIcon</a>,
+    <a href="DGSplitButtonSetAlignment.html">DGSplitButtonSetAlignment</a>,
+    <a href="DGSplitButtonGetAlignment.html">DGSplitButtonGetAlignment</a>,
+    <a href="DGSplitButtonAppendItem.html">DGSplitButtonAppendItem</a>,
+    <a href="DGSplitButtonAppendSeparator.html">DGSplitButtonAppendSeparator</a>,
+    <a href="DGSplitButtonInsertItem.html">DGSplitButtonInsertItem</a>,
+    <a href="DGSplitButtonInsertSeparator.html">DGSplitButtonInsertSeparator</a>,
+    <a href="DGSplitButtonDeleteItem.html">DGSplitButtonDeleteItem</a>,
+    <a href="DGSplitButtonGetItemData.html">DGSplitButtonGetItemData</a>,
+    <a href="DGSplitButtonEnableItem.html">DGSplitButtonEnableItem</a>,
+    <a href="DGSplitButtonDisableItem.html">DGSplitButtonDisableItem</a>,
+    <a href="DGSplitButtonSetItemStatus.html">DGSplitButtonSetItemStatus</a>,
+    <a href="DGSplitButtonIsItemEnabled.html">DGSplitButtonIsItemEnabled</a>,
+    <a href="DGSplitButtonIsSeparatorItem.html">DGSplitButtonIsSeparatorItem</a>,
+    <a href="DGSplitButtonGetItemCount.html">DGSplitButtonGetItemCount</a>,
+    <a href="DGSplitButtonEnableDraw.html">DGSplitButtonEnableDraw</a>,
+    <a href="DGSplitButtonDisableDraw.html">DGSplitButtonDisableDraw</a>,
+    <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a>,
+    <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on September 10, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

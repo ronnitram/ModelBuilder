@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+
+    <title>About Byte Swapping</title>
+    <meta name="GENERATOR" content="OpenOffice.org 1.0.1 (Win32)">
+    <meta name="AUTHOR" content="Miklos Fazekas">
+    <meta name="CREATED" content="20021209;15221548">
+    <meta name="CHANGEDBY" content="Miklós Fazekas">
+    <meta name="CHANGED" content="20021209;16455368">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/IV/about.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>About IV</h1>
+
+    <p>The IV provides functions to swap between the endiannes of primitive types like int, and doubles.</p>
+
+    <p>The PPC MacOS platform is big-endian, while the X86 Win32 and the Intel Macintosh platforms are little-endian. When reading binary files from a different platform you have to call the IV functions.</p>
+
+    <p><b>Example:</b></p>
+
+    <p>When you write a short 255 (=0x00FF) on PPC Macintosh, and read it back on Windows or on a MacTel machine without swapping the result will be 65280 (=0xFF00). So when you're reading a file that contains <code>short</code>-s coming from a different platform you should call <a href="reference/IVShort.html">IVShort</a> -to swap the bytes.</p>
+
+    <p align="center"><br>
+    
+</p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on June 7, 2006<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

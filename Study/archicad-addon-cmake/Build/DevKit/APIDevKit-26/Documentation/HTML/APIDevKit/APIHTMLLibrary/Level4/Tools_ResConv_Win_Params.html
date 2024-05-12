@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Graphisoft Resource Compiler</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level4/Tools_ResConv_Win_Params.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Graphisoft Resource Compiler Parameters on Windows</h1><br>
+    Usage: <pre>resconv [-m &lt;mode&gt;] [other parameters]</pre>
+
+    <ol>
+        <li>Resource converter: <tt>mode = r</tt> (default)<br>
+
+            <pre>resconv [-m r]
+
+        -i &lt;input_file_name&gt;
+        -o &lt;output_file_name&gt;
+        -t &lt;target&gt;
+        [-x &lt;config_file_name&gt;]
+        [-f &lt;input_format&gt;]
+        [-l &lt;code_table&gt;]
+        [-c &lt;code_page&gt;]
+        [-n &lt;font_name&gt;]
+        [-s &lt;font_size&gt;]
+        [-p &lt;paths&gt;]
+        [-q utf8 &lt;codepage&gt;]
+        [-w &lt;HiDPI image size list&gt;]
+        [-d &lt;ID1&gt;] [-d &lt;ID2&gt;] ... [-d &lt;IDn&gt;]</pre>
+
+            <table border="0" cellspacing="1" cellpadding="1">
+                <tr>
+                    <td><tt>target:</tt></td>
+
+                    <td><tt>w = Windows, m = Macintosh, e = emulation</tt></td>
+                </tr>
+
+                <tr>
+                    <td><tt>input_format:</tt></td>
+
+                    <td><tt>w = Windows, m = Macintosh</tt> (default: current platform)</td>
+                </tr>
+
+                <tr>
+                    <td><tt>code_table:</tt></td>
+
+                    <td><tt>NUL, INT, GRE, RUS, CEU</tt> (default: <tt>NUL</tt>)</td>
+                </tr>
+
+                <tr>
+                    <td><tt>code_page:</tt></td>
+
+                    <td><tt>0, 932, 936, 949, 950, 1250, 1251, 1253</tt> (default: 0)</td>
+                </tr>
+
+                <tr>
+                    <td><tt>font_name:</tt></td>
+
+                    <td>font name for <tt>GDLG</tt> resources on Windows (default: )</td>
+                </tr>
+
+                <tr>
+                    <td><tt>font_size:</tt></td>
+
+                    <td>font size for <tt>GDLG</tt> resources on Windows (default: )</td>
+                </tr>
+
+                <tr>
+                    <td><tt>paths:</tt></td>
+
+                    <td>additional paths separated with <tt>';'</tt> for some resources</td>
+                </tr>
+
+                <tr>
+                    <td><tt>codepage:</tt></td>
+
+                    <td>for the <code>-q utf8</code> switch: specifies the target code page e.g. 1252 (to convert from UTF-8)</td>
+                </tr>
+
+                <tr>
+                    <td><tt>HiDPI image size list:</tt></td>
+
+                    <td>the list of the HiDPI image size multipliers (example: 2 2.5 3)</td>
+                </tr>
+
+                <tr>
+                    <td><tt>IDi:</tt></td>
+
+                    <td><tt>#define</tt>-s for the preprocessing</td>
+                </tr>
+            </table><br>
+
+            <table border="0" cellspacing="1" cellpadding="1">
+                <tr>
+                    <td>Remark1:</td>
+
+                    <td>with <tt>mode = p (-m p)</tt> only preprocessing is performed</td>
+                </tr>
+
+                <tr>
+                    <td>Remark2:</td>
+
+                    <td>with <tt>mode = q (-m q)</tt> only preprocessing is performed without clearing comments</td>
+                </tr>
+
+                <tr>
+                    <td>Remark3:</td>
+
+                    <td>with <tt>mode = i (-m i)</tt> on Windows: conversion of <tt>cicn, crsr, CURS, ICON, PICT and SICN</tt> resources for Macintosh are ignored</td>
+                </tr>
+            </table><br>
+        </li>
+
+        <li><tt>PICT GRC -&gt; Make file</tt> converter: <tt>mode = m</tt><br>
+
+        <pre>resconv -m m
+
+        -i &lt;input_file_name&gt;
+        -o &lt;output_file_name&gt;
+        -c &lt;conv_prg&gt;
+        -b &lt;BMP_path&gt;
+        -p &lt;dest_path&gt;
+        [-d &lt;ID1&gt;] [-d &lt;ID2&gt;] [...] [-d &lt;IDn&gt;]</pre>
+
+            <table border="0" cellspacing="1" cellpadding="1">
+                <tr>
+                    <td><tt>conv_prg:</tt></td>
+
+                    <td>converter program name with full path</td>
+                </tr>
+
+                <tr>
+                    <td><tt>BMP_path:</tt></td>
+
+                    <td>path of the source (<tt>BMP</tt>) directory</td>
+                </tr>
+
+                <tr>
+                    <td><tt>dest_path:</tt></td>
+
+                    <td>path of the destination directory</td>
+                </tr>
+            </table><br>
+        </li>
+
+        <li>Dependency file generation <tt>(PICT, GICN, GBMP): mode = d</tt><br>
+
+        <pre>resconv -m d
+
+        -i &lt;input_file_name&gt;
+        -o &lt;output_file_name&gt;
+        -v &lt;env_var&gt;
+        -p &lt;dest_path&gt;
+        [-d &lt;ID1&gt;] [-d &lt;ID2&gt;] [...] [-d &lt;IDn&gt;]</pre>
+
+            <table border="0" cellspacing="1" cellpadding="1">
+                <tr>
+                    <td><tt>env_var:</tt></td>
+
+                    <td>environment variable name</td>
+                </tr>
+
+                <tr>
+                    <td><tt>dest_path:</tt></td>
+
+                    <td>path of the destination directory</td>
+                </tr>
+            </table><br>
+        </li>
+
+        <li><tt>PICT GRC -&gt; BmpHlp</tt> file converter: <tt>mode = h</tt><br>
+
+        <pre>resconv -m h
+
+        -i &lt;input_file_name&gt;
+        -o &lt;output_file_name&gt;
+        [-d &lt;ID1&gt;] [-d &lt;ID2&gt;] [...] [-d &lt;IDn&gt;]</pre><br>
+        </li>
+
+        <li>Resource preparing utility (Konvert): <tt>mode = k</tt><br>
+
+        <pre>resconv -m k
+
+        [-jam]
+        -i &lt;input_file_name&gt;
+        -o &lt;output_file_name&gt;
+        [-s &lt;switch&gt;]</pre>
+
+        Possible switches:<br>
+
+            <table border="0" cellspacing="1" cellpadding="1">
+                <tr>
+                    <td><tt>D</tt></td>
+
+                    <td>Convert a text file to an About List of Distributors. (This is the default conversion mode.)</td>
+                </tr>
+
+                <tr>
+                    <td><tt>M</tt></td>
+
+                    <td>Convert a text file to an About List of Makers.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>E</tt></td>
+
+                    <td>Count checksums of a file.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>X</tt></td>
+
+                    <td>Count the checksum of an <tt>EXE</tt> file.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>Rcr-ft</tt></td>
+
+                    <td>Mark as <tt>resource file &amp;&amp;</tt> set the CREATOR <tt>&amp;</tt> TYPE.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>Sn1-n2</tt></td>
+
+                    <td>Split <tt>n1-n2</tt> part of the file.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>B{y1,x1,y2,x2,drawMode}</tt></td>
+
+                    <td>Convert <tt>infile.BMP</tt> to <tt>'PICT' outfile.pic</tt>.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>C</tt></td>
+
+                    <td>Convert a Copyright <tt>pict</tt>.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>Z</tt></td>
+
+                    <td>Convert a <tt>text</tt> file (<tt>CR-&gt;CRLF, '^Z'-&gt;''</tt>).</td>
+                </tr>
+
+                <tr>
+                    <td><tt>P</tt></td>
+
+                    <td>Extract <tt>'pltt'</tt> from the <tt>infile.BMP</tt> to <tt>outfile.ptt</tt>.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>T{met,id}</tt></td>
+
+                    <td>Convert a <tt>text/pic</tt> file to <tt>Edu</tt> and <tt>Site text/pic</tt>. (<tt>met</tt> = 1 - <tt>Site-txt</tt>; 2 - <tt>Edu-txt</tt>; 3 - <tt>Edu-Pic</tt>)</td>
+                </tr>
+
+                <tr>
+                    <td><tt>U{met,id}</tt></td>
+
+                    <td>Convert a <tt>text</tt> file to <tt>Edu</tt> and <tt>Site text/pic</tt> with preceeding marker string. (<tt>met</tt> = 1 - <tt>Site-txt</tt>; 2 - <tt>Edu-txt</tt>)</td>
+                </tr>
+
+                <tr>
+                    <td><tt>Q</tt></td>
+
+                    <td>Convert a <tt>'pltt'</tt> (not yet implemented).</td>
+                </tr>
+            </table>
+        </li>
+    </ol>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 20, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

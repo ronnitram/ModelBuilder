@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Includes</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/Includes.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>Includes</H2><!--exp="Includes Enum"-->
+<P><topic id="$GS.$Includes.BriefDescription">
+		Tests whether one sorted range contains all the elements contained in a second 
+		sorted range, where the ordering or equivalence criterion between elements may 
+		be specified by a binary predicate.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>In</I><B>&gt;
+</B>bool Includes (</B>
+    <B>In                  </B><I>first1</I>,
+    <B>In                  </B><I>last1</I>,
+    <B>In                  </B><I>first2</I>,
+    <B>In                  </B><I>last2</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>In</I>, <B>class</B> <I>BinPred</I><B>&gt;
+</B>bool Includes (</B>
+    <B>In                  </B><I>first1</I>,
+    <B>In                  </B><I>last1</I>,
+    <B>In                  </B><I>first2</I>,
+    <B>In                  </B><I>last2</I>,
+    <B>BinPred             </B><I>pred</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>In</I></DT><DD><topic id="$GS.$Includes.$In.TemplateParamDescription">
+		Input iterator.
+	</topic></DD><DT><I>BinPred</I></DT><DD><topic id="$GS.$Includes.$BinPred.TemplateParamDescription">
+		Binary predicate.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first1</I></DT><DD><topic id="$GS.$Includes.$first1.ParamDescription">
+		An input iterator addressing the position of the first element in the first of 
+		two sorted source ranges to be tested for whether all the elements of the second 
+		are contained in the first.
+	</topic></DD><DT><I>last1</I></DT><DD><topic id="$GS.$Includes.$last1.ParamDescription">
+		An input iterator addressing the position one past the last element in the first 
+		of two sorted source ranges to be tested for whether all the elements of the 
+		second are contained in the first.
+	</topic></DD><DT><I>first2</I></DT><DD><topic id="$GS.$Includes.$first2.ParamDescription">
+		An input iterator addressing the position of the first element in second of two 
+		consecutive sorted source ranges to be tested for whether all the elements of 
+		the second are contained in the first.
+	</topic></DD><DT><I>last2</I></DT><DD><topic id="$GS.$Includes.$last2.ParamDescription">
+		An input iterator addressing the position one past the last element in second of 
+		two consecutive sorted source ranges to be tested for whether all the elements 
+		of the second are contained in the first.
+	</topic></DD><DT><I>pred</I></DT><DD><topic id="$GS.$Includes.$pred.ParamDescription">
+		User-defined predicate function object that defines sense in which one element 
+		is less than another. A binary predicate takes two arguments and returns 
+		<B>true</B> when satisfied and <B>false</B> when not satisfied.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$Includes.ReturnDescription">
+		<B>true</B> if the first sorted range contains all the elements in the second 
+		sorted range; otherwise, <B>false</B>.
+	</topic></P><P><topic id="$GS.$Includes.1.ReturnDescription"></topic></P><P><topic id="$GS.$Includes.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$Includes.LongDescription">
+		<B>Includes</B> tests whether one sorted range includes another sorted range. 
+		That is, it returns <TT>true</TT> if and only if, for every element in 
+		<TT>[first2, last2)</TT>, an equivalent element is also 
+		present in <TT>[first1, last1)</TT>. Both <TT>[first1, 
+		last1)</TT> and <TT>[first2, last2)</TT> must be sorted in ascending order. 
+		The two versions of <B>Includes</B> differ in how they define whether one 
+		element is less than another. The first version compares objects using 
+		<TT>operator&lt;</TT>, and the second compares objects using the predicate <TT>pred</TT>.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$Includes.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

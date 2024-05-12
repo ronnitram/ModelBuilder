@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIIo_InitProcessWindowID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIIo_InitProcessWindowID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIIo_InitProcessWindowID</h1>
+
+    <p>Opens the process window.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_interface_id.html">ACAPI_Interface</a></strong> (
+        <strong>APIIo_InitProcessWindowID</strong>,
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>*</strong>   <em>title</em>,
+        <strong>short*</strong>                 <em>nPhase</em>,
+        <strong><a href="../Structures/API_ProcessControlTypeID.html">API_ProcessControlTypeID</a>*</strong>     <em>processCntrolType</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>title</em>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="API version 19" width="19" height="12"></dt>
+
+        <dd>[in] Process string.</dd>
+
+        <dt><em>nPhase</em></dt>
+
+        <dd>[in] Number of phases.</dd>
+
+        <dt><em>processCntrolType</em></dt>
+
+        <dd>[in]</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>nPhase</code> is <code>nullptr</code></dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to prepare the process window for a long operation. You can specify the name of the whole operation and the number of the phases of the process.</p>
+
+    <p>Other process window related functions are:</p>
+
+    <ul>
+        <li><a href="APIIo_SetNextProcessPhaseID.html">APIIo_SetNextProcessPhaseID</a></li>
+
+        <li><a href="APIIo_SetProcessValueID.html">APIIo_SetProcessValueID</a></li>
+
+        <li><a href="APIIo_IncProcessValueID.html">APIIo_IncProcessValueID</a></li>
+
+        <li><a href="APIIo_IsProcessCanceledID.html">APIIo_IsProcessCanceledID</a></li>
+
+        <li><a href="APIIo_CloseProcessWindowID.html">APIIo_CloseProcessWindowID</a></li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+GSErrCode           err;
+API_LibPart         libPart;
+GS::UniString       title ("Listing the library");
+GS::UniString       subtitle ("working...");
+short               nPhase;
+Int32               i, nLib;
+char                buffer [256];
+
+err = ACAPI_LibPart_GetNum (&amp;nLib);
+if (nLib &gt; 0) {
+    nPhase = 1;
+
+    ACAPI_Interface (APIIo_InitProcessWindowID, &amp;title, &amp;nPhase);
+    ACAPI_Interface (APIIo_SetNextProcessPhaseID, &amp;subtitle, &amp;nLib);
+
+    BNZeroMemory (&amp;libPart, sizeof (API_LibPart));
+    for (i = 1; i &lt;= nLib; i++) {
+        libPart.index = i;
+        err = ACAPI_LibPart_Get (&amp;libPart);
+        if (!err) {
+            sprintf (buffer, "[%2d] \"%s\"", i, (const char *) GS::UniString (libPart.docu_UName).ToCStr ());
+            ACAPI_WriteReport (buffer, false);
+        }
+
+        ACAPI_Interface (APIIo_SetProcessValueID, &amp;i, nullptr);
+        if (ACAPI_Interface (APIIo_IsProcessCanceledID, nullptr, nullptr))
+            break;
+    }
+
+    ACAPI_Interface (APIIo_CloseProcessWindowID, nullptr, nullptr);
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="APIIo_SetNextProcessPhaseID.html">APIIo_SetNextProcessPhaseID</a>, <a href="APIIo_SetProcessValueID.html">APIIo_SetProcessValueID</a>, <a href="APIIo_IncProcessValueID.html">APIIo_IncProcessValueID</a>, <a href="APIIo_IsProcessCanceledID.html">APIIo_IsProcessCanceledID</a>, <a href="APIIo_CloseProcessWindowID.html">APIIo_CloseProcessWindowID</a>,<br>
+    <a href="acapi_interface_id.html">ACAPI_Interface</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 19, 2015<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

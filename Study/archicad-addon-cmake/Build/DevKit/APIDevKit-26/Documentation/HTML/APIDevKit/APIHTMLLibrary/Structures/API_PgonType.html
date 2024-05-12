@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_PgonType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_PgonType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_PgonType</h1>
+
+    <p>Representation of a 3D Polygon.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_3D_Head.html">API_3D_Head</a></strong>        <em>head</em>;
+        <strong>Int32</strong>              <em>status</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong> <em>iumat</em>;
+        <strong>Int32</strong>              <em>irtxt</em>;
+        <strong>Int32</strong>              <em>ivect</em>;
+        <strong>Int32</strong>              <em>fpedg</em>;
+        <strong>Int32</strong>              <em>lpedg</em>;
+    <strong>}</strong> <em>API_PgonType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>Header information of this component. This specifies the type and database index.</dd>
+
+        <dt><b>status</b></dt>
+
+        <dd>Information about the properties of polygon.</dd>
+
+        <dt><b>iumat</b></dt>
+
+        <dd>Refers to the material of the polygon.</dd>
+
+        <dt><b>irtxt</b></dt>
+
+        <dd>Internal use.</dd>
+
+        <dt><b>ivect</b></dt>
+
+        <dd>Refers to the polygon's normal vector (negative: use opposite direction). It is an index of a vector you can get by <a href="../Functions/ACAPI_3D_GetComponent.html">ACAPI_3D_GetComponent</a>.</dd>
+
+        <dt><b>fpedg, lpedg</b></dt>
+
+        <dd>Range of indices referring to the polygon contour edges.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Accessing polygons must be base on bodies. First you should get a body by <a href="../Functions/ACAPI_3D_GetComponent.html">ACAPI_3D_GetComponent</a> and just after is obtainable its polygons.</p>
+
+    <p>A polygon component consist of directed edges. You can get those using <code>fpedg</code>, <code>lpedg</code> index range. These indices refer to <a href="API_PedgType.html">API_PedgType</a> components, which can be use to retrieve the edges of the given polygon. It may occure that <code>fpedg &gt; lpedg</code>, which means that the polygon has no edge references.</p>
+
+    <p>Note that negative <code>pedg</code> value in <a href="API_PedgType.html">API_PedgType</a> means opposite direction.</p>
+
+    <p>The <code>ivect</code> is an index to an <a href="API_VectType.html">API_VectType</a> component. This is the normal vector of this polygon. If <code>ivect</code> is negative, the direction of the normal vector is the opposite of the stored one.</p>
+
+    <p>The <code>status</code> field specifies some properties of the polygon. You can use the bitwise-OR operator (<code>|</code>) to combine any of the following constants:</p>
+
+    <ul>
+        <li><code>APIPgon_Invis</code>: invisible polygon,</li>
+
+        <li><code>APIPgon_Curved</code>: polygon of a curved surface,</li>
+
+        <li><code>APIPgon_Concav</code>: concave polygon,</li>
+
+        <li><code>APIPgon_PHole</code>:&nbsp;polygon with holes,</li>
+
+        <li><code>APIPgon_HolesCnv</code>: hole(s) are convex,</li>
+
+        <li><code>APIPgon_Complex</code>: the polygon is concave or with holes.</li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_3D.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_3D_Head.html">API_3D_Head</a>, <a href="API_BodyType.html">API_BodyType</a>, <a href="API_PedgType.html">API_PedgType</a>, <a href="API_VectType.html">API_VectType</a>, <a href="API_Component3D.html">API_Component3D</a>, <a href="API_AttributeIndex.html">API_AttributeIndex</a>,<br>
+    <a href="../Level3/3D_Manager_id.html">3D Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Sector</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Sector2D/Sector.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Sector</h1>
+
+    <p>Represents a sector a ray or a line by two points on them. The represented items are always directed, so the two endpoints are not interchangeable.</p>
+    <pre class="syntax">
+    <strong>struct</strong> Sector {
+      <strong><a href="../Vector2D/Coord.html">Coord</a></strong>  <em>c1</em>;
+      <strong><a href="../Vector2D/Coord.html">Coord</a></strong>  <em>c2</em>;
+    };
+
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>c1</b></dt>
+
+        <dd>Coordinates of the first point of the represented item..</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>c2</b></dt>
+
+        <dd>Coordinates of the second point of the represented item.</dd>
+
+        <dd>&nbsp;</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <ul>
+        <li>In case of a sector, <b>c1</b> is the beginning point, <b>c2</b> is the end point.</li>
+
+        <li>In case of a ray, <b>c1</b> is the strating point, <b>c2</b> is an arbitrary point of the ray.</li>
+
+        <li>In case of a line, both <b>c1</b> and <b>c2</b> are arbitrary points of the line.</li>
+    </ul>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Sector2DData.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Sector2D_id.html">Sector2D functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 6, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

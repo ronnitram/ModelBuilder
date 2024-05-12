@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGEnableMessage</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGEnableMessage.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGEnableMessage</h1>
+
+    <p>Enables a message to be sent to a dialog or a dialog item.</p>
+    <pre class="syntax">
+    <strong>void DGEnableMessage</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>short</strong>  <em>message</em>,
+      <strong>short</strong>  <em>modifier</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item. For <a href="DG_MSG_DRAGDROP.html"><tt>DG_MSG_DRAGDROP</tt></a> message, <tt>DG_ALL_ITEMS</tt> specifies that the message is enabled for all items (with the exception of edit controls, which are handled internally), otherwise <tt>DG_ALL_ITEMS</tt> specifies that the message will be sent to the dialog and not to a particular item. This means that in the <a href="CallbackFunctions.html">dialog callback function</a> the message will arrive with zero item ID.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>message</em></dt>
+
+        <dd>One of the allowed <a href="Messages_id.html">DG messages</a>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>modifier</em></dt>
+
+        <dd>One of the following values:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_EMM_NONE</tt></td>
+
+                    <td>The application does not send the <tt>DG_MSG_NULL</tt> messages when the application is inactive.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_EMM_SENDFORINACTIVEAPP</tt></td>
+
+                    <td>The application sends the <tt>DG_MSG_NULL</tt> messages even if the application is inactive.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>Allowed messages and dialog item types:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Dialog item type</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DRAGDROP.html"><tt>DG_MSG_DRAGDROP</tt></a></td>
+
+                    <td>Allowed for dialogs (item is <tt>DG_ALL_ITEMS</tt>), and for tab pages.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_MOUSEMOVE.html"><tt>DG_MSG_MOUSEMOVE</tt></a></td>
+
+                    <td>Allowed for <tt>DG_ITM_LISTBOX</tt> and <tt>DG_ITM_USERITEM</tt>.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_NULL.html"><tt>DG_MSG_NULL</tt></a></td>
+
+                    <td>Allowed for modal dialogs (item is <tt>DG_ALL_ITEMS</tt>).</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DG_MSG_DRAGDROP.html"><tt>DG_MSG_DRAGDROP</tt></a>, <a href="DG_MSG_MOUSEMOVE.html"><tt>DG_MSG_MOUSEMOVE</tt></a>, <a href="DG_MSG_NULL.html"><tt>DG_MSG_NULL</tt></a>, <a href="Messages_id.html">DG Messages</a>, <a href="DlgItemTypes_id.html">Dialog item types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 2, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

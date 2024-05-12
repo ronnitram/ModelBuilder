@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_3DStyle</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="VBG">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_3DStyle.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_3DStyle</h1>
+
+    <p>3D Style parameters.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>               <em>name[API_UniLongNameLen]</em>;
+        <strong>Int32</strong>                     <em>engineId</em>;
+        <strong><a href="API_3DModelTypeID.html">API_3DModelTypeID</a></strong>         <em>model3D</em>;
+        <strong>Int32</strong>                     <em>filler_1[2]</em>;
+        <strong>bool</strong>                      <em>transparency</em>;
+        <strong>bool</strong>                      <em>monochromeEnabled</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>              <em>monochromeSurfaceRGB</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>              <em>monochromeContourRGB</em>;
+        <strong>bool</strong>                      <em>bkgAsInRendering</em>;
+        <strong>bool</strong>                      <em>chainBkgColors</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>              <em>bkgSkyColor</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>              <em>backGroundRGB</em>;
+        <strong><a href="API_ShadingContoursID.html">API_ShadingContoursID</a></strong>     <em>shadCont</em>;
+        <strong>Int32</strong>                     <em>filler_2[4]</em>;
+        <strong><a href="API_VectorShadowID.html">API_VectorShadowID</a></strong>        <em>vectSunShadow</em>;
+        <strong>bool</strong>                      <em>vectHatchOn</em>;
+        <strong>bool</strong>                      <em>filler_3</em>;
+        <strong>short</strong>                     <em>contourThickness</em>;
+        <strong>short</strong>                     <em>silhouetteThickness</em>;
+        <strong>short</strong>                     <em>vectorialHatchingThickness</em>;
+        <strong>short</strong>                     <em>shadowContourThickness</em>;
+        <strong>short</strong>                     <em>castShadowPercent</em>;
+        <strong>short</strong>                     <em>shadingPercent</em>;
+        <strong>double</strong>                    <em>shadowElevation</em>;
+        <strong>bool</strong>                      <em>show3DHotSpotsOnly</em>;
+    <strong>}</strong> <em>API_3DStyle</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>name[API_UniLongNameLen]</b></dt>
+
+        <dd>The name of the style, must be unique within a project</dd>
+
+        <dt><b>engineId</b></dt>
+
+        <dd>ID of 3D Rendering Engine</dd>
+
+        <dt><b>model3D</b></dt>
+
+        <dd>Image type of the 3D model (Block, Wireframe, Hidden Line, Shading)</dd>
+
+        <dt><b>transparency</b></dt>
+
+        <dd>Transparency in shading is in effect or not</dd>
+
+        <dt><b>monochromeEnabled</b></dt>
+
+        <dd>Monochrome rendering mode, using one uniform color for all surfaces and another one for all contours. </dd>
+
+        <dt><b>monochromeSurfaceRGB</b></dt>
+
+        <dd>Color of all surfaces (ignored if <code>monochromeEnabled</code> is <code>false</code>)</dd>
+
+        <dt><b>monochromeContourRGB</b></dt>
+
+        <dd> Color of all contours (ignored if <code>monochromeEnabled</code> is <code>false</code>)</dd>
+
+        <dt><b>bkgAsInRendering</b></dt>
+
+        <dd>Use the background specified previously in Photorendering Settings</dd>
+
+        <dt><b>chainBkgColors</b></dt>
+
+        <dd>Link sky and ground colors</dd>
+
+        <dt><b>bkgSkyColor</b></dt>
+
+        <dd>Background sky color (ignored if <code>bkgAsInRendering</code> is <code>true</code>)</dd>
+
+        <dt><b>backGroundRGB</b></dt>
+
+        <dd>Background ground color (ignored if <code>bkgAsInRendering</code> is <code>true</code>)</dd>
+
+        <dt><b>shadCont</b></dt>
+
+        <dd>Contour visibility options for shaded image mode</dd>
+
+        <dt><b>vectSunShadow</b></dt>
+
+        <dd>Vectorial sun shadow generation options</dd>
+
+        <dt><b>vectHatchOn</b></dt>
+
+        <dd>Vectorial hatch patterns are used in analytic shaded mode</dd>
+
+        <dt><b>contourThickness</b></dt>
+
+        <dd>Thickness of contour lines in pixels</dd>
+
+        <dt><b>silhouetteThickness</b></dt>
+
+        <dd>Thickness of silhouette lines in pixels</dd>
+
+        <dt><b>vectorialHatchingThickness</b></dt>
+
+        <dd>Thickness of vectorial hatching lines in pixels</dd>
+
+        <dt><b>shadowContourThickness</b></dt>
+
+        <dd>Thickness of shadow contour lines in pixels</dd>
+
+        <dt><b>castShadowPercent</b></dt>
+
+        <dd>Intensity of cast shadows</dd>
+
+        <dt><b>shadingPercent</b></dt>
+
+        <dd>Intensity of shades</dd>
+
+        <dt><b>shadowElevation</b></dt>
+
+        <dd>The absolute elevation of the horizontal plane on which the vectorial shadows will be generated. Valid only if <code>vectSunShadow</code> is either <code>APIVectShad_ContOff_OneLevel</code> or <code>APIVectShad_ContOn_OneLevel</code></dd>
+
+        <dt><b>show3DHotSpotsOnly</b></dt>
+
+        <dd>Display also 2D hotspots in the 3D window</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <code>API_3DStyle</code> structure is used by the <a href="../Functions/APIEnv_Get3DStyleListID.html">APIEnv_Get3DStyleListID</a>, the <a href="../Functions/APIEnv_Get3DStyleID.html">APIEnv_Get3DStyleID</a> and the <a href="../Functions/APIEnv_Change3DStyleID.html">APIEnv_Change3DStyleID</a> environment functions.<br>
+    Changing active style can be done using the <a href="../Functions/APIEnv_SetCurrent3DStyleID.html">APIEnv_SetCurrent3DStyleID</a> function.</p><br>
+    <p>The range of values for all kinds of line thicknesses is [1, 10].</p>
+    <p>The following settings are ignored using the OpenGL engine: <code>vectHatchOn, silhouetteThickness, vectorialHatchingThickness, shadowContourThickness, castShadowPercent, shadingPercent</code>. </p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p>
+    <a href="../Functions/APIEnv_Get3DStyleListID.html">APIEnv_Get3DStyleListID</a>,<br>
+    <a href="../Functions/APIEnv_Get3DStyleID.html">APIEnv_Get3DStyleID</a>,<br>
+    <a href="../Functions/APIEnv_Change3DStyleID.html">APIEnv_Change3DStyleID</a>,<br>
+    <a href="../Functions/APIEnv_SetCurrent3DStyleID.html">APIEnv_SetCurrent3DStyleID</a>,<br>
+    <a href="../Functions/APIEnv_Create3DStyleID.html">APIEnv_Create3DStyleID</a>,<br>
+    <a href="API_3DModelTypeID.html">API_3DModelTypeID</a>,<br>
+    <a href="API_ShadingContoursID.html">API_ShadingContoursID</a>,<br>
+    <a href="API_VectorShadowID.html">API_VectorShadowID</a>,<br>
+    <a href="API_RGBColor.html">API_RGBColor</a>,<br>
+    <a href="API_Types.html">API Types</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 13, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

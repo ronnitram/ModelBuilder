@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>GetMaxDistance</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Light/GetMaxDistance.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="Light.html">Light</a>::GetMaxDistance</h1><br>
+    Get the maximum distance for clipping.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>double  GetMaxDistance (
+    void
+) const;</b>
+</pre>
+
+    <h3>Return value</h3>
+
+    <p>The maximum distance.</p>
+
+    <h3>Description</h3>
+
+    <p>This method returns the maximum distance for clipping. The light has two clipping distances. The effect of the light is limited by these values. This parameter is valid if the light type is <i>DirectionalLight</i>, <i>PointLight</i> or <i>SpotLight</i><br>
+    Here is an example how to calculate the light color for a given point:</p>
+    <pre class="syntax">
+<b>
+// light:    The light object.
+// distance: The distance of the given point from the light source.
+// color:    The light color in the given point.
+
+color.red   = 0.0;
+color.green = 0.0;
+color.blue  = 0.0;
+if (distance &gt;= light.<a href="GetMinDistance.html">GetMinDistance</a> () &amp;&amp; distance &lt;= light.GetMaxDistance ()) {
+    double attenuation = 1.0 / (1.0 + (distance - light.<a href="GetMinDistance.html">GetMinDistance</a> ()) * light.<a href="GetDistanceFalloff.html">GetDistanceFalloff</a> ());
+
+    color.red   = light.<a href="GetColor.html">GetColor</a> ().red   * attenuation;
+    color.green = light.<a href="GetColor.html">GetColor</a> ().green * attenuation;
+    color.blue  = light.<a href="GetColor.html">GetColor</a> ().blue  * attenuation;
+}
+</b>
+</pre>
+
+    <p><b>Available from version: 8</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

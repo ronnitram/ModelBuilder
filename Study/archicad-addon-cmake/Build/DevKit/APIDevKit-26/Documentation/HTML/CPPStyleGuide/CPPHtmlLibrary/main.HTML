@@ -1,0 +1,831 @@
+<!doctype html>
+<html>
+    <head>
+        <title>C++ Style Guide</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Author" content="Dénes Fintha" />
+        <style type="text/css">
+            .footer > p { text-align: center; }
+            .code-keyword { color: #3333FF; }
+            .code-comment { color: #990000; }
+            .code-string { color: #CC0000; }
+        </style>
+    
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="CPPHtmlLibrary/main.HTML">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">C/C++&nbsp;Style&nbsp;Guide</span><span class="TitleVersion">Version: 1.1</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+        <h1>C++ Style Guide</h1>
+
+        <h2><a name="Introduction">Introduction</a><br /></h2>
+        <p>
+            This document contains the coding standard of Graphisoft, which sets the formal requirements for writing
+            source code. It also describes a few rules and recommendations for the content.
+        </p>
+        <hr />
+
+        <h2><a name="General_formatting_rules">General formatting rules</a><br /></h2>
+        <h3><a name="General_formatting_rules__Naming_conventions">Naming conventions</a></h3>
+        <p>
+            Using underscore (_) at the beginning of names is forbidden.
+        </p>
+        <h4>#define names</h4>
+        <p>
+            Should be written in capitals; names consisting of more than one word should be separated by underscores
+            (_). E.g.: PLATFORM, DEBUG_LEVEL_2, REFERENCE_CHECK.
+        </p>
+        <h4>
+            Type names (struct, enum, typedef, class, namespace, template, constant names (const), enumerated values,
+            function names
+        </h4>
+        <p>
+            Use UpperCamelCase, capitalize the first letter of every word.
+        </p>
+        <code>
+            <span class="code-keyword">namespace</span> UtilDefs {<br />
+            <br />
+            <span class="code-keyword">typedef unsigned int</span> UnsignedInt;<br />
+            <span class="code-keyword">const size_t</span> ConstantValue = 0;<br />
+            <br />
+            <span class="code-keyword">void</span> FooBarBaz ();<br />
+            <br />
+            <span class="code-keyword">struct</span> MyType;<br />
+            <span class="code-keyword">enum</span> DummyEnum {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;DummyValue1,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;DummyValue2<br />
+            }<br />
+            <br />
+            }<br />
+        </code>
+        <h4>Variable and parameter names</h4>
+        <p>
+            Use lowerCamelCase: capitalize the first letter of every word,
+            except the first one.
+        </p>
+        <code>
+            <span class="code-keyword">void</span> Foo (ODB::Ref&lt;OBB::Object&gt; dummyRef)<br />
+            {<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">size_t</span> variable;<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">unsigned int</span> debugLevelCheck;<br />
+            }<br />
+        </code>
+        <h3><a name="General_formatting_rules__Spacing">Spacing</a></h3>
+        <h4>Indenting</h4>
+        <p>
+            The base unit of indenting is one tab, equal to 4 characters. You can use spaces for better alignment where
+            needed.
+        </p>
+        <h4>Spaces</h4>
+        <p>
+            General rules for placing spaces (you can use more than one
+            whitespace for better alignment):
+        </p>
+        <ol>
+            <li>Leave one space before the first opening bracket ''character''.</li>
+            <li>Leave one space after the comma ''character''.</li>
+            <li>Leave one space before and after the equal sign ''character''.</li>
+            <li>Leave one space before and after binary operators (e.g. *, +, !=, |).</li>
+            <li>
+                Don't put any space for unary operators (e.g. ++x, !x), pointers (e.g. x[y], *x), and member operators
+                (e.g. a-&gt;b, a.b).
+            </li>
+            <li>
+                Leave one space before and after the question mark and the colon characters of the ternary
+                operator.
+            </li>
+            <li>
+                Don't put spaces in every other case (e.g. ::, "str"_x, these belong to the "other operators" category).
+            </li>
+        </ol>
+        <code>
+            a.b = <span class="code-keyword">sizeof</span> (<span class="code-keyword">int</span>);
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-comment">// rule #5 ("."), #3 ("="), and #1 ("(")</span><br />
+            <span class="code-keyword">double</span> x, y, z;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-comment">// rule #2 (",")</span><br />
+            <span class="code-keyword">for</span> (<span class="code-keyword">size_t</span> i = 0; i != 10; ++i);
+            <span class="code-comment">// rule #1 ("("), #3 ("="), #4 ("!="), and #5 ("++i")</span><br />
+            <span class="code-keyword">bool</span> result = condition ? a : b;
+            &nbsp;<span class="code-comment">// rule #6 ("?", ":")</span><br />
+        </code>
+        <h4>Alignment</h4>
+        <p>Align function names in function groups.</p>
+        <code>
+            ODB::Ref&lt;ODB::Object&gt; DoThis ();<br />
+            <span class="code-keyword">void</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            DoThat ();<br />
+            <br />
+            <span class="code-keyword">class</span> Dummy {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">static void</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Foo ();<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">static const</span>
+            GS::Array&lt;ODB::Ref&lt;ODB::Object&gt;&gt; Bar ();<br />
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-keyword">explicit</span> Dummy (int a);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;
+            Dummy ();<br />
+            };<br />
+        </code>
+        <p>Align the '=' equal sign and the values for multiple, related assignments.</p>
+        <code>
+            <span class="code-keyword">const size_t</span> StartIndex&nbsp;&nbsp;&nbsp;= 0;<br />
+            <span class="code-keyword">const size_t</span> MiddleIndex&nbsp;&nbsp;= 49;<br />
+            <span class="code-keyword">const size_t</span> EndIndex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 99;<br />
+            <span class="code-keyword">size_t</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currentIndex = 0;<br />
+            <br />
+            <span class="code-keyword">enum</span> Token {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;Integer&nbsp;&nbsp;&nbsp;= 25,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;Real&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 48,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;Character = 701<br />
+            };<br />
+        </code>
+        <h3><a name="General_formatting_rules__Other">Other</a></h3>
+        <h4>Line length</h4>
+        <p>The maximum length of lines is 120 characters.</p>
+        <h4>Substatements in blocks</h4>
+        <p>
+            You should use the following rules when using control flow
+            statements (e.g. for, if-else, etc.) requiring sub-statements:
+        </p>
+        <ol>
+            <li>For one-liners you can choose between the block and non-block form.</li>
+            <li>For embedded statements only the innermost sub-statement can have non-block form.</li>
+            <li>For compound statements should be consistent: either all or none in block form.</li>
+        </ol>
+        <code>
+            <span class="code-keyword">for</span> (UInt32 i = 0; i &lt; 100; i++) 
+            <span class="code-comment">// rule #1</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;statement;<br />
+            <br />
+            <span class="code-keyword">while</span> (condition) {
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-comment">// rule #1</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            }<br />
+            <br />
+            <span class="code-keyword">if</span> (condition1) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">if</span> (condition2)
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-comment">// rule #2, and...</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statement1;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">else</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-comment">// ... rule #3</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statement2;<br />
+            }<br />
+        </code>
+        <h4>Compound control flow statements</h4>
+        <p>Don't put a new line between the preceding and the following parts.</p>
+        <code>
+            <span class="code-keyword">if</span> (condition1) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            } <span class="code-keyword">else if</span> (condition2) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            } <span class="code-keyword">else</span> {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            }<br />
+            <br />
+            <span class="code-keyword">do</span> {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            } <span class="code-keyword">while</span> (condition2);<br />
+            <br />
+            <span class="code-keyword">try</span> {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            } <span class="code-keyword">catch</span> (...) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            }<br />
+        </code>
+
+        <hr />
+
+        <h2><a name="Expressions">Expressions</a><br /></h2>
+        <ul>
+            <li>When comparing with constants (e.g. i == 5) the constant should be the second operand.</li>
+            <li>Don't use C-style cast in C++ code.</li>
+            <li>Don't rely on automatic bool conversion; state the conditionexplicitly:</li>
+        </ul>
+        <code>
+            <span class="code-keyword">unsigned int</span> i = f ();<br />
+            <span class="code-keyword">if</span> (i != 0) { <span class="code-comment">// instead of: if (i)</span>
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+            }<br />
+            <br />
+            <span class="code-keyword">char</span>* p = g ();<br />
+            <span class="code-keyword">if</span> (p != <span class="code-keyword">nullptr</span>) {
+            <span class="code-comment">// instead of: if (p)</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;...<br />
+            }<br />
+        </code>
+        <ul>
+            <li>
+                Also, do not use the bool result of logical negation. E.g. use
+                i == 0 instead of !i, and p == nullptr instead of !p.
+                (Of course, bool variables and expressions can be negated, e.g. !b).
+            </li>
+            <li>
+                Logical expressions consisting of many parts should be placed on
+                multiple lines. The opening curly brace should be on a separate
+                line when you have multiple conditions:
+            </li>
+        </ul>
+        <code>
+            <span class="code-keyword">if</span> ((a > 2 && b < 1) ||<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;(c > 10 && d == 0) ||<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;(e == -5) ||<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;(f < 5 && f > 1))<br />
+            {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            }<br />
+        </code>
+        <ul>
+            <li>
+                Put parentheses around complicated expressions and rarely used
+                operators (e.g. where <code>&&</code> and <code>||</code>, or
+                <code>=</code> and <code>==</code> both appear), so that readers
+                don't have think about operator precedence.
+            </li>
+        </ul>
+        <code>
+            <span class="code-keyword">bool</span> a = (c == b);<br />
+        </code>
+        
+        <hr />
+
+        <h2><a name="Control_flow_statements">Control flow statements</a><br /></h2>
+        <h3><a name="Control_flow_statements__switch">switch</a></h3>
+        <code>
+            <span class="code-keyword">switch</span> (key) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> Value1:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">break</span>;<br />
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> Value2:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// no break</span><br />
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> Value3:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> Value4:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">break</span>;<br />
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> Value5: {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body with local
+            variables</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">break</span>;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">default</span>:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">break</span>;<br />
+            }<br />
+        </code>
+        <p>
+            You must have a default branch (error handling!), and it should always be the last one. You should add a 
+            "no break" comment, if after the execution of a non-empty case branch execution will continue to the
+            next case branch. You shouldn't add break after unconditional return or throw statements.
+        </p>
+        <p>
+            For short, compressed case branches (e.g. conversion) you can use the more readable compact switch form:
+        </p>
+        <code>
+            <span class="code-keyword">switch</span> (code) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> 'I':
+            <span class="code-keyword">return</span> 1;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> 'R':
+            <span class="code-keyword">return</span> 1;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> 'B':
+            <span class="code-keyword">return</span> 1;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> '\n':
+            <span class="code-keyword">return</span> 1;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">default</span>:
+            <span class="code-keyword">return</span> 1;<br />
+            }<br />
+        </code>
+        <h3><a name="Control_flow_statements__for_while_dowhile">for, while, do-while</a></h3>
+        <p>
+            Put a space between the '(', ';', or ')' characters if you leave any of the expressions out in the for
+            statement header. E.g.: for ( ; ; ).
+        </p>
+        <p>
+            Don't use any assignments when you specify the condition.
+        </p>
+        <h3><a name="Control_flow_statements__try_catch_throw">try-catch-throw</a></h3>
+        <p>
+            Catch the exception as a constant reference if the exception is not
+            of a simple type:
+        </p>
+        <code>
+            <span class="code-keyword">catch</span> (<span class="code-keyword">const</span> Type& exception)<br />
+        </code>
+        <h3><a name="Control_flow_statements__Variable_declarations_and_definitions">Variable declarations and definitions</a></h3>
+        <ul>
+            <li>Declare and/or define all variables in the smallest possible scope.</li>
+            <li>Declare all variables where you can initialize them.</li>
+            <li>Tie the * for pointers, and the & for references to the type:</li>
+        </ul>
+        <code>
+            <span class="code-keyword">char</span>* ptr = <span class="code-keyword">nullptr</span>;<br />
+            USize& index = oldIndex;<br />
+        </code>
+        <ul>
+            <li>You should put all pointer and reference declarations into separate lines.</li>
+            <li>If a "variable" is really a constant, then say so: use the const qualifier:</li>
+        </ul>
+        <code>
+            <span class="code-keyword">const</span> Vector& v = translation;<br />
+        </code>
+        <ul>
+            <li>Do not use "naked" literal values (magic consts), assign them to const variables.</li>
+            <li>Naming conventions: see Variable and parameter names section.</li>
+        </ul>
+        
+        <hr />
+
+        <h2><a name="Functions">Functions</a><br /></h2>
+        <h3><a name="Functions__Declarations">Declarations</a></h3>
+        <ul>
+            <li>
+                Leave a space between the parameter types and their names. You can
+                move the function name to a new line if you have multiple modifier keywords:
+            </li>
+        </ul>
+        <code>
+            <span class="code-keyword">static int cdecl</span><br />
+            SetPointer (<span class="code-keyword">char</span>* p);
+        </code>
+        <ul>
+            <li>
+                Use the following indentation and alignment if a function has many parameters,
+                or the declaration doesn't fit into one line:
+            </li>
+        </ul>
+        <code>
+            String ConcatenateName (<span class="code-keyword">const</span> String* part1,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-keyword">const</span> String* part2,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-keyword">const</span> String* part3,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-keyword">const</span> String* part4,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-keyword">bool</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appendNewLine =
+            <span class="code-keyword">false</span>);
+        </code>
+        <ul>
+            <li>Use the const qualifier for all logically constant parameters.</li>
+            <li>Pass bool parameter only in trivial cases, use enum-s otherwise.</li>
+            <li>
+                Naming conventions: see Type names (struct, enum, typedef, class,
+                namespace, template, constant names (const), enumerated values,
+                function names section.
+            </li>
+        </ul>
+        <h3><a name="Functions__Implementation">Implementation</a></h3>
+        <ul>
+            <li>Template:</li>
+        </ul>
+        <code>
+            <span class="code-keyword">void</span>&nbsp;&nbsp;&nbsp;&nbsp;PrintNumber
+            (<span class="code-keyword">int</span>
+            n, <span class="code-keyword">short</span> radix)<br />
+            {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            }<br />
+        </code>
+        <ul>
+            <li>Write the function header according to the rules and recommendations set for function declarations.</li>
+            <li>Start the function's body with 1-tab indentation.</li>
+            <li>Leave two empty lines after the closing curly brace '}' of the function.</li>
+            <li>
+                Avoid having too compact structures, using very complex expressions, or magical C tricks. Try to write
+                short functions (SRP!).
+            </li>
+            <li>
+                Keep conditional expressions maximum 3 levels deep. Extract the rest to separate (possibly inline)
+                functions.
+            </li>
+            <li>Use asserts to check incoming parameters (preconditions) at the beginning of the function body.</li>
+            <li>See the Variable declarations and definitions section on local (and static) variable declarations.</li>
+        </ul>
+        
+        <hr />
+
+        <h2><a name="Class_definitions">Class definitions</a><br /></h2>
+        <h3><a name="Class_definitions__Basic_structure">Basic structure</a></h3>
+        <h4>Visibility</h4>
+        <code>
+            <span class="code-keyword">class</span> Vector {<br />
+            <span class="code-keyword">private</span>:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// private part</span><br />
+            <br />
+            <span class="code-keyword">protected</span>:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// protected part</span><br />
+            <br />
+            <span class="code-keyword">public</span>:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// public part</span><br />
+            };<br />
+        </code>
+        <p>
+            Put the opening curly bracket '{' onto a new line if the header of the class spans multiple lines (see
+            inheritance). In some rare cases you can use more then one public, protected, or private sections. E.g. you
+            may decide that you put those declarations (local types, e.g. enum-s) into the public (or protected)
+            sections that are used in the private (or protected) sections. You can put those definitions at the
+            beginning of the class:
+        </p>
+        <code>
+            <span class="code-keyword">class</span> Vector {<br />
+            <span class="code-keyword">public</span>:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">typedef double</span> Coord;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// other public definitions also used by the private
+            (protected) part</span><br />
+            <br />
+            <span class="code-keyword">private</span>:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// private part</span><br />
+            <br />
+            <span class="code-keyword">protected</span>:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// protected part</span><br />
+            <br />
+            <span class="code-keyword">public</span>:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// public part</span><br />
+            };<br />
+        </code>
+        <h4>Template classes</h4>
+        <code>
+            <span class="code-keyword">template</span> &lt;
+            <span class="code-keyword">class</span> Type,
+            <span class="code-keyword">int</span> BufferSize = 16&gt;<br />
+            <span class="code-keyword">class</span> Array {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            };<br />
+        </code>
+        <p>You should treat template arguments the same way as function arguments.</p>
+        <h4>Inheritance</h4>
+        <code>
+            <span class="code-keyword">class</span> Derived:
+            <span class="code-keyword">public</span> Base1,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-keyword">public</span> Base2,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-keyword">protected</span> Base3,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-keyword">private</span> Base4<br />
+            {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            };<br />
+        </code>
+        <p>
+            You should always indicate the default private keyword. For virtual inheritance the order should be public
+            virtual Base. The opening brace in case of single inheritance should go to the end of the header line
+            (class ...).
+        </p>
+        <h4>Naming conventions</h4>
+        <ul>
+            <li>Class names: see Type names (struct, enum, typedef, class, namespace, template parameter section).</li>
+            <li>
+                Template parameter names: seeType names (struct, enum, typedef, class, namespace, template parameter
+                section).
+            </li>
+        </ul>
+        <h4>Body</h4>
+        <h5>private section - typical layout, recommendations, rules</h5>
+        <p>For better readability the default private keyword should always appear at the beginning of the class.</p>
+        <p>Put a // disabled comment after disabled methods (e.g. constructors). E.g.:</p>
+        <code>
+            String (<span class="code-keyword">const</span> String& source);
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-comment">// disabled</span><br />
+            String& operator= (<span class="code-keyword">const</span> String& source);&nbsp;&nbsp;
+            <span class="code-comment">// disabled</span><br />
+        </code>
+        <h5>protected section - typical layout, recommendations, rules</h5>
+        <p>Use protected data members sparingly; implement protected (or inline) methods instead.</p>
+        <h5>public section - typical layout, recommendations, rules</h5>
+        <p>Never use public data members.</p>
+        <h5>Data member declarations</h5>
+        <ul>
+            <li>You should place every data member on a separate line, below each other.</li>
+            <li>Align multiple data members:</li>
+        </ul>
+        <code>
+            <span class="code-keyword">char</span>* str;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-comment">// points to the allocated string (if not nullptr)</span><br />
+            USize size;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-comment">// size of the string</span><br />
+        </code>
+        <ul>
+            <li>Leave an empty line between logical groups of data members.</li>
+        </ul>
+        <h5>Method declarations</h5>
+        <ul>
+            <li>
+                Put each parameter into a separate line if the method doesn't fit into one line, or has many parameters.
+                Align the type and parameter names to each other. E.g.:
+            </li>
+        </ul>
+        <code>
+            <span class="code-keyword">virtual</span> Vector3D ComputePosition (<span class="code-keyword">const</span>
+            Matrix&&nbsp;&nbsp;rot,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Mode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mode,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-keyword">double</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-keyword">double</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="code-keyword">double</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;z)
+            <span class="code-keyword">const</span>;<br />
+        </code>
+        <ul>
+            <li>Leave an empty line after the method for better readability in such cases.</li>
+            <li>Template method declaration style:</li>
+        </ul>
+        <code>
+            <span class="code-keyword">template</span>
+            &lt;<span class="code-keyword">class</span> U,
+            <span class="code-keyword">class</span> V&gt;
+            <span class="code-keyword">inline</span> Pair& operator=
+            (<span class="code-keyword">const</span> Pair&lt;U, V&gt;& p);<br />
+        </code>
+        <ul>
+            <li>Always align the constructor method names if you use the explicit or inline keyword. E.g.:</li>
+        </ul>
+        <code>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String ();<br />
+            <span class="code-keyword">explicit</span> String (<span class="code-keyword">char</span> c);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String
+            (<span class="code-keyword">const char</span>* cStr);<br />
+            <span class="code-keyword">inline</span> &nbsp; String
+            (<span class="code-keyword">const char</span>* charPtr, USize charCount);<br />
+            <span class="code-keyword">explicit</span> String
+            (<span class="code-keyword">unsigned char</span>* pStr);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String
+            (<span class="code-keyword">const</span> String& source);<br />
+        </code>
+        <ul>
+            <li>
+                Always write the explicit keyword for single-parameter constructors (except the copy ctor) unless you
+                want to use them for automatic conversion.
+            </li>
+            <li>Always use const, except in very special cases.</li>
+            <li>
+                Always write the virtual virtual keyword in front of virtual methods for better readability, even if
+                that method has already inherited that property from its parent.
+            </li>
+        </ul>
+        
+        <hr />
+
+        <h2><a name="Class_implementations">Class implementations</a><br /></h2>
+        <h3><a name="Class_implementations__Methods">Methods</a></h3>
+        <ul>
+            <li>The order of methods in the class definition and implementation file should be the same.</li>
+            <li>Constructor style</li>
+        </ul>
+        <code>
+            Array::Array (USize internalCapacity, USize maxSize):<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;base1 (initialCapacity),<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;base2 (0, 25),<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;member1 ("", 40),<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;member2 (1),<br />
+            {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            }<br />
+        </code>
+        <ul>
+            <li>
+                Always align the ancestor classes' and the data member initializations, with the ancestor classes first,
+                then the data members in the same order as they were declared in the class. You can also initialize the
+                data members in the constructor body if that is more practical.
+            </li>
+            <li>The same rules and recommendations apply to method header style as to the method declarations.</li>
+            <li>
+                You should always use scoped references when accessing out-of-class names. E.g. refer to the global (OS
+                specific) Sleep () function as ::Sleep ().
+            </li>
+            <li>Follow the rules for function implementation in other method implementation cases.</li>
+        </ul>
+        
+        <hr />
+
+        <h2><a name="namespace">namespace</a><br /></h2>
+        <code>
+            <span class="code-keyword">namespace</span> CLib {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">void</span>*
+            MemCopy (<span class="code-keyword">void</span>* destPtr,
+            <span class="code-keyword">void</span>* srcPtr, UInt32 count);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">void</span>*
+            MemMove (<span class="code-keyword">void</span>* destPtr,
+            <span class="code-keyword">void</span>* srcPtr, UInt32 count);<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">void</span>*
+            MemSet (<span class="code-keyword">void</span>* destPtr,
+            <span class="code-keyword">int</span> filler, UInt32 count);<br />
+            }<br />
+        </code>
+        <p>
+            You should indent with one tab the body of those namespace-s, which contain simple function declarations,
+            type definitions (typedef), and constant values. If you define or implement a (bigger) class in a namespace,
+            then indenting is not always practical; use this style instead:
+        </p>
+        <code>
+            <span class="code-keyword">namespace</span> Math {<br />
+            <br />
+            <span class="code-keyword">class</span> Vector {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// body</span><br />
+            };<br />
+            <br />
+            }<br />
+        </code>
+        <p>Always comment the last line for big namespace-s.</p>
+        <p>
+            Except the main () function everything should go into namespace-s to avoid name collisions — especially when
+            you use external libraries.
+        </p>
+        <p>Do not use the using namespace X directive in header files.</p>
+        
+        <hr />
+
+        <h2><a name="Preprocessor_directives">Preprocessor directives</a><br /></h2>
+        <code>
+            <span class="code-keyword">#if defined (XXX)</span><br />
+            <br />
+            <span class="code-comment">// body</span><br />
+            <br />
+            <span class="code-keyword">#else</span><br />
+            <br />
+            <span class="code-comment">// body</span><br />
+            <br />
+            <span class="code-keyword">#endif</span><br />
+        </code>
+        <p>
+            Do not indent "normal" C++ code in conditional preprocessor statements; but indent other preprocessor
+            statements with one tab. Put comments after directives which are longer than two screens, so that matching
+            directives could easily be found.
+        </p>
+        
+        <hr />
+
+        <h2><a name="Comments">Comments</a><br /></h2>
+        <ul>
+            <li>You should write comments in English. Do not use accented characters.</li>
+            <li>
+                You can find the recommended style in the Control/Template.hpp and Control/Template.cpp sample files.
+            </li>
+            <li>
+                You should enclose unused parameters in comments (/* ... */). Do
+                not use the #pragma unused directive. If a release build would require
+                that, use the UNUSED_PARAMETER macro instead.
+            </li>
+            <li>You should always add comments:
+                <ul>
+                    <li>For unusual solutions and contructs (omitting break-s, empty loop body, etc.).</li>
+                    <li>If understanding the code would take too long for someone else.</li>
+                    <li>If something is forbidden or not recommended for others.</li>
+                </ul>
+            </li>
+        </ul>
+        
+        <hr />
+
+        <h2><a name="File_structure">File structure</a><br /></h2>
+        <ul>
+            <li>Always use 4 spaces as tabs in all files.</li>
+            <li>
+                The maximum length of the lines is 120 characters. Statements
+                (function and method bodies) shouldn't even get close to this number!
+            </li>
+            <li>
+                You should put header guards into all header files. The name
+                consists of the GS prefix, the namespace identifier, the file name,
+                and the HPP suffix in capital letters. Separate the members
+                with underscores ("_"). E.g.:
+            </li>
+        </ul>
+        <code>
+            <span class="code-keyword">#if !defined GS_IO_LOCATION_HPP</span><br />
+            <span class="code-keyword">#define GS_IO_LOCATION_HPP</span><br />
+            <br />
+            <span class="code-comment">// body</span><br />
+            <br />
+            <span class="code-keyword">#endif</span><br />
+        </code>
+        <p>
+            In this example the name of the header file is "Location.hpp", and
+            the namespace is "IO". This is a special case of preprocessor
+            directive: do not indent the lines within.
+        </p>
+        <ul>
+            <li>
+                Write all the #include statements at the beginning of the source
+                and header files, followed by the forward declarations (in headers).
+                E.g.:
+            </li>
+        </ul>
+        <code>
+            <span class="code-comment">// -------------------------------- Includes
+            ---------------------------------</span><br />
+            <br />
+            <span class="code-keyword">#include</span> <span class="code-string">"Base.hpp"</span><br />
+            <br />
+            <span class="code-keyword">#include</span> <span class="code-string">"Array.hpp"</span><br />
+            <br />
+            <span class="code-keyword">#include</span> <span class="code-string">"Stack.hpp"</span><br />
+            <br />
+            <span class="code-comment">// ---------------------------- Predeclarations
+            ------------------------------</span><br />
+            <br />
+            <span class="code-keyword">class</span> SymbolSet;<br />
+        </code>
+        <ul>
+            <li>
+                The header file should stand on its own; there shouldn't be any need to #include any other file to
+                compile it. In the .cpp file the first #include should be the matching .hpp  header file; this ensures
+                that the header file compiles on its own.
+            </li>
+            <li>
+                File names are case sensitive, their extension should be .cpp and .hpp, or .c and .h, depending on
+                whether they could be used in purely C code. Every file name reference (#include, makefile) should be
+                case sensitive.
+            </li>
+            <li>Do not use the "." (parent) operator when you #include another header.</li>
+            <li>
+                Preferably every class has its own header and source file, but if you have many closely related classes,
+                put them into one file. A template class and its specialized versions should also be kept in one file.
+                On the other hand, avoid placing a base class and its descendants into one file.
+            </li>
+            <li>
+                Every header file should #include only what the class declaration needs: the ancestor classes and the
+                data member types. If a type is used only as a pointer, reference, or method return value in the class,
+                then use forward declarations instead of #include to reduce the number of dependencies, and to speed up
+                compilation.
+            </li>
+            <li>The files of each subsystem (module, package) should be kept in a separate subdirectories.</li>
+        </ul>
+
+        
+    
+     <p style="display: none;">
+          <img src="../StyleLibrary/Images/requirements.png" />
+          <img src="../StyleLibrary/Images/seealso.png" />
+          <img src="../StyleLibrary/Images/Treeview/empty1.gif" />
+          <img src="../StyleLibrary/Images/Treeview/empty.gif" />
+          <img src="../StyleLibrary/Images/Treeview/join.gif" />
+          <img src="../StyleLibrary/Images/Treeview/joinbottom.gif" />
+          <img src="../StyleLibrary/Images/Treeview/leftarrow.png" />
+          <img src="../StyleLibrary/Images/Treeview/line.gif" />
+          <img src="../StyleLibrary/Images/Treeview/minus.gif" />
+          <img src="../StyleLibrary/Images/Treeview/minusbottom.gif" />
+          <img src="../StyleLibrary/Images/Treeview/plus.gif" />
+          <img src="../StyleLibrary/Images/Treeview/plusbottom.gif" />
+          <img src="../StyleLibrary/Images/Treeview/rightarrow.png" />
+     </p>
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

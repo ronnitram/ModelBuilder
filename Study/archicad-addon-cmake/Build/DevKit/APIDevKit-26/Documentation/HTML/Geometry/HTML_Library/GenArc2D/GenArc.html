@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>GenArc</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/GenArc2D/GenArc.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GenArc</h1>
+
+    <p>Describes a general arc. It can be a full circle, an arc of a circle, a full ellipse or an arc of an ellipse.</p>
+    <pre class="syntax">
+    <strong>struct</strong> GenArc {
+      <strong><a href="../Vector2D/Coord.html">Coord</a></strong>   <em>origC</em>;
+      <strong>double</strong>  <em>r</em>;
+      <strong>double</strong>  <em>angle</em>;
+      <strong>double</strong>  <em>ratio</em>;
+      <strong>double</strong>  <em>begAng</em>;
+      <strong>double</strong>  <em>endAng</em>;
+      <strong><a href="../Vector2D/Coord.html">Coord</a></strong>   <em>begC</em>;
+      <strong><a href="../Vector2D/Coord.html">Coord</a></strong>   <em>endC</em>;
+      <strong>bool</strong>    <em>elliptic</em>;
+      <strong>bool</strong>    <em>reflected</em>;
+      <strong>bool</strong>    <em>whole</em>;
+      <strong>bool</strong>    <em>filler_1</em>;
+      <strong>long</strong>    <em>filler_2</em>;
+    };
+
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>origC</b></dt>
+
+        <dd>The center of the arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>r</b></dt>
+
+        <dd>The radius of the arc in case of a circle or circle arc. One of the axes in case of an ellipse or ellipse arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>angle</b></dt>
+
+        <dd>Unused in case of circle or circle arc. The direction angle of the above axis in case of an ellipse or ellipse arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>ratio</b></dt>
+
+        <dd>Unused in case of circle or circle arc. The ratio of the above and the secondary axis in case of an ellipse or ellipse arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>begAng</b></dt>
+
+        <dd>Unused in case of circle or ellipse. The beginning direction in case of circle arc or elliptic arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>endAng</b></dt>
+
+        <dd>Unused in case of circle or ellipse. The ending direction in case of circle arc or elliptic arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>begC</b></dt>
+
+        <dd>Unused in case of circle or ellipse. The point on the curve in the beginning direction in case of circle arc or elliptic arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>endC</b></dt>
+
+        <dd>Unused in case of circle or ellipse. The point on the curve in the ending direction in case of circle arc or elliptic arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>elliptic</b></dt>
+
+        <dd>True if it is an ellipse or ellipse arc.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>reflected</b></dt>
+
+        <dd>True if its orientation is negative.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>whole</b></dt>
+
+        <dd>True in case of circle or ellipse.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>filler_1</b></dt>
+
+        <dd>Reserved.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>filler_2</b></dt>
+
+        <dd>Reserved.</dd>
+
+        <dd>&nbsp;</dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> GenArc2DData.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="GenArc2D_id.html">GenArc functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 6, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

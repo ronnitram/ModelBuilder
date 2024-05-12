@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>SetModificationTime</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/File/SetModificationTime.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="File.html">File</a>::SetModificationTime</h1><br>
+    Sets last modification time attribute of the file.<br>
+    <br>
+    <pre class="syntax">
+<b>virtual GSErrCode  </b><b>SetModificationTime</b><b> (
+    const <a href="../../../GSRoot/GSRootHTMLLibrary/TimeManagers/DateTimeManager/def_id.html">GSTime</a>&amp; newTime
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>newTime</em></dt>
+
+        <dd>New value of the last modification time file attribute.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="346">
+        <tr>
+            <th width="95">Value</th>
+
+            <th width="209">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="95">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="209">OK</td>
+        </tr>
+
+        <tr>
+            <td width="95">AccessDenied<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="209">operation is not allowed on this file</td>
+        </tr>
+
+        <tr>
+            <td width="95">InvalidTime<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="209">invalid time was specified</td>
+        </tr>
+
+        <tr>
+            <td width="95">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="209">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in File class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method sets last modification time attribute of the file to <i>newTime</i>.<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

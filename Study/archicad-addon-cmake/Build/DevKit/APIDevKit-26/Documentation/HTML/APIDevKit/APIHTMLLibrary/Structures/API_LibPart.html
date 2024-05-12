@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_LibPart</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_LibPart.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_LibPart</h1>
+
+    <p>Definition of a Library Part.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_LibTypeID.html">API_LibTypeID</a></strong>      <em>typeID</em>;
+        <strong>Int32</strong>              <em>index</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>        <em>docu_UName [API_UniLongNameLen]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>        <em>file_UName [API_UniLongNameLen]</em>;
+        <strong>bool</strong>               <em>missingDef</em>;
+        <strong>bool</strong>               <em>filler_1</em>;
+        <strong>bool</strong>               <em>isTemplate</em>;
+        <strong>bool</strong>               <em>isPlaceable</em>;
+        <strong>GSType</strong>             <em>ownerID</em>;
+        <strong>short</strong>              <em>version</em>;
+        <strong>unsigned short</strong>     <em>platformSign</em>;
+        <strong>Int32</strong>              <em>filler_2[7]</em>;
+        <strong><a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a></strong>       <em>*location</em>;
+        <strong>Int32</strong>              <em>filler_3</em>;
+        <strong>char</strong>               <em>ownUnID [128]</em>;
+        <strong>char</strong>               <em>parentUnID [128]</em>;
+    <strong>}</strong> <em>API_LibPart</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>typeID</b></dt>
+
+        <dd>Type of the Library Part</dd>
+
+        <dt><b>index</b></dt>
+
+        <dd>Index of the Library Part;<br>
+        provides the current database index of the given Library Part. Note that this number is not constant for a particular Library Part through the whole life of the project.</dd>
+
+        <dt><b>docu_UName</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>Document name of the Library Part;<br>
+        it is unique, if more than one Library Part has the same name, only the newest one is registered. Refer to the <a href="../Functions/APIEnv_OverwriteLibPartID.html">APIEnv_OverwriteLibPartID</a> function to modify this behavior.</dd>
+
+        <dt><b>file_UName</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>File name of the Library Part</dd>
+
+        <dt><b>missingDef</b></dt>
+
+        <dd>The definition is missing</dd>
+
+        <dt><b>isTemplate</b></dt>
+
+        <dd>Tells whether this library part is a template.</dd>
+
+        <dt><b>isPlaceable</b></dt>
+
+        <dd>Tells whether this library part can be placed.</dd>
+
+        <dt><b>ownerID</b></dt>
+
+        <dd>Signature of the owner; used by external objects;<br>
+        it can either be Archicad itself, or any third party application.</dd>
+
+        <dt><b>version</b></dt>
+
+        <dd>Library Part version</dd>
+
+        <dt><b>platformSign</b></dt>
+
+        <dd>Library Part platform</dd>
+
+        <dt><b>location</b></dt>
+
+        <dd>Location of the library part (GSM) file in the file system</dd>
+
+        <dt><b>ownUnID</b></dt>
+
+        <dd>The own GUID of the library part.</dd>
+
+        <dt><b>parentUnID</b></dt>
+
+        <dd>The GUID of the parent library part subtype in the hierarchy. For more details see <a href="../Level3/Library_Part_Subtype.html">Library Part Subtypes</a>.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is definition of the library part.</p>
+
+    <p>Note, that it is strongly advised to define the file and document name to the same one, because of the Windows/Mac compatibility. The document name terminology was introduced when the Windows platform restricted the filenames to be in 8.3 form.</p>
+
+    <p>Do not forget to delete the dynamically allocated <code>location</code> pointer after library part operations.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_LibraryParts.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_LibTypeID.html">API_LibTypeID</a><br>
+    <a href="../Functions/APIEnv_OverwriteLibPartID.html">APIEnv_OverwriteLibPartID</a><br>
+    <a href="../Level3/Library_Part_Manager_id.html">LibPart Manager</a><br>
+    <a href="../Level3/Library_Part_Subtype.html">Library Part Subtypes</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 12, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

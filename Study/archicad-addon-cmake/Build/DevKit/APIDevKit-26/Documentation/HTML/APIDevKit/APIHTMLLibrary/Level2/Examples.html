@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Examples</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level2/Examples.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Examples</h1>
+
+    <p>In the subfolder named <b>Examples</b> you can find several example projects. They demonstrate the different services of the API thematically. Please study the example projects for better understanding of the logic of the whole API.</p>
+
+    <h4>Structure</h4>
+
+    <p>For each example the example's main directory contains a project file for Xcode / Microsoft Visual Studio C++. After opening the project, you'll be able to build any of the examples. These project files also serve as template files for creating your own projects, although the DevKit also contains real template projects for each compiler/platform.</p>
+
+    <p>The example folders are organized to hold:</p>
+
+    <blockquote>
+        <ul>
+            <li>source files (in the <b>Src</b> folder)</li>
+
+            <li>resource files (localizable in the <b>RINT</b> and non-localizable in the <b>RFIX</b> directory, and the platform-dependent part in the <b>RFIX.win</b>/ <b>RFIX.mac</b> folder)</li>
+
+            <li>project files for each platform</li>
+        </ul>
+    </blockquote>
+
+    <h4>Compilation issues</h4>
+
+    <p>Please remove the <code>DEBUVERS</code> directive from your projects, because causes conflicts between the release and debug versions of the InputOutput module. To be more specific, the <tt>Location</tt> class (see <tt>Location.hpp</tt>) contains a data member which is in <code>#if defined(DEBUVERS)</code>. If your add-on is a debug version, and Archicad is release version, then the size of the <tt>Location</tt> class will be different, and that may cause crashes whenever a location is transferred between Archicad and your add-on (e.g. you add a library to the list of loaded libraries).</p>
+    <hr>
+
+    <p>The examples give you hints, tips &amp; tricks, and useful code snippets which demonstrate the correct use of different API managers and functions.</p>
+
+    <p>Areas:</p>
+
+    <blockquote>
+        <ul>
+            <li><a href="../Level3/3D_Manager_id.html">3D Manager</a> (<i>3D_Test</i>)</li>
+
+            <li><a href="../Level3/Attribute_Manager_id.html">Attribute Manager</a> (<i>Attribute_Test</i>)</li>
+
+            <li><a href="../Level3/Communication_Manager_id.html">Communication Manager</a> (<i>Communication_Client</i>, <i>Communication_Manager</i>)</li>
+
+            <li><a href="../Level3/Element_Manager_id.html">Element Manager</a> (<i>Element_Test</i>)</li>
+
+            <li><a href="../Level3/Library_Part_Manager_id.html">LibraryPart Manager</a> (<i>LibPart_Test</i>)</li>
+
+            <li><a href="../Level3/Listing_Manager_id.html">Listing Manager</a> (<i>Listing_Manager</i>)</li>
+
+            <li>Navigator Item Manager (<i>Navigator_Test</i>)</li>
+
+            <li><a href="../Level3/ModulData_Manager_id.html">ModulData Manager</a> (<i>ModulData_Manager</i>)&nbsp; <img border="0" src="../../APIImageLibrary/13.png" alt="Featuring API 13" width="19" height="12"></li>
+
+            <li><a href="../Level3/notification_manager_id.html">Notification Manager</a> (<i>Notification_Manager</i>)</li>
+
+            <li><a href="../Level3/Selection_Manager_id.html">Selection Manager</a> (<i>Selection_Manager</i>)</li>
+
+            <li><a href="../Level3/Teamwork_Control_id.html">Teamwork Control</a> (<i>Teamwork_Control</i>)&nbsp; <img border="0" src="../../APIImageLibrary/13.png" alt="Featuring API 13" width="19" height="12"></li>
+
+            <li><a href="../Level3/AddOnObject_Manager_id.html">AddOnObject Manager</a> (<i>AddOnObject_Manager</i>)&nbsp; <img border="0" src="../../APIImageLibrary/19.png" alt="Featuring API 19" width="19" height="12"></li>
+
+            <li><a href="../Level3/Override_id.html">Visual Override</a> (<i>Override_Test</i>)&nbsp; <img border="0" src="../../APIImageLibrary/20.png" alt="Featuring API 20" width="19" height="12"></li>
+
+            <li><a href="../Level3/Properties_id.html">Properties</a> (<i>Property_Test</i>)&nbsp; <img border="0" src="../../APIImageLibrary/20.png" alt="Featuring API 20" width="19" height="12"></li>
+
+            <li><a href="../Level3/Classification_id.html">Classifications</a> (<i>Classification_Test</i>)&nbsp; <img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></li>
+
+            <li><a href="../Level3/Classification_and_Property_Visibility_id.html">Classification and Property Visibility</a> (<i>Property_Visibility_Test</i>)&nbsp; <img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"><br>
+            </li>
+
+            <li><a href="../Level3/Structural_Analytical_Model_id.html">Structural Analytical Model</a> (<i>Structural_Analytical_Model_Test</i>)&nbsp; <img border="0" src="../../APIImageLibrary/24.png" alt="Featuring API 24" width="19" height="12"><br>
+            &nbsp;</li>
+
+            <li><a href="../Functions/acapi_automate_id.html">ACAPI_Automate</a> (<i>Automate_Functions</i>)</li>
+
+            <li><a href="../Functions/ACAPI_Database_id.html">ACAPI_Database</a> (<i>Database_Control</i>)</li>
+
+            <li><a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a> (<i>Environment_Control</i>)</li>
+
+            <li><a href="../Functions/ACAPI_Goodies_id.html">ACAPI_Goodies</a> (<i>Goodie_Functions</i>)</li>
+
+            <li><a href="../Functions/acapi_interface_id.html">ACAPI_Interface</a> (<i>Interface_Functions</i>)<br>
+            &nbsp;</li>
+
+            <li>Dialog Manager (<i>DG_Test</i>)</li>
+
+            <li>Graphisoft Root Package (<i>GSRoot_Test</i>)</li>
+
+            <li>Geometry (<i>Geometry_Test</i>)</li>
+
+            <li>ModelAccess Package (<i>ModelAccess_Test</i>)</li>
+			
+			<li>CommunicationCommon and CommunicationClient (<i>CommunicationClient_Test</i>)<br>
+            &nbsp;</li>
+
+            <li><a href="../Framework/API_Output_Framework.html">API Output Framework</a> – a C++ wrapper which iterates trough the Archicad databases (<i>APIOutputFramework_Test</i>)<br>
+            &nbsp;</li>
+
+            <li><a href="../Level3/Custom_Panels.html">Custom Panels</a> (<i>Panel_Test</i>)</li>
+
+            <li>Real life example (<i>Plan_Dump</i>)</li>
+
+            <li><a href="../Level3/Protection_Functions.html">Protection</a> (<i>Protection_Test</i>)</li>
+        </ul>
+    </blockquote>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on Februrary 15, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

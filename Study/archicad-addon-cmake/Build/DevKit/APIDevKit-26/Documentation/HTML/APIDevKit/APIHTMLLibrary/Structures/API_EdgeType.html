@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_EdgeType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_EdgeType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_EdgeType</h1>
+
+    <p>Representation of a 3D edge.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_3D_Head.html">API_3D_Head</a></strong>     <em>head</em>;
+        <strong>Int32</strong>           <em>status</em>;
+        <strong>short</strong>           <em>filler_1</em>;
+        <strong>short</strong>           <em>color</em>;
+        <strong>Int32</strong>           <em>vert1</em>;
+        <strong>Int32</strong>           <em>vert2</em>;
+        <strong>Int32</strong>           <em>pgon1</em>;
+        <strong>Int32</strong>           <em>pgon2</em>;
+    <strong>}</strong> <em>API_EdgeType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>Header information of this component. This specifies the type and database index.</dd>
+
+        <dt><b>status</b></dt>
+
+        <dd>Information about the edge properties.</dd>
+
+        <dt><b>color</b></dt>
+
+        <dd>Refers to the color of the edge.</dd>
+
+        <dt><b>vert1, vert2</b></dt>
+
+        <dd>Vertex indices of the endpoints of the edge.</dd>
+
+        <dt><b>pgon1, pgon2</b></dt>
+
+        <dd>Indices of the neighboring polygons.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Polygons are lists of edges with an orientation including the indices of the edges. One edge may belong to 0 to 2 polygons. Its indices are included in <code>pgon1</code>, <code>pgon2</code>. In case of side or single line the missing polygon signed with -1 index.</p>
+
+    <p>An edge has two endpoints, indexed by <code>vert1</code>, <code>vert2</code>.</p>
+
+    <p>Note that in the case of closed bodies, the polygon’s orientation is correct if the edge has different prefixes in the edge list of the two polygons.</p>
+
+    <p>Accessing edges are based on a body. First you must get a body by <a href="../Functions/ACAPI_3D_GetComponent.html">ACAPI_3D_GetComponent</a> and just after is obtainable its components.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_3D.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_PedgType.html">API_PedgType</a>, <a href="API_PgonType.html">API_PgonType</a>, <a href="API_3D_Head.html">API_3D_Head</a>, <a href="API_Component3D.html">API_Component3D</a>,<br>
+    <a href="../Level3/3D_Manager_id.html">3D Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

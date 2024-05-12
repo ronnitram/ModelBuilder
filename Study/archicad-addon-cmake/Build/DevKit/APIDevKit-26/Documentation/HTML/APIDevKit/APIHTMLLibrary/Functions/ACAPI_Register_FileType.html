@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Register_FileType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Register_FileType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Register_FileType</h1>
+
+    <p>Registers a file type for I/O type add-ons.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Register_FileType</strong> (
+        <strong>Int32</strong>            <em>refCon</em>,
+        <strong>GSType</strong>           <em>ftype</em>,
+        <strong>GSType</strong>           <em>fcreator</em>,
+        <strong>const char*</strong>      <em>extname</em>,
+        <strong>short</strong>            <em>iconResID</em>,
+        <strong>short</strong>            <em>descStrResID</em>,
+        <strong>short</strong>            <em>descStrResItemID</em>,
+        <strong>API_IOMethod</strong>     <em>methodFlags</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>refCon</em></dt>
+
+        <dd>[in] An arbitrary number which identifies this file type within the add-on.</dd>
+
+        <dt><em>ftype</em></dt>
+
+        <dd>[in] Macintosh file type (e.g. 'TEXT').</dd>
+
+        <dt><em>fcreator</em></dt>
+
+        <dd>[in] Creator on Macintosh (e.g. 'GSAC' for Archicad).</dd>
+
+        <dt><em>extname</em></dt>
+
+        <dd>[in] The extension used on Windows (e.g. "txt").</dd>
+
+        <dt><em>iconResID</em></dt>
+
+        <dd>[in] An optional icon resource ID. This icon appears in the Open/Save dialogs on the Macintosh.</dd>
+
+        <dt><em>descStrResID</em></dt>
+
+        <dd>[in] The resource ID of the resource containing the description of the file type.</dd>
+
+        <dt><em>descStrResItemID</em></dt>
+
+        <dd>[in] The item ID within the resource of the item containing the description of the file type, or 0 when specifying MIME type as well (see Remarks).</dd>
+
+        <dt><em>methodFlags</em></dt>
+
+        <dd>[in] Flags describing the Open/Save dialogs to add this file type to (see Remarks).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function should be called from the <a href="RegisterInterface.html">RegisterInterface</a> routine in your add-on. You can register more than one file type from the same add-on, appearing in different menus of the server application.</p>
+
+    <p>The supplied <code>refCon</code> parameter should be the same in the <a href="ACAPI_Install_FileTypeHandler.html">ACAPI_Install_FileTypeHandler</a> function, which you have to call from your <a href="Initialize.html">Initialize</a> routine.</p>
+
+    <p>The <code>methodFlags</code> parameter defines which dialogs' file type popup should contain the registered file type:</p>
+
+    <blockquote>
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>Flag</th>
+
+                <th>File Dialog</th>
+            </tr>
+
+            <tr>
+                <td><code>Open2DSupported</code></td>
+
+                <td>Open as 2D</td>
+            </tr>
+
+            <tr>
+                <td><code>Merge2DSupported</code></td>
+
+                <td>Merge</td>
+            </tr>
+
+            <tr>
+                <td><code>OpenLibPartSupported</code></td>
+
+                <td>Open Library Item</td>
+            </tr>
+
+            <tr>
+                <td><code>SaveAs2DSupported</code></td>
+
+                <td>Save as 2D</td>
+            </tr>
+
+            <tr>
+                <td><code>SaveAs3DSupported</code></td>
+
+                <td>Save as 3D</td>
+            </tr>
+
+            <tr>
+                <td><code>SaveAsFlySupported</code></td>
+
+                <td>Create Fly-Through/Sun Study</td>
+            </tr>
+
+            <tr>
+                <td><code>Import2DDrawingSupported</code>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></td>
+
+                <td>Import as Drawing</td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <p><img border="0" src="../../APIImageLibrary/42.png" alt="4.2" width="19" height="12">&nbsp; From API v4.2 you have the possibility to register the MIME type for the file as well. MIME (Multipurpose Internet Mail Extension) types are commonly accepted identifiers for certain media types. Specifying the MIME type makes the file format identification more accurate in the File Type Manager.<br>
+    If you decide to use this feature, you can do this in the following way:</p>
+
+    <ul>
+        <li>in the GRC file the string resource that describes the file format must contain two items:
+
+            <ol>
+                <li>the descriptive name of the file format (e.g. "DWF File")</li>
+
+                <li>the assigned MIME type (e.g. "model/vnd.dwf")</li>
+            </ol>
+        </li>
+
+        <li>in the <code>descStrResItemID</code> parameter of the <code>ACAPI_Register_FileType</code> function you must pass 0</li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>In the localizable GRC file:</p>
+
+    <blockquote>
+        <pre><code>
+'STR#' 32500    "File Type descriptions" {
+/* [  1] */         "DWF File"
+/* [  2] */         "model/vnd.dwf"
+}
+</code></pre>
+    </blockquote>
+
+    <p>In the <a href="RegisterInterface.html">RegisterInterface</a> function:</p>
+
+    <blockquote>
+        <pre><code>
+//------------------------------------------------------
+// Interface definitions
+//------------------------------------------------------
+GSErrCode    __ACENV_CALL   RegisterInterface (void)
+{
+    GSErrCode err;
+
+    err = <font color="#FF0066">ACAPI_Register_FileType</font> (1, 'GSAC', ' DWF', "dwf", 0, 32500, 0,
+                                   SaveAs2DSupported + Open2DSupported + Merge2DSupported + Import2DDrawingSupported);
+
+    return err;
+}   // RegisterInterface
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_Install_FileTypeHandler.html">ACAPI_Install_FileTypeHandler</a><br>
+    <a href="RegisterInterface.html">RegisterInterface</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

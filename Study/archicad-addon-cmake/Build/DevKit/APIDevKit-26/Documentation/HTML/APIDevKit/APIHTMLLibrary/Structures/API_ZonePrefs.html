@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ZonePrefs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ZonePrefs.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ZonePrefs</h1>
+
+    <p>The representation of the Preferences / Zones tab page.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>double</strong>            <em>nichDepth</em>;
+        <strong>double</strong>            <em>nichSize</em>;
+        <strong>unsigned char</strong>     <em>nichCombineMode</em>;
+        <strong>bool</strong>              <em>nichWindFlag</em>;
+        <strong>bool</strong>              <em>nichDoorFlag</em>;
+        <strong>bool</strong>              <em>nichDepthFlag</em>;
+        <strong>bool</strong>              <em>nichSizeFlag</em>;
+        <strong>bool</strong>              <em>filler_1</em>;
+        <strong>short</strong>             <em>filler_2</em>;
+        <strong>bool</strong>              <em>subtrWallFlag</em>;
+        <strong>bool</strong>              <em>subtrColuFlag</em>;
+        <strong>unsigned char</strong>     <em>subtrWallPercent</em>;
+        <strong>unsigned char</strong>     <em>subtrColuPercent</em>;
+        <strong>Int32</strong>             <em>filler_3</em>;
+        <strong>double</strong>            <em>subtrWallSize</em>;
+        <strong>double</strong>            <em>subtrColuSize</em>;
+        <strong>unsigned char</strong>     <em>nLowAreas</em>;
+        <strong>bool</strong>              <em>filler_4</em>;
+        <strong>short</strong>             <em>filler_5</em>;
+        <strong>unsigned char</strong>     <em>roomRedPercents[4]</em>;
+        <strong>double</strong>            <em>roomHeightLimits[4]</em>;
+        <strong>Int32</strong>             <em>filler_6[16]</em>;
+    <strong>}</strong> <em>API_ZonePrefs</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>nichDepth</b></dt>
+
+        <dd>The depth of the recesses to Zone.</dd>
+
+        <dt><b>nichSize</b></dt>
+
+        <dd>The size of the recess to Zones.</dd>
+
+        <dt><b>nichCombineMode</b></dt>
+
+        <dd>The relation between depth and size variable. It can be one of the following constants: <code>APIRecess_And</code>, <code>APIRecess_Or</code></dd>
+
+        <dt><b>nichWindFlag</b></dt>
+
+        <dd>Whether the recesses created by windows are included in the Zone size, depending on values of the <code>nichDepth</code>, <code>nichSize</code>, and the relation of those.</dd>
+
+        <dt><b>nichDoorFlag</b></dt>
+
+        <dd>Whether the recesses created by windows are included in the Zone size, depending on values of the <code>nichDepth</code>, <code>nichSize</code>, and the relation of those.</dd>
+
+        <dt><b>nichDepthFlag</b></dt>
+
+        <dd>Whether the minimal value for the depth of the wall recesses (<code>nichDepth</code>) is taken notice of .</dd>
+
+        <dt><b>nichSizeFlag</b></dt>
+
+        <dd>Whether the minimal value for the size of the wall recesses (<code>nichSize</code>) is taken notice of .</dd>
+
+        <dt><b>subtrWallFlag</b></dt>
+
+        <dd>Whether the areas of wall elements are subtracted from the Zone size.</dd>
+
+        <dt><b>subtrColuFlag</b></dt>
+
+        <dd>Whether the areas of columns elements are subtracted from the Zone size.</dd>
+
+        <dt><b>subtrWallPercent</b></dt>
+
+        <dd>Percent of subtraction for the wall elements from the Zone sizes.</dd>
+
+        <dt><b>subtrColuPercent</b></dt>
+
+        <dd>Percent of subtraction for the column elements from the Zone sizes.</dd>
+
+        <dt><b>subtrWallSize</b></dt>
+
+        <dd>The minimal square meters for the wall elements placed inside a Zone area to subtract areas of walls from Zone sizes.</dd>
+
+        <dt><b>subtrColuSize</b></dt>
+
+        <dd>The minimal square meters for the columns elements placed inside a Zone area to subtract areas of columns from Zone sizes.</dd>
+
+        <dt><b>nLowAreas</b></dt>
+
+        <dd>Number of height limits for ceiling reduction.</dd>
+
+        <dt><b>roomRedPercents[4]</b></dt>
+
+        <dd>The ratios for height limits (<code>roomHeightLimits</code>) to take into account for calculating Zone sizes.</dd>
+
+        <dt><b>roomHeightLimits[4]</b></dt>
+
+        <dd>The height limits to take into account for calculating Zone sizes.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is used by the <a href="../Functions/APIEnv_GetPreferencesID.html">APIEnv_GetPreferencesID</a> function to get the settings of the zone preferences page.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIEnv_GetPreferencesID.html">APIEnv_GetPreferencesID</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 12, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

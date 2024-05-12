@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIEnv_GetRenderingSetsID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIEnv_GetRenderingSetsID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIEnv_GetRenderingSetsID</h1>
+
+    <p>Returns information on the photorendering settings.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_environment_id.html">ACAPI_Environment</a></strong> (
+        <strong>APIEnv_GetRenderingSetsID</strong>,
+        <strong>API_RendEffects...*</strong>     <em>rendInfo</em>,
+        <strong><a href="../Structures/API_RendSetTypeID.html">API_RendSetTypeID</a></strong>       <em>rendSetType</em>,
+        <strong>const GS::UniString*</strong>    <em>sceneName</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>rendInfo</em></dt>
+
+        <dd>[out] Data of a "PhotoRendering Settings..." tab page. The type depends on the <code>prefsType</code> parameter</dd>
+
+        <dt><em>rendSetType</em></dt>
+
+        <dd>[in] Type of the PhotoRendering Settings you want to get</dd>
+
+        <dt><em>sceneName</em>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API version 18" width="19" height="12"></dt>
+
+        <dd>[in] The name of the Rendering Scene of which the settings you want to get. If <code>nullptr</code>, the settings of the current Scene will be returned.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>rendInfo</code> is <code>nullptr</code> or <code>rendSetType</code> is invalid</dd>
+
+        <dt><code>APIERR_BADNAME</code></dt>
+
+        <dd>The <code>sceneName</code> parameter was not <code>nullptr</code>, and no named Rendering Scene exists with this name.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Many switches and values are returned which can be set in the different tab pages of the "PhotoRendering Settings..." dialog.</p>
+
+    <p>Usable structures of photorendering types (for <code>rendInfo</code>) are:</p>
+
+    <ul>
+        <li><a href="../Structures/API_RendEffects.html">API_RendEffects</a>,</li>
+
+        <li><a href="../Structures/API_RendImage.html">API_RendImage</a>,</li>
+    </ul>
+
+    <p>Note: the <code>rendSetType</code> should be passed as a value instead of a pointer.</p>
+
+    <p>Note: when you get an <a href="../Structures/API_RendImage.html">API_RendImage</a> with this function, don't forget to free the allocated memory: <code>delete rendInfo.bkgPictFile;</code>.</p>
+
+    <p>See an example of getting and modifying photorendering settings at the description of <a href="APIEnv_ChangeRenderingSetsID.html">APIEnv_ChangeRenderingSetsID</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_RendEffects.html">API_RendEffects</a>, <a href="../Structures/API_RendImage.html">API_RendImage</a>, <a href="../Structures/API_RendSetTypeID.html">API_RendSetTypeID</a>,<br>
+    <a href="acapi_environment_id.html">ACAPI_Environment</a>, <a href="APIEnv_ChangeRenderingSetsID.html">APIEnv_ChangeRenderingSetsID</a>, <a href="APIEnv_GetRenderingSceneNamesID.html">APIEnv_GetRenderingSceneNamesID</a>, <a href="APIEnv_SetCurrentRenderingSceneID.html">APIEnv_SetCurrentRenderingSceneID</a>, <a href="APIDo_PhotoRenderID.html">APIDo_PhotoRenderID</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 25, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

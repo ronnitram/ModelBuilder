@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIDb_ChangeCurrentDatabaseID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIDb_ChangeCurrentDatabaseID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIDb_ChangeCurrentDatabaseID</h1>
+
+    <p>Changes the current (active) database.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Database_id.html">ACAPI_Database</a></strong> (
+        <strong>APIDb_ChangeCurrentDatabaseID</strong>,
+        <strong><a href="../Structures/API_WindowInfo.html">API_DatabaseInfo</a>*</strong>     <em>databaseInfo</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>databaseInfo</em></dt>
+
+        <dd>[in] parameters of the database to be created (type, reference index)</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>databasePars</code> is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_NOPLAN</code></dt>
+
+        <dd>no open project</dd>
+
+        <dt><code>APIERR_BADDATABASE</code></dt>
+
+        <dd>the requested database does not exist</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to change the current database in the background. All the subsequent API calls to any database dependent function will work on the specified database.</p>
+
+    <p>This function can be very expensive in case of low memory condition. The server application tries to keep as many database object in the memory as possibly, however it can happen, that some of them must be swapped out. Switching to an other database means, that the server application loads it into the memory, which may cause others to be unloaded. It can be a relatively long time.</p>
+
+    <p>Refer to the <a href="APIDo_ChangeWindowID.html">APIDo_ChangeWindowID</a> function in the case you want to change not only the database in the background, but the current front window also.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+GSErrCode ChangeCurrentDatabaseToDatabaseOfSectionElement (const API_Guid&amp; guid)
+{
+    API_Element element = {};
+    element.header.guid = guid;
+
+    GSErrCode err = ACAPI_Element_Get (&amp;element);
+
+    if (err != NoError)
+        return err;
+
+    if (element.header.type != API_CutPlaneID)
+        return Error;
+
+    API_DatabaseInfo databasePars = {};
+    databasePars.typeID = APIWind_SectionID;
+    databasePars.databaseUnId = element.cutPlane.segment.databaseID;
+
+    err = ACAPI_Database (APIDb_ChangeCurrentDatabaseID, &amp;databasePars);
+
+    return err;
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_WindowInfo.html">API_DatabaseInfo</a>,<br>
+    <a href="APIDo_ChangeWindowID.html">APIDo_ChangeWindowID</a>,<br>
+    <a href="ACAPI_Database_id.html">ACAPI_Database</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on March 17, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

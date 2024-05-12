@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>GetResolvedType</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/FileSystem/GetResolvedType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="FileSystem.html">FileSystem</a>::GetResolvedType</h1><br>
+    Returns resolved type of a file system entry identified with its location.<br>
+    <br>
+    <pre class="syntax">
+<b>GSErrCode  GetResolvedType (
+    const <a href="../Location/Location.html">Location</a>&amp; loc,
+    <a href="EntryType.html">EntryType</a>*      result
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>loc</em></dt>
+
+        <dd>Location of the file system entry of which resolved type should be determined.</dd>
+
+        <dt><em>result</em></dt>
+
+        <dd>On return: resolved type of the entry. Possible values are:</dd>
+
+        <dd>
+            <blockquote>
+                <table class="enumeration" width="259">
+                    <tr>
+                        <th width="59">Value</th>
+
+                        <th width="158">Meaning</th>
+                    </tr>
+
+                    <tr>
+                        <td width="59">File</td>
+
+                        <td width="158">file</td>
+                    </tr>
+
+                    <tr>
+                        <td width="59">Folder</td>
+
+                        <td width="158">folder</td>
+                    </tr>
+
+                    <tr>
+                        <td width="59">Network</td>
+
+                        <td width="158">network (unimplemented)</td>
+                    </tr>
+                </table>
+            </blockquote>
+        </dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="366">
+        <tr>
+            <th width="103">Value</th>
+
+            <th width="221">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="103">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="221">OK</td>
+        </tr>
+
+        <tr>
+            <td width="103">TargetNotFound<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="221">entry is not found</td>
+        </tr>
+
+        <tr>
+            <td width="103">AccessDenied<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="221">operation is not allowed on the entry</td>
+        </tr>
+
+        <tr>
+            <td width="103">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="221">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in FileSystem class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> ddeclared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method returns resolved type of a file system entry (file, folder, link) identified with its location. Resolved type of a link is type of the entry which link (or chain of links) refers to. Resolved type of files and folders remains file and folder respectively.</p>
+
+    <p>Note that determining type of a link's target can be slow because it may be offline (see the <a href="IsOnLine.html">IsOnLine</a> method). If it is not desirable then <a href="EstimateResolvedType.html">EstimateResolvedType</a> method can be used.<br>
+    <br></p><img src="../../IOImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>If link extensions are restricted (see the <a href="../ModuleFunctions/RestrictLinkExtensions.html">RestrictLinkExtensions</a> function) then this method will examine file system entries only with extension "<font face="Courier New">.lnk</font>" for the potential link resolvation.</li>
+        </ul>
+    </blockquote><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

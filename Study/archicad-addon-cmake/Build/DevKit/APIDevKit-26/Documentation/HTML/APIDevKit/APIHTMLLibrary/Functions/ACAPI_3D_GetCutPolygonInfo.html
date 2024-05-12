@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_3D_GetCutPolygonInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Tibor Lorantfy">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_3D_GetCutPolygonInfo.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_3D_GetCutPolygonInfo</h1>
+
+    <p>Cuts a body with a plane and returns the cutting surface and area.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_3D_GetCutPolygonInfo</strong> (
+        <strong>Int32</strong>                                   <em>bodyIndex</em>,
+        <strong>const <a href="../Structures/API_Plane3D.html">API_Plane3D</a>&amp;</strong>                      <em>cutPlane</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="ddid://Geometry.MultiPolygon2D Class">Geometry::MultiPolygon2D</a>&gt;*</strong>    <em>resPolygons = nullptr</em>,
+        <strong>double*</strong>                                 <em>area = nullptr</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>bodyIndex</em></dt>
+
+        <dd>[in] The index of the body to cut.</dd>
+
+        <dt><em>cutPlane</em></dt>
+
+        <dd>[in] Cutting plane.</dd>
+
+        <dt><em>resPolygons</em></dt>
+
+        <dd>[out] Polygons of the cutting surface. (optional parameter)</dd>
+
+        <dt><em>area</em></dt>
+
+        <dd>[out] Area of the cutting surface. (optional parameter)</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed output parameter are both <code>nullptr</code> (<code>resPolygons</code> and <code>area</code>)</dd>
+
+        <dt><code>APIERR_REFUSEDCMD</code></dt>
+
+        <dd>The 3D model is not available in the current context, or</dd>
+
+        <dd>The body cannot be queried directly; not active body</dd>
+
+        <dt><code>APIERR_BADINDEX</code></dt>
+
+        <dd>The bodyIndex is out of range</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to cut a given body with a cutting plane and get the cutting surface.</p>
+
+    <p>To get the polygons of the cutting surface, pass the <code>resPolygons</code> parameter. To get only the area of the cutting surface, set the <code>area</code> parameter.</p>
+
+    <p>One of the output parameters (<code>resPolygons</code> and <code>area</code>) must be not nullptr.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+Int32                    nBody, i, j;
+API_Plane3D              cutPlane;
+double                   area;
+GS::Array&lt;Geometry::MultiPolygon2D&gt; resPolygons;
+
+cutPlane.basePoint.x = 0.0; cutPlane.basePoint.y = 0.0; cutPlane.basePoint.z = 1.0;
+cutPlane.axisX.x = 1.0; cutPlane.axisX.y = 0.0; cutPlane.axisX.z = 0.0;
+cutPlane.axisY.x = 0.0; cutPlane.axisY.y = 1.0; cutPlane.axisY.z = 0.0;
+cutPlane.axisZ.x = 0.0; cutPlane.axisZ.y = 0.0; cutPlane.axisZ.z = 1.0;
+
+err = ACAPI_3D_GetNum (API_BodyID, &amp;nBody);
+for (i = 1; i &lt;= nBody &amp;&amp; err == NoError; i++) {
+    err = ACAPI_3D_GetCutPolygonInfo (i, cutPlane, &amp;resPolygons, &amp;area);
+    if (err == NoError) {
+        for (j = 0; j &lt;= resPolygons.GetSize (); j++) {
+            double areaOfThisPolygon = resPolygons[j].CalcArea ();
+        }
+    }
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 17 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Level3/3D_Manager_id.html">3D Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 18, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

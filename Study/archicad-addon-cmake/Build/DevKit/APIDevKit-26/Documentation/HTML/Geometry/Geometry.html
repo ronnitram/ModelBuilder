@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller, Gyula">
+
+    <title>Geometry</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="StyleLibrary/Style.css">
+    <script type="text/javascript" src="StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="Geometry.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Graphisoft geometric elements</h1>
+
+    <p align="left">&nbsp;</p>
+
+    <p>Graphisoft geometric elements describe various geometric entities - mainly in 2D -, provide operations on them and gives their relative position to each other.<br>
+    The default orientation of any element (included deflections, arcs and coordinate systems) is always positive (right-hand, counter-clockwise).<br>
+    The number-representation of Geometry is the <strong>double</strong> type. This means computation errors in dividing, sqare rooting, ans trigonometrical functions and makes necessary the introduction of a threshold within we consider two numbers equal. This has conventionally the name of <em>epsilon</em>.<br>
+    The angles are always in radian.</p>
+
+    <p>The Geometry module has no platform-dependent calls, uses only GSRoot module for some fundamental C++ construct provided here and GSBase module for memory management.</p>
+
+    <ul>
+        <li><a href="HTML_Library/GeometryModule/GeometryModule_id.html">Module-level functions and enums</a></li>
+    </ul>
+
+    <dl>
+        <dt><strong>Support from other fields:</strong></dt>
+
+        <dd>
+            <ul>
+                <li><a href="HTML_Library/RealConstants/RealConstants_id.html">Thresholds (epsilons) and big constants used in Geometry</a></li>
+
+                <li><a href="HTML_Library/RealConstants/RealFunctions_id.html">Support functions for <strong>double</strong></a></li>
+
+                <li><a href="HTML_Library/Matrix/Matrix_id.html">Matrix operations</a></li>
+
+                <li><a href="HTML_Library/TransformationMatrix/TransformationMatrix_id.html">Transformation Matrix operations</a></li>
+
+                <li><a href="HTML_Library/Angle/Angle_id.html">Angle, direction and deflection</a></li>
+            </ul>
+        </dd>
+    </dl>
+
+    <dl>
+        <dt><strong>2D objects:</strong></dt>
+
+        <dd>
+            <ul>
+                <li><a href="GeneratedPages/Geometry.html">2D Vector and Point classes</a></li>
+
+                <li><a href="HTML_Library/Vector2D/Vector2D_id.html">2D Vector and Point structures</a></li>
+
+                <li><a href="HTML_Library/Sector2D/Sector2D_id.html">2D Sector, Ray and Line</a></li>
+
+                <li><a href="HTML_Library/Box2D/Box2D_id.html">2D Box</a></li>
+
+                <li><a href="HTML_Library/Circle2D/Circle2D_id.html">2D Circle</a></li>
+
+                <li><a href="HTML_Library/Ellipse2D/Ellipse2D_id.html">2D Ellipse</a></li>
+
+                <li><a href="HTML_Library/GenArc2D/GenArc2D_id.html">2D Arc</a></li>
+
+                <li><a href="HTML_Library/Spline2D/Spline2D_id.html">2D Spline</a></li>
+
+                <li><a href="HTML_Library/HalfPlane2D/HalfPlane2D_id.html">2D Halfplane</a></li>
+
+                <li><a href="HTML_Library/PolyLine2D/PolyLine2D_id.html">2D PolyLine</a></li>
+
+                <li><a href="HTML_Library/Polygon2D/Polygon2D_id.html">2D Polygon (with holes and arched edges)</a></li>
+
+                <li style="list-style: none; display: inline">
+                    <ul>
+                        <li><a href="HTML_Library/Polygon2DOperations/Polygon2DOperations_id.html">Datastructure-independent 2D Polygon operations</a></li>
+
+                        <li><a href="HTML_Library/Delaunay2D/Delaunay2D_id.html">Delaunay triangulation of a 2D Polygon</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="HTML_Library/Intersections2D/Intersections2D_id.html">Table of 2D relative position tests and intersection calculations.</a></li>
+
+                <li><a href="HTML_Library/CutElem/CutElem.html">CutElem</a></li>
+            </ul>
+        </dd>
+    </dl>
+
+    <dl>
+        <dt><strong>3D objects:</strong></dt>
+
+        <dd>
+            <ul>
+                <li><a href="HTML_Library/Vector3D/Vector3D_id.html">3D Vector and Point</a></li>
+
+                <li><a href="HTML_Library/Sector3D/Sector3D_id.html">3D Sector, Ray and Line</a></li>
+
+                <li><a href="HTML_Library/Box3D/Box3D_id.html">3D Box</a></li>
+
+                <li><a href="HTML_Library/Sphere3D/Sphere3D_id.html">3D Sphere</a></li>
+
+                <li><a href="HTML_Library/Plane3D/Plane3D_id.html">3D Plane</a></li>
+
+                <li><a href="HTML_Library/Polygon3DOperations/Polygon3DOperations_id.html">Datastructure-independent 3D Polygon operations</a></li>
+
+                <li><a href="HTML_Library/Intersections3D/Intersections3D_id.html">Table of 3D relative position tests and intersection calculations.</a></li>
+            </ul>
+        </dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <dl>
+        <dt><strong>Reference:</strong></dt>
+
+        <dd>
+            <ul>
+                <li><a href="HTML_Library/type_list_id.html">List of types and structures used in Geometry</a></li>
+
+                <li><a href="HTML_Library/function_list_id.html">List of all available functions and macros</a></li>
+
+                <li><a href="HTML_Library/CommonSemantics_id.html">Common semantic functions of the geometrical objects.</a></li>
+            </ul>
+        </dd>
+    </dl>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 20, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

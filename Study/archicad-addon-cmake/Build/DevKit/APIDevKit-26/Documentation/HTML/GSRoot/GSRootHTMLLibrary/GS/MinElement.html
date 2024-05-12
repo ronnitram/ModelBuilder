@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>MinElement</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/MinElement.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>MinElement</H2><!--exp="MinElement Enum"-->
+<P><topic id="$GS.$MinElement.BriefDescription">
+		Finds the first occurrence of smallest element in a specified range where the 
+		ordering criterion may be specified by a binary predicate.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For</I><B>&gt;
+</B>For MinElement (</B>
+    <B>For                 </B><I>first</I>,
+    <B>For                 </B><I>last</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For</I>, <B>class</B> <I>BinPred</I><B>&gt;
+</B>For MinElement (</B>
+    <B>For                 </B><I>first</I>,
+    <B>For                 </B><I>last</I>,
+    <B>BinPred             </B><I>pred</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>For</I></DT><DD><topic id="$GS.$MinElement.$For.TemplateParamDescription">
+		Forward iterator.
+	</topic></DD><DT><I>BinPred</I></DT><DD><topic id="$GS.$MinElement.$BinPred.TemplateParamDescription">
+		Binary predicate.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first</I></DT><DD><topic id="$GS.$MinElement.$first.ParamDescription">
+		A forward iterator addressing the position of the first element in the range to 
+		be searched for the largest element.
+	</topic></DD><DT><I>last</I></DT><DD><topic id="$GS.$MinElement.$last.ParamDescription">
+		A forward iterator addressing the position one past the final element in the 
+		range to be searched for the largest element.
+	</topic></DD><DT><I>pred</I></DT><DD><topic id="$GS.$MinElement.$pred.ParamDescription">
+		User-defined predicate function object that defines the sense in which one 
+		element is greater than another. The binary predicate takes two arguments and 
+		should return <B>true </B>when the first element is less than the second element 
+		and <B>false</B> otherwise. 
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$MinElement.ReturnDescription">
+		A forward iterator addressing the position of the first occurrence of the 
+		smallest element in the range searched.
+	</topic></P><P><topic id="$GS.$MinElement.1.ReturnDescription"></topic></P><P><topic id="$GS.$MinElement.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$MinElement.LongDescription">
+		<B>MinElement</B> finds the smallest element in the range <TT>[first, 
+		last)</TT>. It returns the first iterator <TT>i</TT> in <TT>[first, last)</TT> 
+		such that no other iterator in <TT>[first, last)</TT> points to a value smaller 
+		than <TT>*i</TT>. The return value is <TT>last</TT> if and only if <TT>[first, 
+		last)</TT> is an empty range. 
+		The two versions of <B>MinElement</B> differ in how they define whether 
+		one element is less than another. The first version compares objects using 
+		<TT>operator&lt;</TT>, and the second compares objects using a predicate <TT>pred</TT>. 
+		The first version of <B>MinElement</B> returns the first iterator 
+		<TT>i</TT> in <TT>[first, last)</TT> such that, for every iterator <TT>j</TT> in 
+		<TT>[first, last)</TT>, <TT>*j &lt; *i</TT> is <TT>false</TT>. The second 
+		version returns the first iterator <TT>i</TT> in <TT>[first, last)</TT> such 
+		that, for every iterator <TT>j</TT> in <TT>[first, last)</TT>, <TT>pred (*j, 
+		*i)</TT> is <TT>false</TT>.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$MinElement.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

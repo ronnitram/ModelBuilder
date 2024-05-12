@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Move</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/Folder/Move.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="Folder.html">Folder</a>::Move</h1><br>
+    Moves the specified entry from this folder to another one.<br>
+    <br>
+    <pre class="syntax">
+<b>virtual GSErrCode  Move (
+    const <a href="../Name/Name.html">Name</a>&amp; from,
+    Folder&amp;     target,
+    const <a href="../Name/Name.html">Name</a>&amp; to,
+    <a href="DataSafety.html">DataSafety</a>  safety = Normal
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>from</em></dt>
+
+        <dd>Name of the entry (in this folder) to be moved.</dd>
+
+        <dt><em>target</em></dt>
+
+        <dd>Destination folder of the move operation.</dd>
+
+        <dt><em>to</em></dt>
+
+        <dd>New name of the moved entry in the destination folder.</dd>
+
+        <dt><em>safety</em></dt>
+
+        <dd>Data safety level controlling scope of the operation.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="539">
+        <tr>
+            <th width="106">Value</th>
+
+            <th width="391">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="106">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="391">OK</td>
+        </tr>
+
+        <tr>
+            <td width="106">SourceNotFound<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="391">source entry to be moved is not found</td>
+        </tr>
+
+        <tr>
+            <td width="106">TargetExists<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="391">an entry with the new name already exists in the destination folder</td>
+        </tr>
+
+        <tr>
+            <td width="106">DeviceIsFull<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="391">device is full</td>
+        </tr>
+
+        <tr>
+            <td width="106">AccessDenied<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="391">operation is not allowed on either of folders or on the entry</td>
+        </tr>
+
+        <tr>
+            <td width="106">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="391">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Folder class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method moves (relocates) the file system entry (file, folder, link) with name <i>from</i> in this folder to the destination folder specified by <i>target</i> under the new name <i>to</i>. Names <i>from</i> and <i>to</i> can be equal. This folder and <i>target</i> folder can be also the same (yielding rename operation). Move operation is applied to the whole entry (together with its internal content), meaning that move operation is inherently recursive.</p>
+
+    <p>Move fails if the destination folder already contains an entry (file, folder, link) with the name <i>to</i>, and if either of folders is not writeable. If it fails during the move operation, then it will try to restore the original file system state.</p>
+
+    <p>Move fails on write-protected entries (read-only entries on Windows and locked entries on Macintosh) unless IgnoreWriteProtection value is passed in the <i>safety</i> parameter.<br>
+    <br></p><img src="../../IOImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>This method fails on the root folder (because it is virtual and not writeable).</li>
+
+            <li>If the source and destination volumes are different, then moving is performed with copy and delete operations.</li>
+        </ul>
+    </blockquote><img src="../../IOImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>This method fails on the root folder (because it is virtual and not writeable) except when both this folder and <i>target</i> folder are the root folder, so it is possible to rename volumes.</li>
+
+            <li>If the source and destination volumes are different or there is an entry with the name <i>from</i> in the destination folder, then moving is performed with copy and delete operations.</li>
+
+            <li>Both resource fork and data fork are moved.</li>
+        </ul>
+    </blockquote><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

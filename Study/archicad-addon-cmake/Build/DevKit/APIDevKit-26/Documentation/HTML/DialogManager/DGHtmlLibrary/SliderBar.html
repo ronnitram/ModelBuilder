@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Slider Bar</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/SliderBar.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Slider Bar</h1>
+
+    <p>The slider bar control, also known as track bar, is a window that consists of a bar with optional tick marks on it and a slider, also known as a thumb. Slider bars are useful when you want the user to select a discrete value or a set of consecutive values in a range. The user can modify the current position of the slider by tracking it or by clicking the mouse anywhere in the control's bar area. A click in the bar area modifies the control value by a page (see Remarks). On Windows, slider bars can have the keyboard focus. When a slider bar is focused, a focus rectangle appears around it and the user can modify the control value by pressing the <tt>Home</tt>, <tt>End</tt>, <tt>PageUp</tt>, <tt>PageDown</tt> and arrow keys.</p>
+
+    <p>A slider bar has a range and a current position. The range is the set of continuous values that the slider bar can represent. Because these values are expressed as short integers, the highest possible range and current position value is <tt>SHRT_MAX</tt>. The control itself uses the range and the current value to determine the pixel position of the slider.</p>
+
+    <p>There are two basic types of slider bars: horizontal and vertical. When you create a slider bar, DG automatically determines its orientation according to the specified horizontal and vertical sizes. If the horizontal size is greater than the vertical one DG creates a horizontal slider bar. In the opposite case DG creates a vertical slider bar.</p>
+
+    <p>A slider bar can optionally display tick marks. If tick marks are enabled, at least two tick marks are shown: one at each end, but there can be additional tick marks at regular intervals along the slider bar. The distance between tick marks is equal to the page size. Tick marks can be placed at both sides of the slider bars.</p>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_SLIDER</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left" width="300">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SL_BOTTOMRIGHT</tt></td>
+
+                    <td width="500">The slider points to the bottom (horizontal sliders) or to the right (vertical sliders). If tick marks are enabled they are placed below or right to the slider bar, respectively.<br>
+                    <br>
+                    <img src="../DGImageLibrary/SliderBottomRight_Mac.png" width="168" height="99" alt="SliderBottomRight_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/SliderBottomRight_Win.png" alt="SliderBottomRight_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SL_TOPLEFT</tt></td>
+
+                    <td width="500">The slider points to the top (horizontal sliders) or to the left (vertical sliders). If tick marks are enabled they are placed above or left to the slider bar, respectively.<br>
+                    <br>
+                    <img src="../DGImageLibrary/SliderTopLeft_Mac.png" width="168" height="99" alt="SliderTopLeft_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/SliderTopLeft_Win.png" alt="SliderTopLeft_Win"><br>
+                    <br></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    Slider    <i>x  y  dx  dy  stepVal  min  max</i>  [sliderStyle]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the slider bar, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. If <em>stepVal</em> is zero, the drawing of tick marks is disabled; otherwise the tick marks are enabled and <em>stepVal</em> defines the page size of the slider bar by the following formula: <em>pageSize</em> = (<em>max - min</em>) / <em>stepVal</em> (for details see Remarks). <em>min</em> and <em>max</em> specifies the initial range of the slider bar. The optional <em>sliderStyle</em> flag specifies the subtype of the slider bar. If this flag is omitted, by default the <tt>DG_SL_BOTTOMRIGHT</tt> subtype is set.</p>
+
+    <p>Possible values of <em>sliderStyle</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>BottomRight</tt></td>
+
+                    <td>The <tt>DG_SL_BOTTOMRIGHT</tt> subtype is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>TopLeft</tt></td>
+
+                    <td>The <tt>DG_SL_TOPLEFT</tt> subtype is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>The position of the slider is changed. The message data parameter contains the previous position.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_TRACK.html"><tt>DG_MSG_TRACK</tt></a></td>
+
+                    <td>The position of the slider is changed during tracking. The message data parameter is the sub-message.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p><a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a> and <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a> functions can set the slider bar's modification flag except if they are called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. The flag can also be set by user actions that generate <tt>DG_MSG_CHANGE</tt> or <tt>DG_MSG_TRACK</tt> messages. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The range of a slider bar can be specified not only in GRC. You can dynamically alter the range by using the <b>DGSetItemMinLong</b> and <b>DGSetItemMaxLong</b> functions. The possible minimum of the range is zero while the maximum is <tt>SHRT_MAX</tt>. Use <a href="DGGetItemMinLong.html">DGGetItemMinLong</a> and <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a> to retrieve the range of a slider bar. The current position of the slider can be set and retrieved by <b>DGSetItemValLong</b> and <a href="DGGetItemValLong.html">DGGetItemValLong</a>, respectively.</p>
+
+    <p>If any of the range or value setting functions is called, DG checks the consistency of data (i.e. whether the <em>minimum &lt;= value &lt;= maximum</em> condition is true or not). If data are inconsistent, DG automatically adjusts them. For the details of this adjustment see <b>DGSetItemValLong</b>, <b>DGSetItemMinLong</b> and <b>DGSetItemMaxLong</b>.</p>
+
+    <p>The position of the slider is derived from the current value based on the minimum and maximum value. The relative position is calculated using the following formula: <em>relative position</em> = (<em>value - minimum</em>) / (<em>maximum - minimum</em>). On Windows, if the minimum and maximum values are equal, the slider is placed at the beginning of the control. However, on Macintosh, the slider bar becomes disabled in this case.</p>
+
+    <p>If the user clicks and tracks the slider, or clicks and holds down the (left) mouse button in the control's bar area, or presses and holds down one of the direction keys when the slider bar has the keyboard focus, DG sends <tt>DG_MSG_TRACK</tt> messages to the dialog callback function until the user releases the (left) mouse button or the pressed key. With <tt>DG_MSG_TRACK</tt> message, a sub-message will be delivered also, which specifies the slider bar event more detailed. This allows the application to modify other controls during tracking. When handling <tt>DG_MSG_TRACK</tt> messages call <b>DGGetItemValLong</b> to retrieve the current value of the slider bar. As soon as tracking is finished the callback function receives a <tt>DG_MSG_CHANGE</tt> message; the message data parameter is the slider position before tracking. Note that every <tt>DG_MSG_CHANGE</tt> message is preceded by at least one <tt>DG_MSG_TRACK</tt> message.</p>
+
+    <p>When the user clicks in the bar area of a slider bar, or on Windows presses the <tt>PageUp</tt> or <tt>PageDown</tt> keys while the slider bar has the keyboard focus, the slider position is modified by the value of the page size. The page size is initialized from GRC by the following formula: <em>pageSize</em> = (<em>maximum - minimum</em>) / <em>stepVal</em> (<em>stepVal</em> must be greater than zero). When the range of the scroll bar is altered by <b>DGSetItemMinLong</b> or <b>DGSetItemMaxLong</b>, the <em>pageSize</em> value is automatically recalculated and the tick marks, if they are enabled, are redrawn according to this new page size. If <em>stepVal</em> is set to zero in GRC no tick marks are drawn. In this case the page size is not defined by DG, the slider bar uses the system default value.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a><br>
+    <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a>, <a href="DGGetItemMinLong.html">DGGetItemMinLong</a>, <a href="DGGetItemValLong.html">DGGetItemValLong</a>, <a href="DGModified.html">DGModified</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a>, <a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a>, <a href="DG_MSG_TRACK.html"><tt>DG_MSG_TRACK</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

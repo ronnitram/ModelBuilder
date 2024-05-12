@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Tree View</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/TreeView.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Tree View</h1>
+
+    <p>A tree view control is a hierarchical display of labeled items. The top item in the hierarchy is called the <em>root</em>. If an item has other items below it in the hierarchy, it is also referred to as a <em>parent</em>. Items subordinate to parents are called <em>children</em>. Child items, when displayed, are indented below their parent item. The hierarchy may be expanded or collapsed at any level to display or hide child items. On Windows, there is a plus (+) or minus (-) button next to every parent item. The user clicks the buttons to expand or collapse a parent item's list of child items. On Macintosh, right and down arrow icons serve for the same purpose.</p>
+
+    <p>A tree view item has an item text (label) and it can have two type of icons: the state icon and the normal icon. Icons are always on the left side of the item text. If the tree view has both type of icons, the state icon is the leftmost.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/TreeView_Mac.png" width="213" height="206" alt="TreeView_Mac">&nbsp;&nbsp;&nbsp;&nbsp;<img src="../DGImageLibrary/TreeView_Win.png" alt="TreeView_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_TREEVIEW</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVT_SINGLESELECT</tt></td>
+
+                    <td>Only one selection is possible.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVT_MULTISELECT</tt></td>
+
+                    <td>Multiple-selection is possible.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Flags</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVT_LABELEDIT</tt></td>
+
+                    <td>Tree view item labels can be edited by the user.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVT_DRAGDROP</tt></td>
+
+                    <td>Tree view handles drag and drop inside the tree view itself.</td>
+                </tr>
+
+                <tr valign="top">
+                    <th align="left" colspan="2"><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo">&nbsp;Windows only:</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVT_ROOTBUTTON</tt></td>
+
+                    <td>If this flag is specified, the root item has plus (+) or minus (-) button.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    SingleSelTreeView    <i>x  y  dx  dy  fontSpec  niWidth  niHeight  siWidth  siHeight  editable  dragable  maxChCount</i>  [noRootButton]
+    MultiSelTreeView     <i>x  y  dx  dy  fontSpec  niWidth  niHeight  siWidth  siHeight  editable  dragable  maxChCount</i>  [noRootButton]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the tree view, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the item labels. <em>niWidth</em>, <em>niHeight</em> and <em>siWidth</em>, <em>siHeight</em> are the width and height of the normal and status icons in pixels, respectively. The <em>editable</em> and <em>dragable</em> flags define whether the item labels can be edited and the drag and drop feature is enabled. If the optional <tt>noRootButton</tt> flag is present, the root item has no plus (+) or minus (-) button on Windows.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>editable</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>labelEdit</tt></td>
+
+                    <td>The <tt>DG_TVT_LABELEDIT</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noLabelEdit</tt></td>
+
+                    <td>The <tt>DG_TVT_LABELEDIT</tt> flag is not set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>dragable</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>dragDrop</tt></td>
+
+                    <td>The <tt>DG_TVT_DRAGDROP</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noDragDrop</tt></td>
+
+                    <td>The <tt>DG_TVT_DRAGDROP</tt> flag is not set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a></td>
+
+                    <td>The state icon of a tree item is clicked. The message data contains the tree item ID. If the dialog callback function returns 1, the previous selection is kept and further processing of the click event is omitted.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>A tree view item was edited or dragged by the user, or new item(s) was/were selected in the tree view. The message data parameter is a pointer to a <a href="DGTreeViewChangeData.html">DGTreeViewChangeData</a> structure that contains information about the user action causing the change.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_FOCUS.html"><tt>DG_MSG_FOCUS</tt></a></td>
+
+                    <td>The tree view gains or loses the keyboard focus. The message data is 1 or zero, respectively.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DRAGDROP.html"><tt>DG_MSG_DRAGDROP</tt></a></td>
+
+                    <td>Drag and drop related event occured. This message can come only after it is enabled with <a href="DGEnableMessage.html">DGEnableMessage</a>. Tree views can be both drag source and target.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p>The <a href="DGTreeViewSelectItem.html">DGTreeViewSelectItem</a> and <a href="DGTreeViewDeselectItem.html">DGTreeViewDeselectItem</a> functions set the tree view's modification flag except if they are called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. The flag can also be set by user actions that change the selection in the tree view and generate <tt>DG_MSG_CHANGE</tt> messages. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>Call <a href="DGTreeViewInsertItem.html">DGTreeViewInsertItem</a> to insert items into a tree view with the desired hierarchy and <a href="DGTreeViewDeleteItem.html">DGTreeViewDeleteItem</a> to delete them. The number of items currently in a tree view can be retrieved by <a href="DGTreeViewGetItemCount.html">DGTreeViewGetItemCount</a>. The item hierarchy can be expanded or collapsed not only by user actions but from program code, too. Use <a href="DGTreeViewExpandItem.html">DGTreeViewExpandItem</a> or <a href="DGTreeViewCollapseItem.html">DGTreeViewCollapseItem</a> to display or hide the children of a parent item. To test whether a tree view item is expanded or collapsed call <a href="DGTreeViewIsItemExpanded.html">DGTreeViewIsItemExpanded</a>. The ID of a specified tree view item can be retrieved by <a href="DGTreeViewGetItem.html">DGTreeViewGetItem</a>. This function is also good for enumerating tree view items and getting some other information about them (for example a tree item is a parent or not). A tree view item can be retrieved from the mouse position as well with the help of <a href="DGTreeViewGetItemFromPosition.html">DGTreeViewGetItemFromPosition</a> function.</p>
+
+    <p>A tree view item can have two types of icons: the state icon and the normal icon. Both types of icons can be set and retrieved by <a href="DGTreeViewSetItemIconId.html">DGTreeViewSetItemIconId</a> / <a href="DGTreeViewSetItemIcon.html">DGTreeViewSetItemIcon</a>, and <a href="DGTreeViewGetItemIconId.html">DGTreeViewGetItemIconId</a> / <a href="DGTreeViewGetItemIcon.html">DGTreeViewGetItemIcon</a>, respectively. <b>DGTreeViewSetItemIconId</b> and <b>DGTreeViewGetItemIconId</b> use the resource ID of the icon, depending on the <b>iconType</b> parameter, while <b>DGTreeViewSetItemIcon</b> and <b>DGTreeViewGetItemIcon</b> use the icon description data, referenced with <strong><tt>NSImage*</tt></strong> (MAC only) or <strong><tt>HICON</tt></strong> (WIN only).</p>
+
+    <p>The number of different state icons in a tree view is limited to 12. There is no such limitation for the normal icons. If the item icon is not set yet by <b>DGTreeViewSetItemIconId</b>, an empty area is displayed instead of shifting the content of the item to the left. Any type of icons can be omitted by setting its size to zero either from resource or by a call to <a href="DGTreeViewSetIconSize.html">DGTreeViewSetIconSize</a>. These settings apply to the whole tree view, i.e. to all tree items. The current icon size settings can be retrieved by <a href="DGTreeViewGetIconSize.html">DGTreeViewGetIconSize</a>.</p>
+
+    <p><a href="DGTreeViewSetItemText.html">DGTreeViewSetItemText</a> and <a href="DGTreeViewGetItemText.html">DGTreeViewGetItemText</a> serve to set and retrieve the text of tree view items. The text style, text color and status of each tree view item can be changed separately by <a href="DGTreeViewSetItemStyle.html">DGTreeViewSetItemStyle</a>, <a href="DGTreeViewSetItemColor.html">DGTreeViewSetItemColor</a> and <a href="DGTreeViewSetItemStatus.html">DGTreeViewSetItemStatus</a>. To retrieve these tree view item properties use <a href="DGTreeViewGetItemStyle.html">DGTreeViewGetItemStyle</a>, <a href="DGTreeViewGetItemColor.html">DGTreeViewGetItemColor</a> and <a href="DGTreeViewGetItemStatus.html">DGTreeViewGetItemStatus</a>, respectively. Each tree view item can have a user-defined value that can be used to store any item specific user data. <a href="DGTreeViewSetItemUserData.html">DGTreeViewSetItemUserData</a> and <a href="DGTreeViewGetItemUserData.html">DGTreeViewGetItemUserData</a> give an access to this value.</p>
+
+    <p>When more tree view items are inserted or deleted or more parameters of them (i.e. text, color, style, status, etc.) are modified simultaneously by calling <a href="TreeViewSpecific_id.html">tree view specific functions</a>, it is advised to enclose these function calls by <a href="DGTreeViewDisableDraw.html">DGTreeViewDisableDraw</a> and <a href="DGTreeViewEnableDraw.html">DGTreeViewEnableDraw</a> to avoid unwanted screen updates. As <b>DGTreeViewEnableDraw</b> itself does not update the tree view, it is the application's responsibility to redraw the invalid areas. If almost the whole tree view becomes invalid, use <a href="DGInvalidateItem.html">DGInvalidateItem</a> or <a href="DGRedrawItem.html">DGRedrawItem</a> to update it. However, only if a few tree view items must be repainted use <a href="DGTreeViewRedrawItem.html">DGTreeViewRedrawItem</a>. Call <a href="DGTreeViewGetItemRect.html">DGTreeViewGetItemRect</a> to get the rectangle of a particular tree view item. This function is also good for testing whether a tree view item is visible or not.</p>
+
+    <p>A tree view control can be single-selection or multiple-selection. The user can select tree view items by the mouse or by keypresses through the usual ways. To select or delselect one or more tree view items from the program code call <b>DGTreeViewSelectItem</b> and <b>DGTreeViewDeselectItem</b>, respectively. Use <a href="DGTreeViewGetSelCount.html">DGTreeViewGetSelCount</a> to retrieve the number of selected tree view items and <a href="DGTreeViewGetSelected.html">DGTreeViewGetSelected</a> or <a href="DGTreeViewGetSelItems.html">DGTreeViewGetSelItems</a> to get their indices. A mouse click on the empty client area of a tree view (where there is no tree view item) removes all the previous selections. In this case a <tt>DG_MSG_CHANGE</tt> message is sent to notify the application.</p>
+
+    <p>A tree view control's scroll postion can be retrieved and adjusted with <a href="DGTreeViewGetScrollPosition.html">DGTreeViewGetScrollPosition</a>and <a href="DGTreeViewSetScrollPosition.html">DGTreeViewSetScrollPosition</a>, repspectively.</p>
+
+    <p>When handling the <tt>DG_MSG_CHANGE</tt> message in the dialog callback function, the <em>actionFlag</em> member of the <b>DGTreeViewChangeData</b> structure tells what happened to the tree view item. Possible values are:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">ActionFlag</th>
+
+                    <th align="left">Action</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVCF_SELECTION</tt></td>
+
+                    <td>Selection changed. Other members of the structure are zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVCF_EDITBEGIN</tt></td>
+
+                    <td>Label editing is being started. <em>treeItem</em> member of the sturcture contains the ID of the currently edited tree view item, other members are zero. When handling the <tt>DG_MSG_CHANGE</tt> message the application can cancel the edit operation before it starts at all, by returning 1 in the dialog callback function.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVCF_EDITEND</tt></td>
+
+                    <td>Label editing is finished. When handling the <tt>DG_MSG_CHANGE</tt> message the application can accept the new text by returning <tt>DG_TVCR_SETNEWTEXT</tt>, revert to the original value by returning <tt>DG_TVCR_KEEPOLDTEXT</tt> or continue the editing by returning <tt>DG_TVCR_EDITTEXT</tt> in the dialog callback function.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVCF_EXPAND</tt></td>
+
+                    <td>The list of the child items of the parent tree view item given by the <em>treeItem</em> member of the structure is expanded. Other members are zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVCF_COLLAPSE</tt></td>
+
+                    <td>The list of the child items of the parent tree view item given by the <em>treeItem</em> member of the structure is collapsed. Other members are zero.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Label editing and drag and drop capability can be enabled from GRC only, by setting the <tt>labelEdit</tt> and <tt>dragDrop</tt> flags, respectively. A tree view can receive <tt>DG_MSG_CHANGE</tt> message with <tt>DG_TVCF_EDITBEGIN</tt> or <tt>DG_TVCF_EDITEND</tt> action flag only if it has the <tt>DG_TVT_LABELEDIT</tt> flag.</p>
+
+    <p>The tree view is one of the focusable controls of DG. When a tree view gains or loses the keyboard focus as a result of user actions, the dialog callback function receives a <tt>DG_MSG_FOCUS</tt> message. The keyboard focus can be set to a tree view from program code, too, by <a href="DGSetFocus.html">DGSetFocus</a>. To retrieve the control that currently has the keyboard focus use <a href="DGGetFocus.html">DGGetFocus</a>.</p>
+
+    <p>The keyboard focus and the focusable control categories in DG essentially have the same meaning as in the Macintosh operating system (i.e. the same type of controls are focusable in DG and on Macintosh). On Windows, however, more controls can have keyboard focus. Focusable controls of DG form a subset of focusable controls of Windows. The <b>DGSetFocus</b> and <b>DGGetFocus</b> functions work on focusable controls of DG only.</p>
+
+    <p>The detailed help information of the item can be invoked by setting the keyboard focus to a focusable dialog item then pressing the [F1] key on Windows or [Help] key on Macintosh; or by clicking the right mouse button on the item; or by clicking the help [?] button in the dialog caption then clicking on the item itself. If tooltips are enabled, the short help information is displayed as usual. There are two ways to display help text for a tree view. Help text can be displayed for each item of the tree view or only one help text can be displayed for the entire tree view. The help style of the tree view can be set and retrieved by the <a href="DGTreeViewSetHelpStyle.html">DGTreeViewSetHelpStyle</a> and <a href="DGTreeViewGetHelpStyle.html">DGTreeViewGetHelpStyle</a> functions, respectively.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="DGTreeViewChangeData.html">DGTreeViewChangeData</a><br>
+    <a href="TreeViewSpecific_id.html">Tree view specific functions</a>, <a href="DGGetFocus.html">DGGetFocus</a>, <a href="DGInvalidateItem.html">DGInvalidateItem</a>, <a href="DGModified.html">DGModified</a>. <a href="DGRedrawItem.html">DGRedrawItem</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetFocus.html">DGSetFocus</a>, <a href="DGSetItemFont.html">DGSetItemFont</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a>, <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_FOCUS.html"><tt>DG_MSG_FOCUS</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 2, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

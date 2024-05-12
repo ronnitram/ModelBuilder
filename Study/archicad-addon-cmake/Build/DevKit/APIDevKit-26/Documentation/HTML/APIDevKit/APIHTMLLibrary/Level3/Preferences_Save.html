@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Saving Add-On data into the Preferences and the Project File</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Preferences_Save.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Saving Add-On data into the Preferences and the Project File</h1>
+
+    <p><br>
+    This paper give hints on how to save own data into the preferences and the actual project file.</p>
+
+    <h4>&nbsp;</h4>
+
+    <h4>Possibilities</h4>
+
+    <p>You are allowed to save an unlimited number of bytes into the preferences file. The preferences data is also stored in in all project files.</p>
+
+    <p>Preferences data saved into a project makes it possible to open a saved project file with the same working environment. It is also used to open dialog boxes with the same settings as they had when they were closed, even if you do not quit the application.</p>
+
+    <p>If your add-on uses settings which should be preserved, please use this feature.</p>
+
+    <p>You can save your data into the preferences file using the <a href="../Functions/ACAPI_SetPreferences.html">ACAPI_SetPreferences</a> function and retrieve the stored preferences with <a href="../Functions/ACAPI_GetPreferences.html">ACAPI_GetPreferences</a>.</p>
+
+    <p>When the server application starts with a new plan, the preferences data of the add-on is available previously saved into the preferences file of the application. If you open a plan file which has preferences data stored into it by your add-on, this data overwrites the current preferences of the add-on, that is, the add-on preferences can be changed after opening a project. Remember this if you need to maintain preferences data consistency in your add-on.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12">&nbsp; If your add-on has different versions of preferences data in different program releases, it is recommended to set the preferences of the older formats as well in order to ensure backward compatibility. Use the <a href="../Functions/ACAPI_SetPreferences_OldVersion.html">ACAPI_SetPreferences_OldVersion</a> function (Archicad only) to define your data to be saved into the specified (and earlier) plan versions instead of saving the current preferences version.</p>
+
+    <p>It is also important to handle platform specific data if the preferences can come from a plan file saved on the other platform. Use the <a href="../Functions/ACAPI_GetPreferences_Platform.html">ACAPI_GetPreferences_Platform</a> function instead of <code>ACAPI_GetPreferences</code> to retrieve the platform information too. If the platform identifier of the stored preferences does not match the actual platform, convert the data to the appropriate format.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Notes</h4>
+
+    <p>Please study the source code of the <b>DG Test</b> example to see the suggested way of handling the preferences data.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on June 3, 2004<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

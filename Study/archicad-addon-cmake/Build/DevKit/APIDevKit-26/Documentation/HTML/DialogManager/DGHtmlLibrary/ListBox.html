@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>List Box</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/ListBox.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>List Box</h1>
+
+    <p>A list box control is a window that displays a list of items from which the user can choose one or more items. List box controls can be single-selection (allowing only one item to be selected at a time) or multiple-selection (allowing one or more items to be selected at a time).</p>
+
+    <p>A list box can have a horizontal and/or a vertical scrollbar. The scroll bars can be defined either in GRC or when the list box is created by <a href="DGAppendDialogItem.html">DGAppendDialogItem</a>. If no scroll bar is specified, a list box has a default vertical scrollbar (although there is a possibility to define a list box without scroll bars). If the list box is not large enough to display the whole content at once, the scroll bars become active, otherwise they are disabled. The user scrolls the list when necessary, however the position of the scroll box (thumb) can be changed not only by user action but from code also by the <a href="DGListSetScrollPosition.html">DGListSetScrollPosition</a>, <a href="DGListScrollDown.html">DGListScrollDown</a>, <a href="DGListScrollUp.html">DGListScrollUp</a> and the <a href="DGListSetHScrollPosition.html">DGListSetHScrollPosition</a> functions. The user can select or deselect list items. Selecting a list box item changes its visual appearance, usually by changing the text and background colors to the colors specified by the operating system for selected items.</p>
+
+    <p>The list box can have an optional header. The header is displayed at the top of the list box. It is used to display information about the list box columns and can be configured to enable the user to dynamically adjust the sizes and the order of the list box columns.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/ListBox_Mac.png" width="246" height="141" alt="ListBox_Mac">&nbsp;&nbsp;&nbsp;&nbsp; <img src="../DGImageLibrary/ListBox_Win.png" alt="ListBox_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_LISTBOX</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr>
+                    <th>Subtype</th>
+
+                    <th>Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_LT_SINGLESELECT</tt></td>
+
+                    <td>Only one selection is possible.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_LT_MULTISELECT</tt></td>
+
+                    <td>Multiple-selection is possible.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Flags</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LT_NOPARTIALITEMS</tt></td>
+
+                    <td>The list box is resized to hide the last partially visible list item if this flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LT_NOSCROLL</tt></td>
+
+                    <td>The list box has no scrollbars if this flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LT_VSCROLL</tt></td>
+
+                    <td>The list box has vertical scrollbar if this flag is set. This flag cannot be combined with the <tt>DG_LT_NOSCROLL</tt> flag.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LT_HSCROLL</tt></td>
+
+                    <td>The list box has horizontal scrollbar if this flag is set. This flag cannot be combined with the <tt>DG_LT_NOSCROLL</tt> flag.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LT_HEADER</tt></td>
+
+                    <td>The list box has a header control above the list items.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    SingleSelList    <i>x  y  dx  dy  fontSpec  partItems</i>  [<i>scrollType</i>]  <i>itemSize</i>  [<i>headerFlag  headerSize</i>]
+    MultiSelList     <i>x  y  dx  dy  fontSpec  partItems</i>  [<i>scrollType</i>]  <i>itemSize</i>  [<i>headerFlag  headerSize</i>]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the list box, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the list items. <em>partItems</em> is used to set the <tt>DG_LT_NOPARTIALITEMS</tt> flag. If the optional <em>scrollType</em> flag is not present, the list box has vertical scrollbar. <em>itemSize</em> is the height of list items in pixels. If the optional <i>headerFlag</i> is present, the header size also must be specified.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>partItems</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>PartialItems</tt></td>
+
+                    <td>The <tt>DG_LT_NOPARTIALITEMS</tt> flag is not set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoPartialItems</tt></td>
+
+                    <td>The <tt>DG_LT_NOPARTIALITEMS</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>scrollType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoScroll</tt></td>
+
+                    <td>The <tt>DG_LT_NOSCROLL</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>VScroll</tt></td>
+
+                    <td>The <tt>DG_LT_VSCROLL</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HScroll</tt></td>
+
+                    <td>The <tt>DG_LT_HSCROLL</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HVScroll</tt></td>
+
+                    <td>The <tt>DG_LT_HSCROLL | DG_LT_VSCROLL</tt> flag combination is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>headerFlag</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0" id="Table1">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HasHeader</tt></td>
+
+                    <td>The <tt>DG_LT_HEADER</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a></td>
+
+                    <td>A list box item is clicked but the selection did not change. The message data parameter is a pointer to a <a href="DGListMsgData.html">DGListMsgData</a> structure cast to <tt><strong>DGMessageData</strong></tt>. This structure contains information about the user action.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>If the message data parameter is zero, the selection is changed in the list box. If the message data has a non-zero value, this message signals that a list item is dragged to a new position.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a></td>
+
+                    <td>A list box item is double clicked. The message data parameter is a pointer to a <b>DGListMsgData</b> structure cast to <tt><strong>DGMessageData</strong></tt>. This structure contains information about the user action.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_FOCUS.html"><tt>DG_MSG_FOCUS</tt></a></td>
+
+                    <td>The list box gains or loses the keyboard focus. The message data is 1 or zero, respectively.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a></td>
+
+                    <td>A tabulator field or list item of a list box should be redrawn. The message data parameter is a pointer to a <a href="DGListUpdateData.html">DGListUpdateData</a> structure cast to <tt><strong>DGMessageData</strong></tt>. This structure contains all the necessary information to update the tabulator field or list item by the application.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_MOUSEMOVE.html"><tt>DG_MSG_MOUSEMOVE</tt></a></td>
+
+                    <td>The mouse is over a list box item. The message data parameter is a pointer to a <b>DGListMsgData</b> structure cast to <tt><strong>DGMessageData</strong></tt>. This structure contains information about the user action.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DRAGDROP.html"><tt>DG_MSG_DRAGDROP</tt></a></td>
+
+                    <td>Drag and drop related event occured. This message can come only after it is enabled with <a href="DGEnableMessage.html">DGEnableMessage</a>. List boxes can be both drag source and target.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_LISTHEADERBUTTONCLICK.html"><tt>DG_MSG_LISTHEADERBUTTONCLICK</tt></a></td>
+
+                    <td>The header button of the list box was clicked. The header button is displayed above the vertical scroll bar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_LISTHEADERCLICK.html"><tt>DG_MSG_LISTHEADERCLICK</tt></a></td>
+
+                    <td>An item of the list box header was clicked. The message data parameter is a pointer to a <a href="DGListHeaderMsgData.html">DGListHeaderMsgData</a> structure cast to <tt><strong>DGMessageData</strong></tt>. This structure contains information about the index of the clicked header item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_LISTHEADERDRAG.html"><tt>DG_MSG_LISTHEADERDRAG</tt></a></td>
+
+                    <td>An item of the list box header was dragged to a new position. The message data parameter is a pointer to a <b>DGListHeaderMsgData</b> structure cast to <tt><strong>DGMessageData</strong></tt>. This structure contains information about the old and new index of the dragged header item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_LISTHEADERRESIZE.html"><tt>DG_MSG_LISTHEADERRESIZE</tt></a></td>
+
+                    <td>The size of list box header item was changed by mouse interaction. The message data parameter is a pointer to a <b>DGListHeaderMsgData</b> structure cast to <tt><strong>DGMessageData</strong></tt>. This structure contains information about the index and grow value of the modified header item.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p>The <a href="DGListSelectItem.html">DGListSelectItem</a> and <a href="DGListDeselectItem.html">DGListDeselectItem</a> functions set the list box's modification flag except they are called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. The flag can also be set by user actions that change the selection in the list box and generate <tt>DG_MSG_CHANGE</tt> messages. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>A list box can contain normal and separator list items. Call <a href="DGListInsertItem.html">DGListInsertItem</a> and <a href="DGListInsertSeparator.html">DGListInsertSeparator</a> to insert normal and separator items into a list box and <a href="DGListDeleteItem.html">DGListDeleteItem</a> to delete both type of items. The number of items currently in a list box can be retrieved by <a href="DGListGetItemCount.html">DGListGetItemCount</a>.</p>
+
+    <p>Text style, status (enabled, grayed, disabled) and color of each list item can be changed separately by <a href="DGListSetItemStyle.html">DGListSetItemStyle</a>, <a href="DGListSetItemStatus.html">DGListSetItemStatus</a> and <a href="DGListSetItemColor.html">DGListSetItemColor</a>. To retrieve these list item properties use <a href="DGListGetItemStyle.html">DGListGetItemStyle</a>, <a href="DGListGetItemStatus.html">DGListGetItemStatus</a> and <a href="DGListGetItemColor.html">DGListGetItemColor</a>, respectively. Each list item can have a user-defined value that can be used to store any item specific user data. <a href="DGListSetItemUserData.html">DGListSetItemUserData</a> and <a href="DGListGetItemUserData.html">DGListGetItemUserData</a> give an access to this value.</p>
+
+    <p>The content of list items can be divided into more columns. In this documentation the notation "tabulator field" is used instead of "column". The reason for this is that texts of columns can be separated within a list item by inserting tabulator (<tt>'\t'</tt>) characters into its text. Use <a href="DGListSetTabFieldCount.html">DGListSetTabFieldCount</a> and <a href="DGListSetTabFieldData.html">DGListSetTabFieldData</a> to set the number of tabulator fields and their properties. When calculating the width of the field call <a href="DGListGetItemWidth.html">DGListGetItemWidth</a> to get the maximum possible end position of the rightmost tabulator field. The content can be justified and truncated within its tabulator field. The alignment and truncation properties can be retrieved by the <a href="DGListGetTabFieldData.html">DGListGetTabFieldData</a> function. The content of a tabulator field can be set and retrieved by <a href="DGListSetTabItemText.html">DGListSetTabItemText</a> and <a href="DGListGetTabItemText.html">DGListGetTabItemText</a>, respectively. The color of each tabulator field can be set and retrieved separately by <a href="DGListSetTabItemColor.html"> DGListSetTabItemColor</a> and <a href="DGListGetTabItemColor.html"> DGListGetTabItemColor</a>.</p>
+
+    <p>There are two ways to set an icon of a tabulator field. One possibility is to specify the icon with its icon handle by <a href="DGListSetTabItemIcon.html">DGListSetTabItemIcon</a>, the other is to set it with its resource ID by <a href="DGListSetTabItemIconId.html">DGListSetTabItemIconId</a> or by <a href="DGListSetTabItemIconResource.html">DGListSetTabItemIconResource</a>. The icon handle can be retrieved by <a href="DGListGetTabItemIcon.html">DGListGetTabItemIcon</a>, the icon ID and the resource module ID of the icon can be retrieved by <a href="DGListGetTabItemIconId.html">DGListGetTabItemIconId</a> and <a href="DGListGetTabItemIconResource.html">DGListGetTabItemIconResource</a>, respectively.</p>
+
+    <p>Like texts, icons are also justified within their tabulator field. A tabulator field can contain one icon and some text together. In this case the <tt>DG_IS_CENTER</tt> justification is not allowed. The icon must be positioned at the beginning or the end of the text. If the icon is at the beginning of the tabulator field, the justification is automatically set to <tt>DG_IS_LEFT</tt>, and when the icon is in the end the justification is automatically set to <tt>DG_IS_RIGHT</tt>.</p>
+
+    <p>Tabulator fields can be drawn by DG or by the application. Use <a href="DGListSetTabFieldUpdateFlag.html">DGListSetTabFieldUpdateFlag</a> to change the update flag of a tabulator field. After this flag is set to <tt>true</tt>, the dialog callback function receives a <tt>DG_MSG_UPDATE</tt> message whenever the tabulator field must be updated. The message data parameter is a pointer to a <b>DGListUpdateData</b> structure that contains all the necessary information to update the tabulator field by the application. The application should just draw the desired content; graying and highlighting are handled by DG after the dialog callback function returns.</p>
+
+    <p>Also list items can be drawn by DG or by the application. Use <a href="DGListSetItemOwnerDrawFlag.html">DGListSetItemOwnerDrawFlag</a> to change the update flag of a list item. After this flag is set to <tt>true</tt>, the dialog callback function receives a <tt>DG_MSG_UPDATE</tt> message whenever the list item must be updated. The message data parameter is a pointer to a <b>DGListUpdateData</b> structure that contains all the necessary information to update the list item by the application. The application should just draw the desired content; graying and highlighting are handled by DG after the dialog callback function returns.</p>
+
+    <p>If a list box has a horizontal scrollbar, the size of the scrollbar always depends on the end-position and on the style of the last tabulator field. If tabulator fields were not previously defined by <strong>DGListSetTabFieldData</strong>, the size of the scrollbar equals to the longest list item. If the type of the last tabulator field is <tt>DG_IS_NOTRUNC</tt> and its update flag is <tt>false</tt> (see: <strong>DGListSetTabFieldUpdateFlag</strong>), the size of the scrollbar equals also to the longest list item. In all other cases the size of the scrollbar will equal to the end-position of the last tabulator field.</p>
+
+    <p>When more list items are inserted or deleted or more parameters of list items, i.e. text, color, style, status, etc., are modified simultaneously by calling <a href="ListSpecific_id.html">list specific functions</a>, it is advised to enclose these function calls by <a href="DGListDisableDraw.html">DGListDisableDraw</a> and <a href="DGListEnableDraw.html">DGListEnableDraw</a> to avoid unwanted screen updates. As <b>DGListEnableDraw</b> itself does not update the list, it is the application's responsibility to redraw the invalid areas. If almost the whole list becomes invalid, use <a href="DGInvalidateItem.html">DGInvalidateItem</a> or <a href="DGRedrawItem.html">DGRedrawItem</a> to update the list. However, if only a few list items or tabulator fields must be repainted use <a href="DGListRedrawItem.html">DGListRedrawItem</a> or <a href="DGListRedrawTabItem.html">DGListRedrawTabItem</a>.</p>
+
+    <p>The pixel height of the list items can be set and retrieved by <a href="DGListSetItemHeight.html">DGListSetItemHeight</a> and <a href="DGListGetItemHeight.html">DGListGetItemHeight</a>, respectively. Use <a href="DGListGetItemRect.html">DGListGetItemRect</a> to get the rectangle of a particular list item. This function is also suitable for testing whether a list item is visible or not. When a list box is resized, the last list item can often become partially visible. This behavior is usually unacceptable. To avoid this problem call <a href="DGListSetNoPartialItems.html">DGListSetNoPartialItems</a> after the list box is created and every time when it is resized.</p>
+
+    <p>A list box can be single-selection or multiple-selection. The user can select list items by the mouse or by keypresses through the usual ways. To select or deselect one or more list items from the program code call <b>DGListSelectItem</b> and <b>DGListDeselectItem</b>, respectively. Use <a href="DGListGetSelCount.html">DGListGetSelCount</a> to retrieve the number of selected list items and <a href="DGListGetSelected.html">DGListGetSelected</a> or <a href="DGListGetSelItems.html">DGListGetSelItems</a> to get their indices. A mouse click on the empty client area of a list box (where there is no list item) removes all the previous selections. In this case a <tt>DG_MSG_CHANGE</tt> message is sent to notify the application. Selection with keypresses is also supported. Searching can be done on any textual tabulator field (use <a href="DGListSetTabFieldToSearch.html">DGListSetTabFieldToSearch</a> to specify the tabulator field index). DG searches a list item not only by a single prefix character, you can type a word prefix, too.</p>
+
+    <p>List items in a single-selection list box can be reordered by clicking and tracking them with the mouse. In order to be able to do this first you should enable the <tt>DG_MSG_MOUSEMOVE</tt> message for the list box item by calling <a href="DGEnableMessage.html">DGEnableMessage</a> and set the image of one of the tabulator fields to <tt>DG_LIST_DRAGICON</tt> which is a small up-down arrow indicating that the list item is draggable. When handling <tt>DG_MSG_MOUSEMOVE</tt> and the cursor is above a list tabulator field which contains an icon with the ID <tt>DG_LIST_DRAGICON</tt>, the dialog callback function should return <tt>DG_LIST_INDRAGAREA</tt> to change the cursor to the list drag cursor (small up and down arrows). As the cursor becomes this drag cursor, the user can drag list items, i.e. change their order, by clicking and tracking the mouse. During dragging a thin dotted frame indicates the dragged item. List items can only be dragged between separator lines inserted by <b>DGListInsertSeparator</b> into the list box. If the positions of the item before and after the dragging are different, the dialog callback function receives a <tt>DG_MSG_CHANGE</tt> message with a non-zero message data. Use <a href="DGListGetOldDragPos.html">DGListGetOldDragPos</a> and <a href="DGListGetNewDragPos.html">DGListGetNewDragPos</a> macros to retrieve the old and new index of the dragged list item, respectively, from the message data.</p>
+
+    <p>The content of list item's tabulator field can be not only a text and/or icon, but an other dialog item, too. These dialog items that appear on a list box item are called ontab items. Ontab dialog items can be assigned to tabulator fields by <a href="DGListSetDialItemOnTabField.html">DGListSetDialItemOnTabField</a>.</p>
+
+    <p>The list box is one of the focusable controls of DG. When a list box gains or loses the keyboard focus as a result of user actions, the dialog callback function receives a <tt>DG_MSG_FOCUS</tt> message. The keyboard focus can be set to a list box from program code, too, by <a href="DGSetFocus.html">DGSetFocus</a>. To retrieve the control that currently has the keyboard focus use <a href="DGGetFocus.html">DGGetFocus</a>.</p>
+
+    <p>The keyboard focus and the focusable control categories in DG essentially have the same meaning as in the Macintosh operating system (i.e. the same type of controls are focusable in DG and on Macintosh). On Windows, however, more controls can have keyboard focus. Focusable controls of DG form a subset of focusable controls of Windows. The <b>DGSetFocus</b> and <b>DGGetFocus</b> functions work on focusable controls of DG only.</p>
+
+    <p>There are two ways to display the header in the list box. If the list box is created by GRC description then the header can be enabled in the GRC file. By dynamically created list box controls the header is specified with the parameters of <b>DGAppendDialogItem</b>. Once the header is created for a list box, its size and visibility could not be changed. The height of the header is retrieved by <a href="DGListGetHeaderHeight.html">DGListGetHeaderHeight</a>.<br>
+    The header can be configured so that the number and size of the header items are either synchronized with the corresponding tabulator fields by DG or independently handled by the application. The header is configured by the <a href="DGListSetHeaderFlags.html">DGListSetHeaderFlags</a> and <a href="DGListSetHeaderItemCount.html">DGListSetHeaderItemCount</a> functions.<br>
+    The header items can display text and icon also, which can be set by the <a href="DGListSetHeaderItemText.html">DGListSetHeaderItemText</a> and <a href="DGListSetHeaderItemIcon.html">DGListSetHeaderItemIcon</a> functions. To set the font style and alignment of a header item the <a href="DGListSetHeaderItemFont.html">DGListSetHeaderItemFont</a> and <a href="DGListSetHeaderItemFlags.html">DGListSetHeaderItemFlags</a> functions are used.<br>
+    Only those header items can be resized on which the <em>isSizeable</em> flag is set by the <strong>DGListSetHeaderItemFlags</strong> function. Header items can be resized either by mouse interaction or by code with the <a href="DGListSetHeaderItemSize.html">DGListSetHeaderItemSize</a> function. With mouse interaction the header item can not be shrinked smaller than the minimum size which is set by the <a href="DGListSetHeaderItemMinSize.html">DGListSetHeaderItemMinSize</a> function.<br>
+    It is possible to indicate the sorting order of a list box coloumn in a header item. Primary and secondary sorting order are shown with simple and double triangles, pointing up or downwards. To show or hide the sorting arrow the <a href="DGListSetHeaderItemArrowType.html">DGListSetHeaderItemArrowType</a> function is used.</p>
+
+    <p>The first header item always starts at 0 position. The right side of the right marginal header item overlaps always with the right side of the last tabulator field. If there is space between two adjacent tabulator fields and the <em>isSynchron</em> flag is set on the list box header, the margins of the header items coincide with the middle of the spaces between the tabulator fields. If the list box has a horizontal scrollbar and a header item is being resized, all the items being to the right from this header item slips to the right or to the left and the width of the header item and the width of the list box rows are changing constantly. If the list box does not have a horizontal scrollbar, the size of the header always stays constant. In this case if the user wants to widen a header item then to the right from the chosen item another sizeable header item has to be found of which size does not gained its minimal size yet. The found header item will be narrowed. If there is no such header item, the resizing will be unsuccessful. At the same time if the user wants to narrow a header item, then to the right of the chosen item the first sizeable header item will be widened.<br>
+    If the user changes the size of the header items by mouse interaction (this property can be set for the items one by one), the application is notified and it has the possibility to change the size of the tabulator fields corresponding to the size of the header items. If the <em>isSynchron</em> flag is set on the list box header and the application does not handle the <tt>DG_MSG_LISTHEADERRESIZE</tt> message (ie.: the application returns 0), the list box sets the size of the tabulator fields automatically. If the application handles this message, it should return 1. If the <em>isSynchron</em> flag is not set, then DG does not set the size of the tabulator fields.<br>
+    If the user modifies the size of the tabulator fields (by code) and the <em>isSynchron</em> flag is set on the list box header - this is the default setting - the list box adjusts the size of the header items to the size of the tabulator fields. However if the <em>isSynchron</em> flag is not set, the application should resize the header items also.<br>
+    If the user resizes the list box control and there is a horizontal scroll bar on the list box, the size of the tabulator fields and of the header items will not change automatically. If the list box control is resized and there is no horizontal scroll bar on the list box, the application should readjust the size of the tabulator fields. In this case if the <em>isSynchron</em> flag is set on the list box header, the list box resizes the header items, otherwise the header items should be resized by the application also.</p>
+
+    <p>The detailed help information of the item can be invoked by setting the keyboard focus to a focusable dialog item then pressing the [F1] key on Windows or [Help] key on Macintosh; or by clicking the right mouse button on the item; or by clicking the help [?] button in the dialog caption then clicking on the item itself. If tooltips are enabled, the short help information is displayed as usual. There are two ways to display help text for a list box. Help text can be displayed for each item of the list box or only one help text can be displayed for the list box. The help style of the list box can be set and retrieved by the <a href="DGListSetHelpStyle.html">DGListSetHelpStyle</a> and <a href="DGListGetHelpStyle.html">DGListGetHelpStyle</a> functions, respectively.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 18.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="ListSpecific_id.html">List specific functions</a><br>
+    <a href="DGAppendDialogItem.html">DGAppendDialogItem</a>, <a href="DGGetFocus.html">DGGetFocus</a>, <a href="DGInvalidateItem.html">DGInvalidateItem</a>, <a href="DGModified.html">DGModified</a>, <a href="DGRedrawItem.html">DGRedrawItem</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetFocus.html">DGSetFocus</a>, <a href="DGSetItemFont.html">DGSetItemFont</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a>, <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a>, <a href="DG_MSG_FOCUS.html"><tt>DG_MSG_FOCUS</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a>, <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a>, <a href="DG_MSG_MOUSEMOVE.html"><tt>DG_MSG_MOUSEMOVE</tt></a><br>
+    <a href="DG_MSG_LISTHEADERCLICK.html"><tt>DG_MSG_LISTHEADERCLICK</tt></a>, <a href="DG_MSG_LISTHEADERDRAG.html"><tt>DG_MSG_LISTHEADERDRAG</tt></a>, <a href="DG_MSG_LISTHEADERRESIZE.html"><tt>DG_MSG_LISTHEADERRESIZE</tt></a><br>
+    <a href="DG_MSG_LISTHEADERBUTTONCLICK.html"><tt>DG_MSG_LISTHEADERBUTTONCLICK</tt></a>, <a href="DGListMsgData.html">DGListMsgData</a>, <a href="DGListUpdateData.html">DGListUpdateData</a>, <a href="DGListHeaderMsgData.html">DGListHeaderMsgData</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

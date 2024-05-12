@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>ExportLineProc</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/VIDrawContext/ExportLineProc.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ExportLineProc</h1>
+
+    <p>Called to draw a sector.</p>
+    <pre class="syntax">
+    <strong>typedef GSErr GX_CALL</strong> ExportLineProc (
+    <strong>void*</strong>  <em>userDataPtr</em>,
+    <strong>long</strong>  <em>x1</em>,
+    <strong>long</strong>  <em>y1</em>,
+    <strong>long</strong>  <em>z1</em>,
+    <strong>long</strong>  <em>x2</em>,
+    <strong>long</strong>  <em>y2</em>,
+    <strong>long</strong>  <em>z2</em>,
+    <strong>short</strong>  <em>penind</em>,
+    <strong>long*</strong>  <em>longvals</em>,
+    <strong>short*</strong>  <em>shrtvals</em>,
+        <strong>bool</strong>  <em>shadowElem</em>
+);
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>userDataPtr</em></dt>
+
+        <dd>The user-defined data set in the caller function.</dd>
+
+        <dt><em>x1</em></dt>
+
+        <dd>The x co-ordinate of the starting point of the sector.</dd>
+
+        <dt><em>y1</em></dt>
+
+        <dd>The y co-ordinate of the starting point of the sector.</dd>
+
+        <dt><em>z1</em></dt>
+
+        <dd>Undefined, should be omitted.</dd>
+
+        <dt><em>x2</em></dt>
+
+        <dd>The x co-ordinate of the ending point of the sector.</dd>
+
+        <dt><em>y2</em></dt>
+
+        <dd>The y co-ordinate of the ending point of the sector.</dd>
+
+        <dt><em>z2</em></dt>
+
+        <dd>Undefined, should be omitted.</dd>
+
+        <dt><em>penind</em></dt>
+
+        <dd>The attribute index of the used pen.</dd>
+
+        <dt><em>longvals</em></dt>
+
+        <dd>Undefined, should be omitted.</dd>
+
+        <dt><em>shrtvals</em></dt>
+
+        <dd>Undefined, should be omitted.</dd>
+
+        <dt><em>shadowElem</em></dt>
+
+        <dd>Undefined, should be omitted.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>If the function succeeds, the return value is NoError. If the function fails, the return value is the error code.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The sector color and line width determined by the penind attributes.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10.0 or later, ModelerGraphics 8 or later</dd>
+
+        <dd><b>Header:</b> G2DProcs.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><!-- Not Index --><a href="VIDrawContext.html">VIDrawContext struct</a> <!-- FOOTER  FOOTEREND --></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 3, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

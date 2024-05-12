@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Urban Eszter">
+
+    <title>GRC Specification of the Dialog Item Types</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/GRC_ImageTypes.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GRC Specification of the Dialog Item Types</h1>
+
+    <p>This page helps in accessing all the necessary information about the GRC specification of supported image types by the <em>DG module</em>.</p>
+
+    <p><a href="#Icon">Icon</a><br>
+    <a href="#Picture">Picture</a></p><a name="Icon" id="Icon"></a>
+
+    <h4>GRC Specification of the <a href="Icon.html">Icon</a></h4>
+    <pre class="syntax">
+    Icon    <i>x  y  dx  dy  iconID</i>  [frameType]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the icon control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>iconID</em> defines the icon resource ID of the control. If the optional <em>frameType</em> flag is omitted, the icon is drawn without a frame.</p>
+
+    <p><em>iconID</em> can be any positive resource ID or one of the following predefined constants:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+
+                    <th width="80">Macintosh</th>
+
+                    <th width="80">Windows</th>
+                </tr>
+
+                <tr>
+                    <td><tt>NoIcon</tt></td>
+
+                    <td>No icon, empty space.</td>
+
+                    <td></td>
+
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td><tt>ErrorIcon</tt></td>
+
+                    <td>Error icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconError_Mac.png" width="32" height="32" alt="IconError_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconError_Win.png" alt="IconError_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>InfoIcon</tt></td>
+
+                    <td>Information icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconInfo_Mac.png" width="32" height="32" alt="IconInfo_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconInfo_Win.png" alt="IconInfo_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>WarningIcon</tt></td>
+
+                    <td>Warning icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconWarning_Mac.png" width="32" height="32" alt="IconWarning_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconWarning_Win.png" alt="IconWarning_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>frameType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Default</tt></td>
+
+                    <td>The <tt>DG_FT_NONE</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>StaticEdge</tt></td>
+
+                    <td>The <tt>DG_FT_STATIC</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ClientEdge</tt></td>
+
+                    <td>The <tt>DG_FT_CLIENT</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ModalFrame</tt></td>
+
+                    <td>The <tt>DG_FT_MODAL</tt> frame type is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>If an icon control is used as explanatory background for other controls, it must precede them in the dialog item list. These controls can be fully or partly within the area of the icon control.</p>
+
+    <p>When an icon control is created or a new icon is assigned to it from program code, the control is automatically resized to the size of the icon. During this operation the center of the control is not moved and the possible frame is taken into account.</p>
+
+    <p>In order to spare with resource space, always use as few colors in the color table of the icon as possible. For example if your image contains 6 different colors only, do not use an icon with 256 colors, but use one with 16 colors instead.</p><a name="Picture" id="Picture"></a>
+
+    <h4>GRC Specification of the <a href="Picture.html">Picture</a></h4>
+    <pre class="syntax">
+    Picture    <i>x  y  dx  dy  pictID</i>  [frameType]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the picture control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. On Macintosh, <em>pictID</em> defines the control's picture resource ID. On Windows, however, <em>pictID</em> refers to a bitmap resource. If the optional <em>frameType</em> flag is omitted, the picture is drawn without frame.</p>
+
+    <p>Possible values of <em>frameType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Default</tt></td>
+
+                    <td>The <tt>DG_FT_NONE</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>StaticEdge</tt></td>
+
+                    <td>The <tt>DG_FT_STATIC</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ClientEdge</tt></td>
+
+                    <td>The <tt>DG_FT_CLIENT</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ModalFrame</tt></td>
+
+                    <td>The <tt>DG_FT_MODAL</tt> frame type is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>If a picture control is used as explanatory background for other controls, it must precede them in the dialog item list. These controls can be fully or partly within the picture control's area.</p>
+
+    <p>When a picture control is created or a new image is assigned to it from program code, the control is automatically resized to the size of the image. During this operation the center of the control is not moved and the possible frame is taken into account.</p>
+
+    <p>Although picture controls are not masked, black &amp; white pictures seem to be transparent. The reason is that when a black &amp; white picture is drawn, the white and black pixels are substituted with the dialog background and foreground colors, respectively.</p>
+
+    <p>In order to spare with resource space, always use as few colors in the image's color table as possible. For example if your image contains 6 different colors only, do not use an image with 256 colors, but use one with 16 colors instead.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Icon.html">Icon</a>, <a href="Picture.html">Picture</a>, <a href="DlgItemTypes_id.html">Dialog item types</a><br>
+    <a href="GRC_DialogItemTypes.html">GRC specification of the Dialog Item Types</a>, <a href="GRC_DialogTypes.html">GRC specification of the Dialog Types</a>, <a href="GRC_DialogHelps.html">GRC specification of the Dialog Helps</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

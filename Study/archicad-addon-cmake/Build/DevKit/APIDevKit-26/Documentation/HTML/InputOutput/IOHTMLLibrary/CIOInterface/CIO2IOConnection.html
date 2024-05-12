@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Connection between CIO and IO interfaces</title><!-- index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/CIOInterface/CIO2IOConnection.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Connection between CIO and IO interfaces</h1><br>
+
+    <p>There are some "connector" functions defined in the "<font face="Courier New"><b>CIOConnector.hpp</b></font>" header file (in "<font face="Courier New"><b>CIO</b></font>" namespace) which relate the CIO and IO interfaces, that is, convert between the corresponding classes.<br>
+    <br></p>
+
+    <ul>
+        <li>The following functions assign content of a CIO object to an IO object:<br>
+            <br>
+
+            <div style="margin-left: 2em">
+                <pre>
+void  Assign (IO::Name* toName,            const CIO::Name&amp; fromName);
+void  Assign (IO::RelativeLocation* toLoc, const CIO::RelativeLocation&amp; fromLoc);
+void  Assign (IO::Location* toLoc,         const CIO::Location&amp; fromLoc);
+</pre>
+            </div>
+        </li>
+
+        <li style="list-style: none"><br></li>
+
+        <li>The following functions assign content of an IO object to a CIO object:<br>
+            <br>
+
+            <div style="margin-left: 2em">
+                <pre>
+void  Assign (CIO::Name* toName,            const IO::Name&amp; fromName);
+void  Assign (CIO::RelativeLocation* toLoc, const IO::RelativeLocation&amp; fromLoc);
+void  Assign (CIO::Location* toLoc,         const IO::Location&amp; fromLoc);
+</pre>
+            </div>
+        </li>
+
+        <li style="list-style: none"><br></li>
+
+        <li>The following functions return the corresponding IO object implementing a CIO object:<br>
+            <br>
+
+            <div style="margin-left: 2em">
+                <pre>
+IO::Name*                    GetImplementation (CIO::Name&amp; name);
+const IO::Name*              GetImplementation (const CIO::Name&amp; name)
+<br>IO::RelativeLocation*        GetImplementation (CIO::RelativeLocation&amp; relLoc);
+const IO::RelativeLocation*  GetImplementation (const CIO::RelativeLocation&amp; relLoc);
+<br>IO::Location*                GetImplementation (CIO::Location&amp; loc);
+const IO::Location*          GetImplementation (const CIO::Location&amp; loc);
+<br>IO::Folder*                  GetImplementation (CIO::Folder&amp; folder);
+const IO::Folder*            GetImplementation (const CIO::Folder&amp; folder);
+<br>IO::File*                    GetImplementation (CIO::File&amp; file);
+const IO::File*              GetImplementation (const CIO::File&amp; file);
+</pre>
+            </div>
+        </li>
+    </ul>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

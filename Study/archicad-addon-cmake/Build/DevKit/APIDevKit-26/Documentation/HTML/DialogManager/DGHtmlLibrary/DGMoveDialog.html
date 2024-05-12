@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Lipcsei Peter">
+
+    <title>DGMoveDialog</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGMoveDialog.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGMoveDialog</h1>
+
+    <p>Moves a dialog with the given relative values.</p>
+    <pre class="syntax">
+    <strong>void DGMoveDialog</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>hDisp</em>,
+      <strong>short</strong>  <em>vDisp</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>hDisp</em></dt>
+
+        <dd>Horizontal move in pixels (relative to previous position). Positive values mean move to the right.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>vDisp</em></dt>
+
+        <dd>Vertical move in pixels (relative to previous position). Positive values mean move down.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p><b>DGMoveDialog</b> moves a dialog with relative values. Use the <a href="DGSetDialogPosition.html">DGSetDialogPosition</a> function to set the dialog coordinates to given absolute values.</p>
+
+    <p>Dialog positions and sizes in DG are stored in system preferences (Macintosh) or in the system registry (Windows). This means that a dialog remembers its previous size and position when it is reopened next time, even after exiting and restarting the application.</p>
+
+    <p>If the stored positions are outside the desktop area so that less than 25 percent of the dialog caption is visible, DG automatically positions the dialog to be entirely visible.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="DGGetDialogPosition.html">DGGetDialogPosition</a>, <a href="DGSetDialogPosition.html">DGSetDialogPosition</a><br>
+    <a href="DGGrowDialog.html">DGGrowDialog</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 5, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

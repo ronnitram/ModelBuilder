@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_RendImage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_RendImage.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_RendImage</h1>
+
+    <p>The representation of the Rendering Settings / Size &amp; Background tab page.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>short</strong>            <em>hSize</em>;
+        <strong>short</strong>            <em>vSize</em>;
+        <strong>short</strong>            <em>outResolution</em>;
+        <strong>bool</strong>             <em>proportional</em>;
+        <strong>bool</strong>             <em>bkgPict</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>     <em>bkgSkyRGB</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>     <em>bkgEarthRGB</em>;
+        <strong><a href="API_Rect.html">API_Rect</a></strong>         <em>bkgPictRect</em>;
+        <strong><a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a></strong>     <em>*bkgPictFile</em>;
+        <strong>short</strong>            <em>bkgResolution</em>;
+        <strong>bool</strong>             <em>filler_1</em>;
+        <strong>bool</strong>             <em>partialRendering</em>;
+        <strong><a href="API_Rect.html">API_Rect</a></strong>         <em>partialRect</em>;
+        <strong>short</strong>            <em>scaleType</em>;
+        <strong>short</strong>            <em>bkgScaleType</em>;
+        <strong>Int32</strong>            <em>filler_2[13]</em>;
+    <strong>}</strong> <em>API_RendImage</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>hSize</b></dt>
+
+        <dd>Horizontal pixel size</dd>
+
+        <dt><b>vSize</b></dt>
+
+        <dd>Vertical pixel size</dd>
+
+        <dt><b>outResolution</b></dt>
+
+        <dd>Dots per inch resolution</dd>
+
+        <dt><b>proportional</b></dt>
+
+        <dd>Proportional change for <code>hSize/vSize</code>.</dd>
+
+        <dt><b>bkgPict</b></dt>
+
+        <dd>Colors or picture background.</dd>
+
+        <dt><b>bkgSkyRGB</b></dt>
+
+        <dd>Sky color</dd>
+
+        <dt><b>bkgEarthRGB</b></dt>
+
+        <dd>Earth color</dd>
+
+        <dt><b>bkgPictRect</b></dt>
+
+        <dd>Background picture rectangle</dd>
+
+        <dt><b>bkgPictFile</b></dt>
+
+        <dd>Background picture file</dd>
+
+        <dt><b>bkgResolution</b></dt>
+
+        <dd>Background resolution</dd>
+
+        <dt><b>partialRendering</b></dt>
+
+        <dd>Photorender only a part of the whole image. The rectangular shape is defined by the <code>partialRect</code> field</dd>
+
+        <dt><b>partialRect</b></dt>
+
+        <dd>Rectangle for partial photorendering; valid only if the <code>partialRendering</code> field is <code>true</code>. The position of the rectangle is relative to the left-top corner of the whole image</dd>
+
+        <dt><b>scaleType</b>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API version 18" width="19" height="12"></dt>
+
+        <dd>its value can be 0 (ScaleType_ToFill), or 1 (ScaleType_ToFit)</dd>
+
+        <dt><b>bkgScaleType</b>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API version 18" width="19" height="12"></dt>
+
+        <dd>its value can be 0 (BKGScaleType_ToFit), 1 (BKGScaleType_ToFill), or 2 (BKGScaleType_Custom)<br>
+        <blockquote><img border="0" src="../../APIImageLibrary/API_RendImage_bkgScaleType.png" class="size2x" alt="bkgScaleType" width="326" height="296"></blockquote></dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is used by the <a href="../Functions/APIEnv_GetRenderingSetsID.html">APIEnv_GetRenderingSetsID</a> and <a href="../Functions/APIEnv_ChangeRenderingSetsID.html">APIEnv_ChangeRenderingSetsID</a> functions to get and modify the settings of the Size &amp; Background "Rendering Settings" tab page.</p>
+
+    <p>See an example of using this structure at the description of <a href="../Functions/APIEnv_ChangeRenderingSetsID.html">APIEnv_ChangeRenderingSetsID</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIEnv_GetRenderingSetsID.html">APIEnv_GetRenderingSetsID</a>, <a href="../Functions/APIEnv_ChangeRenderingSetsID.html">APIEnv_ChangeRenderingSetsID</a>,<br>
+    <a href="API_RendEffects.html">API_RendEffects</a>, <a href="API_RGBColor.html">API_RGBColor</a>, <a href="API_Rect.html">API_Rect</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 25, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_RegisterModelessWindow</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_RegisterModelessWindow.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_RegisterModelessWindow</h1>
+
+    <p>Registers a modeless palette in the API.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_RegisterModelessWindow</strong> (
+        <strong>Int32</strong>                              <em>referenceID</em>,
+        <strong><a href="APIPaletteControlCallBackProc.html">APIPaletteControlCallBackProc</a>*</strong>     <em>callBackProc</em>,
+        <strong>GSFlags</strong>                            <em>controlFlags</em>,
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>                    <em>paletteGuid = APINULLGuid</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>referenceID</em></dt>
+
+        <dd>[in] Arbitrary number to uniquely identify your modeless palette. (You can use the resource ID if you wish.)</dd>
+
+        <dt><em>callBackProc</em></dt>
+
+        <dd>[in] Callback procedure for handling special API messages. It is called by the API, independently of DG.</dd>
+
+        <dt><em>controlFlags</em>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>[in] Define the behavior of the palette above different Archicad windows (plan, 3D, section, layout), and in case of selection.</dd>
+
+        <dt><em>paletteGuid</em>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>[in] A unique identifier for recording the state of the palette in the Work Environment. Optional parameter, can be omitted.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>The passed <code>referenceID</code> has already been used.</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>No free memory was available for the new entry.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Modeless palettes now can be opened with the normal DG functions (either <code>DGModelessInit</code>, or <code>DG::Palette</code>). However, the API should know about the existence of an add-on's palette, so that it could send special messages to the palette (see <a href="APIPaletteControlCallBackProc.html">APIPaletteControlCallBackProc</a>). This function registers the add-on's modeless window with the API; call it from the <code><a href="Initialize.html">Initialize</a></code> function.</p>
+
+    <p>API 11 introduced new values for the <code>controlFlags</code> parameter: <code>API_PalEnabled_Worksheet</code>, <code>API_PalEnabled_Elevation</code>, and <code>API_PalEnabled_InteriorElevation</code>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+GSErrCode	__ACENV_CALL Initialize	(void)
+{
+    GSErrCode err = ACAPI_Install_MenuHandler (DGTEST_MENU_STRINGSID, MenuCommandHandler);
+
+    // If the palette is constructed and registered, the add-on will be not unloaded from the memory while Archicad runs.
+    <font color="#FF0066">ACAPI_RegisterModelessWindow </font>(OwnerDrawnListBoxPalette::ODLBPaletteRefId (),
+                                  OwnerDrawnListBoxPalette::PaletteAPIControlCallBack,
+                                  API_PalEnabled_FloorPlan + API_PalEnabled_Section + API_PalEnabled_Elevation +
+                                  API_PalEnabled_InteriorElevation + API_PalEnabled_3D +
+                                  API_PalEnabled_Detail + API_PalEnabled_Worksheet + API_PalEnabled_Layout +
+                                  API_PalEnabled_DocumentFrom3D + API_PalEnabled_ModelCompare, GSGuid2APIGuid (OwnerDrawnListBoxPalette::ODLBPaletteGuid ()));
+
+    if (err != NoError)
+        DBPrintf ("DG_Test:: Initialize() ACAPI_Install_MenuHandler failed\n");
+
+    return err;
+}		// Initialize
+
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_UnregisterModelessWindow.html">ACAPI_UnregisterModelessWindow</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 28, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

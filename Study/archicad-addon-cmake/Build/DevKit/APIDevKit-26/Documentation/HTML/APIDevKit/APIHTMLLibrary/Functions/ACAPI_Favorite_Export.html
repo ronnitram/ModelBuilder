@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Favorite_Export</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Favorite_Export.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Favorite_Export&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"></h1>
+
+    <p>Exports the Favorites in the plan into a Favorites file or folder.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Favorite_Export</strong> (
+        <strong>const <a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a>&amp;</strong>                 <em>location</em>,
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&gt;*</strong>     <em>names</em>  = nullptr
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+    <dl>
+        <dt><em>location</em></dt>
+        <dd>[in] The path to the file (if the location has the Favorite binary's extension) or folder (otherwise) to export to.</dd>
+
+        <dt><em>names</em></dt>
+        <dd>[in] The list of the Favorites to export.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+    <dl>
+        <dt><code>NoError</code></dt>
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_NOACCESSRIGHT</code></dt>
+        <dd>The <em>location</em> file or folder couldn't be opened for write.</dd>
+    </dl>
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    For detailed example, please see the Favorite_Test example Add-On.
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+    <dl>
+        <dd><b>Version:</b> API 20 or later</dd>
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p>
+        <a href="ACAPI_Favorite_Create.html">ACAPI_Favorite_Create</a>,<br>
+        <a href="ACAPI_Favorite_Delete.html">ACAPI_Favorite_Delete</a>,<br>
+        <a href="ACAPI_Favorite_Get.html">ACAPI_Favorite_Get</a>,<br>
+        <a href="ACAPI_Favorite_GetNum.html">ACAPI_Favorite_GetNum</a>,<br>
+        <a href="ACAPI_Favorite_Import.html">ACAPI_Favorite_Import</a>,<br>
+        <a href="ACAPI_Favorite_Read.html">ACAPI_Favorite_Read</a>,<br>
+        <br>
+        <a href="API_Functions.html">API Functions</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 27, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

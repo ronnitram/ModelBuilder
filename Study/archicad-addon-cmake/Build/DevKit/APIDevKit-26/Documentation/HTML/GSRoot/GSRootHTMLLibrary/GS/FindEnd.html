@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>FindEnd</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/FindEnd.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>FindEnd</H2><!--exp="FindEnd Enum"-->
+<P><topic id="$GS.$FindEnd.BriefDescription">
+		Looks in a range for the last subsequence that is identical to a specified 
+		sequence or that is equivalent in a sense specified by a binary predicate.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For1</I>, <B>class</B> <I>For2</I>, <B>class</B> <I>BinPred</I><B>&gt;
+</B>For1 FindEnd (</B>
+    <B>For1                </B><I>first1</I>,
+    <B>For1                </B><I>last1</I>,
+    <B>For2                </B><I>first2</I>,
+    <B>For2                </B><I>last2</I>,
+    <B>BinPred             </B><I>pred</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For1</I>, <B>class</B> <I>For2</I><B>&gt;
+</B>For1 FindEnd (</B>
+    <B>For1                </B><I>first1</I>,
+    <B>For1                </B><I>last1</I>,
+    <B>For2                </B><I>first2</I>,
+    <B>For2                </B><I>last2</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>For1</I></DT><DD><topic id="$GS.$FindEnd.$For1.TemplateParamDescription">
+		Forward iterator.
+	</topic></DD><DT><I>For2</I></DT><DD><topic id="$GS.$FindEnd.$For2.TemplateParamDescription">
+		Forward iterator.
+	</topic></DD><DT><I>BinPred</I></DT><DD><topic id="$GS.$FindEnd.$BinPred.TemplateParamDescription">
+		Binary predicate.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first1</I></DT><DD><topic id="$GS.$FindEnd.$first1.ParamDescription">
+		A forward iterator addressing the position of the first element in the range to 
+		be searched.
+	</topic></DD><DT><I>last1</I></DT><DD><topic id="$GS.$FindEnd.$last1.ParamDescription">
+		A forward iterator addressing the position one past the final element in the 
+		range to be searched.
+	</topic></DD><DT><I>first2</I></DT><DD><topic id="$GS.$FindEnd.$first2.ParamDescription">
+		A forward iterator addressing the position of the first element in the range to 
+		be searched.
+	</topic></DD><DT><I>last2</I></DT><DD><topic id="$GS.$FindEnd.$last2.ParamDescription">
+		A forward iterator addressing the position one past the final element in the 
+		range to be searched.
+	</topic></DD><DT><I>pred</I></DT><DD><topic id="$GS.$FindEnd.$pred.ParamDescription">
+		User defined predicate function object that defines the condition to be 
+		satisfied if two elements are to be taken as equivalent. A binary predicate 
+		takes two arguments and returns <B>true</B>when satisfied and <B>false</B> when 
+		not satisfied.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$FindEnd.ReturnDescription">
+		A forward iterator addressing the position of the first element of the last 
+		subsequence that matches the specified sequence or that is equivalent in a sense 
+		specified by a binary predicate.
+	</topic></P><P><topic id="$GS.$FindEnd.1.ReturnDescription"></topic></P><P><topic id="$GS.$FindEnd.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$FindEnd.LongDescription">
+		<B>FindEnd</B> is misnamed: it is much more similar to <B>Search</B> than to <B>Find</B>,
+		and a more accurate name would have been <B>SearchEnd</B>.
+		Like <B>Search</B>, <B>FindEnd</B> attempts to find a subsequence within 
+		the range <TT>[first1, last1)</TT> that is identical to <TT>[first2, 
+		last2)</TT>. The difference is that while <B>Search</B> finds the first such 
+		subsequence, <B>FindEnd</B> finds the last such subsequence. 
+		<B>FindEnd</B> returns an iterator pointing to the beginning of that 
+		subsequence; if no such subsequence exists, it returns <TT>last1</TT>. 
+		The two versions of <B>FindEnd</B> differ in how they determine whether 
+		two elements are the same: the first uses <B>operator==</B>, and the second 
+		uses the user-supplied predicate <TT>pred</TT>.
+		The first version of <B>FindEnd</B> returns the last iterator <TT>i</TT> 
+		in the range <TT>[first1, last1 - (last2 - first2))</TT> such that, for every 
+		iterator <TT>j</TT> in the range <TT>[first2, last2)</TT>, <TT>*(i + (j - 
+		first2)) == *j</TT>. The second version of <B>FindEnd</B> returns the last 
+		iterator <TT>i</TT> in <TT>[first1, last1 - (last2 - first2))</TT> such that, 
+		for every iterator <TT>j</TT> in <TT>[first2, last2)</TT>, <TT>pred(*(i + 
+		(j - first2)), *j)</TT> is <TT>true</TT>. These conditions simply mean that 
+		every element in the subrange beginning with <TT>i</TT> must be the same as the 
+		corresponding element in <TT>[first2, last2)</TT>.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$FindEnd.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>GSCharCode</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/StringManager/GSCharCode.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GSCharCode</h1>
+
+    <p>The character code representing a code page on Windows, or a script system on Macintosh.</p>
+    <pre class="syntax">
+    <strong>typedef enum GSCharCode</strong> {<br>        CC_Default=0,<br>        CC_System=1,<br> CC_User=2,<br>  CC_Application=3,<br>        CC_WestEuropean=11,<br>        CC_EastEuropean=12,<br>        CC_Baltic=13,<br>        CC_Cyrillic=14,<br>        CC_Greek=15,<br>        CC_Turkish=16,<br>        CC_Hebrew=21,<br>        CC_Arabic=22,<br>        CC_Thai=31,<br>        CC_Japanese=32,<br>        CC_TradChinese=33,<br>        CC_SimpChinese=34,<br>        CC_Korean=35,<br>      CC_UTF8=99,<br>        CC_UniCode=100<br>    } GSCharCode;<br>
+</pre>
+
+    <table border="1">
+        <tbody>
+            <tr>
+                <th align="left" width="200">Enumerator Value</th>
+
+                <th align="left">Meaning</th>
+            </tr>
+
+            <tr>
+                <td>CC_Default=0</td>
+
+                <td>The default character code. You can set/query it with <a href="CHSetDefaultCharCode.html">CHSetDefaultCharCode</a>, and <a href="CHGetDefaultCharCode.html">CHGetDefaultCharCode</a>.</td>
+            </tr>
+
+            <tr>
+                <td>CC_System=1</td>
+
+                <td>The code page/script system currently used by the system. See <a href="CHGetSystemCharCode.html">CHGetSystemCharCode</a>.</td>
+            </tr>
+
+            <tr>
+                <td>CC_User=2</td>
+
+                <td>The defult character code used by the user. See <a href="CHGetUserCharCode.html">CHGetUserCharCode</a>.</td>
+            </tr>
+
+            <tr>
+                <td style="vertical-align: top;">CC_Application=3<br></td>
+
+                <td style="vertical-align: top;">The default character code used by the application.&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td>CC_WestEuropean=11</td>
+
+                <td>CodePage 1252 on Windows, <tt>smRoman</tt> or <tt>kCFStringEncodingMacRoman</tt> on MacOS.</td>
+            </tr>
+
+            <tr>
+                <td>CC_EastEuropean=12</td>
+
+                <td>CodePage 1250 on Windows, <tt>smCentralEuroRoman</tt> or <tt>kCFStringEncodingMacCentralEurRoman</tt> on MacOS.</td>
+            </tr>
+
+            <tr>
+                <td>CC_Baltic=13</td>
+
+                <td>CodePage 1257 on Windows, <tt>smCentralEuroRoman</tt> or <tt>kCFStringEncodingMacCentralEurRoman</tt> on MacOS.</td>
+            </tr>
+
+            <tr>
+                <td>CC_Cyrillic=14</td>
+
+                <td>CodePage 1251 on Windows, <tt>smCyrillic</tt> or <tt>kCFStringEncodingMacCyrillic</tt> on MacOS.</td>
+            </tr>
+
+            <tr>
+                <td>CC_Greek=15</td>
+
+                <td>CodePage 1253 on Windows, <tt>smRoman</tt> or <tt>kCFStringEncodingMacGreek</tt>on MacOS.</td>
+            </tr>
+
+            <tr>
+                <td>CC_Turkish=16</td>
+
+                <td>CodePage 1254 on Windows, <tt>smRoman</tt> or <tt>kCFStringEncodingMacTurkish</tt> on MacOS.</td>
+            </tr>
+
+            <tr>
+                <td>CC_Hebrew=21</td>
+
+                <td>CodePage 1255 on Windows, <tt>smHebrew</tt> or <tt>kCFStringEncodingMacHebrew</tt> on MacOS.</td>
+            </tr>
+
+            <tr>
+                <td>CC_Arabic=22</td>
+
+                <td>CodePage 1256 on Windows, <tt>smArabic</tt> or <tt>kCFStringEncodingMacArabic</tt> on MacOS.</td>
+            </tr>
+
+            <tr>
+                <td>CC_Thai=31</td>
+
+                <td>CodePage 874 on Windows, <tt>smThai</tt> or <tt>kCFStringEncodingMacThai</tt> on MacOS.</td>
+            </tr>
+
+            <tr>
+                <td>CC_Japanese=32</td>
+
+                <td>CodePage 932 on Windows, <tt>smJapaneese</tt> or <tt>kCFStringEncodingMacJapaneese</tt> on MacOS.</td>
+            </tr>
+
+            <tr>
+                <td>CC_TradChinese=33</td>
+
+                <td>CodePage 950 on Windows, <tt>smTradChinese</tt> or <tt>kCFStringEncodingTradChinese</tt> on MacOS.</td>
+            </tr>
+
+            <tr>
+                <td>CC_SimpChinese=34</td>
+
+                <td>CodePage 936 on Windows, <tt>smSimpChinese</tt> or <tt>kCFStringEncodingSimpChinese</tt> on MacOS.</td>
+            </tr>
+
+            <tr>
+                <td>CC_Korean=35</td>
+
+                <td>CodePage 949 on Windows, <tt>smKorean</tt> or <tt>kCFStringEncodingMacKorean</tt> on MacOS.</td>
+            </tr>
+
+            <tr>
+                <td>CC_UTF8=99</td>
+
+                <td>CodePage 65001 on WindowsNT, kCFStringEncodingUTF8 on MacOS. Note that this character code is not supported by some <a href="reference_id.html">CH</a> routines.</td>
+            </tr>
+
+            <tr>
+                <td>CC_UniCode=100</td>
+
+                <td>CodePage 1200 on Windows, <tt>kCFStringEncodingUnicode</tt> on MacOS. Note that this character code is not supported by some <a href="def_id.html">CH</a> routines.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> GSRoot 1.3 or later</dd>
+
+        <dd><b>Header:</b> CH.hpp</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="CHGetSystemCharCode.html">CHGetSystemCharCode</a>, <a href="CHSetDefaultCharCode.html">CHSetDefaultCharCode</a>, <a href="CHGetDefaultCharCode.html">CHGetDefaultCharCode</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on October 10, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Menus</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/UIGuideLines/Menus.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Menus</h1>
+
+    <p>&nbsp;</p>
+
+    <p>Add-Ons have several ways to integrate their functions into the menus of Archicad. As the technical details of this are not summarized in other API documentation, you find both a summary of technical possibilities and user interface guidance in the following.</p>
+
+    <ul>
+        <li><a href="#MenuItemTypes">Menu Item Types</a></li>
+
+        <li><a href="#MenuOptions">Menu Options</a></li>
+
+        <li><a href="#MenuManagement">Menu Management</a></li>
+
+        <li><a href="#Locations">Locations</a></li>
+
+        <li><a href="#Sorting">Sorting of items</a></li>
+
+        <li><a href="#UIConsiderations">Interface Considerations</a></li>
+    </ul>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="MenuItemTypes" id="MenuItemTypes">Menu Item Types</a></h3>
+
+    <p>One Add-On can insert arbitrary number of menu items into the standard Archicad set of menu commands. Each menu item can be one of the following types:</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Menu commands</h4>
+
+    <p>&nbsp;</p>
+
+    <h4>Cascading/hierarchic menu items</h4>
+
+    <p>Use this item type if an Add-On needs more than one or two commands, or to organize the commands into a logical order. The number of items within the submenu is limited by OS constraints only. A single level of submenus is available only. Items of the submenus cannot be hierarchic.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="MenuOptions" id="MenuOptions">Menu Options</a></h3>Menu items can be enhanced in two ways.
+
+    <p>&nbsp;</p>
+
+    <h4>Custom menu icons</h4>
+
+    <p>On Windows only, menu items can have an icon. If a menu item is added to the Toolbar, it will be represented by this icon.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Menu shortcut keys</h4>
+
+    <p>Keyboard shortcut assignment and conflict resolution are managed by Archicad from within Preferences/Menu Shortcut Keys. Add-On programming has no control over this.</p>
+
+    <p>Please note that a shortcut assigned to an Add-On command is persistent only as long as the Add-On gets loaded automatically on Archicad startup. Once Archicad is started without the Add-On, the shortcut assignment will be lost.</p>
+
+    <p>Add-Ons loaded manually after Archicad has been started cannot be assigned shortcut keys.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="MenuManagement" id="MenuManagement">Menu Management</a></h3>
+
+    <p>While running, Add-On menu items can change in two ways. Either automatically by Archicad, based on resource level behavioral information, or by the Add-On itself, based on further contextual information.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Automatic enabling/disabling of menu items</h4>
+
+    <p>Archicad can disable menu items of Add-Ons based on two criteria:</p>
+
+    <ul>
+        <li>Whether elements are selected or not,<br>
+        Note: this is a generic Yes/No criteria, regardless of the contents of the selection.</li>
+
+        <li>Whether a Plan, Section/Elevation or the 3D Window is at the front.<br>
+        Note: with any other window at the front, like calculations or GDL scripts, all Add-On related commands will be disabled.</li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <h4>Context-dependent interactive change of menu items</h4>
+
+    <p>Add-Ons get notified of a variety of events and changes of state in Archicad. Plus, they can perform any kind of further checking related to either the Archicad project or environmental parameters.</p>
+
+    <p>Based on their own criteria, Add-Ons can change menu items in the following ways:</p>
+
+    <ul>
+        <li>Enable/Disable</li>
+
+        <li>Check/Uncheck</li>
+
+        <li>Change of menu text</li>
+    </ul>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="Locations" id="Locations">Locations</a></h3>
+
+    <p>Menu items of Add-Ons can be inserted in the following locations of the Archicad menus. These locations can be specified within the menu definition resources.</p>
+
+    <p>&nbsp;</p>
+
+    <blockquote>
+        <table cellspacing="2" cellpadding="5" border="1">
+            <tr>
+                <th>Menu</th>
+
+                <th>Location</th>
+            </tr>
+
+            <tr>
+                <td>File</td>
+
+                <td>after Project Info<br>
+                to the end of Modules and XREF-s submenu<br>
+                to the end of GDL Objects submenu</td>
+            </tr>
+
+            <tr>
+                <td>Edit</td>
+
+                <td>after Find &amp; Select<br>
+                after Trim To Roof<br>
+                after Multiply</td>
+            </tr>
+
+            <tr>
+                <td>Tools</td>
+
+                <td>to the end of menu</td>
+            </tr>
+
+            <tr>
+                <td>Options</td>
+
+                <td>after Layer/Layer Settings<br>
+                after Zone Categories</td>
+            </tr>
+
+            <tr>
+                <td>Image</td>
+
+                <td>to the end of menu</td>
+            </tr>
+
+            <tr>
+                <td>Calculate</td>
+
+                <td>to the end of menu</td>
+            </tr>
+
+            <tr>
+                <td>TeamWork</td>
+
+                <td>to the end of menu</td>
+            </tr>
+
+            <tr>
+                <td>Display</td>
+
+                <td>to the end of menu</td>
+            </tr>
+
+            <tr>
+                <td>Window</td>
+
+                <td>to the end of Floating Palettes submenu</td>
+            </tr>
+
+            <tr>
+                <td>Extras</td>
+
+                <td>to the end of the menu</td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <p>Menu items with an undefined location will be added by default to the end of the Tools menu.</p>
+
+    <p>Add-Ons can also appear in completely new menus. These menus will always be inserted between the Window and Help menus of Archicad.</p>
+
+    <p>Note that from the Add-On Manager dialog box the menu items of an Add-On can be moved into the Extras menu. This feature ensures a basic level of customization to the user.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="Sorting" id="Sorting">Sorting of items</a></h3>
+
+    <p>Menu items at each location are sorted by the module IDs ('MDID') of the Add-Ons.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="UIConsiderations" id="UIConsiderations">UI considerations for menus</a></h3>
+
+    <p>Keep in mind that plain Archicad, without any Add-Ons, has a great number of menus and menu items. Out advice is that Add-Ons should insert menu items in a modest way; too many Add-Ons with too many menu items make Archicad's menus really hard to use.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Location of menu items</h4>
+
+    <p>Menu items of the Add-Ons should be inserted in the Archicad menus so that they are next to the menu items of related or similar Archicad functions.</p>
+
+    <p>Some of these relations are obvious - add layer management utilities to the Layers submenu, for example.</p>
+
+    <p>The Edit and Tools menus of Archicad offer a seemingly similar set of commands. How to choose from these two? As a rule of thumb, Edit is the place for commands which, using direct manipulation through graphic input, let the user change elements in some way. Tools should be the place for commands, which work rather in an analytic way, and change elements based on this analysis. Also use Tools if the command do not change the elements themselves but changes their arrangement, grouping or other non-physical properties.</p>
+
+    <p>Use separate menubar items if an Add-On has lots of menu items, or if its functionality is not related to existing functions in any way.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Number of menu items and grouping - Plain or hierarchic menus?</h4>
+
+    <p>Menu items are always harder to access if being in a submenu. So, if an Add-On has up to three commands, inserting them in the main menu may be a good idea.</p>
+
+    <p>If an Add-On needs many menu items which are equally important, it's good to insert a single hierarchic item in the Archicad menu, and put all the actual commands in the submenu. Use separators if the commands can be grouped in two or more logical groups.</p>
+
+    <p>If the Add-On has one or two commands of primary importance and some secondary commands for options or preferences, you can insert the primary commands plus a hierarchic item in the main menu, and put the secondary commands in the submenu of the hierarchic item.</p>
+
+    <p>If an Add-On is controlled by many commands, consider installing it as a separate item within the menu bar.</p>
+
+    <p>Or, consider controlling the Add-On from within a floating palette via icons. In this case, the presence of the Add-On in the menus can be limited up to a single item in the Floating Palettes submenu of the Window.</p>
+
+    <p>If, for any reason, you want the Add-On to insert many commands into the Archicad menus anyway, it is good practice to use separator lines before and after them.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Menu item names</h4>
+
+    <p>Use one word menu item names when possible. In case of commands, the wording should really sound like a command. Capitalize the first letter of the first word and other important words.</p>
+
+    <p>&nbsp;</p>
+
+    <p><b>Ellipsis character (&#133;)</b></p>
+
+    <p>Use this at the end of the menu items which need additional information from the user to be effective. For example, if a menu command must be followed by a graphic input sequence or opens a dialog box with various options to be set, use the ellipsis.</p>
+
+    <p>Do NOT use the ellipsis if choosing the menu item executes immediately without any further step to be done by the user.</p>
+
+    <p>&nbsp;</p>
+
+    <p><b>Toggled menu items</b></p>
+
+    <p>Toggled menu items switch between two or more states of either the program itself or the elements. They play a double role: they reflect the state either by a checkmark or by dynamically changing wording, and they are used to actually change the state to the opposite. There are three types of it.</p>
+
+    <p>The first type is a single menu item that changes its name. Show Grid - Hide Grid.</p>
+
+    <p>The second type is a single menu item which is checkmarked if the state is active. Items like this can be grouped, like in the case of a text style menu with checkmarked items for <b>Bold</b>, <i>Italic</i> and other attributes.</p>
+
+    <p>The third type is actually a group of two or more menu items, with a checkmark indicating the active state. An example is a View menu with items like Normal, Outline and Layout. Avoid using a single checkmarked item to indicate the presence or absence of a feature like a grid. If you do so to save menu space, use a wording which does not sound like a command or action, rather a statement. In Archicad, visibility and snapping of the grid is controlled by two single checkmarked items: Grid Snap and Grid Display. If you choose this solution, make sure that the wording itself does not suggest in any way whether the feature is on or off. Let the checkmark indicate this.</p>
+
+    <p>&nbsp;</p>
+
+    <p><b>Changing menu item names</b></p>
+
+    <p>Though technically possible, use this with caution. Small changes in the menu text are not very apparent. The change happens while the menu is invisible, so users get no visual messages of the change. Plus, users who search for a menu item while being in the wrong mode will get really frustrated. Still, with toggled menu items, a two-state changing menu will work typically well. In Archicad, you can find three other kind of changing menus.</p>
+
+    <p>Here are some examples:</p>
+
+    <blockquote>
+        <p><b>Context sensitive</b></p>
+
+        <blockquote>
+            <ul>
+                <li>Rebuild with a Plan at the front, Rebuild Model or Rebuild Drawing with a Section/Elevation at the front.</li>
+
+                <li>Select All if the Arrow tool is active,</li>
+
+                <li>Select All Walls if the Wall tool is active.<br></li>
+            </ul>
+        </blockquote>
+
+        <p><b>Keyboard controlled variation</b></p>
+
+        <blockquote>
+            <ul>
+                <li>New with no key pressed,</li>
+
+                <li>New and Reset with the Alt/Option key pressed.<br></li>
+            </ul>
+        </blockquote>
+
+        <p><b>Selection sensitive</b></p>
+
+        <blockquote>
+            <ul>
+                <li>Technically this is also possible, though there are no menu items now in Archicad that change the wording based on selection.</li>
+            </ul>
+        </blockquote>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <p><b>Icons in menus</b></p>
+
+    <p>Icons in menus are typically more disturbing than useful. In case of an Add-On with several items in the menu, an icon applied to the most important item can serve as a visual clue to the entire group of items.</p>
+
+    <p>On Windows, however, menus can be defined to have icons reserved for Toolbar appearance only.</p>
+
+    <p>Regardless whether the icon appears in the Toolbar only or also in the menu, keep in mind that a 16x16 pixel icon is really small. This is just enough to convey the simplest visual messages possible. In case of menu commands which take elements from one state to the other, avoid showing the original state, the final state and the transition in a single icon. If the original state is evident, you can show the final state only. For example, in the case of a square which gets skewed by a command, a skewed cube tells all. In case of a more abstract command, like Increase Indent in a word processor, a small block of text in the right position (the final state) and a small arrow (the transition) can be combined.</p>
+
+    <p>&nbsp;</p>
+
+    <p><b>Enabling and disabling of menu items</b></p>
+
+    <p>It is very important that menu items (and other interface features like palette icons) of an Add-On get disabled whenever not usable in the current context. Use the API services to manage this properly.</p>
+
+    <p>However, please note that the API does not let Add-Ons cannot change the state of their menu items based on the contents of selections. So, if a menu item needs certain types of selected elements to be effective, it cannot be disabled if the selection does not contain eligible elements. In this case, make sure that the Add-On sends an alert which informs the user what to select before using the command.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 8, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

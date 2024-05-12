@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIPaletteControlCallBackProc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIPaletteControlCallBackProc.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIPaletteControlCallBackProc</h1>
+
+    <p>User supplied callback function for handling special messages for modeless palettes.</p>
+    <pre class="syntax">
+    <strong>typedef GSErrCode  APIPaletteControlCallBackProc</strong> (
+        <strong>Int32</strong>                    <em>referenceID</em>,
+        <strong><a href="#API_PaletteMessageID">API_PaletteMessageID</a></strong>     <em>messageID</em>,
+        <strong><a href="ddid://GSRoot.IntPtr Class">GS::IntPtr</a></strong>               <em>param</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>referenceID</em></dt>
+
+        <dd>[in] The unique ID that identifies the modeless palette.</dd>
+
+        <dt><em>messageID</em></dt>
+
+        <dd>[in] Event to be handled in the palette control callback procedure.</dd>
+
+        <dt><em>param</em>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="API 16" width="19" height="12"></dt>
+
+        <dd>[out] Return parameter, used for <code>APIPalMsg_IsPaletteVisible</code>.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You can register this function with <a href="ACAPI_RegisterModelessWindow.html">ACAPI_RegisterModelessWindow</a>. From now on, it will be your responsibility to adjust the behavior of your palette to the other palettes.</p>
+
+    <p><a name="API_PaletteMessageID">The</a> following types of events will come for your custom window:</p>
+
+    <blockquote>
+        <table border="1" cellpadding="5">
+            <tr>
+                <th width="250">Message type</th>
+
+                <th>Description</th>
+            </tr>
+
+            <tr>
+                <td valign="top"><code>APIPalMsg_ClosePalette</code></td>
+
+                <td>The API asks the add-on to close its palette.</td>
+            </tr>
+
+            <tr>
+                <td valign="top"><code>APIPalMsg_HidePalette_Begin</code></td>
+
+                <td>Your palette should be hidden for some reason, e.g. the user chose <b>Hide All Palettes</b> from the menu.</td>
+            </tr>
+
+            <tr>
+                <td valign="top"><code>APIPalMsg_HidePalette_End</code></td>
+
+                <td>The palette can be shown again if needed.</td>
+            </tr>
+
+            <tr>
+                <td valign="top"><code>APIPalMsg_DisableItems_Begin</code></td>
+
+                <td>Certain palette items should be disabled, because the user is performing an input. This is necessary because you shouldn't make any modifications to the database during input.</td>
+            </tr>
+
+            <tr>
+                <td valign="top"><code>APIPalMsg_DisableItems_End</code></td>
+
+                <td>The reason behind <code>APIPalMsg_DisableItems_Begin</code> is gone; you can enable the items on the palette.</td>
+            </tr>
+
+            <tr>
+                <td valign="top"><code>APIPalMsg_OpenPalette</code>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></td>
+
+                <td>Sent when the palette should be opened automatically as set in the Work Environment. Your palette should pass a GUID when created: <code>DG::Palette (resourceId, paletteGuid)</code> to make this work.</td>
+            </tr>
+
+            <tr>
+                <td valign="top"><code>APIPalMsg_IsPaletteVisible</code>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="Featuring API 16" width="19" height="12"></td>
+
+                <td>The Work Environment queries the palette for its visibility status on closing the current document/quitting the application. If you return <code>true</code> in <code>param</code> (really a <code>bool*</code>), then Archicad will send a <code>APIPalMsg_OpenPalette</code> to your add-on on next launch, so that you can re-open your add-on's palette.</td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+const GS::Guid paletteGuid ("{A20B280D-928B-4258-9A4A-8617B57124F8}");
+
+void        MainPaletteDestroyed (void);
+
+// --- MainPalette -----------------------------------------------------------
+
+class MainPalette: public DG::Palette,
+                   public GS::DisposableObject
+{
+friend class    MainObserver;
+
+public:
+
+    MainPalette (short resId);
+    ~MainPalette ();
+};
+
+
+// --- MainObserver ---------------------------------------------------------
+
+class MainObserver: private DG::PanelObserver,
+                    public  DG::CompoundItemObserver,
+                    public  GS::DisposableObject,
+                    public  GS::DisposeHandler
+{
+private:
+    MainPalette*    paletteQL;
+
+public:
+    MainObserver (MainPalette* mainPalette);
+    ~MainObserver ();
+
+    virtual void    PanelOpened (const DG::PanelOpenEvent&amp; ev);
+    virtual void    PanelClosed (const DG::PanelCloseEvent&amp; ev);
+    virtual void    PanelCloseRequested (const DG::PanelCloseRequestEvent&amp; ev, bool* accept);
+    virtual void    DisposeRequested (GS::DisposableObject&amp; source);
+};
+
+
+// --- MainPalette --------------------------------------------------------------
+
+MainPalette::MainPalette (short resId):
+    DG::Palette (resId, paletteGuid)
+{
+    SetDefaultGarbageCollector ();
+}
+
+
+MainPalette::~MainPalette ()
+{
+}
+
+
+// --- MainObserver ---------------------------------------------------------
+
+MainObserver::MainObserver (MainPalette* mainPalette):
+    paletteQL (mainPalette)
+{
+    paletteQL->Attach (*this);
+    AttachToAllItems (*paletteQL);
+    paletteQL->BeginEventProcessing ();
+
+    SetDefaultGarbageCollector ();
+    paletteQL->SetDisposeHandler (*this);
+}
+
+
+MainObserver::~MainObserver ()
+{
+}
+
+
+void    MainObserver::PanelOpened (const DG::PanelOpenEvent&amp; /*ev*/)
+{
+}
+
+
+void    MainObserver::PanelClosed (const DG::PanelCloseEvent&amp; /*ev*/)
+{
+}
+
+
+void    MainObserver::PanelCloseRequested (const DG::PanelCloseRequestEvent&amp; /*ev*/, bool* /*accept*/)
+{
+    paletteQL->EndEventProcessing ();
+    paletteQL->MarkAsDisposable ();
+}
+
+// -----------------------------------------------------------------------------
+// Handles palette destroy
+// -----------------------------------------------------------------------------
+
+void    MainObserver::DisposeRequested (GS::DisposableObject&amp; source)
+{
+    if (&amp;source == paletteQL) {
+        paletteQL = nullptr;
+        MainPaletteDestroyed ();
+        MarkAsDisposable ();    // mark as the garbage collector could delete later
+    }
+}
+
+
+MainPalette* mainPalette = nullptr;
+MainObserver* mainObserver = nullptr;
+
+
+void        MainPaletteDestroyed (void);
+{
+    mainPalette = nullptr;
+}
+
+// -----------------------------------------------------------------------------
+// Special palette messages
+// -----------------------------------------------------------------------------
+static GSErrCode __ACENV_CALL <font color="#FF0066">PaletteAPIControlCallBack</font> (Int32 referenceID, API_PaletteMessageID messageID, GS::IntPtr param)
+
+{
+    if (referenceID == paletteRefId) {
+        switch (messageID) {
+            case APIPalMsg_OpenPalette:
+                if (mainPalette != nullptr) {
+                    mainPalette->Show ();
+                } else {
+                    UseOwnResClass resClass;
+                    mainPalette  = new MainPalette (32400);
+                    mainObserver = new MainObserver (mainPalette);
+                    mainPalette->Show ();
+                }
+                break;
+
+            case APIPalMsg_ClosePalette:
+                if (mainPalette != nullptr) {
+                    mainPalette->Hide ();
+                    mainPalette->SendCloseRequest ();
+                }
+                break;
+
+            case APIPalMsg_HidePalette_Begin:
+                if (mainPalette != nullptr) {
+                    mainPalette->Hide ();
+                    SetMenuItemTextState (false);
+                }
+                break;
+
+            case APIPalMsg_HidePalette_End:
+                if (mainPalette != nullptr) {
+                    mainPalette->Show ();
+                }
+                break;
+
+            case APIPalMsg_DisableItems_Begin:
+                if (mainPalette != nullptr) {
+                    mainPalette->DisableItems ();
+                }
+                break;
+
+            case APIPalMsg_DisableItems_End:
+                if (mainPalette != nullptr) {
+                    mainPalette->EnableItems ();
+                }
+                break;
+
+            case APIPalMsg_IsPaletteVisible:
+                * reinterpret_cast&lt;bool*&gt; (param) = (mainObserver != nullptr);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    return NoError;
+}
+
+// -----------------------------------------------------------------------------
+// Handle notifications from Archicad
+// -----------------------------------------------------------------------------
+
+GSErrCode __ACENV_CALL APIEventHandler (API_NotifyEventID notifID, Int32 /*param*/)
+{
+    switch (notifID) {
+        case APINotify_NewAndReset:
+        case APINotify_Quit:
+            if (mainPalette != nullptr) {
+                mainPalette->Hide ();
+                mainPalette->SendCloseRequest ();
+            }
+            break;
+    }
+
+    return NoError;
+}
+
+
+//------------------------------------------------------
+// Dependency definitions
+//------------------------------------------------------
+API_AddonType   __ACENV_CALL    CheckEnvironment (API_EnvirParams* /*envir*/)
+{
+    return APIAddon_Preload;
+}       // RegisterAddOn
+
+
+//------------------------------------------------------
+// Add-On initialization
+//------------------------------------------------------
+GSErrCode   __ACENV_CALL    Initialize (void)
+
+{
+    GSErrCode err = ACAPI_RegisterModelessWindow (paletteRefId, PaletteAPIControlCallBack,
+                                                  API_PalEnabled_FloorPlan + API_PalEnabled_Section + API_PalEnabled_Elevation +
+                                                  API_PalEnabled_InteriorElevation + API_PalEnabled_3D +
+                                                  API_PalEnabled_Detail + API_PalEnabled_Worksheet + API_PalEnabled_Layout +
+                                                  API_PalEnabled_DocumentFrom3D, GSGuid2APIGuid (paletteGuid));
+
+    if (err == NoError)
+        err = ACAPI_Notify_CatchProjectEvent (APINotify_NewAndReset | APINotify_Quit, APIEventHandler);
+
+    return err;
+}
+
+
+//------------------------------------------------------
+// Final call...
+//------------------------------------------------------
+GSErrCode   __ACENV_CALL    FreeData (void)
+
+{
+    ACAPI_Notify_CatchProjectEvent (APINotify_NewAndReset | APINotify_Quit, nullptr);
+    if (mainPalette != nullptr) {
+        mainPalette->Hide ();
+        mainPalette->SendCloseRequest ();
+    }
+
+    ACAPI_UnregisterModelessWindow (paletteRefId);
+
+    return NoError;
+}
+
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Callback.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_RegisterModelessWindow.html">ACAPI_RegisterModelessWindow</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 25, 2012<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

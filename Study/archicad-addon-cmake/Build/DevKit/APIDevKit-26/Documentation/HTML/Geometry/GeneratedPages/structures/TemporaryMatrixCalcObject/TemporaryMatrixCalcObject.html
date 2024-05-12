@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Geometry::TemporaryMatrixCalcObject Structure</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="GRAPHISOFT SE"><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GeneratedPages/structures/TemporaryMatrixCalcObject/TemporaryMatrixCalcObject.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Geometry::TemporaryMatrixCalcObject Structure</h1><!--exp="Geometry::TemporaryMatrixCalcObject Structure"-->
+
+    <p>Creates a temporary matrix, the value of which is not instantly evaluated.</p>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">template</span> <span class="SyntaxSymbol">&lt;</span><span class="SyntaxTypename">USize</span> <span class="SyntaxTemplateIdentifier">RowCount</span><span class="SyntaxSymbol">,</span> <span class="SyntaxTypename">USize</span> <span class="SyntaxTemplateIdentifier">ColumnCount</span><span class="SyntaxSymbol">,</span> <span class="SyntaxTypename">class</span> <span class="SyntaxTemplateIdentifier">ElementType</span><span class="SyntaxSymbol">&gt;</span>
+<span class="SyntaxKeyword">struct</span> <span class="SyntaxIdentifier">TemporaryMatrixCalcObject</span>
+</pre>
+
+    <h2 class="SectionHeading">Template parameters</h2>
+
+    <dl>
+        <dt><span class="Parameter">RowCount</span></dt>
+
+        <dd>The count of the matrix rows.</dd>
+
+        <dt><span class="Parameter">ColumnCount</span></dt>
+
+        <dd>The count of the matrix columns.</dd>
+
+        <dt><span class="Parameter">ElementType</span></dt>
+
+        <dd>The type of the elements of the matrix.</dd>
+    </dl>
+
+    <h2 class="SectionHeading" id="members">Members</h2>
+
+    <p><!-- Don't index --><a href="#PublicEnums">Public Enums</a><br>
+    <!-- Don't index --><a href="#PublicAttributes">Public Attributes</a><br></p>
+
+    <h2 class="SectionHeading" id="PublicEnums">Public Enums</h2>
+
+    <table class="Summary">
+        <tr>
+            <th class="LinkColumn">Enum</th>
+
+            <th>Description</th>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn">OpCode</td>
+
+            <td>Codes for the matrix operations.</td>
+        </tr>
+    </table>
+
+    <h2 class="SectionHeading" id="PublicAttributes">Public Attributes</h2>
+
+    <table class="Summary">
+        <tr>
+            <th class="LinkColumn">Attribute</th>
+
+            <th>Description</th>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn">opCode</td>
+
+            <td>Codes for the matrix operations. ( Add, Subtract, Multiply, Invert, ScalarMultiply )</td>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="operand1.html">operand1</a></td>
+
+            <td>The first operand of the operation.</td>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="operand2.html">operand2</a></td>
+
+            <td>The second operand of the operation.</td>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="scalar.html">scalar</a></td>
+
+            <td>This is the scalar (number) operand of the operation.</td>
+        </tr>
+    </table>
+
+    <h2 class="SectionHeading">Description</h2>This class creates a temporary matrix, the value of which is not instantly evaluated. It's needed to save time, because the evaluation of a matrix operation is very time consuming.
+
+    <h2 class="SectionHeading">Requirements</h2>
+
+    <p><span class="RequirementsSection">Namespace:</span> <!-- Don't index --><a href="../../Geometry.html">Geometry</a></p>
+
+    <p><span class="RequirementsSection">Header:</span> Matrix.hpp</p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

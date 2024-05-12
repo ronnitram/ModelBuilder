@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Required Functions</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level2/Required_Functions.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Required Functions</h1>
+
+    <p><br>
+    When you develop your own add-on, you have to link the appropriate API library to your object files. This library basically contains two function sets.</p>
+
+    <ul>
+        <li>It owns the main initialization and termination points of your DLL/shared library.<br>
+        Sets up the communication channels between Archicad and the add-on.<br></li>
+
+        <li>API functions listed in the ACAPinc.h header file. You call these to work on the Archicad database.</li>
+    </ul>
+
+    <p>There are four functions which must be coded in order to be able to link your add-on to the library.</p>
+
+    <ul>
+        <li><a href="../Functions/CheckEnvironment.html">CheckEnvironment</a></li>
+
+        <li><a href="../Functions/RegisterInterface.html">RegisterInterface</a></li>
+
+        <li><a href="../Functions/Initialize.html">Initialize</a></li>
+
+        <li><a href="../Functions/FreeData.html">FreeData</a></li>
+    </ul>
+
+    <p>The prototypes of these functions are also listed in the ACAPinc.h header file.</p>
+
+    <p>Most of these functions (except <code>CheckEnvironment</code>) return an error code based on the type definition <code>GSErrCode</code>. The value <code>NoError</code> means that no error occurred, any non-zero value indicates some kind of error.</p>
+
+    <p>It is very important to understand how the above listed 4 functions are called by the server application.</p>
+
+    <p>An add-on is a DLL or shared library which is not loaded into the memory by default. When the user invokes one of the commands of an add-on Archicad loads it into the memory to execute the command. When the add-on has finished its operation Archicad unloads the add-on again (unless certain conditions are met).</p>
+
+    <h3>The CheckEnvironment function</h3>
+
+    <p>The <a href="../Functions/CheckEnvironment.html">CheckEnvironment</a> function is called when the Add-On Manager enumerates the add-ons. The add-on can check the running environment and define its own behavior, for example it can disable itself in the demo version. The add-on is loaded and unloaded during this step, but the <i>Initialize</i> and <i>FreeData</i> functions are not called.</p>
+
+    <p><i>Notes:</i> the following two points may have a serious effect on the startup time of the server application.</p>
+
+    <ul>
+        <li>all your global and (non-function) static variables are initialized during this step.</li>
+
+        <li>return the appropriate error code (<code>APIAddon_DontRegister</code>) if you are not running under the desired server application. This informs the AddOnManager to skip the further steps for your add-on.</li>
+    </ul>
+
+    <h3>The RegisterInterface function</h3>
+
+    <p>The <a href="../Functions/RegisterInterface.html">RegisterInterface</a> function is called after the enumeration and the dependency check. As such, only those add-ons are called which pass the first step. The add-on should register its menu items and file types, or add toolbox items here. The add-on is loaded and unloaded during this step, but the <i>Initialize</i> and <i>FreeData</i> functions are not called.</p>
+
+    <p><i>Note:</i> all your global and (non-function) static variables are initialized during this step.</p>
+
+    <h3>The Initialize function</h3>
+
+    <p>The <a href="../Functions/Initialize.html">Initialize</a> function is called right after the add-on is loaded into the memory after the previous steps. This is the point where the add-on should initialize itself, and install the callback functions which will be called by the server application.</p>
+
+    <h3>The FreeData function</h3>
+
+    <p>The <a href="../Functions/FreeData.html">FreeData</a> function is called right before the add-on is going to be unloaded. This is the point where the add-on should dispose the objects allocated in the <code>Initialize</code> function. The <code>FreeData</code> function is called in every case, no matter whether the <code>Initialize</code> or any of the callback functions has failed or not.</p>
+
+    <p>Keep your global variables in known state, if it is done you will have no problem to dispose them. Basic initialization and allocation should be done in the <code>Initialize</code> function, and you can done the inverse in the <code>FreeData</code> function.</p>
+
+    <p>Please refer to the document <a href="Control_the_Load_Unload_M_.html">Control the Load/Unload Mechanism</a> to get further details on these functions.</p>
+
+    <p>&nbsp;</p>
+
+    <h3>Skeleton of an add-on</h3>
+
+    <p>The minimal source code you have to implement should looks like this:</p>
+
+    <blockquote>
+        <pre><code>
+#define ACExtension
+#include "ACAPinc.h"
+
+API_AddonType __ACDLL_CALL CheckEnvironment (API_EnvirParams *envirParams)
+{
+    RSGetIndString (&amp;envirParams-&gt;addOnInfo.name, 32500, 1, ACAPI_GetOwnResModule ());
+    RSGetIndString (&amp;envirParams-&gt;addOnInfo.description, 32500, 2, ACAPI_GetOwnResModule ());
+
+    return APIAddon_Normal;
+}
+
+GSErrCode __ACDLL_CALL RegisterInterface (void)
+{
+    return NoError;
+}
+
+GSErrCode __ACDLL_CALL Initialize (void)
+{
+    return NoError;
+}
+
+GSErrCode __ACDLL_CALL FreeData (void)
+{
+    return NoError;
+}
+</code></pre>
+    </blockquote>
+
+    <p>This skeleton can be compiled, linked and also executed, however it does nothing.</p>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 21, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ViewOptions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ViewOptions.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ViewOptions</h1>
+
+    <p>Describes various display &amp; output options.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_ModelViewOptions.html">API_ModelViewOptions</a></strong>        <em>modelViewOpt</em>;
+        <strong><a href="API_OnScreenViewOptions.html">API_OnScreenViewOptions</a></strong>     <em>onScreenViewOpt</em>;
+        <strong>Int32</strong>                       <em>filler[4]</em>;
+    <strong>}</strong> <em>API_ViewOptions</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>modelViewOpt</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>View options which have effect on both the display and on various outputs.</dd>
+
+        <dt><b>onScreenViewOpt</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>View options which have effect on the display only.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Call the <a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a> function with the <a href="../Functions/APIEnv_GetViewOptionsID.html">APIEnv_GetViewOptionsID</a> or <a href="../Functions/APIEnv_ChangeViewOptionsID.html">APIEnv_ChangeViewOptionsID</a> function codes to operate on this data.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIEnv_GetViewOptionsID.html">APIEnv_GetViewOptionsID</a>, <a href="../Functions/APIEnv_ChangeViewOptionsID.html">APIEnv_ChangeViewOptionsID</a>,<br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 12, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

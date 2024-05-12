@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>GetPixelMap</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Texture/GetPixelMap.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="Texture.html">Texture</a>::GetPixelMap</h1><br>
+    Get the whole pixel map.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>void  GetPixelMap (
+    <a href="Pixel.html">ARGBPixel</a>*  pixelMap
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>pixelMap</em></dt>
+
+        <dd>Pointer to the result pixel map buffer.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This method reads the whole pixel map and puts it into the <i>pixelMap</i> buffer. The pixel map size can be obtained using the <a href="GetPixelMapSize.html">GetPixelMapSize</a> method. The buffer size can be obtained using the <a href="GetPixelMapBufferSize.html">GetPixelMapBufferSize</a> method. If the pixel map's pixel type is not <a href="PixelType.html">ARGBPixelType</a> then this function will throw an exception.</p>
+
+    <p><b>Available from version: 8</b></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>void  GetPixelMap (
+    <a href="Pixel.html">BlackAndWhitePixel8</a>*  pixelMap
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>pixelMap</em></dt>
+
+        <dd>Pointer to the result pixel map buffer.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This method reads the whole pixel map and puts it into the <i>pixelMap</i> buffer. The pixel map size can be obtained using the <a href="GetPixelMapSize.html">GetPixelMapSize</a> method. The buffer size can be obtained using the <a href="GetPixelMapBufferSize.html">GetPixelMapBufferSize</a> method. If the pixel map's pixel type is not <a href="BlackAndWhitePixel8.html">Grayscale8Pixel</a> then this function will throw an exception.</p>
+
+    <p><b>Available from version: 8</b></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>void  GetPixelMap (
+    <a href="Pixel.html">BlackAndWhitePixel</a>*  pixelMap
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>pixelMap</em></dt>
+
+        <dd>Pointer to the result pixel map buffer.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This method reads the whole pixel map and puts it into the <i>pixelMap</i> buffer. The pixel map size can be obtained using the <a href="GetPixelMapSize.html">GetPixelMapSize</a> method. The buffer size can be obtained using the <a href="GetPixelMapBufferSize.html">GetPixelMapBufferSize</a> method. If the pixel map's pixel type is not <a href="BlackAndWhitePixel.html">BlackAndWhitePixel</a> then this function will throw an exception.</p>
+
+    <p><b>Available from version: 8</b></p>
+    <hr>
+
+    <p><br></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

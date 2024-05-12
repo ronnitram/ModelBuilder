@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGRegisterHotKey</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGRegisterHotKey.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGRegisterHotKey</h1>
+
+    <p>Registers a hotkey for a given dialog.</p>
+    <pre class="syntax">
+    <strong>short DGRegisterHotKey</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>modifier</em>,
+      <strong>short</strong>  <em>keyCode</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>modifier</em></dt>
+
+        <dd>For the desired modifier keys use any combination of the following values:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left" width="150">Macintosh</th>
+
+                    <th align="left" width="150">Windows</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_MOD_COMMAND</tt></td>
+
+                    <td>Command (Apple)</td>
+
+                    <td>Ctrl</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_MOD_OPTION</tt></td>
+
+                    <td>Option</td>
+
+                    <td>Alt</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_MOD_SHIFT</tt></td>
+
+                    <td>Shift</td>
+
+                    <td>Shift</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>keyCode</em></dt>
+
+        <dd>A character key code or one of the following special key codes:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_BACK</tt></td>
+
+                    <td>Backspace key.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_TAB</tt></td>
+
+                    <td>Tab key.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_ENTER</tt></td>
+
+                    <td>Enter key.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_RETURN</tt></td>
+
+                    <td>Return key.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_ESCAPE</tt></td>
+
+                    <td>Escape key.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_LEFT</tt></td>
+
+                    <td>Left arrow key.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_RIGHT</tt></td>
+
+                    <td>Right arrow key.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_UP</tt></td>
+
+                    <td>Up arrow key.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_DOWN</tt></td>
+
+                    <td>Down arrow key.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_DELETE</tt></td>
+
+                    <td>Delete key.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_HOME</tt></td>
+
+                    <td>Home key.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_END</tt></td>
+
+                    <td>End key.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_PAGEUP</tt></td>
+
+                    <td>Page up key.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_PAGEDOWN</tt></td>
+
+                    <td>Page down key.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>1-based index of the hotkey if the registration is successful, or zero if an error occurs.</p>
+
+    <h4>Remarks</h4>
+
+    <p>A hotkey is a keystroke or combination of keystrokes that generates a <a href="DG_MSG_HOTKEY.html"><tt>DG_MSG_HOTKEY</tt></a> message for a dialog. Hotkeys in DG are similar to menu accelerators and to the <a href="OSShortcuts.html">Operating System shortcuts</a>. They also provide faster, more direct access to frequently used commands than menus and toolbars do. Moreover, they have some other special features (see the description of the <tt>DG_MSG_HOTKEY</tt> message).</p>
+
+    <p>Hotkeys can be registered to any type of dialogs by calling the <b>DGRegisterHotKey</b> function. If a hotkey is successfully registered, later it has to be referred by the <tt><strong>short</strong></tt> identifier that <b>DGRegisterHotKey</b> returns. A hotkey can be registered to more than one dialog. If a hotkey has been previously registered to a dialog and <b>DGRegisterHotKey</b> is called for an other dialog, it returns the same hotkey identifier. To unregister a previously registered hotkey use the <a href="DGUnregisterHotKey.html">DGUnregisterHotKey</a> function.</p>
+
+    <p>The following key combinations cannot be registered as hotkeys (these combinations basically are the union of the Operating System shortcuts and the <a href="DialogKBInterface.html">dialog keyboard interface</a>):</p>
+
+    <dl>
+        <dd>
+            <table border="0" cellpadding="6">
+                <tr valign="top">
+                    <th align="left">Key</th>
+
+                    <th align="left">Modifier</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_TAB</tt><br>
+                    <tt>DG_KEY_LEFT</tt><br>
+                    <tt>DG_KEY_RIGHT</tt><br>
+                    <tt>DG_KEY_UP</tt><br>
+                    <tt>DG_KEY_DOWN</tt></td>
+
+                    <td>None</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_ESCAPE</tt><br>
+                    'x', 'X', 'c', 'C', 'v', 'V'</td>
+
+                    <td><tt>DG_MOD_COMMAND</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_TAB</tt><br>
+                    <tt>DG_KEY_ESCAPE</tt><br>
+                    <tt>SPACE</tt><br>
+                    '-'</td>
+
+                    <td><tt>DG_MOD_OPTION</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_TAB</tt><br>
+                    <tt>DG_KEY_DELETE</tt></td>
+
+                    <td><tt>DG_MOD_SHIFT</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_ESCAPE</tt></td>
+
+                    <td><tt>DG_MOD_COMMAND</tt> | <tt>DG_MOD_OPTION</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td>'0'..'9'</td>
+
+                    <td><tt>DG_MOD_COMMAND</tt> | <tt>DG_MOD_SHIFT</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_KEY_TAB</tt></td>
+
+                    <td><tt>DG_MOD_OPTION</tt> | <tt>DG_MOD_SHIFT</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Note that the <tt>DG_KEY_LEFT</tt>, <tt>DG_KEY_RIGHT</tt>, <tt>DG_KEY_UP</tt> and <tt>DG_KEY_DOWN</tt> keys without any modifier cannot be registered as hotkeys for <a href="ModalDialogs.html">modal dialogs</a> only. Normal key codes (such as character and numerical keys) cannot be used with the <tt>DG_MOD_SHIFT</tt> modifier. For example, use the capital 'A' character key instead of the small 'a' key with the <tt>DG_MOD_SHIFT</tt> modifier.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="DGUnregisterHotKey.html">DGUnregisterHotKey</a><br>
+    <a href="DGDisableHotKeys.html">DGDisableHotKeys</a>, <a href="DGEnableHotKeys.html">DGEnableHotKeys</a>, <a href="ModalDialogs.html">Modal Dialogs</a>, <a href="DG_MSG_HOTKEY.html"><tt>DG_MSG_HOTKEY</tt></a><br>
+    <a href="DialogKBInterface.html">Dialog keyboard interface</a>, <a href="OSShortcuts.html">Operating System shortcuts</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

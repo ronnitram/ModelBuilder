@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_GetArcType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_GetArcType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_GetArcType</h1>
+
+    <p>Parameters of the arc input operation.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>char</strong>              <em>prompt[256]</em>;
+        <strong>bool</strong>              <em>startCoordGiven</em>;
+        <strong>bool</strong>              <em>negArc</em>;
+        <strong>bool</strong>              <em>changeCursorSet</em>;
+        <strong>bool</strong>              <em>disableDefaultFeedback</em>;
+        <strong>Int32</strong>             <em>filler_1</em>;
+        <strong><a href="API_CursorSet.html">API_CursorSet</a></strong>     <em>cursorSet</em>;
+        <strong><a href="API_Coord3D.html">API_Coord3D</a></strong>       <em>origo</em>;
+        <strong><a href="API_Coord3D.html">API_Coord3D</a></strong>       <em>startCoord</em>;
+        <strong><a href="API_Coord3D.html">API_Coord3D</a></strong>       <em>pos</em>;
+        <strong><a href="API_Neig.html">API_Neig</a></strong>          <em>neig</em>;
+    <strong>}</strong> <em>API_GetArcType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>prompt</b></dt>
+
+        <dd>[in] Prompt string to be displayed in the control box during input</dd>
+
+        <dt><b>startCoordGiven</b></dt>
+
+        <dd>[in] Use the start coordinate specified in the <code>startCoord</code> field</dd>
+
+        <dt><b>negArc</b></dt>
+
+        <dd>[out] Negative (clockwise) arc has been entered</dd>
+
+        <dt><b>changeCursorSet</b></dt>
+
+        <dd>[in] Use the <code>cursorSet</code> field for changing cursor forms</dd>
+
+        <dt><b>disableDefaultFeedback</b></dt>
+
+        <dd>Disable the default feedback drawing.</dd>
+
+        <dt><b>cursorSet</b></dt>
+
+        <dd>[in] Cursor set for customized visual feedback</dd>
+
+        <dt><b>origo</b></dt>
+
+        <dd>[in] The center coordinate of the arc</dd>
+
+        <dt><b>startCoord</b></dt>
+
+        <dd>[in/out] The start coordinate of the arc</dd>
+
+        <dt><b>pos</b></dt>
+
+        <dd>[out] The end coordinate of the arc</dd>
+
+        <dt><b>neig</b></dt>
+
+        <dd>[out] The neig found at the end point</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For the utilization of <code>API_GetArcType</code> see the <a href="../Functions/APIIo_GetArcID.html">APIIo_GetArcID</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIIo_GetArcID.html">APIIo_GetArcID</a>, <a href="API_CursorSet.html">API_CursorSet</a>, <a href="API_Coord3D.html">API_Coord3D</a>, <a href="API_Neig.html">API_Neig</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 12, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

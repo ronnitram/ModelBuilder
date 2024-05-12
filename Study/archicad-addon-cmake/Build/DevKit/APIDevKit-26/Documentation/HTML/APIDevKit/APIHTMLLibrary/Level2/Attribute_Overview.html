@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Attribute Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level2/Attribute_Overview.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Attribute Overview</h1>
+
+    <p>&nbsp;</p>
+
+    <p>Available types of attributes are enumerated in the <a href="../Structures/API_AttrTypeID.html">API_AttrTypeID</a> structure. The definition of an attribute is described in the <a href="../Structures/API_Attribute.html">API_Attribute</a> structure, which is in fact a union of all types of attributes. All of the attribute structures begin with a common header structure, named <a href="../Structures/API_Attr_Head.html">API_Attr_Head.</a></p>
+
+    <ul>
+        <li>The <code>typeID</code> field identifies the type of the attribute.</li>
+
+        <li>The <code>index</code> field gives the current database index of the given attribute. References to any attribute are done through these indices.</li>
+
+        <li>The <code>guid</code> field gives the global unique ID of the given attribute. You can also refer to any attribute through its guid.</li>
+
+        <li>The <code>flags</code> field describes some attribute type dependent information. Possible values are listed at the same place where the given attribute structure is.</li>
+
+        <li>The <code>name</code> field gives the name of the attribute which appears in the appropriate dialogs.</li>
+
+        <li>The <code>modiTime</code> field tells you when the attribute was last modified.</li>
+    </ul>
+
+    <p>Many attribute related functions use the <a href="../Structures/API_Attribute.html">API_Attribute</a> structure on the parameter list. As a general rule, you have to fill the required fields in the union, then Archicad parses the request based on the values and passes the return parameters in the same parameter. This is why most of the functions do not have the <code>const</code> directive in the prototypes.</p>
+    <hr>
+
+    <h4>Retrieving an attribute</h4>
+
+    <p>Let's see a simple example. Assume you are interested in the definition of the second line type of the data structure. In this case you should use a variable with the type <a href="../Structures/API_Attribute.html">API_Attribute</a> structure.</p>
+
+    <blockquote>
+        <pre><code>
+API_Attribute    attrib;
+GSErrCode        err;
+
+BNZeroMemory (&amp;attrib, sizeof (API_Attribute));
+attrib.header.typeID = API_LinetypeID;
+attrib.header.index  = 2;
+
+err = ACAPI_Attribute_Get (&amp;attrib);
+</code></pre>
+    </blockquote>
+
+    <p>The description of the attribute is returned in the <code>attrib.linetype</code> part of the union. With this function call, you get the basic data of the given attribute, such as the name, the flags, the defined scale, etc., but you do not get the definition of the actual shape of the line type. Since producing this data may be a relatively a long conversion process, this information can be obtained with an additional function call.</p>
+
+    <blockquote>
+        <pre><code>
+API_AttributeDef    defs;
+err = ACAPI_Attribute_GetDef (API_LinetypeID, 2, &amp;defs);
+</code></pre>
+    </blockquote>
+
+    <p>In this case, you have all of the additional data related to the particular attribute. The <a href="../Structures/API_AttributeDef.html"> API_AttributeDef</a> structure is a collection of several handles (dynamic memory). If any of them are allocated it contains data. If you do not need the data any more, you have to free the allocated memory blocks to avoid memory leaks. The suggested way is the following:</p>
+
+    <blockquote>
+        <pre><code>
+ACAPI_DisposeAttrDefsHdls (&amp;defs);
+</code></pre>
+    </blockquote>
+
+    <p>If you use this function, it is ensured that all of the dynamic data will be freed, and also that there will be no compatibility problems if your add-on is installed to a newer version of Archicad.</p>
+
+    <p>It is very important to examine the error codes returned by the API functions, and parse the returned value.</p>
+
+    <p>A typical situation is when you want to go through the instances of a particular attribute type in the database. The following example gives a good template to do that.</p>
+
+    <blockquote>
+        <pre><code>
+API_Attribute  attrib;
+short      nLin, i;
+GSErrCode  err;
+
+BNZeroMemory (&amp;attrib, sizeof (API_Attribute));
+attrib.header.typeID = API_LinetypeID;
+err = ACAPI_Attribute_GetNum (API_LinetypeID, &amp;nLin);
+for (i = 1; i &lt;= nLin &amp;&amp; err == NoError; i++) {
+    attrib.header.index = i;
+    err = ACAPI_Attribute_Get (&amp;attrib);
+    if (err == NoError) {
+        /* do what you want */
+    }
+    if (err == APIERR_DELETED)
+        err = NoError;
+}
+</code></pre>
+    </blockquote>
+
+    <p>First you need to get the number of line types in the database. You can do that with the <a href="../Functions/ACAPI_Attribute_GetNum.html">ACAPI_Attribute_GetNum</a> function, but be careful. This function returns the largest index used in the database, not the number of installed attributes, because instances may be deleted. Deleted attributes are not purged from the database immediately, which means that the valid index range is not (always) continuous. This is why the APIERR_DELETED return code has to be handled.</p>
+    <hr>
+
+    <h4>Creating an attribute</h4>
+
+    <p>The attribute creation process is also fairly simple. All you have to do is to fill the appropriate part of the <a href="../Structures/API_Attribute.html">API_Attribute</a>, and optionally the <a href="../Structures/API_AttributeDefExt.html">API_AttributeDefExt</a> structure. The <a href="../Functions/ACAPI_Attribute_CreateExt.html">ACAPI_Attribute_CreateExt</a> function does the following:</p>
+
+    <ul>
+        <li>It checks the data for possible inconsistency. If some problem is encountered it may be corrected automatically or an error code is generated.</li>
+
+        <li>It ignores for example, the <code>index</code> field in the header structure, you cannot influence which index the attribute should be referenced by. This value is automatically generated and returned to you.</li>
+
+        <li>If an attribute exists with the same name in the database, the existing index will be returned. The matching procedure ignores the differences of the attribute definition. Multiple attributes with the same name are not allowed.</li>
+
+        <li>The generated attribute is placed in the data structure and it can be referenced in any subsequent API call.</li>
+    </ul>
+
+    <p>It is very important that <b>Archicad does not free any dynamic data structure</b> you have allocated and passed to Archicad. They must be freed by your code.</p>
+
+    <p>Another important note is the following. Every data structure filled by you must be initialized to zero, for forward compatibility. Fillers may become real data fields in the later versions of the API, so if they are not initialized to zero, the result may be unpredictable.</p>
+
+    <p>The template to create an attribute is the following:</p>
+
+    <blockquote>
+        <pre><code>
+API_Attribute       attrib;
+API_AttributeDefsExt   defs;
+short               ltypeIndex;
+GSErrCode           err;
+
+BNZeroMemory (&amp;attrib, sizeof (API_Attribute));
+BNZeroMemory (&amp;defs, sizeof (API_AttributeDefsExt));
+
+attrib.header.typeID = API_LinetypeID;
+/* fill attrib.linetype */
+/* fill defs for dashed and symbol line types */
+
+err = ACAPI_Attribute_CreateExt (&amp;attrib, &amp;defs);
+ltypeIndex = attrib.header.index;
+
+ACAPI_DisposeAttrDefsHdlsExt (&amp;defs);
+</code></pre>
+    </blockquote>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on Jan 25, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

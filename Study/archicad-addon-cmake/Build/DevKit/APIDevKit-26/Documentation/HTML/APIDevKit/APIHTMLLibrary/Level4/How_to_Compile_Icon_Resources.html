@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Compile icon resources ('GICN')</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level4/How_to_Compile_Icon_Resources.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>How to compile icon resources (<tt>'GICN'</tt>)</h1>
+
+    <p>The <tt>'GICN'</tt> resource type is used for defining icon resources.<br>Icon resources are usually defined in a non-localizable <tt>GRC</tt> resource file (e.g. <tt>RFIX/ExampleFixGRC.grc</tt>)</p>
+    <p><img border="0" src="../../APIImageLibrary/20.png" alt="API version 20" width="19" height="12">&nbsp;The possible source image formats of icon resources are PNG and SVG (previously you had to use BMP). When you use SVGs, then the SVG images will be converted to PNGs by the Resource Compiler, which in turn will become .ico files on Windows, and multi-representation TIFFs on OS X. Note that the filename of the SVG image must contain the default size at 1x resolution of the icon.</p>
+    <p><img border="0" src="../../APIImageLibrary/20.png" alt="API version 20" width="19" height="12">&nbsp;To build HiDPI compatible native icons, use <tt>-w</tt> parameter of the <tt>ResConv</tt> Resource Compiler Tool.</p>
+
+    <p>For further info take a look at the following examples:</p>
+
+    <h4>1. example</h4>
+    <p>This example defines a single icon and doesn't care about HiDPI display support.</p>
+
+    <ul>
+        <li>Content of .\RFIX\ExampleGRC.grc:<br>
+<pre>'GICN'  35000  "Wall icon" {
+}</pre>
+        </li>
+        <li>Command used for compilation:<br>
+            <p>On Windows:</p><br>
+                <pre style="margin-left: 20px">ResConv.exe -m r -t W -q utf8 1252 -p .\RFIX\Images -i .\RFIX\ExampleFixGRC.grc -o .\RO\ExampleFixGRC.rc2</pre>
+            <p>On Macintosh:</p><br>
+                <pre style="margin-left: 20px">ResConv -m r -t M -q utf8 utf16 -p ./RFIX/Images -i ./RFIX/ExampleFixGRC.grc -o ./RO/ExampleFixGRC.grc.ro</pre>
+        </li>
+    </ul>
+
+    <p>For this resource to compile successfully, either a PNG (<tt>35000.png</tt>) or an SVG (<tt>35000_&lt;width&gt;x&lt;height&gt;.svg</tt>) source image must be placed to the given images folder (<tt>.\RFIX\Images</tt>).
+    <br>If both PNG and SVG images exist, then the PNG image will be used.</p>
+
+
+
+    <h4>2. example</h4>
+
+    <p>This example defines a single icon (with explicit filename) and converts it to a HiDPI compatible native icon.</p>
+
+    <ul>
+        <li>Content of .\RFIX\ExampleGRC.grc:<br>
+<pre>'GICN'  35000  "Wall icon" {
+    "Wall"
+}</pre>
+        </li>
+        <li>Command used for compilation:<br>
+            <p>On Windows:</p><br>
+                <pre style="margin-left: 20px">ResConv.exe -m r -t W -q utf8 1252 -p .\RFIX\Images -i .\RFIX\ExampleFixGRC.grc -o .\RO\ExampleFixGRC.rc2 -w 2 3</pre>
+            <p>On Macintosh:</p><br>
+                <pre style="margin-left: 20px">ResConv -m r -t M -q utf8 utf16 -p ./RFIX/Images -i ./RFIX/ExampleFixGRC.grc -o ./RO/ExampleFixGRC.grc.ro -w 2 3</pre>
+        </li>
+    </ul>
+
+
+
+    <p>The last parameters in the command (<tt>-w 2 3</tt>) show that multiple representations of the icon will be converted into the compiled native resource (with 100%, 200% and 300% of the default resolution).
+    <br>For this command to run successfully, an SVG (<tt>Wall_&lt;width&gt;x&lt;height&gt;.svg</tt>) source image or multiple PNGs (<tt>Wall.png</tt>, <tt>Wall@2x.png</tt>, <tt>Wall@3x.png</tt>) must be placed into the given images folder (<tt>./RFIX/Images</tt>).
+    </p>
+    <p>If both the SVG and one of the PNG images exist, then the PNG will be used to create that specific representation of the icon.</p>
+
+
+    <p>For better understanding of the Graphisoft Resource Compiler, see a Windows example <a href="Tools_ResConv_Win_Example.html" title="Windows example">here</a> or a Macintosh example <a href="Tools_ResConv_Mac_Example.html" title="Macintosh example">here</a>.</p>
+
+    
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 16, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

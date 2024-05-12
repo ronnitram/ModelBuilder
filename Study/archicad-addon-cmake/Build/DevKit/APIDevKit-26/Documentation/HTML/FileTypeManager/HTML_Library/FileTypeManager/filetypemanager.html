@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Language" content="en-us"><!-- index -->
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta name="ProgId" content="FrontPage.Editor.Document">
+
+    <title>FileTypeManager</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/FileTypeManager/filetypemanager.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">File&nbsp;Type&nbsp;Manager</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>class FileTypeManager</h1>
+
+    <p>&nbsp;</p>
+
+    <p><b>FileTypeManager</b> does not have a base class.</p>
+
+    <p><b>FileTypeManager</b> organizes file type information. This class stores FileType objects in&nbsp; hierarchical <b>groups</b>. Each file type can be member of multiply groups. It enables one level many-to-many relation between groups and types, but group to group relations are restricted to single parent, tree type hierarchy.</p>
+
+    <p>While FileType is a standalone object <b>group</b> is only valid in the FileTypeManager database, so there is no class for file type groups. Groups and types are identified by <b>TypeID</b> and <b>GroupID</b> typed ids in the FileTypeManager. These ids are unique across all existing FileTypeManager instances. These ids generated when a type or group is added to the database (</p>
+
+    <p><b>Groups</b> and types are stored in static storage, which means they are visible to all other FileTypeManager objects. Typical usage is that every module of code that needs to add its own file type information creates its own FileTypeManager instance. There is no need to derive your own class. In code where only usage of stored information is needed it is possible to use the FileTypeManager object without creating an instance. For example to check is a specific location's type is contained in a group</p>
+
+    <p align="center"><img border="0" src="../../Image_Library/hier2.jpg" alt="hier2" width="299" height="285"></p>
+
+    <h4><!-- --><a name="members" id="members"></a>Class Members</h4>
+
+    <p>&nbsp;</p><!--
+
+Dummy links processed by GSHC in alphabetical order
+<a href="constructor.html">Constructor</a>
+<a href="destructor.html">Destructor</a>
+
+<a href="addgroup.html">AddGroup</a>
+<a href="addtype.html">AddType</a>
+<a href="addtypetogroup.html">AddTypeToGroup</a>
+<a href="countallchild.html">CountAllChild</a>
+<a href="countalltypechild.html">CountAllTypeChild</a>
+<a href="countgroupchild.html">CountGroupChild</a>
+<a href="countparent.html">CountParent</a>
+<a href="counttypechild.html">CountTypeChild</a>
+<a href="exactmatch.html">ExactMatch</a>
+<a href="exactmatchown.html">ExactMatchOwn</a>
+<a href="getalltypechildlist.html">GetAllTypeChildList</a>
+<a href="getfirstgroupchild.html">GetFirstGroupChild</a>
+<a href="getfirstparent.html">GetFirstParent</a>
+<a href="getfirsttypechild.html">GetFirstTypeChild</a>
+<a href="getgroupextensionlist.html">GetGroupExtensionList</a>
+<a href="getgroupname.html">GetGroupName</a>
+<a href="getnextgroup.html">GetNextGroup</a>
+<a href="getnextparent.html">GetNextParent</a>
+<a href="getnexttype.html">GetNextType</a>
+<a href="getparent.html">GetParent</a>
+<a href="gettype.html">GetType</a>
+<a href="identify.html">Identify</a>
+<a href="identifyown.html">IdentifyOwn</a>
+<a href="isgroupingroup.html">IsGroupInGroup</a>
+<a href="ismimeregistered.html">IsMimeRegistered</a>
+<a href="istypeingroup.html">IsTypeInGroup</a>
+<a href="match.html">Match</a>
+<a href="matchown.html">MatchOwn</a>
+<a href="readid.html">ReadID</a>
+<a href="reinserttype.html">ReinsertType</a>
+<a href="removegroup.html">RemoveGroup</a>
+<a href="removetype.html">RemoveType</a>
+<a href="removetypefromgroup.html">RemoveTypeFromGroup</a>
+<a href="renamegroup.html">RenameGroup</a>
+<a href="searchforgroup.html">SearchForGroup</a>
+<a href="searchformime.html">SearchForMime</a>
+<a href="searchfortype.html">SearchForType</a>
+<a href="writeid.html">WriteID</a>
+
+<a href="errors.html">Errors</a>
+<a href="globals.html">Globals</a></p>
+-->
+
+    <p>Constructor/destructor</p>
+
+    <p><!----><a href="constructor.html">FileTypeManager</a><br>
+    <!----><a href="destructor.html">~FileTypeManager</a><br></p>
+
+    <p>Location identifying methods&nbsp;&nbsp;</p>
+
+    <p><!----><a href="identify.html">Identify</a><br>
+    <!----><a href="identifyown.html">IdentifyOwn</a><br>
+    <!----><a href="exactmatch.html">ExactMatch</a><br>
+    <!----><a href="exactmatchown.html">ExactMatchOwn</a><br>
+    <!----><a href="match.html">Match</a><br>
+    <!----><a href="matchown.html">MatchOwn</a><br></p>
+
+    <p>Type manipulating functions</p>
+
+    <p><!----><a href="addtype.html">AddType</a><br>
+    <!----><a href="removetype.html">RemoveType</a><br>
+    <!----><a href="reinserttype.html">ReinsertType</a><br>
+    <!----><a href="gettype.html">GetType</a><br></p>
+
+    <p>Group manipulating functions&nbsp;</p>
+
+    <p><!----><a href="addgroup.html">AddGroup</a><br>
+    <!----><a href="removegroup.html">RemoveGroup</a><br>
+    <!----><a href="addtypetogroup.html">AddTypeToGroup</a><br>
+    <!----><a href="removetypefromgroup.html">RemoveTypeFromGroup</a><br>
+    <!----><a href="renamegroup.html">RenameGroup</a><br>
+    <!----><a href="getgroupname.html">GetGroupName</a><br>
+    <!----><a href="getgroupextensionlist.html">GetGroupExtensionList</a><br></p>
+
+    <p>Query functions&nbsp;</p>
+
+    <p><!----><a href="isgroupingroup.html">IsGroupInGroup</a><br>
+    <!----><a href="istypeingroup.html">IsTypeInGroup</a><br>
+    <!----><a href="searchfortype.html">SearchForType</a><br>
+    <!----><a href="searchforgroup.html">SearchForGroup</a><br></p>
+
+    <p>Hierarchy query functions</p>
+
+    <p><!----><a href="countallchild.html">CountAllChild</a><br>
+    <!----><a href="countgroupchild.html">CountGroupChild</a><br>
+    <!----><a href="countparent.html">CountParent</a><br>
+    <!----><a href="counttypechild.html">CountTypeChild</a><br>
+    <!----><a href="countalltypechild.html">CountAllTypeChild</a><br>
+    <!----><a href="getalltypechildlist.html">GetAllTypeChildList</a><br></p>
+
+    <p>Hierarchy navigating functions</p>
+
+    <p><!----><a href="getfirstgroupchild.html">GetFirstGroupChild</a><br>
+    <!----><a href="getnextgroup.html">GetNextGroup</a><br>
+    <!----><a href="getfirsttypechild.html">GetFirstTypeChild</a><br>
+    <!----><a href="getnexttype.html">GetNextType</a><br>
+    <!----><a href="getparent.html">GetParent</a><br>
+    <!----><a href="getfirstparent.html">GetFirstParent</a><br>
+    <!----><a href="getnextparent.html">GetNextParent</a><br></p>
+
+    <p>Mime related functions</p>
+
+    <p><!----><a href="ismimeregistered.html">IsMimeRegistered</a><br>
+    <!----><a href="searchformime.html">SearchForMime</a><br>
+    <!----><a href="readid.html">ReadID</a><br>
+    <!----><a href="writeid.html">WriteID</a><br></p>
+
+    <h4>Errors</h4>
+
+    <p><!----><a href="errors.html#typenotfound">TypeNotFound<br></a> <!----><a href="errors.html#groupnotfound">GroupNotFound<br></a> <!----><a href="errors.html#accessdenied">AccessDenied</a></p>
+
+    <h4>Globlas</h4>
+
+    <p><!----><a href="globals.html#rootgroup">RootGroup</a></p>
+
+    <p><!----><a href="globals.html#unknowntype">UnknownType</a></p>
+
+    <p><!----><a href="globals.html#unknowngroup">UnkownGroup</a></p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> Input-Output Library 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> FileTypeManager.hpp</dd>
+
+        <dd><b>Import Library:</b> InputOutput.lib [WIN]</dd>
+
+        <dd><b>Module:</b> InputOutputLib [MAC], InputOutput.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="../introduction.html">File Type Manager</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on Aug 15, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta name="Author" content="Magyari Denes">
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta name="ProgId" content="FrontPage.Editor.Document">
+
+    <title>File Type Manager introduction</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/matchingprecedence.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">File&nbsp;Type&nbsp;Manager</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Matching Precedence</h1>
+
+    <p>The file identifying methods of the FileTypeManager (<a href="FileTypeManager/identify.html">Identify</a>, <a href="FileTypeManager/identifyown.html">IdentifyOwn</a>, <a href="FileTypeManager/exactmatch.html">ExactMatch</a>, <a href="FileTypeManager/exactmatchown.html">ExactMatchOwn</a>, <a href="FileTypeManager/match.html">Match</a>, <a href="FileTypeManager/matchown.html">MatchOwn</a>) use the same algorithm for the relation operator between type item matches on a file object. The result can be: "A" type matches better to a file than "B" type, or "A" type matches equally to a file with "B" type, or "B" type matches better to a file than "A" type. There are three properties of a FileType that determine the result. These properties have a precedence order. The three properties in the order of precedence are <b>extension</b>, <b>mac type</b> and <b>read-in</b> function ("magic" number of the file).&nbsp; The precedence means that a match level number can be assigned to each comparison between a file and a file type.</p>
+
+    <p>&nbsp;</p>
+
+    <table border="0">
+        <tbody>
+            <tr valign="top">
+                <th align="left">Match<br>
+                level</th>
+
+                <th align="left">Extension<br>
+                match</th>
+
+                <th align="left">Mac Type<br>
+                match</th>
+
+                <th align="left">Callback<br>
+                match</th>
+            </tr>
+
+            <tr valign="top">
+                <td>8</td>
+
+                <td>yes</td>
+
+                <td>yes</td>
+
+                <td>yes</td>
+            </tr>
+
+            <tr valign="top">
+                <td>7</td>
+
+                <td>yes</td>
+
+                <td>yes</td>
+
+                <td>no</td>
+            </tr>
+
+            <tr valign="top">
+                <td>6</td>
+
+                <td>yes</td>
+
+                <td>no</td>
+
+                <td>yes</td>
+            </tr>
+
+            <tr valign="top">
+                <td>5</td>
+
+                <td>yes</td>
+
+                <td>no</td>
+
+                <td>no</td>
+            </tr>
+
+            <tr valign="top">
+                <td>4</td>
+
+                <td>no</td>
+
+                <td>yes</td>
+
+                <td>yes</td>
+            </tr>
+
+            <tr valign="top">
+                <td>3</td>
+
+                <td>no</td>
+
+                <td>yes</td>
+
+                <td>no</td>
+            </tr>
+
+            <tr valign="top">
+                <td><font color="#C0C0C0">2</font></td>
+
+                <td><font color="#C0C0C0">no</font></td>
+
+                <td><font color="#C0C0C0">no</font></td>
+
+                <td><font color="#C0C0C0">yes</font></td>
+            </tr>
+
+            <tr valign="top">
+                <td><font color="#C0C0C0">1</font></td>
+
+                <td><font color="#C0C0C0">no</font></td>
+
+                <td><font color="#C0C0C0">no</font></td>
+
+                <td><font color="#C0C0C0">no</font></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+
+    <p>If there is a plan file named "Archicad 7.0.pln" which has a mac type 'DOS ' will be a be a match level 6 to a type with the following parameters "pln", 'HOUS', but only 3 to a type with "", 'DOS '. The plan file named "Archicad 7.0" with a mac type 'HOUS' will have a match level 4 and the same file with mac type 'DOS ' will have match level 2 to a type with "pln", 'HOUS' and the right callback function.</p>
+
+    <p>Note that all identifying methods are limited to match level 3, so if neither the extension nor the mac type matches it will not call each callback to decide between level 1 and 2.</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../FileTypeManager.html">File Type Manager</a>, <a href="FileTypeManager/filetypemanager.html">FileTypeManager class</a>, <a href="FileType/filetype.html">FileType class</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on Aug 15, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

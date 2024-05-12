@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGListUpdateData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListUpdateData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListUpdateData</h1>
+
+    <p>If the update flag of a <a href="ListBox.html">list box</a> tabulator field / list item has been set to <strong><tt>true</tt></strong> by the <a href="DGListSetTabFieldUpdateFlag.html">DGListSetTabFieldUpdateFlag</a> / <a href="DGListSetItemOwnerDrawFlag.html">DGListSetItemOwnerDrawFlag</a> function and the content of the tabulator field / list item should be updated, the <a href="CallbackFunctions.html">dialog callback function</a> receives a <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a> message. The message data parameter of this message is a pointer to a <b>DGListUpdateData</b> structure that contains all the necessary information to update the tabulator field / list item by the application.</p>
+    <pre class="syntax">
+    <strong>struct</strong> <em>DGListUpdateData</em> {
+      <strong>void*</strong>          <em>drawContext;</em>
+      <strong>short</strong>          <em>listItem;</em>
+      <strong>bool</strong>           <em>isHighlighted;</em>
+      <strong>short</strong>          <em>tabIndex;</em>
+      <strong>short</strong>          <em>width;</em>
+      <strong>short</strong>          <em>height;</em>
+      <strong>short</strong>          <em>justFlag;</em>
+      <strong>short</strong>          <em>truncFlag;</em>
+      <strong>GS::UniString</strong>  <em>tabText;</em>
+      <strong>Gfx::Color</strong>     <em>fgColor;</em>
+      <strong>Gfx::Color</strong>     <em>bkColor;</em>
+    };
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>drawContext</b></dt>
+
+        <dd>The drawing context of the tabulator field. Cast this value to <strong><tt>CGContextRef</tt></strong> on Macintosh or <strong><tt>HDC</tt></strong> on Windows.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>listItem</b></dt>
+
+        <dd>1-based index of the list item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>isHighlighted</b></dt>
+
+        <dd>If this flag is set to <tt>true</tt>, the list item is highlighted.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>tabIndex</b></dt>
+
+        <dd>If the value is equal to 0, the whole <em>listItem</em> is drawable. Otherwise the given value is the index of the choosen tabulator field.</dd>
+        <dd>Tabulator fields are 1-base indexed.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>width</b></dt>
+
+        <dd>Width of the tabulator field / list item in pixels.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>height</b></dt>
+
+        <dd>Height of the tabulator field / list item in pixels.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>justFlag</b></dt>
+
+        <dd>Justification of the content in the tabulator field. For left/center/right justification <tt>DG_IS_LEFT</tt>, <tt>DG_IS_CENTER</tt>, <tt>DG_IS_RIGHT</tt> is returned.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>truncFlag</b></dt>
+
+        <dd>How the text of the tabulator field / list item should be truncated. Possible values are:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Flag</th>
+
+                    <th align="left">Action</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_NOTRUNC</tt></td>
+
+                    <td>No truncation.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_TRUNCEND</tt></td>
+
+                    <td>Truncates at the end.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_TRUNCMIDDLE</tt></td>
+
+                    <td>Truncates in the middle.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>tabText</b></dt>
+
+        <dd>Text of the tabulator field.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>fgColor</b></dt>
+
+        <dd>Foreground color of the updated list item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>bkColor</b></dt>
+
+        <dd>Background color of the updated list item.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The origin of the drawing context defined by the <b>drawContext</b> member is set to the upper left corner of the tabulator field.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 18.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Structures_id.html">DG Structures</a>, <a href="ListBox.html">List Box</a>, <a href="DGListSetTabFieldUpdateFlag.html">DGListSetTabFieldUpdateFlag</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

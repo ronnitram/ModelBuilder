@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Selection_Get</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Selection_Get.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Selection_Get</h1>
+
+    <p>Returns information on the selection, and the selected elements.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Selection_Get</strong> (
+        <strong><a href="../Structures/API_SelectionInfo.html">API_SelectionInfo</a>*</strong>     <em>selectionInfo</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../Structures/API_Neig.html">API_Neig</a>&gt;*</strong>   <em>selNeigs</em>,
+        <strong>bool</strong>                   <em>onlyEditable</em>,
+        <strong>bool</strong>                   <em>ignorePartialSelection = true</em>,
+        <strong><a href="../Structures/API_SelRelativePosID.html">API_SelRelativePosID</a></strong>   <em>relativePosToMarquee = API_InsidePartially</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>selectionInfo</em></dt>
+
+        <dd>[out] The parameters of the current selection. The <code>typeID</code> field of the <code>selectionInfo</code> gives the selection type.</dd>
+
+        <dt><em>selNeigs</em></dt>
+
+        <dd>[out] An array containing the GUIDs of the selected elements. Can be <code>nullptr</code> if you are interested in the selection information only.</dd>
+
+        <dt><em>onlyEditable</em></dt>
+
+        <dd>[in] Tells whether you are interested in editable elements only.</dd>
+
+        <dt><em>ignorePartialSelection</em>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18" width="19" height="12"></dt>
+
+        <dd>[in] Retrieves also partial element selection information or the element itself only selected as whole
+        (for legacy compatibility reasons, the default value of this parameter is <code>true</code>, meaning partial selection is ignored).
+        This parameter is ignored in case of marquee based selection.</dd>
+
+        <dt><em>relativePosToMarquee</em>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18" width="19" height="12"></dt>
+
+        <dd>[in] Retrieves elements relative to marquee
+        (for legacy compatibility reasons, the default value of this parameter is <code>API_InsidePartially</code>, meaning only those elements will be returned which have an intersection with the marquee area).
+        This parameter is ignored in case of individually selected elements.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_NOPLAN</code></dt>
+
+        <dd>There is no open project.</dd>
+
+        <dt><code>APIERR_NOSEL</code></dt>
+
+        <dd>There is no selection. Note that this is not a real error!</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to get information about the current selection and to retrieve the selected elements. The information is returned in the <code>selectionInfo</code> parameter.</p>
+
+    <p>If individual elements are selected the <code>API_SelElems</code> identifier is returned. The number of the selected and selected and editable elements are also returned. In case of marquee based selection, the function gives back the actual polygon of the current selection in the <a href="../Structures/API_SelectionInfo.html">API_SelectionInfo</a> structure; don't forget to dispose this handle.</p>
+
+    <p>The <code>API_SelEmpty</code> identifier in the <code>typeID</code> field of the <code>selectionInfo</code> parameter means that no selection is actually used in Archicad.</p>
+
+    <p>In case of individually selected elements, Archicad returns all the elements which are selected. In the case of marquee based selection, only those will be returned which match the position criteria defined by <code>relativePosToMarquee</code>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+//------------------------------------------------------------
+// Collect in inds the guids of the dimensions to work with
+//------------------------------------------------------------
+static GSErrCode SelectDimensions (GS::Array&lt;API_Guid&gt;&amp; inds)
+
+{
+    GSErrCode            err;
+    API_SelectionInfo    selectionInfo;
+    API_Elem_Head        tElemHead;
+    GS::Array&lt;API_Neig&gt;  selNeigs;
+
+    err = <font color="#FF0066">ACAPI_Selection_Get</font> (&amp;selectionInfo, &amp;selNeigs, true);
+    BMKillHandle ((GSHandle *) &amp;selectionInfo.marquee.coords);
+    if (err == APIERR_NOSEL)
+        err = NoError;
+
+    if (selectionInfo.typeID != API_SelEmpty) {
+        // collect indexes of selected dimensions
+        UInt32 nSel = BMGetHandleSize ((GSHandle) selNeigs) / sizeof (API_Neig);
+        for (const API_Neig&amp; selNeig : selNeigs) {
+            tElemHead.typeID = Neig_To_ElemID (selNeig.neigID);
+            if (tElemHead.typeID != API_DimensionID)
+                continue;
+
+            if (!ACAPI_Element_Filter (selNeig.guid, APIFilt_IsEditable))
+                continue;
+
+            tElemHead.guid = selNeig.guid;
+            if (ACAPI_Element_GetHeader (&amp;tElemHead) != NoError)
+                continue;
+
+            // Add dimension to the array
+            inds.Push (tElemHead.guid);
+        }
+    }
+
+    return err;
+}   // SelectDimensions
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Neig.html">API_Neig</a>, <a href="../Structures/API_SelectionInfo.html">API_SelectionInfo</a>, <a href="../Structures/API_SelRelativePosID.html">API_SelRelativePosID</a>,<br>
+    <a href="ACAPI_Element_Select.html">ACAPI_Element_Select</a>,<br>
+    <a href="../Level3/Selection_Manager_id.html">Selection Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on October 5, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

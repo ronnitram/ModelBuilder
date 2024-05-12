@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>operator=</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Parameter/OperatorAssign.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="Parameter.html">Parameter</a>::operator=</h1><br>
+    Assign operator.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>void  operator= (
+    double  value
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>value</em></dt>
+
+        <dd>The new value of the parameter.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>Set the value of the parameter. This method can be used only for numeric parameters. If the type of the parameter is not numeric, then type has to be set to <i>NumericType</i> before calling this method.</p>
+
+    <p><b>Available from version: 8</b></p>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>Int32  operator= (
+    const char*  string
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>string</em></dt>
+
+        <dd>The new value of the parameter..</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>Set the value of the parameter. This method can be used only for string parameters. If the type of the parameter is not string, then type has to be set to <i>StringType</i> before calling this method.</p>
+
+    <p><b>Available from version: 8</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Vegh Miklos, Urban Eszter">
+
+    <title>DGListGetHeaderItemFlags</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListGetHeaderItemFlags.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListGetHeaderItemFlags</h1>
+
+    <p>Retrieves the justification, truncation and resizeability settings of a header item of a <a href="ListBox.html">list box</a> item.</p>
+    <pre class="syntax">
+    <strong>void DGListGetHeaderItemFlags</strong> (
+      <strong>short</strong>        <em>dialId</em>,
+      <strong>short</strong>        <em>item</em>,
+      <strong>short</strong>        <em>headerItem</em>,
+      <strong>short*</strong>       <em>style</em>,
+      <strong>bool*</strong>        <em>isSizeable</em>
+   );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>headerItem</em></dt>
+
+        <dd>1-based index of the header item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>style</em></dt>
+
+        <dd>Output parameter: Item style which is <tt>DG_IS_DEFAULT</tt> or any bitwise OR (<tt>|</tt>) combination of the justification and truncation flags:</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dd>Justification of the content in the header item:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_LEFT</tt></td>
+
+                    <td>The item content is aligned to the left.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_CENTER</tt></td>
+
+                    <td>The item content is centred.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_RIGHT</tt></td>
+
+                    <td>The item content is aligned to the right.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dd>How the text of the header item should be truncated if it does not fit into the item. Possible values are:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_NOTRUNC</tt></td>
+
+                    <td>No truncation.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_TRUNCEND</tt></td>
+
+                    <td>Item content is truncated at the end..</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_TRUNCMIDDLE</tt></td>
+
+                    <td>Item content is truncated in the middle. (Leaves the same number of characters from both ends of the text.)</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>isSizeable</em></dt>
+
+        <dd>Output parameter: if the size of the header item can be modified by mouse interaction, this flag is set.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The list box header is displayed at the top of the list box. The header can be divided into more header items. The header is used to display information about the list box columns and can be configured to enable the user to dynamically adjust the size and the order of the list box columns. The number of the header items can be retrieved by <a href="DGListGetHeaderItemCount.html">DGListGetHeaderItemCount</a>. Special properties of a header item can be set by <a href="DGListSetHeaderItemFlags.html">DGListSetHeaderItemFlags</a>.</p>
+
+    <p>If the <em>isSynchron</em> flag is set to <tt>true</tt> on the list box header, the properties of the header items are synchronized with the corresponding tabulator fields by DG, otherwise they should be handled independently by the application. These properties are: the number and size of the header item, the font type and size, the alignment, the truncation of the text of the header item. If this flag is set, these properties are automatically updated when a property of a tabulator field is changed.<br>
+    If the <em>isSynchron</em> flag is set to <tt>false</tt> and the <em>style</em> flag is set to <tt>DG_IS_DEFAULT</tt>, the defult settings are applied for the header item ie.: left alignment and no truncation. If the <em>isSynchron</em> flag is set to <tt>false</tt> the following functions won't effect the list box header items <strong>DGListSetHeaderItemFlags</strong>, <a href="DGListSetHeaderItemCount.html">DGListSetHeaderItemCount</a>, <a href="DGListSetHeaderItemFont.html">DGListSetHeaderItemFont</a>, <a href="DGListSetHeaderItemSize.html">DGListSetHeaderItemSize</a>.<br>
+    The header flags can be set and retrieved by the <a href="DGListSetHeaderFlags.html">DGListSetHeaderFlags</a> and <a href="DGListGetHeaderFlags.html">DGListGetHeaderFlags</a> functions respectively.</p>
+
+    <p>A header item can contain an icon and/or text also, but only one icon can appear in a header item. The text and the icon of a header item can be set and retrieved by the <a href="DGListSetHeaderItemText.html">DGListSetHeaderItemText</a>, <a href="DGListSetHeaderItemIcon.html">DGListSetHeaderItemIcon</a> and <a href="DGListGetHeaderItemText.html">DGListGetHeaderItemText</a> <a href="DGListGetHeaderItemIcon.html">DGListGetHeaderItemIcon</a> functions respectively. If a header item contains an icon and text also, the icon will be positioned either at the beginning or at the end of the text according to the justification. (The <tt>DG_IS_LEFT</tt> justification is applied for the header item containing an icon and text also, even if the <tt>DG_IS_CENTER</tt> justification was given.) For a multi-line text the truncation cannot be applied. The font style and size of each header item can be set by the <a href="DGListSetHeaderItemFont.html">DGListSetHeaderItemFont</a> function.</p>
+
+    <p>The default setting for the <em>isSizeable</em> flag is <tt>false</tt>. If the <em>isSizeable</em> flag is set to <tt>true</tt> on the list box header, the header item can be resized by mouse interaction. The minimal size of a header item can be set and retrieved by the <a href="DGListSetHeaderItemMinSize.html">DGListSetHeaderItemMinSize</a> and <a href="DGListGetHeaderItemMinSize.html">DGListGetHeaderItemMinSize</a> functions respectively.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ListBox.html">List Box</a>, <a href="DGListSetHeaderItemFlags.html">DGListSetHeaderItemFlags</a><br>
+    <a href="DGListSetHeaderFlags.html">DGListSetHeaderFlags</a>, <a href="DGListGetHeaderFlags.html">DGListGetHeaderFlags</a>, <a href="DGListSetHeaderItemCount.html">DGListSetHeaderItemCount</a>, <a href="DGListGetHeaderItemCount.html">DGListGetHeaderItemCount</a>, <a href="DGListSetHeaderItemText.html">DGListSetHeaderItemText</a>, <a href="DGListGetHeaderItemText.html">DGListGetHeaderItemText</a>, <a href="DGListSetHeaderItemIcon.html">DGListSetHeaderItemIcon</a>, <a href="DGListGetHeaderItemIcon.html">DGListGetHeaderItemIcon</a>, <a href="DGListSetHeaderItemMinSize.html">DGListSetHeaderItemMinSize</a>, <a href="DGListGetHeaderItemMinSize.html">DGListGetHeaderItemMinSize</a>, <a href="DGListSetHeaderItemFont.html">DGListSetHeaderItemFont</a>, <a href="DGListSetHeaderItemSize.html">DGListSetHeaderItemSize</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on March 21, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

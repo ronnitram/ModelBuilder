@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Attribute_GetAttributeByNameFromProject</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/API_Attribute_GetAttributesFromProject.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Attribute_GetAttributeByNameFromFile</h1>
+
+    <p>Retrieves an array containing information about attributes of type <code>typeID</code> from a file.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Attribute_GetAttributeByNameFromProject</strong> (
+        <strong>const <a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a>&</strong>						<em>location</em>,
+        <strong><a href="../Structures/API_AttrTypeID.html">API_AttrTypeID</a></strong>							<em>typeID</em>,
+	<strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt<a href="../../../GSRoot/GSRootHTMLLibrary/GS/Pair/Pair.html">GS::Pair</a>&lt<a href="../Structures/API_Attribute.html">API_Attribute</a>, <a href="../Structures/API_AttributeDefExt.html">API_AttributeDefExt</a>&gt&gt*</strong>	<em>resultArray</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>location</em></dt>
+
+        <dd>[in] Location of the template file </dd>
+    </dl>
+
+    <dl>
+        <dt><em>typeID</em></dt>
+
+        <dd>[in] Type of attribute to be searched </dd>
+    </dl>
+
+    <dl>
+        <dt><em>resultArray</em></dt>
+
+        <dd>[out] Contains pairs of <a href="../Structures/API_Attribute.html">API_Attribute</a> and <a href="../Structures/API_AttributeDefExt.html">API_AttributeDefExt</a> for each attribute of type <code>typeID</code> found in the template file.
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The project could not be opened using the parameter <code>location</code></dd>
+
+        <dt><code>APIERR_GENERAL</code></dt>
+
+        <dd>Various internal errors</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DG_MSG_FOCUS</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_FOCUS.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_FOCUS</h1>
+
+    <p>A focusable dialog item gains or loses the keyboard focus.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The item loses the keyboard focus.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>1</td>
+
+                    <td>The item gains the keyboard focus.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Not used, should be set to zero.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The keyboard focus and the focusable dialog item categories in DG essentially have the same meaning as on the Macintosh operating system (i.e. the same type of dialog items are focusable in DG and on Macintosh). On Windows, however, more dialog items can have the keyboard focus. Focusable dialog items of DG form a subset of focusable dialog items of Windows.</p>
+
+    <p>Focusable dialog items of DG are the following: <a href="DateTimeControl.html">date &amp; time control</a>, <a href="EditControl.html">edit control</a>, <a href="ListBox.html">list box</a>, <a href="ListView.html">list view</a>, <a href="RichEditControl.html">rich edit control</a> and <a href="TreeView.html">tree view</a>.</p>
+
+    <p>When the keyboard focus is changed as a result of user actions or the <a href="DGSetFocus.html">DGSetFocus</a> function call, DG first sends a <tt>DG_MSG_FOCUS</tt> message with <em>msgData</em> of value 0 to the previously focused dialog item (if any), then it sends a <tt>DG_MSG_FOCUS</tt> message with <em>msgData</em> of value 1 to the currently focused dialog item.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGSetFocus.html">DGSetFocus</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on March 17, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

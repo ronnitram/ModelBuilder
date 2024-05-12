@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_LibPart_GetParams</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_LibPart_GetParams.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_LibPart_GetParams</h1>
+
+    <p>Returns the default parameters of a registered Library Part.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_LibPart_GetParams</strong> (
+        <strong>Int32</strong>                 <em>libInd</em>,
+        <strong>double*</strong>               <em>a</em>,
+        <strong>double*</strong>               <em>b</em>,
+        <strong>Int32*</strong>                <em>addParNum</em>,
+        <strong><a href="../Structures/API_AddParType.html">API_AddParType</a>***</strong>     <em>addPars</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>libInd</em></dt>
+
+        <dd>Index of the library part.</dd>
+
+        <dt><em>a</em></dt>
+
+        <dd>The <code>A</code> parameter of the the Library Part</dd>
+
+        <dt><em>b</em></dt>
+
+        <dd>The <code>B</code> parameter of the the Library Part</dd>
+
+        <dt><em>addParNum</em></dt>
+
+        <dd>The number of additive parameters; others than <code>A</code> and <code>B</code></dd>
+
+        <dt><em>addPars</em></dt>
+
+        <dd>The additive parameters</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>Invalid <code>libInd,</code> or<br>
+        any of the parameters are <code>nullptr</code>, or<br>
+        the addressed Library Part is a macro, picture file etc.</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>not enough memory to complete the operation</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to get the default parameters of the requested Library Part defined by <code>libInd</code>.</p>
+
+    <p>In the <tt>a</tt> and <tt>b</tt> parameters, the values of the A and B variables are returned; in the <tt>addParNum</tt> and <tt>addPars</tt> parameters the additive parameter list is returned, the number of the parameters and the actual values, respectively.</p>
+
+    <p>Refer to the <a href="../Structures/API_AddParType.html">API_AddParType</a> to get more information on a Library Part parameter.</p>
+
+    <p>It is absolutely important that the function <b>returns a formalized data handle</b> to describe the parameter list. The content is not equal to the section handle returned by the <a href="ACAPI_LibPart_GetSection.html">ACAPI_LibPart_GetSection</a> function called with the <code>API_SectParamDef</code> argument.</p>
+
+    <p>The function works only on real Library Parts. In the case the type of the target Library Part is not listed below, the function returns an error code. This is since other type of Library Parts are just simple picture or text files which are enumerated and registered from the active library folders; such a picture or macro.</p>
+
+    <p>Applicable type of Library Parts which have parameter list are:</p>
+
+    <ul class="syntax">
+        <li><a href="../Structures/API_LibTypeID.html">APILib_WindowID</a>,</li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_DoorID</a>,</li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_ObjectID</a>,</li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_LampID</a>,</li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_RoomID</a>,</li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_LabelID</a>,</li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_MacroObjID</a>,</li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_PropertyID</a></li>
+    </ul>
+
+    <p>Do not forget to dispose the additive parameter handle if it is not needed any more. Use the <a href="ACAPI_DisposeAddParHdl.html">ACAPI_DisposeAddParHdl</a> function for this purpose.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+static void  DumpParameters (Int32 libInd, API_LibTypeID typeID)
+
+{
+    API_LibPartDetails   details;
+    double               a, b;
+    Int32                addParNum, i, ind, i1, i2;
+    API_AddParType       **addPars = nullptr;
+    double               value;
+    char                 *valueStr;
+    GSErrCode            err;
+
+    err = ACAPI_LibPart_GetParams (libInd, &amp;a, &amp;b, &amp;addParNum, &amp;addPars);
+    if (err) {
+        GiveMessage_Err ("ACAPI_LibPart_GetParams", err);
+        return;
+    }
+
+    GiveMessage_Val ("    a", a, false);
+    GiveMessage_Val ("    b", b, false);
+    for (i = 0; i &lt; addParNum; i++) {
+        if ((*addPars)[i].typeMod == API_ParSimple) {
+            DumpOneParam ((*addPars)[i].typeID, (*addPars)[i].name, (*addPars)[i].flags,
+                          (*addPars)[i].value.real, (*addPars)[i].value.str,
+                          0,0);
+
+        } else {
+            ind = 0;
+            DumpOneParam ((*addPars)[i].typeID, (*addPars)[i].name, (*addPars)[i].flags,
+                          0.0, nullptr,
+                          -(*addPars)[i].dim1, -(*addPars)[i].dim2);
+            for (i1 = 1; i1 &lt;= (*addPars)[i].dim1; i1++) {
+                for (i2 = 1; i2 &lt;= (*addPars)[i].dim2; i2++) {
+                    if ((*addPars)[i].typeID != APIParT_CString) {
+                        value = (Int32) ((double *) *(*addPars)[i].value.array) [ind];
+                        valueStr = nullptr;
+                        ind ++;
+                    } else {
+                        value = 0.0;
+                        valueStr = *(*addPars)[i].value.array + ind;
+                        ind += strlen (valueStr) + 1;
+                    }
+                    DumpOneParam ((*addPars)[i].typeID, nullptr, 0,
+                                  value, valueStr,
+                                  i1, i2);
+                }
+            }
+        }
+    }
+    ACAPI_DisposeAddParHdl (&amp;addPars);
+
+    if (typeID == APILib_ObjectID ||
+        typeID == APILib_LampID ||
+        typeID == APILib_LabelID ||
+        typeID == APILib_RoomID) {
+        err = ACAPI_LibPart_GetDetails (libInd, &amp;details);
+        if (!err) {
+            GiveMessage_Num ("    fixSize", details.object.fixSize, false);
+            GiveMessage_Num ("    autoHsp", details.object.autoHotspot, false);
+        }
+    }
+
+    if (typeID == APILib_DoorID ||
+        typeID == APILib_WindowID) {
+        err = ACAPI_LibPart_GetDetails (libInd, &amp;details);
+    }
+
+    return;
+}
+</code></pre>
+    </blockquote>
+
+    <p>See the implementation of the <code>DumpOneParam</code> function in <a href="../Structures/API_AddParType.html">API_AddParType</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_AddParType.html">API_AddParType</a>,<br>
+    <a href="ACAPI_DisposeAddParHdl.html">ACAPI_DisposeAddParHdl</a>,<br>
+    <a href="../Level3/Library_Part_Manager_id.html">LibPart Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_StoryVisibility</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_StoryVisibility.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_StoryVisibility</h1>
+
+    <p>Determines the appearance of model elements on different stories.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>bool</strong>      <em>showOnHome</em>;
+        <strong>bool</strong>      <em>showAllAbove</em>;
+        <strong>bool</strong>      <em>showAllBelow</em>;
+        <strong>bool</strong>      <em>filler_1</em>;
+        <strong>short</strong>     <em>showRelAbove</em>;
+        <strong>short</strong>     <em>showRelBelow</em>;
+    <strong>}</strong> <em>API_StoryVisibility</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>showOnHome</b></dt>
+
+        <dd>Show the element on its own story only.</dd>
+
+        <dt><b>showAllAbove</b></dt>
+
+        <dd>Show the element on all stories above its own story.</dd>
+
+        <dt><b>showAllBelow</b></dt>
+
+        <dd>Show the element on all stories below its own story.</dd>
+
+        <dt><b>showRelAbove</b></dt>
+
+        <dd>Show the element on <i>showRelAbove</i> stories above its own story.</dd>
+
+        <dt><b>showRelBelow</b></dt>
+
+        <dd>Show the element on <i>showRelBelow</i> stories below its own story.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For <a href="API_SlabType.html">API_SlabType</a>, <a href="API_RoofType.html">API_RoofType</a> and <a href="API_MeshType.html">API_MeshType</a> elements you can set a a desired number of stories above and below their own story on which to display their contour line and cover fill. <a href="API_BeamType.html">API_BeamType</a> and <a href="API_ObjectType.html">API_ObjectType</a> contain this structure but this new feature was not extended for these elements.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 6.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_BeamType.html">API_BeamType</a>, <a href="API_ObjectType.html">API_ObjectType</a>, <a href="API_ObjectType.html">API_LampType</a>, <a href="API_SlabType.html">API_SlabType</a>, <a href="API_RoofType.html">API_RoofType</a>, <a href="API_MeshType.html">API_MeshType</a><br>
+    <a href="API_LegacyPrefs.html">API_LegacyPrefs</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 27, 2006<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

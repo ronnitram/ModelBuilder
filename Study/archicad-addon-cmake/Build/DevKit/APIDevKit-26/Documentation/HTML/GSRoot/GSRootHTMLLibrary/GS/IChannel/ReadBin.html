@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ReadBin (IChannel)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/IChannel/ReadBin.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="IChannel.html">IChannel</A>::ReadBin</H2><!--exp="IChannel::ReadBin-->
+<P><topic id="$GS.$IChannel.$ReadBin.BriefDescription">
+		Reads binary data from the input channel.
+	</topic></P>
+<PRE class="syntax"><B>virtual GSErrCode ReadBin (</B>
+    <B>char *              </B><I>destination</I>,
+    <B>USize               </B><I>nOfCharToRead</I>,
+    <B>USize *             </B><I>read</I><B> = NULL</B>
+<B>) = 0;</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>destination</I></DT><DD><topic id="$GS.$IChannel.$ReadBin.$destination.ParamDescription">
+		 Destination buffer receiving the binary data.
+	</topic></DD><DT><I>nOfCharToRead</I></DT><DD><topic id="$GS.$IChannel.$ReadBin.$nOfCharToRead.ParamDescription">
+		Number of characters to be read into the destination buffer.
+	</topic></DD><DT><I>read</I></DT><DD><topic id="$GS.$IChannel.$ReadBin.$read.ParamDescription">
+		On return: if not NULL then number of characters successfully read from the input channel.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$IChannel.$ReadBin.ReturnDescription">
+		<table class="enumeration">
+		  <tr>
+			<th>Value</th>
+			<th>Meaning</th>
+		  </tr>
+		  <tr>
+			<td>NoError<sup><font color="#0000FF">*</font></sup></td>
+			<td>OK</td>
+		  </tr>
+		  <tr>
+			<td>EndOfInput<sup><font color="#FF0000">*</font></sup></td>
+			<td>end of input has been reached, operation is not completed</td>
+		  </tr>
+		  <tr>
+			<td>ReadError<sup><font color="#FF0000">*</font></sup></td>
+			<td>read error on the input device, operation is not completed</td>
+		  </tr>
+		  <tr>
+			<td>Error<sup><font color="#0000FF">*</font></sup></td>
+			<td>unspecified error</td>
+		  </tr>
+		</table>
+		<blockquote>
+		  <p><font color="#FF0000"><sup>*</sup></font> declared in IChannel class scope<br>
+		  <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope
+		  </p>
+		</blockquote>
+	</topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$IChannel.$ReadBin.LongDescription">
+		This method reads binary data from the input channel. It reads specified number of characters
+		into a destination buffer. These characters are consumed, that is removed from the input channel.<br>
+		If there is no enough data left on the input channel then EndOfInput is returned. In such cases
+		the output <i>read</i> parameter contains the number of characters that has been successfully
+		read.<br>
+		Input status will record and hold the first error occurred on the input channel.
+		After an error this method does nothing and immediately returns with the stored error code
+		(until the input status is reseted by the user).
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$IChannel.$ReadBin.SeeAlso">
+		<!----><a href="GetInputStatus.html">GetInputStatus</a> | <!----><a href="ResetInputStatus.html">ResetInputStatus</a>
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_IFCRelationshipData</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_IFCRelationshipData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_IFCRelationshipData</h1>
+
+    <p>Contains IFC Entity relations which are specific for the IFC. The IFC Entities are represented by their GlobalId.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/HashTable/HashTable.html">GS::HashTable</a>&lt;<a href="API_Guid.html">API_Guid</a>, <a href="../Structures/API_Guid.html">API_Guid</a>&gt;</strong>     	    <em>containmentTable</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/HashTable/HashTable.html">GS::HashTable</a>&lt;<a href="API_Guid.html">API_Guid</a>, <a href="../Structures/API_Guid.html">API_Guid</a>&gt;</strong>     	    <em>relFillsTable</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/HashTable/HashTable.html">GS::HashTable</a>&lt;<a href="API_Guid.html">API_Guid</a>, <a href="../Structures/API_Guid.html">API_Guid</a>&gt;</strong>     	    <em>relVoidsTable</em>;
+        <strong><a href="ddid://GSRoot.HashSet Class">GS::HashSet</a>&lt;<a href="../../../GSRoot/GSRootHTMLLibrary/GS/Pair/Pair.html">GS::Pair</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>, <a href="../Structures/API_Guid.html">API_Guid</a>&gt;&gt;</strong>   <em>assignmentTable</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/HashTable/HashTable.html">GS::HashTable</a>&lt;<a href="API_Guid.html">API_Guid</a>, <a href="../Structures/API_Guid.html">API_Guid</a>&gt;</strong>     	    <em>typeProductTable</em>;
+    <strong>} API_IFCRelationshipData</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>containmentTable</b>&nbsp;</dt>
+
+        <dd>IFC containment tree in "child->parent" format.</dd>
+
+        <dt><b>relFillsTable</b>&nbsp;</dt>
+
+        <dd>Relationships between openings (Doors/Windows/Skylights) and IfcOpeningElements (voids).</dd>
+
+        <dt><b>relVoidsTable</b>&nbsp;</dt>
+
+        <dd>Relationships between IfcOpeningElements (voids) and their parent IfcWall or IfcSlab.</dd>
+		
+        <dt><b>assignmentTable</b>&nbsp;</dt>
+
+        <dd>IFC Assigment links, IfcGroup, IfcZone, IfcSystem, IfcRelAssignsToGroup and IfcRelServicesBuildings.</dd>
+
+        <dt><b>typeProductTable</b>&nbsp;</dt>
+
+        <dd>IFC Type Products tree.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is used in <a href="../Structures/API_IFCDifferenceGeneratorState.html">API_IFCDifferenceGeneratorState</a>, <a href="../Functions/ACAPI_MarkUp_ImportFromBCF.html">ACAPI_MarkUp_ImportFromBCF</a> and <a href="../Functions/APIDo_SaveID.html">APIDo_SaveID</a>.</p>
+	<p  style="margin-bottom: 0px;">The IFC containment tree (<code>containmentTable</code>) is in "child -> parent" format. Example:
+	<dl style="margin-top: 0px;">
+		<dd margin = "0">IfcBuilding -> IfcProject</dd>
+		<dd>IfcSite -> IfcBuilding</dd>
+		<dd>IfcBuildingStorey -> IfcBuilding</dd>
+		<dd>IfcWall -> IfcBuildingStorey</dd>
+		<dd>IfcBuildingElementPart -> IfcWall.</dd>
+	</dl>
+	</p>
+    <p style="margin-bottom: 0px;">The IFC assignmentTable set (<code>assignmentTable</code>) is in "child -> parent" format. Example:
+	<dl style="margin-top: 0px;">
+		<dd margin = "0">IfcWall -> IfcRelAssignsToGroup</dd>
+		<dd>IfcRelAssignsToGroup -> IfcGroup.</dd>
+	</dl>
+	</p>
+    <p style="margin-bottom: 0px;">The IFC Type Products (<code>typeProductTable</code>) is in "child -> parent" format. Example:
+	<dl style="margin-top: 0px;">
+		<dd margin = "0">IfcWall -> IfcWallType.</dd>
+	</dl>
+	</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 23 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Goodies.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_IFCDifferenceGeneratorState.html">API_IFCDifferenceGeneratorState</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

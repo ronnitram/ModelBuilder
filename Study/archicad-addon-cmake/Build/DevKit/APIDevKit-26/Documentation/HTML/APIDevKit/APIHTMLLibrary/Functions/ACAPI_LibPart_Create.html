@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_LibPart_Create</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_LibPart_Create.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_LibPart_Create</h1>
+
+    <p>Starts to create a new Library Part from scratch.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_LibPart_Create</strong> (
+        <strong>const <a href="../Structures/API_LibPart.html">API_LibPart</a>*</strong>     <em>libPart</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>libPart</em></dt>
+
+        <dd>[in] Parameters of the Library Part to create</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_NESTING</code></dt>
+
+        <dd>Recursive call, <a href="ACAPI_LibPart_Save.html">ACAPI_LibPart_Save</a> was not called after the previous call</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The <code>libPart</code> parameter is <code>nullptr</code>, or holds invalid data</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>No match found with the passed <code>parentUnID</code></dd>
+
+        <dt><code>APIERR_NOLIB</code></dt>
+
+        <dd>No valid <code>location</code> was passed, and there is no active library also</dd>
+
+        <dt><code>APIERR_READONLY</code></dt>
+
+        <dd>The specified <code>location</code> is read-only</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to create a new empty Library Part from scratch.</p>
+
+    <p>You have to specify the subtype of the Library Part in order to place it under the proper node in the ancestry hierarchy. For more information about subtypes see the <a href="../Level3/Library_Part_Subtype.html">Library Part Subtypes</a> passage.</p>
+
+    <p>By default, all new Library Parts are created into the active library folder, however you can specify any directory you want. If the <code>location</code> field describes a valid folder in the file system, the Library Part will be created there. Note that the name of the Library Part is determined by the <code>docu_UName</code>, so the file name itself is ignored both in the <code>file_Name</code> and <code>location</code> fields.</p>
+
+    <p>This function creates an empty Library Part. The sections should be defined with subsequent function calls; basically there are two ways to create a section:</p>
+
+    <ul>
+        <li>Write the section as a stream with the functions <a href="ACAPI_LibPart_NewSection.html">ACAPI_LibPart_NewSection</a>, <a href="ACAPI_LibPart_WriteSection.html">ACAPI_LibPart_WriteSection</a>, and <a href="ACAPI_LibPart_EndSection.html">ACAPI_LibPart_EndSection</a></li>
+
+        <li>Create the section in one step by calling the <a href="ACAPI_LibPart_AddSection.html">ACAPI_LibPart_AddSection</a> function.</li>
+    </ul>
+
+    <p>The Library Part itself will be created and registered upon the <a href="ACAPI_LibPart_Save.html">ACAPI_LibPart_Save</a> function call. Do not forget to call this function in order to close the scratch file; even in case of any error encountered in the other function calls.</p>
+
+    <p>Macros and pictures cannot be created in this way. Refer to the function <a href="ACAPI_LibPart_Register.html">ACAPI_LibPart_Register</a> for more details.</p>
+
+    <p>If the function has completed with success the index of the newly created library part is given by the <code>index</code> field of the <a href="../Structures/API_LibPart.html">API_LibPart</a> structure.</p>
+
+    <p>Do not forget to dispose of the used section handles.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_LibPartDetails    details;
+API_LibPart           libPart;
+GSHandle              paramsHdl, draw2DHdl;
+API_LibPartSection    section;
+double                a, b;
+char                  buffer[256] = {};
+GSErrCode             err;
+
+BNClear (libPart);
+
+CHCopyC ("{57B7C584-5C0D-11D6-A0D8-036F034B6792}-{00000000-0000-0000-0000-000000000000}", libPart.parentUnID);  // General Stair subtype
+GS::ucscpy (libPart.docu_UName, L("Test LibPart"));
+
+err = ACAPI_LibPart_Search (&amp;libPart, false);
+if (libPart.location != nullptr)
+    delete libPart.location;
+
+if (libPart.index != 0) {
+    ACAPI_WriteReport ("Test LibPart already exists", true);
+    return;
+}
+
+paramsHdl = nullptr;
+draw2DHdl = nullptr;
+
+a = 2.0;                                          /* Create the parameter section */
+b = 3.0;
+if (err == NoError)
+    err = ACAPI_LibPart_GetSect_ParamDef (&amp;libPart, nullptr, &amp;a, &amp;b, nullptr, &amp;paramsHdl);
+    if (err == NoError) {
+        BNZeroMemory (&amp;details, sizeof (API_LibPartDetails));
+        details.object.fixSize = false;
+        details.object.autoHotspot = true;
+        err = ACAPI_LibPart_SetDetails_ParamDef (&amp;libPart, paramsHdl, &amp;details);
+    }
+}
+
+err = ACAPI_LibPart_SetUpSect_2DDrawHdl ();       /* Create the 2DBinary section */
+if (err == NoError) {
+    /* ... */
+    /* ... ACAPI_Element_Create ... */
+    /* ... ACAPI_Element_Create ... */
+    /* ... ACAPI_Element_Create ... */
+    /* ... */
+    err = ACAPI_LibPart_GetSect_2DDrawHdl (&amp;draw2DHdl);
+}
+
+if (err == NoError)
+    err = ACAPI_LibPart_Create (&amp;libPart);        /* Create the Library Part from scratch */
+if (err == NoError) {
+    BNZeroMemory (&amp;section, sizeof (API_LibPartSection));
+    section.sectType = API_SectParamDef;
+    err = ACAPI_LibPart_AddSection (&amp;section, paramsHdl, nullptr);   /* Add parameters section */
+}
+if (err == NoError) {
+    BNZeroMemory (&amp;section, sizeof (API_LibPartSection));
+    section.sectType = API_Sect2DDraw;
+    err = ACAPI_LibPart_AddSection (&amp;section, draw2DHdl, nullptr);   /* Add 2D binary section */
+}
+if (err == NoError) {
+    BNZeroMemory (&amp;section, sizeof (API_LibPartSection));
+    section.sectType = API_Sect2DScript;
+    err = ACAPI_LibPart_NewSection (&amp;section);              /* Open the 2D Script section */
+    if (err == NoError) {
+        CHCopyC ("rect2 0,0,a,b\n", buffer);                /*         ...write it */
+        err = ACAPI_LibPart_WriteSection (strlen (buffer), buffer);
+    }
+    err = ACAPI_LibPart_EndSection ();                      /*         ...close it */
+}
+
+err = ACAPI_LibPart_Save (&amp;libPart);              /* Save and register the Library Part */
+
+BMKillHandle (&amp;paramsHdl);
+BMKillHandle (&amp;draw2DHdl)
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_LibPart.html">API_LibPart</a><br>
+    <a href="ACAPI_LibPart_NewSection.html">ACAPI_LibPart_NewSection</a><br>
+    <a href="ACAPI_LibPart_WriteSection.html">ACAPI_LibPart_WriteSection</a><br>
+    <a href="ACAPI_LibPart_EndSection.html">ACAPI_LibPart_EndSection</a><br>
+    <a href="ACAPI_LibPart_AddSection.html">ACAPI_LibPart_AddSection</a><br>
+    <a href="ACAPI_LibPart_Save.html">ACAPI_LibPart_Save</a><br>
+    <a href="ACAPI_LibPart_Register.html">ACAPI_LibPart_Register</a><br>
+    <a href="ACAPI_LibPart_RegisterAll.html">ACAPI_LibPart_RegisterAll</a><br>
+    <a href="../Level3/Library_Part_Manager_id.html">LibPart Manager</a><br>
+    <a href="../Level3/Library_Part_Subtype.html">Library Part Subtypes</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 26, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

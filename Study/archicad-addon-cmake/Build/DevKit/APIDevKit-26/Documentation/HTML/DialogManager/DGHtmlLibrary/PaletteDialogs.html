@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+    <title>Palette dialogs</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/PaletteDialogs.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Palette dialogs</h1>
+
+    <p>A palette dialog can be used to display information or options while the user works in another dialog or window. A palette dialog contains dialog items with which the user can enter text, choose options, or direct actions. A palette dialog allows the user to supply information and return to the previous task without closing the dialog. Applications that use palette dialogs typically create one when the user select a menu item and continue to display it for as long as the application runs or until the user explicitly closes the dialog.</p>
+
+    <p>Palette dialogs are similar to <a href="ModelessDialogs.html">modeless dialogs</a>. However, there are some differences between them, among which the most important is that palette dialogs are always positioned in front of other windows and modeless dialogs of the application. This means that the last palette always precedes the first modeless dialog in the queue of the modeless and palette dialogs. This is why they can also be referred to as floating palettes. To achieve this behavior on Macintosh you have to handle every window with the WM routines instead of the system's Window Manager routines. (WM is a special window manager shipped with the DG dialog manager on the Macintosh.)</p>
+
+    <p>There are two methods to create palette dialogs. To create a palette dialog which is defined in resource script the application must supply a <tt>GDLG</tt> resource in a GRC file to describe the dimensions, style and content of the dialog. The application must also supply a <a href="CallbackFunctions.html">dialog callback function</a> to carry out the dialog related tasks. The application can create the dialog by using the <a href="DGModelessInit.html">DGModelessInit</a>, the <a href="DGCreatePalette.html">DGCreatePalette</a> or the <a href="DGCreateDockablePalette.html">DGCreateDockablePalette</a> function. These functions load the <tt>GDLG</tt> resource of the dialog and create the dialog window and the <a href="DlgItemTypes_id.html">dialog items</a> matching the resource specifications. The application can use the <a href="DGCreateBlankPalette.html">DGCreateBlankPalette</a> or the <a href="DGCreateBlankDockablePalette.html">DGCreateBlankDockablePalette</a> function also. This function does not use resource. It creates a blank palette dialog from program code. The application can append dialog items on dialogs with the <a href="DGAppendDialogItem.html">DGAppendDialogItem</a> function independently of the creation method.</p>
+
+    <p>After the palette dialog is created, the application is responsible for retrieving and dispatching input messages to the dialog. Most applications use the main message loop for this. The application should call the <a href="DGModelessHandler.html">DGModelessHandler</a> function just after receiving a system-specific message in the main message loop. <b>DGModelessHandler</b> converts the system-specific messages into <a href="Messages_id.html">DG messages</a> and sends them to the dialog callback function of the appropriate palette or modeless dialog. <b>DGModelessHandler</b> also provides the usual <a href="DialogKBInterface.html">dialog keyboard interface</a> for palette dialogs.</p>
+
+    <p>Palette dialogs can provide context-sensitive help for their dialog items. A dialog item can have two types of help information: a tooltip and an anchor to a separate detailed information. On Macintosh, the short one is displayed in a balloon help if this feature is enabled through the Macintosh system Help menu. On Windows, the usual tooltips serve to show the short item help. Tooltips are displayed only if they are enabled. When DG is initialized, tooltips are automatically enabled. Use <a href="DGDisableToolTips.html">DGDisableToolTips</a> to disable displaying tooltips and <a href="DGEnableToolTips.html">DGEnableToolTips</a> to enable them again. The detailed version of the item help can be invoked by setting the keyboard focus to a focusable dialog item then pressing the [F1] key on Windows or [Help] key on Macintosh; or by clicking the right mouse button on the item.</p>
+
+    <p>The tooltips and the help anchor strings are defined in <tt>DLGH</tt> resources. The resource ID of the <tt>DLGH</tt> resource should be the same as the resource ID of the dialog's <tt>GDLG</tt> resource.</p>
+
+    <p>A palette dialog always has a thin caption which can be on the top or on the left side of the dialog. The top caption can contain a title drawn with the small plain font of DG. On Macintosh, there is a collapse box and optionally a close box in the caption. On Windows, the caption can contain a close box only. If the dialog is growable, a small size box appears in the lower right corner of the dialog on Macintosh. On Windows, a thick frame indicates that the user can resize the dialog.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/PaletteDlg_Mac.png" width="245" height="161" alt="PaletteDlg_Mac">&nbsp;&nbsp;&nbsp;&nbsp;<img src="../DGImageLibrary/PaletteDlg_Win.png" alt="PaletteDlg_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Dialog GRC Specification</h4>
+    <pre class="syntax">
+    'GDLG'  <i>resID</i>  Palette [| <i>frameFlag</i> | <i>growFlag</i> | <i>captionFlag</i> | <i>closeFlag</i>]  <i>x  y  dx  dy  "dlgTitle"</i> {
+      <i>dialogItem<b>1</b></i>
+          ...
+      <i>dialogItem<b>i</b></i>
+          ...
+      <i>dialogItem<b>n</b></i>
+    }
+</pre>
+
+    <p>where <em>resID</em> is the resource ID of the palette dialog. The <em>Palette</em> keyword can be combined with the optional <i>growFlag</i>, <i>captionFlag</i> and <i>closeFlag</i> using the <tt>OR</tt> <tt>(|)</tt> operator. If these flags are omitted, a non-growable dialog is created with top caption and normal frame without close box. <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the dialog, <em>dx</em> and <em>dy</em> are the width and height of the dialog in pixels. <em>dlgTitle</em> defines the title of the dialog. <em>dialogItem<b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) specify <em>n</em> pieces of dialog items. For the GRC specifications of the various dialog items see the <a href="DlgItemTypes_id.html">DG dialog items</a> page.</p>
+
+    <p>Possible values of the <i>frameFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>normalFrame</tt></td>
+
+                    <td>The dialog has normal dialog frame.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>thickFrame</tt></td>
+
+                    <td>The dialog has thick frame.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>noFrame</tt></td>
+
+                    <td>The dialog has no frame.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>growFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>noGrow</tt></td>
+
+                    <td>The dialog cannot be sized.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>hGrow</tt></td>
+
+                    <td>The dialog can be sized horizontally.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>vGrow</tt></td>
+
+                    <td>The dialog can be sized vertically.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>grow</tt></td>
+
+                    <td>The dialog can be sized in both directions.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>captionFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>topCaption</tt></td>
+
+                    <td>The caption is on the top of the dialog.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>leftCaption</tt></td>
+
+                    <td>The caption is on the left side of the dialog.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>noCaption</tt></td>
+
+                    <td>The dialog has no caption.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>closeFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>noClose</tt></td>
+
+                    <td>The dialog has no close box in the caption.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>close</tt></td>
+
+                    <td>The dialog has close box in the caption.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Help GRC Specification</h4>
+
+    <p><a href="GRC_DialogHelps.html">GRC Specification of the Dialog Helps</a>.</p>
+
+    <h4>Remarks</h4>
+
+    <p><b>DGModelessInit</b> returns immediately as soon as the palette dialog is created. If a palette dialog is created with zero <em>show</em> parameter, <b>DGModelessInit</b> does not show the dialog before it returns. Later you can show or hide the dialog by using the <a href="DGShowModelessDialog.html">DGShowModelessDialog</a> or <a href="DGHideModelessDialog.html">DGHideModelessDialog</a> functions, respectively. To test whether a palette dialog is visible call <a href="DGIsModelessDialogVisible.html">DGIsModelessDialogVisible</a>.</p>
+
+    <p>If the <em>show</em> parameter is 1, <b>DGModelessInit</b> not only shows but also activates the palette dialog. The user or the application can change the active dialog at any time. Use <a href="DGActivateModelessDialog.html">DGActivateModelessDialog</a> to activate a palette dialog from program code. When a palette dialog becomes active, its position in the queue of the modeless and palette dialogs is also changed. (This position is also known as Z order of the dialog.) If a palette is activated it becomes the frontmost dialog. Note that palette dialogs always precedes modeless dialogs in the Z order.</p>
+
+    <p>The <b>DGCreatePalette</b>, <b>DGCreateBlankPalette</b> and <b>DGCreateDockablePalette</b> functions do not begin the event processing and do not show the dialog.</p>
+
+    <p><b>DGModelessHandler</b> handles dialog related messages for all the opened modeless and palette dialogs of the application. When the function is called from the application's main message loop, first it tests whether the retrieved system-specific message is a dialog message or not. If the message does not refer to a dialog, <b>DGModelessHandler</b> returns zero and the message has to be processed by the application. However, if the message refers to a dialog, <b>DGModelessHandler</b> converts it into a DG message and sends it to the appropriate modeless or palette dialog callback function. As soon as the message has been handled in a callback function <b>DGModelessHandler</b> returns 1. In this case the message does not need further processing, you have to continue with the next message.</p>
+
+    <p>Every modeless and palette dialog has a so called status flag. If this flag is <tt>DG_DS_NORMAL</tt> and the value of the <em>onlyUpdate</em> parameter of <b>DGModelessHandler</b> is 0, all messages are handled for the dialog. However, if <em>onlyUpdate</em> is 1, only the update messages are processed by <b>DGModelessHandler</b>. If the status flag is set to <tt>DG_DS_ENABLED</tt>, all messages are handled independently of the value of <em>onlyUpdate</em>. If the status flag is set to <tt>DG_DS_DISABLED</tt>, only the update messages are processed. The value of the status flag can be set and retrieved by <a href="DGSetModelessDialogStatus.html">DGSetModelessDialogStatus</a> and <a href="DGGetModelessDialogStatus.html">DGGetModelessDialogStatus</a>, respectively.</p>
+
+    <p>The usage of the dialog status flag can be explained by the following example. Suppose that an application begins a long process such as a time-consuming calculation. In this case, it is advisable to show a process indicator dialog with a Stop button until the calculation is finished. When handling system-specific messages during this period, you should call <b>DGModelessHandler</b> with <em>onlyUpdate</em> of value 1. This ensures that modeless dialogs of <tt>DG_DS_NORMAL</tt> state do not handle any messages except the update messages (this way they do not respond to any user actions). The status of the process indicator dialog should be set to <tt>DG_DS_ENABLED</tt> in order to enable the user to press the Stop button and cancel the process.</p>
+
+    <p>Palette dialogs can be closed by the <a href="DGModelessClose.html">DGModelessClose</a> function, or by user actions. The user usually closes a palette dialog by clicking the Cancel button or the close box. The dialog callback function receives a <tt>DG_MSG_CLICK</tt> message with <tt>DG_CANCEL</tt> or <tt>DG_CLOSEBOX</tt> as the <em>item</em> parameter. The dialog is closed only if the callback function returns a non-zero value (typically <tt>DG_CANCEL</tt> or <tt>DG_CLOSEBOX</tt>) for the <tt>DG_MSG_CLICK</tt> message. If the user never closes some modeless and/or palette dialogs in this way, the application must close them before terminating by using the <b>DGModelessClose</b> function.</p>
+
+    <p>The application can use the <a href="DGDestroyPalette.html">DGDestroyPalette</a> function to destroy the dialog, after the event processing was stopped. Use the <a href="DGEndProcessEvents.html">DGEndProcessEvents</a> function to stop event processing.</p>
+
+    <p>A palette dialog cannot return a value to the application as a <a href="ModalDialogs.html">modal dialog</a> does, but the dialog callback function can send information to other modeless and palette dialogs by using the <a href="DGSendMessage.html">DGSendMessage</a> function.</p>
+
+
+
+<div id="wrapper">
+<h4 class="also">See Also</h4>
+<div id="first">
+	<dl>
+		<dd class="also"><a href="DialogTypes_id.html">Dialog types</a></dd>
+		<dd class="also"><a href="CallbackFunctions.html">Callback functions</a></dd>
+		<dd class="also"><a href="Messages_id.html">DG Messages</a></dd>
+		<dd class="also"><a href="DlgItemTypes_id.html">Dialog item types</a></dd>
+		<dd class="also"><a href="DialogKBInterface.html">Dialog keyboard interface</a><br></dd>
+		<dd class="also"><a href="DGActivateModelessDialog.html">DGActivateModelessDialog</a></dd>
+		<dd class="also"><a href="DGAppendDialogItem.html">DGAppendDialogItem</a></dd>
+		<dd class="also"><a href="DGCreateBlankPalette.html">DGCreateBlankPalette</a></dd>
+		<dd class="also"><a href="DGCreateBlankDockablePalette.html">DGCreateBlankDockablePalette</a></dd>
+		<dd class="also"><a href="DGCreatePalette.html">DGCreatePalette</a></dd>
+		<dd class="also"><a href="DGCreateDockablePalette.html">DGCreateDockablePalette</a></dd>
+		<dd class="also"><a href="DGDestroyPalette.html">DGDestroyPalette</a></dd>
+		<dd class="also"><a href="DGEndProcessEvents.html">DGEndProcessEvents</a></dd>
+	</dl>
+</div>
+<div id="second">
+	<dl>
+		<dd class="also"><a href="DGDisableToolTips.html">DGDisableToolTips</a></dd>
+		<dd class="also"><a href="DGEnableToolTips.html">DGEnableToolTips</a></dd>
+		<dd class="also"><a href="DGGetModelessDialogStatus.html">DGGetModelessDialogStatus</a></dd>
+		<dd class="also"><a href="DGHideModelessDialog.html">DGHideModelessDialog</a></dd>
+		<dd class="also"><a href="DGIsModelessDialogVisible.html">DGIsModelessDialogVisible</a></dd>
+		<dd class="also"><a href="DGModelessClose.html">DGModelessClose</a></dd>
+		<dd class="also"><a href="DGModelessHandler.html">DGModelessHandler</a></dd>
+		<dd class="also"><a href="DGModelessInit.html">DGModelessInit</a></dd>
+		<dd class="also"><a href="DGSendMessage.html">DGSendMessage</a></dd>
+		<dd class="also"><a href="DGSetItemHelpIndex.html">DGSetItemHelpIndex</a></dd>
+		<dd class="also"><a href="DGSetModelessDialogStatus.html">DGSetModelessDialogStatus</a></dd>
+		<dd class="also"><a href="DGShowModelessDialog.html">DGShowModelessDialog</a></dd>
+		<dd class="also"><a href="GRC_DialogHelps.html">GRC Specification of the Dialog Helps</a></dd>
+	</dl>
+</div>
+</div>
+
+
+    <footer> <p class="footer"> Graphisoft August 6, 2014 </p> </footer>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

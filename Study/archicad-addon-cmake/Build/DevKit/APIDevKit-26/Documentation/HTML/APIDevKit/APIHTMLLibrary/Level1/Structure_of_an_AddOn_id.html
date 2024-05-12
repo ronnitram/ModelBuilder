@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Structure of an Add-On</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level1/Structure_of_an_AddOn_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Structure of an Add-On</h1>
+
+    <p>&nbsp;<br>
+    Practically an add-on is a DLL on Windows, or a Mach-O bundle on the Macintosh. When you launch Archicad, it looks for the available add-ons in this order:</p>
+
+    <ul>
+        <li>It looks for the <strong>Add-Ons</strong> folder in its own home directory (that is, where you have installed it)</li>
+
+        <li>The designated add-ons folder can be changed in the Add-On Manager dialog of Archicad (Options menu / Add-On Manager...). This path is stored into the system registry under the <em>'HKEY_CURRENT_USER\Software\Graphisoft\Archicad xxx\Add-On Manager'</em> key on Windows. On Macintosh, you don't have direct access to this information. Next time when you launch the application, the Add-On Manager will enumerate the add-ons from this location.<br>
+        Note that until you change the Designated Add-Ons folder from the Add-On Manager dialog, the 'Default Location' key is set to <strong>%DEFAULT%</strong>, which means the <strong>Add-Ons</strong> folder right next to the application. The 'Actual Path' registry entry shows the actual folder where the add-ons are loaded from.</li>
+
+        <li>You can edit the list of loaded add-ons even individually in the Add-On Manager dialog. The full paths of the added, disabled and skipped add-ons are stored in the registry also.</li>
+    </ul>
+
+    <p>&nbsp;<br>
+    If Archicad finds an Add-Ons folder somewhere, it gathers all the appropriate files from it and from its subfolders. Subfolders on any level are skipped when the name of it begins with the a parentheses '<code>(</code>' character. Add-ons can also be loaded individually in the Add-On Manager (Options/Add-On Manager) in Archicad, which also facilitates enabling and disabling of loaded add-ons. Please note that certain add-ons cannot be unloaded runtime; you'll have to restart Archicad to disable those.</p>
+
+    <p>&nbsp;<br>
+    Every file must pass several tests to be considered as a valid Archicad add-on. If the any of the following requirements are not fulfilled the add-on commands will be not mounted into the Archicad.</p>
+
+    <blockquote>
+        <a href="../Level2/Required_Resources.html">Required Resources</a>
+    </blockquote>
+
+    <p>&nbsp;<br>
+    In order to be able to build an add-on you must fulfill some requirements in the source files too. Also there are requirements how to set up compilation options and linking parameters.</p>
+
+    <blockquote>
+        <a href="../Level2/Required_Functions.html">Required Functions</a><br>
+        <a href="../Level2/Compilation_and_Linking_Issues.html">Compilation and Linking Issues</a>
+    </blockquote>
+
+    <p>&nbsp;<br>
+    Please choose a different name for your add-on from Graphisoft's own add-ons, because it may cause problems with the GS hotlink process.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 24, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

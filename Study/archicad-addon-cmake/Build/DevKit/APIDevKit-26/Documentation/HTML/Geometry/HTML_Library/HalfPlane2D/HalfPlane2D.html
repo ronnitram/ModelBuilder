@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>HalfPlane2DData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/HalfPlane2D/HalfPlane2D.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>HalfPlane2DData</h1>
+
+    <p>Describes a half plane in 2D.</p>
+    <pre class="syntax">
+    <strong>struct</strong> HalfPlane2D {
+      <strong>double</strong>       <em>ca</em>;
+      <strong>double</strong>       <em>cb</em>;
+      <strong>double</strong>       <em>cc</em>;
+      <strong>GSSize</strong>       <em>sizeOfInhEdgeInfo</em>;
+      <strong>void*</strong>        <em>inhEdgeInfo</em>;
+    };
+
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>ca</b></dt>
+
+        <dd>Coefficient of x.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>cb</b></dt>
+
+        <dd>Coefficient of y.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>cc</b></dt>
+
+        <dd>Constant.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>sizeOfInhEdgeInfo</b></dt>
+
+        <dd>Size of the inherited edge info.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>inhEdgeInfo</b></dt>
+
+        <dd>The inherited edge info.</dd>
+
+        <dd>&nbsp;</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>Defining inequality for the half plane: ca * x + cb * y &gt; cc.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> <a href="../Polygon2D/Polygon2DData.html">Polygon2DData</a>.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="HalfPlane2D_id.html">HalfPlane2D functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 6, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

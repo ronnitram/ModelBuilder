@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>CalcSplinePtr</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Spline2D/CalcSplinePtr.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Geometry::CalcSplinePtr</h1>
+
+    <p>Gives the all directions of all segments of a spline. (Converts a Natural spline to a Bezier spline represented by Bezier directions.)</p>
+    <pre class="syntax">
+    <strong> bool</strong> CalcSplinePtr (
+      <strong><a href="../Vector2D/Coord.html">Coord</a></strong>*    <em>coords</em>,
+      <strong><a href="../Spline2D/DirType.html">DirType</a></strong>*  <em>dirs</em>,
+      <strong>long</strong>      <em>coordCount</em>,
+      <strong>bool</strong>      <em>isClosed</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>coords</em></dt>
+
+        <dd>Points of the spline. Should contain <em>coordCount</em> elements. This is the input of the function.</dd>
+
+        <dt><em>dirs</em></dt>
+
+        <dd>Output directions. Should contain <em>coordCount</em> elements. In case of an open spline, its first and last element must be initialized.</dd>
+
+        <dt><em>coordCount</em></dt>
+
+        <dd>The count of the coordinates of the spline.</dd>
+
+        <dt><em>isClosed</em></dt>
+
+        <dd>If <code>true</code>, the spline is closed in which case the last point connects to the first one. If <code>false</code>, the spline is open.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p><code>true</code> if the operation is completed successfully, <code>false</code> otherwise.</p>
+
+    <h4>Remarks</h4>
+
+    <p>In case of an open spline, the first and last elements of <em>dirs</em> are input, too - they determine the starting and ending direction of the spline.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Spline2DData.h</dd>
+
+        <dd><b>Import Library:</b> GeometryImp.lib [Win]</dd>
+
+        <dd><b>Module:</b> Geometry.dll [WIN] GeometryLib [Mac]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Spline2D_id.html">Spline functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 6, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

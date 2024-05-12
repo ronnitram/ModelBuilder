@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Sy_TextType</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/VectorPrimitives/Sy_TextType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Sy_TextType</h1>
+
+    <p>Defines a multi-line text.</p>
+    <pre class="syntax">
+<strong>struct</strong> Sy_TextType {
+    <strong>long</strong>             item_Len;
+    <strong>unsigned char</strong>    item_Typ;
+    <strong>char</strong>             drwIndex;
+    <strong>short</strong>            sy_pen;
+    <strong>short</strong>            sy_layer;
+    <strong>char</strong>             nonBreaking;
+    <strong>unsigned char</strong>    paramInd;
+    <strong>long</strong>             styleind;
+    <strong>Coord</strong>            loc;
+    <strong>double</strong>           angle;
+    <strong>double</strong>           width;
+    <strong>double</strong>           height;
+    <strong>double</strong>           size;
+    <strong>double</strong>           spac;
+    <strong>short</strong>            ind1;
+    <strong>short</strong>            ind2;
+    <strong>long</strong>             lines;
+    <strong>long</strong>             conLen;
+    <strong>long</strong>             conOff;
+    <strong>long</strong>             lStLen;
+    <strong>long</strong>             lStOff;
+};
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><em>item_Len</em></dt>
+
+        <dd>The length of the data record = lStOff+ROUND_UP_8(lStLen).</dd>
+
+        <dt><em>item_Typ</em></dt>
+
+        <dd>Constant SyText.</dd>
+
+        <dt><em>drwIndex</em></dt>
+
+        <dd>Index in drawing order or 0.</dd>
+
+        <dt><em>sy_pen</em></dt>
+
+        <dd>Pen (color and line thickness) information or 0 if deleted.</dd>
+
+        <dt><em>sy_layer</em></dt>
+
+        <dd>The number of the fragment (layer) this element belongs to (Ranges 1 - 16).</dd>
+
+        <dt><em>nonBreaking</em></dt>
+
+        <dd>0: wrap around at dest rect; 1: wrap around at Cr only.</dd>
+
+        <dt><em>paramInd</em></dt>
+
+        <dd>Used internally.</dd>
+
+        <dt><em>styleind</em></dt>
+
+        <dd>Font style information.</dd>
+
+        <dt><em>loc</em></dt>
+
+        <dd>The location of the anchor point in the model in meters.</dd>
+
+        <dt><em>angle</em></dt>
+
+        <dd>Declination of the text baseline.</dd>
+
+        <dt><em>width</em></dt>
+
+        <dd>Horizontal size of text box in mm.</dd>
+
+        <dt><em>height</em></dt>
+
+        <dd>Vertical size of text box in mm.</dd>
+
+        <dt><em>size</em></dt>
+
+        <dd>Transformed letter size in mm.</dd>
+
+        <dt><em>spac</em></dt>
+
+        <dd>Transformed spacing between text lines in mm.</dd>
+
+        <dt><em>ind1</em></dt>
+
+        <dd>Used internally.</dd>
+
+        <dt><em>ind2</em></dt>
+
+        <dd>Used internally.</dd>
+
+        <dt><em>lines</em></dt>
+
+        <dd>Count of the lines with the current line-breaks.</dd>
+
+        <dt><em>conLen</em></dt>
+
+        <dd>The size of the full text content data in bytes.</dd>
+
+        <dt><em>conOff</em></dt>
+
+        <dd>Offset of the Text content from record start = sizeof(Sy_TextType).</dd>
+
+        <dt><em>lStLen</em></dt>
+
+        <dd>Text line starts data length in bytes.</dd>
+
+        <dt><em>lStOff</em></dt>
+
+        <dd>Offset of the linestarts from record start = sizeof(Sy_TextType)+ROUND_UP_8(conLen).</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>A text record consists of a fixed-size part(the above structure) and two variable-size parts (the contents and the line-ends). The line-ends are an array of character indices into the contents. It should have one as many entries as lines in the text, plus one. The first entry should be 0, because it is the index of the first character of the first line. The last entry should be equal the last char (point after the text).</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10.0 or later, ModelerGraphics 8 or later</dd>
+
+        <dd><b>Header:</b> Symb2D.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><!-- Not Index --><a href="../VectorImage/VectorImage.html">VectorImage</a> <!-- FOOTER  FOOTEREND --></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 3, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

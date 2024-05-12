@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Sy_PolyLinType</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/VectorPrimitives/Sy_PolyLinType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Sy_PolyLinType</h1>
+
+    <p>Defines a 2D sector.</p>
+    <pre class="syntax">
+<strong>struct</strong> Sy_PolyLinType {
+    <strong>Int32</strong>             item_Len;
+    <strong>unsigned char</strong>     item_Typ;
+    <strong>char</strong>              drwIndex;
+    <strong>short</strong>             filler_1;
+    <strong>short</strong>             sy_pen;
+    <strong>short</strong>             sy_layer;
+    <strong>short</strong>             pattern;
+    <strong>short</strong>             determine;
+    <strong>Int32</strong>             nCoords;
+    <strong>Int32</strong>             nArcs;
+    <strong>Int32</strong>             coorLen;
+    <strong>Int32</strong>             coorOff;
+    <strong>Int32</strong>             arcsLen;
+    <strong>Int32</strong>             arcsOff;
+};
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><em>item_Len</em></dt>
+
+        <dd>The length of the data record = sizeof(Sy_PolyLinType).</dd>
+
+        <dt><em>item_Typ</em></dt>
+
+        <dd>Constant SyPolyLine.</dd>
+
+        <dt><em>drwIndex</em></dt>
+
+        <dd>Index in drawing order or 0.</dd>
+
+        <dt><em>filler_1</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>sy_pen</em></dt>
+
+        <dd>Pen (color and line thickness) information or 0 if deleted.</dd>
+
+        <dt><em>sy_layer</em></dt>
+
+        <dd>The number of the fragment (layer) this element belongs to (Ranges 1 - 16).</dd>
+
+        <dt><em>pattern</em></dt>
+
+        <dd>The lineType info.</dd>
+
+        <dt><em>determine</em></dt>
+
+        <dd>Determines the type of line (contour - 0 / inner - 1)</dd>
+
+        <dt><em>nCoords</em></dt>
+
+        <dd>Total number of vertices in all polyLine.</dd>
+
+        <dt><em>nArcs</em></dt>
+
+        <dd>Number of arced edges in the whole polyLine.</dd>
+
+        <dt><em>coorLen</em></dt>
+
+        <dd>The size of all the Coords data in bytes.</dd>
+
+        <dt><em>coorOff</em></dt>
+
+        <dd>Offset of the PolyLine coordinate from record start = sizeof(Sy_SplineType)</dd>
+
+        <dt><em>arcsLen</em></dt>
+
+        <dd>Arcs data length in bytes.</dd>
+
+        <dt><em>arcsOff</em></dt>
+
+        <dd>Offset of the Arcs data from record start = sizeof(Sy_PolyType)+ROUND_UP_8(coorLen)</dd>
+
+        <dd>
+            <h4>Remarks</h4>
+
+            <p>This polyline can be consist of a lot of simple lines if it has a very complex line type.</p>
+
+            <h4>Requirements</h4>
+
+            <dl>
+                <dd><b>Version:</b> API 15.0 or later, ModelerGraphics 8 or later</dd>
+
+                <dd><b>Header:</b> Symb2D.h</dd>
+            </dl>
+
+            <h4>See Also</h4>
+
+            <p><!-- Not Index --><a href="../VectorImage/VectorImage.html">VectorImage</a> <!-- FOOTER  FOOTEREND --></p>
+        </dd>
+    </dl>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on November 23, 2010<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

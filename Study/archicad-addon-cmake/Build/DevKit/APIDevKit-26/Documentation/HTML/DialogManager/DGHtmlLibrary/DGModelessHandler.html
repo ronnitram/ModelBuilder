@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGModelessHandler</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGModelessHandler.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGModelessHandler</h1>
+
+    <p>Converts system-specific messages into <a href="Messages_id.html">DG messages</a> and sends them to the <a href="CallbackFunctions.html">dialog callback function</a> of the appropriate <a href="ModelessDialogs.html">modeless</a> or <a href="PaletteDialogs.html">palette</a> dialog.</p>
+    <pre class="syntax">
+    <strong>bool DGModelessHandler</strong> (
+      <strong>const void*</strong>  <em>sysMessage</em>,
+      <strong>bool</strong>         <em>onlyUpdate</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>sysMessage</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Platform</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td>Macintosh</td>
+
+                    <td>Pointer to an <strong><tt>EventRecord</tt></strong> structure.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Windows</td>
+
+                    <td>Pointer to an <strong><tt>MSG</tt></strong> structure.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>onlyUpdate</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>true</tt></td>
+
+                    <td>Only update messages are handled for modeless and palette dialogs that have normal (<tt>DG_DS_NORMAL</tt>) status.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>false</tt></td>
+
+                    <td>All dialog related messages are handled.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>true</tt></td>
+
+                    <td>The message has been processed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>false</tt></td>
+
+                    <td>The message has not been processed.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>If the application has one or more modeless and/or palette dialogs, you have to use <b>DGModelessHandler</b> to handle the messages related to them. Call this function just after receiving a system-specific message in the application's message loop.</p>
+
+    <p><b>DGModelessHandler</b> first tests whether the system-specific message is a dialog message or not. If the message does not refer to a dialog, <b>DGModelessHandler</b> returns <tt>false</tt> and the message has to be processed by the application. However, if the message refers to a dialog, <b>DGModelessHandler</b> converts it into a DG message and sends it to the appropriate dialog callback function. As soon as the message has been handled in the callback function <b>DGModelessHandler</b> returns <tt>true</tt>. In this case the message does not need further processing, you have to continue with the next message.</p>
+
+    <p>Every modeless and palette dialog has a so called status flag. If this flag is <tt>DG_DS_NORMAL</tt> and the value of the <em>onlyUpdate</em> parameter is <tt>false</tt>, all messages are handled for the dialog. However, if <em>onlyUpdate</em> is <tt>true</tt>, only the update messages are processed by <b>DGModelessHandler</b>. If the status flag is set to <tt>DG_DS_ENABLED</tt>, all messages are handled independently of the value of <em>onlyUpdate</em>. If the status flag is set to <tt>DG_DS_DISABLED</tt>, only the update messages are processed in any case. The value of the status flag can be set and retrieved by <a href="DGSetModelessDialogStatus.html">DGSetModelessDialogStatus</a> and <a href="DGGetModelessDialogStatus.html">DGGetModelessDialogStatus</a>, respectively.</p>
+
+    <p>This function sets the DG onlyUpdate flag to the value of <em>onlyUpdate</em> parameter.</p>
+
+    <p>The usage of the dialog status flag can be explain by the following example. Suppose that an application begins a long process such as a time-consuming calculation. In this case, it is advisable to show a process indicator dialog with a Stop button until the calculation is finished. When handling system-specific messages during this period, you should call <b>DGModelessHandler</b> with <em>onlyUpdate</em> of value <tt>true</tt>. This ensures that modeless dialogs of <tt>DG_DS_NORMAL</tt> state do not handle any messages except the update messages (this way they do not respond to any user actions). The status of the process indicator dialog should be set to <tt>DG_DS_ENABLED</tt> in order to enable the user to press the Stop button and cancel the process.</p>
+
+    <p><a href="DG_MSG_HOTKEY.html"><tt>DG_MSG_HOTKEY</tt></a> messages are specially processed in <b>DGModelessHandler</b>. DG first tests whether the hotkey belongs to the active dialog. (A dialog is active if one of its item has the keyboard focus, or it is on the top of the palette and modeless dialogs' queue.) If it does, DG sends a <tt>DG_MSG_HOTKEY</tt> message to the active dialog. If the hotkey message is handled by the application (i.e. the callback function returns 1) the processing of the message is terminated and <b>DGModelessHandler</b> returns. Otherwise, DG similarly tests all of the opened palettes in the order of their positions in the dialogs' queue. If none of the palette dialogs can handle the hotkey message DG finally tests the topmost modeless dialog (if any).</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ModelessDialogs.html">Modeless Dialogs</a>, <a href="PaletteDialogs.html">Palette Dialogs</a>, <a href="Messages_id.html">DG messages</a><br>
+    <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGCreateBlankModelessDialog.html">DGCreateBlankModelessDialog</a>, <a href="DGCreateBlankPalette.html">DGCreateBlankPalette</a>, <a href="DGCreateBlankDockablePalette.html">DGCreateBlankDockablePalette</a>, <a href="DGCreateModelessDialog.html">DGCreateModelessDialog</a>, <a href="DGCreatePalette.html">DGCreatePalette</a>, <a href="DGCreateDockablePalette.html">DGCreateDockablePalette</a>, <a href="DGGetModelessDialogStatus.html">DGGetModelessDialogStatus</a>, <a href="DGModelessInit.html">DGModelessInit</a>, <a href="DGModelessClose.html">DGModelessClose</a>, <a href="DGSetModelessDialogStatus.html">DGSetModelessDialogStatus</a>, <a href="DGSetOnlyUpdateFlag.html">DGSetOnlyUpdateFlag</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 22, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>TIPlatform2GSTime</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/TimeManagers/DateTimeManager/reference/macros/TIPlatform2GSTime.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TIPlatform2GSTime</h1>
+
+    <p>The <strong>TIPlatform2GSTime</strong> macro calls the <a href="../TIMac2GSTime.html"><strong>TIMac2GSTime</strong></a> function over Macintosh and the <a href="../TIWin2GSTime.html"><strong>TIWin2GSTime</strong></a> function over Windows.</p>
+    <pre class="syntax">
+<strong>#if defined(</strong>macintosh<strong>)
+  #define </strong>TIPlatfrom2GSTime TIMac2GSTime<strong>
+#else
+  #define </strong>TIPlatfrom2GSTime TIWin2GSTime
+<strong>#endif</strong>
+</pre>
+
+    <h4>Requirements</h4>
+
+    <p>&nbsp;&nbsp;&nbsp; <strong>Header:</strong> Declared in GSTime.hpp</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../functions_id.html">Date &amp; Time Manager Functions</a>, <a href="../TIMac2GSTime.html">TIMac2GSTime</a>, <a href="../TIWin2GSTime.html">TIWin2GSTime</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

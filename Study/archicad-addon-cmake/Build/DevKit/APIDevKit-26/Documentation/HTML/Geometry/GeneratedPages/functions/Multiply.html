@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Geometry::Multiply Function</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="GRAPHISOFT SE">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GeneratedPages/functions/Multiply.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Geometry::Multiply Function</h1><!--exp="Geometry::Multiply Function"-->
+
+    <p>The multiplication of two matrices.</p>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">template</span> <span class="SyntaxSymbol">&lt;</span><span class="SyntaxTypename">USize</span> <span class="SyntaxTemplateIdentifier">RowCount</span><span class="SyntaxSymbol">,</span> <span class="SyntaxTypename">USize</span> <span class="SyntaxTemplateIdentifier">ColumnCount</span><span class="SyntaxSymbol">,</span> <span class="SyntaxTypename">class</span> <span class="SyntaxTemplateIdentifier">ElementType</span><span class="SyntaxSymbol">&gt;</span>
+<span class="SyntaxTypename">void</span> <span class="SyntaxIdentifier">Multiply</span> <span class="SyntaxSymbol">(</span>
+    <span class="SyntaxTypename"><!-- Don't index --><a class="SyntaxLink" href="../Geometry.html">Geometry</a>::<!-- Don't index --><a class="SyntaxLink" href="../classes/Matrix/Matrix.html">Matrix</a>&lt; RowCount, ColumnCount, ElementType &gt; *</span> <span class="SyntaxParameter">result</span><span class="SyntaxSymbol">,</span>
+    <span class="SyntaxTypename">const <!-- Don't index --><a class="SyntaxLink" href="../Geometry.html">Geometry</a>::<!-- Don't index --><a class="SyntaxLink" href="../classes/Matrix/Matrix.html">Matrix</a>&lt; RowCount, ColumnCount, ElementType &gt; &amp;</span> <span class="SyntaxParameter">operand1</span><span class="SyntaxSymbol">,</span>
+    <span class="SyntaxTypename">const <!-- Don't index --><a class="SyntaxLink" href="../Geometry.html">Geometry</a>::<!-- Don't index --><a class="SyntaxLink" href="../classes/Matrix/Matrix.html">Matrix</a>&lt; RowCount, ColumnCount, ElementType &gt; &amp;</span> <span class="SyntaxParameter">operand2</span>
+<span class="SyntaxSymbol">)</span><span class="SyntaxSymbol">;</span>
+</pre>
+
+    <h2 class="SectionHeading">Template parameters</h2>
+
+    <dl>
+        <dt><span class="Parameter">RowCount</span></dt>
+
+        <dd>The count of the matrix rows.</dd>
+
+        <dt><span class="Parameter">ColumnCount</span></dt>
+
+        <dd>The count of the matrix columns.</dd>
+
+        <dt><span class="Parameter">ElementType</span></dt>
+
+        <dd>The type of the elements of the matrix.</dd>
+    </dl>
+
+    <h2 class="SectionHeading">Parameters</h2>
+
+    <dl>
+        <dt><span class="Parameter">result</span></dt>
+
+        <dd><i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[out]</i> The result matrix.</dd>
+
+        <dt><span class="Parameter">operand1</span></dt>
+
+        <dd><i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[in]</i> The first operand of the multiplication.</dd>
+
+        <dt><span class="Parameter">operand2</span></dt>
+
+        <dd><i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[in]</i> The second operand of the multiplication.</dd>
+    </dl>
+
+    <h2 class="SectionHeading">Description</h2>This function multiplies two matrices.
+
+    <h2 class="SectionHeading">See Also</h2><!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../Geometry.html" shape="rect">See other matrix operations</a>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

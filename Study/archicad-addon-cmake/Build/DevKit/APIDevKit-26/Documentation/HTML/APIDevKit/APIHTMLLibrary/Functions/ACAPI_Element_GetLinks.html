@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_GetLinks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_GetLinks.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_GetLinks</h1>
+
+    <p>Returns a list of elements linked to the given element.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_GetLinks</strong> (
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>        <em>guid_linkFrom</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;*</strong>   <em>guid_linkTo</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>guid_linkFrom</em>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>[in] Identifies the element to which the other elements were linked.</dd>
+
+        <dt><em>guid_linkTo</em>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>[out] Returns the GUIDs of the elements which were linked to the first element.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed <code>guid_linkTo</code> pointer is <code>nullptr</code>.</dd>
+
+        <dt><code>APIERR_BADDATABASE</code>, <code>APIERR_NOTMINE</code></dt>
+
+        <dd>The function cannot operate on the current database.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The element links are not bidirectional, you always link one element <b>to</b> another. This function returns the list of elements linked to the element having the <code>guid_linkFrom</code> GUID.</p>
+
+    <p>Note that if this function is called in an unclosed undoable session, then it returns not only the existing links, but also the links which have been deleted in the current undoable session.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_Element_Link.html">ACAPI_Element_Link</a>, <a href="ACAPI_Element_Unlink.html">ACAPI_Element_Unlink</a>, <a href="ACAPI_Element_GetLinkFlags.html">ACAPI_Element_GetLinkFlags</a>,<br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on October 5, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

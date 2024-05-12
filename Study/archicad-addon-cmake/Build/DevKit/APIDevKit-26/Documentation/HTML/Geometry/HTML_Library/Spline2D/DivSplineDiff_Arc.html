@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>DivSplineDiff_Arc</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Spline2D/DivSplineDiff_Arc.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Geometry::DivSplineDiff_Arc</h1>
+
+    <p>Approximates a spline with sector particles ensuring that the maximal difference will be below the given.</p>
+    <pre class="syntax">
+    <strong> long</strong> DivSplineDiff_Arc (
+      <strong><a href="../Vector2D/Coord.html">Coord</a>*</strong>*    <em>coords</em>,
+      <strong><a href="../Spline2D/DirType.html">DirType</a>*</strong>*  <em>dirs</em>,
+      <strong>bool</strong>       <em>closed</em>,
+      <strong>bool</strong>       <em>forw</em>,
+      <strong>double</strong>     <em>diff</em>,
+      <strong>double**</strong>   <em>hSect</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>coords</em></dt>
+
+        <dd>Coordinates of the spline.</dd>
+
+        <dt><em>dirs</em></dt>
+
+        <dd>Directions of the spline.</dd>
+
+        <dt><em>closed</em></dt>
+
+        <dd>If the spline is closed, it must be <code>true</code>.</dd>
+
+        <dt><em>forw</em></dt>
+
+        <dd>If <code>false</code>, the approximation process goes from the end of the spline to its beginning.</dd>
+
+        <dt><em>diff</em></dt>
+
+        <dd>Maximal allowed distance of arc points from the spline.</dd>
+
+        <dt><em>hSect</em></dt>
+
+        <dd>Coordinates of the approximating arcs. The i-th element is the beginning coordinates of the i-th and end coordinates of the (i-1)-th arc, except the first and the last, which are the beginning of the first arc and the end of the last arc, respectively.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Number of the approximating arcs.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Spline2DData.h</dd>
+
+        <dd><b>Import Library:</b> GeometryImp.lib [Win]</dd>
+
+        <dd><b>Module:</b> Geometry.dll [WIN] GeometryLib [Mac]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Spline2D_id.html">Spline functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 6, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

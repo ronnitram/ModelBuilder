@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_MarkerLinkDataType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_MarkerLinkDataType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_MarkerLinkDataType</h1>
+
+    <p>This type manifestates as a "linkedMarker" named variable in the detail/worksheet, section and elevation API types, and used to set the referring properties of the marker.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Guid.html">API_Guid</a></strong>               <em>referredView</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>               <em>referredDrawing</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>               <em>referredPMViewPoint</em>;
+        <strong>bool</strong>                   <em>sourceMarker</em>;
+        <strong>bool</strong>                   <em>customMarker</em>;
+        <strong>bool</strong>                   <em>referToDrawing</em>;
+        <strong>bool</strong>                   <em>filler_1</em>;
+        <strong>API_ReferringLevel</strong>     <em>referringLevel</em>;
+        <strong>Int32</strong>                  <em>filler_2[8]</em>;
+    <strong>}</strong> <em>API_MarkerLinkDataType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>referredView</b></dt>
+
+        <dd>Guid of the referred view. (Only if the marker refers to a view, otherwise this variable does not carry any useful information.)</dd>
+
+        <dt><b>referredDrawing</b></dt>
+
+        <dd>Guid of the referred drawing. (Only if the marker refers to a drawing, otherwise this variable does not carry any useful information.) You should use the drawingGuid member of one instance of API_DrawingType if you want to create a new element with markerLinkData...</dd>
+
+        <dt><b>referredPMViewPoint</b></dt>
+
+        <dd>Guid of the referred view point. (Only if the marker refers to a view point, otherwise this variable does not carry any useful information.)</dd>
+
+        <dt><b>sourceMarker</b></dt>
+
+        <dd>If it's true, the marker is a source marker.</dd>
+
+        <dt><b>customMarker</b></dt>
+
+        <dd>If it's true, the marker is an unlinked one. The other variables don't represent any meaningful information in this case. If sourceMarker and customMarker are both false, then the marker is a linked one.</dd>
+
+        <dt><b>referToDrawing</b></dt>
+
+        <dd>This boolean variable has meaning if the marker is a source or linked marker.</dd>
+
+        <dt><b>referringLevel</b></dt>
+
+        <dd>
+            This variable carries information if the marker is a source or a linked marker, namely it determindes the referred type. Based on this info it can be decided, that which guid should be used of the three above. The type and the values of this variable are the following:
+            <pre>
+    <strong>typedef enum {</strong>
+            <strong>NotReferred</strong>                = 0,
+            <strong>ReferredToViewPoint</strong>        = 1,
+            <strong>ReferredToView</strong>     = 2,
+            <strong>ReferredToDrawing</strong>  = 3
+    <strong>}</strong> API_ReferringLevel;
+
+</pre>
+        </dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>Nope.
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 14 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_DetailType.html">API_DetailType</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 25, 2010<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

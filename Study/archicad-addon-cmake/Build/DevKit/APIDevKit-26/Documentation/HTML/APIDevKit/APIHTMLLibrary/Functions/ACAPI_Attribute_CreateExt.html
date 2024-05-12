@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Attribute_CreateExt</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Attribute_CreateExt.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Attribute_CreateExt</h1>
+
+    <p>Creates an attribute.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Attribute_CreateExt</strong> (
+        <strong><a href="../Structures/API_Attribute.html">API_Attribute</a>*</strong>           <em>attribute</em>,
+        <strong><a href="../Structures/API_AttributeDefExt.html">API_AttributeDefExt</a>*</strong>     <em>defs</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>attribute</em></dt>
+
+        <dd>[in/out] Parameters of the attribute. The type of the attribute must be passed in the <code>typeID</code> field in the attribute header. The index field of the attribute header is used as an output parameter to return the reference index to the newly created attribute.</dd>
+
+        <dt><em>defs</em></dt>
+
+        <dd>[in] Additional parameters of the attribute. It is required or optional to pass depending on the type of the attribute.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_ATTREXIST</code></dt>
+
+        <dd>An attribute with the same name already exists.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>Invalid attribute type was passed, or a pen or font attribute type was given.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>A <code>nullptr</code> attribute pointer was passed.</dd>
+
+        <dt><code>APIERR_NOTMINE</code></dt>
+
+        <dd>You are in view-only mode for a teamwork project.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to create an attribute, defined by the <code>typeID</code> field of the attribute header. The reference index of the newly created attribute is returned in the <code>index</code> field of the attribute header.</p>
+
+    <p>You cannot create pen and font attributes.</p>
+
+    <p>The function also checks the data for possible inconsistency. If a problem is encountered it may be corrected automatically, or an error code is generated.</p>
+
+    <p>If an attribute with the same name exists in the database, the existing index will be returned. The matching procedure ignores the differences of the attribute definition. Multiple attributes with the same name are not allowed.</p>
+
+    <p>When creating the attribute, the applicable fields should be filled.</p>
+
+    <p>Use this function instead of <a href="ACAPI_Attribute_Create.html">ACAPI_Attribute_Create</a> function because <a href="../Structures/API_AttributeDefExt.html">API_AttributeDefExt</a> structure contains more fields - detailed information for composite wall attribute - than <a href="../Structures/API_AttributeDef.html">API_AttributeDef</a>.</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p align="left">API_Attr_Head</p>
+                </th>
+
+                <th>
+                    <p>&nbsp;</p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>typeID</code></p>
+                </td>
+
+                <td>
+                    <p>required</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>index</code></p>
+                </td>
+
+                <td>
+                    <p>ignored</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>flags</code></p>
+                </td>
+
+                <td>
+                    <p>required where applicable</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>name</code></p>
+                </td>
+
+                <td>
+                    <p>required</p>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th>
+                    <p align="left">API_AttributeTypeID</p>
+                </th>
+
+                <th>
+                    <p align="left">defs</p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_LayerID</code></p>
+                </td>
+
+                <td>
+                    <p><code>-</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_LinetypeID</code></p>
+                </td>
+
+                <td>
+                    <p><code>ltype_dashItems</code> (for dashed line type)<br>
+                    <code>ltype_lineItems(</code>for symbol line type)</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_FilltypeID</code></p>
+                </td>
+
+                <td>
+                    <p><code>fill_lineItems</code> (for vector fill type)<br>
+                    <code>fill_lineLength</code> (for vector fill type)<br>
+                    <code>sfill_Items</code> (for symbol fill type)</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_CompWallID</code></p>
+                </td>
+
+                <td>
+                    <p><code>cwall_compItems</code><br>
+                    <code>cwall_compLItems</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_MaterialID</code></p>
+                </td>
+
+                <td>
+                    <p><code>-</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_LayerCombID</code></p>
+                </td>
+
+                <td>
+                    <p><code>layer_statItems</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_ZoneCatID</code></p>
+                </td>
+
+                <td>
+                    <p><code>zone_addParItems</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_MEPSystemID</code></p>
+                </td>
+
+                <td>
+                    <p><code>-</code></p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>It is important that <b>Archicad does not free any dynamic data structure</b> you have allocated and passed to Archicad. It is your responsibility to dispose the handles passed in the <code>defs</code> parameter, when they are no longer needed. It is advised to use the <a href="ACAPI_DisposeAttrDefsHdlsExt.html">ACAPI_DisposeAttrDefsHdlsExt</a> function for compatibility reasons.</p>
+
+    <p>This function is a non-undoable data structure modifier function. See more details on this topic at <a href="../Level2/Command_Overview.html">Command Overview</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_Attribute         attrib;
+API_AttributeDefsExt  defs;
+short                 ltypeIndex;
+GSErrCode             err;
+
+BNZeroMemory (&amp;attrib, sizeof (API_Attribute));
+BNZeroMemory (&amp;defs, sizeof (API_AttributeDefsExt));
+
+attrib.header.typeID = API_LinetypeID;
+/* fill attrib.linetype */
+/* fill defs for non solid linetypes */
+
+err = ACAPI_Attribute_CreateExt (&amp;attrib, &amp;defs);
+ltypeIndex = attrib.header.index;
+
+ACAPI_DisposeAttrDefsHdlsExt (&amp;defs);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 5.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Attribute.html">API_Attribute</a>, <a href="../Structures/API_AttributeDef.html">API_AttributeDefExt</a>,<br>
+    <a href="ACAPI_DisposeAttrDefsHdlsExt.html">ACAPI_DisposeAttrDefsHdlsExt</a>,<br>
+    <a href="../Level3/Attribute_Manager_id.html">Attribute Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 2, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

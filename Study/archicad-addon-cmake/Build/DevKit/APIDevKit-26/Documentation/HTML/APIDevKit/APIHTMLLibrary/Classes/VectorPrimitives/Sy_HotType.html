@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Sy_HotType</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/VectorPrimitives/Sy_HotType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Sy_HotType</h1>
+
+    <p>Defines a 2D hotspot.</p>
+    <pre class="syntax">
+<strong>struct</strong> Sy_HotType {
+    <strong>long</strong>             item_Len;
+    <strong>unsigned char</strong>    item_Typ;
+    <strong>char</strong>             drwIndex;
+    <strong>short</strong>            sy_pen;
+    <strong>short</strong>            sy_layer;
+    <strong>short</strong>            filler_0;
+    <strong>long</strong>             filler_1;
+    <strong>short</strong>            hottype;
+    <strong>short</strong>            subtype;
+    <strong>unsigned long</strong>    supplUnId;
+    <strong>Coord</strong>            c;
+};
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><em>item_Len</em></dt>
+
+        <dd>The length of the data record = sizeof(Sy_HotType).</dd>
+
+        <dt><em>item_Typ</em></dt>
+
+        <dd>Constant SyHots.</dd>
+
+        <dt><em>drwIndex</em></dt>
+
+        <dd>Index in drawing order or 0.</dd>
+
+        <dt><em>sy_pen</em></dt>
+
+        <dd>Pen (color and line thickness) information or 0 if deleted.</dd>
+
+        <dt><em>sy_layer</em></dt>
+
+        <dd>The number of the fragment (layer) this element belongs to (Ranges 1 - 16).</dd>
+
+        <dt><em>filler_0</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>filler_1</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>hottype</em></dt>
+
+        <dd>The type of the hotspot.</dd>
+
+        <dt><em>subtype</em></dt>
+
+        <dd>The sub-type of the hotspot.</dd>
+
+        <dt><em>supplUnId</em></dt>
+
+        <dd>The supplement unique ID of the hotspot (may be 0).</dd>
+
+        <dt><em>c</em></dt>
+
+        <dd>Location of the hotspot in the model (in meters).</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The applications can snap the cursor to the hotspot or can treat it specially in other ways.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10.0 or later, ModelerGraphics 8 or later</dd>
+
+        <dd><b>Header:</b> Symb2D.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><!-- Not Index --><a href="../VectorImage/VectorImage.html">VectorImage</a> <!-- FOOTER  FOOTEREND --></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 3, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_HotlinkCacheGenerator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/API_HotlinkCacheGenerator.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_HotlinkCacheGenerator</h1>
+
+    <p>Base class for generating the updated content of a hotlink cache.</p>
+    <pre class="syntax">
+    <strong>class API_HotlinkCacheGenerator {</strong>
+        <strong>public:</strong>
+             <strong>virtual</strong>             <em>~API_HotlinkCacheGenerator () {}</em>;
+             <strong>virtual GSErrCode</strong>   <em>GenerateCacheContentForHotlinkNode (const <a href="../Structures/API_Guid.html">API_Guid</a> &amp;hotlinkNodeGuid) = 0</em>;       
+    <strong>}</strong>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>When a hotlink node is created by the add-on, the content of the hotlink cache must be generated also. In order to create the appropriate elements and attributes into the cache database, you need to pass an <code>API_HotlinkCacheGenerator</code> object to the <a href="../Functions/APIDb_UpdateHotlinkCacheID.html">APIDb_UpdateHotlinkCacheID</a> function. When the <code>GenerateCacheContentForHotlinkNode</code> method of the object is called back from the hotlink update function, the standard element and attribute creator functions (like <a href="../Functions/ACAPI_Element_Create.html">ACAPI_Element_Create</a> and <a href="../Functions/ACAPI_Attribute_Create.html">ACAPI_Attribute_Create</a>) are redirected to create elements and attributes into the hotlink cache database, rather than the project database.</p>
+
+    <p>If the <code>GenerateCacheContentForHotlinkNode</code> function return an error, the update process is canceled.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+class HotlinkCacheGenerator: public <font color="#FF0066">API_HotlinkCacheGenerator</font> {
+public:
+    virtual GSErrCode    GenerateCacheContentForHotlinkNode (const API_Guid&amp; hotlinkNodeGuid)
+    {
+        API_HotlinkNode hotlinkNode;
+        BNZeroMemory (&amp;hotlinkNode, sizeof (API_HotlinkNode));
+        hotlinkNode.guid = hotlinkNodeGuid;
+        GSErrCode err = ACAPI_Database (APIDb_GetHotlinkNodeID, &amp;hotlinkNode);
+        if (err == NoError &amp;&amp; hotlinkNode.sourceLocation != nullptr) {
+            IO::File sourceFile (*hotlinkNode.sourceLocation);
+            err = sourceFile.GetStatus ();
+            if (err == NoError) {
+                // read the file, create elements and attributes into the cache database
+            }
+        }
+
+        if (hotlinkNode.sourceLocation != nullptr)
+            delete hotlinkNode.sourceLocation;
+        if (hotlinkNode.userData.data != nullptr)
+            BMKillPtr (&amp;hotlinkNode.userData.data);
+
+        return err;
+    }
+} hotlinkCacheGenerator;
+
+GS::HashSet&lt;API_Guid&gt; alreadyUpdatedNodes;
+GS::Array&lt;API_Guid&gt; elemList;
+ACAPI_Element_GetElemList (API_HotlinkID, &amp;elemList);
+for (GS::Array&lt;API_Guid&gt;::ConstIterator it = elemList.Enumerate (); it != nullptr; ++it) {
+    API_Element hotlinkElem;
+    BNZeroMemory (&amp;hotlinkElem, sizeof (API_Element));
+    hotlinkElem.header.guid = *it;
+    if (ACAPI_Element_Get (&amp;hotlinkElem) == NoError) {
+        if (!alreadyUpdatedNodes.Contains (hotlinkElem.hotlink.hotlinkNodeGuid)) {
+            ACAPI_Database (<font color="#FF0066">APIDb_UpdateHotlinkCacheID</font>, &amp;hotlinkElem.hotlink.hotlinkNodeGuid, &amp;hotlinkCacheGenerator);
+            alreadyUpdatedNodes.Add (hotlinkElem.hotlink.hotlinkNodeGuid);
+        }
+    }
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 12 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIDb_GetHotlinkNodeID.html">APIDb_GetHotlinkNodeID</a><br>
+    <a href="../Functions/APIDb_UpdateHotlinkCacheID.html">APIDb_UpdateHotlinkCacheID</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 13, 2009<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

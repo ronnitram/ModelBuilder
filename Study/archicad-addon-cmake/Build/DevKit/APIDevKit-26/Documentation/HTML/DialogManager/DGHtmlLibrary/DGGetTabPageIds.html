@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGGetTabPageIds</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGGetTabPageIds.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGGetTabPageIds</h1>
+
+    <p>This function is obsolete, use the <a href="DGTabControlGetTabPageId.html">DGTabControlGetTabPageId</a> function instead.</p>
+
+    <p>Retrieves the <a href="TabPages.html">tab page</a> identifiers of a <a href="TabControl.html">tab control</a>.</p>
+    <pre class="syntax">
+    <strong>short DGGetTabPageIds</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>short</strong>  <em>*tabPageIds</em>,
+      <strong>short</strong>  <em>maxCount</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>tabPageIds</em></dt>
+
+        <dd>Pointer to buffer to receive the tab page identifiers. This parameter can be <tt>nullptr</tt>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>maxCount</em></dt>
+
+        <dd>The maximal number of tab page identifiers that can be returned in the <em>tabPageIds</em> buffer.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Number of tab page identifiers copied into the <em>tabPageIds</em> buffer.</p>
+
+    <h4>Remarks</h4>
+
+    <p>If <em>tabPageIds</em> is <tt>nullptr</tt>, <b>DGGetTabPageIds</b> returns the number of tab pages of the tab control. This can be also achieved by calling the <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a> function. If <em>maxCount</em> is less than the number of tab pages, <b>DGGetTabPageIds</b> returns the first <em>maxCount</em> tab page identifiers only. If the function parameters are incorrect, zero is returned.</p>
+
+    <p>Tab pages are special dialogs, because they have no <a href="CallbackFunctions.html">dialog callback function</a>. Messages for controls on tab pages are sent to the callback function of the main dialog (the dialog that contains the tab control). For these messages, however, the ID of the tab page subdialog is passed to the callback function in the <em>dialId</em> parameter instead of the ID of the main dialog. The tab page IDs passed to the callback function are usually the same as the IDs defined in GRC, but in special cases they can be different. For example, if you have a <a href="ModelessDialogs.html">modeless dialog</a> with a multi-page tab control, DG passes the tab page IDs given in the GRC to the callback function. Suppose, however, you want an other instance of the modeless dialog. Since in DG every dialog and tab page must have a unique ID, DG assigns internally generated unique (negative) IDs to the second dialog and its tab pages, when it creates them. Later you must refer to this dialog and its tab pages by the internally generated IDs.</p>
+
+    <p>You can retrieve the IDs of the tab page subdialogs of a tab control by the <b>DGGetTabPageIds</b> function when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the dialog callback function. Use <a href="DGGetTabPageParentId.html">DGGetTabPageParentId</a> to retrieve the ID of the main dialog of a tab page.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib (DGEmu.lib) [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll (DGEmu.dll) [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="TabControl.html">Tab Control</a>, <a href="TabPages.html">Tab Pages</a>, <a href="ModelessDialogs.html">Modeless Dialogs</a><br>
+    <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a>, <a href="DGGetTabPageParentId.html">DGGetTabPageParentId</a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 7, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

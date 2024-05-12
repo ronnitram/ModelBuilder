@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_TextLinePars</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_TextLinePars.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_TextLinePars</h1>
+
+    <p>Represents some text to measure its length.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>short</strong>             <em>index</em>;
+        <strong>bool</strong>              <em>drvScaleCorr</em>;
+        <strong>bool</strong>              <em>wantsLongestIndex</em>;
+        <strong>short</strong>             <em>wFont</em>;
+        <strong>short</strong>             <em>wFace</em>;
+        <strong>double</strong>            <em>wSlant</em>;
+        <strong>double</strong>            <em>wSize</em>;
+        <strong>char</strong>              <em>*lineStr</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>     <em>*lineUniStr</em>;
+    <strong>}</strong> <em>API_TextLinePars</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>index</b></dt>
+
+        <dd>
+            <table>
+                <tr>
+                    <td>
+                        <p><code>-1</code></p>
+                    </td>
+
+                    <td>
+                        <p>last line length</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>0</code></p>
+                    </td>
+
+                    <td>
+                        <p>longest line length</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>&gt; 0</code></p>
+                    </td>
+
+                    <td>
+                        <p>length of the nth line</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>drvScaleCorr</b></dt>
+
+        <dd>If <code>true</code>: scale the text to the model, if <code>false</code>: in mms.</dd>
+
+        <dt><b>wantsLongestIndex</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>If index is 0 :: <code>true</code>: return longest line's index, <code>false</code>: don't return longest line's index.</dd>
+
+        <dt><b>wFont</b></dt>
+
+        <dd>Font attribute index.</dd>
+
+        <dt><b>wFace</b></dt>
+
+        <dd>Style (face) of text:</dd>
+
+        <dd>
+            <table>
+                <tr>
+                    <td>
+                        <p><code>APIFace_Plain</code></p>
+                    </td>
+
+                    <td>
+                        <p>Plain text</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIFace_Bold</code></p>
+                    </td>
+
+                    <td>
+                        <p>Bold</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIFace_Italic</code></p>
+                    </td>
+
+                    <td>
+                        <p>Italic</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIFace_Underline</code></p>
+                    </td>
+
+                    <td>
+                        <p>Underline</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIFace_Outline</code></p>
+                    </td>
+
+                    <td>
+                        <p>Outlined (Macintosh only)</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIFace_Shadow</code></p>
+                    </td>
+
+                    <td>
+                        <p>Shadow (Macintosh only)</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>wSlant</b></dt>
+
+        <dd>Slant angle [radian] (PI/2 is plain text).</dd>
+
+        <dt><b>wSize</b></dt>
+
+        <dd>Character height in mms.</dd>
+
+        <dt><b>lineStr</b></dt>
+
+        <dd>The text to measure.</dd>
+
+        <dt><b>lineUniStr</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Unicode text to measure.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For further details see the <a href="../Functions/APIAny_GetTextLineLengthID.html">APIAny_GetTextLineLengthID</a> goodie function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Goodies.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIAny_GetTextLineLengthID.html">APIAny_GetTextLineLengthID</a>,<br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 3, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

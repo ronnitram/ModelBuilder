@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>User Item</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/UserItem.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>User Item</h1>
+
+    <p>User items are dialog items of a special type in DG with the following dual character:</p>
+
+    <ul>
+        <li>A user item can display any text, image or line drawing. In this respect it is similar to <a href="StaticText.html">static texts</a>, <a href="Icon.html">icon</a> and <a href="Picture.html">picture</a> items. However, its drawing area can be used to show more complex information than the above mentioned dialog items.</li>
+
+        <li>On the other hand, a user item is an interactive dialog item so it is similar to <a href="UserControl.html">user controls</a> as well. If an application needs the same special user interaction in several dialogs, it is advised to develop a user control to solve the task. However, if you need a special dialog item in one dialog only or the item's content should be very rich and context sensitive, a user item seems to be the best solution.</li>
+    </ul>
+
+    <p>It is the application's responsibility to draw the user item whenever it needs to be updated. By default a user item is drawn without frame, however it can have three types of frames: static edge, client edge and modal frame. The following images show a user item with client edge frame.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/UserItem_Mac.png" width="250" height="230" alt="UserItem_Mac">&nbsp;&nbsp;&nbsp; &nbsp;<img src="../DGImageLibrary/UserItem_Win.png" alt="UserItem_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_USERITEM</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UT_NORMALUPDATE</tt></td>
+
+                    <td>The user item receives <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a> messages with <tt>DG_UUT_NORMAL</tt> update type only.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UT_PARTIALUPDATE</tt></td>
+
+                    <td>The user item receives <tt>DG_MSG_UPDATE</tt> messages with both <tt>DG_UUT_NORMAL</tt> and <tt>DG_UUT_PARTIAL</tt> update types.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Frame types</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Frame type</th>
+
+                    <th align="left" width="360">Meaning</th>
+
+                    <th align="left"></th>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FT_NONE</tt></td>
+
+                    <td>It will be drawn without frame.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FT_STATIC</tt></td>
+
+                    <td>Thin three-dimensional border with a sunken edge.</td>
+
+                    <td><img src="../DGImageLibrary/FrameStatic_Mac.png" width="40" height="40" alt="FrameStatic_Mac">&nbsp;&nbsp; <img src="../DGImageLibrary/FrameStatic_Win.png" alt="FrameStatic_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FT_CLIENT</tt></td>
+
+                    <td>Thick three-dimensional border with a sunken edge.</td>
+
+                    <td><img src="../DGImageLibrary/FrameClient_Mac.png" width="40" height="40" alt="FrameClient_Mac">&nbsp;&nbsp; <img src="../DGImageLibrary/FrameClient_Win.png" alt="FrameClient_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FT_MODAL</tt></td>
+
+                    <td>Thick three-dimensional border with a raised edge.</td>
+
+                    <td><img src="../DGImageLibrary/FrameModal_Mac.png" width="40" height="40" alt="FrameModal_Mac">&nbsp;&nbsp; <img src="../DGImageLibrary/FrameModal_Win.png" alt="FrameModal_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    UserItem    <i>x  y  dx  dy</i>  [PartialUpdate]  [frameType]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the user item, <em>dx</em> and <em>dy</em> are the item width and height in pixels. Set the optional <em>PartialUpdate</em> flag to enable partial update. If the optional <em>frameType</em> flag is omitted, the user item is drawn without frame.</p>
+
+    <p>Possible values of <em>frameType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Default</tt></td>
+
+                    <td>The <tt>DG_FT_NONE</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>StaticEdge</tt></td>
+
+                    <td>The <tt>DG_FT_STATIC</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ClientEdge</tt></td>
+
+                    <td>The <tt>DG_FT_CLIENT</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ModalFrame</tt></td>
+
+                    <td>The <tt>DG_FT_MODAL</tt> frame type is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a></td>
+
+                    <td>The user item is clicked. The message data parameter is a pointer to a <a href="DGUserMsgData.html">DGUserMsgData</a> structure cast to <strong><tt>DGMessageData</tt></strong>. This structure contains information about the user action.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a></td>
+
+                    <td>The user item is double clicked. The message data parameter is a pointer to a <b>DGUserMsgData</b> structure cast to <strong><tt>DGMessageData</tt></strong>. This structure contains information about the user action.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_MOUSEMOVE.html"><tt>DG_MSG_MOUSEMOVE</tt></a></td>
+
+                    <td>The mouse is over the user item. The message data parameter is a pointer to a <b>DGUserMsgData</b> structure cast to <strong><tt>DGMessageData</tt></strong>. This structure contains information about the user action.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a></td>
+
+                    <td>The user item should be fully or partially redrawn. The user update data parameter is a pointer to a <a href="DGUserUpdateData.html">DGUserUpdateData</a> structure cast to <strong><tt>DGMessageData</tt></strong>. This structure contains all the necessary information to update the user item by the application.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DRAGDROP.html"><tt>DG_MSG_DRAGDROP</tt></a></td>
+
+                    <td>Drag and drop related event occured. User items can be both drag source and target.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>User items receive <tt>DG_MSG_UPDATE</tt> messages whenever they should be updated. If the update process of a user item takes too much time, it is advised to enable partial update for that item. If partial update is enabled, in addition to normal update messages DG sends partial update messages also automatically or for the application's requirement in the following cases:</p>
+
+    <ul>
+        <li>If the application opens, shows, maximizes or restores a dialog, all dialog items will be updated in the dialog item order. If there is a user item which takes long time to redraw and the partial update is enabled for it, a partial update message is sent when it is about to be redrawn. A normal update message is sent later only after all other dialog items have been updated. In this way during these actions it can be avoided that the dialog items following the user item in the item order remain invisible while updating the user item.</li>
+
+        <li>On Windows, if the full drag mode is switched on in the system and the partial update is enabled, DG sends partial update messages while the user moves or sizes the parent dialog of the user item and sends one normal update message as soon as the user finishes moving or sizing the dialog. If the partial update is disabled, normal update messages are sent instead of partial update messages and the user item is fully repainted with each mouse move, so the resizing of the dialog is jerky.</li>
+
+        <li>The application disabled the normal update mechanism on a dialog with the <a href="DGDisableNormalUpdate.html">DGDisableNormalUpdate</a> function. In this case all user items of the dialog which have partial update enabled receive partial update messages only. If the normal update mechanism is restored with <a href="DGEnableNormalUpdate.html">DGEnableNormalUpdate</a> a normal update message is sent to the user item. Here are an example when disabling the normal update for a dialog is useful: assume that the application has opened many modeless windows simultaneously, each one having a user item with graphics taking long time to calculate and redraw, and these windows need to be arranged on the screen (tiled or cascaded for example). If the partial update is not enabled the windows are arranged in the following manner: the first window is moved to its new position, resized and the whole content is redrawn. Until the redraw process lasts the size and position of the next window is unchanged. Between arranging two windows long time expires. If the partial update is enabled the first window is moved, resized and receives a partial update message. Responding to this message it can repaint its background and do some basic drawing functions without time consumption. This process continues with the next window. After all windows have their new positions and sizes set, DG sends normal update messages for each window. In this case no window arrangement happens after the first normal update message is sent.</li>
+    </ul>
+
+    <p>When the <a href="CallbackFunctions.html">dialog callback function</a> receives a <tt>DG_MSG_UPDATE</tt> message the <em>msgData</em> parameter is a pointer to a <strong>DGUserUpdateData</strong> structure that contains all the necessary information to update the user item by the application. The message type can be one of the <tt>DG_UUT_NORMAL</tt>, <tt>DG_UUT_PARTIAL</tt> and <tt>DG_UUT_INUPDATE</tt> values. If the user item should be fully repainted DG sends an update message with the <tt>DG_UUT_NORMAL</tt> type. If the user item needs to be partially updated and the partial update is enabled, <tt>DG_UUT_PARTIAL</tt> type update messages are sent. Typically an application erases the background, draws frame or does some basic drawing when it receives a partial update message. <tt>DG_UUT_INUPDATE</tt> type messages are sent in special cases: if the update function takes long time and leaves the control to run out to the event loop and over there an other update event is generated (because of a task switching for example) during the update process. In this case the application can clip out the new invalid region from the update region of the interrupted update process.</p>
+
+    <p>Before sending update messages DG erases the invalidated parts of the user item with the default background color. This color can be set and retrieved with the <a href="DGUserSetBackgroundColor.html">DGUserSetBackgroundColor</a> and <a href="DGUserGetBackgroundColor.html">DGUserGetBackgroundColor</a> functions respectively.</p>
+
+    <p>With every update message the current invalid region is sent in the message data. If partial update is enabled for a user item the regions which are sent with partial update messages are collected by DG and the union of them are sent with a normal update message when the partial update ends. The update region handle is returned in the <em>updateRgn</em> member of the <strong>DGUserUpdateData</strong> structure. It should be cast to <strong><tt>HRGN</tt></strong> on Windows, on Macintosh it is always nullptr.</p>
+
+    <p>The application can use system dependent drawing functions on user items. The drawing context is sent in the <em>drawContext</em> member if the <strong>DGUserUpdateData</strong> structure. This member should be cast to <strong><tt>HDC</tt></strong> on Windows and to <strong><tt>CGContextRef</tt></strong> on Macintosh. The origin of the drawing context is set to the upper left corner of the user item.</p>
+
+    <p>Partial update on a user item can be enabled in the GRC script. To take control over the default user item update mechanism use the <strong>DGEnableNormalUpdate</strong> and <strong>DGDisableNormalUpdate</strong> functions.</p>
+
+    <p>If the user item should be redrawn immediately use the <a href="DGUserRedrawItem.html">DGUserRedrawItem</a> function with displayImmediately = true parameter otherwise the <strong>DGUserRedrawItem</strong> function can be used with displayImmediately = false parameter.</p>
+
+    <p>If the user item has frame, the frame is clipped out from the update area. Use <a href="DGUserGetClientRect.html">DGUserGetClientRect</a> function to retrieve the rectangle in which the application can draw. If the user item has no frame <strong>DGUserGetClientRect</strong> and <a href="DGGetItemRect.html">DGGetItemRect</a> retrieve the same values.</p>
+
+    <p>User items can receive <tt>DG_MSG_MOUSEMOVE</tt> messages when the cursor is moving over them. By default DG does not send the <tt>DG_MSG_MOUSEMOVE</tt> messages to a user item. If the application needs this message the <a href="DGEnableMessage.html">DGEnableMessage</a> should be called for the user item with <tt>DG_MSG_MOUSEMOVE</tt> as its third parameter. To change the cursor to a custom form, one should be returned when handling <tt>DG_MSG_MOUSEMOVE</tt> messages to prevent DG from setting back the default cursor over the user item. If zero is returned DG sets the default arrow cursor.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="Icon.html">Icon</a>, <a href="Picture.html">Picture</a>, <a href="StaticText.html">Static Text</a>, <a href="UserControl.html">User Control</a><br>
+    <a href="DGUserRedrawItem.html">DGUserRedrawItem</a>, <a href="DGEnableNormalUpdate.html">DGEnableNormalUpdate</a>, <a href="DGDisableNormalUpdate.html">DGDisableNormalUpdate</a>, <a href="DGEnableMessage.html">DGEnableMessage</a><br>
+    <a href="DGUserUpdateData.html">DGUserUpdateData</a>, <a href="DGUserMsgData.html">DGUserMsgData</a><br>
+    <a href="CallbackFunctions.html">Callback functions</a>, <a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a>, <a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a>, <a href="DG_MSG_MOUSEMOVE.html"><tt>DG_MSG_MOUSEMOVE</tt></a>, <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 2, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Body Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Body_Manager_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Body Manager</h1>
+
+    <p><br>
+    To have an overview on the 3D model of Archicad, and how the 3D database fits into the entire database system please refer to the <!--NoCHM--><a href="../Level2/Element_Overview.html">Element Overview</a> chapter.</p>
+
+    <p>Only the handler functions are explained in full detail here.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Handler functions</h4>
+
+    <p>All of the Body handler functions begin with the <b>ACAPI_Body_</b> prefix. This function family gives support create or modify the body of a morph element. When editing an existing body, you can only append your modifications, you cannot modify the original body. Refer to the functions below to have details on these topics.</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_Body_Create.html">ACAPI_Body_Create</a><br>
+        <a href="../Functions/ACAPI_Body_Finish.html">ACAPI_Body_Finish</a><br>
+        <a href="../Functions/ACAPI_Body_Dispose.html">ACAPI_Body_Dispose</a><br>
+        <br>
+        <a href="../Functions/ACAPI_Body_AddVertex.html">ACAPI_Body_AddVertex</a><br>
+        <a href="../Functions/ACAPI_Body_AddEdge.html">ACAPI_Body_AddEdge</a><br>
+        <a href="../Functions/ACAPI_Body_AddPolyNormal.html">ACAPI_Body_AddPolyNormal</a><br>
+        <a href="../Functions/ACAPI_Body_AddPolygon.html">ACAPI_Body_AddPolygon</a><br>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>General Error Codes</h4>
+
+    <table>
+        <tr>
+            <td>
+                <p>APIERR_BADPARS</p>
+            </td>
+
+            <td>
+                <p>invalid parameter;<br>
+                the passed pointer is <code>nullptr</code>, or the passed index is out of range</p>
+            </td>
+        </tr>
+    </table>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 8, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

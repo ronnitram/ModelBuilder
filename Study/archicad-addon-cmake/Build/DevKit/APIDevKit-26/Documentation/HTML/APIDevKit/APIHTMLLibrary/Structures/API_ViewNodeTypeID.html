@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ViewNodeTypeID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ViewNodeTypeID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ViewNodeTypeID</h1>
+
+    <p>Type of the view nodes.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>API_ViewNodeUndefined</em>,
+        <em>API_ViewNodeStory</em>,
+        <em>API_ViewNodeSection</em>,
+        <em>API_ViewNodeDetailDrawing</em>,
+        <em>API_ViewNodePerspective</em>,
+        <em>API_ViewNodeAxonometry</em>,
+        <em>API_ViewNodeList</em>,
+        <em>API_ViewNodeSchedule</em>,
+        <em>API_ViewNodeToc</em>,
+        <em>API_ViewNodeCamera</em>,
+        <em>API_ViewNodeCameraSet</em>,
+        <em>API_ViewNodeElevation</em>,
+        <em>API_ViewNodeInteriorElevation</em>,
+        <em>API_ViewNodeWorksheetDrawing</em>,
+        <em>API_ViewNodeDocumentFrom3D</em>,
+        <em>API_ViewNodeAPIList</em>
+    <strong>}</strong> <em>API_ViewNodeTypeID</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>API_ViewNodeUndefined</b></dt>
+
+        <dd>Undefined node type</dd>
+
+        <dt><b>API_ViewNodeStory</b></dt>
+
+        <dd>Story view node</dd>
+
+        <dt><b>API_ViewNodeSection</b></dt>
+
+        <dd>Section/Elevation view node</dd>
+
+        <dt><b>API_ViewNodeDetailDrawing</b></dt>
+
+        <dd>Detail Drawing view node</dd>
+
+        <dt><b>API_ViewNodePerspective</b></dt>
+
+        <dd>Perspective 3D Model view node</dd>
+
+        <dt><b>API_ViewNodeAxonometry</b></dt>
+
+        <dd>Axonometric 3D Model view node</dd>
+
+        <dt><b>API_ViewNodeList</b></dt>
+
+        <dd>List type view node</dd>
+
+        <dt><b>API_ViewNodeSchedule</b></dt>
+
+        <dd>Schedule view node</dd>
+
+        <dt><b>API_ViewNodeToc</b></dt>
+
+        <dd>Index (Table Of Content) view node</dd>
+
+        <dt><b>API_ViewNodeCamera</b></dt>
+
+        <dd>Camera view node</dd>
+
+        <dt><b>API_ViewNodeCameraSet</b></dt>
+
+        <dd>Camera Set view node</dd>
+
+        <dt><b>API_ViewNodeElevation</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Elevation view node</dd>
+
+        <dt><b>API_ViewNodeInteriorElevation</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Interior Elevation view node</dd>
+
+        <dt><b>API_ViewNodeWorksheetDrawing</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Worksheet Drawing view node</dd>
+
+        <dt><b>API_ViewNodeDocumentFrom3D</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></dt>
+
+        <dd>Document from 3D view node</dd>
+
+        <dt><b>API_ViewNodeAPIList</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Listing window node, created via the API</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>These view type values are used in the <a href="API_DrawingLinkInfo.html">API_DrawingLinkInfo</a> structure.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_DrawingLinkInfo.html">API_DrawingLinkInfo</a><br>
+    <a href="../Functions/APIDb_GetDrawingLinkID.html">APIDb_GetDrawingLinkID</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

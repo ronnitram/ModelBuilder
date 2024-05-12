@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>TreeViewDropped (TreeViewDropTargetObserver)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/TreeViewDropTargetObserver/TreeViewDropped.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="TreeViewDropTargetObserver.html">TreeViewDropTargetObserver</A>::TreeViewDropped</H2><!--exp="TreeViewDropTargetObserver::TreeViewDropped"-->
+<P><topic id="$DG.$TreeViewDropTargetObserver.$TreeViewDropped.BriefDescription">
+		Event handler for the drag dropped notification.
+	</topic></P>
+<PRE class="syntax"><B>virtual void TreeViewDropped (</B>
+    <B><a class="nodecorate" href="../../DG/TreeViewDropTargetEvent/TreeViewDropTargetEvent.html">const TreeViewDropTargetEvent &amp;</A> </B><I>ev</I>,
+    <B><a class="nodecorate" href="../../DG_DragDrop/Effect.html">DragDrop::Effect *</A>  </B><I>effect</I>
+<B>);</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>ev</I></DT><DD><topic id="$DG.$TreeViewDropTargetObserver.$TreeViewDropped.$ev.ParamDescription">
+		A reference to the <a href="../TreeViewDropTargetEvent/TreeViewDropTargetEvent.html">event</a>.
+	</topic></DD><DT><I>effect</I></DT><DD><topic id="$DG.$TreeViewDropTargetObserver.$TreeViewDropped.$effect.ParamDescription">
+		Drag and drop effect can take the following values: DragDrop::Reject, DragDrop::Accept, DragDrop::Copy,
+		DragDrop::Move, DragDrop::Link, DragDrop::Delete.
+	</topic></DD>
+</DL>
+<H4>Description</H4>
+<P><topic id="$DG.$TreeViewDropTargetObserver.$TreeViewDropped.LongDescription">
+		When a drop event occurs it is time to insert data into the drop target. If you provided custom feedback, now is the time to erase it.
+	</topic></P>
+<H4>Example</H4><topic id="$DG.$TreeViewDropTargetObserver.$TreeViewDropped.Example">
+		<PRE class="code">// Method Example:
+void	DragTab2Observer::TreeViewDropped (const DG::TreeViewDropTargetEvent&amp; ev, DG::DragDrop::Effect* effect)
+{
+    if (ev.GetSource () == &amp;tabPage-&gt;treeView) {
+        Int32 i;
+        Int32 insertPos = ev.GetInsertPosition ();
+        DG::DragDrop::RelativePos relativePos = ev.GetRelativePosition ();
+        GS::VAArray&lt;GS::UniString&gt; textArray;   // Array used to memorize list item texts
+        GS::VAArray&lt;Int32&gt; validSelItems;       // Array for treeview elements that are not inherited from each other.
+
+        if (ev.HasDataFormat ('LBEX')) {
+            DG::ListBox* sourceList = ev.GetListBoxSource ();
+            for (i = 0; i &lt; static_cast&lt;Int32&gt; (ev.GetItemCount ()); i++) {
+                short listItem = ev.GetListBoxItem (i);
+                textArray.Insert (i + 1, sourceList-&gt;GetTabItemText (listItem, 1));
+            }
+            if (*effect == DG::DragDrop::Move) {
+                for (Int32 j = ev.GetItemCount () - 1; j &gt;= 0 ; j--) {
+                    short listItem = ev.GetListBoxItem (j);
+                    sourceList-&gt;DeleteItem (listItem);
+                }
+            }
+            tabPage-&gt;treeView.DeselectItem (DG::TreeView::AllItems);
+            for (i = 0; i &lt; static_cast&lt;Int32&gt; (ev.GetItemCount ()); i++) {
+                Int32 insTreeItem;
+                if (relativePos == DG::DragDrop::InsertOn) {
+                    insTreeItem = tabPage-&gt;treeView.AppendItem (insertPos);
+                } else {
+                    if (insertPos != DG::TreeView::RootItem &amp;&amp; tabPage-&gt;treeView.IsItemExpanded (insertPos) &amp;&amp; relativePos == DG::DragDrop::InsertUnder) {
+                        insTreeItem = tabPage-&gt;treeView.InsertItem (insertPos, DG::TreeView::TopItem);
+                    } else {
+                        if (insertPos == DG::TreeView::RootItem) {
+                            insTreeItem = tabPage-&gt;treeView.InsertItem (insertPos, DG::TreeView::TopItem);
+                        } else {
+                            Int32 parentItem = tabPage-&gt;treeView.GetItem (insertPos, DG::TreeView::Parent);
+                            if (relativePos == DG::DragDrop::InsertAbove) {
+                                // Insert above eseten a previous sibling ala kellene tenni.
+                                Int32 insPos = tabPage-&gt;treeView.GetItem (insertPos, DG::TreeView::Previous);
+                                if (insPos == DG_TVI_NONE) {
+                                    // Ha nem volt previous sibling akkor a group-ban a top elem lesz a droppolt elem
+                                    insTreeItem = tabPage-&gt;treeView.InsertItem (parentItem, DG::TreeView::TopItem);
+                                } else {
+                                    // Ha volt previous elem akkor ala kell betenni az ujat
+                                    insTreeItem = tabPage-&gt;treeView.InsertItem (parentItem, insPos);
+                                }
+                            } else {
+                                insTreeItem = tabPage-&gt;treeView.InsertItem (parentItem, insertPos);
+                            }
+                        }
+                    }
+                }
+                tabPage-&gt;treeView.SetItemText (insTreeItem, textArray[i + 1]);
+                tabPage-&gt;treeView.SelectItem (insTreeItem);
+            }
+        } else if (ev.HasDataFormat ('TVEX')) {
+            DG::MultiSelTreeView* sourceTree = reinterpret_cast&lt;DG::MultiSelTreeView*&gt; (ev.GetTreeViewSource ());
+            for (i = ev.GetItemCount () - 1; i &gt;= 0 ; --i) {
+                Int32 treeItem = ev.GetTreeViewItem (i);    //Getting the selected treeview items from the source
+                InsertItemRecursively (sourceTree, treeItem, insertPos, relativePos);
+            }
+            if (*effect == DG::DragDrop::Move) {
+                for (i = ev.GetItemCount () - 1; i &gt;= 0; i--) {
+                    Int32 treeItem = ev.GetTreeViewItem (i);
+                    sourceTree-&gt;DeleteItem (treeItem);
+                }
+            }
+        }
+    }
+}</PRE><P>Drop event handling in tree view controls.</P>
+	</topic>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

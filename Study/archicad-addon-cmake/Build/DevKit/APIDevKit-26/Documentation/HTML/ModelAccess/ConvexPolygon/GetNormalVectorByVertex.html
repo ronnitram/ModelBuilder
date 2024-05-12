@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>GetNormalVectorByVertex</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="ConvexPolygon/GetNormalVectorByVertex.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="ConvexPolygon.html">ConvexPolygon</a>::GetNormalVectorByVertex</h1><br>
+    Get normal vector index of the given vertex.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>ModelerAPI::<a href="../Vector/Vector.html">Vector</a>  GetNormalVectorByVertex (
+    Int32   vertexIndex
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>vertexIndex</em></dt>
+
+        <dd>Index of the vertex. The index range is [1..n] where n = <a href="GetVertexNum.html">GetVertexNum</a> ().</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>The normal vector of given vertex.</p>
+
+    <h3>Description</h3>
+
+    <p>Here is an example how to enumerate convex polygons and their vertexes with normal vectors:</p>
+    <pre class="syntax">
+<b>
+// body: The body, which is enumerated.
+
+for (Int32 polygonIndex = 1; polygonIndex &lt;= body.<a href="Invalid link: ../Body/GetPolygonNum.html">GetPolygonNum</a> (); polygonIndex++) {
+    ModelerAPI::<a href="../Polygon/Polygon.html">Polygon</a> polygon;
+    body.<a href="../Body/GetPolygon.html">GetPolygon</a> (polygonIndex, &amp;polygon);
+    ModelerAPI::<a href="../Vector/Vector.html">Vector</a> polygonNormal;
+    body.<a href="../Body/GetVector.html">GetVector</a> (polygon.GetNormalVectorIndex (), &amp;polygonNormal);
+    // Begin of polygon.
+    Int32 vertexIndex = 1;
+    for (Int32 convexPolygonIndex = 1 ; convexPolygonIndex &lt;= polygon.<a href="../Polygon/GetConvexPolygonNum.html">GetConvexPolygonNum</a> (); convexPolygonIndex++) {
+        ModelerAPI::<a href="ConvexPolygon.html">ConvexPolygon</a> convexPolygon;
+        polygon.<a href="../Polygon/GetConvexPolygon.html">GetConvexPolygon</a> (convexPolygonIndex, &amp;convexPolygon);
+        // Begin of convex polygon.
+        for (Int32 vertexIndex = 1 ; vertexIndex &lt;= convexPolygon.<a href="../ConvexPolygon/GetVertexNum.html">GetVertexNum</a> (); vertexIndex++) {
+            ModelerAPI::<a href="../Vector/Vector.html">Vector</a> vertexNormal = convexPolygon.GetNormalVectorIndex (vertexIndex);
+            // vertex processing
+        }
+        // End of convex polygon.
+    }
+    // End of polygon.
+}
+</b>
+</pre>
+
+    <p><b>Available from version: 8</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

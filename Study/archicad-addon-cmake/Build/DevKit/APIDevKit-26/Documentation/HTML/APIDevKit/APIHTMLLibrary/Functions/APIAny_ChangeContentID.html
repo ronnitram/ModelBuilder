@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIAny_ChangeContentID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIAny_ChangeContentID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIAny_ChangeContentID</h1>
+
+    <p>Change the content of a text or a textual label element.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a></strong> (
+        <strong>APIAny_ChangeContentID</strong>,
+        <strong>const <a href="../Structures/API_ContentPars.html">API_ContentPars</a>*</strong>     <em>contentPars</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>contentPars</em></dt>
+
+        <dd>[in/out] Parameters of the element and contents.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The input parameters are not given correctly.</dd>
+
+        <dt><code>APIERR_REFUSEDPAR</code></dt>
+
+        <dd>The passed element is not a text or a textual label.</dd>
+
+        <dt><code>APIERR_PAROVERLAP</code></dt>
+
+        <dd>The range overlaps two or more paragraphs.</dd>
+
+        <dt><code>APIERR_PAROVERFLOW</code></dt>
+
+        <dd>The beginning position (<i>from</i>) run over the content length.</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>Not enough memory.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to modify the content of a multistyle text or textual label. The styles of the runs won't be lost. The new content piece will pick up the style (font, size, faceBits...) of the character on the <i>from</i> position in the original content. The <i>content</i> member of <a href="../Structures/API_ContentPars.html">API_ContentPars</a> should not contain line end characters and ranges may not overlap paragraphs. The another way to change the content is using <a href="ACAPI_Element_Change.html">ACAPI_Element_Change</a> function. With it you can set the style of the text also by passing <i>textContent</i> and <i>paragraphs</i> handles in <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a> structure. Don't forget to free the allocated memory blocks.</p>
+
+    <p>This function is a non-undoable data structure modifier function. See more details on this topic at <a href="../Level2/Command_Overview.html">Command Overview</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>Changing the content of a text element:</p>The original element:
+
+    <p>&nbsp;<img src="../../APIImageLibrary/ChangeContentOrig.JPG" width="381" height="162" alt="Change content"></p>
+
+    <blockquote>
+        <pre><code>
+GSErrCode       err = NoError;
+
+err = ACAPI_CallUndoableCommand ("Change the content of a text element",
+    [&amp;] () -&gt; GSErrCode {
+
+        API_ContentPars contPars;
+        Int32           numOfChanges = 2;
+
+        contPars.head.index  = index;
+        contPars.head.typeID = API_TextID;
+        contPars.from        = reinterpret_cast&lt;Int32 *&gt; (BMAllocatePtr (numOfChanges * sizeof (Int32), ALLOCATE_CLEAR, 0));
+        contPars.range       = reinterpret_cast&lt;Int32 *&gt; (BMAllocatePtr (numOfChanges * sizeof (Int32), ALLOCATE_CLEAR, 0));
+        contPars.content     = BMAllocatePtr (256 * sizeof (char), ALLOCATE_CLEAR, 0);
+        contPars.separator   = reinterpret_cast&lt;Int32 *&gt; (BMAllocatePtr (numOfChanges * sizeof (Int32), ALLOCATE_CLEAR, 0));
+
+        if (contPars.from == nullptr || contPars.range == nullptr || contPars.content == nullptr || contPars.separator == nullptr)
+            return APIERR_MEMFULL;
+
+        contPars.from[0]  = 5;  // byte position
+        contPars.range[0] = 16; // byte number
+        contPars.from[1]  = 28;
+        contPars.range[1] = 13;
+        CHCopyC ("raw was modified too", contPars.content);
+        contPars.separator[0] = 16;     // byte offset
+        contPars.separator[1] = 32;
+
+        GSErrCode err1 = ACAPI_Goodies (APIAny_ChangeContentID, &amp;contPars, nullptr);
+
+        BMKillPtr (reinterpret_cast&lt;GSPtr *&gt; (&amp;contPars.from));
+        BMKillPtr (reinterpret_cast&lt;GSPtr *&gt; (&amp;contPars.range));
+        BMKillPtr (reinterpret_cast&lt;GSPtr *&gt; (&amp;contPars.content));
+        BMKillPtr (reinterpret_cast&lt;GSPtr *&gt; (&amp;contPars.separator));
+
+        return err1;
+    });
+
+return err;
+</code></pre>
+    </blockquote>The result element:
+
+    <p>&nbsp;<img src="../../APIImageLibrary/ChangeContentMod.JPG" width="381" height="162" alt="Change content mod"></p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 6.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Goodies.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 6, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

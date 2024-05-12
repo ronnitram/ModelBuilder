@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ZoneAllQuantity</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ZoneAllQuantity.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ZoneAllQuantity</h1>
+
+    <p>Describes the different calculated values for zones.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>double</strong>     <em>area</em>;
+        <strong>double</strong>     <em>perimeter</em>;
+        <strong>double</strong>     <em>holesPrm</em>;
+        <strong>double</strong>     <em>wallsPrm</em>;
+        <strong>Int32</strong>      <em>allCorners</em>;
+        <strong>Int32</strong>      <em>concaveCorners</em>;
+        <strong>double</strong>     <em>wallsSurf</em>;
+        <strong>double</strong>     <em>doorsWidth</em>;
+        <strong>double</strong>     <em>doorsSurf</em>;
+        <strong>double</strong>     <em>windowsWidth</em>;
+        <strong>double</strong>     <em>windowsSurf</em>;
+        <strong>double</strong>     <em>baseLevel</em>;
+        <strong>double</strong>     <em>floorThick</em>;
+        <strong>double</strong>     <em>height</em>;
+        <strong>double</strong>     <em>netarea</em>;
+        <strong>double</strong>     <em>netperimeter</em>;
+        <strong>double</strong>     <em>volume</em>;
+        <strong>double</strong>     <em>reducementArea</em>;
+        <strong>double</strong>     <em>calcArea</em>;
+        <strong>double</strong>     <em>totalExtrArea</em>;
+        <strong>double</strong>     <em>reducedExtrArea</em>;
+        <strong>double</strong>     <em>lowExtrArea</em>;
+        <strong>double</strong>     <em>wallExtrArea</em>;
+        <strong>double</strong>     <em>curtainWallExtrArea</em>;
+        <strong>double</strong>     <em>coluExtrArea</em>;
+        <strong>double</strong>     <em>fillExtrArea</em>;
+        <strong>double</strong>     <em>insetTopSurf</em>;
+        <strong>double</strong>     <em>insetBackSurf</em>;
+        <strong>double</strong>     <em>insetSideSurf</em>;
+        <strong>double</strong>     <em>filler[8]</em>;
+    <strong>}</strong> <em>API_ZoneAllQuantity</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>area</b></dt>
+
+        <dd>measured area of the zone in square meters</dd>
+
+        <dt><b>perimeter</b></dt>
+
+        <dd>perimeter of the zone</dd>
+
+        <dt><b>holesPrm</b></dt>
+
+        <dd>perimeter of holes in the zone</dd>
+
+        <dt><b>wallsPrm</b></dt>
+
+        <dd>length of perimeter walls</dd>
+
+        <dt><b>allCorners</b></dt>
+
+        <dd>number of the corners of the zone</dd>
+
+        <dt><b>concaveCorners</b></dt>
+
+        <dd>number of concave corners of the zone</dd>
+
+        <dt><b>wallsSurf</b></dt>
+
+        <dd>surface area of perimeter walls</dd>
+
+        <dt><b>doorsWidth</b></dt>
+
+        <dd>combined width of all doors in the zone</dd>
+
+        <dt><b>doorsSurf</b></dt>
+
+        <dd>surface area of doors in the zone</dd>
+
+        <dt><b>windowsWidth</b></dt>
+
+        <dd>combined width of all windows in the zone</dd>
+
+        <dt><b>windowsSurf</b></dt>
+
+        <dd>surface area of windows in the zone</dd>
+
+        <dt><b>baseLevel</b></dt>
+
+        <dd>floor level of the zone</dd>
+
+        <dt><b>floorThick</b></dt>
+
+        <dd>subfloor thickness of the zone</dd>
+
+        <dt><b>height</b></dt>
+
+        <dd>height of the zone</dd>
+
+        <dt><b>netarea</b></dt>
+
+        <dd>net area of the zone</dd>
+
+        <dt><b>netperimeter</b></dt>
+
+        <dd>net perimeter of the zone</dd>
+
+        <dt><b>volume</b></dt>
+
+        <dd>the volume of the zone</dd>
+
+        <dt><b>reducementArea</b></dt>
+
+        <dd>zone area reducement</dd>
+
+        <dt><b>calcArea</b></dt>
+
+        <dd>calculated area of the zone</dd>
+
+        <dt><b>totalExtrArea</b></dt>
+
+        <dd>total extracted area of the zone</dd>
+
+        <dt><b>reducedExtrArea</b></dt>
+
+        <dd>reduced area of the zone</dd>
+
+        <dt><b>lowExtrArea</b></dt>
+
+        <dd>extracted low area of the zone</dd>
+
+        <dt><b>wallExtrArea</b></dt>
+
+        <dd>extracted wall area of the zone</dd>
+
+        <dt><b>curtainWallExtrArea</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></dt>
+
+        <dd>extracted curtain wall area of the zone</dd>
+
+        <dt><b>coluExtrArea</b></dt>
+
+        <dd>extracted column area of the zone</dd>
+
+        <dt><b>fillExtrArea</b></dt>
+
+        <dd>extracted fill area of the zone</dd>
+
+        <dt><b>insetTopSurf</b></dt>
+
+        <dd>wall inset top surface</dd>
+
+        <dt><b>insetBackSurf</b></dt>
+
+        <dd>wall inset back side surface</dd>
+
+        <dt><b>insetSideSurf</b></dt>
+
+        <dd>wall inset side surface</dd>
+
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>See also the parameters of a zone stamp library part.</p>
+
+    <p>This structure replaces the previous <code>API_ZoneQuantity</code> and <code>API_ZoneExtraQuantity</code> structures.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 14 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/ACAPI_Element_GetQuantities.html">ACAPI_Element_GetQuantities</a>, <a href="../Functions/ACAPI_Element_GetMoreQuantities.html">ACAPI_Element_GetMoreQuantities</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 09, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

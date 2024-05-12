@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>About Performance Monitor Manager</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/PerfManager/about.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>About Performance Monitor Manager</h1>
+
+    <p><font color="#FF0000">Windows NT only!</font></p>
+
+    <p>The Performance Monitor Manager makes adding own-designed performance counters more comfortable and more convenient. Counters are displayed by the system administrative tool Performance Monitor. The manager provides an easy-to-use interface, in order to hide the difficulty of connecting to Performance Monitor.</p>
+
+    <p>The simplest way to get connected to Performance Monitor: add your counters and performance objects (performance counters are grouped into objects), then put them to use. You can add an object to Performance Monitor Manager by calling the <a href="reference/PMAddObject.html"><strong>PMAddObject</strong></a> function. Once you added an object, you can add counters to the counter set of the object by calling the <a href="reference/PMAddCounter.html"><strong>PMAddCounter</strong></a> function. After creating your object and counter structure you can put them to use with the <a href="reference/PMUseCounters.html"><strong>PMUseCounters</strong></a> function.</p>
+
+    <p>After the above procedure you can modify the value of these counters within your program by calling the <a href="reference/PMSetCounterValue.html"><strong>PMSetCounterValue</strong></a> function. If you want to get a value of a counter within the program, call the <a href="reference/PMGetCounterValue.html"><strong>PMGetCounterValue</strong></a> function. The Performance Monitor continuously follows the changes made by <a href="reference/PMSetCounterValue.html"><strong>PMSetCounterValue</strong></a> by displaying the current values of the counters. If the current counter set is no longer needed you can define a new set in run time. Before defining the new set of counters you have to destroy the old one by calling the <a href="reference/PMAbuseCounters.html"><strong>PMAbuseCounters</strong></a> and the <a href="reference/PMDeleteObjects.html"><strong>PMDeleteObjects</strong></a> functions.&nbsp;&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

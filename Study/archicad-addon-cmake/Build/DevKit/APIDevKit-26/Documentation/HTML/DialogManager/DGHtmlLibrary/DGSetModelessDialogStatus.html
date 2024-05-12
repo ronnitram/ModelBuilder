@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGSetModelessDialogStatus</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGSetModelessDialogStatus.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGSetModelessDialogStatus</h1>
+
+    <p>Sets the status of a <a href="ModelessDialogs.html">modeless</a> or <a href="PaletteDialogs.html">palette</a> dialog.</p>
+    <pre class="syntax">
+    <strong>void DGSetModelessDialogStatus</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>dialStatus</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>dialStatus</em></dt>
+
+        <dd>Modeless dialog status flag. This status flag determines how the messages referring to the dialog are handled in <a href="DGModelessHandler.html">DGModelessHandler</a>:</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_DS_NORMAL</tt></td>
+
+                    <td>If the <em>onlyUpdate</em> parameter of <b>DGModelessHandler</b> is <tt>false</tt>, all the messages are handled for the dialog. If <em>onlyUpdate</em> is <tt>true</tt> in <b>DGModelessHandler</b>, only update messages are handled for the dialog.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_DS_ENABLED</tt></td>
+
+                    <td>All the messages are handled for the dialog, value of <em>onlyUpdate</em> is omitted.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_DS_DISABLED</tt></td>
+
+                    <td>No messages are handled for the dialog, value of <em>onlyUpdate</em> is omitted.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>When an application begins a long process such as a time-consuming calculation it is advisable to show a process indicator dialog with a Stop button. When handling system-specific messages during this period, applications should call <b>DGModelessHandler</b> with <em>onlyUpdate</em> of value <tt>true</tt>. In this case modeless dialogs with <tt>DG_DS_NORMAL</tt> state do not handle any messages except the update messages. However, the status of the process indicator dialog should be set to <tt>DG_DS_ENABLED</tt> by <b>DGSetModelessDialogStatus</b> in order to enable the user to press the button canceling the process this way.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ModelessDialogs.html">Modeless Dialogs</a>, <a href="PaletteDialogs.html">Palette Dialogs</a>, <a href="DGGetModelessDialogStatus.html">DGGetModelessDialogStatus</a><br>
+    <a href="DGModelessHandler.html">DGModelessHandler</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

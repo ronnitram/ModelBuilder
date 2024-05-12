@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE> Class</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/PropertyHint.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>PropertyHint Enum</H2><!--exp="PropertyHint Enum"-->
+<P><topic id="$DG.$PropertyHint.BriefDescription">
+		Identifiers for the global DG events.
+	</topic></P>
+<PRE class="syntax"><B>enum PropertyHint
+{</B>
+    <I>UnitSet</I><B>,</B>
+    <I>OnlyUpdate</I><B>,</B>
+    <I>NextModalParent</I><B>,</B>
+    <I>EditUpdateDelay</I><B>,</B>
+    <I>AutoCloseEnabled</I><B>,</B>
+    <I>AutoCloseDisabled</I><B>,</B>
+    <I>AutoCloseDelay</I><B>,</B>
+    <I>NormalUpdateEnabled</I><B>,</B>
+    <I>NormalUpdateDisabled</I><B>,</B>
+    <I>ScreenSaverEnabled</I><B>,</B>
+    <I>ScreenSaverDisabled</I><B>,</B>
+    <I>ScreenSaveOnModalDisabled</I><B>,</B>
+    <I>ToolTipsEnabled</I><B>,</B>
+    <I>ToolTipsDisabled</I><B>,</B>
+    <I>DialogRectangleReset</I><B>,</B>
+    <I>SelectionClear</I><B>,</B>
+    <I>SelectionCopy</I><B>,</B>
+    <I>SelectionCut</I><B>,</B>
+    <I>SelectionPaste</I><B>,</B>
+    <I>UndoEdit</I><B></B><B>
+};</B></PRE>
+<H4>Value Definitions</H4>
+<DL>
+<DT><I>UnitSet</I></DT>
+<DD><topic id="$DG.$PropertyHint.$UnitSet.EnumDescription">
+		The unit has been changed with the <tt>SetUnit</tt> function.
+	</topic></DD>
+<DT><I>OnlyUpdate</I></DT>
+<DD><topic id="$DG.$PropertyHint.$OnlyUpdate.EnumDescription">
+		The <tt>onlyUpdate</tt> flag has been changed with the <tt>SetOnlyUpdateFlag</tt> function.
+	</topic></DD>
+<DT><I>NextModalParent</I></DT>
+<DD><topic id="$DG.$PropertyHint.$NextModalParent.EnumDescription">
+		The parent window of the next invoked alert, or modal dialog has been changed with the
+		<tt>SetNextModalParent</tt> function.
+	</topic></DD>
+<DT><I>EditUpdateDelay</I></DT>
+<DD><topic id="$DG.$PropertyHint.$EditUpdateDelay.EnumDescription">
+		The update delay time of the edit controls has been changed with the <tt>SetEditUpdateDelay</tt>
+		function.
+	</topic></DD>
+<DT><I>AutoCloseEnabled</I></DT>
+<DD><topic id="$DG.$PropertyHint.$AutoCloseEnabled.EnumDescription">
+		The automatic close of alerts or modal dialogs has been enabled with the <tt>EnableAutoClose</tt>
+		function.
+	</topic></DD>
+<DT><I>AutoCloseDisabled</I></DT>
+<DD><topic id="$DG.$PropertyHint.$AutoCloseDisabled.EnumDescription">
+		The automatic close of alerts or modal dialogs has been disabled with the <tt>DisableAutoClose</tt>
+		function.
+	</topic></DD>
+<DT><I>AutoCloseDelay</I></DT>
+<DD><topic id="$DG.$PropertyHint.$AutoCloseDelay.EnumDescription">
+		The automatic close delay time of alerts or modal dialogs has been changed with the <tt>SetAutoCloseDelay</tt>
+		function.
+	</topic></DD>
+<DT><I>NormalUpdateEnabled</I></DT>
+<DD><topic id="$DG.$PropertyHint.$NormalUpdateEnabled.EnumDescription">
+		The normal update mechanism of partially updateable user items has been enabled with the
+		<tt>EnableNormalUpdate</tt> function.
+	</topic></DD>
+<DT><I>NormalUpdateDisabled</I></DT>
+<DD><topic id="$DG.$PropertyHint.$NormalUpdateDisabled.EnumDescription">
+		The normal update mechanism of partially updateable user items has been disabled with the
+		<tt>DisableNormalUpdate</tt> function.
+	</topic></DD>
+<DT><I>ScreenSaverEnabled</I></DT>
+<DD><topic id="$DG.$PropertyHint.$ScreenSaverEnabled.EnumDescription">
+		The screen saver has been enabled with the <tt>EnableScreenSave</tt> function.
+	</topic></DD>
+<DT><I>ScreenSaverDisabled</I></DT>
+<DD><topic id="$DG.$PropertyHint.$ScreenSaverDisabled.EnumDescription">
+		The screen saver has been disabled with the <tt>DisableScreenSave</tt> function.
+	</topic></DD>
+<DT><I>ScreenSaveOnModalDisabled</I></DT>
+<DD><topic id="$DG.$PropertyHint.$ScreenSaveOnModalDisabled.EnumDescription">
+		The screen saver has been disabled at modal dialogs with the <tt>DisableScreenSaveOnModalDialogs</tt>
+		function.
+	</topic></DD>
+<DT><I>ToolTipsEnabled</I></DT>
+<DD><topic id="$DG.$PropertyHint.$ToolTipsEnabled.EnumDescription">
+		The tooltips have been enabled with the <tt>EnableToolTips</tt> function.
+	</topic></DD>
+<DT><I>ToolTipsDisabled</I></DT>
+<DD><topic id="$DG.$PropertyHint.$ToolTipsDisabled.EnumDescription">
+		The tooltips have been disabled with the <tt>DisableToolTips</tt> function.
+	</topic></DD>
+<DT><I>DialogRectangleReset</I></DT>
+<DD><topic id="$DG.$PropertyHint.$DialogRectangleReset.EnumDescription">
+		The dialog rectangles have been reset to their default values with the <tt>ResetDialogRectangles</tt>
+		function.
+	</topic></DD>
+<DT><I>SelectionClear</I></DT>
+<DD><topic id="$DG.$PropertyHint.$SelectionClear.EnumDescription">
+		The selection in the focused edit control or rich edit control has been cleared with the
+		<tt>ClearSelection</tt> function.
+	</topic></DD>
+<DT><I>SelectionCopy</I></DT>
+<DD><topic id="$DG.$PropertyHint.$SelectionCopy.EnumDescription">
+		The selection in the focused edit control or rich edit control has been copied to the clipboard
+		with the <tt>CopySelection</tt> function.
+	</topic></DD>
+<DT><I>SelectionCut</I></DT>
+<DD><topic id="$DG.$PropertyHint.$SelectionCut.EnumDescription">
+		The selection in the focused edit control or rich edit control has been cut to the clipboard
+		with the <tt>CutSelection</tt> function.
+	</topic></DD>
+<DT><I>SelectionPaste</I></DT>
+<DD><topic id="$DG.$PropertyHint.$SelectionPaste.EnumDescription">
+		The selection in the focused edit control or rich edit control has been replaced with the clipboard
+		content with the <tt>PasteSelection</tt> function.
+	</topic></DD>
+<DT><I>UndoEdit</I></DT>
+<DD><topic id="$DG.$PropertyHint.$UndoEdit.EnumDescription">
+		The last operation of the focused edit control or rich edit control has been undone
+		with the <tt>UndoEditOperation</tt> function.
+	</topic></DD>
+</DL>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

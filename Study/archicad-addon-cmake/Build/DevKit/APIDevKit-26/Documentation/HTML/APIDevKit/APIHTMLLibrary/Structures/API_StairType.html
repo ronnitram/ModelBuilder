@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>API_StairType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_StairType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_StairType</h1>
+    <p>Represents a Stair element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                                     <em>head</em>;
+        <strong>double</strong>                                            <em>totalHeight</em>;
+        <strong>double</strong>                                            <em>topOffset</em>;
+        <strong><a href="API_LinkToSettings.html">API_LinkToSettings</a></strong>                                <em>linkToSettings</em>;
+        <strong>short</strong>                                             <em>relativeTopStory</em>;
+        <strong>short</strong>                                             <em>filler_1</em>;
+        <strong>double</strong>                                            <em>flightWidth</em>;
+        <strong>UInt32</strong>                                            <em>stepNum</em>;
+        <strong>UInt32</strong>                                            <em>nFPDMarkers</em>;
+        <strong>UInt32</strong>                                            <em>nRCPDMarkers</em>;
+        <strong>UInt32</strong>                                            <em>treadNum</em>;
+        <strong>double</strong>                                            <em>riserHeight</em>;
+        <strong>UInt32</strong>                                            <em>treadDepth</em>;
+        <strong>bool</strong>                                              <em>treadDepthLocked</em>;
+        <strong>bool</strong>                                              <em>totalHeightLocked</em>;
+        <strong>short</strong>                                             <em>filler_2</em>;
+        <strong>double</strong>                                            <em>walkingLineOffset</em>;
+        <strong><a href="#API_LinePositionID">API_LinePositionID</a></strong>                                <em>walkingLinePosition</em>;
+        <strong>bool</strong>                                              <em>extraTopTread</em>;
+        <strong>bool</strong>                                              <em>extraBottomTread</em>;
+        <strong>bool</strong>                                              <em>finishVisible</em>;
+        <strong><a href="#API_LinePositionID">API_LinePositionID</a></strong>                                <em>baselinePosition</em>;
+        <strong>double</strong>                                            <em>baselineOffset</em>;
+        <strong><a href="API_StairRulesData.html">API_StairRulesData</a></strong>                                <em>rules</em>;
+        <strong><a href="API_StairTreadType.html">API_StairTreadType</a></strong>                                <em>tread[API_StairPartRoleNum]</em>;
+        <strong><a href="API_StairRiserType.html">API_StairRiserType</a></strong>                                <em>riser[API_StairPartRoleNum]</em>;
+        <strong><a href="API_StairStructureType.html">API_StairStructureType</a></strong>                            <em>structure[API_StairPartRoleNum][API_StairStructureSideNum]</em>;
+        <strong><a href="#API_StairDisplayTypeID">API_StairDisplayTypeID</a></strong>                            <em>stairDisplayType</em>;
+        <strong><a href="API_StairLayoutData.html">API_StairLayoutData</a></strong>                               <em>fpdLayout</em>;
+        <strong><a href="API_StairLayoutData.html">API_StairLayoutData</a></strong>                               <em>rcpdLayout</em>;
+        <strong><a href="#API_StairNumberingID">API_StairNumberingID</a></strong>                              <em>numberingType</em>;
+        <strong><a href="#API_StairDirectionID">API_StairDirectionID</a></strong>                              <em>inputDirection</em>;
+        <strong><a href="API_Plane3D.html">API_Plane3D</a></strong>                                       <em>basePlane</em>;
+        <strong>bool</strong>                                              <em>uniformFinish</em>;
+        <strong>bool</strong>                                              <em>uniformMonolithAttributes</em>;
+        <strong>bool</strong>                                              <em>uniformLeftRightSideSupports[API_StairPartRoleNum]</em>;
+        <strong>bool</strong>                                              <em>uniformDrainings</em>;
+        <strong>bool</strong>                                              <em>structureVisibility</em>;
+        <strong>bool</strong>                                              <em>filler_3[6]</em>;
+        <strong><a href="API_StairStructureSymbolData.html">API_StairStructureSymbolData</a></strong>                      <em>structSymbData[API_StairStructSymbTypeNum][API_StairStructSymbViewNum]</em>;
+        <strong><a href="API_StairMonolithStructureSymbolData.html">API_StairMonolithStructureSymbolData</a></strong>              <em>monolithStructureSymbolData[API_StairStructSymbViewNum][API_StairStructSymbPartNum]</em>;
+        <strong><a href="API_StairStructureComponentSettingsVisibility.html">API_StairStructureComponentSettingsVisibility</a></strong>     <em>structureVisibilityOnStories[API_StairStructSymbViewNum]</em>;
+        <strong><a href="#API_StairWalkLineSymbPosID">API_StairWalkLineSymbPosID</a></strong>                        <em>walkLineSymbPos</em>;
+        <strong><a href="API_StairHeadroomData.html">API_StairHeadroomData</a></strong>                             <em>stairHeadroomData</em>;
+    <strong>}</strong> <em>API_StairType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+        <dd>General element header.</dd>
+
+        <dt><b>totalHeight</b></dt>
+        <dd>The height of the stairs relative to their bottom.</dd>
+
+        <dt><b>topOffset</b></dt>
+        <dd>The offset from top floor if the stairs are top linked.</dd>
+
+        <dt><b>linkToSettings</b></dt>
+        <dd>Mode of linking to home story.</dd>
+
+        <dt><b>relativeTopStory</b></dt>
+        <dd>The top linked story (relative to home story).</dd>
+
+        <dt><b>flightWidth</b></dt>
+        <dd>The width of the stairs.</dd>
+
+        <dt><b>stepNum</b></dt>
+        <dd>The number of steps (risers).</dd>
+
+        <dt><b>nFPDMarkers</b></dt>
+        <dd>The amount of markers associated to the Stair element on the Floor Plan display.</dd>
+
+        <dt><b>nRCPDMarkers</b></dt>
+        <dd>The amount of markers associated to the Stair element on the Reflected Ceilind Plan display.</dd>
+
+        <dt><b>treadNum</b></dt>
+        <dd>The number of treads in this stair.</dd>
+
+        <dt><b>riserHeight</b></dt>
+        <dd>The height of each riser.</dd>
+
+        <dt><b>treadDepth</b></dt>
+        <dd>The length of each going.</dd>
+
+        <dt><b>treadDepthLocked</b></dt>
+        <dd>Going lengths are locked.</dd>
+
+        <dt><b>totalHeightLocked</b></dt>
+        <dd>The total height of the Stair is locked.</dd>
+
+        <dt><a name="API_LinePositionID"><b>walkingLinePosition</b></a></dt>
+        <dd>
+            Position of the walking line:
+            <table>
+                <tr>
+                    <td><p><code>APILP_Left</code></p></td>
+                    <td><p>Offset from the left side.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APILP_Right</code></p></td>
+                    <td><p>Offset from the right side.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APILP_Center</code></p></td>
+                    <td><p>Centered.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APILP_Auto</code></p></td>
+                    <td><p>Automatic (walking lines only).</p></td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>walkingLineOffset</b></dt>
+        <dd>Offset of the walking line, if not centered.</dd>
+
+        <dt><b>baselineOffset</b></dt>
+        <dd>Offset of the baseline, if not centered.</dd>
+
+        <dt><b>baselinePosition</b></dt>
+        <dd>Position of the baseline.</dd>
+
+        <dt><b>rules</b></dt>
+        <dd>The rules and standards of the stairs.</dd>
+
+        <dt><b>tread</b></dt>
+        <dd>Default parameters of treads.</dd>
+
+        <dt><b>riser</b></dt>
+        <dd>Default parameters of risers.</dd>
+
+        <dt><b>structure</b></dt>
+        <dd>Default parameters of the stair structure.</dd>
+
+        <dt><a name="API_StairDisplayTypeID"><b>stairDisplayType</b></a></dt>
+        <dd>
+            Display type of the Stair:
+            <table>
+                <tr>
+                    <td><p><code>APIStairDisplay_Custom</code></p></td>
+                    <td><p>Custom display.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairDisplay_ByModelViewOptions</code></p></td>
+                    <td><p>Display by Model View Options.</p></td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>fpdLayout</b></dt>
+        <dd>The layout of the Stair element in Floor Plan Display.</dd>
+
+        <dt><b>rcpdLayout</b></dt>
+        <dd>The layout of the Stair element in Reflected Ceiling Plan Display.</dd>
+
+        <dt><a name="API_StairNumberingID"><b>numberingType</b></a></dt>
+        <dd>
+            Type of numbering for each step of the Stair element:
+            <table>
+                <tr>
+                    <td><p><code>APISN_Treads</code></p></td>
+                    <td><p>Numbering on treads.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APISN_Risers</code></p></td>
+                    <td><p>Numbering on risers.</p></td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><a name="API_StairDirectionID"><b>inputDirection</b></a></dt>
+        <dd>
+            The walking direction of the Stair element:
+            <table>
+                <tr>
+                    <td><p><code>APISD_Upward</code></p></td>
+                    <td><p>Default walking direction (upwards).</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APISD_Inverse</code></p></td>
+                    <td><p>Inverse walking direction (downwards).</p></td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>basePlane</b></dt>
+        <dd>The base plane of the Stair subelements.</dd>
+
+        <dt><b>uniformFinish</b></dt>
+        <dd>Uniform Finish on Flight and Landing.</dd>
+
+        <dt><b>uniformMonolithAttributes</b></dt>
+        <dd>Uniform Monolithic on Flight and Landing.</dd>
+
+        <dt><b>uniformLeftRightSideSupports</b></dt>
+        <dd>Uniform Stringers on Left and Right.</dd>
+
+        <dt><b>uniformDrainings</b></dt>
+        <dd>Uniform Drainings on Flight and Landing</dd>
+
+        <dt><b>structureVisibility</b></dt>
+        <dd>The Structure is visible.</dd>
+
+        <dt><b>structSymbData</b></dt>
+        <dd>Stair Structure symbol data for 2D representations.</dd>
+
+        <dt><b>monolithStructureSymbolData</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Monolith stair structure symbol data for 2D representations.</dd>
+
+        <dt><b>structureVisibilityOnStories</b></dt>
+        <dd>Stair Structure symbol visibility for 2D representations.</dd>
+
+        <dt><a name="API_StairWalkLineSymbPosID"><b>walkLineSymbPos</b></a></dt>
+        <dd>
+            Position of the walking line symbol:
+            <table>
+                <tr>
+                    <td><p><code>APISP_Auto</code></p></td>
+                    <td><p>Automatic positioning.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APISP_Center</code></p></td>
+                    <td><p>Centered positioning.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APISP_Custom</code></p></td>
+                    <td><p>Custom positioning.</p></td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>stairHeadroomData</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Data of the headroom.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+    <p>The Stair is a hierarchical element consisting of Tread, Riser, and Structure components: these are the members of the Stair, arranged on a base surface according to a pre-defined scheme.</p>
+    <p>To create a Stair, one must provide its base line and position.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_LinkToSettings.html">API_LinkToSettings</a>, <a href="API_StoryVisibility.html">API_StoryVisibility</a>, <a href="API_PolyLineType.html">API_PolyLineType</a><br>
+    <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_Element.html">API_Element</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="API_StairTreadType.html">API_StairTreadType</a>, <a href="API_StairRiserType.html">API_StairRiserType</a>, <a href="API_StairStructureType.html">API_StairStructureType</a>, <a href="API_StairRulesData.html">API_StairRulesData</a>, <a href="API_StairBoundaryData.html">API_StairBoundaryData</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

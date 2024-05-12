@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="Faller Gyula" />
+
+    <title>GXCreateGSPixMap</title>
+
+    <meta http-equiv="Content-Language" content="en-US" />
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css" />
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GXHtmlLibrary/GXCreateGSPixMap.html" />
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GX&nbsp;Module</span><span class="TitleVersion">Version: 16</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GXCreateGSPixMap</h1>
+
+    <p>Creates a new pixmap.</p>
+    <pre class="syntax">
+    <strong>GSPixMapHandle</strong> GXCreateGSPixMap (
+      <strong>Int32</strong>  <em>hSiz</em>,
+      <strong>Int32</strong>  <em>vSiz</em>,
+      <strong>Int32</strong>  <em>res</em>,
+      <strong>GSPixelType</strong>  <em>pixelType</em>
+    );
+</pre>
+
+    <h2>Parameters</h2>
+
+    <dl class="Parameters">
+        <dt>hSiz</dt>
+
+        <dd>The width (pixels in a row) of the new pixmap.</dd>
+
+        <dt>vSiz</dt>
+
+        <dd>The height (pixels in a column) of the new pixmap.</dd>
+
+        <dt>res</dt>
+
+        <dd>The resolution of the new pixmap in DPI (dot per inch).</dd>
+
+        <dt>pixelType</dt>
+
+        <dd>The pixel type of the new pixmap.</dd>
+    </dl>
+
+    <h2>Return Values</h2>
+
+    <p>The new pixmap.</p>
+
+    <h2>Requirements</h2>
+
+    <dl class="Requirements">
+        <dt>Version:</dt>
+
+        <dd>GX 10 or later</dd>
+
+        <dt>Header:</dt>
+
+        <dd>Graphics2D.h</dd>
+
+        <dt>Import Library:</dt>
+
+        <dd>GXImp.lib</dd>
+
+        <dt>Module:</dt>
+
+        <dd>GX.dll [WIN], GX.framework [MAC]</dd>
+    </dl>
+
+    <h2>See Also</h2>
+
+    <p><a href="Graphics2D.html">Graphics functions</a>, <a href="GXCopyGSPixMap.html">GXCopyGSPixMap</a>, <a href="GXDeleteGSPixMap.html">GXDeleteGSPixMap</a></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

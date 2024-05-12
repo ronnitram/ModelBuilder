@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>TE::IRichText::GetLineWidths Method</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+  
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTMLLibrary/TE/classes/IRichText/GetLineWidths.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">TextEngine</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TE::IRichText::GetLineWidths Method</h1>
+    <!--exp="TE::IRichText::GetLineWidths Method"-->
+    <p>
+      <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Retrieves the line widths of the given paragraph in pixels.
+  
+    </p>
+    <pre class="Syntax"><span class="SyntaxTypename">bool</span> <span class="SyntaxIdentifier">GetLineWidths</span> <span class="SyntaxSymbol">(</span>
+    <span class="SyntaxTypename">Int32</span>               <span class="SyntaxParameter">paragraphIndex</span><span class="SyntaxSymbol">,</span>
+    <span class="SyntaxTypename">GS::Array&lt; double &gt; *</span> <span class="SyntaxParameter">lineLengths</span>
+<span class="SyntaxSymbol">)</span> <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">0</span><span class="SyntaxSymbol">;</span></pre>
+    <pre class="Syntax"><span class="SyntaxTypename">bool</span> <span class="SyntaxIdentifier">GetLineWidths</span> <span class="SyntaxSymbol">(</span>
+    <span class="SyntaxTypename">Int32</span>               <span class="SyntaxParameter">paragraphIndex</span><span class="SyntaxSymbol">,</span>
+    <span class="SyntaxTypename">GS::Array&lt; double &gt; *</span> <span class="SyntaxParameter">lineLengths</span>
+<span class="SyntaxSymbol">)</span> <span class="SyntaxKeyword">const</span> <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">0</span><span class="SyntaxSymbol">;</span></pre>
+    <h2 class="SectionHeader">Parameters</h2>
+    <dl>
+      <dt><span class="Parameter">paragraphIndex</span></dt>
+      <dd>
+        <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[in]</i> The index of the paragraph.
+  
+      </dd>
+      <dt><span class="Parameter">lineLengths</span></dt>
+      <dd>
+        <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[out]</i> Floating point array of line widths in pixels.
+  
+      </dd>
+    </dl>
+    <h2 class="SectionHeader">Return Value</h2>
+    <p>
+      
+    Return false if the <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">paragraphIndex</b> is wrong else return true.
+  
+    </p>
+    <p>
+      
+    </p>
+    <p>
+      
+    </p>
+    
+    <h2 class="SectionHeader">Description</h2>
+    
+    Retrieves the line widths of the <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">paragraphIndex</b>th paragraph in pixels. This method is usually called befor drawing. You should
+    buffer the retrieved datas in the implementation of this method.
+  
+    
+    <h2 class="SectionHeader">Example</h2>
+    <p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"><!-- Don't index --><a href="Invalid link: ../../Examples/IRichText.html" shape="rect">Example for using IRichText</a></p>
+    
+    <h2 class="SectionHeader">See Also</h2>
+    <p>
+      <!-- Don't index --><a href="IRichText.html">IRichText Overview</a> | 
+      <!-- Don't index --><a href="IRichText.html#members">Class Members</a> | 
+      <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="GetParagraph.html" shape="rect">IRichText::GetParagraph</a>
+    </p>
+  
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DG_MSG_CLICK</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_CLICK.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_CLICK</h1>
+
+    <p>A dialog item is clicked.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the clicked dialog item or <tt>DG_CLOSEBOX</tt> if the close box of a <a href="ModelessDialogs.html">modeless</a> or a <a href="PaletteDialogs.html">palette</a> dialog was clicked.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Item type</th>
+
+                    <th align="left"><em>msgData</em></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="Icon.html">Icon</a></td>
+
+                    <td>Not used, always zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="ListBox.html">List Box</a></td>
+
+                    <td>Pointer to a <a href="DGListMsgData.html">DGListMsgData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="Picture.html">Picture</a></td>
+
+                    <td>Not used, always zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="PushButton.html">Push Button</a></td>
+
+                    <td>Not used, always zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="StaticText.html">Static Text</a></td>
+
+                    <td>Not used, always zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="TabControl.html">Tab Control</a></td>
+
+                    <td>1-based index of the tab that the user clicked.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="TreeView.html">Tree View</a></td>
+
+                    <td>The ID of the clicked tree item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="UserItem.html">User Item</a></td>
+
+                    <td>Pointer to a <a href="DGUserMsgData.html">DGUserMsgData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Item type</th>
+
+                    <th align="left">Value</th>
+                </tr>
+
+                <tr valign="top">
+                    <td>Icon</td>
+
+                    <td>Not used, should be set to zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>List Box</td>
+
+                    <td>Not used, should be set to zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Picture</td>
+
+                    <td>Not used, should be set to zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Push Button</td>
+
+                    <td>Set it to zero if you do not want to close the dialog. If you want to close the dialog set it to a non-zero value (usually the index of the clicked dialog item). This value will be passed to the callback function with the <a href="DG_MSG_CLOSE.html"><tt>DG_MSG_CLOSE</tt></a> message.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Static Text</td>
+
+                    <td>Not used, should be set to zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Tab Control</td>
+
+                    <td>Set it to 1 to avoid changing tab page, or zero to let changing tab page.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Tree View</td>
+
+                    <td>Set it to 1 to keep the previous selection and break further processing of the click event.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>User Item</td>
+
+                    <td>Not used, should be set to zero.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>When the user clicks a push button on a tab control page, the dialog is not closed even if the application returns a non-zero value in the <a href="CallbackFunctions.html">dialog callback function</a>. The user can close a dialog only if she/he clicks a push button of the main dialog.</p>
+
+    <p>When the user clicks the close box of a modeless or palette dialog, the <em>item</em> parameter of the message equals to <tt>DG_CLOSEBOX</tt>. In this case return this value in the dialog callback function to close the dialog.</p>
+
+    <p>If the user clicks the mouse on a selected list item of a list box or user list, the control receives a <tt>DG_MSG_CLICK</tt> message only. However, when the user clicks on a non-selected item, <tt>DG_MSG_CLICK</tt> is preceded by a <tt>DG_MSG_CHANGE</tt> message.</p>
+
+    <p>Tree view controls receive <tt>DG_MSG_CLICK</tt> message and a <tt>DG_MSG_TREEITEMCLICK</tt> message if the user clicks the normal or state icon of a tree item.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="ModelessDialogs.html">Modeless Dialogs</a>, <a href="PaletteDialogs.html">Palette Dialogs</a>, <a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGListMsgData.html">DGListMsgData</a>, <a href="DGUserMsgData.html">DGUserMsgData</a>, <a href="DG_MSG_TREEITEMCLICK.html">DG_MSG_TREEITEMCLICK</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on March 17, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

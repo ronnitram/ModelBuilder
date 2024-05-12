@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_SetPreferences_OldVersion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_SetPreferences_OldVersion.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_SetPreferences_OldVersion</h1>
+
+    <p>Defines custom preferences data to be saved into older project file versions.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_SetPreferences_OldVersion</strong> (
+        <strong>Int32</strong>              <em>version</em>,
+        <strong>GSSize</strong>             <em>nByte</em>,
+        <strong>const void*</strong>        <em>data</em>,
+        <strong>unsigned short</strong>     <em>platformSign</em>,
+        <strong><a href="../Structures/API_FTypeID.html">API_FTypeID</a></strong>        <em>oldPlanFileID</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>version</em></dt>
+
+        <dd>[in] The version of the data to be stored.</dd>
+
+        <dt><em>nByte</em></dt>
+
+        <dd>[in] The size of the data to be stored.</dd>
+
+        <dt><em>data</em></dt>
+
+        <dd>[in] The preferences data you would like to store for the specified plan version.</dd>
+
+        <dt><em>platformSign</em></dt>
+
+        <dd>[in] The platform identifier of the data (<code>GS::Win_Platform_Sign</code>, <code>GS::Mac_Platform_Sign</code>, <code>GS::Mactel_Platform_Sign</code><img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12">&nbsp; or <code>GS::Act_Platform_Sign</code>).</dd>
+
+        <dt><em>oldPlanFileID</em></dt>
+
+        <dd>[in] The plan file format associated with the preferences data when saving the project into this plan version. The value of this parameter can be:<br>
+        <code>APIFType_PlanFile</code>, <code>APIFType_PlanFile810</code>, <code>APIFType_PlanFile800</code>, <code>APIFType_PlanFile700</code>, <code>APIFType_PlanFile650</code>, <code>APIFType_PlanFile600</code>.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <p>For common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to save your own options or preferences into the preferences file of the server application or into the project file to be saved. This information can be later retrieved with <a href="ACAPI_GetPreferences.html">ACAPI_GetPreferences</a> and <a href="ACAPI_GetPreferences_Platform.html">ACAPI_GetPreferences_Platform</a>.</p>
+
+    <p>You can define different preferences to be saved into different plan file formats. Use this function if your add-on had incompatible preferences format in the previous versions of Archicad. Store the data in that format too indicating which plan version should use it. When the user chooses to save the plan into an older plan format, the appropriate preferences data will be stored.</p>
+
+    <p>For more details see the <a href="../Level3/Preferences_Save.html">Saving Add-On data into the Preferences and the Project File</a> section.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+const Int32 ActVersion = 3;
+const Int32 Version_in_AC8 = 2;
+const Int32 Version_in_AC7 = 1;
+
+struct MyPrefs          prefsData;
+struct MyPrefs_in_AC8   dataForAC8;
+struct MyPrefs_in_AC7   dataForAC7;
+// construct the preferences data...
+
+// store the actual preferences
+ACAPI_SetPreferences (ActVersion, sizeof (MyPrefs), &amp;prefsData);
+
+// specify preferences to be saved into older plan file versions
+<font color="#FF0066">ACAPI_SetPreferences_OldVersion</font> (Version_in_AC8, sizeof (MyPrefs_in_AC8), &amp;dataForAC8, GS::Act_Platform_Sign, APIFType_PlanFile800);
+<font color="#FF0066">ACAPI_SetPreferences_OldVersion</font> (Version_in_AC7, sizeof (MyPrefs_in_AC7), &amp;dataForAC7, GS::Act_Platform_Sign, APIFType_PlanFile700);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 6.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Level3/Preferences_Save.html">Saving Add-On data into the Preferences and the Project File</a><br>
+    <a href="ACAPI_SetPreferences.html">ACAPI_SetPreferences</a><br>
+    <a href="ACAPI_GetPreferences.html">ACAPI_GetPreferences</a><br>
+    <a href="ACAPI_GetPreferences_Platform.html">ACAPI_GetPreferences_Platform</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

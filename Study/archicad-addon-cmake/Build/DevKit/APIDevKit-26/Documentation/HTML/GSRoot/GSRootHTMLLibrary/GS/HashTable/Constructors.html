@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>HashTable (HashTable)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/HashTable/Constructors.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="HashTable.html">HashTable</A>&lt;IndexType, ItemType&gt;::HashTable</H2><!--exp="HashTable<IndexType, ItemType>::HashTable-->
+<P><topic id="$GS.$HashTable.$HashTable.BriefDescription">
+		HashTable constructor.
+	</topic></P>
+<PRE class="syntax"><B>HashTable (</B>
+    <B>float               </B><I>averageSeekFactorLimit</I><B> = 0.0</B>,
+    <B>float               </B><I>minFillFactor</I><B> = 0.0</B>
+<B>);</B></PRE>
+<PRE class="syntax"><B>HashTable (</B><B>const HashTable &amp; </B><I>source</I><B>);</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>averageSeekFactorLimit</I></DT><DD><topic id="$GS.$HashTable.$HashTable.$averageSeekFactorLimit.ParamDescription">
+		Specifies the <!----><A href="HashTable.html#AverageSeekFactor">average seek factor limit</A> for the hashtable.
+		0.0 means the default average seek factor limit which is currently 2.0. Values less than 1.0
+		have no sense so they are also interpreted as the default value.
+	</topic></DD><DT><I>minFillFactor</I></DT><DD><topic id="$GS.$HashTable.$HashTable.$minFillFactor.ParamDescription">
+		Specifies the <!----><A href="HashTable.html#FillFactor">minimum fill factor</A> for the hashtable.
+		0.0 means the default minimum fill factor which is currently 0.75. Values less than 0.01 are treated
+		unsafe so they are also interpreted as the default value.
+	</topic></DD><DT><I>source</I></DT><DD><topic id="$GS.$HashTable.$HashTable.$source.ParamDescription"></topic></DD>
+</DL>
+<H4>Description</H4>
+<P><topic id="$GS.$HashTable.$HashTable.LongDescription">
+		Constructs a new hashtable with the specified average seek factor limit and minimum fill factor.<br>
+		After the construction no memory is allocated. It will be allocated the first time when it
+		is really needed.
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>API_CurtainWallType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_CurtainWallType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_CurtainWallType</h1>
+    <p>Represents a Curtain Wall element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                      <em>head</em>;
+        <strong><a href="API_ZoneRelID.html">API_ZoneRelID</a></strong>                      <em>zoneRel</em>;
+        <strong>short</strong>                              <em>pen</em>;
+        <strong>short</strong>                              <em>filler_1</em>;
+        <strong>double</strong>                             <em>nominalWidth</em>;
+        <strong>bool</strong>                               <em>flipped</em>;
+        <strong>bool</strong>                               <em>filler_2[7]</em>;
+        <strong>double</strong>                             <em>offset</em>;
+        <strong>double</strong>                             <em>distanceInside</em>;
+        <strong>double</strong>                             <em>distanceOutside</em>;
+        <strong><a href="API_CWBoundaryFramePosID.html">API_CWBoundaryFramePosID</a></strong>           <em>boundaryFramePosition</em>;
+        <strong><a href="API_LinkToSettings.html">API_LinkToSettings</a></strong>                 <em>linkToSettings</em>;
+        <strong><a href="API_StoryVisibility.html">API_StoryVisibility</a></strong>                <em>visibility</em>;
+        <strong>bool</strong>                               <em>isAutoOnStoryVisibility</em>;
+        <strong>bool</strong>                               <em>filler_3[3]</em>;
+        <strong>double</strong>                             <em>storyRelLevel</em>;
+        <strong><a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a></strong>           <em>displayOption</em>;
+        <strong><a href="API_ElemProjectionModesID.html">API_ElemProjectionModesID</a></strong>          <em>cutProjectionMode</em>;
+        <strong><a href="API_ElemProjectionModesID.html">API_ElemProjectionModesID</a></strong>          <em>uncutProjectionMode</em>;
+        <strong><a href="API_ElemProjectionModesID.html">API_ElemProjectionModesID</a></strong>          <em>overheadProjectionMode</em>;
+        <strong><a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a></strong>     <em>viewDepthLimitation</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>overheadLineType</em>;
+        <strong>short</strong>                              <em>overheadLinePen</em>;
+        <strong>short</strong>                              <em>uncutLinePen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>uncutLineType</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>frameCutLineType</em>;
+        <strong>short</strong>                              <em>frameCutLinePen</em>;
+        <strong>short</strong>                              <em>panelCutLinePen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>panelCutLineType</em>;
+        <strong>bool</strong>                               <em>useFrameTypesAttributes</em>;
+        <strong>bool</strong>                               <em>usePanelTypesAttributes</em>;
+        <strong>bool</strong>                               <em>filler_4[2]</em>;
+        <strong><a href="API_PenOverrideType.html">API_PenOverrideType</a></strong>                <em>penOverride</em>;
+        <strong><a href="API_CWPlacementID.html">API_CWPlacementID</a></strong>                  <em>placementMethod</em>;
+        <strong>Int32</strong>                              <em>filler_5</em>;
+        <strong><a href="API_CWSegmentType.html">API_CWSegmentType</a></strong>                  <em>segmentData</em>;
+        <strong><a href="API_CWFrameType.html">API_CWFrameType</a></strong>                    <em>cornerFrameData</em>;
+        <strong><a href="API_CWFrameType.html">API_CWFrameType</a></strong>                    <em>boundaryFrameData</em>;
+        <strong><a href="API_CWJunctionType.html">API_CWJunctionType</a></strong>                 <em>junctionData</em>;
+        <strong><a href="API_CWAccessoryType.html">API_CWAccessoryType</a></strong>                <em>accessoryData</em>;
+        <strong>double</strong>                             <em>angle</em>;
+        <strong>double</strong>                             <em>height</em>;
+        <strong><a href="API_Polygon.html">API_Polygon</a></strong>                        <em>polygon</em>;
+        <strong><a href="API_Tranmat.html">API_Tranmat</a></strong>                        <em>planeMatrix</em>;
+        <strong>double</strong>                             <em>planeOffset</em>;
+        <strong>UInt32</strong>                             <em>nSegments</em>;
+        <strong>UInt32</strong>                             <em>nFrames</em>;
+        <strong>UInt32</strong>                             <em>nFrameDefaults</em>;
+        <strong>UInt32</strong>                             <em>nPanels</em>;
+        <strong>UInt32</strong>                             <em>nPanelDefaults</em>;
+        <strong>UInt32</strong>                             <em>nJunctions</em>;
+        <strong>UInt32</strong>                             <em>nAccessories</em>;
+        <strong>UInt32</strong>                             <em>filler_6</em>;
+    <strong>}</strong> <em>API_CurtainWallType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+    <h4>Members</h4>
+    <dl>
+        <dt><b>head</b></dt>
+        <dd>General element header.</dd>
+
+        <dt><b>zoneRel</b></dt>
+        <dd>Relation to zones. See <a href="API_ZoneRelID.html">API_ZoneRelID</a>.</dd>
+
+        <dt><b>pen</b></dt>
+        <dd>The pen index.</dd>
+
+        <dt><b>nominalWidth</b></dt>
+        <dd>Nominal width of the Curtain Wall.</dd>
+
+        <dt><b>flipped</b></dt>
+        <dd>The curtain wall is flipped.</dd>
+
+        <dt><b>offset</b></dt>
+        <dd>Panel offset to the reference plane.</dd>
+
+        <dt><b>distanceInside</b></dt>
+        <dd>Theory border of the curtain wall.</dd>
+
+        <dt><b>distanceOutside</b></dt>
+        <dd>Theory border of the curtain wall.</dd>
+
+        <dt><b>boundaryFramePosition</b></dt>
+        <dd>Boundary Frame position.</dd>
+
+        <dt><b>linkToSettings</b></dt>
+        <dd>Link to story settings. See <a href="API_LinkToSettings.html">API_LinkToSettings</a>.</dd>
+
+        <dt><b>visibility</b></dt>
+        <dd>Story visibility. See <a href="API_StoryVisibility.html">API_StoryVisibility</a>.</dd>
+
+        <dt><b>isAutoOnStoryVisibility</b></dt>
+        <dd>Story visibility will be automatically recalculated when needed.</dd>
+
+        <dt><b>storyRelLevel</b></dt>
+        <dd>Base level (relative to home story).</dd>
+
+        <dt><b>displayOption</b></dt>
+        <dd>Floor plan display option. See <a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a>.</dd>
+
+		<dt><b>cutProjectionMode</b>&nbsp;<img alt="Featuring API 22" border="0" height="12" src="../../APIImageLibrary/22.png" width="19"></dt>
+
+        <dd>Cut projection mode. See <a href="API_ElemProjectionModesID.html">API_ElemProjectionModesID</a>.</dd>
+
+		<dt><b>uncutProjectionMode</b>&nbsp;<img alt="Featuring API 22" border="0" height="12" src="../../APIImageLibrary/22.png" width="19"></dt>
+
+        <dd>Uncut projection mode. See <a href="API_ElemProjectionModesID.html">API_ElemProjectionModesID</a>.</dd>
+
+		<dt><b>overheadProjectionMode</b>&nbsp;<img alt="Featuring API 22" border="0" height="12" src="../../APIImageLibrary/22.png" width="19"></dt>
+
+        <dd>Overhead projection mode. See <a href="API_ElemProjectionModesID.html">API_ElemProjectionModesID</a>.</dd>
+
+        <dt><b>viewDepthLimitation</b></dt>
+        <dd>Floor plan view depth limitation. See <a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a>.</dd>
+
+        <dt><b>overheadLineType</b></dt>
+        <dd>Linetype of view above cutplane on the floorplan.</dd>
+
+        <dt><b>overheadLinePen</b></dt>
+        <dd>Pen index of view above cutplane on the floorplan.</dd>
+
+        <dt><b>uncutLineType</b></dt>
+        <dd>Linetype of view below cutplane on the floorplan.</dd>
+
+        <dt><b>uncutLinePen</b></dt>
+        <dd>Pen index of view below cutplane on the floorplan.</dd>
+
+        <dt><b>frameCutLineType</b></dt>
+        <dd>Line index of the cut part of frames on the floorplan.</dd>
+
+        <dt><b>frameCutLinePen</b></dt>
+        <dd>Pen index of the cut part of frames on the floorplan.</dd>
+
+        <dt><b>panelCutLineType</b></dt>
+        <dd>Line index of the cut part of panels on the floorplan.</dd>
+
+        <dt><b>panelCutLinePen</b></dt>
+        <dd>Pen index of the cut part of panels on the floorplan.</dd>
+
+        <dt><b>useFrameTypesAttributes</b></dt>
+        <dd>Use Frame type's attributes.</dd>
+
+        <dt><b>usePanelTypesAttributes</b></dt>
+        <dd>Use Panel type's attributes.</dd>
+
+        <dt><b>penOverride</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+        <dd>Cut fill pens set in the building material can be overridden on the element level.</dd>
+
+        <dt><b>placementMethod</b></dt>
+        <dd>Placement method.</dd>
+
+        <dt><b>segmentData</b></dt>
+        <dd>Curtain Wall Segment related data.</dd>
+
+        <dt><b>cornerFrameData</b>&nbsp;<img alt="Featuring API 22" border="0" height="12" src="../../APIImageLibrary/22.png" width="19"></dt>
+        <dd>Parameters of corner frames.</dd>
+
+        <dt><b>boundaryFrameData</b>&nbsp;<img alt="Featuring API 22" border="0" height="12" src="../../APIImageLibrary/22.png" width="19"></dt>
+        <dd>Parameters of boundary frames.</dd>
+
+        <dt><b>junctionData</b></dt>
+        <dd>Parameters of junctions.</dd>
+
+        <dt><b>accessoryData</b></dt>
+        <dd>Parameters of glass accessories.</dd>
+
+        <dt><b>angle</b></dt>
+        <dd>Angle of the curtain wall (input only).</dd>
+
+        <dt><b>height</b></dt>
+        <dd>Height of the curtain wall (input only).</dd>
+
+        <dt><b>nSegments</b></dt>
+        <dd>Number of segments.</dd>
+
+        <dt><b>nFrames</b></dt>
+        <dd>Number of frames.</dd>
+
+        <dt><b>nFrameDefaults</b>&nbsp;<img alt="Featuring API 22" border="0" height="12" src="../../APIImageLibrary/22.png" width="19"></dt>
+        <dd>Number of custom frame classes (Corner Frame and Boundary Frame Classes are not included).</dd>
+
+        <dt><b>nPanels</b></dt>
+        <dd>Number of panels.</dd>
+
+        <dt><b>nPanelDefaults</b>&nbsp;<img alt="Featuring API 22" border="0" height="12" src="../../APIImageLibrary/22.png" width="19"></dt>
+        <dd>Number of panel classes.</dd>
+
+        <dt><b>nJunctions</b></dt>
+        <dd>Number of junctions.</dd>
+
+        <dt><b>nAccessories</b></dt>
+        <dd>Number of accessories.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+    <h4>Remarks</h4>
+    <p>
+        The Curtain Wall is a hierarchical (system) element consisting of Frame, Panel, Accessory
+        and Junction components: these are the Members of the Curtain Wall, arranged on a Base
+        Surface according to a pre-defined scheme. By default all CW component is generic and has
+        built from the owner elem.
+    </p>
+    <p>
+        <img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">
+        &nbsp; In Archicad 17 the elements' cut fill foreground and background pens inherit from
+        the building material, and can be overridden on the element level.
+    </p>
+    <p>
+        <img border="0" src="../../APIImageLibrary/22.png" alt="Featuring API 22" width="19" height="12">
+        &nbsp; In Archicad 22, the Frames and Panels of a Curtain Wall element are no longer forced
+        into primary/secondary or glass/glazed categories, with the exception of Boundary Frames,
+        which are still a separate category. As so, the other default Frame and Panel elements are
+        found in the corresponding <a href="API_ElementMemo.html">API_ElementMemo</a> structure.
+        Also, Curtain Wall subelements now contain their own library part identifiers instead of the
+        Curtain Wall structure itself.
+    </p>
+
+    <p>&nbsp;</p>
+    <h4>Requirements</h4>
+    <dl>
+        <dd><b>Version:</b> API 12.0 or later</dd>
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+    <h4>See Also</h4>
+    <p>
+        <a href="API_CWAccessoryCategoryID.html">API_CWAccessoryCategoryID</a>
+        <br />
+        <a href="API_CWAccessoryType.html">API_CWAccessoryType</a>,
+        <a href="API_CWFrameType.html">API_CWFrameType</a>,
+        <a href="API_CWJunctionType.html">API_CWJunctionType</a>,
+        <a href="API_CWPanelType.html">API_CWPanelType</a>,
+        <a href="API_CWSegmentType.html">API_CWSegmentType</a>
+        <br />
+        <a href="API_AttributeIndex.html">API_AttributeIndex</a>
+        <a href="API_Polygon.html">API_Polygon</a>,
+        <a href="API_Coord.html">API_Coord</a>,
+        <a href="API_PolyArc.html">API_PolyArc</a>,
+        <a href="API_Types.html">API Types</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 13, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

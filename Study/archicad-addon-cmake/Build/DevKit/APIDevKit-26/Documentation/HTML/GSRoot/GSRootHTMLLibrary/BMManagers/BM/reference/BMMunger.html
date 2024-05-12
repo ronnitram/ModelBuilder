@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>BMMunger</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/BMManagers/BM/reference/BMMunger.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>BMMunger</h1>
+
+    <p>The <strong>BMMunger</strong> function searches text for a specified string pattern and replaces it with another string.</p>
+    <pre class="syntax">
+<strong>long BMMunger(
+  GSHandle</strong>        <em>h,</em>     // handle to a text string
+  <strong>long</strong>            <em>offset,</em>        // byte offset in the destination string
+  <strong>const void</strong>      <em>*ptr1,</em> // manipulation string
+  <strong>long</strong>            <em>len1,</em>  // length of manipulation string
+  <strong>const void</strong>      <em>*ptr2,</em> // substitution string
+  <strong>long</strong>            <em>len2</em>   // length of substitution string
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>h</em></dt>
+
+        <dd>Specifies the handle to the text string to manipulate.</dd>
+
+        <dt><em>offset</em></dt>
+
+        <dd>Specifies the byte offset in the destination string at which the <strong>BMMunger</strong> function begins its operation.</dd>
+
+        <dt><em>ptr1</em></dt>
+
+        <dd>Pointer to the first character of the string to search for by <strong>BMMunger</strong>.</dd>
+
+        <dt><em>len1</em></dt>
+
+        <dd>Specifies the number of bytes in the string to search for by <strong>BMMunger</strong>.</dd>
+
+        <dt><em>ptr2</em></dt>
+
+        <dd>Pointer to the first character of the substitution string.</dd>
+
+        <dt><em>len2</em></dt>
+
+        <dd>Specifies the number of bytes in the substitution string.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>If the function succeeds, the return value depends on the actual parameters of the function. For more information see <strong>Remarks</strong>.</p>
+
+    <p>If the function fails to find the designated string, the return value is negative.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <b>BMMunger</b> function takes special action if either of the specified pointer values is NULL or either of the length values is 0.</p>
+
+    <ul>
+        <li>If <i>ptr1</i> is NULL, <strong>BMMunger</strong> replaces characters without searching. It replaces <i>len1</i> characters starting at the offset location with the substitution string.</li>
+
+        <li>If <i>ptr1</i> is NULL and <i>len1</i> is negative, <b>BMMunger</b> replaces all of the characters from the offset location to the end of the string with the substitution string.</li>
+
+        <li>If <i>len1</i> is 0, <b>BMMunger</b> inserts the substitution string without replacing anything. <b>BMMunger</b> inserts the string of the offset location and returns the offset of the first byte past where the insertion occurred.</li>
+
+        <li>If <i>ptr2</i> is NULL, <b>BMMunger</b> searches but does not replace. In this case, <b>BMMunger</b> returns the offset at which the string was found.</li>
+
+        <li>If <i>len2</i> is 0 and <i>ptr2</i> is not NULL, <b>BMMunger</b> searches and deletes. In this case, <b>BMMunger</b> returns the offset at which deletion was performed.</li>
+
+        <li>If the portion of the string from the offset location to its end matches the beginning of the string that <b>BMMunger</b> is searching for, <b>BMMunger</b> replaces that portion with the substitution string.</li>
+    </ul>
+
+    <h4>Requirements</h4>
+
+    <p><strong>&nbsp;&nbsp;&nbsp; Header:</strong> Declared in BM.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../../../../GSRootHTMLLibrary/BMManagers/BM/reference/functions_id.html">BM Manager Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

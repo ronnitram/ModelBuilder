@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Bende Laszlo">
+
+    <title>DGResizeMsgData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGResizeMsgData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGResizeMsgData</h1>
+
+    <p>If the <a href="CallbackFunctions.html">dialog callback function</a> receives a <a href="DG_MSG_RESIZE.html"><tt>DG_MSG_RESIZE</tt></a> message, the <i>msgData</i> parameter is a pointer to a <b>DGResizeMsgData</b> structure which contains information about the resize event.</p>
+    <pre class="syntax">
+    <strong>struct</strong> <em>DGResizeMsgData</em> {
+      <strong>short</strong>  <em>subMessage;</em>
+      <strong>bool</strong>   <em>userResize;</em>
+      <strong>Int8</strong>   <em>filler;</em>
+      <strong>short</strong>  <em>hGrow;</em>
+      <strong>short</strong>  <em>vGrow;</em>
+    };
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>subMessage</b></dt>
+
+        <dd>It can be one of the following values:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">subMessage</th>
+
+                    <th align="left">meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RSM_RESIZEENTER</tt></td>
+
+                    <td>Resizing of the dialog has just begun.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RSM_RESIZING</tt></td>
+
+                    <td>The dialog is being resized.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RSM_RESIZEEXIT</tt></td>
+
+                    <td>Resizing of the dialog has been finished.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RSM_ABOUTTORESIZE</tt></td>
+
+                    <td>Sent before resizing a dialog; you can constrain the dialog resize direction.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>userResize</b></dt>
+
+        <dd>If the dialog or the tab page was resized by a user interface action it is <tt>true</tt>, otherwise (if the dialog was resized by the program code) it is <tt>false</tt>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>filler</b></dt>
+
+        <dd>Reserved.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>hGrow</b></dt>
+
+        <dd>The horizontal grow value. Positive value means growth, negative value means shrink.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>vGrow</b></dt>
+
+        <dd>The vertical grow value. Positive value means growth, negative value means shrink.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The value of the <b>hGrow</b> and <b>vGrow</b> variables depends on the <b>subMessage</b>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">value</th>
+
+                    <th align="left">meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RSM_RESIZEENTER</tt></td>
+
+                    <td>The <b>hGrow</b> and <b>vGrow</b> values are zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RSM_RESIZING</tt></td>
+
+                    <td>The <b>hGrow</b> and <b>vGrow</b> values are the current grow values.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RSM_RESIZEEXIT</tt></td>
+
+                    <td>The <b>hGrow</b> and <b>vGrow</b> values are the grow values since the <tt>DG_RSM_RESIZEENTER</tt> submessage.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RSM_ABOUTTORESIZE</tt></td>
+
+                    <td>The <b>hGrow</b> and <b>vGrow</b> values are constraints on the resize action. If you pass 0 in either of these values, the dialog won't be resized in that direction.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>When handling <tt>DG_MSG_RESIZE</tt> messages, with <tt>DG_RSM_RESIZING</tt> or <tt>DG_RSM_RESIZEEXIT</tt> submessages, the application typically needs to move and/or resize dialog items according to the new size of the dialog. Use <a href="DGGrowItem.html">DGGrowItem</a>, <a href="DGMoveItem.html">DGMoveItem</a> and <a href="DGMoveGrowItem.html">DGMoveGrowItem</a> functions to do this task. To avoid unwanted screen flickering it is advised to enclose these function calls by the <a href="DGBeginMoveGrowItems.html">DGBeginMoveGrowItems</a> <a href="DGEndMoveGrowItems.html">DGEndMoveGrowItems</a> function pair.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Structures_id.html">DG Structures</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DG_MSG_GROW.html"><tt>DG_MSG_GROW</tt></a>, <a href="DG_MSG_RESIZE.html"><tt>DG_MSG_RESIZE</tt></a><br>
+    <a href="DGBeginMoveGrowItems.html">DGBeginMoveGrowItems</a>, <a href="DGEndMoveGrowItems.html">DGEndMoveGrowItems</a>, <a href="DGGrowDialog.html">DGGrowDialog</a>, <a href="DGGrowItem.html">DGGrowItem</a>, <a href="DGMoveItem.html">DGMoveItem</a>, <a href="DGMoveGrowItem.html">DGMoveGrowItem</a>, <a href="DGSetDialogSize.html">DGSetDialogSize</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

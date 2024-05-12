@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>InternalCoord</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Intersections2D/InternalCoord.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Geometry::InternalCoord</h1>
+
+    <p>Decides whether a point is located inside of the Thales-circle of a <a href="../Sector2D/Sector.html">Sector</a>.</p>
+    <pre class="syntax">
+    <strong> bool</strong> InternalCoord (
+      <strong>const <a href="../Sector2D/Sector.html">Sector</a></strong>&amp;  <em>sector</em>,
+      <strong>const <a href="../Vector2D/Coord.html">Coord</a></strong>&amp;   <em>point</em>,
+      <strong><a href="../GeometryModule/Boundary.html">Boundary</a></strong>       <em>sectorBegEnd</em>,
+      <strong>double</strong>         <em>eps</em> = <strong>NULL</strong>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>sector</em></dt>
+
+        <dd>The examined <a href="../Sector2D/Sector.html">Sector</a>.</dd>
+
+        <dt><em>point</em></dt>
+
+        <dd>Coordinates of the examined point.</dd>
+
+        <dt><em>sectorBegEnd</em></dt>
+
+        <dd>Determines the type of the end points of the sector examined.</dd>
+
+        <dt><em>eps</em></dt>
+
+        <dd>The threshold for proximity.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p><code>true</code> if point is inside of the Thales-circle of the sector, <code>false</code> otherwise.</p>
+
+    <h4>Remarks</h4>
+
+    <p>If the point falls on the circle itself (specially one of the end points of the sector), the return value depends on <em>sectorBegEnd</em>. If the examined point falls on the line determined by the sector (see <a href="../Sector2D/CoordProjSector.html">CoordProjSector</a>), then this function tests if the point is inside of the sector.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Sector2DData.h</dd>
+
+        <dd><b>Import Library:</b> GeometryImp.lib [Win]</dd>
+
+        <dd><b>Module:</b> Geometry.dll [WIN] GeometryLib [Mac]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Intersections2D_id.html">2D Position tests and Intersections</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 6, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

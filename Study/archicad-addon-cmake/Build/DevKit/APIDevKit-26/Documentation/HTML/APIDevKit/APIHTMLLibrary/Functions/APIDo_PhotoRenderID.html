@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIDo_PhotoRenderID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIDo_PhotoRenderID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIDo_PhotoRenderID</h1>
+
+    <p>Creates a photorealistic image of the 3D window.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_automate_id.html">ACAPI_Automate</a></strong> (
+        <strong>APIDo_PhotoRenderID</strong>,
+        <strong><a href="../Structures/API_PhotoRenderPars.html">API_PhotoRenderPars</a>*</strong>     <em>photoRenderPars</em>,
+        <strong><a href="../Structures/API_PrintPars.html">API_PrintPars</a>*</strong>           <em>printPars</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>photoRenderPars</em></dt>
+
+        <dd>[in] Parameters for saving the photorendered picture into image file</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>printPars</em></dt>
+
+        <dd>[in] Printing options for producing printed output of the photorendered picture. Optional parameter, can be <code>nullptr</code></dd>
+
+        <dd>&nbsp;</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADDATABASE</code></dt>
+
+        <dd>The current database does not match the current window</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>Either the <code>rendPars</code> parameter is <code>nullptr</code><br>
+        or <code>rendPars-&gt;fileTypeID</code> is invalid and the <code>printPars</code> parameter is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_CANCEL</code></dt>
+
+        <dd>The photorendering process was stopped by the user</dd>
+
+        <dt><code>APIERR_GENERAL</code></dt>
+
+        <dd>Error occured during rendering or writing the image file</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to generate the photorendered image of the current 3D window, and save the picture into an image file defined in <code>rendPars</code>.<br>
+    The picture window will be closed automatically before the function returns.<br>
+    You can also print the rendered picture to the default printer if the <code>printPars</code> parameter is not <code>nullptr</code>. If you need printed output only, set the <code>fileTypeID</code> field of <code>rendPars</code> to <code>APIFType_None</code>.<br>
+    The photorendering settings can be accessed with the <a href="APIEnv_GetRenderingSetsID.html">APIEnv_GetRenderingSetsID</a> and <a href="APIEnv_ChangeRenderingSetsID.html">APIEnv_ChangeRenderingSetsID</a> environment functions.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_PhotoRenderPars     rendPars;
+IO::Location            fileLoc ("c:\\temp\\MyPicture.jpg");
+GSErrCode               err;
+
+if (fileLoc.Status () != NoError)
+    return APIERR_GENERAL;
+
+BNZeroMemory (&amp;rendPars, sizeof (API_PhotoRenderPars));
+rendPars.fileTypeID = APIFType_JPEGFile;
+rendPars.file = &amp;fileLoc;
+
+#if defined (macintosh)
+rendPars.colorDepth = ColorDepth_Million_Colors;
+#endif
+#if defined (WINDOWS)
+rendPars.colorDepth = ColorDepth_24bit_TrueColor;
+#endif
+
+err = ACAPI_Automate (APIDo_PhotoRenderID, &amp;rendPars, nullptr);
+</code></pre>
+    </blockquote>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Automate.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_PhotoRenderPars.html">API_PhotoRenderPars</a><br>
+    <a href="../Structures/API_PrintPars.html">API_PrintPars</a><br>
+    <a href="APIEnv_GetRenderingSetsID.html">APIEnv_GetRenderingSetsID</a><br>
+    <a href="APIEnv_ChangeRenderingSetsID.html">APIEnv_ChangeRenderingSetsID</a><br>
+    <a href="acapi_automate_id.html">ACAPI_Automate</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on July 21, 2005<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

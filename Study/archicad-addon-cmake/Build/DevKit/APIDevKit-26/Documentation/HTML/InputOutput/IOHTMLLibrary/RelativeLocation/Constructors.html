@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <title>RelativeLocation constructor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/RelativeLocation/Constructors.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="RelativeLocation.html">RelativeLocation</a>::RelativeLocation&nbsp;&nbsp; <font size="2">(5)</font></h1><br>
+    RelativeLocation constructors.<br>
+    <br>
+    <pre class="syntax">
+<b>RelativeLocation (
+);</b>
+</pre>
+
+    <h3>Description</h3>
+
+    <p>This default constructor initializes the given instance to an empty relative location. (An empty relative location does not change the absolute location which it is appended to.) This constructor will always succeed.</p>
+
+    <p>Instances can be created with this constructor before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>explicit RelativeLocation (
+    const </b><b><a href="../Name/Name.html">Name</a></b><b>&amp; name
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>name</em></dt>
+
+        <dd>Single name of the new RelativeLocation instance.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to contain the single name specified by <i>name</i>. If&nbsp; the memory has been exhausted, then status of the RelativeLocation instance becomes invalid.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances can be created with this constructor before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>explicit RelativeLocation (
+    const char* targetPath
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetPath</em></dt>
+
+        <dd>
+            Text representation (as C string) of the relative file system address (relative path). It can be current platform's text representation or URL representation. URL representation uses the relative URL protocol with the following syntax:
+
+            <p><font face="Courier New">&nbsp;&nbsp;&nbsp; "<b>rel://</b>""<b>/</b>" <i>localAddress</i></font></p>
+
+            <p><font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>localAddress</i>&nbsp;&nbsp; = (<b>localName</b> ("<b>/</b>" <b>localName</b>)*)?</font></p>
+
+            <p>'*' means 0 or more, '?' means 0 or 1 (optional) and '|' means or. <i>localName</i> can contain any character but '/'.<br>
+            For example: <font face="Courier New">"rel:///Share/Folder/File.ext".</font></p>
+        </dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to refer to the relative target specified by <i>targetPath</i>. If the <i>targetPath</i> is syntactically illegal (or the memory has been exhausted), then status of the RelativeLocation instance becomes invalid.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances <b>should not</b> be created with this constructor before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>explicit RelativeLocation (
+    const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&amp; targetPath
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetPath</em></dt>
+
+        <dd>
+            Text representation (as Unicode UTF-16 string) of the relative file system address (relative path). It can be current platform's text representation or URL representation. URL representation uses the relative URL protocol with the following syntax:
+
+            <p><font face="Courier New">&nbsp;&nbsp;&nbsp; "<b>rel://</b>""<b>/</b>" <i>localAddress</i></font></p>
+
+            <p><font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>localAddress</i>&nbsp;&nbsp; = (<b>localName</b> ("<b>/</b>" <b>localName</b>)*)?</font></p>
+
+            <p>'*' means 0 or more, '?' means 0 or 1 (optional) and '|' means or. <i>localName</i> can contain any character but '/'.<br>
+            For example: <font face="Courier New">"rel:///Share/Folder/File.ext".</font></p>
+        </dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to refer to the relative target specified by <i>targetPath</i>. If the <i>targetPath</i> is syntactically illegal (or the memory has been exhausted), then status of the RelativeLocation instance becomes invalid.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances <b>should not</b> be created with this constructor before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>RelativeLocation (
+    const RelativeLocation&amp; parent,
+    const </b><b><a href="../Name/Name.html">Name</a></b><b>&amp; name
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>parent</em></dt>
+
+        <dd>Base relative address of the new RelativeLocation instance.</dd>
+
+        <dt><em>name</em></dt>
+
+        <dd>Last name of the new RelativeLocation instance.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to refer to the relative target obtained by appending <i>name</i> to the content of the <i>parent</i>. If&nbsp; the memory has been exhausted, then status of the RelativeLocation instance becomes invalid.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances can be created with this constructor before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

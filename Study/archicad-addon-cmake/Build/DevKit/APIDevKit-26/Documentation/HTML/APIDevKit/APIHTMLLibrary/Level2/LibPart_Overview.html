@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Library Part Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level2/LibPart_Overview.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Library Part Overview</h1>
+
+    <p>&nbsp;</p>
+
+    <p>Library Parts are collected into library folders, like the default Archicad Library. The active library folders themselves can be manipulated. With the <a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a> function you can reset the installed libraries, also you can add a new folder, or even to give a complete list of folders.</p>
+
+    <p>From Archicad 8 libraries can be packed in and loaded from archive files and module resources as well. This capability lets the add-ons store their library parts in their own resources and use them as a read-only library added to the active libraries (<a href="../Functions/ACAPI_Register_BuiltInLibrary.html">ACAPI_Register_BuiltInLibrary</a>).</p>
+    <hr>
+
+    <h4>References to Library Part</h4>
+
+    <p>The active library folders are enumerated and the Library Part files are registered in Archicad. The <a href="../Level3/Library_Part_Manager_id.html">Library Part Manager</a> functions can work only on registered Library Parts.</p>
+
+    <p>The drawing elements (objects, doors, windows, lamps, and zone definitions) which require a Library Part to reference, do it with indices. The index is the index of the Library Part in the library part pool, which contains the parts from all the active libraries.</p>
+    <hr>
+
+    <h4>Library Part types</h4>
+
+    <p>Up to Archicad 8 applicable types of Library Parts were enumerated in the <a href="../Structures/API_LibTypeID.html">API_LibTypeID</a> structure. From Archicad 8 a new kind of library part hierarchy was introduced: every library part is derived from a subtype parent library part. This tree structure gives much more flexible classification of library parts. For a detailed description see the <a href="../Level3/Library_Part_Subtype.html">Library Part Subtypes</a> section.</p>
+
+    <p>The definition of a Library Part is described in the <a href="../Structures/API_LibPart.html">API_LibPart</a> structure.</p>
+
+    <p>Some kind of Library Parts do not contain any Archicad specific information. For example macros are simple text files, pictures are standard TIFF, GIF etc. files. They become Library Parts, just because they are located in the active library folders. There are no any API functions to give support to work on their content.</p>
+    <hr>
+
+    <h4>Internal Structure</h4>
+
+    <p>A real Library Part is built from several sections, as you can see and also edit in the Library Part dialog of Archicad. Each section has an identifier and a subcode which allows implementation of more than one section with the very same type, as can be seen in the <a href="../Structures/API_LibPartSection.html">API_LibPartSection</a> structure.</p>
+
+    <p>The <tt>sectType</tt> field is the identifier of the section, which is implemented as a four byte code. Predefined identifiers are also listed, and Archicad can work on these sections only. Of course you can insert sections with custom identifiers to save your own data into the Library Part. Archicad never modifies or deletes custom sections.</p>
+
+    <p>The <tt>subIdent</tt> field gives a sub-identifier. There are sections which may have more instances in the same Library Part, like the 3D binary section. Sections which can have only one instance always have the value zero. For custom sections, this value is not checked for validity and you can use it for any purpose, like version controlling.</p>
+
+    <p>The API functions related to Library Parts give all of the necessary support to build a new Library Part from scratch, and provide the possibility to modify, delete or append any section in existing ones. If you create a new library part, it is automatically registered into the internal database, so it can be referred by any element. Refer to the <a href="../Functions/ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a> function for details.</p>
+
+    <p>The API functions hide the internal structure of a Library Part, however there is some public documentation available on these topics, which allows you to build them on your own. It is highly recommended to use the API functions for this purpose, because of compatibility issues.</p>
+
+    <p>Textual sections like the 2D script, 3D script or property script etc. can be generated without any problem. You just have to allocate some memory which can hold the necessary text. From API 11, these sections contain Unicode text, which you can also manipulate through the API.</p>
+
+    <p>Producing or interpreting binary sections like the 3D binary or 2D drawing sections are more complicated to manage. You have two ways to work on them.</p>
+
+    <ul>
+        <li>The internal structure of these binary sections are public. If you have the necessary documentation, you can build or interpret them on your own. This method is not recommended.</li>
+
+        <li>There are API functions which translate the binary data into API structures. You should use these methods, as shown later.</li>
+    </ul>
+
+    <p>The list of sections of a Library Part can be get by the <a href="../Functions/ACAPI_LibPart_GetSectionList.html">ACAPI_LibPart_GetSectionList</a> function.</p>
+
+    <p>If you are interested in the data of any section, you can get it by simply calling the <a href="../Functions/ACAPI_LibPart_GetSection.html">ACAPI_LibPart_GetSection</a> function. In case of binary sections, you will get binary data which does not correspond to any API structure. For textual sections, the returned <tt>sectionHdl</tt> contains the required text.</p>
+    <hr>
+
+    <h4>The 2D drawing section</h4>
+
+    <p>The 2D drawing section describes the shape of the Library Part which can be drawn with the applicable 2D toolbar elements.</p>
+
+    <p>At this time, the only way to get this data in API form is to use the <a href="../Functions/ACAPI_LibPart_ShapePrims.html">ACAPI_LibPart_ShapePrims</a> function. This function call explodes the shape of the library part into drawing primitives.</p>
+
+    <p>In order to build this binary section, you should redirect the element creation procedure. In this case, the subsequent calls to the <a href="../Functions/ACAPI_Element_Create.html">ACAPI_Element_Create</a> function place the given elements into a temporary pool, instead of the project database. When you have finished the drawing creation procedure you can convert these elements to the required binary form.</p>
+
+    <blockquote>
+        <pre><code>
+GSHandle            bin2DHdl;
+API_SelectionInfo   section;
+GSErrCode           err;
+
+err = ACAPI_LibPart_SetUpSect_2DDrawHdl ();
+ACAPI_Element_Create()
+...
+ACAPI_Element_Create()
+err = ACAPI_LibPart_GetSect_2DDrawHdl (&amp;bin2DHdl);
+
+BNZeroMemory (&amp;section, sizeof (API_LibPartSection));
+section.sectType = API_Sect2DDraw;
+err = ACAPI_LibPart_AddSection (&amp;section, bin2DHdl, nullptr);
+
+BMKillHandle (&amp;bin2DHdl);
+</code></pre>
+    </blockquote>
+    <hr>
+
+    <h4>The parameters section</h4>
+
+    <p>The parameters section describes the default parameters of the Library Part.</p>
+
+    <p>All real Library Parts contain two predefined parameters; named <tt>A</tt> and <tt>B</tt>. The different kind of Library Parts may contain additional required parameters. You can check these by creating a new library part of that kind in Archicad. The parameters appearing in the dialog are the required ones. Beside these, you may define or retrieve additional parameters (maximum 64). The parameter manipulating functions all refer to these additional (required and/or optional) parameters, but not to the <tt>A</tt> and <tt>B</tt> parameters, which are separate parameters where needed.</p>
+
+    <p>Applicable additional parameter types are enumerated in the <a href="../Structures/API_AddParID.html">API_AddParID</a> structure. The definition of an additional parameter is described in the <a href="../Structures/API_AddParType.html">API_AddParType</a> structure:</p>
+
+    <p>If you want to get the parameter list of a Library Part in an API based form you should use the following template:</p>
+
+    <blockquote>
+        <pre><code>
+Int32            addParNum;
+API_AddParType   addParHdl;
+double           a, b;
+
+err = ACAPI_LibPart_GetParams (libIndex, &amp;a, &amp;b, &amp;addParNum, &amp;addParHdl);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <p>In this case, Archicad translates the binary data into an array of <a href="../Structures/API_AddParType.html">API_AddParType</a> structure. This function also returns the <tt>a</tt> and <tt>b</tt> parameter in separate variables, because the <tt>addParHdl</tt> will contain the additional parameters only.</p>
+
+    <p>The creation of the parameter section is also very simple. First you have to allocate the required size of array based on the <a href="../Structures/API_AddParType.html">API_AddParType</a> structure and fill with the data of the parameters. In the next step, this API data should be converted to binary data. To do that you also need the 2D binary section data, because the binary parameter handle is a full description which owns the a and b parameters. These parameters are calculated automatically and the built binary section is returned to you through the <tt>paramsHdl</tt> argument. You also get back the calculated a and b parameter.</p>
+
+    <blockquote>
+        <pre><code>
+GSHandle            paramsHdl;
+API_SelectionInfo   section;
+GSErrCode           err;
+
+err = ACAPI_LibPart_GetSect_ParamDef (APILib_ObjectID, addParHdl,
+                                      &amp;a, &amp;b, bin2DHdl,
+                                      &amp;paramsHdl);
+
+BNZeroMemory (&amp;section, sizeof (API_LibPartSection));
+section.sectType = API_SectParamDef;
+err = ACAPI_LibPart_AddSection (&amp;section, paramsHdl, nullptr);
+
+BMKillHandle (&amp;paramsHdl);
+</code></pre>
+    </blockquote>
+    <hr>
+
+    <h4>The 3D binary sections</h4>
+
+    <p>In the present version of the API, there is no support to process the internal data of the 3D binary sections. If you are interested to work with these sections please contact Graphisoft to get the necessary documentation on the binary format.</p>
+
+    <p>A Library Part can own more than one 3D binary section up to 16 fragments. In order to get the right fragment, you need to set up the <tt>subIdent</tt> field of the <a href="../Structures/API_LibPartSection.html">API_LibPartSection</a> structure correctly.</p>
+    <hr>
+
+    <h4>The Preview picture</h4>
+
+    <p>A preview picture can be embedded into Library Parts either in PICT or GIF format. They are public formats, so they do not need any explanation.</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

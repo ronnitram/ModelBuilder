@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>UpperBound</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/UpperBound.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>UpperBound</H2><!--exp="UpperBound Enum"-->
+<P><topic id="$GS.$UpperBound.BriefDescription">
+		Finds the position of the first element in an ordered range that has a value 
+		that is greater than a specified value, where the ordering criterion may be 
+		specified by a binary predicate.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For</I>, <B>class</B> <I>T</I><B>&gt;
+</B>For UpperBound (</B>
+    <B>For                 </B><I>first</I>,
+    <B>For                 </B><I>last</I>,
+    <B>const T &amp;           </B><I>value</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For</I>, <B>class</B> <I>T</I>, <B>class</B> <I>BinPred</I><B>&gt;
+</B>For UpperBound (</B>
+    <B>For                 </B><I>first</I>,
+    <B>For                 </B><I>last</I>,
+    <B>const T &amp;           </B><I>value</I>,
+    <B>BinPred             </B><I>pred</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>For</I></DT><DD><topic id="$GS.$UpperBound.$For.TemplateParamDescription">
+		Forward iterator.
+	</topic></DD><DT><I>T</I></DT><DD><topic id="$GS.$UpperBound.$T.TemplateParamDescription">
+		T type template parameter.
+	</topic></DD><DT><I>BinPred</I></DT><DD><topic id="$GS.$UpperBound.$BinPred.TemplateParamDescription">
+		Binary predicate.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first</I></DT><DD><topic id="$GS.$UpperBound.$first.ParamDescription">
+		The position of the first element in the range to be searched.
+	</topic></DD><DT><I>last</I></DT><DD><topic id="$GS.$UpperBound.$last.ParamDescription">
+		The position one past the final element in the range to be searched.
+	</topic></DD><DT><I>value</I></DT><DD><topic id="$GS.$UpperBound.$value.ParamDescription">
+		The value in the ordered range that needs to be exceeded by the value of the 
+		element addressed by the iterator returned.
+	</topic></DD><DT><I>pred</I></DT><DD><topic id="$GS.$UpperBound.$pred.ParamDescription">
+		User-defined predicate function object that defines sense in which one element 
+		is less than another. A binary predicate takes two arguments and returns 
+		<B>true</B> when satisfied and <B>false</B> when not satisfied.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$UpperBound.ReturnDescription">
+		A forward iterator addressing the position of the first element in an ordered 
+		range that has a value that is greater than a specified value, where the 
+		ordering criterion may be specified by a binary predicate.
+	</topic></P><P><topic id="$GS.$UpperBound.1.ReturnDescription"></topic></P><P><topic id="$GS.$UpperBound.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$UpperBound.LongDescription">
+		<B>UpperBound</B> is a version of binary search: it attempts to find the 
+		element <TT>value</TT> in an ordered range <TT>[first, last)</TT>. 
+		Specifically, it returns the last position where 
+		<TT>value</TT> could be inserted without violating the ordering. 
+		The first version of <B>UpperBound</B> uses 
+		<TT>operator&lt;</TT> for comparison, and the first uses the predicate <TT>pred</TT>. 
+		The first version of <B>UpperBound</B> returns the furthermost iterator 
+		<TT>i</TT> in <TT>[first, last)</TT> such that, for every iterator <TT>j</TT> in 
+		<TT>[first, i)</TT>, <TT>value &lt; *j</TT> is <TT>false</TT>. 
+		The second version of <B>UpperBound</B> returns the furthermost iterator 
+		<TT>i</TT> in <TT>[first, last)</TT> such that, for every iterator <TT>j</TT> in 
+		<TT>[first, i)</TT>, <TT>pred(value, *j)</TT> is <TT>false</TT>.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$UpperBound.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

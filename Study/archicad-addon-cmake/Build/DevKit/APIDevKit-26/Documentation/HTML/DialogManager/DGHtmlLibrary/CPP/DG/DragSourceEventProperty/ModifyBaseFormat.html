@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ModifyBaseFormat (DragSourceEventProperty)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/DragSourceEventProperty/ModifyBaseFormat.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="DragSourceEventProperty.html">DragSourceEventProperty</A>::ModifyBaseFormat</H2><!--exp="DragSourceEventProperty::ModifyBaseFormat"-->
+<P><topic id="$DG.$DragSourceEventProperty.$ModifyBaseFormat.BriefDescription">
+		Used to extend tree view, list view or list box drag and drop.
+	</topic></P>
+<PRE class="syntax"><B>bool ModifyBaseFormat (</B>
+    <B><A class="nodecorate" href="">DGDragFormat</A>        </B><I>format</I>,
+    <B><a class="nodecorate" href="../../DG_DragDrop/Scope.html">DragDrop::Scope</A>     </B><I>scope</I>
+<B>);</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>format</I></DT><DD><topic id="$DG.$DragSourceEventProperty.$ModifyBaseFormat.$format.ParamDescription">
+		DGDragFormat type parameter. Used to specify the drag format in character style like: 'TEXT', 'FILE' etc.
+	</topic></DD><DT><I>scope</I></DT><DD><topic id="$DG.$DragSourceEventProperty.$ModifyBaseFormat.$scope.ParamDescription">
+		Scope of the data: DragDrop::Item, DragDrop::Dialog, DragDrop::Module, DragDrop::Application, DragDrop::System.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$DG.$DragSourceEventProperty.$ModifyBaseFormat.ReturnDescription">
+		<tt>true</tt> if base format modification was successful, otherwise <tt>false</tt>.
+	</topic></P>
+<H4>Description</H4>
+<P><topic id="$DG.$DragSourceEventProperty.$ModifyBaseFormat.LongDescription">
+		This member can be used to slightly modify tree view, list view or list box drag and drop behaviour. The mentioned controls by default
+		have only dialog wide drag and drop scope. By using this member function it is possible to modify this scope.
+	</topic></P>
+<H4>Example</H4><topic id="$DG.$DragSourceEventProperty.$ModifyBaseFormat.Example">
+		<PRE class="code">// Method Example:
+void	DragTab2Observer::ListBoxDragStarted (const DG::ListBoxDragSourceEvent&amp; ev, UShort* /*effect*/)
+{
+	if (modelessMode) {
+		DG::DragSourceEventProperty* evProp = ev.GetDragData ();
+		evProp-&gt;ModifyBaseFormat ('LBDR', DG::DragDrop::Module);
+	}
+}</PRE><P>Modifying the base 'LBEX' format to 'LBDR' of a list box control.</P>
+	</topic>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

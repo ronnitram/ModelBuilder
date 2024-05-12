@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_AddOnObject_ModifyObject</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_AddOnObject_ModifyObject.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_AddOnObject_ModifyObject</h1>
+
+    <p>Modifies the content and/or the name of the specified AddOnObject.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_AddOnObject_ModifyObject</strong> (
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>          <em>objectGuid</em>,
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>*</strong>     <em>newObjectName</em>,
+        <strong>const GSHandle*</strong>          <em>newObjectContent</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>objectGuid</em></dt>
+
+        <dd>[in] The GUID of the object.</dd>
+
+        <dt><em>newObjectName</em></dt>
+
+        <dd>[in] The new name of the specified object. If <code>nullptr</code>, the name of the object remains the original name. Must be <code>nullptr</code> if modifying a Unique AddOnObject.</dd>
+
+        <dt><em>newObjectContent</em></dt>
+
+        <dd>[in] The new content of the specified object. If <code>nullptr</code>, the content of the object remains the original content. Must not be <code>nullptr</code> if modifying a Unique AddOnObject.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>
+            <ul>
+                <li>If the passed <em>objectGuid</em> parameter is <code>NULLGuid</code>, or</li>
+
+                <li>if neither <em>newObjectName</em> nor <em>newObjectContent</em> is filled, or</li>
+
+                <li>if modifying a Unique AddOnObject and either <em>newObjectName</em> is not <code>nullptr</code> (it must be) or <em>newObjectContent</em> is <code>nullptr</code> (it must not be).</li>
+            </ul>
+        </dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>The specified object does not exist.</dd>
+
+        <dt><code>APIERR_NOTMINE</code></dt>
+
+        <dd>The object is not owned by the current user in teamwork mode.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used for modifying the content or the name of the specified AddOnObject.</p>
+
+    <p>The <em>newObjectContent</em> handle will be copied inside the function so it has to be deleted after the function call.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 19 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p>
+    <a href="ACAPI_AddOnObject_CreateObject.html">ACAPI_AddOnObject_CreateObject</a>,
+    <a href="ACAPI_AddOnObject_CreateObject.html">ACAPI_AddOnObject_DeleteObject</a> 
+    <a href="../Level3/AddOnObject_Manager_id.html">AddOnObject Manager</a>,
+    <a href="API_Functions.html">API Functions</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 9, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

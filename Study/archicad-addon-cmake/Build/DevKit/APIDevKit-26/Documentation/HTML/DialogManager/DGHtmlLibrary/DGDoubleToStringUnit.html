@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Lipcsei Peter">
+
+    <title>DGDoubleToStringUnit</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGDoubleToStringUnit.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGDoubleToStringUnit</h1>
+
+    <p>Converts a double value to a formatted string depending on the units given in the unit parameter.</p>
+    <pre class="syntax">
+    <strong>GS::UniString DGDoubleToStringUnit</strong> (
+      <strong>const <a href="DGUnitData.html">DGUnitData*</a></strong>  <em>uData</em>,
+      <strong>double</strong>            <em>value</em>,
+      <strong>short</strong>             <em>type</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>uData</em></dt>
+
+        <dd>Description of DG unit used for the conversion.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>value</em></dt>
+
+        <dd>A double value to convert.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>type</em></dt>
+
+        <dd>Type of double value. Possible values of type (see subtypes of <a href="EditControl.html">edit controls</a>): <tt>DG_ET_REAL</tt>, <tt>DG_ET_ANGLE</tt>, <tt>DG_ET_POLARANGLE</tt>, <tt>DG_ET_LENGTH</tt>, <tt>DG_ET_AREA</tt>, <tt>DG_ET_VOLUME</tt>, <tt>DG_ET_MM_OR_PT</tt>.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The formatted string in Unicode format.</p>
+
+    <p>If the function parameters are incorrect, zero is returned.</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function converts a double value to a formatted string depending on the units given by the <em>uData</em> parameter. To use current DG unit settings for the conversion, call <a href="DGDoubleToString.html">DGDoubleToString</a>.</p>
+
+    <p>It is advised to retrieve current DG unit settings by <a href="DGGetUnit.html">DGGetUnit</a>, modify appropriate members of the returned structure, and use this structure in <b>DGDoubleToStringUnit</b>.</p>
+
+    <p>If <em>value</em> is greater than <tt>DG_DBL_MAX</tt> or less than <tt>-DG_DBL_MAX</tt>, five asterisks (<tt>"*****"</tt>) are displayed instead of the number.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="DGUnitData.html">DGUnitData</a><br>
+    <a href="DGDoubleToString.html">DGDoubleToString</a>, <a href="DGStringToDouble.html">DGStringToDouble</a>, <a href="DGStringToDoubleUnit.html">DGStringToDoubleUnit</a>, <a href="DGLongToString.html">DGLongToString</a>, <a href="EditControl.html">Edit Control</a>, <a href="DGGetUnit.html">DGGetUnit</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 10, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

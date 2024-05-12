@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Obtaining Location</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/HowTo/ObtainingLocation.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Obtaining or building the desired Location</h1><br>
+    <br>
+
+    <p><a href="../Location/Location.html">Location</a> is path or address of entries (file, folder, link) in the file system. There are many ways to obtain or build the desired location. Some of them are platform dependent.</p>
+
+    <p>To following samples work, <a href="../../InputOutput.html">InputOutput</a> module must be initialized (<a href="IOInitialization.html">=&gt; more information</a>).</p>
+
+    <p><br>
+    <br></p>
+
+    <ul>
+        <li>The most common way to obtain a location is by using the platform independent file selection dialog provided by <a href="../../../DialogManager/DialogManager.html">DG</a> module, which returns a Location object referring to the selected file system entry:
+            <pre>
+#include "DG.h"    // brings file selection dialog (and also includes Location)
+</pre>
+            <pre>
+IO::Location loc;
+if (!DGGetOpenFile (&amp;loc)) {    // returns the selected location in loc
+    // no file (folder, link) location was selected
+}
+</pre>
+        </li>
+    </ul>
+
+    <p><br>
+    <br></p>
+
+    <ul>
+        <li>There are some special locations like parent folder of the running application, desktop folder etc, which can be queried from the InputOutput module. This can be done by using single instance of the class <a href="../FileSystem/FileSystem.html">FileSystem</a> named <font face="Courier New">fileSystem</font> in the following manner:
+            <pre>
+#include "FileSystem.hpp"    // brings everything needed to use the class FileSystem (e.g. Location)
+</pre>
+            <pre>
+IO::Location appFolderLoc;    // it will hold location of the folder of the running application
+GSErrCode errorCode = IO::fileSystem.GetSpecialLocation (IO::FileSystem::ApplicationFolder, &amp;appFolderLoc);
+</pre>
+        </li>
+    </ul>
+
+    <p><br>
+    <br></p>
+
+    <ul>
+        <li>The most simple way to create a location is by using the default Location constructor:
+            <pre>
+#include "Location.hpp"
+</pre>
+            <pre>
+IO::Location localRoot;
+</pre>This location refers to the root of file system on the current machine. If you enumerate content of a <a href="../Folder/Folder.html">Folder</a> instance created from this location, then both on Windows and Macintosh you will get volumes (logical drives) like A: or C: on Windows.
+
+            <p>InputOutput module already contains a public default Location instance as IO::localRoot. It is declared constant.</p>
+        </li>
+    </ul>
+
+    <p><br>
+    <br></p>
+
+    <ul>
+        <li>Location can be created from current platform's text representation of the "full path" (address):
+            <pre>
+#include "Location.hpp"
+</pre>
+            <pre>
+    // Windows representation
+
+IO::Location loc1 ("C:/A/B/f.exe");
+
+    // Macintosh representation
+
+IO::Location loc2 ("System:A:B:f");
+</pre>This solution is <b>platform dependent</b> because of differences in representation of path delimiter characters (/ and :) and volume (logical drive) names. Furthermore there is no text representation for a network address on Macintosh (like "<font face="Courier New">//Server/Share/Folder1/Folder2/FileName"</font> on Windows).
+        </li>
+    </ul>
+
+    <p><br>
+    <br></p>
+
+    <ul>
+        <li>Location can be created from URL style representation of the "full path" (address) with the nonexisting "<font face="Courier New"><b>lan:</b></font>" protocol (LAN = Local Area Network). This way eliminates differences in path delimiter characters. Syntax is:
+
+            <p><font face="Courier New">&nbsp;&nbsp;&nbsp; "<b>lan://</b>" <i>networkAddress</i> "<b>/</b>" <i>localAddress</i></font></p>
+
+            <p><font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>networkAddress</i> = (<b>networkName</b> ("<b>.</b>" <b>networkName</b>)*)? | "<b>localhost</b>"</font></p>
+
+            <p><font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i>localAddress</i>&nbsp;&nbsp; = (<b>localName</b> ("<b>/</b>" <b>localName</b>)*)?</font></p>
+
+            <p>'*' means 0 or more, '?' means 0 or 1 (optional) and '|' means or. <i>networkName</i> can contain any character but '.', while <i>localName</i> can contain any character but '/'.<br>
+            Note that in URL network address (host) is represented in reverse order, that is first part from the left is the lowest order name (in contrast to the local address which is represented in "normal" order, that is first part from the left is the highest order name).</p>
+
+            <p>For example:</p>
+            <pre>
+#include "Location.hpp"
+</pre>
+            <pre>
+IO::Location loc ("lan://Server.Subnetwork/Share/Folder/File.ext");
+</pre>
+        </li>
+    </ul>
+
+    <p><br>
+    <br></p>
+
+    <ul>
+        <li>Location can be created by building it incrementally from parts of the "full path" (address). The same as with URL style solution this way eliminates differences in path delimiter characters and can be useful when an entry (e.g. file) should be accessed on a network server that all machines (with different OS) see identically (e.g. share name is the same for all machines and subnetworks). For example if there is a file named "<font face="Courier New">File.ext"</font> in the folder named "<font face="Courier New">Folder"</font> which is in the folder named "<font face="Courier New">Share"</font> which is a share name of the server named "<font face="Courier New">Server"</font> ("<font face="Courier New">//Server/Share/Folder/File.ext"</font> with Windows representation) then the corresponding location can be builded in the following manner:
+            <pre>
+#include "Location.hpp"
+</pre>
+            <pre>
+IO::Location loc;    // default "empty" instance (refers to the local root)
+loc.AppendToNetwork ("Server");    // appending to the network address of the location
+loc.AppendToLocal ("Share");       // appending to the local address of the location
+loc.AppendToLocal ("Folder");
+loc.AppendToLocal ("File.ext");
+</pre>
+        </li>
+    </ul>
+
+    <p><br>
+    <br></p>
+
+    <ul>
+        <li>Finally, location can be created from current platform's native representation of the "full path" (address). For example FSSpec structure is the native representation on Macintosh:
+            <pre>
+#include &lt;Files.h&gt;    // Macintosh system header for file handling (contains the FSSpec structure)
+
+#include "Location.hpp"
+</pre>
+            <pre>
+FSSpec fsSpec = GetAnFSSpec ();    // obtaining an FSSpec somehow
+IO::Location loc (fsSpec);         // location can be created from an FSSpec directly
+</pre>This solution is naturally <b>platform dependent</b>.
+        </li>
+    </ul>
+
+    <p><br>
+    <br></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

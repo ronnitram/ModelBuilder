@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Sy_HatchType</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/VectorPrimitives/Sy_HatchType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Sy_HatchType</h1>
+
+    <p>Defines a polygonal filled area.</p>
+    <pre class="syntax">
+<strong>struct</strong> Sy_HatchType {
+    <strong>long</strong>             item_Len;
+    <strong>unsigned char</strong>    item_Typ;
+    <strong>char</strong>             drwIndex;
+    <strong>short</strong>            sy_fillPen;
+    <strong>short</strong>            sy_layer;
+    <strong>short</strong>            fillPat;
+    <strong>short</strong>            contPen;
+    <strong>short</strong>            contLType;
+    <strong>short</strong>            fillbkgPen;
+    <strong>bool</strong>             global;
+    <strong>bool</strong>             filler_0;
+    <strong>long</strong>             filler_1;
+    <strong>Coord</strong>            offset;
+    <strong>double</strong>           angle;
+    <strong>long</strong>             nCoords;
+    <strong>long</strong>             nSubPolys;
+    <strong>long</strong>             nArcs;
+    <strong>long</strong>             coorLen;
+    <strong>long</strong>             coorOff;
+    <strong>long</strong>             endsLen;
+    <strong>long</strong>             endsOff;
+    <strong>long</strong>             arcsLen;
+    <strong>long</strong>             arcsOff;
+    <strong>long</strong>             filler_2;
+    <strong>long</strong>             filler_3;
+    <strong>long</strong>             filler_4;
+};
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><em>item_Len</em></dt>
+
+        <dd>The length of the data record = endsOff+Round_UP_8(endsLen)+Round_UP_8(arcsLen).</dd>
+
+        <dt><em>item_Typ</em></dt>
+
+        <dd>Constant SyHatch.</dd>
+
+        <dt><em>drwIndex</em></dt>
+
+        <dd>Index in drawing order or 0.</dd>
+
+        <dt><em>sy_fillPen</em></dt>
+
+        <dd>Pen (color and line thickness) information or 0 if not hatched.</dd>
+
+        <dt><em>sy_layer</em></dt>
+
+        <dd>The number of the fragment (layer) this element belongs to (Ranges 1 - 16).</dd>
+
+        <dt><em>fillPat</em></dt>
+
+        <dd>The fill of the hatch or 0 if not hatched.</dd>
+
+        <dt><em>contPen</em></dt>
+
+        <dd>Contour line pen (0 if not framed hatch).</dd>
+
+        <dt><em>contLType</em></dt>
+
+        <dd>Contour line line-type.</dd>
+
+        <dt><em>fillbkgPen</em></dt>
+
+        <dd>The fill background of the hatch or 0 if not hatched.</dd>
+
+        <dt><em>global</em></dt>
+
+        <dd>True if the fill's anchor position and direction is not linked to the element.</dd>
+
+        <dt><em>filler_0</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>filler_1</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>offset</em></dt>
+
+        <dd>Anchor position of the fill if the fill linked to the element.</dd>
+
+        <dt><em>angle</em></dt>
+
+        <dd>Direction of the fill if the fill linked to the element.</dd>
+
+        <dt><em>nCoords</em></dt>
+
+        <dd>Total number of vertices in all contours.</dd>
+
+        <dt><em>nSubPolys</em></dt>
+
+        <dd>Number of contours including the a main (first) contour.</dd>
+
+        <dt><em>nArcs</em></dt>
+
+        <dd>Number of arced edges in the whole polygon.</dd>
+
+        <dt><em>coorLen</em></dt>
+
+        <dd>The size of all the Coords data in bytes.</dd>
+
+        <dt><em>coorOff</em></dt>
+
+        <dd>Offset of the Polygon coordinate from record start = sizeof(Sy_HatchType).</dd>
+
+        <dt><em>endsLen</em></dt>
+
+        <dd>Contour endpoints data length in bytes.</dd>
+
+        <dt><em>endsOff</em></dt>
+
+        <dd>Offset of the Contour endpoints data from record start = sizeof(Sy_HatchType)+ROUND_UP_8(coorLen).</dd>
+
+        <dt><em>arcsLen</em></dt>
+
+        <dd>Arcs data length in bytes.</dd>
+
+        <dt><em>arcsOff</em></dt>
+
+        <dd>Offset of the Arcs data from record start = sizeof(Sy_HatchType)+ROUND_UP_8(coorLen)+ROUND_UP_8(endsLen).</dd>
+
+        <dt><em>filler_2</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>filler_3</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>filler_4</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>A hatch record consists of a fixed-size part(the above structure) and three variable-size parts (the vertices, the contour ends and the arcs). The contour ends are an array of vertex indices into the vertices. It should have as many entries as contours in the polygons, plus one. The first entry should be 0, because it is the index of the first vertex of the first contour. The last entry should be equal the number of all vertices in the hatch polygon.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10.0 or later, ModelerGraphics 8 or later</dd>
+
+        <dd><b>Header:</b> Symb2D.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><!-- Not Index --><a href="../VectorImage/VectorImage.html">VectorImage</a> <!-- FOOTER  FOOTEREND --></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 3, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

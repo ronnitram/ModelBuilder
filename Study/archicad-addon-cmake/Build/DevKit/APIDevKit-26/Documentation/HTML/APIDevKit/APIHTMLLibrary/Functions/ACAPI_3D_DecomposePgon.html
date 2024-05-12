@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_3D_DecomposePgon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_3D_DecomposePgon.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_3D_DecomposePgon</h1>
+
+    <p>Decomposes a polygon of the 3D model into convex polygons.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_3D_DecomposePgon</strong> (
+        <strong>Int32</strong>        <em>ipgon</em>,
+        <strong>Int32***</strong>     <em>cpoly</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>ipgon</em></dt>
+
+        <dd>[in] Index of a polygon in the 3D model.</dd>
+
+        <dt><em>cpoly</em></dt>
+
+        <dd>[out] Points to an array which contains the vertices of subpolygons.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed parameter is <code>nullptr</code>; <code>cpoly</code></dd>
+
+        <dt><code>APIERR_REFUSEDCMD</code></dt>
+
+        <dd>The 3D model is not available in the current context, or</dd>
+
+        <dd>The polygon type cannot be queried directly; no active body</dd>
+
+        <dt><code>APIERR_BADINDEX</code></dt>
+
+        <dd>The polygon index is out of range</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>Not enough memory</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to decompose a polygon into convex polygons. The polygon is defined by <code>ipgon</code> index.</p>
+
+    <p>The decomposed polygon is returned in the <code>cpoly</code> Int32 array, which contains the following values:</p>
+
+    <blockquote>
+        <pre><code>
+<code>[-n], [-m<sub>1</sub>], i1, i2, ... i(m<sub>1</sub>), [-m<sub>2</sub>], j1, j2, ... j(m<sub>2</sub>)...</code>
+</code></pre>
+    </blockquote>
+
+    <p>where:</p>
+
+    <ul>
+        <li>negative values mean some kind of measurement</li>
+
+        <li>positive values mean vertex indices</li>
+    </ul>
+
+    <table>
+        <tr>
+            <th>
+                <p>Parameter</p>
+            </th>
+
+            <th>
+                <p>Descriptions</p>
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>n</code></p>
+            </td>
+
+            <td>
+                <p>The number of subpolygons</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>m<sub>i</sub></code></p>
+            </td>
+
+            <td>
+                <p>The number of vertices of the following subpolygon</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>i1 .. i(m<sub>1</sub>)<br>
+                j1 .. j(m<sub>2</sub>)</code></p>
+            </td>
+
+            <td>
+                <p>The actual VERT indices of the subpolygons.<br>
+                The function doesn't generate new points, so these indices refer to the original VERT indices.</p>
+            </td>
+        </tr>
+    </table>
+
+    <p>Do not forget to dispose the returned handle if it is not needed any more.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_3D_GetComponent.html">ACAPI_3D_GetComponent</a>,<br>
+    <a href="../Level3/3D_Manager_id.html">3D Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

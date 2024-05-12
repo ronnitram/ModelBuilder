@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_AssemblySegmentData</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_AssemblySegmentData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_AssemblySegmentData</h1>
+
+    <p>Represents an general segment.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_ModelElemStructureType.html">API_ModelElemStructureType</a></strong>           <em>modelElemStructureType</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                   <em>buildingMaterial</em>;
+        <strong>bool</strong>                                 <em>circleBased</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                   <em>profileAttr</em>;
+        <strong>short</strong>                                <em>profileType</em>;
+        <strong><a href="API_AssemblySegmentUniformityID.html">API_AssemblySegmentUniformityID</a></strong>      <em>uniformity</em>;
+        <strong>double</strong>                               <em>nominalWidth</em>;
+        <strong>double</strong>                               <em>nominalHeight</em>;
+        <strong>bool</strong>                                 <em>isWidthAndHeightLinked</em>;
+        <strong>double</strong>                               <em>endWidth</em>;
+        <strong>double</strong>                               <em>endHeight</em>;
+        <strong>bool</strong>                                 <em>isEndWidthAndHeightLinked</em>;
+        <strong>double</strong>                               <em>relativeHomeStoryLevel</em>;
+    <strong>}</strong> <em>API_AssemblySegmentData</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>modelElemStructureType</b></dt>
+
+        <dd>The structure type of the column's segment.</dd>
+
+        <dt><b>buildingMaterial</b></dt>
+
+        <dd>Building Material index of column's hatch. Used only, if structure type is <a href="API_ModelElemStructureType.html">API_BasicStrucure</a>.</dd>
+
+        <dt><b>circleBased</b></dt>
+
+        <dd>Defines whether the column is circular (true) or rectangular/profiled (false).</dd>
+
+        <dt><b>profileAttr</b></dt>
+
+        <dd>Attribute index of the extruded profile.<br>
+        Used only, if structure type is <a href="API_ModelElemStructureType.html">API_ProfileStructure</a>.</dd>
+
+        <dt><b>profileType</b></dt>
+
+        <dd>The type of the profile:<br>
+            APISect_Normal 	Simple cross section element<br>
+            APISect_Poly 	Profiled cross section element<br>
+            APISect_Slanted 	Slanted cross section element<br>
+            APISect_Trapez 	Trapezoid cross section element.</dd>
+
+        <dt><b>uniformity</b></dt>
+
+        <dd>Uniformity of the segment geometry.</dd>
+
+        <dt><b>nominalWidth</b></dt>
+
+        <dd>Nominal width of segment.</dd>
+
+        <dt><b>nominalHeight</b></dt>
+
+        <dd>Nominal height of segment.</dd>
+
+        <dt><b>isWidthAndHeightLinked</b></dt>
+
+        <dd>State of linking between width and height.</dd>
+
+        <dt><b>endWidth</b></dt>
+
+        <dd>Width of end in case of not homogeneous uniformity.</dd>
+
+        <dt><b>endHeight</b></dt>
+
+        <dd>Height of end in case of not homogeneous uniformity.</dd>
+
+        <dt><b>isEndWidthAndHeightLinked</b></dt>
+
+        <dd>State of linking between end width and end height in case of not homogeneous uniformity.</dd>
+
+		<dt><b>relativeHomeStoryLevel</b></dt>
+
+		<dd>Relative Home Story Level of the segment, should not be interpreted on default, only on instance. Output only parameter.</dd>
+
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 23 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p>
+    <a href="API_BeamType.html">API_BeamType</a>, <a href="API_ColumnType.html">API_ColumnType</a>,<br>
+    <a href="API_BeamSegmentType.html">API_BeamSegmentType</a>, <a href="API_ColumnSegmentType.html">API_ColumnSegmentType</a>,<br>
+    <a href="API_ElementMemo.html">API_ElementMemo</a>
+    </p>
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

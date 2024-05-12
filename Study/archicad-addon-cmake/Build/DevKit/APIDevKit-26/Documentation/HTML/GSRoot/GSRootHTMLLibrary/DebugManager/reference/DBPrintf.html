@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>DBPrintf</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/DebugManager/reference/DBPrintf.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DBPrintf</h1>
+
+    <p>The <strong>DBPrintf</strong> function sends a formatted string to the debugger of the current application. All arguments are converted according to the corresponding format specification in the format string. The function appends a terminating null character to the characters.</p>
+    <pre class="syntax">
+<strong>void DBPrintf(</strong>
+<strong>  const char    </strong><em>*format,   </em>// pointer to format-control string
+  <strong>...                   </strong>// optional arguments
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4><strong>Parameters</strong></h4>
+
+    <dl>
+        <dt><em>format</em></dt>
+
+        <dd>Pointer to a null-terminated string that contains the format-control specifications. In addition to ordinary ASCII characters, a format specification for each argument appears in this string. For more information about the format specification, see the <strong>Remarks</strong> section.</dd>
+
+        <dt>...</dt>
+
+        <dd>Specifies one or more optional arguments. The number and type of argument parameters depend on the corresponding format-control specifications in the <i>format</i> parameter.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>Behavior of the <b>DBPrintf</b> function is platform-dependent.&nbsp;</p>
+
+    <p><strong>Windows:<br></strong>If the application does not has its own debugger, the system debugger displays the string. If the application has no debugger neither the system debugger is active, <b>DBPrintf</b> becomes no-op; no command will be executed when calling the function.</p>
+
+    <p><strong>Macintosh:</strong><br>
+    The Debug Manager sends strings to the Debug Monitor Component. Place this component to the Extensions folder, so during startup processing the Component Manager automatically registers it for using. Debug Monitor Component contacts with Debug Monitor to collect information about the debug strings. Note, if you want to use this function within you program and want to watch debug messages via Debug Monitor, you have to initialize the graphical port for correct functioning.</p>
+
+    <p><strong>Format-control string:</strong><br>
+    The format-control string contains format specifications that determine the output format for the arguments following the <i>format</i> parameter. Format specifications, as discussed below, always begin with a percent sign (%). If a percent sign is followed by a character that is not defined as a format field, the following character is not formatted (for example, %% produces a single percent-sign character).</p>
+
+    <p>The format-control string is read from left to right. When the first format specification (if any) encounters, it results in converting the value of the first argument after the format-control string.&nbsp; Conversion is completed according to the format specification and the resulted string is copied to the output buffer. The second format specification results in converting and copying the second argument, and so on. If there are more arguments than format specifications, the extra arguments are ignored. If there are not enough arguments for all of the format specifications, the results are undefined.</p>
+
+    <p>A format specification has the following form:</p>
+
+    <p><b>%</b>[<b>-</b>][<b>#</b>][<b>0</b>][<i>width</i>][<b>.</b><i>precision</i>]<i>type</i></p>
+
+    <p>Each field is a single character or a number denoting a particular format option. The <i>type</i> characters which stands at last in the format specification determine whether the associated argument is interpreted as a character, a string, or a number. The simplest format specification contains only the percent sign and a type character (for example, <b>%s</b>). The optional fields control other aspects of formatting. Following are the optional and required fields together with their semantics:</p>
+
+    <table cellpadding="5" cols="2">
+        <tbody>
+            <tr valign="top">
+                <th align="left" width="17%">Field</th>
+
+                <th align="left" width="83%">Meaning</th>
+            </tr>
+
+            <tr valign="top">
+                <td width="17%"><b>–</b></td>
+
+                <td width="83%">Pad the output with blanks or zeros to the right to fill the field width, justifying output to the left. If this field is omitted, the output is padded to the left, justifying it to the right.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="17%"><b>#</b></td>
+
+                <td width="83%">Prefix hexadecimal values with 0x (lowercase) or 0X (uppercase).</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="17%"><b>0</b></td>
+
+                <td width="83%">Pad the output value with zeros to fill the field width. If this field is omitted, the output value is padded with blank spaces.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="17%"><i>width</i></td>
+
+                <td width="83%">Specifies the minimum number of characters to copy to the output buffer. The <i>width</i> field is a nonnegative integer. Specifying the width field never results in truncation of a value; if the number of characters in the output value is greater than the specified width, or if the <i>width</i> field is not present, all characters of the value that are subject to the precision specification are printed.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="17%"><b>.</b><i>precision</i></td>
+
+                <td width="83%">For numbers, specifies the minimum number of digits to copy to the output buffer. If the number of digits in the argument is less than the specified precision, the output value is padded on the left with zeros. The value is not truncated when the number of digits exceeds the specified precision. If the specified precision is 0 or omitted entirely, or if the period (<b>.</b>) appears without a number following it, the precision is set to 1.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="17%"></td>
+
+                <td width="83%">For strings, specifies the maximum number of characters to copy to the output buffer.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="17%"><i>type</i></td>
+
+                <td width="83%">The corresponding argument is copied as a character, a string, or a number. This field can be any of the following character sequences:</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table cellpadding="5" cols="3">
+        <tbody>
+            <tr valign="top">
+                <th class="label" width="16%"><b>Character</b></th>
+
+                <th class="label" width="21%"><b>Type</b></th>
+
+                <th class="label" width="63%"><b>Output Format</b></th>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>c</b></td>
+
+                <td width="21%"><b>int</b> or <b>wint_t</b></td>
+
+                <td width="63%">Single-byte character.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>C</b></td>
+
+                <td width="21%"><b>int</b> or <b>wint_t</b></td>
+
+                <td width="63%">Wide character.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>d</b></td>
+
+                <td width="21%"><b>int</b></td>
+
+                <td width="63%">Signed decimal integer.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>i</b></td>
+
+                <td width="21%"><b>int</b></td>
+
+                <td width="63%">Signed decimal integer.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>o</b></td>
+
+                <td width="21%"><b>int</b></td>
+
+                <td width="63%">Unsigned octal integer.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>u</b></td>
+
+                <td width="21%"><b>int</b></td>
+
+                <td width="63%">Unsigned decimal integer.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>x</b></td>
+
+                <td width="21%"><b>int</b></td>
+
+                <td width="63%">Unsigned hexadecimal integer, using “abcdef.”</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>X</b></td>
+
+                <td width="21%"><b>int</b></td>
+
+                <td width="63%">Unsigned hexadecimal integer, using “ABCDEF.”</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>e</b></td>
+
+                <td width="21%"><b>double</b></td>
+
+                <td width="63%">Signed value having the form [ – ]<i>d</i><b>.</b><i>dddd</i> <b>e</b> [<i>sign</i>]<i>ddd</i> where <i>d</i> is a single decimal digit, <i>dddd</i> is one or more decimal digits, <i>ddd</i> is exactly three decimal digits, and <i>sign</i> is + or –.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>E</b></td>
+
+                <td width="21%"><b>double</b></td>
+
+                <td width="63%">Identical to the <b>e</b> format except that <b>E</b> rather than <b>e</b> introduces the exponent.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>f</b></td>
+
+                <td width="21%"><b>double</b></td>
+
+                <td width="63%">Signed value having the form [ – ]<i>dddd</i><b>.</b><i>dddd</i>, where <i>dddd</i> is one or more decimal digits. The number of digits before the decimal point depends on the magnitude of the number, and the number of digits after the decimal point depends on the requested precision.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>g</b></td>
+
+                <td width="21%"><b>double</b></td>
+
+                <td width="63%">Signed value printed in <b>f</b> or <b>e</b> format, whichever is more compact for the given value and precision. The <b>e</b> format is used only when the exponent of the value is less than –4 or greater than or equal to the precision argument. Trailing zeros are truncated, and the decimal point appears only if one or more digits follow it.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>G</b></td>
+
+                <td width="21%"><b>double</b></td>
+
+                <td width="63%">Identical to the <b>g</b> format, except that <b>E</b>, rather than <b>e</b>, introduces the exponent (where appropriate).</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>n</b></td>
+
+                <td width="21%">Pointer to integer</td>
+
+                <td width="63%">Number of characters successfully written so far to the stream or buffer; this value is stored in the integer whose address is given in the argument.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>p</b></td>
+
+                <td width="21%">Pointer to <b>void</b></td>
+
+                <td width="63%">Prints the address pointed to in the argument in the form <i>xxxx</i><b>:</b><i>yyyy</i> where <i>xxxx</i> is the segment and <i>yyyy</i> is the offset, and the digits of <i>x</i> and <i>y</i> are uppercase hexadecimal digits.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>s</b></td>
+
+                <td width="21%">String</td>
+
+                <td width="63%">Single-byte–character string. Characters are printed up to the first null character or until the <i>precision</i> value is reached.</td>
+            </tr>
+
+            <tr valign="top">
+                <td width="16%"><b>S</b></td>
+
+                <td width="21%">String</td>
+
+                <td width="63%">Wide-character string. Characters are printed up to the first null character or until the <i>precision</i> value is reached.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><b>Note</b>&nbsp;&nbsp;<strong>DBPrintf</strong> uses the C calling convention (<b>_cdecl</b>), rather than the Pascal calling convention. As a result, it is the responsibility of the calling process to pop arguments off the stack, and arguments are pushed on the stack from right to left. In C-language modules, the C compiler performs this task.</p>
+
+    <h4>Requirements</h4>
+
+    <p>&nbsp;&nbsp;&nbsp; <strong>Header:</strong> Declared in GSDebug.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong>Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../../../GSRootHTMLLibrary/DebugManager/reference/macros_id.html">Debug Manager Macros</a>, <a href="../../../GSRootHTMLLibrary/DebugManager/reference/functions_id.html">Debug Manager Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

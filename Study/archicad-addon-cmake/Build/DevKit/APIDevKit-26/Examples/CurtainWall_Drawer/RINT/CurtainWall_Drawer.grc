@@ -1,0 +1,52 @@
+﻿/* *****************************************************************************
+// Localizable resource description for the CurtainWall_Drawer Add-On
+// ****************************************************************************/
+
+'STR#' 32000 "Add-on Name and Description" {
+/* [  1] */		"Curtain Wall Drawer"
+/* [  2] */		"Add-On for drawing or modifying Curtain Walls with lines"
+}
+
+'STR#' 32500 "Menu strings" {
+/* [   ] */		"Curtain Wall Drawer"
+/* [  1] */			"Create Curtain Wall from Selection^S^10000"
+/* [  2] */			"Modify Curtain Wall from Selection^S^10000"
+/* [  3] */			"-"
+/* [  4] */			"Create Hatch and Lines from Curtain Wall^S^10000"
+/* [  5] */			"Modify Hatch and Lines from Curtain Wall^S^10000"
+/* [  6] */			"-"
+/* [  7] */			"Select Line Type ID"
+}
+
+
+'STR#' 33000 "Undoable command" {
+/* [  1] */		"Create Curtain Wall from Selection"
+/* [  2] */		"Modify Curtain Wall from Selection"
+/* [  3] */		"Create Hatch and Lines from Curtain Wall"
+/* [  4] */		"Modify Hatch and Lines from Curtain Wall"
+}
+
+'STR#' 33500 "Error messages" {
+/* [  1] */		"Please select a hatch (and any lines from inside)"
+/* [  2] */		"Please select a curtain wall"
+/* [  3] */		"Please select a hatch (and any lines from inside) and a curtain wall"
+/* [  4] */		"Nothing to modify"
+}
+
+'GDLG'  32500  Modal        40   40  400  130  "Select Line Type" {
+/* [  1] */ Button				   80   90  100   25	LargePlain  "OK"
+/* [  2] */ Button				  220   90  100   25	LargePlain  "Cancel"
+/* [  3] */ LeftText			   40   20  120   20	LargePlain  "Basic Line Type"
+/* [  4] */ LeftText			   40   50  120   20	LargePlain  "Hidden Line Type"
+/* [  5] */ UserControl			  180   18  170   22	261  0x0100
+/* [  6] */ UserControl			  180   48  170   22	261  0x0100
+}
+
+'DLGH'  32500  DLG_32500 {
+1	"OK Button"					Button_0
+2	"Cancel Button"				Button_1
+3	"Basic Line Type Label"		LeftText_0
+4	"Hidden Line Type Label"	LeftText_1
+5	""							UC261_0
+6	""							UC261_1
+}

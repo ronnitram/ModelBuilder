@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Vegh Miklos, Urban Eszter">
+
+    <title>DG_MSG_SPLITTERDRAG</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_SPLITTERDRAG.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_SPLITTERDRAG</h1>
+
+    <p>A drag event occurs on a <a href="Splitter.html">splitter control</a>.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based dialog item index of the dragged splitter control.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>Pointer to a <a href="DGSplitterMsgData.html">DGSplitterMsgData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Not used, should be set to zero.</p>
+
+    <h4>Remarks</h4>
+
+    <p><tt>DG_MSG_SPLITTERDRAG</tt> messages are sent to the <a href="CallbackFunctions.html">dialog callback function</a> when a splitter control is dragged.</p>
+
+    <p>By every dragging action the dialog callback function receives three or more <tt>DG_MSG_SPLITTERDRAG</tt> messages with the following submessages:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="180">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SPL_DRAGSTART</tt></td>
+
+                    <td>This message is sent before the splitter control is dragged.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SPL_DRAG</tt></td>
+
+                    <td>This message is sent when the splitter control is being dragged.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SPL_DRAGEND</tt></td>
+
+                    <td>This message is sent after the splitter control is drop.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>To change the dragable status of the splitter control use the <a href="DGSplitterEnableDrag.html">DGSplitterEnableDrag</a> and the <a href="DGSplitterDisableDrag.html">DGSplitterDisableDrag</a> functions.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="CallbackFunctions.html">dialog callback function</a><br>
+    <a href="DGSplitterMsgData.html">DGSplitterMsgData</a>, <a href="Splitter.html">Splitter</a><br>
+    <a href="DGSplitterEnableDrag.html">DGSplitterEnableDrag</a>, <a href="DGSplitterDisableDrag.html">DGSplitterDisableDrag</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 21, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

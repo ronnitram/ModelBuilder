@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>GetLastNetworkName</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/Location/GetLastNetworkName.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="Location.html">Location</a>::GetLastNetworkName</h1><br>
+    Returns the last part (name) of the location's network address.<br>
+    <br>
+    <pre class="syntax">
+<b>GSErrCode  GetLastNetworkName (
+    <a href="../Name/Name.html">Name</a>* result
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>result</em></dt>
+
+        <dd>On return: the last part (name) of the location's network address.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="243">
+        <tr>
+            <th width="96">Value</th>
+
+            <th width="105">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="96">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="105">OK</td>
+        </tr>
+
+        <tr>
+            <td width="96">ErrMemoryFull<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="105">out of memory</td>
+        </tr>
+
+        <tr>
+            <td width="96">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="105">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method returns the last part (name) of the location's network address in <i>result</i>. Network address should not be empty.<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

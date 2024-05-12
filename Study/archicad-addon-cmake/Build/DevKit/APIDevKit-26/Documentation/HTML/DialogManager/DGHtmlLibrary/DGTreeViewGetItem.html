@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGTreeViewGetItem</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGTreeViewGetItem.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGTreeViewGetItem</h1>
+
+    <p>Retrieves the ID of a <a href="TreeView.html">tree view</a> item according to the specified flag.</p>
+    <pre class="syntax">
+    <strong>Int32 DGTreeViewGetItem</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>Int32</strong>  <em>treeItem</em>,
+      <strong>short</strong>  <em>itemFlag</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>treeItem</em></dt>
+
+        <dd>If <em>itemFlag</em> is one of <tt>DG_TVG_NEXT</tt>, <tt>DG_TVG_PREVIOUS</tt>, <tt>DG_TVG_PARENT</tt>, <tt>DG_TVG_CHILD</tt>, <tt>DG_TVG_NEXTLISTED</tt> or <tt>DG_TVG_PREVLISTED</tt>, <em>treeItem</em> is the ID of a tree view item. Otherwise this parameter is ignored.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>itemFlag</em></dt>
+
+        <dd>The return value of the function is determined by this flag:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVG_FIRST</tt></td>
+
+                    <td>The first item in the tree view.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVG_NEXT</tt></td>
+
+                    <td>The next item of the tree view (the one after <em>treeItem</em>) on the same hierarchy level.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVG_PREVIOUS</tt></td>
+
+                    <td>The previous item of the tree view (the one before <em>treeItem</em>) on the same hierarchy level.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVG_PARENT</tt></td>
+
+                    <td>The parent of <em>treeItem</em>, i.e. the item one level higher in the hierarchy.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVG_CHILD</tt></td>
+
+                    <td>The (first) child item of <em>treeItem</em>, i.e. the first item one level lower in the hierarchy.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVG_FIRSTLISTED</tt></td>
+
+                    <td>The same as <tt>DG_TVG_FIRST</tt>.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVG_LASTLISTED</tt></td>
+
+                    <td>The last listed (visible) item in the tree view.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVG_NEXTLISTED</tt></td>
+
+                    <td>The next listed (visible) item in the tree view.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVG_PREVLISTED</tt></td>
+
+                    <td>The previous listed (visible) item in the tree view.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The ID of the referenced tree view item (according to <em>itemFlag</em>) or <tt>DG_TVI_NONE</tt> if there is no such an item. <tt>DG_TVI_ROOT</tt> is returned if <em>itemFlag</em> is <tt>DG_TVG_PARENT</tt> and the specified item has no parent, i.e. it is the root item.</p>
+
+    <h4>Remarks</h4>
+
+    <p>A tree item is considered as "listed (visible)" if its hierarchy level is expanded. However, an item can be listed as visible even if it is currently not in the client rectangle of the tree view.</p>
+
+    <p>To enumerate all items on a hierarchy level use <tt>DG_TVG_NEXT</tt> and <tt>DG_TVG_PREVIOUS</tt>. To go through hierarchy levels use <tt>DG_TVG_CHILD</tt> and <tt>DG_TVG_PARENT</tt>. To enumerate all the listed items use <tt>DG_TVG_NEXTLISTED</tt> and <tt>DG_TVG_PREVLISTED</tt>. To enumerate all items of a subtree write a recursive algorithm based on <tt>DG_TVG_CHILD</tt> and <tt>DG_TVG_NEXT</tt>.</p>
+
+    <p>The only way to determine whether an item is a parent is calling <b>DGTreeViewGetItem</b> with the <tt>DG_TVG_CHILD</tt> flag. If the return value is different from <tt>DG_TVI_NONE</tt> the tree item has at least one child.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.1.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="TreeView.html">Tree View</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

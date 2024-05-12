@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>EnumeratePairs (HashTable)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/HashTable/EnumeratePairs.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="HashTable.html">HashTable</A>&lt;IndexType, ItemType&gt;::EnumeratePairs</H2><!--exp="HashTable<IndexType, ItemType>::EnumeratePairs-->
+<P><topic id="$GS.$HashTable.$EnumeratePairs.BriefDescription">
+		Allows enumeration of the hashtable's content.
+	</topic></P>
+<PRE class="syntax"><B><a class="nodecorate" href="../../GS/HashTable/PairIterator.html">PairIterator</A> EnumeratePairs (</B><B>void</B><I></I><B>);</B></PRE>
+<PRE class="syntax"><B><a class="nodecorate" href="../../GS/HashTable/ConstPairIterator.html">ConstPairIterator</A> EnumeratePairs (</B><B>void</B><I></I><B>) const;</B></PRE>
+<H4>Return Value</H4>
+<P><topic id="$GS.$HashTable.$EnumeratePairs.ReturnDescription">
+		A <!----><a href="../ForwardIterator/ForwardIterator.html">forward iterator</a> or a
+		<!----><a href="../ConstForwardIterator/ConstForwardIterator.html">constant forward iterator</a>
+		referring to the first index-item pair in the hashtable.
+	</topic></P><P><topic id="$GS.$HashTable.$EnumeratePairs.1.ReturnDescription"></topic></P><P><topic id="$GS.$HashTable.$EnumeratePairs.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$HashTable.$EnumeratePairs.LongDescription">
+		This method allows forward enumeration of the hashtable's content as
+		sequence of pairs of indices and items (keys and values). It returns a
+		<!----><a href="../ForwardIterator/ForwardIterator.html">forward iterator</a> or a
+		<!----><a href="../ConstForwardIterator/ConstForwardIterator.html">constant forward iterator</a>
+		referring to the first index-item pair in the hashtable. The pair is a simple
+		struct having two members:
+		<PRE class="code">
+    const IndexType*  key;
+    ItemType*         value;</PRE>
+		for non-constant forward iterators and
+		<PRE class="code">
+    const IndexType*  key;
+    const ItemType*   value;</PRE>
+		for constant forward iterators, where <i>key</i> points to the current index and <i>value</i>
+		points to the current item.	So the current index and current item can be accessed as following:
+		<PRE class="code">
+    *(iterator-&gt;key)    // reference to the index
+    *(iterator-&gt;value)  // reference to the item</PRE>
+		or
+		<PRE class="code">
+    iterator-&gt;key-&gt;anIndexMember
+    iterator-&gt;value-&gt;anItemMember</PRE>
+		Enumeration order is not defined.<br>
+		References to pairs obtained by iterator dereferencing can be used only until the next
+		modifying method on the parent hashtable is invoked.<br>
+		This method is equivalent with the <!----><a href="BeginPairs.html">BeginPairs</a> method.
+	</topic></P>
+<H4>Example</H4><topic id="$GS.$HashTable.$EnumeratePairs.Example">
+	<PRE class="code">
+GS::HashTable&lt;GS::String, long&gt; hashTable;  // hashtable of {strings, long} pairs
+
+GS::HashTable&lt;GS::String, long&gt;::PairIterator it = hashTable.EnumeratePairs ();  // obtaining a pair iterator (or hashTable.BeginPairs ())
+while (it != NULL) {              // until the end of the sequence (hashtable)
+    GS::String s = *(it-&gt;key);    // dereferencing the iterator (returns pointer to the pair structure)
+    long l       = *(it-&gt;value);  // dereferencing the iterator (returns pointer to the pair structure)
+    *(it-&gt;value) = 4;             // dereferencing the iterator (returns pointer to the pair structure)
+    ++it;                         // advance to the next pair
+}
+
+</PRE><P>This example illustrates the use of pair iterators obtained from a hashtable.</P>
+	</topic><H4>See Also</H4>
+<P><topic id="$GS.$HashTable.$EnumeratePairs.SeeAlso">
+		<!----><A href="BeginPairs.html">BeginPairs</A> | <!----><A href="EndPairs.html">EndPairs</A>
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

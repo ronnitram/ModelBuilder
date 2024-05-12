@@ -1,0 +1,458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ElementMemo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ElementMemo.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ElementMemo</h1>
+
+    <p>Describes the variable length additional data of elements.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <a href="API_Coord.html"><strong>API_Coord</strong></a>                        <em>**coords</em>;
+        <strong>Int32</strong>                            <em>**pends</em>;
+        <a href="API_PolyArc.html"><strong>API_PolyArc</strong></a>                      <em>**parcs</em>;
+        <strong>UInt32</strong>                           <em>**vertexIDs</em>;
+        <strong>UInt32</strong>                           <em>**edgeIDs</em>;
+        <strong>UInt32</strong>                           <em>**contourIDs</em>;
+        <a href="API_AddParType.html"><strong>API_AddParType</strong></a>                   <em>**params</em>;
+        <a href="API_Gable.html"><strong>API_Gable</strong></a>                        <em>**gables</em>;
+        <a href="API_EdgeTrim.html"><strong>API_EdgeTrim</strong></a>                     <em>**edgeTrims</em>;
+        <strong>double</strong>                           <em>**meshPolyZ</em>;
+        <a href="API_MeshLevelCoord.html"><strong>API_MeshLevelCoord</strong></a>               <em>**meshLevelCoords</em>;
+        <strong>Int32</strong>                            <em>**meshLevelEnds</em>;
+        <a href="API_DimElem.html"><strong>API_DimElem</strong></a>                      <em>**dimElems</em>;
+        <a href="API_SplineDir.html"><strong>API_SplineDir</strong></a>                    <em>**bezierDirs</em>;
+        <strong>char</strong>                             <em>**textContent</em>;
+        <strong>short</strong>                            <em>**textLineStarts</em>;
+        <a href="API_Beam_Hole.html"><strong>API_Beam_Hole</strong></a>                    <em>**beamHoles</em>;
+        <a href="API_LinkType.html"><strong>API_LinkType</strong></a>                     <em>**linkList</em>;
+        <strong>char</strong>                             <em>**pictHdl</em>;
+        <a href="API_ParagraphType.html"><strong>API_ParagraphType</strong></a>                <em>**paragraphs</em>;
+        <strong>GSPtr</strong>                            <em>drawingData</em>;
+        <strong>ProfileVectorImage</strong>               <em>*customOrigProfile</em>;
+        <strong>ProfileVectorImage</strong>               <em>*stretchedProfile</em>;
+        <strong>GSPtr</strong>                            <em>customParams</em>;
+        <a href="API_SectionSegment.html"><strong>API_SectionSegment</strong></a>               <em>*intElevSegments</em>;
+        <a href="API_Coord.html"><strong>API_Coord</strong></a>                        <em>*sectionSegmentMainCoords</em>;
+        <a href="API_Coord.html"><strong>API_Coord</strong></a>                        <em>*sectionSegmentDistCoords</em>;
+        <a href="API_Coord.html"><strong>API_Coord</strong></a>                        <em>*sectionSegmentDepthCoords</em>;
+        <a href="API_Guid.html"><strong>API_Guid</strong></a>                         <em>*wallWindows</em>;
+        <a href="API_Guid.html"><strong>API_Guid</strong></a>                         <em>*wallDoors</em>;
+        <a href="API_GridMesh.html"><strong>API_GridMesh</strong></a>                     <em>*cWSegGridMesh</em>;
+        <a href="API_CWContourData.html"><strong>API_CWContourData</strong></a>                <em>*cWSegContour</em>;
+        <a href="API_CWSegmentPatternData.html"><strong>API_CWSegmentPatternData</strong></a>         <em>cWSegPrimaryPattern</em>;
+        <a href="API_CWSegmentPatternData.html"><strong>API_CWSegmentPatternData</strong></a>         <em>cWSegSecondaryPattern</em>;
+        <a href="API_CWSegmentPatternCellData.html"><strong>API_CWSegmentPatternCellData</strong></a>     <em>*cWSegPatternCells</em>;
+        <a href="API_CWSegmentType.html"><strong>API_CWSegmentType</strong></a>                <em>*cWallSegments</em>;
+        <a href="API_CWFrameType.html"><strong>API_CWFrameType</strong></a>                  <em>*cWallFrames</em>;
+        <a href="API_CWFrameType.html"><strong>API_CWFrameType</strong></a>                  <em>*cWallFrameDefaults</em>;
+        <a href="API_Guid.html"><strong>API_Guid</strong></a>                         <em>*cWallFrameDefaultSymbs</em>;
+        <a href="API_CWPanelType.html"><strong>API_CWPanelType</strong></a>                  <em>*cWallPanels</em>;
+        <strong>API_CWPanelGridIDTable</strong>           <em>*cWallPanelGridIDTable</em>;
+        <a href="API_CWPanelType.html"><strong>API_CWPanelType</strong></a>                  <em>*cWallPanelDefaults</em>;
+        <a href="API_Guid.html"><strong>API_Guid</strong></a>                         <em>*cWallPanelDefaultSymbs</em>;
+        <a href="API_CWJunctionType.html"><strong>API_CWJunctionType</strong></a>               <em>*cWallJunctions</em>;
+        <a href="API_CWAccessoryType.html"><strong>API_CWAccessoryType</strong></a>              <em>*cWallAccessories</em>;
+        <strong><a href="API_StairRiserType.html">API_StairRiserType</a></strong>               <em>*stairRisers</em>;
+        <strong><a href="API_StairTreadType.html">API_StairTreadType</a></strong>               <em>*stairTreads</em>;
+        <strong><a href="API_StairStructureType.html">API_StairStructureType</a></strong>           <em>*stairStructures</em>;
+        <strong><a href="API_StairBoundaryData.html">API_StairBoundaryData</a></strong>            <em>stairBoundary[2]</em>;
+        <strong><a href="API_StairPolyLineData.html">API_StairPolylineData</a></strong>            <em>stairBaseLine</em>;
+        <strong><a href="API_StairPolyLineData.html">API_StairPolylineData</a></strong>            <em>stairWalkingLine</em>;
+        <strong><a href="API_RailingNodeType.html">API_RailingNodeType</a></strong>              <em>*railingNodes</em>;
+        <strong><a href="API_RailingSegmentType.html">API_RailingSegmentType</a></strong>           <em>*railingSegments</em>;
+        <strong><a href="API_RailingPostType.html">API_RailingPostType</a></strong>              <em>*railingPosts</em>;
+        <strong><a href="API_RailingRailEndType.html">API_RailingRailEndType</a></strong>           <em>*railingRailEnds</em>;
+        <strong><a href="API_RailingRailConnectionType.html">API_RailingRailConnectionType</a></strong>    <em>*railingRailConnections</em>;
+        <strong><a href="API_RailingRailEndType.html">API_RailingRailEndType</a></strong>           <em>*railingHandrailEnds</em>;
+        <strong><a href="API_RailingRailConnectionType.html">API_RailingRailConnectionType</a></strong>    <em>*railingHandrailConnections</em>;
+        <strong><a href="API_RailingRailEndType.html">API_RailingRailEndType</a></strong>           <em>*railingToprailEnds</em>;
+        <strong><a href="API_RailingRailConnectionType.html">API_RailingRailConnectionType</a></strong>    <em>*railingToprailConnections</em>;
+        <strong><a href="API_RailingRailType.html">API_RailingRailType</a></strong>              <em>*railingRails</em>;
+        <strong><a href="API_RailingToprailType.html">API_RailingToprailType</a></strong>           <em>*railingToprails</em>;
+        <strong><a href="API_RailingHandrailType.html">API_RailingHandrailType</a></strong>          <em>*railingHandrails</em>;
+        <strong><a href="API_RailingPatternType.html">API_RailingPatternType</a></strong>           <em>*railingPatterns</em>;
+        <strong><a href="API_RailingInnerPostType.html">API_RailingInnerPostType</a></strong>         <em>*railingInnerPosts</em>;
+        <strong><a href="API_RailingPanelType.html">API_RailingPanelType</a></strong>             <em>*railingPanels</em>;
+        <strong><a href="API_RailingBalusterSetType.html">API_RailingBalusterSetType</a></strong>       <em>*railingBalusterSets</em>;
+        <strong><a href="API_RailingBalusterType.html">API_RailingBalusterType</a></strong>          <em>*railingBalusters</em>;
+        <strong>double</strong>                           <em>**polyZCoords</em>;
+        <strong><a href="API_RoofEdgeTypeID.html">API_RoofEdgeTypeID</a></strong>               <em>*roofEdgeTypes</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>          <em>*sideMaterials</em>;
+        <a href="API_Coord.html"><strong>API_Coord</strong></a>                        <em>**additionalPolyCoords</em>;
+        <strong>Int32</strong>                            <em>**additionalPolyPends</em>;
+        <a href="API_PolyArc.html"><strong>API_PolyArc</strong></a>                      <em>**additionalPolyParcs</em>;
+        <strong>UInt32</strong>                           <em>**additionalPolyVertexIDs</em>;
+        <strong>UInt32</strong>                           <em>**additionalPolyEdgeIDs</em>;
+        <strong>UInt32</strong>                           <em>**additionalPolyContourIDs</em>;
+        <strong><a href="API_PivotPolyEdgeData.html">API_PivotPolyEdgeData</a></strong>            <em>*pivotPolyEdges</em>;
+        <strong><a href="API_ShellShapeData.html">API_ShellShapeData</a></strong>               <em>shellShapes[2]</em>;
+        <strong><a href="API_ShellContourData.html">API_ShellContourData</a></strong>             <em>*shellContours</em>;
+        <strong>Modeler::Body</strong>                    <em>*morphBody</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>          <em>*morphMaterialMapTable</em>;
+        <strong>GS::UniString</strong>                    <em>*elemInfoString</em>;
+        <strong><a href="API_BeamSegmentType.html">API_BeamSegmentType</a></strong>              <em>*beamSegments</em>;
+        <strong><a href="API_ColumnSegmentType.html">API_ColumnSegmentType</a></strong>            <em>*columnSegments</em>;
+        <strong><a href="API_AssemblySegmentCutData.html">API_AssemblySegmentCutData</a></strong>       <em>*assemblySegmentCuts</em>;
+        <strong><a href="API_AssemblySegmentSchemeData.html">API_AssemblySegmentSchemeData</a></strong>    <em>*assemblySegmentSchemes</em>;
+        <strong><a href="API_AssemblySegmentProfileData.html">API_AssemblySegmentProfileData</a></strong>   <em>*assemblySegmentProfiles</em>;
+        <strong><a href="API_SurfaceLoadCustomData.html">API_SurfaceLoadCustomData</a></strong>   		<em>*surfaceLoadCustomData</em>;
+    <strong>}</strong> <em>API_ElementMemo</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>coords</b></dt>
+        <dd>Coordinate array (used for polygons, spline coordinates, etc.).</dd>
+
+        <dt><b>pends</b></dt>
+        <dd>Polygon endpoints; see <a href="API_Polygon.html">API_Polygon</a> for more information.</dd>
+
+        <dt><b>parcs</b></dt>
+        <dd>Polygon arcs; see <a href="API_PolyArc.html">API_PolyArc</a> and <a href="API_Polygon.html">API_Polygon</a> for more information.</dd>
+
+        <dt><b>vertexIDs</b></dt>
+        <dd>Unique identifiers the polygon vertices (unique inside the polygon).</dd>
+
+        <dt><b>edgeIDs</b></dt>
+        <dd>Unique identifiers the polygon edges (unique inside the polygon).</dd>
+
+        <dt><b>contourIDs</b></dt>
+        <dd>Unique identifiers the polygon contours (unique inside the polygon).</dd>
+
+        <dt><b>params</b></dt>
+        <dd>Additional parameters for library part-based elements.</dd>
+
+        <dt><b>gables</b></dt>
+        <dd>Parameters of the cutting planes the element has been cut with.</dd>
+
+        <dt><b>edgeTrims</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+        <dd>Trim data of slab/roof/shell edges. (Formerly <code>roofSides</code>.)</dd>
+
+        <dt><b>meshPolyZ</b></dt>
+        <dd>Z coordinates of mesh polygon points.</dd>
+
+        <dt><b>meshLevelCoords</b></dt>
+        <dd>Mesh level line coordinates.</dd>
+
+        <dt><b>meshLevelEnds</b></dt>
+        <dd>Mesh level line endpoints.</dd>
+
+        <dt><b>dimElems</b></dt>
+        <dd>Dimension elements.</dd>
+
+        <dt><b>bezierDirs</b></dt>
+        <dd>Bezier-spline directions.</dd>
+
+        <dt><b>textContent</b></dt>
+        <dd>Text content for textual elements.</dd>
+
+        <dt><b>textLineStarts</b></dt>
+        <dd>Text line starts array (indices into the text content).</dd>
+
+        <dt><b>beamHoles</b></dt>
+        <dd>Beam hole information.</dd>
+
+        <dt><b>linkList</b></dt>
+        <dd>Camera link list.</dd>
+
+        <dt><b>pictHdl</b></dt>
+        <dd>Picture content.</dd>
+
+        <dt><b>paragraphs</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+        <dd>Paragraph informations for text and label element.</dd>
+
+        <dt><b>drawingData</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+        <dd>Internal format drawing data of an <a href="API_DrawingType.html">API_DrawingType</a> element.</dd>
+
+        <dt><b>customOrigProfile</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+        <dd>The original custom profile data applied to the wall, beam, or column element, in <!--NoIdx--><a href="../Classes/VectorImage/VectorImage.html">HGX::VectorImage</a> format (see <a href="../Structures/API_ProfileAttrType.html">API_ProfileAttrType</a>).</dd>
+
+        <dt><b>stretchedProfile</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+        <dd>The stretched profile actually used by the wall, beam, or column element, in <!--NoIdx--><a href="../Classes/VectorImage/VectorImage.html">HGX::VectorImage</a> format (see <a href="../Structures/API_ProfileAttrType.html">API_ProfileAttrType</a>).</dd>
+
+        <dt><b>customParams</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+        <dd>Reserved for internal use.</dd>
+
+        <dt><b>intElevSegments</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+        <dd>Segments of an interior elevation.</dd>
+
+        <dt><b>sectionSegmentMainCoords</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+        <dd>Coordinates of the section/elevation/interior elevation main line.</dd>
+
+        <dt><b>sectionSegmentDistCoords</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+        <dd>Coordinates of the section/elevation/interior elevation marked distant area line.</dd>
+
+        <dt><b>sectionSegmentDepthCoords</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+        <dd>Coordinates of the section/elevation/interior elevation depth line.</dd>
+
+        <dt><b>wallWindows</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+        <dd>Guid list of Window elements in the specified Wall (output only).<br>
+        <img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12">&nbsp; For getting this information more effectively, you had better use the <a href="../Functions/ACAPI_Element_GetConnectedElements.html">ACAPI_Element_GetConnectedElements</a> function.</dd>
+
+        <dt><b>wallDoors</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+        <dd>Guid list of Door elements in the specified Wall (output only).<br>
+        <img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12">&nbsp; For getting this information more effectively, you had better use the <a href="../Functions/ACAPI_Element_GetConnectedElements.html">ACAPI_Element_GetConnectedElements</a> function.</dd>
+
+        <dt><b>cWSegGridMesh</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Added in API 12" width="19" height="12"></dt>
+        <dd>Curtain wall segment grid mesh.</dd>
+
+        <dt><b>cWSegContour</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Added in API 12" width="19" height="12"></dt>
+        <dd>The contour of Curtain Wall segments.</dd>
+
+        <dt><b>cWSegPrimaryPattern</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Changed in API 22" width="19" height="12"></dt>
+        <dd>Curtain Wall primary segment pattern.</dd>
+
+        <dt><b>cWSegSecondaryPattern</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Changed in API 22" width="19" height="12"></dt>
+        <dd>Curtain Wall secondary segment pattern.</dd>
+
+        <dt><b>cWSegPatternCells</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Added in API 22" width="19" height="12"></dt>
+        <dd>Curtain Wall segment pattern cells.</dd>
+
+        <dt><b>cWallSegments</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Added in API 12" width="19" height="12"></dt>
+        <dd>Curtain Wall segments.</dd>
+
+        <dt><b>cWallFrames</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Added in API 12" width="19" height="12"></dt>
+        <dd>Curtain Wall frame instances.</dd>
+
+        <dt><b>cWallFrameDefaults</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Added in API 22" width="19" height="12"></dt>
+        <dd>Curtain Wall custom frame defaults (categories/classes).</dd>
+
+        <dt><b>cWallFrameDefaultSymbs</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Added in API 22" width="19" height="12"></dt>
+        <dd>Curtain Wall frame default (category/class) symbols.</dd>
+
+        <dt><b>cWallPanels</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Added in API 12" width="19" height="12"></dt>
+        <dd>Curtain Wall panel instances.</dd>
+
+        <dt><b>cWallPanelGridIDTable</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Added in API 22" width="19" height="12"></dt>
+        <dd>This table contains the grid mesh identifiers for each Curtain Wall panel instance (these grid mesh cells are partly or fully covered by the panel).<br><code>typedef GS::HashTable&lt;API_Guid, GS::Array&lt;API_GridElemID&gt;&gt; API_CWPanelGridIDTable;</code></dd>
+
+        <dt><b>cWallPanelDefaults</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Added in API 22" width="19" height="12"></dt>
+        <dd>Curtain Wall panel defaults (categories/classes).</dd>
+
+        <dt><b>cWallPanelDefaultSymbs</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Added in API 22" width="19" height="12"></dt>
+        <dd>Curtain Wall panel default (category/class) symbols.</dd>
+
+        <dt><b>cWallJunctions</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Added in API 12" width="19" height="12"></dt>
+        <dd>Curtain Wall junction instances.</dd>
+
+        <dt><b>cWallAccessories</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Added in API 12" width="19" height="12"></dt>
+        <dd>Curtain Wall accessory instances.</dd>
+
+        <dt><b>stairRisers</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Stair Riser subelements.</dd>
+
+        <dt><b>stairTreads</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Stair Tread subelements.</dd>
+
+        <dt><b>stairStructures</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Stair Structure subelements.</dd>
+
+        <dt><b>stairBoundary</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Stair boundaries (index 0 is the left, and 1 is the right).</dd>
+
+        <dt><b>stairBaseLine</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>The base line of a Stair element.</dd>
+
+        <dt><b>stairWalkingLine</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>The walking line of a Stair element.</dd>
+
+        <dt><b>stairCustomWalkLine</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>The customized walking line of a Stair element.</dd>
+
+        <dt><b>stairCenterWalkLine</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>The default, centered walking line of a Stair element.</dd>
+
+        <dt><b>railingNodes</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Railing Node subelements.</dd>
+
+        <dt><b>railingSegments</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Railing Segment subelements.</dd>
+
+        <dt><b>railingPosts</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Railing Post subelements.</dd>
+
+        <dt><b>railingRailEnds</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Rail End subelements.</dd>
+
+        <dt><b>railingRailConnections</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Rail Connection subelements.</dd>
+
+        <dt><b>railingHandrailEnds</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Handrail End subelements. Only filled for Railing elements. If a Railing Node element is queried, these can be found inside the Element's structure.</dd>
+
+        <dt><b>railingHandrailConnections</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Handrail Connection subelements. Only filled for Railing elements. If a Railing Node element is queried, these can be found inside the Element's structure.</dd>
+
+        <dt><b>railingToprailEnds</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Toprail End subelements. Only filled for Railing elements. If a Railing Node element is queried, these can be found inside the Element's structure.</dd>
+
+        <dt><b>railingToprailConnections</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Toprail Connection subelements. Only filled for Railing elements. If a Railing Node element is queried, these can be found inside the Element's structure.</dd>
+
+        <dt><b>railingRails</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Rail subelements.</dd>
+
+        <dt><b>railingToprails</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Toprail subelements.</dd>
+
+        <dt><b>railingHandrails</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Handrail subelements.</dd>
+
+        <dt><b>railingPatterns</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Railing Pattern subelements.</dd>
+
+        <dt><b>railingInnerPosts</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Inner Post subelements.</dd>
+
+        <dt><b>railingBalusterSets</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Baluster Set subelements.</dd>
+
+        <dt><b>railingBalusters</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Baluster subelements.</dd>
+
+        <dt><b>polyZCoords</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Array for the Z coordinates of a coordinate array.</dd>
+
+        <dt><b>roofEdgeTypes</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="Changed in API 13" width="19" height="12"></dt>
+        <dd>Roof edge types.</dd>
+
+        <dt><b>sideMaterials</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="Changed in API 20" width="19" height="12"></dt>
+        <dd>Roof / Slab side materials.</dd>
+
+        <dt><b>additionalPolyCoords</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+        <dd>Coordinate array of the pivot polygon of a Multi-plane Roof element (see <a href="../Structures/API_PolyRoofData.html">API_PolyRoofData</a>) or the found polygon of the zone element. In case of zones, it can be nullptr if zone does not have found polygon. Also this is output only parameter for zones. Can be accessed with the <code>APIMemoMask_AdditionalPolygon</code> memo mask.</dd>
+
+        <dt><b>additionalPolyPends</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+        <dd>Polygon endpoints of the pivot polygon of a Multi-plane Roof element (see <a href="../Structures/API_PolyRoofData.html">API_PolyRoofData</a>) or the found polygon of the zone element. Can be accessed with the <code>APIMemoMask_AdditionalPolygon</code> memo mask. See also <a href="API_Polygon.html">API_Polygon</a> for more information.</dd>
+
+        <dt><b>additionalPolyParcs</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+        <dd>Polygon arcs of the pivot polygon of a Multi-plane Roof element (see <a href="../Structures/API_PolyRoofData.html">API_PolyRoofData</a>) or the found polygon of the zone element. Can be accessed with the <code>APIMemoMask_AdditionalPolygon</code> memo mask. See also <a href="API_PolyArc.html">API_PolyArc</a> and <a href="API_Polygon.html">API_Polygon</a> for more information.</dd>
+
+        <dt><b>additionalPolyVertexIDs</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+        <dd>Unique identifiers the polygon vertices of the pivot polygon of a Multi-plane Roof element (see <a href="../Structures/API_PolyRoofData.html">API_PolyRoofData</a>). Not used for zones. Can be accessed with the <code>APIMemoMask_AdditionalPolygon</code> memo mask.</dd>
+
+        <dt><b>additionalPolyEdgeIDs</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+        <dd>Unique identifiers the polygon edges of the pivot polygon of a Multi-plane Roof element (see <a href="../Structures/API_PolyRoofData.html">API_PolyRoofData</a>). Not used for zones. Can be accessed with the <code>APIMemoMask_AdditionalPolygon</code> memo mask.</dd>
+
+        <dt><b>additionalPolyContourIDs</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+        <dd>Unique identifiers the polygon contours of the pivot polygon of a Multi-plane Roof element (see <a href="../Structures/API_PolyRoofData.html">API_PolyRoofData</a>). Not used for zones. Can be accessed with the <code>APIMemoMask_AdditionalPolygon</code> memo mask.</dd>
+
+        <dt><b>pivotPolyEdges</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+        <dd>Multi-plane roof specific data associated to the edges of the pivot polygon. They contain geometry (angle, eavesOverHang) and attribute (material etc.) data for each segment (see <a href="API_PivotPolyEdgeData.html">API_PivotPolyEdgeData</a>). Can be accessed with the <code>APIMemoMask_PivotPolygon</code> memo mask.</dd>
+
+        <dt><b>shellShapes</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+        <dd>Shell specific data to describe the profiles that form the shell shape. <a href="API_ExtrudedShellData.html">Extruded</a> and <a href="API_RevolvedShellData.html">revolved shells</a> use the first (0-indexed) record only, <a href="API_RuledShellData.html">ruled shells</a> use both. This is a required parameter to pass when creating a new shell element.</dd>
+
+        <dt><b>shellContours</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+        <dd>Shell specific data to define body contour and hole contours to the <a href="API_ShellType.html">shell element</a>. If <code>hasContour</code> is <code>true</code>, the first record contains the body contour data. If the shell has holes (<code>numHoles &gt; 0</code>), the following items of the array describe the hole contours (the first hole contour is located in the second (1-indexed) record if there is a body contour given, otherwise it is in the first (0-indexed) record).</dd>
+
+        <dt><b>morphBody</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="Featuring API 16" width="19" height="12"></dt>
+        <dd><a href="API_MorphType.html">Morph element</a>.</dd>
+
+        <dt><b>morphMaterialMapTable</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="Changed in API 20" width="19" height="12"></dt>
+        <dd><a href="API_MorphType.html">Morph element</a>.</dd>
+
+        <dt><b>elemInfoString</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="Featuring API 19" width="19" height="12"></dt>
+        <dd>Info string of the element.</dd>
+        
+        <dt><b>beamSegments</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+        <dd>Beam segments.</dd>
+        
+        <dt><b>columnSegments</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+        <dd>Column segments.</dd>
+        
+        <dt><b>assemblySegmentCuts</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+        <dd>Cuts of segments.</dd>
+        
+        <dt><b>assemblySegmentSchemes</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+        <dd>Segment schemes.</dd>
+        
+        <dt><b>assemblySegmentProfiles</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+        <dd>Segment profiles.</dd>
+
+        <dt><b>surfaceLoadCustomData</b>&nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="Featuring API 25" width="19" height="12"></dt>
+        <dd>Custom Surface Load contour data.</dd>
+	</dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>See <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> to find out which element type needs/provides which information in the memo.</p>
+
+    <p>If you retrieve an array of vertices, edges or contours with <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a>, do not change the IDs in these arrays.
+    New vertices, edges and contours should be inserted with ID = 0.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a><br>
+    <a href="API_Coord.html">API_Coord</a>, <a href="API_PolyArc.html">API_PolyArc</a>, <a href="API_AddParType.html">API_AddParType</a>, <a href="API_Gable.html">API_Gable</a>, <a href="API_EdgeTrim.html">API_EdgeTrim</a><br>
+    <a href="API_MeshLevelCoord.html">API_MeshLevelCoord</a>, <a href="API_DimElem.html">API_DimElem</a>, <a href="API_SplineDir.html">API_SplineDir</a><br>
+    <a href="API_Beam_Hole.html">API_Beam_Hole</a>, <a href="API_LinkType.html">API_LinkType</a>, <a href="API_ParagraphType.html">API_ParagraphType</a><br>
+    <a href="API_Polygon.html">API_Polygon</a>, <a href="API_DrawingType.html">API_DrawingType</a>, <a href="API_ProfileAttrType.html">API_ProfileAttrType</a>, <a href="API_SectionSegment.html">API_SectionSegment</a>,<br>
+    <a href="API_CWContourData.html">API_CWContourData</a>, <a href="API_CWSegmentType.html">API_CWSegmentType</a>, <a href="API_CWJunctionType.html">API_CWJunctionType</a>, <a href="API_CWAccessoryType.html">API_CWAccessoryType</a>, <a href="API_CWPanelType.html">API_CWPanelType</a>, <a href="API_CWFrameType.html">API_CWFrameType</a>,<br>
+    <a href="API_RoofEdgeTypeID.html">API_RoofEdgeTypeID</a>, <a href="API_PivotPolyEdgeData.html">API_PivotPolyEdgeData</a>, <a href="API_ShellShapeData.html">API_ShellShapeData</a> <a href="API_ShellContourData.html">API_ShellContourData</a>,
+    <a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a>, <a href="API_StairRiserType.html">API_StairRiserType</a>, <a href="API_StairTreadType.html">API_StairTreadType</a>, <a href="API_StairStructureType.html">API_StairStructureType</a><br>
+    <a href="API_BeamSegmentType.html">API_BeamSegmentType</a>, <a href="API_ColumnSegmentType.html">API_ColumnSegmentType</a>, <a href="API_AssemblySegmentData.html">API_AssemblySegmentData</a>
+    <a href="API_AssemblySegmentSchemeData.html">API_AssemblySegmentSchemeData</a>, <a href="API_AssemblySegmentProfileData.html">API_AssemblySegmentProfileData</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a><br>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on March 19, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

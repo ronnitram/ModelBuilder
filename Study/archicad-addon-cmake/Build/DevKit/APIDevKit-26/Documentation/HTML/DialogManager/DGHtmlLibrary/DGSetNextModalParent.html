@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGSetNextModalParent</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGSetNextModalParent.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGSetNextModalParent</h1>
+
+    <p><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></p>
+
+    <p>Sets the parent window of the next invoked <a href="Alerts.html">alert</a> or <a href="ModalDialogs.html">modal dialog</a>. This setting applies for the very next dialog only.</p>
+    <pre class="syntax">
+    <strong>void DGSetNextModalParent</strong> (
+      <strong>const void*</strong>  <em>parentWindow</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>parentWindow</em></dt>
+
+        <dd>Window handle (<strong><tt>HWND</tt></strong>) of the requested parent window cast to <strong><tt>const void*</tt></strong>.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>On Macintosh, this function has no effect.</p>
+
+    <p>On Windows, it is important to choose the right parent for a modal dialog because the user can switch to another window from an open modal dialog if that window is not an ancestor of the modal dialog.</p>
+
+    <p>This function must be called before a DG modal or alert dialog is opened above a system modal (Print, Open, Save, etc.) dialog to set the system modal dialog as the parent of the modal or alert dialog being opened.</p>
+
+    <p>The default algorithm in DG for determining the parent is the following:</p>
+
+    <ol>
+        <li>If there is at least one open DG modal dialog, the last one will be the parent.</li>
+
+        <li>If there is no DG modal dialog open, the last active pop-up window is chosen. This can be a non-DG modal dialog, for example File dialogs.</li>
+
+        <li>Otherwise the application's frame window is used.</li>
+    </ol>
+
+    <p>The parent given by <b>DGSetNextModalParent</b> applies for the next alert function (<a href="DGAlert.html">DGAlert</a>, <a href="DGResAlert.html">DGResAlert</a> or <a href="DGResAlertParam.html">DGResAlertParam</a>) or <a href="DGModalDialog.html">DGModalDialog</a> call only.</p>
+
+    <p>To retrieve the current parent window use the <a href="DGGetNextModalParent.html">DGGetNextModalParent</a> function.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="Alerts.html">Alerts</a>, <a href="ModalDialogs.html">Modal Dialogs</a><br>
+    <a href="DGGetNextModalParent.html">DGGetNextModalParent</a><br>
+    <a href="DGAlert.html">DGAlert</a>, <a href="DGModalDialog.html">DGModalDialog</a>, <a href="DGResAlert.html">DGResAlert</a>, <a href="DGResAlertParam.html">DGResAlertParam</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 5, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

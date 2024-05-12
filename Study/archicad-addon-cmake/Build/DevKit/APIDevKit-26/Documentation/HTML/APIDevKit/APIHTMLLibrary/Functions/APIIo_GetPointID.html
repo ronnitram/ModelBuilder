@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIIo_GetPointID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIIo_GetPointID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIIo_GetPointID</h1>
+
+    <p>Performs a point input.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_interface_id.html">ACAPI_Interface</a></strong> (
+        <strong>APIIo_GetPointID</strong>,
+        <strong><a href="../Structures/API_GetPointType.html">API_GetPointType</a>*</strong>       <em>pointInfo</em>,
+        <strong><a href="RubberLineInfoProc.html">RubberLineInfoProc</a>*</strong>     <em>rubberLineInfoProc</em>,
+        <strong><a href="Get3DComponentProc.html">Get3DComponentProc</a>*</strong>     <em>get3DComponentProc</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>pointInfo</em></dt>
+
+        <dd>[in/out] Parameters of the point input operation.</dd>
+
+        <dt><em>rubberLineInfoProc</em></dt>
+
+        <dd>[in] Callback function for custom feedback drawing.</dd>
+
+        <dt><em>get3DComponentProc</em>&nbsp;<img border="0" src="../../APIImageLibrary/14.png" alt="Modified in 14" width="19" height="12"></dt>
+
+        <dd>[in] Callback function for getting elem informations online (realtime).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>pointInfo</code> is nullptr</dd>
+
+        <dt><code>APIERR_BADPLANE</code></dt>
+
+        <dd>invalid plane definition in <code>pointInfo</code></dd>
+
+        <dt><code>APIERR_BADWINDOW</code></dt>
+
+        <dd>the operation cannot be performed in the current front window of the application</dd>
+
+        <dt><code>APIERR_CANCEL</code></dt>
+
+        <dd>the input was canceled by the user</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to let the user input a point graphically.</p>
+
+    <p>If the input process has failed, the function returns <code>APIERR_CANCEL</code>. Otherwise the result is returned in the <code>pos</code> and <code>neig</code> fields of <code>pointInfo</code>.</p>
+
+    <p>The prompt string displayed in the control box which can contain instructions about the action. You can control the cursor gravity above neigs and the cursor shapes, and set the input plane. There is a possibility of drawing own graphical feedback during the input with passing a pointer to your rubber line callback function. For more details on the utilization refer to the documentation of the <a href="../Structures/API_GetPointType.html">API_GetPointType</a> structure.</p>
+
+    <p>Do not invoke any input operation while there are modal dialogs open.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>See the examples of the <a href="APIIo_GetArcID.html">APIIo_GetArcID</a> and <a href="APIIo_DrawRubberLineID.html">APIIo_DrawRubberLineID</a> functions.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_GetPointType.html">API_GetPointType</a>,<br>
+    <a href="RubberLineInfoProc.html">RubberLineInfoProc</a>, <a href="APIIo_DrawRubberLineID.html">APIIo_DrawRubberLineID</a>, <a href="APIIo_GetLineID.html">APIIo_GetLineID</a>, <a href="APIIo_GetArcID.html">APIIo_GetArcID</a>, <a href="APIIo_GetPolyID.html">APIIo_GetPolyID</a>,<br>
+    <a href="acapi_interface_id.html">ACAPI_Interface</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 12, 2010<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

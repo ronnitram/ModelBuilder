@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_CurtainWallModelViewOptions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_CurtainWallModelViewOptions.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_CurtainWallModelViewOptions</h1>
+
+    <p>Represents the model view options of Curtain Walls made with Curtain Wall Tool. The entire structure is Archicad only.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>char</strong>     <em>cwFrameDetailLevel</em>;
+        <strong>char</strong>     <em>cwPanelDetailLevel</em>;
+        <strong>char</strong>     <em>cwJunctionDetailLevel</em>;
+        <strong>char</strong>     <em>cwAccessoryDetailLevel</em>;
+    <strong>}</strong> <em>API_CurtainWallModelViewOptions</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>cwFrameDetailLevel</b></dt>
+        <dd>Detail level of Curtain Wall Frames<br>
+        Possible values: <code>API_CurtainWallCompShow_Full</code>, <code>API_CurtainWallCompShow_Simplified</code>, <code>API_CurtainWallCompShow_Schematic</code>, <code>API_CurtainWallCompShow_Linear</code>, <code>API_CurtainWallCompShow_None</code>.</dd>
+
+        <dt><b>cwPanelDetailLevel</b></dt>
+        <dd>Detail level of Curtain Wall Panels<br>
+        Possible values: <code>API_CurtainWallCompShow_Full</code>, <code>API_CurtainWallCompShow_Simplified</code>, <code>API_CurtainWallCompShow_Schematic</code>, <code>API_CurtainWallCompShow_None</code>.</dd>
+
+        <dt><b>cwJunctionDetailLevel</b></dt>
+        <dd>Detail level of Curtain Wall Junctions<br>
+        Possible values: <code>API_CurtainWallCompShow_Full</code>, <code>API_CurtainWallCompShow_Simplified</code>, <code>API_CurtainWallCompShow_Schematic</code>, <code>API_CurtainWallCompShow_None</code>.</dd>
+
+        <dt><b>cwAccessoryDetailLevel</b></dt>
+        <dd>Detail level of Curtain Wall Accessories<br>
+        Possible values: <code>API_CurtainWallCompShow_Full</code>, <code>API_CurtainWallCompShow_Simplified</code>, <code>API_CurtainWallCompShow_Schematic</code>, <code>API_CurtainWallCompShow_None</code>.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>These settings correspond to the relevant items in the Document/Model View/Model View Options dialog/Curtain Wall Options page.</p>
+
+    <blockquote>
+        <p><img src="../../APIImageLibrary/MVO_CurtainWall.png" alt="Curtain Wall MVO"></p>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 22 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_ModelViewOptions.html">API_ModelViewOptions</a>,<br>
+    <a href="../Functions/APIEnv_GetViewOptionsID.html">APIEnv_GetViewOptionsID</a>, <a href="../Functions/APIEnv_ChangeViewOptionsID.html">APIEnv_ChangeViewOptionsID</a>,<br>
+    <a href="API_NavigatorView.html">API_NavigatorView</a>,<br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on August 24, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

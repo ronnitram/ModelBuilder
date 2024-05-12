@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>New</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/Folder/New.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="Folder.html">Folder</a>::New</h1><br>
+    Creates a valid new Folder instance on the heap.<br>
+    <br>
+    <pre class="syntax">
+<b>static GSErrCode  New (
+    Folder** result,
+    <i>par1</i>,
+    <i>par2</i>,
+    ...,
+    <i>parn</i>
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>result</em></dt>
+
+        <dd>On return: if there was no error then pointer to a valid new Folder instance allocated on the heap, otherwise NULL.</dd>
+
+        <dt><em>par1 par2 ... parn</em></dt>
+
+        <dd>Parameters according to the appropriate constructor.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="338">
+        <tr>
+            <th width="93">Value</th>
+
+            <th width="203">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="93">NoError<font color="#0000FF"><sup>*</sup></font></td>
+
+            <td width="203">OK</td>
+        </tr>
+
+        <tr>
+            <td width="93">ErrMemoryFull<font color="#0000FF"><sup>*</sup></font></td>
+
+            <td width="203">out of memory</td>
+        </tr>
+
+        <tr>
+            <td width="93"><i>other</i></td>
+
+            <td width="203">error raised inside the constructor</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>For each Folder constructor there is a corresponding (static) New method which creates valid new Folder instances on the heap. It returns a new instance <b>only if</b> the memory allocation was successful and state status of the new instance was valid (that is only if the new instance is usable). Instance should be deleted with the <font color="#0000FF"><b>delete</b></font> operator when it is no longer needed.</p>
+
+    <p>Note that this method is made for convenience because no exception handling is used in the InputOutput module.<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

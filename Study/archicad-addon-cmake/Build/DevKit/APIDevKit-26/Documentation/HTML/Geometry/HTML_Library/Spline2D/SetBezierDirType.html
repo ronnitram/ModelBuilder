@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>SetBezierDirType</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Spline2D/SetBezierDirType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Geometry::SetBezierDirType</h1>
+
+    <p>Initializes a <a href="../Spline2D/DirType.html">DirType</a> from a control point and the two endpoints of the handles.</p>
+    <pre class="syntax">
+    <strong> void</strong> SetBezierDirType (
+      <strong>const <a href="../Vector2D/Coord.html">Coord</a></strong>*  <em>pCo</em>,
+      <strong><a href="../Spline2D/DirType.html">DirType</a></strong>*      <em>pDir</em>,
+      <strong>const <a href="../Vector2D/Coord.html">Coord</a></strong>*  <em>cPrev</em>,
+      <strong>const <a href="../Vector2D/Coord.html">Coord</a></strong>*  <em>cNext</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>pCo</em></dt>
+
+        <dd>Pointer to the coordinates of the control points.</dd>
+
+        <dt><em>pDir</em></dt>
+
+        <dd>Pointer to the <a href="../Spline2D/DirType.html">DirType</a>.</dd>
+
+        <dt><em>cPrev</em></dt>
+
+        <dd>Pointer to the coordinates of the end point of the first handle.</dd>
+
+        <dt><em>cNext</em></dt>
+
+        <dd>Pointer to the coordinates of the end point of the second handle.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>By definiton of <a href="../Spline2D/DirType.html">DirType</a>, <em>*pCo</em>, *<em>cPrev</em> and *<em>cNext</em> must be colinear. This function does not check for this colinearity, the angle of *<em>pDir</em> is simply calculated from *<em>pCo</em> and *<em>cNext</em>.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Spline2DData.h</dd>
+
+        <dd><b>Import Library:</b> GeometryImp.lib [Win]</dd>
+
+        <dd><b>Module:</b> Geometry.dll [WIN] GeometryLib [Mac]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Spline2D_id.html">Spline functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 6, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

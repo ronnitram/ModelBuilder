@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGListGetNewDragPos</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListGetNewDragPos.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListGetNewDragPos</h1>
+
+    <p>After an item of a <a href="ListBox.html">list box</a> is dragged to a new position, the <a href="CallbackFunctions.html">dialog callback function</a> receives a <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a> message with a non-zero message data. Use this macro to retrieve the new index of the dragged list item from the message data.</p>
+    <pre class="syntax">
+    <strong>short DGListGetNewDragPos</strong> (
+      <strong>DGMessageData</strong>  <em>msgData</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>msgData</em></dt>
+
+        <dd>The message data parameter of the <tt>DG_MSG_CHANGE</tt> message.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>1-based index of the new position of the dragged list item.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <b>DGListGetNewDragPos</b> macro is defined as follows:</p>
+    <pre>
+    #if defined (WINDOWS)
+        #define DGListGetNewDragPos(longData)  ((short) (((ULong) (longData) &gt;&gt; 16) &amp; 0xFFFF))
+    #endif
+    #if defined (macintosh)
+        #define DGListGetNewDragPos(longData)  ((short) ((Int32) (longData) &gt;&gt; 16))
+    #endif
+</pre>
+
+    <p>To allow item reordering in a list box by dragging items with the mouse you need to do the following steps:</p>
+
+    <ul>
+        <li>Enable <a href="DG_MSG_MOUSEMOVE.html"><tt>DG_MSG_MOUSEMOVE</tt></a> for the list box item by <a href="DGEnableMessage.html">DGEnableMessage</a>.</li>
+
+        <li>When handling <tt>DG_MSG_MOUSEMOVE</tt> and the cursor is above a list tabulator field, which contains an icon with the ID <tt>DG_LIST_DRAGICON</tt>, the callback function should return <tt>DG_LIST_INDRAGAREA</tt> to enable dragging.</li>
+
+        <li>If the positions of the item before and after the dragging are different, the callback function receives a <tt>DG_MSG_CHANGE</tt> message with a non-zero message data.</li>
+    </ul>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ListBox.html">List Box</a>, <a href="DGListGetOldDragPos.html">DGListGetOldDragPos</a><br>
+    <a href="DGEnableMessage.html">DGEnableMessage</a>, <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_MOUSEMOVE.html"><tt>DG_MSG_MOUSEMOVE</tt></a>, <a href="CallbackFunctions.html">Callback functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

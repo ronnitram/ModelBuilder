@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIIo_SaveLibPartFileDialogID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIIo_SaveLibPartFileDialogID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIIo_SaveLibPartFileDialogID</h1>
+
+    <p>Opens the Save Library Part dialog and returns the selected location.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_interface_id.html">ACAPI_Interface</a></strong> (
+        <strong>APIIo_SaveLibPartFileDialogID</strong>,
+        <strong>bool*</strong>              <em>retCode</em>,
+        <strong><a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a>*</strong>      <em>location</em>,
+        <strong>bool*</strong>              <em>browseForFolder</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>*</strong>     <em>dialogTitle</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>*</strong>     <em>dialogTypeStr</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>retCode</em></dt>
+
+        <dd>[out] returns whether the dialog was closed with confirmation (OK, Save, etc.)</dd>
+
+        <dt><em>location</em></dt>
+
+        <dd>[in/out] sets the default library and filename to open the dialog with, and returns the location of the chosen file</dd>
+
+        <dt><em>browseForFolder</em>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="API 16 feature" width="19" height="12"></dt>
+
+        <dd>[in] enables the dialog to save Library Parts outside the Embedded Library (optional; the default value is <em>false</em>)</dd>
+
+        <dt><em>dialogTitle</em>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="API 16 feature" width="19" height="12"></dt>
+
+        <dd>[in] defines the title of the dialog (optional)</dd>
+
+        <dt><em>dialogTypeStr</em>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"></dt>
+
+        <dd>[in] defines the library part type of the dialog (optional); applicable identifiers are:
+                <code>&quot;ExportObjectDialog&quot;</code> (default), <code>&quot;ExportDoorDialog&quot;</code>, <code>&quot;ExportWindowDialog&quot;</code></dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>retCode</code> or <code>location</code> is <code>nullptr</code>.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Use this function to let the user choose a file location for saving a library part in the loaded libraries.</p>
+
+    <p>The function needs a valid location to open the dialog from.</p>
+
+    <p>The <code>location</code> is set only if the dialog was closed with confirmation button (OK, Save, etc.).</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+bool         done = false;
+bool         retIsOk = false;
+IO::Location location (&quot;Untitled&quot;);
+do {
+    GSErrCode err = ACAPI_Interface (<font color="#FF0066">APIIo_SaveLibPartFileDialogID</font>, &amp;retIsOk, &amp;location);
+    if (err == NoError &amp;&amp; retIsOk) {
+        API_LibPart libPart;
+        BNZeroMemory (&amp;libPart, sizeof (API_LibPart));
+
+        IO::Name name;
+        location.GetLastLocalName (&amp;name);
+
+        CHTruncate (name.ToString ().ToCStr (), libPart.file_Name, sizeof (libPart.file_Name));
+        if (ACAPI_LibPart_Search (&amp;libPart, false) == NoError) {
+            ACAPI_WriteReport (&quot;Library part with this name already exists, please choose different name.&quot;, true);
+            done = false;
+        } else {
+            done = true;
+        }
+        if (libPart.location != nullptr)
+            delete libPart.location;
+    } else {
+        done = true;
+    }
+} while (!done);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><strong>Version:</strong> API 10 or later</dd>
+
+        <dd><strong>Header:</strong> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="acapi_interface_id.html">ACAPI_Interface</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 1, 2015<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

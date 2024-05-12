@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_SetUserData</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_SetUserData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_SetUserData</h1>
+
+    <p>Attaches the user data to an element or an element default.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_SetUserData</strong> (
+        <strong><a href="../Structures/API_Elem_Head.html">API_Elem_Head</a>*</strong>                 <em>elemHead</em>,
+        <strong>const <a href="../Structures/API_ElementUserData.html">API_ElementUserData</a>*</strong>     <em>userData</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>elemHead</em></dt>
+
+        <dd>[in] Header of the element (only fields type and guid are used).</dd>
+
+        <dt><em>userData</em></dt>
+
+        <dd>[in] Pointer to the new user data.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>Any of the passed parameters is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_BADPLATFORMSIGN</code></dt>
+
+        <dd>The given platform sign is invalid (out of range)</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>Out of memory</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to push the user attached data into an element default or into an element. To set data to element default only <code>elemHead->type</code> is necessary and <code>elemHead->guid</code> should be <code>APINULLGuid</code>. To set data to an element only <code>elemHead->guid</code> is necessary and it should be set to element's guid. Use the <a href="ACAPI_Element_GetUserData.html">ACAPI_Element_GetUserData</a> function to get data from the element record.</p>
+
+    <p>Note that this function is not undoable in case of element default setting.</p>
+
+    <p>The caller should allocate and deallocate the <code>userData-&gt;dataHdl</code> handle.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+
+//------------------------------------------------------------
+// Set user data to wall default element
+//------------------------------------------------------------
+
+GSErrCode SetUserDataToWallDefaultElem (const CustomData&amp; data)
+{
+    API_Elem_Head wallDefault = {};
+    wallDefault.type = API_WallID;
+
+    API_ElementUserData userData = {};
+    userData.dataVersion = 1;
+    userData.platformSign = GS::Act_Platform_Sign;
+    userData.flags = APIUserDataFlag_FillWith | APIUserDataFlag_Pickup;
+    userData.dataHdl = BMAllocateHandle (sizeof (data), ALLOCATE_CLEAR, 0);
+    
+    *reinterpret_cast&lt;CustomData*&gt; (*userData.dataHdl) = data;
+    GSErrCode err = <font color="#FF0066">ACAPI_Element_SetUserData</font> (&amp;wallDefault, &amp;userData);
+
+    BMKillHandle (&amp;userData.dataHdl);
+
+    return err;
+}
+
+//------------------------------------------------------------
+// Set user data to an element identified by guid
+//------------------------------------------------------------
+
+GSErrCode SetUserDataToElem (const API_Guid&amp; selectedElemGuid, const CustomData&amp; data)
+{
+    API_Elem_Head element = {};
+    element.guid = selectedElemGuid;
+
+    API_ElementUserData userData = {};
+    userData.dataVersion = 1;
+    userData.platformSign = GS::Act_Platform_Sign;
+    userData.flags = APIUserDataFlag_FillWith | APIUserDataFlag_Pickup;
+    userData.dataHdl = BMAllocateHandle (sizeof (data), ALLOCATE_CLEAR, 0);
+    
+    *reinterpret_cast&lt;CustomData*&gt; (*userData.dataHdl) = data;
+
+    GSErrCode err = ACAPI_CallUndoableCommand ("Set user data to an elem",
+        [&amp;userData, &amp;element] () -> GSErrCode {
+            return <font color="#FF0066">ACAPI_Element_SetUserData</font> (&amp;element, &amp;userData);
+        }
+    );
+
+    BMKillHandle (&amp;userData.dataHdl);
+
+    return err;
+}
+
+        </code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Elem_Head.html">API_Elem_Head</a>, <a href="../Structures/API_ElementUserData.html">API_ElementUserData</a>,<br>
+    <a href="ACAPI_Element_GetUserData.html">ACAPI_Element_GetUserData</a>,<br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 11, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ProjectInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ProjectInfo.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ProjectInfo</h1>
+
+    <p>Contains information about the current project.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>bool</strong>              <em>untitled</em>;
+        <strong>bool</strong>              <em>teamwork</em>;
+        <strong>short</strong>             <em>userId</em>;
+        <strong>Int32</strong>             <em>workGroupMode</em>;
+        <strong><a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a></strong>      <em>*location</em>;
+        <strong><a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a></strong>      <em>*location_team</em>;
+        <strong>UInt64</strong>            <em>modiStamp</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>     <em>*projectPath</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>     <em>*projectName</em>;
+    <strong>}</strong> <em>API_ProjectInfo</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>untitled</b></dt>
+
+        <dd>Indicates that the project file not saved yet.</dd>
+
+        <dt><b>teamwork</b></dt>
+
+        <dd>Signed into a team project or not.</dd>
+
+        <dt><b>userId</b></dt>
+
+        <dd>team project member ID; if signed into a team project.</dd>
+
+        <dt><b>workGroupMode</b></dt>
+
+        <dd>team project member rights; if signed into a team project</dd>
+
+        <dt><b>location</b></dt>
+
+        <dd>the project file</dd>
+
+        <dt><b>location_team</b></dt>
+
+        <dd>the shared project file; if signed into a team project.</dd>
+
+        <dt><b>modiStamp</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd>Modification stamp of project.</dd>
+
+        <dt><b>projectPath</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>optional; location of the project.</dd>
+
+        <dt><b>projectName</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>optional; name of the project.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is used to get several information about the current project.</p>
+
+    <p>Call the <a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a> function with the <a href="../Functions/APIEnv_ProjectID.html">APIEnv_ProjectID</a> function code to get this data.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIEnv_ProjectID.html">APIEnv_ProjectID</a><br>
+    <a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 3, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

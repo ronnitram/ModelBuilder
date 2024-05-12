@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Ellipse_ax</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Ellipse2D/Ellipse_ax.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Geometry::Ellipse_ax</h1>
+
+    <p>Gives an ellipse arc with a given total length. The ellipse arc is part of an original ellipse arc between <em>a</em> and <em>endAng</em> ellipse parameters.</p>
+    <pre class="syntax">
+    <strong> double</strong> Ellipse_ax (
+      <strong>double</strong>  <em>ax1</em>,
+      <strong>double</strong>  <em>ax2</em>,
+      <strong>double</strong>  <em>a</em>,
+      <strong>double</strong>  <em>endAng</em>,
+      <strong>double</strong>  <em>givenLen</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>ax1</em></dt>
+
+        <dd>Length of longer axis of ellipse.</dd>
+
+        <dt><em>ax2</em></dt>
+
+        <dd>Length of shorter axis of ellipse.</dd>
+
+        <dt><em>a</em></dt>
+
+        <dd>Ellipse parameter of the beginning of the ellipse arc.</dd>
+
+        <dt><em>endAng</em></dt>
+
+        <dd>Ellipse parameter of the end of the original ellipse arc.</dd>
+
+        <dt><em>givenLen</em></dt>
+
+        <dd>Specified length of the ellipse arc.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Ellipse parameter of the end of the ellipse arc. Its equaling -1 signs that no solution exists, i.e. the specified length is longer than the length of the original ellipse arc.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Ellipse2DData.h</dd>
+
+        <dd><b>Import Library:</b> GeometryImp.lib [Win]</dd>
+
+        <dd><b>Module:</b> Geometry.dll [WIN] GeometryLib [Mac]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Ellipse2D_id.html">Ellipse functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 6, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>MemoryOChannel constructor</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/MemoryOChannel/Constructors.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="MemoryOChannel.html">MemoryOChannel</a>::MemoryOChannel&nbsp;&nbsp; <font size="2">(2)</font></h1><br>
+    MemoryOChannel constructors.<br>
+    <br>
+    <pre class="syntax">
+<b>explicit MemoryOChannel (
+    USize initialCapacity = 0,
+    USize maxSize = 0
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>initialCapacity</em></dt>
+
+        <dd>Initial capacity of the destination buffer in characters. Default value 0 specifies the default initial capacity (currently 1024 characters).</dd>
+
+        <dt><em>maxSize</em></dt>
+
+        <dd>Upper limit for the data size (and also for the capacity of the destination buffer) in characters.&nbsp;Default value 0 specifies no limit.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance by allocating a data destination buffer with initial capacity specified by <i>initialCapacity</i>. Destination buffer grows dynamically as needed (when new data can not fit into the buffer), but size of the data (and also capacity of the destination buffer) will never exceed the size specified by <i>maxSize</i>. Size limit violation causes <a href="../../../GSRoot/GSRootHTMLLibrary/GS/OChannel/OChannel.html">GS::OChannel</a>::OutputIsFull to be returned from write methods.<br>
+    Destination buffer can be later queried with the <a href="GetDestination.html">GetDestination</a> method. (Ownership of the destination buffer can be also granted by the user.)</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances should not be created before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>MemoryOChannel (
+    char*         destBuffer,
+    USize         destBufferSize,
+    USize         maxSize = 0,
+    <a href="OwnershipType.html">OwnershipType</a> ot = OriginalOwnership
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>destBuffer</em></dt>
+
+        <dd>Destination buffer for the data.</dd>
+
+        <dt><em>destBufferSize</em></dt>
+
+        <dd>Size of the destination buffer (<i>destBuffer</i>) in characters.</dd>
+
+        <dt><em>maxSize</em></dt>
+
+        <dd>Upper limit for the data size (and also for the capacity of the destination buffer) in characters.&nbsp;Default value 0 specifies no limit.</dd>
+
+        <dt><em>ot</em></dt>
+
+        <dd>Determines the ownership of the destination buffer. Possible values are:</dd>
+
+        <dd>
+            <blockquote>
+                <table class="enumeration" width="531">
+                    <tr>
+                        <th width="104">Value</th>
+
+                        <th width="385">Meaning</th>
+                    </tr>
+
+                    <tr>
+                        <td width="104">OriginalOwnership</td>
+
+                        <td width="385">Ownership of the buffer is not changed, it still belongs to the user. User is responsible for the deleting of the buffer.<br>
+                        (This is the default case.)</td>
+                    </tr>
+
+                    <tr>
+                        <td width="104">PassOwnership</td>
+
+                        <td width="385">
+                            Ownership of the buffer is passed to the MemoryOChannel instance. It is responsible for the deleting of the buffer.
+
+                            <p><b><font color="#FF0000">Buffer should be allocated with the BMpAll function!</font></b></p>
+                        </td>
+                    </tr>
+                </table>
+            </blockquote>
+        </dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to use the destination buffer supplied in <i>destBuffer</i> with size specified by <i>destBufferSize</i>. Original content of the destination buffer is not cleared, it will be overwritten during normal write process only. Destination buffer grows dynamically as needed (when new data can not fit into the buffer), but size of the data (and also capacity of the destination buffer) will never exceed the size specified by <i>maxSize</i>. Size limit violation causes <a href="../../../GSRoot/GSRootHTMLLibrary/GS/OChannel/OChannel.html">GS::OChannel</a>::OutputIsFull to be returned from write methods.</p>
+
+    <p>Ownership of the destination buffer can be controlled with the <i>ot</i> parameter. Default value OriginalOwnership specifies that the buffer belongs to the user, it will be never deleted by the particular instance. For example when buffer reallocation is needed, simply a new buffer is allocated which now belongs to the MemoryOChannel instance, but user's buffer is not deleted. Value PassOwnership specifies that the buffer belongs to the particular instance, it will deleted when needed (for example at destruction time or at reallocations). In order to assure correct deleting, <b>such buffers should be allocated with the BMpAll function by the user!</b></p>
+
+    <p>Destination buffer can be later queried with the <a href="GetDestination.html">GetDestination</a> method. (Ownership of the destination buffer can be also granted by the user.)</p>
+
+    <p>Instances should not be created before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

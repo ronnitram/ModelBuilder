@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ToUStr (UniString)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/UniString/ToUStr.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="UniString.html">UniString</A>::ToUStr</H2><!--exp="UniString::ToUStr-->
+<P><topic id="$GS.$UniString.$ToUStr.BriefDescription">
+		Returns Unicode layout representation of the string.
+	</topic></P>
+<PRE class="syntax"><B>UStr ToUStr (</B>
+    <B>UIndex              </B><I>from</I><B> = 0</B>,
+    <B>USize               </B><I>range</I><B> = MaxUSize</B>
+<B>) const;</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>from</I></DT><DD><topic id="$GS.$UniString.$ToUStr.$from.ParamDescription">
+		Start position of the substring to be returned. Must be beetwen 0 and length of the string.
+	</topic></DD><DT><I>range</I></DT><DD><topic id="$GS.$UniString.$ToUStr.$range.ParamDescription">
+		Range of characters to be returned.
+		<i>from</i> + <i>range</i> must be beetwen 0 and length of the string. 
+		The default value MaxUSize indicates range that extends to end of the string.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$UniString.$ToUStr.ReturnDescription">
+		A private object which can be implicitly converted to <TT>const unsigned short*</TT>.
+		This pointer remains valid only inside its enclosing expression (statement) so
+		the pointer should not be stored (but can be passed in the same expression as
+		parameter to a funtion or method).
+	</topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$UniString.$ToUStr.LongDescription">
+		This method returns Unicode layout representation of the string (or part of the string), that is
+		sequence of 16 bits unsigned integers terminated with a 0 character. It returns
+		a private object which can be implicitly converted to <TT>const unsigned short*</TT>.
+		This pointer remains valid only inside its enclosing expression (statement) so
+		the pointer should not be stored (but can be passed in the same expression as
+		parameter to a funtion or method).<br>
+		On memory overflow OutOfMemoryException exception will be thrown.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$UniString.$ToUStr.SeeAlso">
+		<!----><a href="ToCStr.html">ToCStr</a> | <!----><a href="ToPStr.html">ToPStr</a>
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

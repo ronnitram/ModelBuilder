@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Datastructure-independent Polygon functions, PG</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Polygon2DOperations/Polygon2DOperations_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Datastructure-independent 2D Polygon functions</h1>
+
+    <p>These functions work on any data-structures with callback functions (nowadays called: iterators). It gives you a big freedom to choose the appropriate data-storage format for your special needs, but you must provide these callbacks (iterators) for working.</p>
+
+    <p>What you should provide a general description of a polygon: number of contours and vertices, orientation, etc. And a callback function like a constant random iterator to polygon segments called here as edges. Each polygon segment consist of a vertex and an edge starting from it according to the orientation. Each segment should mark that it is an end of a contour or not. So there are no separate contour structure.<br>
+    To get the results you must provide a callback function like a back-inserter iterator to a storage for the resulting polygons. And a callback function like a back-inserter iterator to a storage for the resulting segments (called edges too) for all polygons. The contour ends are marked in the segments.</p>
+
+    <p><a href="PGEDGESTATUSEXT.html">Geometry::PGEDGESTATUSEXT</a><br>
+    <a href="PGEDGEEXT.html">Geometry::PGEDGEEXT</a><br>
+    <br>
+    <a href="GetPGEdgeProcExt.html">GetPGEdgeProcExt</a><br>
+    <a href="NewPGEdgeProcExt.html">NewPGEdgeProcExt</a><br>
+    <a href="PGPOLYSTATUSEXT.html">Geometry::PGPOLYSTATUSEXT</a><br>
+    <a href="PGPOLYEXT.html">Geometry::PGPOLYEXT</a><br>
+    <br>
+    <a href="NewPGPolyProcExt.html">NewPGPolyProcExt</a><br>
+    <a href="PGRESPOLYEXT.html">PGRESPOLYEXT</a><br>
+    <br>
+    <a href="PGRESSECTOREXT.html">PGRESSECTOREXT</a><br>
+    <br>
+    <a href="PGRelPolyPosExt.html">Geometry::PGRelPolyPosExt</a><br>
+    <a href="PGPositionExt.html">Geometry::PGPositionExt</a><br></p>
+
+    <p>These functions work on callback polygons.</p><a href="PGPolyAreaExt.html">Geometry::PGPolyAreaExt</a><br>
+    <a href="PGPolyRemoveHolesExt.html">Geometry::PGPolyRemoveHolesExt</a><br>
+    <a href="PGPolyMakeRegularExt.html">Geometry::PGPolyMakeRegularExt</a><br>
+    <a href="PGPolyMakeRegular2Ext.html">Geometry::PGPolyMakeRegular2Ext</a><br>
+    <a href="PGPolyResizeContourExt.html">Geometry::PGPolyResizeContourExt</a><br>
+    <a href="PGPolyMoveVertexExt.html">Geometry::PGPolyMoveVertexExt</a><br>
+    <a href="PGPolyGetMaxVertexFilletEx.html">Geometry::PGPolyGetMaxVertexFilletExt</a><br>
+    <a href="PGPolyFilletVertexExt.html">Geometry::PGPolyFilletVertexExt</a><br>
+    <a href="PGPolyFilletContourExt.html">Geometry::PGPolyFilletContourExt</a><br>
+    <a href="PGPolyChamferVertexExt.html">Geometry::PGPolyChamferVertexExt</a><br>
+    <a href="PGPolyChamferContourExt.html">Geometry::PGPolyChamferContourExt</a><br>
+    <a href="PGPolyInsertVertexExt.html">Geometry::PGPolyInsertVertexExt</a><br>
+    <a href="PGPolySetEdgeAngleExt.html">Geometry::PGPolySetEdgeAngleExt</a><br>
+    <a href="PGPolyOffsetEdgeExt.html">Geometry::PGPolyOffsetEdgeExt</a><br>
+    <a href="PGPolyDeleteEdgeExt.html">Geometry::PGPolyDeleteEdgeExt</a><br>
+    <a href="PGCoordInPolyExt.html">Geometry::PGCoordInPolyExt</a><br>
+    <a href="PGSegmentInPolyExt.html">Geometry::PGSegmentInPolyExt</a><br>
+    <a href="PGPolyPositionExt.html">Geometry::PGPolyPositionExt</a><br>
+    <a href="PGPolyUnionExt.html">Geometry::PGPolyUnionExt</a><br>
+    <a href="PGPolyDifferenceExt.html">Geometry::PGPolyDifferenceExt</a><br>
+    <a href="PGPolyStrip.html">Geometry::PGPolyStrip</a><br>
+    <a href="PGPolyClip.html">Geometry::PGPolyClip</a><br>
+    <a href="PGPolyCut.html">Geometry::PGPolyCut</a><br>
+    <a href="PGPolyIntersectionExt.html">Geometry::PGPolyIntersectionExt</a><br>
+    <a href="PGPolyOffsetEdgeFixAreaExt.html">Geometry::PGPolyOffsetEdgeFixAreaExt</a><br>
+    <br>
+    <a href="PGSetDebugFlagsExt.html">Geometry::PGSetDebugFlagsExt</a><br>
+
+    <h4>See Also</h4>
+
+    <p><a href="../../Geometry.html">Geometry</a>, <a href="../Polygon3DOperations/PG3DEDGEEXT.html">Geometry::PG3DEDGEEXT</a>, <a href="../Polygon3DOperations/PGPoly3DPosition.html">Geometry::PGPoly3DPosition</a>, <a href="../Polygon3DOperations/PG3DSplitPolyExt.html">Geometry::PG3DSplitPolyExt</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 21, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Analytical Model Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level2/Analytical_Model_Overview.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Analytical Model</h1>
+	
+	<p>&nbsp;</p>
+
+	<p>Archicad generates an Analytical Model for the cores of all load-bearing elements. The generation depends on the 3D model of the cores and the Analytical Model generation rules. The 3D models of the cores of the physical elements are checked to see if they are connected.</p>
+	<p>The 3D connection is governed by the renovation filter and the layer connection class IDs, where it can be customized which layers should interact with each other. The special layer connection class ID of 0 means that the elements shouldn't interact with any other element.</p>
+	<p>The Analytical Model Generation Rules can be customized to fit the plan's needs. These rules are part of the plan database, so it can be saved with the plan and it is common for all users joined in the same Teamwork project. The rules can also be saved as part of a template.</p>
+	<p>An Analytical Model variation (<a href="../Structures/API_AnalyticalModelVariation.html">API_AnalyticalModelVariation</a>) is defined by these settings. This makes the Analytical Model view-dependant. E.g. a view that shows the existing building with the elements to be destroyed during the renovation will have a different Analytical Model than the one showing the remaining elements toghether with the new ones. Some analytical members might even be adjusted differently even if they exist in both variations, giving it different eccentricity in each model.<p>
+	<p>After defining the needed variation you can query the corresponding Analytical Model using the <a href="../Functions/ACAPI_AnalyticalModel_GetAnalyticalModel.html">ACAPI_AnalyticalModel_GetAnalyticalModel</a> function. The <a href="../Functions/ACAPI_AnalyticalModel_GetCurrentAnalyticalModel.html">ACAPI_AnalyticalModel_GetCurrentAnalyticalModel</a> function can be used to get the one corresponding to the current view.</p>
+	<p>In Archicad the Analytical Model generation is done only when it is needed (e.g. when it is visible in the active view). To ensure that the latest data is available from an Analytical Model it can be updated using the <a href="../Functions/ACAPI_AnalyticalModel_UpdateAnalyticalModel.html">ACAPI_AnalyticalModel_UpdateAnalyticalModel</a> function.</p>
+	
+	<p>&nbsp;</p>
+	
+	<h2>Analytical Members</h2>
+	
+	<p>&nbsp;</p>
+	
+	<p>As the Analytical Model is generated, there is no way on the API to directly create analytical members, since even in Archicad the members are calculated and can't exist on their own. A physical element can be created based on a specified analytical member. The element will be created without any generation rules or connection to another element, the analytical member generated from this element should be identical to the specified one. However this can't be guaranteed because it might be affected by the connections or the rules.</p>
+	<p>The API provides methods to create elements based on curve or surface members. The actual physical element's type will be decided by Archicad based on the limitations of the tools and tries to match with the most likely uses.</p>
+	<p>The following functions can be used to create elements based on analytical members:</p>
+	<ul>
+		<li><a href="../Functions/ACAPI_AnalyticalModel_CreateElementFromCurveMember.html">ACAPI_AnalyticalModel_CreateElementFromCurveMember</a>: create a model element based on a curve member.</li>
+		<li><a href="../Functions/ACAPI_AnalyticalModel_CreateElementFromSurfaceMember.html">ACAPI_AnalyticalModel_CreateElementFromSurfaceMember</a>: create a model element based on a surface member.</li>
+		<li><a href="../Functions/ACAPI_AnalyticalModel_CreateElementFromSegmentedSurfaceMember.html">ACAPI_AnalyticalModel_CreateElementFromSegmentedSurfaceMember</a>: create a model element based on segmented surface member (multiple members assumed to be parts of one arced member).</li>
+	</ul>
+	
+	<p>&nbsp;</p>
+
+	<h2>Analytical Releases</h2>
+	
+	<p>&nbsp;</p>
+	
+	<p>The analytical members may connect to each other. This is visualized in Archicad by having green nodes where the two members connect. By default such connections are set to be fully rigid. The behaviour of an element's member when connected to another member can be customized via the release properties of the element. The structure <a href="../Structures/API_AnalyticalReleaseType.html">API_AnalyticalReleaseType</a> can be used to describe the release properties.</p>
+	<p>An element's release properties are valid even if no other member is connected to it. There is even a special generation setting that can automatically reset release properties to rigid where there is no connection to another member.</p>
+	<p>An Analytical Release is always defined for a specific part of an element that is described by the <a href="../Structures/API_AnalyticalMemberPartRef.html">API_AnalyticalMemberPartRef</a> structure.
+
+	<p>&nbsp;</p>
+
+	<h2>Analytical Links</h2>
+
+    <p>&nbsp;</p>
+	
+	<p>When two members are not connected after applying the generation rules, but they should be connected in the Structural Analytical Model it is possible to use a tool called Analytical Link to connect them in Archicad.</p>
+	<p>An Analytical Link can be one-dimensional or a surface. A specific case of the one-dimensional link is the so-called "zero-length" link, this means the two members it connects have an intersection and the link is connected to this point on both members.</p>
+	<p>Either end of the link can be connected to a vertex of a curve or surface member, a curve member, the edge of a surface member, the face of a surface member or a specific non-predefined point of any member.</p>
+	<p>The links being connected to the members means that if the geometry or position of the members changes then so will that of the link(s) connecting them. </p>
+	<p>On the API the Analytical Link is defined in the <a href="../Structures/API_Element.html">API_Element</a> as <a href="../Structures/API_AnalyticalLinkType.html">API_AnalyticalLinkType</a>. You can define the members the link is connected to with the <a href="../Structures/API_AnalyticalMemberPartRef.html">API_AnalyticalMemberPartRef</a>.</p>
+	<p>The API can directly create an Analytical Link from the API_AnalyticalLinkType using <a href="../Functions/ACAPI_Element_Create.html">ACAPI_Element_Create</a>.</p>
+
+	<p>&nbsp;</p>
+
+	<h2>Analytical Supports</h2>
+
+    <p>&nbsp;</p>
+	
+	<p>The Analytical Support represents the connection of the Structural Analytical Model to the outside world. A support can be placed on a vertex of a curve or surface member, on the edge of a surface member, along the line of a curve member or on the face of a surface member.</p>
+	<p>On the API the Analytical Support is defined in the <a href="../Structures/API_Element.html">API_Element</a> as <a href="../Structures/API_AnalyticalSupportType.html">API_AnalyticalSupportType</a>. You can define the member the support is connected to with the <a href="../Structures/API_AnalyticalMemberPartRef.html">API_AnalyticalMemberPartRef</a>.</p>
+	<p>The API can directly create an Analytical Support from the API_AnalyticalSupportType using <a href="../Functions/ACAPI_Element_Create.html">ACAPI_Element_Create</a>.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

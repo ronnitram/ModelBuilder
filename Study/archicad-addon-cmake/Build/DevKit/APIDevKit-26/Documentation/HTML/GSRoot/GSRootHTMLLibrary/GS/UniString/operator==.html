@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>operator== (UniString)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/UniString/operator==.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="UniString.html">UniString</A>::operator==</H2><!--exp="UniString::operator==-->
+<P><topic id="$GS.$UniString.$operator==.BriefDescription">
+		Case sensitive 'equal to' comparison of strings and other types.
+	</topic></P>
+<PRE class="syntax"><B>static bool operator== (</B>
+    <B>Type1               </B><I>param1</I>,
+    <B>Type2               </B><I>param2</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const UniString &amp;   </B><I>leftOp</I>,
+    <B>const UniString &amp;   </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const UniString &amp;   </B><I>leftOp</I>,
+    <B>const char *        </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const UniString &amp;   </B><I>leftOp</I>,
+    <B><a class="nodecorate" href="../../GS/UniChar/Layout.html">const UniChar::Layout *</A> </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const UniString &amp;   </B><I>leftOp</I>,
+    <B>const Substring &amp;   </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const UniString &amp;   </B><I>leftOp</I>,
+    <B>const ConstSubstring &amp; </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const char *        </B><I>leftOp</I>,
+    <B>const UniString &amp;   </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const char *        </B><I>leftOp</I>,
+    <B>const Substring &amp;   </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const char *        </B><I>leftOp</I>,
+    <B>const ConstSubstring &amp; </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B><a class="nodecorate" href="../../GS/UniChar/Layout.html">const UniChar::Layout *</A> </B><I>leftOp</I>,
+    <B>const UniString &amp;   </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B><a class="nodecorate" href="../../GS/UniChar/Layout.html">const UniChar::Layout *</A> </B><I>leftOp</I>,
+    <B>const Substring &amp;   </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B><a class="nodecorate" href="../../GS/UniChar/Layout.html">const UniChar::Layout *</A> </B><I>leftOp</I>,
+    <B>const ConstSubstring &amp; </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const Substring &amp;   </B><I>leftOp</I>,
+    <B>const UniString &amp;   </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const Substring &amp;   </B><I>leftOp</I>,
+    <B>const char *        </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const Substring &amp;   </B><I>leftOp</I>,
+    <B><a class="nodecorate" href="../../GS/UniChar/Layout.html">const UniChar::Layout *</A> </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const Substring &amp;   </B><I>leftOp</I>,
+    <B>const Substring &amp;   </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const Substring &amp;   </B><I>leftOp</I>,
+    <B>const ConstSubstring &amp; </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const ConstSubstring &amp; </B><I>leftOp</I>,
+    <B>const UniString &amp;   </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const ConstSubstring &amp; </B><I>leftOp</I>,
+    <B>const char *        </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const ConstSubstring &amp; </B><I>leftOp</I>,
+    <B><a class="nodecorate" href="../../GS/UniChar/Layout.html">const UniChar::Layout *</A> </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const ConstSubstring &amp; </B><I>leftOp</I>,
+    <B>const Substring &amp;   </B><I>rightOp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>GSROOT_DLL_EXPORT friend bool operator== (</B>
+    <B>const ConstSubstring &amp; </B><I>leftOp</I>,
+    <B>const ConstSubstring &amp; </B><I>rightOp</I>
+<B>);</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>param1</I></DT><DD><topic id="$GS.$UniString.$operator==.$param1.ParamDescription">
+		Left operand of the comparison.
+	</topic></DD><DT><I>param2</I></DT><DD><topic id="$GS.$UniString.$operator==.$param2.ParamDescription">
+		Right operand of the comparison.
+	</topic></DD><DT><I>leftOp</I></DT><DD><topic id="$GS.$UniString.$operator==.$leftOp.ParamDescription"></topic></DD><DT><I>rightOp</I></DT><DD><topic id="$GS.$UniString.$operator==.$rightOp.ParamDescription"></topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$UniString.$operator==.ReturnDescription">
+		<table class="enumeration">
+		  <tr>
+			<th>Value</th>
+			<th>Meaning</th>
+		  </tr>
+		  <tr>
+			<td>true</td>
+			<td>two operands are equal</td>
+		  </tr>
+		  <tr>
+			<td>false</td>
+			<td>two operands are not equal</td>
+		  </tr>
+		</table>
+	</topic></P><P><topic id="$GS.$UniString.$operator==.1.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.2.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.3.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.4.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.5.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.6.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.7.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.8.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.9.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.10.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.11.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.12.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.13.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.14.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.15.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.16.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.17.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.18.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.19.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.20.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.21.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator==.22.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$UniString.$operator==.LongDescription">
+		This method compares strings and other types to determine whether they are equal.
+		Comparing is case sensitive and uses the default user locale.<br>
+		It can compare strings, substrings, 0 terminated sequence of 16 bits
+		unsigned short Unicode characters and 0 terminated C strings.
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

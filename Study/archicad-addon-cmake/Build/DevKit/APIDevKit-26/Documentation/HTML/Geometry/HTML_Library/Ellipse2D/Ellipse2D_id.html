@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Ellipse2D</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Ellipse2D/Ellipse2D_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Ellipse2D functions</h1>
+
+    <p>These functions work on Ellipses.</p>
+
+    <p>In case of ellipses there is an angle parameter with the role of the angle in circles. Its name is <strong>ellipse angle</strong> and has a range of [0..2PI). There is an isomorphism between this angle parameter and the points of the ellipse. Even more, there is a conversion between an angle and an ellipse angle: rotate the ellipse so that its main axis is parallel to axis <em>x</em> and then make a distortion on the ellipse to get a circle with diameter being equal to the main axis of the ellipse (DoAffinPt). Then the angle belonging to the transformated point is the ellipse angle of the original point.<br>
+    The main difference between the circle angle and the ellipse angle is that moving a point the same distance on the perimeter the angle parameter change will be different at different parts of the ellipse.</p>
+
+    <p>In case of ellipses there is an another parameter with role of the angle and ellipse angle in circles. Its range is [0..1). In whole ellipses it is the ellipse angle divided by 2*PI. In elliptic arcs (see later), the parameter starts always from the starting point of the arc.</p>
+
+    <p>The third method to identify a point of an ellipse is the point coordinates themselves. These three methods: ellipse angle, parameter, coordinates all identify uniquely a point of an ellipse. And of course there are conversions between them:</p>
+
+    <table cellspacing="2" cellpadding="2" border="2">
+        <tr>
+            <th>From/To</th>
+
+            <th>Point</th>
+
+            <th><a href="../Ellipse2D/Ellipse.html">Ellipse</a> angle</th>
+
+            <th>Parameter</th>
+        </tr>
+
+        <tr>
+            <th>Point</th>
+
+            <td>-</td>
+
+            <td><a href="ComputeEllipseFi.html">Geometry::ComputeEllipseFi</a></td>
+
+            <td><a href="ComputeEllipse_t.html">Geometry::ComputeEllipse_t</a></td>
+        </tr>
+
+        <tr>
+            <th><a href="../Ellipse2D/Ellipse.html">Ellipse</a> angle</th>
+
+            <td><a href="ComputeEllipseCoord.html">Geometry::ComputeEllipseCoord</a></td>
+
+            <td>-</td>
+
+            <td>n.a.</td>
+        </tr>
+
+        <tr>
+            <th>Parameter</th>
+
+            <td><a href="GetEllipseVal.html">Geometry::GetEllipseVal</a></td>
+
+            <td>n.a.</td>
+
+            <td>-</td>
+        </tr>
+    </table>
+
+    <p><a href="DoAffinPt.html">Geometry::DoAffinPt</a><br>
+    <a href="Ellipse.html">Geometry::Ellipse</a><br>
+    <br>
+    <a href="GetEllipseTan.html">Geometry::GetEllipseTan</a><br>
+    <a href="EllipseLen.html">Geometry::EllipseLen</a><br>
+    <a href="Ellipse_ax.html">Geometry::Ellipse_ax</a><br>
+    <a href="GetEllipseNearPt.html">Geometry::GetEllipseNearPt</a><br>
+    <a href="DistortEllipse.html">Geometry::DistortEllipse</a><br>
+    <a href="DivEllipsePart.html">Geometry::DivEllipsePart</a><br>
+    <a href="DivEllipseDiff.html">Geometry::DivEllipseDiff</a><br>
+    <a href="EllipseTangentCircle.html">Geometry::EllipseTangentCircle</a><br>
+    <a href="DivEllipseDiff_Arc.html">Geometry::DivEllipseDiff_Arc</a><br></p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../../Geometry.html">Geometry</a>, <a href="../Intersections2D/XEllipseLine.html">Geometry::XEllipseLine</a>, <a href="../Intersections2D/XEllipseCircle.html">Geometry::XEllipseCircle</a>, <a href="../Intersections2D/XEllipseEllipse.html">Geometry::XEllipseEllipse</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 21, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGUnregisterHotKey</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGUnregisterHotKey.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGUnregisterHotKey</h1>
+
+    <p>Unregisters a hotkey of a dialog.</p>
+    <pre class="syntax">
+    <strong>void DGUnregisterHotKey</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>hotKeyId</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>hotKeyId</em></dt>
+
+        <dd>Hotkey identifier returned by the <a href="DGRegisterHotKey.html">DGRegisterHotKey</a> function.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>A hotkey is a keystroke or combination of keystrokes that generates a <a href="DG_MSG_HOTKEY.html"><tt>DG_MSG_HOTKEY</tt></a> message for a dialog. Hotkeys in DG are similar to menu accelerators and to the <a href="OSShortcuts.html">Operating System shortcuts</a>. They also provide faster, more direct access to frequently used commands than menus and toolbars do. Moreover, they have some other special features (see the description of the <tt>DG_MSG_HOTKEY</tt> message).</p>
+
+    <p>Hotkeys can be registered to any type of dialogs by calling the <b>DGRegisterHotKey</b> function. If a hotkey is successfully registered, later it has to be referred by the <tt><strong>short</strong></tt> identifier that <b>DGRegisterHotKey</b> returns. To unregister a previously registered hotkey use the <b>DGUnregisterHotKey</b> function.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="DGRegisterHotKey.html">DGRegisterHotKey</a><br>
+    <a href="DGDisableHotKeys.html">DGDisableHotKeys</a>, <a href="DGEnableHotKeys.html">DGEnableHotKeys</a>, <a href="DG_MSG_HOTKEY.html"><tt>DG_MSG_HOTKEY</tt></a>, <a href="OSShortcuts.html">Operating System shortcuts</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

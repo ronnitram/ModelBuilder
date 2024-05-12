@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>CreateFolderTree</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/FileSystem/CreateFolderTree.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="FileSystem.html">FileSystem</a>::CreateFolderTree&nbsp;&nbsp; <font size="2">(2)</font></h1><br>
+    Creates nested folder structure (degenerate folder tree).<br>
+    <br>
+    <pre class="syntax">
+<b>GSErrCode  CreateFolderTree (
+    const </b><b><a href="../Location/Location.html">Location</a></b><b>&amp; tree
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>tree</em></dt>
+
+        <dd>Location which local address represents nested folder structure (as sequence of folder names) to be created.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="385">
+        <tr>
+            <th width="103">Value</th>
+
+            <th width="240">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="103">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="240">OK</td>
+        </tr>
+
+        <tr>
+            <td width="103">TargetNotFound<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="240">root of the tree (machine) is not found</td>
+        </tr>
+
+        <tr>
+            <td width="103">NotAFolder<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="240">an entry other than folder is encountered during the tree creation</td>
+        </tr>
+
+        <tr>
+            <td width="103">DeviceIsFull<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="240">device is full</td>
+        </tr>
+
+        <tr>
+            <td width="103">AccessDenied<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="240">operation was not allowed at some point</td>
+        </tr>
+
+        <tr>
+            <td width="103">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="240">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in FileSystem class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>Based on the local address of the given location as sequence of folder names, this method creates the corresponding nested folder structure. If front (prefix) of the tree already exists then this method creates only the missing parts (suffix).<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>GSErrCode  CreateFolderTree (
+    const <a href="../Location/Location.html">Location</a>&amp;         root,
+    const <a href="../RelativeLocation/RelativeLocation.html">RelativeLocation</a>&amp; tree
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>root</em></dt>
+
+        <dd>Location referring to the folder from (in) which nested folder structure should be created.</dd>
+
+        <dt><em>tree</em></dt>
+
+        <dd>Relative location representing nested folder structure (as sequence of folder names) to be created.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="385">
+        <tr>
+            <th width="103">Value</th>
+
+            <th width="240">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="103">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="240">OK</td>
+        </tr>
+
+        <tr>
+            <td width="103">TargetNotFound<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="240">root of the tree is not found</td>
+        </tr>
+
+        <tr>
+            <td width="103">NotAFolder<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="240">an entry other than folder is encountered during the tree creation</td>
+        </tr>
+
+        <tr>
+            <td width="103">DeviceIsFull<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="240">device is full</td>
+        </tr>
+
+        <tr>
+            <td width="103">AccessDenied<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="240">operation was not allowed at some point</td>
+        </tr>
+
+        <tr>
+            <td width="103">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="240">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in FileSystem class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> ddeclared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>Based on the given relative location as sequence of folder names, this method creates the corresponding nested folder structure starting from (in) the given root folder. If front (prefix) of the tree already exists then this method creates only the missing parts (suffix).<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

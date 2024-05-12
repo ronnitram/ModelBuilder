@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIDb_StartDrawingDataID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIDb_StartDrawingDataID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIDb_StartDrawingDataID</h1>
+
+    <p>Redirects element creation into a temporary database for creating drawing data.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Database_id.html">ACAPI_Database</a></strong> (
+        <strong>APIDb_StartDrawingDataID</strong>,
+        <strong>double*</strong>           <em>dScale</em>,
+        <strong><a href="../Structures/API_PenType.html">API_PenType</a>**</strong>     <em>api_pens</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dScale</em></dt>
+
+        <dd>[in] optional parameter (the default value is 1.0); defines the scaling from paper to model. For example, for 1:100 scaling, pass 100.<br></dd>
+
+        <dt><em>api_pens</em></dt>
+
+        <dd>[in] optional parameter (the default pen table is coming from the current workspace (layout or model)); defines the pen table to use for this drawing data.<br>
+        <img border="0" src="../../APIImageLibrary/11.png" alt="API 11" width="19" height="12">&nbsp; It should contain exactly 255 <a href="../Structures/API_PenType.html">API_PenType</a> records, starting from the first (index 0) record.<br></dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_NESTING</code></dt>
+
+        <dd>Calls to this function cannot be nested; you have to finish the previous drawing data with <a href="APIDb_StopDrawingDataID.html">APIDb_StopDrawingDataID</a>.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function opens an internal store for the drawing data (the internal data of a drawing element). Further element creation functions will put the created elements into this store. Only 2D elements (including figures/pictures) are allowed. This drawing data can be passed later in the <code>drawingData</code> member of the <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a> to <a href="ACAPI_Element_Create.html">ACAPI_Element_Create</a>.</p>
+
+    <p>The pens have to be passed upfront in the <code>api_pens</code> parameter, and you cannot modify them later. This restriction is coming from the internal setup of the data store.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+// -----------------------------------------------------------------------------
+// Wraps importing data into IDF
+// -----------------------------------------------------------------------------
+
+class IDFSession {
+
+private:
+    bool    inited;
+
+public:
+    explicit IDFSession () {
+        inited = (ACAPI_Database (APIDb_StartDrawingDataID, nullptr, nullptr) == NoError);
+    }
+
+    ~IDFSession () {
+        if (inited) {
+            GSPtr outIDFData = nullptr;
+            if (GetIDFData (&amp;outIDFData, nullptr))
+                BMKillPtr (&amp;outIDFData);
+        }
+    }
+
+    bool GetIDFData (GSPtr *outIDFData, API_Box *bounds) {
+        if (!inited || outIDFData == nullptr)
+            return false;
+
+        bool ret = (ACAPI_Database (APIDb_StopDrawingDataID, outIDFData, bounds) == NoError);
+
+        inited = false;
+        return ret;
+    }
+};
+
+GSErrCode Import::Do ()
+{
+    IDFSession  idfSession;                                    // 1
+
+    GSErrCode   ret = this-&gt;ReadAction::Do ();              // 2
+
+    if (ret == NoError) {
+        API_Box bounds  = { 0.0, 0.0, 0.0, 0.0 };
+        GSPtr   idfData = nullptr;
+
+        if (idfSession.GetIDFData (&amp;idfData, &amp;bounds)) {    // 3
+            PlaceDrawing (idfData, bounds);                   // 4
+        }
+    }
+
+    return ret;
+}
+</code></pre>
+    </blockquote>
+
+    <p><i>Comments:</i></p>
+
+    <ol>
+        <li>Initiates an IDF session; it redirects further element creation to the drawing data</li>
+
+        <li>Reads the elements from an external file into the drawing data</li>
+
+        <li>Stops the IDF session, fetches the drawing data &amp; its bounds (calculated internally)</li>
+
+        <li>Places the drawing element into the current database (internally calls <a href="ACAPI_Element_Create.html">ACAPI_Element_Create</a>)</li>
+    </ol>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_PenType.html">API_PenType</a><br>
+    <a href="APIDb_StopDrawingDataID.html">APIDb_StopDrawingDataID</a><br>
+    <a href="ACAPI_Element_Create.html">ACAPI_Element_Create</a>, <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="ACAPI_Database_id.html">ACAPI_Database</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on July 25, 2006<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

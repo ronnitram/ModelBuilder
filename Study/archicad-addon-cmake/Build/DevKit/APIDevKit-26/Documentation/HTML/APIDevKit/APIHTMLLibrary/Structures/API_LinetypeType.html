@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_LinetypeType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_LinetypeType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_LinetypeType</h1>
+
+    <p>Line type attribute representation.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Attr_Head.html">API_Attr_Head</a></strong>        <em>head</em>;
+        <strong>double</strong>               <em>defineScale</em>;
+        <strong>double</strong>               <em>period</em>;
+        <strong>double</strong>               <em>height</em>;
+        <strong><a href="#API_LtypTypeID">API_LtypTypeID</a></strong>       <em>type</em>;
+        <strong>short</strong>                <em>nItems</em>;
+        <strong>short</strong>                <em>filler_1</em>;
+    <strong>}</strong> <em>API_LinetypeType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>Contains the name, index, and flags of the attribute.</dd>
+
+        <dt><b>defineScale</b></dt>
+
+        <dd>The original scale the line type is defined with; this value is used only with <code>APILine_ScaleWithPlan</code> (otherwise it should be 1.0).</dd>
+
+        <dt><b>period</b></dt>
+
+        <dd>Length of a period (except for solid lines).</dd>
+
+        <dt><b>height</b></dt>
+
+        <dd>Height of the line type (0.0 for solid and dashed lines).</dd>
+
+        <dt><b>type</b></dt>
+
+        <dd>Main selector for type parsing. The possible values are shown in the <a href="#API_LtypTypeID">API_LtypTypeID</a> enumeration.</dd>
+
+        <dt><b>nItems</b></dt>
+
+        <dd>Number of items in the line type (for dashed/symbol type).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <code>flags</code> field of the header can take the following values:</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><b>Value</b></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APILine_FixScale</code></p>
+                </td>
+
+                <td>
+                    <p>The line type parameters are defined with fixed values <i>in millimeters</i> as the line will appear on the printout.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APILine_ScaleWithPlan</code></p>
+                </td>
+
+                <td>
+                    <p>The line type parameters are defined <i>in meters</i> at a given floor plan scale (<code>defineScale</code>); on the printout the lines of this line type will be scaled considering the actual scale.</p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p><a name="API_LtypTypeID" id="API_LtypTypeID"></a>The <code>type</code> of the linetype can take the following values:</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><b>Value</b></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APILine_SolidLine</code></p>
+                </td>
+
+                <td>
+                    <p>Solid line.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APILine_DashedLine</code></p>
+                </td>
+
+                <td>
+                    <p>Dashed line (contains dashes and gaps between them).</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APILine_SymbolLine</code></p>
+                </td>
+
+                <td>
+                    <p>Symbol line (can contain different 2D shapes).</p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>A solid line is a straight line, without any gaps. You need to fill only the fields of the <code>API_LineTypeType</code> structure to create such a line type.</p>
+
+    <p><a name="dashed_line" id="dashed_line"></a>To create a dashed line, you need to specify the following fields of the structure:</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><b>Field</b></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>period</code></p>
+                </td>
+
+                <td>
+                    <p>The length of the period of the dashed line type (the total length of one segment).</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>nItems</code></p>
+                </td>
+
+                <td>
+                    <p>The number of items in the dashed line type.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>ltype_dashItems</code> in <a href="API_AttributeDef.html">API_AttributeDef</a></p>
+                </td>
+
+                <td>
+                    <p>This is a handle of <a href="API_DashItems.html">API_DashItems</a>, where the <code>dash</code> and <code>gap</code> fields describe the length of the visible and invisible part of one item, respectively.</p>
+                </td>
+            </tr>
+        </table>
+
+        <p><img src="../../APIImageLibrary/dashed_line.gif" width="381" height="151" align="bottom" alt="Dashed line"></p>
+    </blockquote>
+
+    <p>To create a symbol line, you need to specify the following fields of the structure:</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><b><code>Field</code></b></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>period</code></p>
+                </td>
+
+                <td>
+                    <p>The length of the period of the symbol line type (the total length of one segment).</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>nItems</code></p>
+                </td>
+
+                <td>
+                    <p>The number of items in the symbol line type.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>height</code></p>
+                </td>
+
+                <td>
+                    <p>The height of the symbol line type.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>ltype_lineItems</code> in <a href="API_AttributeDef.html">API_AttributeDef</a></p>
+                </td>
+
+                <td>
+                    <p>This is a handle of <a href="API_LineItems.html">API_LineItems</a>, where the <code>dash</code> and <code>gap</code> fields describe the length of the visible and invisible part of one item, respectively.</p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>There are additional data assigned to line type attributes in the <a href="API_AttributeDef.html">API_AttributeDef</a> structure; the definition of a line type dash pattern or symbol is passed through the <code>ltype_dashItems</code> and <code>ltype_lineItems</code> fields, respectively. Refer to the <a href="API_DashItems.html">API_DashItems</a> and <a href="API_LineItems.html">API_LineItems</a> structures to get more details on them.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Attributes.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Attr_Head.html">API_Attr_Head</a>, <a href="API_Attribute.html">API_Attribute</a>, <a href="API_DashItems.html">API_DashItems</a>, <a href="API_LineItems.html">API_LineItems</a>, <a href="API_AttributeDef.html">API_AttributeDef</a>,<br>
+    <a href="../Level3/Attribute_Manager_id.html">Attribute Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 1, 1999<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>C:\Development\Hyppolit\Documentation\Sources\GeometryDoc\HTML_Library\Polygon2D\Example_InitAndValidate.html.html</title>
+    <meta name="Generator" content="Vim/6.1">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Polygon2D/Example_InitAndValidate.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <pre>
+<font color="#0000FF">// *************************************************************************</font>
+<font color="#0000FF">//</font>
+<font color="#0000FF">// Example of using InitPolygon2Ddata and ValidatePolygon2Ddata</font>
+<font color="#0000FF">// in the Graphisoft Geometry Library</font>
+<font color="#0000FF">// (c) Graphisoft 2003</font>
+<font color="#0000FF">//</font>
+<font color="#0000FF">// *************************************************************************</font>
+<br><img src="../../Image_Library/Polygon2DData_Example.JPG" border="0">
+
+<br><font color="#0000FF">// *************************************************************************</font>
+
+<font color="#A020F0">#include </font><font color="#FF00FF">"BM.hpp"</font>
+<font color="#A020F0">#include </font><font color="#FF00FF">"Polygon2DData.h"</font>
+
+<font color="#0000FF">// error checking is missing for simplicity</font>
+<font color="#2E8B57"><b>void</b></font> Example01 ()
+{
+    Geometry::Polygon2DData polygon;
+
+    <font color="#0000FF">// Initializing a {(10.0,10.0); (20.0, 20.0)} rectangle (with an arc)</font>
+
+    <font color="#2E8B57"><b>long</b></font> defaultVertexInfo = <font color="#FF00FF">0</font>;
+    <font color="#2E8B57"><b>long</b></font> defaultInhEdgeInfo = <font color="#FF00FF">0</font>;
+    <font color="#2E8B57"><b>long</b></font> defaultUniqEdgeInfo = <font color="#FF00FF">0</font>;
+    <font color="#2E8B57"><b>long</b></font> defaultContourInfo = <font color="#FF00FF">0</font>;
+    <font color="#2E8B57"><b>long</b></font> defaultUniqPolygonInfo = <font color="#FF00FF">0</font>;
+
+    Geometry::InitPolygon2DData (&amp;polygon,
+            <font color="#804040"><b>sizeof</b></font> (<font color="#2E8B57"><b>long</b></font>), <font color="#804040"><b>reinterpret_cast</b></font>&lt;GSPtr&gt; (&amp;defaultVertexInfo),        <font color="#0000FF">// vertex informations</font>
+            <font color="#804040"><b>sizeof</b></font> (<font color="#2E8B57"><b>long</b></font>), <font color="#804040"><b>reinterpret_cast</b></font>&lt;GSPtr&gt; (&amp;defaultInhEdgeInfo),       <font color="#0000FF">// edge informations</font>
+            <font color="#804040"><b>sizeof</b></font> (<font color="#2E8B57"><b>long</b></font>), <font color="#804040"><b>reinterpret_cast</b></font>&lt;GSPtr&gt; (&amp;defaultUniqEdgeInfo),      <font color="#0000FF">// edge informations</font>
+            <font color="#804040"><b>sizeof</b></font> (<font color="#2E8B57"><b>long</b></font>), <font color="#804040"><b>reinterpret_cast</b></font>&lt;GSPtr&gt; (&amp;defaultContourInfo),       <font color="#0000FF">// contour informations</font>
+            <font color="#804040"><b>sizeof</b></font> (<font color="#2E8B57"><b>long</b></font>),
+            <font color="#804040"><b>sizeof</b></font> (<font color="#2E8B57"><b>long</b></font>), <font color="#804040"><b>reinterpret_cast</b></font>&lt;GSPtr&gt; (&amp;defaultUniqPolygonInfo));  <font color="#0000FF">// polyogn informations</font>
+
+    <font color="#0000FF">// It has one contour and one hole</font>
+    polygon.nContours = <font color="#FF00FF">2</font>;
+
+    polygon.contourEnds = <font color="#804040"><b>reinterpret_cast</b></font>&lt;UIndex**&gt; (BMhAll (<font color="#FF00FF">3</font> * <font color="#804040"><b>sizeof</b></font> (UIndex)));
+    polygon.contourInfos = BMhAll (<font color="#FF00FF">3</font> * <font color="#804040"><b>sizeof</b></font> (<font color="#2E8B57"><b>long</b></font>));
+
+    (*polygon.contourEnds)[<font color="#FF00FF">0</font>] = <font color="#FF00FF">0</font>; <font color="#0000FF">// not used, must be zero</font>
+        <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.contourInfos)[<font color="#FF00FF">0</font>]   = <font color="#FF00FF">'C-uu'</font>;
+
+    (*polygon.contourEnds)[<font color="#FF00FF">1</font>] = <font color="#FF00FF">5</font>;  <font color="#0000FF">// index of the last vertex in the first (main) contour</font>
+        <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.contourInfos)[<font color="#FF00FF">1</font>]   = <font color="#FF00FF">'C-01'</font>;
+
+    (*polygon.contourEnds)[<font color="#FF00FF">2</font>] = <font color="#FF00FF">9</font>;  <font color="#0000FF">// index of the last vertex in the second (first hole) contour</font>
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.contourInfos)[<font color="#FF00FF">2</font>]   = <font color="#FF00FF">'C-02'</font>;
+
+    polygon.nVertices = <font color="#FF00FF">9</font>;  <font color="#0000FF">// first vertices of contours is duplicated in the last (but do not count the unused)</font>
+
+    polygon.vertices      = <font color="#804040"><b>reinterpret_cast</b></font>&lt;Coord**&gt; (BMhAll (<font color="#FF00FF">10</font> * <font color="#804040"><b>sizeof</b></font> (Coord)));
+    polygon.vertexInfos   = BMhAll (<font color="#FF00FF">10</font> * <font color="#804040"><b>sizeof</b></font> (<font color="#2E8B57"><b>long</b></font>));
+    polygon.inhEdgeInfos  = BMhAll (<font color="#FF00FF">10</font> * <font color="#804040"><b>sizeof</b></font> (<font color="#2E8B57"><b>long</b></font>));
+    polygon.uniqEdgeInfos = BMhAll (<font color="#FF00FF">10</font> * <font color="#804040"><b>sizeof</b></font> (<font color="#2E8B57"><b>long</b></font>));
+
+    <font color="#0000FF">// deliberately reverse-oriented</font>
+    (*polygon.vertices)[<font color="#FF00FF">0</font>] = Geometry::SetCoord ( <font color="#FF00FF">0.0</font>,  <font color="#FF00FF">0.0</font>); <font color="#0000FF">// not used, must be zero</font>
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.vertexInfos)[<font color="#FF00FF">0</font>]   = <font color="#FF00FF">'V-uu'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.inhEdgeInfos)[<font color="#FF00FF">0</font>]  = <font color="#FF00FF">'I-uu'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.uniqEdgeInfos)[<font color="#FF00FF">0</font>] = <font color="#FF00FF">'U-uu'</font>;
+
+    (*polygon.vertices)[<font color="#FF00FF">1</font>] = Geometry::SetCoord (<font color="#FF00FF">10.0</font>, <font color="#FF00FF">10.0</font>);
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.vertexInfos)[<font color="#FF00FF">1</font>]   = <font color="#FF00FF">'V-01'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.inhEdgeInfos)[<font color="#FF00FF">1</font>]  = <font color="#FF00FF">'I-01'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.uniqEdgeInfos)[<font color="#FF00FF">1</font>] = <font color="#FF00FF">'U-01'</font>;
+
+    (*polygon.vertices)[<font color="#FF00FF">2</font>] = Geometry::SetCoord (<font color="#FF00FF">10.0</font>, <font color="#FF00FF">20.0</font>);
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.vertexInfos)[<font color="#FF00FF">2</font>]   = <font color="#FF00FF">'V-02'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.inhEdgeInfos)[<font color="#FF00FF">2</font>]  = <font color="#FF00FF">'I-02'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.uniqEdgeInfos)[<font color="#FF00FF">2</font>] = <font color="#FF00FF">'U-02'</font>;
+
+    (*polygon.vertices)[<font color="#FF00FF">3</font>] = Geometry::SetCoord (<font color="#FF00FF">20.0</font>, <font color="#FF00FF">20.0</font>);
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.vertexInfos)[<font color="#FF00FF">3</font>]   = <font color="#FF00FF">'V-03'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.inhEdgeInfos)[<font color="#FF00FF">3</font>]  = <font color="#FF00FF">'I-03'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.uniqEdgeInfos)[<font color="#FF00FF">3</font>] = <font color="#FF00FF">'U-03'</font>;
+
+    (*polygon.vertices)[<font color="#FF00FF">4</font>] = Geometry::SetCoord (<font color="#FF00FF">20.0</font>, <font color="#FF00FF">10.0</font>);
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.vertexInfos)[<font color="#FF00FF">4</font>]   = <font color="#FF00FF">'V-04'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.inhEdgeInfos)[<font color="#FF00FF">4</font>]  = <font color="#FF00FF">'I-04'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.uniqEdgeInfos)[<font color="#FF00FF">4</font>] = <font color="#FF00FF">'U-04'</font>;
+
+    (*polygon.vertices)[<font color="#FF00FF">5</font>] = Geometry::SetCoord (<font color="#FF00FF">10.0</font>, <font color="#FF00FF">10.0</font>);   <font color="#0000FF">// same as first vertex of the main contour</font>
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.vertexInfos)[<font color="#FF00FF">5</font>]   = <font color="#FF00FF">'V-05'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.inhEdgeInfos)[<font color="#FF00FF">5</font>]  = <font color="#FF00FF">'I-05'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.uniqEdgeInfos)[<font color="#FF00FF">5</font>] = <font color="#FF00FF">'U-05'</font>;
+
+    (*polygon.vertices)[<font color="#FF00FF">6</font>] = Geometry::SetCoord (<font color="#FF00FF">15.0</font>, <font color="#FF00FF">15.0</font>);   <font color="#0000FF">// first vertex of the hole</font>
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.vertexInfos)[<font color="#FF00FF">6</font>]   = <font color="#FF00FF">'V-06'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.inhEdgeInfos)[<font color="#FF00FF">6</font>]  = <font color="#FF00FF">'I-06'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.uniqEdgeInfos)[<font color="#FF00FF">6</font>] = <font color="#FF00FF">'U-06'</font>;
+
+    (*polygon.vertices)[<font color="#FF00FF">7</font>] = Geometry::SetCoord (<font color="#FF00FF">18.0</font>, <font color="#FF00FF">15.0</font>);
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.vertexInfos)[<font color="#FF00FF">7</font>]   = <font color="#FF00FF">'V-07'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.inhEdgeInfos)[<font color="#FF00FF">7</font>]  = <font color="#FF00FF">'I-07'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.uniqEdgeInfos)[<font color="#FF00FF">7</font>] = <font color="#FF00FF">'U-07'</font>;
+
+    (*polygon.vertices)[<font color="#FF00FF">8</font>] = Geometry::SetCoord (<font color="#FF00FF">15.0</font>, <font color="#FF00FF">18.0</font>);
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.vertexInfos)[<font color="#FF00FF">8</font>]   = <font color="#FF00FF">'V-08'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.inhEdgeInfos)[<font color="#FF00FF">8</font>]  = <font color="#FF00FF">'I-08'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.uniqEdgeInfos)[<font color="#FF00FF">8</font>] = <font color="#FF00FF">'U-08'</font>;
+
+    (*polygon.vertices)[<font color="#FF00FF">9</font>] = Geometry::SetCoord (<font color="#FF00FF">15.0</font>, <font color="#FF00FF">15.0</font>);   <font color="#0000FF">// same as first vertex of the hole</font>
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.vertexInfos)[<font color="#FF00FF">9</font>]   = <font color="#FF00FF">'V-09'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.inhEdgeInfos)[<font color="#FF00FF">9</font>]  = <font color="#FF00FF">'I-09'</font>;
+    <font color="#804040"><b>reinterpret_cast</b></font>&lt;<font color="#2E8B57"><b>long</b></font>*&gt;(*polygon.uniqEdgeInfos)[<font color="#FF00FF">9</font>] = <font color="#FF00FF">'U-09'</font>;
+
+    <font color="#0000FF">// Adding an arc between the first and second vertices (first edge)</font>
+    polygon.nArcs = <font color="#FF00FF">1</font>;
+
+    polygon.arcs = <font color="#804040"><b>reinterpret_cast</b></font>&lt;PolyArcRec**&gt; (BMhAll (<font color="#FF00FF">2</font> * <font color="#804040"><b>sizeof</b></font> (PolyArcRec)));
+
+    (*polygon.arcs)[<font color="#FF00FF">0</font>].arcAngle = <font color="#FF00FF">0.0</font>; <font color="#0000FF">// not used, must be zero</font>
+    (*polygon.arcs)[<font color="#FF00FF">0</font>].begIndex = <font color="#FF00FF">0</font>;
+    (*polygon.arcs)[<font color="#FF00FF">0</font>].endIndex = <font color="#FF00FF">0</font>;
+
+    (*polygon.arcs)[<font color="#FF00FF">1</font>].arcAngle = <font color="#FF00FF">0.4</font>;  <font color="#0000FF">// the viewangle in radian</font>
+    (*polygon.arcs)[<font color="#FF00FF">1</font>].begIndex = <font color="#FF00FF">1</font>;
+    (*polygon.arcs)[<font color="#FF00FF">1</font>].endIndex = <font color="#FF00FF">2</font>;    <font color="#0000FF">// must be next vertex</font>
+
+
+    Geometry::ValidatePolygon2DData (&amp;polygon);
+
+    <font color="#0000FF">// Check for safety</font>
+    Geometry::CheckPolygon2DDataIntegrity (polygon);
+
+    <font color="#0000FF">// </font><span style="BACKGROUND-COLOR: #ffff00"><font color="#0000FF">TODO</font></span><font color="#0000FF">:</font>
+    <font color="#0000FF">// Do some operations with the polygon</font>
+
+    <font color="#0000FF">// Clean-up</font>
+    Geometry::FreePolygon2DData (&amp;polygon);
+}
+
+
+</pre>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

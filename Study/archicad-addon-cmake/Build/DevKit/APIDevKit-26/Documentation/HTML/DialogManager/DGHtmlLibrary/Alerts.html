@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+    <title>Alerts</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/Alerts.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Alerts</h1>
+
+    <p>An application can use alerts in DG to show an error, warning or information message to the user. An alert can contain an icon, two text fields and up to three buttons. Some of these items can be missing, but at least one text field and one button must exist.</p>
+
+    <p>You can invoke an alert by the <a href="DGAlert.html">DGAlert</a>, <a href="DGResAlert.html">DGResAlert</a> and <a href="DGResAlertParam.html">DGResAlertParam</a> functions. These functions are similar to each other. The only difference is in the way how the icon and the alert and button texts are specified. Using <b>DGAlert</b> the application has to define all elements of the alert in run time as the function's parameters. <b>DGResAlert</b> gets alert data from <tt>GALR</tt> resources. With <b>DGResAlertParam</b> the content of the alert can be specified partly in GRC, partly in run time.</p>
+
+    <p>Perhaps the most important feature of DG alerts is that they are sized automatically to the minimal size that contains all of the given elements. If the first and/or the second alert text does not fit into one line, DG automatically breaks it/them into more lines. Of course, these texts can contain explicit line breaks as well. The default layout of DG alerts are demonstrated on the pictures below.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/Alert_Mac.png" width="454" height="158" alt="Alert_Mac">&nbsp;&nbsp;&nbsp;&nbsp;<img src="../DGImageLibrary/Alert_Win.png" alt="Alert_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl><br>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    'GALR'  <i>resID  iconID</i>  [<i>"title"</i>] {
+      <i>"largeText"</i> (\)
+      <i>"smallText"</i> (\)
+      <i>"button1"</i>
+      <i>"button2"</i>
+      <i>"button3"</i>
+    }
+</pre>
+
+    <p>where <em>resID</em> is the resource ID of the alert, <em>iconID</em> is the alert's icon resource ID. The optional <em>title</em> parameter defines the title of the alert. <em>largeText</em> and <em>smallText</em> are texts of the first and second text fields of the alert. Using backslash (\) characters at the end of the lines, these strings can be written in more than one line. <em>button1</em>, <em>button2</em> and <em>button3</em> are the button texts.</p>
+
+    <h4>Remarks</h4>
+
+    <p><b>DGResAlert</b> and <b>DGResAlertParam</b> use the same GRC specification. The only difference is that the <em>largeText</em> and <em>smallText</em> can contain up to four <tt>"%s"</tt> format specifiers in <tt>GALR</tt> resources for <b>DGResAlertParam</b>. Before displaying the alert, these format specifiers are substituted with the <em>paramText1</em>, <em>paramText2</em>, <em>paramText3</em> and <em>paramText4</em> parameters of <b>DGResAlertParam</b> in the order of their appearance.</p>
+
+    <p>If the <em>iconID</em> parameter of <b>DGAlert</b> or <tt>GALR</tt> resource is a valid icon resource ID, the alert displays the custom color icon loaded from resource. However, if this parameter is one of the following special constants, it determines not only the alert icon but the type and the title of the alert as well.</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150"><em>iconID</em></th>
+
+                    <th align="left" width="150">Alert type</th>
+
+                    <th align="left" width="320">Meaning</th>
+
+                    <th width="120">Macintosh&nbsp;icon</th>
+
+                    <th width="120">Windows&nbsp;icon</th>
+                </tr>
+
+                <tr>
+                    <td><tt>Error</tt></td>
+
+                    <td><tt>DG_ERROR</tt></td>
+
+                    <td align="left"><b>Stop</b> on Macintosh; <b>Error</b> on Windows.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconError_Mac.png" width="32" height="32" alt="IconError_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconError_Win.png" alt="IconError_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>Information</tt></td>
+
+                    <td><tt>DG_INFORMATION</tt></td>
+
+                    <td align="left"><b>Note</b> on Macintosh; <b>Information</b> on Windows.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconInfo_Mac.png" width="32" height="32" alt="IconInfo_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconInfo_Win.png" alt="IconInfo_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>Warning</tt></td>
+
+                    <td><tt>DG_WARNING</tt></td>
+
+                    <td align="left"><b>Caution</b> on Macintosh; <b>Warning</b> on Windows.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconWarning_Mac.png" width="32" height="32" alt="IconWarning_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconWarning_Win.png" alt="IconWarning_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>If the <em>titleText</em> parameter of <b>DGAlert</b> is <tt>nullptr</tt> or the optional <em>title</em> parameter is omitted in the <tt>GALR</tt> resource, the alert has no title on Macintosh and DG uses the appropriate standard alert title given in <a href="DGInit.html">DGInit</a> on Windows.</p>
+
+    <p>Texts of the first and second text fields are drawn using the large plain and small plain fonts, respectively. If <em>largeText</em> or <em>smallText</em> parameter of <b>DGAlert</b> is <tt>nullptr</tt> or the corresponding string is empty ("") in the <tt>GALR</tt> resource, there is no first or second text field in the alert. Note however, that both text fields should not be missing from the alert.</p>
+
+    <p>If <em>button1Text</em>, <em>button2Text</em> or <em>button3Text</em> parameter of <b>DGAlert</b> is <tt>nullptr</tt> or the <em>button1</em>, <em>button2</em> or <em>button3</em> string is empty ("") in the <tt>GALR</tt> resource, there is no first, second or third button, respectively. Note however, that at least one button must exist in the alert.</p>
+
+    <p>Standard DG alerts do not need <a href="CallbackFunctions.html">callback functions</a>.</p>
+
+<h4>See Also</h4>
+<dl>
+    <dd class="also"> <a href="DialogTypes_id.html">Dialog types</a> </dd>
+    <dd class="also"> <a href="CallbackFunctions.html">Callback functions</a> </dd>
+    <dd class="also"> <a href="DGAlert.html">DGAlert</a> </dd>
+    <dd class="also"> <a href="DGResAlert.html">DGResAlert</a> </dd>
+    <dd class="also"> <a href="DGResAlertParam.html">DGResAlertParam</a> </dd>
+    <dd class="also"> <a href="DGInit.html">DGInit</a> </dd>
+</dl>
+
+    <footer> <p class="footer"> Graphisoft August 6, 2014 </p> </footer>
+
+     <p style="display: none;">
+          <img src="../StyleLibrary/Images/requirements.png" />
+          <img src="../StyleLibrary/Images/seealso.png" />
+          <img src="../StyleLibrary/Images/Treeview/empty1.gif" />
+          <img src="../StyleLibrary/Images/Treeview/empty.gif" />
+          <img src="../StyleLibrary/Images/Treeview/join.gif" />
+          <img src="../StyleLibrary/Images/Treeview/joinbottom.gif" />
+          <img src="../StyleLibrary/Images/Treeview/leftarrow.png" />
+          <img src="../StyleLibrary/Images/Treeview/line.gif" />
+          <img src="../StyleLibrary/Images/Treeview/minus.gif" />
+          <img src="../StyleLibrary/Images/Treeview/minusbottom.gif" />
+          <img src="../StyleLibrary/Images/Treeview/plus.gif" />
+          <img src="../StyleLibrary/Images/Treeview/plusbottom.gif" />
+          <img src="../StyleLibrary/Images/Treeview/rightarrow.png" />
+     </p>
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

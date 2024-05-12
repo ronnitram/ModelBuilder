@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>About Virtual Array of records with Type field</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/VAManagers/VAT/about.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>About Virtual Array of records with Type field</h1>
+
+    <p>Virtual Array of records with type field (<b>VAT</b>) is a dynamic array of which size can be increased or decreased according to the number of elements stored within. The VAT is represented by the <strong><a href="../../../GSRootHTMLLibrary/VAManagers/VAT/reference/VATDESC.html">VATDESC</a></strong> structure. The <strong>VATDESC</strong> structure defines the attributes of the VAT.</p>
+
+    <p>The VAT is different from the VA in internal representation. The VAT can contain empty cells, marked with <b>VAT_FREE</b> flag, within the index range. Therefore if you want to add an element to a VAT, you can write the new element into the first free cell. The index of the first free cell can be obtained by the <a href="../../../GSRootHTMLLibrary/VAManagers/VAT/reference/VATFind.html"><b>VATFind</b></a> function. Note that a VAT is indexed from 0 to <strong>lastind</strong>-1 (<strong>lastind</strong> is a member of the <strong>VATDESC</strong> structure).</p>
+
+    <p>The <strong>VATDESC</strong> structure contains a memory buffer in which the elements of the VAT are stored. The Virtual Array Manager provides functions to increase or decrease the size of this buffer, but the get/set operations must be done manually. The <strong>VATDESC</strong> structure differs from the <a href="../../../GSRootHTMLLibrary/VAManagers/VA/reference/DESC.html"><strong>DESC</strong></a> structure in the <strong>freeind</strong> data member. The <strong>freeind</strong> member points to the first free cell of the VAT. If you are performing get/set operations on a Virtual Array you must consider this index member. If the Virtual Array must be grown or shrunken then its size will be increased or decreased by <strong>npage</strong> number of elements where <strong>npage</strong> is a member of the <strong>DESC</strong> structure as well.</p>
+
+    <p>Before using a VAT you must initialize it with the <a href="../../../GSRootHTMLLibrary/VAManagers/VAT/reference/VATInit.html"><strong>VATInit</strong></a> function. The <strong>VATInit</strong> allocates the buffer, and initializes the members of the <strong>VATDESC</strong> structure. After initializing you can perform get/set or add functions on the VAT. If you want to add an element to a VAT, first you must call the <a href="../../../GSRootHTMLLibrary/VAManagers/VAT/reference/VATFind.html"><strong>VATFind</strong></a> function. The <strong>VATFind</strong> function returns the index of the first free cell of the VAT. If the VAT has no free cell the function increases the size of it. When you insert a new element into the buffer, it should be done at the index returned by the <strong>VATFind</strong> function. You can maintain the index pointers of the <strong>VATDESC</strong> structure by calling the <a href="../../../GSRootHTMLLibrary/VAManagers/VAT/reference/VATUpdate.html"><strong>VATUpdate</strong></a> function. After using the VAT you must call the <a href="../../../GSRootHTMLLibrary/VAManagers/VAT/reference/VATFree.html"><strong>VATFree</strong></a> function to release its buffer.</p>
+
+    <p>If you want to clear an element of the VAT, you can do this by calling the <a href="../../../GSRootHTMLLibrary/VAManagers/VAT/reference/VATClear.html"><strong>VATClear</strong></a> function. The <strong>VATClear</strong> function marks the cell which contains the element to clear with <strong>VAT_FREE</strong> flag. The number of elements stored in a VAT can be obtained by calling the <a href="../../../GSRootHTMLLibrary/VAManagers/VAT/reference/VATNrElements.html"><strong>VATNrElements</strong></a> function. This function counts all the cells which aren't marked with <strong>VAT_FREE</strong> flag.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

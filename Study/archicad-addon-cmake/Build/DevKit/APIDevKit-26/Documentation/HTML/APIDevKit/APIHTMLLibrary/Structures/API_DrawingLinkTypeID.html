@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_DrawingLinkTypeID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_DrawingLinkTypeID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_DrawingLinkTypeID</h1>
+
+    <p>Type of the drawing link.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>API_DrawingLink_UnknownID</em>,
+        <em>API_DrawingLink_InternalViewID</em>,
+        <em>API_DrawingLink_ExternalViewID</em>,
+        <em>API_DrawingLink_DrawingID</em>,
+        <em>API_DrawingLink_DXF_DWGID</em>,
+        <em>API_DrawingLink_PDFID</em>,
+        <em>API_DrawingLink_ImageID</em>,
+        <em>API_DrawingLink_PMKID</em>,
+        <em>API_DrawingLink_APIID</em>,
+        <em>API_DrawingLink_InfoID</em>,
+        <em>API_DrawingLink_OtherID</em>
+    <strong>}</strong> <em>API_DrawingLinkTypeID</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>API_DrawingLink_UnknownID</b></dt>
+
+        <dd>Unknown link type</dd>
+
+        <dt><b>API_DrawingLink_InternalViewID</b></dt>
+
+        <dd>Link to an internal view</dd>
+
+        <dt><b>API_DrawingLink_ExternalViewID</b></dt>
+
+        <dd>Link to an external view</dd>
+
+        <dt><b>API_DrawingLink_DrawingID</b></dt>
+
+        <dd>Link to a general drawing node</dd>
+
+        <dt><b>API_DrawingLink_DXF_DWGID</b></dt>
+
+        <dd>Link to a drawing imported from DXF/DWG file</dd>
+
+        <dt><b>API_DrawingLink_PDFID</b></dt>
+
+        <dd>Link to a PDF drawing</dd>
+
+        <dt><b>API_DrawingLink_ImageID</b></dt>
+
+        <dd>Link to an image type drawing</dd>
+
+        <dt><b>API_DrawingLink_PMKID</b></dt>
+
+        <dd>Link to a drawing imported from PlotMaker file</dd>
+
+        <dt><b>API_DrawingLink_APIID</b></dt>
+
+        <dd>Link to a drawing created by an API add-on</dd>
+
+        <dt><b>API_DrawingLink_InfoID</b></dt>
+
+        <dd>Embedded drawing (broken link)</dd>
+
+        <dt><b>API_DrawingLink_OtherID</b></dt>
+
+        <dd>Not used</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>These drawing link type values are used in the <a href="API_DrawingLinkInfo.html">API_DrawingLinkInfo</a> structure.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_DrawingLinkInfo.html">API_DrawingLinkInfo</a><br>
+    <a href="../Functions/APIDb_GetDrawingLinkID.html">APIDb_GetDrawingLinkID</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 14, 2006<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

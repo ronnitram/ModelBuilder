@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Dialog Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/Dialog/Dialog.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="BeginMoveResizeItems.html">BeginMoveResizeItems</A><A href="CaptionType.html">CaptionType</A><A href="Center.html">Center</A><A href="CloseType.html">CloseType</A><A href="Destructor.html">~Dialog</A><A href="Constructors.html">Dialog</A><A href="DialogType.html">DialogType</A><A href="DisableGrowBox.html">DisableGrowBox</A><A href="DisableNormalUpdate.html">DisableNormalUpdate</A><A href="EnableGrowBox.html">EnableGrowBox</A><A href="EnableIdleEvent.html">EnableIdleEvent</A><A href="EnableNormalUpdate.html">EnableNormalUpdate</A><A href="EndMoveResizeItems.html">EndMoveResizeItems</A><A href="FixPoint.html">FixPoint</A><A href="FrameType.html">FrameType</A><A href="GetClientHeight.html">GetClientHeight</A><A href="GetClientPosition.html">GetClientPosition</A><A href="GetClientRect.html">GetClientRect</A><A href="GetClientWidth.html">GetClientWidth</A><A href="GetDialogType.html">GetDialogType</A><A href="GetFrameHeight.html">GetFrameHeight</A><A href="GetFramePosition.html">GetFramePosition</A><A href="GetFrameRect.html">GetFrameRect</A><A href="GetFrameWidth.html">GetFrameWidth</A><A href="GetGrowBoxForm.html">GetGrowBoxForm</A><A href="GetGrowBoxSize.html">GetGrowBoxSize</A><A href="GetGrowType.html">GetGrowType</A><A href="GetIcon.html">GetIcon</A><A href="GetMinClientHeight.html">GetMinClientHeight</A><A href="GetMinClientWidth.html">GetMinClientWidth</A><A href="GetMinFrameHeight.html">GetMinFrameHeight</A><A href="GetMinFrameWidth.html">GetMinFrameWidth</A><A href="GetOriginalClientHeight.html">GetOriginalClientHeight</A><A href="GetOriginalClientWidth.html">GetOriginalClientWidth</A><A href="GetOriginalFrameHeight.html">GetOriginalFrameHeight</A><A href="GetOriginalFrameWidth.html">GetOriginalFrameWidth</A><A href="GetTitle.html">GetTitle</A><A href="GetWindow.html">GetWindow</A><A href="GrowBoxForm.html">GrowBoxForm</A><A href="GrowType.html">GrowType</A><A href="IsGrowBoxEnabled.html">IsGrowBoxEnabled</A><A href="MaximizeType.html">MaximizeType</A>
+<A href="MinimizeType.html">MinimizeType</A><A href="Move.html">Move</A><A href="RegisterDragAndDrop.html">RegisterDragAndDrop</A><A href="Resize.html">Resize</A><A href="RevokeDragAndDrop.html">RevokeDragAndDrop</A><A href="SetClientHeight.html">SetClientHeight</A><A href="SetClientPosition.html">SetClientPosition</A><A href="SetClientRect.html">SetClientRect</A><A href="SetClientSize.html">SetClientSize</A><A href="SetClientWidth.html">SetClientWidth</A><A href="SetFrameHeight.html">SetFrameHeight</A><A href="SetFramePosition.html">SetFramePosition</A><A href="SetFrameRect.html">SetFrameRect</A><A href="SetFrameSize.html">SetFrameSize</A><A href="SetFrameWidth.html">SetFrameWidth</A><A href="SetGrowBoxForm.html">SetGrowBoxForm</A><A href="SetGrowBoxSize.html">SetGrowBoxSize</A><A href="SetGrowType.html">SetGrowType</A><A href="SetIcon.html">SetIcon</A><A href="SetMinClientHeight.html">SetMinClientHeight</A><A href="SetMinClientSize.html">SetMinClientSize</A><A href="SetMinClientWidth.html">SetMinClientWidth</A><A href="SetMinFrameHeight.html">SetMinFrameHeight</A><A href="SetMinFrameSize.html">SetMinFrameSize</A><A href="SetMinFrameWidth.html">SetMinFrameWidth</A><A href="SetTitle.html">SetTitle</A>--><H2>Dialog Class</H2><!--exp="Dialog Class"--><P><topic id="$DG.$Dialog.BriefDescription">
+		Base class of dialogs in the Dialog Manager.
+	</topic></P>
+<PRE class="syntax"><B>class Dialog : public <!----><a class="nodecorate" href="../Panel/Panel.html">Panel</A></B></PRE>
+<H4>Members</H4>
+<P><B><A name="PublicMethods"></A>Public Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="BeginMoveResizeItems.html">BeginMoveResizeItems</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$BeginMoveResizeItems.BriefDescription">
+		Disable update while moving or resizing dialog items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Center.html">Center</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$Center.BriefDescription">
+		Positions the dialog to the center of the screen or the application's client window.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Destructor.html">~Dialog</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$~Dialog.BriefDescription">
+		Class destructor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DisableGrowBox.html">DisableGrowBox</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$DisableGrowBox.BriefDescription">
+		Disables drawing the grow box if the dialog is resizeable.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DisableNormalUpdate.html">DisableNormalUpdate</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$DisableNormalUpdate.BriefDescription">
+		Disables normal update mechanism of partially updateable
+		<!-- --><a href="../UserItem/UserItem.html">user items</a> of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnableGrowBox.html">EnableGrowBox</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$EnableGrowBox.BriefDescription">
+		Enables drawing the grow box if the dialog is resizeable.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnableIdleEvent.html">EnableIdleEvent</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$EnableIdleEvent.BriefDescription">
+		Enables idle event processing for the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnableNormalUpdate.html">EnableNormalUpdate</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$EnableNormalUpdate.BriefDescription">
+		Enables normal update mechanism of partially updateable
+		<!-- --><a href="../UserItem/UserItem.html">user items</a> of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EndMoveResizeItems.html">EndMoveResizeItems</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$EndMoveResizeItems.BriefDescription">
+		Enable update after moving or resizing dialog items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetClientHeight.html">GetClientHeight</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetClientHeight.BriefDescription">
+		Retrieves the client area height.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetClientPosition.html">GetClientPosition</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetClientPosition.BriefDescription">
+		Retrieves the client area position.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetClientRect.html">GetClientRect</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetClientRect.BriefDescription">
+		Retrieves the client area rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetClientWidth.html">GetClientWidth</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetClientWidth.BriefDescription">
+		Retrieves the client area width.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetDialogType.html">GetDialogType</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetDialogType.BriefDescription">
+		Retrieves the type of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetFrameHeight.html">GetFrameHeight</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetFrameHeight.BriefDescription">
+		Retrieves the height of the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetFramePosition.html">GetFramePosition</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetFramePosition.BriefDescription">
+		Retrieves the position of the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetFrameRect.html">GetFrameRect</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetFrameRect.BriefDescription">
+		Retrieves the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetFrameWidth.html">GetFrameWidth</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetFrameWidth.BriefDescription">
+		Retrieves the width of the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetGrowBoxForm.html">GetGrowBoxForm</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetGrowBoxForm.BriefDescription">
+		Retrieves the form of the grow box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetGrowBoxSize.html">GetGrowBoxSize</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetGrowBoxSize.BriefDescription">
+		Retrieves the size of the grow box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetGrowType.html">GetGrowType</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetGrowType.BriefDescription">
+		Retrieves the grow type of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetIcon.html">GetIcon</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetIcon.BriefDescription">
+		Retrieves the system menu icon of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetMinClientHeight.html">GetMinClientHeight</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetMinClientHeight.BriefDescription">
+		Retrieves the allowed minimal height of the client area.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetMinClientWidth.html">GetMinClientWidth</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetMinClientWidth.BriefDescription">
+		Retrieves the allowed minimal width of the client area.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetMinFrameHeight.html">GetMinFrameHeight</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetMinFrameHeight.BriefDescription">
+		Retrieves the allowed minimal height of the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetMinFrameWidth.html">GetMinFrameWidth</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetMinFrameWidth.BriefDescription">
+		Retrieves the allowed minimal width of the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetOriginalClientHeight.html">GetOriginalClientHeight</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetOriginalClientHeight.BriefDescription">
+		Retrieves the original client area height of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetOriginalClientWidth.html">GetOriginalClientWidth</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetOriginalClientWidth.BriefDescription">
+		Retrieves the original client area width of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetOriginalFrameHeight.html">GetOriginalFrameHeight</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetOriginalFrameHeight.BriefDescription">
+		Retrieves the original frame height of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetOriginalFrameWidth.html">GetOriginalFrameWidth</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetOriginalFrameWidth.BriefDescription">
+		Retrieves the original frame width of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetTitle.html">GetTitle</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetTitle.BriefDescription">
+		Retrieves the dialog title.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetWindow.html">GetWindow</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GetWindow.BriefDescription">
+		Retrieves the dialog pointer or window handle of a dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsGrowBoxEnabled.html">IsGrowBoxEnabled</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$IsGrowBoxEnabled.BriefDescription">
+		Checks the visibility state of the grow box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Move.html">Move</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$Move.BriefDescription">
+		Moves the dialog with the given relative values.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="RegisterDragAndDrop.html">RegisterDragAndDrop</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$RegisterDragAndDrop.BriefDescription">
+		Registers drop target capability to a dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Resize.html">Resize</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$Resize.BriefDescription">
+		Resizes the dialog with the given relative values.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="RevokeDragAndDrop.html">RevokeDragAndDrop</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$RevokeDragAndDrop.BriefDescription">
+		Removes drop target capability from a dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetClientHeight.html">SetClientHeight</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetClientHeight.BriefDescription">
+		Sets the client area height.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetClientPosition.html">SetClientPosition</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetClientPosition.BriefDescription">
+		Sets the client area position.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetClientRect.html">SetClientRect</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetClientRect.BriefDescription">
+		Sets the client area rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetClientSize.html">SetClientSize</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetClientSize.BriefDescription">
+		Sets the client area size.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetClientWidth.html">SetClientWidth</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetClientWidth.BriefDescription">
+		Sets the client area width.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetFrameHeight.html">SetFrameHeight</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetFrameHeight.BriefDescription">
+		Sets the height of the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetFramePosition.html">SetFramePosition</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetFramePosition.BriefDescription">
+		Sets the position of the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetFrameRect.html">SetFrameRect</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetFrameRect.BriefDescription">
+		Sets the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetFrameSize.html">SetFrameSize</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetFrameSize.BriefDescription">
+		Sets the size of the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetFrameWidth.html">SetFrameWidth</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetFrameWidth.BriefDescription">
+		Sets the width of the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetGrowBoxForm.html">SetGrowBoxForm</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetGrowBoxForm.BriefDescription">
+		Sets the form of the grow box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetGrowBoxSize.html">SetGrowBoxSize</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetGrowBoxSize.BriefDescription">
+		Sets the size of the grow box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetGrowType.html">SetGrowType</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetGrowType.BriefDescription">
+		Sets the grow type of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetIcon.html">SetIcon</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetIcon.BriefDescription">
+		Sets the system menu icon of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetMinClientHeight.html">SetMinClientHeight</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetMinClientHeight.BriefDescription">
+		Sets the allowed minimal height of the client area.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetMinClientSize.html">SetMinClientSize</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetMinClientSize.BriefDescription">
+		Sets the allowed minimal size of the client area.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetMinClientWidth.html">SetMinClientWidth</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetMinClientWidth.BriefDescription">
+		Sets the allowed minimal width of the client area.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetMinFrameHeight.html">SetMinFrameHeight</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetMinFrameHeight.BriefDescription">
+		Sets the allowed minimal height of the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetMinFrameSize.html">SetMinFrameSize</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetMinFrameSize.BriefDescription">
+		Sets the allowed minimal size of the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetMinFrameWidth.html">SetMinFrameWidth</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetMinFrameWidth.BriefDescription">
+		Sets the allowed minimal width of the dialog frame rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTitle.html">SetTitle</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$SetTitle.BriefDescription">
+		Sets the dialog title.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ProtectedMethods"></A>Protected Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">Dialog</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$Dialog.BriefDescription">
+		Class constructor.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicTypes"></A>Public Types</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="CaptionType.html">CaptionType</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$CaptionType.BriefDescription">
+		The caption type of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="CloseType.html">CloseType</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$CloseType.BriefDescription">
+		The close type of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DialogType.html">DialogType</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$DialogType.BriefDescription">
+		The type of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FixPoint.html">FixPoint</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$FixPoint.BriefDescription">
+		The fix point of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FrameType.html">FrameType</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$FrameType.BriefDescription">
+		The frame type of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GrowBoxForm.html">GrowBoxForm</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GrowBoxForm.BriefDescription">
+		The format of the grow box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GrowType.html">GrowType</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$GrowType.BriefDescription">
+		The grow type of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="MaximizeType.html">MaximizeType</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$MaximizeType.BriefDescription">
+		The maximize type of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="MinimizeType.html">MinimizeType</A></TD>
+<TD width="70%"><topic id="$DG.$Dialog.$MinimizeType.BriefDescription">
+		The minimize type of the dialog.
+	</topic></TD>
+</TR>
+</table>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../DG.html">DG</A></P>
+<P><B>Header: </B>DGDialog.hpp</P>
+<H4>See Also</H4>
+<P><a href="../ModalDialog/ModalDialog.html">ModalDialog</A> | <a href="../ModelessBase/ModelessBase.html">ModelessBase</A></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

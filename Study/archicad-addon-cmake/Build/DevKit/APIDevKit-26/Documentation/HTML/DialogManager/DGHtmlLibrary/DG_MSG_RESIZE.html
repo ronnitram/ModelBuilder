@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Bende Laszlo">
+
+    <title>DG_MSG_RESIZE</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_RESIZE.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_RESIZE</h1>
+
+    <p>The dialog is being resized.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>Not used, always zero.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>Pointer to a <a href="DGResizeMsgData.html">DGResizeMsgData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Not used, should be set to zero.</p>
+
+    <h4>Remarks</h4>
+
+    <p><tt>DG_MSG_RESIZE</tt> messages are sent to the <a href="CallbackFunctions.html">dialog callback function</a> when a dialog or a tab page is resized. The major difference between the other messages and <tt>DG_MSG_RESIZE</tt> is that this message is sent not only by user action but also by program code. Moreover <tt>DG_MSG_RESIZE</tt> differs from the <tt>DG_MSG_GROW</tt> message in that it is sent to the tab pages also.</p>
+
+    <p>By every resizing action the dialog callback function receives three or more <tt>DG_MSG_RESIZE</tt> messages with the following submessages:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="180">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RSM_RESIZEENTER</tt></td>
+
+                    <td>This message is sent before the dialog is resized.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RSM_RESIZING</tt></td>
+
+                    <td>This message is sent when the dialog is being resized.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RSM_RESIZEEXIT</tt></td>
+
+                    <td>This message is sent after the dialog is resized.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>If a dialog contains one or more tab controls, tab pages receive the resize messages with submessages in the following order: First the <tt>DG_RSM_RESIZEENTER</tt> message is sent to the main dialog followed by a <tt>DG_RSM_RESIZING</tt> message. Responding to every <tt>DG_RSM_RESIZING</tt> message the application resizes its controls. When the tab control is resized, a <tt>DG_RSM_RESIZEENTER</tt> and a <tt>DG_RSM_RESIZING</tt> message is sent to every tab page of the tab control. If the resizing ends the tab pages receive <tt>DG_RSM_RESIZEEXIT</tt> first then at last the main dialog also.</p><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b>
+
+    <p>If the <em>fulldrag</em> system flag is on and the user begins to resize a dialog, the callback function permanently receives <tt>DG_MSG_RESIZE</tt> messages with <tt>DG_RSM_RESIZING</tt> submessage until the user finishes the resizing.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DG_MSG_GROW.html">DG_MSG_GROW</a>, <a href="DGResizeMsgData.html">DGResizeMsgData</a><br>
+    <a href="DGBeginMoveGrowItems.html">DGBeginMoveGrowItems</a>, <a href="DGEndMoveGrowItems.html">DGEndMoveGrowItems</a>, <a href="DGGrowDialog.html">DGGrowDialog</a>, <a href="DGGrowItem.html">DGGrowItem</a>, <a href="DGMoveItem.html">DGMoveItem</a>, <a href="DGMoveGrowItem.html">DGMoveGrowItem</a>, <a href="DGSetDialogSize.html">DGSetDialogSize</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 16, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

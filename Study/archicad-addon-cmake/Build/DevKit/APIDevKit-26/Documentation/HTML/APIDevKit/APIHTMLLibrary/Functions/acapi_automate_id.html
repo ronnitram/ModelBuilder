@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Automate</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/acapi_automate_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Automate</h1>
+
+    <p>Actuates the server application as an automation server.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Automate</strong> (
+        <strong><a href="#API_AutomateID">API_AutomateID</a></strong>     <em>code</em>,
+        <strong>void*</strong>              <em>par1</em> = nullptr,
+        <strong>void*</strong>              <em>par2</em> = nullptr,
+        <strong>void*</strong>              <em>par3</em> = nullptr
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>code</em></dt>
+
+        <dd>[in] Automation function identifier.</dd>
+
+        <dt><em>par1</em></dt>
+
+        <dd>[in/out] The content of <code>par1</code> depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par2</em></dt>
+
+        <dd>[in/out] The content of <code>par2</code> depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par3</em></dt>
+
+        <dd>[in/out] The content of <code>par2</code> depends on the <code>code</code> parameter.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The automation function completed with success.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>Invalid <code>code</code> parameter was passed.</dd>
+
+        <dt><code>APIERR_REFUSEDCMD</code></dt>
+
+        <dd>The requested function is not available.</dd>
+    </dl>
+
+    <p>More return values can be found at the description of each automation functions.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function group is used to actuate the host application from an API tool add-on.</p>
+
+    <p>The type of the automation function is specified by the <code>code</code> parameter.</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><!-- comment --><a name="API_AutomateID" id="API_AutomateID"></a><b><code>API_AutomateID</code></b></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>File Operations</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_NewProjectID.html">APIDo_NewProjectID</a></p>
+                </td>
+
+                <td>
+                    <p>Opens a new plan.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_OpenID.html">APIDo_OpenID</a></p>
+                </td>
+
+                <td>
+                    <p>Opens an existing project file.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_CloseID.html">APIDo_CloseID</a></p>
+                </td>
+
+                <td>
+                    <p>Closes the current window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_SaveID.html">APIDo_SaveID</a></p>
+                </td>
+
+                <td>
+                    <p>Saves the content of the current window in different file formats.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_SaveAsModuleFileID.html">APIDo_SaveAsModuleFileID</a></p>
+                </td>
+
+                <td>
+                    <p>Saves the selected elements into a module file.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_LoadLibrariesID.html">APIDo_LoadLibrariesID</a></p>
+                </td>
+
+                <td>
+                    <p>Resets and loads the active libraries.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_ReloadLibrariesID.html">APIDo_ReloadLibrariesID</a>&nbsp; <img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Reloads the active libraries.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_PrintID.html">APIDo_PrintID</a></p>
+                </td>
+
+                <td>
+                    <p>Prints the content of the current window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_QuitID.html">APIDo_QuitID</a></p>
+                </td>
+
+                <td>
+                    <p>Terminates the server application.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Display and View</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_RedrawID.html">APIDo_RedrawID</a></p>
+                </td>
+
+                <td>
+                    <p>Redraws the content of the current window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_RebuildID.html">APIDo_RebuildID</a></p>
+                </td>
+
+                <td>
+                    <p>Rebuilds the content of the current window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_ZoomID.html">APIDo_ZoomID</a></p>
+                </td>
+
+                <td>
+                    <p>Performs a zoom operation.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_ZoomToSelectedID.html">APIDo_ZoomToSelectedID</a></p>
+                </td>
+
+                <td>
+                    <p>Zooms to the selected elements.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_ZoomToElementsID.html">APIDo_ZoomToElementsID</a>&nbsp; <img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Zooms to the given set of elements.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_ChangeWindowID.html">APIDo_ChangeWindowID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the front window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_GoToViewID.html">APIDo_GoToViewID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Switches to the given navigator view.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_PhotoRenderID.html">APIDo_PhotoRenderID</a></p>
+                </td>
+
+                <td>
+                    <p>Creates a photorealistic image of the 3D window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_ShowSelectionIn3DID.html">APIDo_ShowSelectionIn3DID</a> <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Show Selection/Marquee in 3D.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_ShowAllIn3DID.html">APIDo_ShowAllIn3DID</a> <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Show All in 3D.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Hierarchical elements (curtain wall, stair, railing) related functions</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_EditHierarchicalElemID.html">APIDo_EditHierarchicalElemID</a>&nbsp; <img border="0" src="../../APIImageLibrary/22.png" alt="Featuring API 22" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Change to Hierarchical Elem (Curtain Wall, Stair, Railing, Beam, Column) Editing mode.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_CancelHierarchicalElemID.html">APIDo_CancelHierarchicalElemID</a>&nbsp; <img border="0" src="../../APIImageLibrary/22.png" alt="Featuring API 22" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Cancel changes in Hierarchical Elem (Curtain Wall, Stair, Railing, Beam, Column) editing mode.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDo_OkHierarchicalElemID.html">APIDo_OkHierarchicalElemID</a>&nbsp; <img border="0" src="../../APIImageLibrary/22.png" alt="Featuring API 22" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Accept changes in Hierarchical Elem (Curtain Wall, Stair, Railing, Beam, Column) editing mode.</p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>&nbsp;&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><!--X--><a href="../Level3/General_Functions_id.html">General Functions</a>, <!--X--><a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

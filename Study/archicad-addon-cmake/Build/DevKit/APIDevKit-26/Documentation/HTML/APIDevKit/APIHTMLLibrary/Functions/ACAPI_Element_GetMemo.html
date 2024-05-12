@@ -1,0 +1,1099 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_GetMemo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_GetMemo.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_GetMemo</h1>
+
+    <p>Retrieves all additional information attached to elements.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_GetMemo</strong> (
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>      <em>guid</em>,
+        <strong><a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>*</strong>     <em>memo</em>,
+        <strong>UInt64</strong>               <em>mask = APIMemoMask_All</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>guid</em>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>[in] Guid of the element.</dd>
+
+        <dt><em>memo</em></dt>
+
+        <dd>[out] Pointer to the memo to be filled.</dd>
+
+        <dt><em>mask</em>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>[in] Specifies which part of the memo you are interested in.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed <code>memo</code> parameter is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>The element type is invalid, or<br>
+        the element type is not supported by the server application</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>The element guid is invalid.</dd>
+
+        <dt><code>APIERR_DELETED</code></dt>
+
+        <dd>The element does not exist in the database</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>not enough memory to complete the operation</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function returns additional information attached to elements. This doesn't apply to all the drawing elements; you can check the <code>hasMemo</code> field of the element header.</p>
+
+    <p><a name="MemoParameters" id="MemoParameters"></a>The following table shows which elements may have additional data attached; it also explains what information is returned in <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>.</p>
+
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>
+                <p>Value</p>
+            </th>
+
+            <th>
+                <p>Parameters</p>
+            </th>
+
+            <th>
+                <p>Function (&#x1F4DD;)</p>
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_WallID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Gable **) gables<br>
+                (API_Coord **) coords<br>
+                (Int32 **) pends<br>
+                (API_PolyArc **) parcs<br>
+                (UInt32 **) vertexIDs<br>
+                (ProfileVectorImage*) customOrigProfile&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"><br>
+                (ProfileVectorImage*) stretchedProfile&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"><br>
+                (API_Guid **) wallWindows<br>
+                (API_Guid **) wallDoors</p>
+            </td>
+
+            <td>
+                <p>Returns the gable<sup><a href="#GableStruct">1</a></sup> and the polygon data<sup><a href="#PolyStruct">2</a></sup> and
+                the vector image data of the complex cross-section profile<sup><a href="#ProfileData">5</a></sup>. May also return the windows and doors
+                in this wall.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_ColumnID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Gable **)                   gables<br>
+                (ProfileVectorImage*)               customOrigProfile&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"><br>
+                (ProfileVectorImage*)               stretchedProfile&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"><br>
+                (API_ColumnSegmentType*)            columnSegments&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"><br>
+                (API_AssemblySegmentCutData*)		assemblySegmentCuts&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"><br>
+                (API_AssemblySegmentSchemeData*)	assemblySegmentSchemes&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"><br>
+                (API_AssemblySegmentProfileData*)   assemblySegmentProfiles&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"><br>
+                </p>
+            </td>
+
+            <td>
+                <p>Returns the gable data<sup><a href="#GableStruct">1</a></sup>, the vector image data of the complex cross-section profile<sup><a href="#ProfileData">5</a></sup> and segment related information.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_BeamID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Gable **)                   gables<br>
+                (API_Beam_Hole **)                  beamHoles<br>
+                (ProfileVectorImage*)               customOrigProfile&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"><br>
+                (ProfileVectorImage*)               stretchedProfile&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"><br>
+                (API_BeamSegmentType*)              beamSegments&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"><br>
+                (API_AssemblySegmentCutData*)		assemblySegmentCuts&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"><br>
+                (API_AssemblySegmentSchemeData*)	assemblySegmentSchemes&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"><br>
+                (API_AssemblySegmentProfileData*)   assemblySegmentProfiles&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"><br></p>
+            </td>
+
+            <td>
+                <p>Returns the gable data<sup><a href="#GableStruct">1</a></sup>, the vector image data of the complex cross-section profile<sup><a href="#ProfileData">5</a></sup>,
+                the holes of the beam, and segment related information.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_WindowID<br>
+                API_DoorID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Gable **) gables<br>
+                (char **) textContent<br>
+                (API_AddParType **) params</p>
+            </td>
+
+            <td>
+                <p>Returns the gable data<sup><a href="#GableStruct">1</a></sup> and the parameters of the instance of a library part<sup><a href="#ParamStruct">4</a></sup>,
+                also the window / door orientation text in textContent.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_ObjectID<br>
+                API_LampID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Gable **) gables<br>
+                (API_AddParType **) params</p>
+            </td>
+
+            <td>
+                <p>Returns the gable data<sup><a href="#GableStruct">1</a></sup> and the parameters of the instance of a library part<sup><a href="#ParamStruct">4</a></sup></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_SkylightID</code>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></p>
+            </td>
+
+            <td>
+                <p>(API_AddParType **) params</p>
+            </td>
+
+            <td>
+                <p>Returns the parameters of the instance of a library part<sup><a href="#ParamStruct">4</a></sup></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_SlabID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Coord **) coords<br>
+                (Int32 **) pends<br>
+                (API_PolyArc **) parcs<br>
+                (UInt32 **) vertexIDs<br>
+                (UInt32 **) edgeIDs<br>
+                (UInt32 **) contourIDs<br>
+                (API_EdgeTrim **) edgeTrims<br>
+                (API_OverriddenAttribute *) sideMaterials&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></p>
+            </td>
+
+            <td>
+                <p>Returns the polygon<sup><a href="#PolyStruct">2</a></sup>, the edge trim data<sup><a href="#EdgeTrims">3</a></sup> and the side materials<sup><a href="#SideMaterials">6</a></sup> of the slab.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_RoofID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Coord **) coords<br>
+                (Int32 **) pends<br>
+                (API_PolyArc **) parcs<br>
+                (UInt32 **) vertexIDs<br>
+                (API_EdgeTrim **) edgeTrims<br>
+                (API_RoofEdgeTypeID *) roofEdgeTypes<br>
+                (API_OverriddenAttribute *) sideMaterials&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"><br>
+                (API_Coord **) pivotPolyCoords<br>
+                (Int32 **) pivotPolyPends<br>
+                (API_PolyArc **) pivotPolyParcs<br>
+                (UInt32 ** *) pivotPolyVertexIDs<br>
+                (API_PivotPolyEdgeData *) pivotPolyEdges</p>
+            </td>
+
+            <td>
+                <ul>
+                    <li><code>API_PlaneRoofID</code>: Returns the polygon<sup><a href="#PolyStruct">2</a></sup>, the edge trim data<sup><a href="#EdgeTrims">3</a></sup> and the side materials<sup><a href="#SideMaterials">6</a></sup> of the roof.</li>
+
+                    <li><code>API_PolyRoofID</code>: Returns the contour and pivot polygons<sup><a href="#PolyStruct">2</a></sup>, the edge trim data<sup><a href="#EdgeTrims">3</a></sup>, the side materials<sup><a href="#SideMaterials">6</a></sup> and the data of the pivot polygon edges<sup><a href="#PivotPolyEdges">7</a></sup> of the roof. &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_MeshID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Coord **) coords<br>
+                (Int32 **) pends<br>
+                (API_PolyArc **) parcs<br>
+                (UInt32 **) vertexIDs<br>
+                (double **) meshPolyZ<br>
+                (API_MeshLevelCoord **) meshLevelCoords<br>
+                (Int32 **) meshLevelEnds</p>
+            </td>
+
+            <td>
+                <p>Returns the polygon<sup><a href="#PolyStruct">2</a></sup> of the mesh, and the level lines</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_ShellID</code>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></p>
+            </td>
+
+            <td>
+                <p>API_ShellShapeData shellShapes[2]<br>
+                (API_ShellContourData*) shellContours</p>
+            </td>
+
+            <td>
+                <p>Returns the profile shape polygon(s)<sup><a href="#ShellShapes">8</a></sup> and the clipping and hole contour data<sup><a href="#ShellContours">9</a></sup> of the shell</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_MorphID</code>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="Featuring API 16" width="19" height="12"></p>
+            </td>
+
+            <td>
+                <p>(Modeler::Body*) morphBody<br>
+                (API_OverriddenAttribute*) morphMaterialMapTable&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></p>
+            </td>
+
+            <td>
+                <p>Returns the body and the material override map table of the morph</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_DimensionID</code></p>
+            </td>
+
+            <td>
+                <p>(API_DimElem **) dimElems</p>
+            </td>
+
+            <td>
+                <p>Returns the coordinates, the neig information, the text, and the witness line information of the dimension</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_LabelID</code></p>
+            </td>
+
+            <td>
+                <p>(char **) textContent<br>
+                (short **) textLineStarts<br>
+                (API_ParagraphType **) paragraphs</p>
+
+                <p>(API_AddParType **) params</p>
+            </td>
+
+            <td>
+                <p>Returns the text and its style for text-type labels, or the parameters of the originating library part for symbol labels.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_SplineID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Coord **) coords<br>
+                (API_SplineDir **) bezierDirs</p>
+            </td>
+
+            <td>
+                <p>Returns the Bezier curve parameters</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_TextID</code></p>
+            </td>
+
+            <td>
+                <p>(char **) textContent<br>
+                (short **) textLineStarts<br>
+                (API_ParagraphType **) paragraphs</p>
+            </td>
+
+            <td>
+                <p>Returns the content the line starts (offsets into <code>textContent</code>) and the style informations of the text.
+                The content can be either in UTF-8 or UTF-16 encoding, depending on the text element's <code>charCode</code> member and the memo mask.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_HatchID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Coord **) coords<br>
+                (Int32 **) pends<br>
+                (API_PolyArc **) parcs<br>
+                (UInt32 **) vertexIDs</p>
+            </td>
+
+            <td>
+                <p>Returns the polygon of the hatch</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_ZoneID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Gable **) gables<br>
+                (API_Coord **) coords<br>
+                (Int32 **) pends<br>
+                (API_PolyArc **) parcs<br>
+                (API_AddParType **) params</p>
+            </td>
+
+            <td>
+                <p>Returns the polygon of the room<sup><a href="#PolyStruct">2</a></sup></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_CameraID</code></p>
+            </td>
+
+            <td>
+                <p>(API_LinkType **) linkList</p>
+            </td>
+
+            <td>
+                <p>Returns the data of the camera</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_CutPlaneID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Coord **) sectionSegmentMainCoords<br>
+                (API_Coord **) sectionSegmentDistCoords<br>
+                (API_Coord **) sectionSegmentDepthCoords</p>
+            </td>
+
+            <td>
+                <p>Returns the coordinates of the main, amrked distant area, and depth line of the section segment.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_ElevationID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Coord **) sectionSegmentMainCoords<br>
+                (API_Coord **) sectionSegmentDistCoords<br>
+                (API_Coord **) sectionSegmentDepthCoords</p>
+            </td>
+
+            <td>
+                <p>Returns the coordinates of the main, amrked distant area, and depth line of the section segment.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_InteriorElevationID</code></p>
+            </td>
+
+            <td>
+                <p>(API_SectionSegment **) intElevSegments<br>
+                (API_Coord **) sectionSegmentMainCoords<br>
+                (API_Coord **) sectionSegmentDistCoords<br>
+                (API_Coord **) sectionSegmentDepthCoord<br>
+                (API_AddParType **) params</p>
+            </td>
+
+            <td>
+                <p>Returns the coordinates of the main, amrked distant area, and depth line of the section segment,
+                and also the parameters of the common marker.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_ChangeMarkerID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Coord **) coords<br>
+                (Int32 **) pends<br>
+                (API_PolyArc **) parcs</p>
+            </td>
+
+            <td>
+                <p>Returns the polygon of the ChangeMarker<sup><a href="#PolyStruct">2</a></sup>, if it has a polygon.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code><!--@4.1-->API_DetailID<br>
+                API_WorksheetID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Coord **) coords<br>
+                (Int32 **) pends<br>
+                (API_PolyArc **) parcs</p>
+            </td>
+
+            <td>
+                <p>Returns the polygon of the detail or worksheet<sup><a href="#PolyStruct">2</a></sup></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code><!--@4.1-->API_PolyLineID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Coord **) coords<br>
+                (Int32 **) pends<br>
+                (API_PolyArc **) parcs</p>
+            </td>
+
+            <td>
+                <p>Returns the polygon of the polyline<sup><a href="#PolyStruct">2</a></sup></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_PictureID</code></p>
+            </td>
+
+            <td>
+                <p>(char **) pictHdl</p>
+            </td>
+
+            <td>
+                <p>Returns the picture</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_DrawingID</code></p>
+            </td>
+
+            <td>
+                <p>(API_Coord **) coords<br>
+                (Int32 **) pends<br>
+                (API_PolyArc **) parcs<br>
+                (GSPtr) drawingData&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+            </td>
+
+            <td>
+                <p>Returns the polygon and drawing data of a drawing element</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td nowrap>
+                <p><code>API_CurtainWallID</code>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+            </td>
+
+            <td>
+                <p>(API_Coord **) coords<br>
+                (Int32 **) pends<br>
+                (API_PolyArc **) parcs<br>
+                (UInt32 **) vertexIDs<br>
+                (API_CWSegmentPatternData) cWSegPrimaryPattern<br>
+                (API_CWSegmentPatternData) cWSegSecondaryPattern<br>
+                (API_CWSegmentPatternCellData*) cWSegPatternCells<br>
+                (API_CWSegmentType*) cWallSegments<br>
+                (API_CWFrameType*) cWallFrames<br>
+                (API_CWFrameType*) cWallFrameDefaults<br>
+                (API_CWPanelType*) cWallPanels<br>
+                (API_CWPanelGridIDTable*) cWallPanelGridIDTable<br>
+                (API_CWPanelType*) cWallPanelDefaults<br>
+                (API_CWPanelType*) cWallPanelDefaultSymbs<br>
+                (API_CWJunctionType*) cWallJunctions<br>
+                (API_CWAccessoryType*) cWallAccessories<br></p>
+            </td>
+
+            <td>
+                <p>Returns the polygon and all CW related data.<br>
+                cWSegPrimaryPattern, cWSegSecondaryPattern and cWSegPatternCells members will contain the default segment scheme of the curtain wall.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td nowrap>
+                <p><code>API_CurtainWallSegmentID</code>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+            </td>
+
+            <td>
+                (API_GridMesh*) cWSegGridMesh<br>
+                (API_CWContourData*) cWSegContour<br>
+                (API_CWSegmentPatternData) cWSegPrimaryPattern<br>
+                (API_CWSegmentPatternData) cWSegSecondaryPattern<br>
+                (API_CWSegmentPatternCellData*) cWSegPatternCells<br>
+            </td>
+
+            <td>
+                <p>Returns the CW segment related data.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td nowrap>
+                <p><code>API_CurtainWallPanelID</code>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+            </td>
+
+            <td>
+                <p>(API_Coord **) coords<br>
+            </td>
+
+            <td>
+                <p>Returns the coordinates of the panel's polygon. Please note that a curtain wall panel cannot contain holes.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td nowrap>
+                <p><code>API_StairID</code>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="12" width="19" height="12"></p>
+            </td>
+
+            <td>
+                (API_StairRiserType*) stairRisers;<br>
+                (API_StairTreadType*) stairTreads;<br>
+                (API_StairStructureType*) stairStructures;<br>
+                (API_StairBoundaryData[2]) stairBoundary;<br>
+            </td>
+
+            <td>
+                <p>Returns the Stair related data.</p>
+            </td>
+        </tr>
+        <tr>
+            <td nowrap>
+                <p><code>API_RailingID</code>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="12" width="19" height="12"></p>
+            </td>
+
+            <td>
+                (API_Coord **) coords<br>
+                (Int32 **) pends<br>
+                (API_PolyArc **) parcs<br>
+                (API_RailingNodeType*) railingNodes;<br>
+                (API_RailingSegmentType*) railingSegments;<br>
+                (API_RailingPostType*) railingPosts;<br>
+                (API_RailingRailEndType*) railingRailEnds;<br>
+                (API_RailingRailEndType*) railingHandrailEnds;<br>
+                (API_RailingRailEndType*) railingToprailEnds;<br>
+                (API_RailingRailConnectionType*) railingRailConnections;<br>
+                (API_RailingRailConnectionType*) railingHandrailConnections;<br>
+                (API_RailingRailConnectionType*) railingToprailConnections;<br>
+                (API_RailingRailType*) railingRails;<br>
+                (API_RailingToprailType*) railingToprails;<br>
+                (API_RailingHandrailType*) railingHandrails;<br>
+                (API_RailingPatternType*) railingPatterns;<br>
+                (API_RailingInnerPostType*) railingInnerPosts;<br>
+                (API_RailingPanelType*) railingPanels;<br>
+                (API_RailingBalusterSetType*) railingBalusterSets;<br>
+                (API_RailingBalusterType*) railingBalusters;<br>
+                (double**) polyZCoords;
+            </td>
+
+            <td>
+                <p>Returns the Railing related data.</p>
+            </td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <sup><a name="GableStruct" id="GableStruct"></a>1</sup> Any number of gables can be present.<br>
+        <sup><a name="PolyStruct" id="PolyStruct"></a>2</sup> See the description of <a href="../Structures/API_Polygon.html">API_Polygon</a>.<br>
+        <sup><a name="EdgeTrims" id="EdgeTrims"></a>3</sup> The length of the <a href="../Structures/API_EdgeTrim.html">API_EdgeTrim</a> memo handle is <code>(poly.nCoords+1)*sizeof(API_EdgeTrim)</code>; the first and the last record are not used, filled with zero.<br>
+        <sup><a name="ParamStruct" id="ParamStruct"></a>4</sup> The parameters of an element are the parameters of its originating library part, their values are taken from the actual instance.<br>
+        <sup><a name="ProfileData" id="ProfileData"></a>5</sup> The drawing primitives of the complex profile are stored in a serialized <!--NoIdx--><a href="../Classes/VectorImage/VectorImage.html">HGX::VectorImage</a>.<br>
+        <sup><a name="SideMaterials" id="SideMaterials"></a>6</sup> The length of the <code>sideMaterials</code> memo array is <code>(poly.nCoords+1)*sizeof(API_OverriddenAttribute)</code>; the first and the last record are not used, filled with zero.<br>
+        <sup><a name="PivotPolyEdges" id="PivotPolyEdges"></a>7</sup> The length of the <code>pivotPolyEdges</code> memo array is <code>(pivotPolygon.nCoords+1)*sizeof(API_PivotPolyEdgeData)</code>; the first and the last record are not used, filled with zero.<br>
+        <sup><a name="ShellShapes" id="ShellShapes"></a>8</sup> Fixed size array of two <code>API_ShellShapeData</code> records. The members of <a href="../Structures/API_ShellShapeData.html">API_ShellShapeData</a> are handled similarly to the members of <a href="../Structures/API_Polygon.html">API_Polygon</a>.<br>
+        <sup><a name="ShellContours" id="ShellContours"></a>9</sup> The number of <a href="../Structures/API_ShellContourData.html">API_ShellContourData</a> records in the <code>shellContours</code> memo array can be calculated from the <a href="../Structures/API_ShellType.html">API_ShellType</a> parameters: <code>numHoles+(hasContour?1:0)</code>.<br>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <p><img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12">&nbsp; For improving performance you can select which data is needed with the <code>mask</code> parameter. This feature provides filtered access to the attached data; instead of converting all the attached data, the function returns only those which are in interest.</p>
+
+    <p><a name="MemoMaskValues" id="MemoMaskValues">The possible values of the mask are:</a></p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th><b>Mask</b></th>
+
+                <th><b>Meaning</b></th>
+            </tr>
+
+            <tr>
+                <td><code>APIMemoMask_Polygon</code></td>
+
+                <td>Returns the polygon for polygonal elements. For more information see <a href="../Structures/API_Polygon.html">API_Polygon</a>.</td>
+            </tr>
+
+            <tr>
+                <td><code>APIMemoMask_Gables</code></td>
+
+                <td>Returns the gable information.</td>
+            </tr>
+
+            <tr>
+                <td><code>APIMemoMask_AddPars</code></td>
+
+                <td>Returns the additional parameters of a library part-based element (object, lamp, door, window, zone stamp, label).</td>
+            </tr>
+
+            <tr>
+                <td><code>APIMemoMask_EdgeTrims</code>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></td>
+
+                <td>Returns the edge trim information for roofs and slabs. (Renamed from <code>APIMemoMask_RoofSide</code>.)</td>
+            </tr>
+
+            <tr>
+                <td><code>APIMemoMask_MeshPolyZ</code></td>
+
+                <td>Returns Z coordinates of the mesh points for meshes.</td>
+            </tr>
+
+            <tr>
+                <td><code>APIMemoMask_MeshLevel</code></td>
+
+                <td>Returns the mesh level information for meshes.</td>
+            </tr>
+
+            <tr>
+                <td><code>APIMemoMask_BeamHole</code></td>
+
+                <td>Returns the hole information for beams.</td>
+            </tr>
+
+            <tr>
+                <td><code>APIMemoMask_TextContent</code></td>
+
+                <td>Returns the content as ANSI string for textual elements (Text, Label). (This is the default.)</td>
+            </tr>
+
+            <tr>
+                <td><code>APIMemoMask_Paragraph</code></td>
+
+                <td>Returns paragraph informations for textual elements (Text, Label). The <code>paragraphs</code> handle contains byte offsets. Use with <code>APIMemoMask_TextContent</code> mask. (This is the default.)</td>
+            </tr>
+
+            <tr>
+                <td><code>APIMemoMask_TextContentUni</code></td>
+
+                <td>Returns the content as UniCode string for textual elements (Text, Label). You should cast the textContent handle to <code>unsigned short **</code></td>
+            </tr>
+
+            <tr>
+                <td><code>APIMemoMask_ParagraphUni</code></td>
+
+                <td>Returns paragraph informations for textual elements (Text, Label). The <code>paragraphs</code> handle contains character offsets. Use with <code>APIMemoMask_TextContentUni</code> mask.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_DrawingData</code> &nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></td>
+
+                <td>Returns the drawing data of a drawing element (<a href="../Structures/API_DrawingType.html">API_DrawingType</a>) in internal format. See also <a href="APIDb_StopDrawingDataID.html">APIDb_StopDrawingDataID</a>.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_CustomOrigProfile</code> &nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></td>
+
+                <td>Returns the original custom profile data applied to the wall, beam, or column element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_StretchedProfile</code> &nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></td>
+
+                <td>Returns the stretched profile actually used by the wall, beam, or column element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_SectionSegments</code> &nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></td>
+
+                <td>Returns the section segments of a section, elevation, or interior elevation element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_SectionMainCoords</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+
+                <td>Returns the section view line coordinates of a section, elevation, or interior elevation element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_SectionDistCoords</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+
+                <td>Returns the section marked distant area line coordinates of a section, elevation, or interior elevation element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_SectionDepthCoords</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+
+                <td>Returns the section depth line coordinates of a section, elevation, or interior elevation element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_WallWindows</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></td>
+
+                <td>Returns the Guid list of the windows placed in a given wall element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_WallDoors</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></td>
+
+                <td>Returns the Guid list of the doors placed in a given wall element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_CWSegGridMesh</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></td>
+
+                <td>Returns the GridMesh of a curtain wall segment.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_CWSegPrimaryPattern</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></td>
+
+                <td>Returns the primary pattern of a curtain wall segment.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_CWSegSecPattern</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></td>
+
+                <td>Returns the secondary pattern of a curtain wall segment.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_CWSegPanelPattern</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></td>
+
+                <td>Returns the panel pattern of curtain wall segment.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_CWSegContour</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></td>
+
+                <td>Returns the contour of curtain wall segment.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_CWallSegments</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></td>
+
+                <td>Returns the segments of curtain wall element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_CWallFrames</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></td>
+
+                <td>Returns the frames of curtain wall element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_CWallPanels</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></td>
+
+                <td>Returns the panels of curtain wall element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_CWallJunctions</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></td>
+
+                <td>Returns the junctions of curtain wall element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_CWallAccessories</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></td>
+
+                <td>Returns the accessories of curtain wall element.</td>
+            </tr>
+
+            <tr>
+                <td><code>APIMemoMask_FromFloorPlan</code>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></td>
+
+                <td>Additional flag; take the element information from the floor plan database. <strong>This flag is excluded from <code>APIMemoMask_All</code>!</strong></td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RoofEdgeTypes</code> &nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></td>
+
+                <td>Returns the edge types of the contour polygon of a roof element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_SideMaterials</code> &nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></td>
+
+                <td>Returns the side material indices of a Slab or Roof element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_PivotPolygon</code> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></td>
+
+                <td>Returns the pivot polygon and the pivot edges of a Multi-plane Roof element (see <a href="../Structures/API_PolyRoofData.html">API_PolyRoofData</a>).</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_StairRiser</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+
+                <td>Returns the Riser subelements of a Stair element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_StairTread</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+
+                <td>Returns the Tread subelements of a Stair element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_StairStructure</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+
+                <td>Returns the Stair Structure subelements of a Stair element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RailingNode</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+                <td>Returns the Nodes of a Railing element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RailingSegment</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+                <td>Returns the Segments of a Railing element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RailingPost</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+                <td>Returns the Railing Posts of a Railing element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RailingInnerPost</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+                <td>Returns the Inner Posts of a Railing element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RailingRail</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+                <td>Returns the Rails of a Railing element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RailingHandrail</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+                <td>Returns the Handrails of a Railing element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RailingToprail</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+                <td>Returns the Toprails of a Railing element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RailingPanel</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+                <td>Returns the Railing Panels of a Railing element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RailingBaluster</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+                <td>Returns the Balusters of a Railing element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RailingPattern</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+                <td>Returns the Railing Patterns of a Railing element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RailingBalusterSet</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+                <td>Returns the Baluster Sets of a Railing element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RailingRailEnd</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+                <td>Returns the Rail Ends of a Railing Node element.</td>
+            </tr>
+
+            <tr>
+                <td nowrap><code>APIMemoMask_RailingRailConnection</code> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></td>
+                <td>Returns the Rail Connections of a Railing Node element.</td>
+            </tr>
+            
+            <tr>
+                <td nowrap><code>APIMemoMask_BeamSegment</code> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></td>
+                <td>Returns the Beam segments of a Beam element.</td>
+            </tr>
+            
+            <tr>
+                <td nowrap><code>APIMemoMask_ColumnSegment</code> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></td>
+                <td>Returns the Column segments of a Column element.</td>
+            </tr>
+            
+            <tr>
+                <td nowrap><code>APIMemoMask_AssemblySegmentCut</code> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></td>
+                <td>Returns cuts of a Column or a Beam element.</td>
+            </tr>
+            
+            <tr>
+                <td nowrap><code>APIMemoMask_AssemblySegmentScheme</code> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></td>
+                <td>Returns schemes of ColumnSegments or BeamSegments.</td>
+            </tr>
+            
+            <tr>
+                <td nowrap><code>APIMemoMask_AssemblySegmentProfile</code> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></td>
+                <td>Returns profiles of ColumnSegments or BeamSegments.</td>
+            </tr>
+
+			<tr>
+                <td nowrap><code>APIMemoMask_SurfaceLoadCustomData</code> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="Featuring API 25" width="19" height="12"></td>
+            <td>Returns the contour of the Custom Surface Load</td>
+
+            </tr>
+            <tr>
+                <td nowrap><code>APIMemoMask_All</code></td>
+                <td>Returns all the applicable fields for the element.</td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>Do not forget to call <a href="ACAPI_DisposeElemMemoHdls.html">ACAPI_DisposeElemMemoHdls</a> to dispose of the handles when you're finished.</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+void DoAnything (const API_Guid&amp;)
+{
+    API_Element      element = {};
+    API_ElementMemo  memo;
+    GSErrCode        err;
+
+    element.header.guid = guid;
+    err = ACAPI_Element_Get (&amp;element);
+
+    if (err == NoError &amp;&amp; element.header.hasMemo) {
+        err = ACAPI_Element_GetMemo (element.header.guid, &amp;memo, APIMemoMask_Gables);
+        if (err == NoError) {
+            /* ... do anything with it ... */
+        }
+        ACAPI_DisposeElemMemoHdls (&amp;memo);
+    }
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p>
+    <a href="../Structures/API_ElemTypeID.html">API_ElemTypeID</a>, <a href="../Structures/API_Polygon.html">API_Polygon</a>, <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="ACAPI_DisposeElemMemoHdls.html">ACAPI_DisposeElemMemoHdls</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 4, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

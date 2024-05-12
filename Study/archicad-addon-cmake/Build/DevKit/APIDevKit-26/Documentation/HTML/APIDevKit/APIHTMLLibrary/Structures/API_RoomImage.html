@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_RoomImage</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_RoomImage.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_RoomImage</h1>
+
+    <p>Structure for retrieving data related to a room.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                  <em>roomGuid</em>;
+        <strong><a href="API_ImageViewID.html">API_ImageViewID</a></strong>           <em>viewType</em>;
+        <strong>double</strong>                    <em>offset</em>;
+        <strong>double</strong>                    <em>scale</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>              <em>backgroundColor</em>;
+        <strong>NewDisplay::NativeImage*</strong>  <em>nativeImagePtr</em>;
+    <strong>}</strong> <em>API_RoomImage</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>roomGuid</b></dt>
+
+        <dd>Identifier of the zone.</dd>
+
+        <dt><b>viewType</b></dt>
+
+        <dd>Currently not used, only the 2D image (Floor Plan) can be generated.</dd>
+
+        <dt><b>offset</b></dt>
+
+        <dd>Offset of the clip polygon from the edge of the zone.</dd>
+
+        <dt><b>scale</b></dt>
+
+        <dd>Scale of the view (e.g. 0.002 for 1:500).</dd>
+
+        <dt><b>backgroundColor</b></dt>
+
+        <dd>Background color of the generated image.</dd>
+
+        <dt><b>nativeImagePtr</b></dt>
+
+        <dd>Pointer to the output image (must be initialized before calling <a href="../Functions/APIAny_GetRoomImageID.html">APIAny_GetRoomImageID</a>).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>To learn more about the usage of the structure please refer to the <a href="../Functions/APIAny_GetRoomImageID.html">APIAny_GetRoomImageID</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 23 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIAny_GetRoomImageID.html">APIAny_GetRoomImageID</a>,<br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on March 28, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

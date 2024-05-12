@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Memory Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Memory_Manager_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Memory Manager</h1>
+
+    <p><br>
+    Many API function require dynamic memory allocated in special way. These memory blocks are addressed by <b>GSHandle</b>s.
+    Basically a handle is a pointer to a pointer. There are some helper functions in the GSRoot package to manage theese memory spaces.
+    </p>
+
+<!--     <p>It is necessary because in the Macintosh toolbox the memory manager uses handles.</p>
+
+    <p>Quote from the &lt;MacMemory.h&gt; header:</p>
+
+    <blockquote>
+        "On Mac OS X, the behaviour of the Memory Manager and of heaps in general is different than on Mac OS 9.x and earlier. In particular, the heap on Mac OS X is never purged or compacted. Therefore, an unlocked handle will never be relocated except as a result of a direct action by something calling SetHandleSize() or by using a function like PtrAndHand() which implicitly resizes the handle to append data to it. Because of this, most locking and unlocking of handles is unnecessary on Mac OS X, and the use of <code>HLock()</code> and other functions is being deprecated. If you define a macro named <code>__MAC_OS_X_MEMORY_MANAGER_CLEAN__</code> to 1 in your sources before you include MacMemory.h, then HLock() and several other functions will become empty operations, removing the overhead of a function call."
+    </blockquote>
+
+    <p>Note that <tt>__MAC_OS_X_MEMORY_MANAGER_CLEAN__</tt> is not set in the GSRoot module!</p> -->
+
+    Examples:
+    <pre>
+    API_Coord   **hh = nullptr;
+
+    hh = (API_Coord **) BMhAll (20 * sizeof (API_Coord));
+    if (hh != nullptr &amp;&amp; BMError () == NoError) {
+        // safe dereferencing
+        (*hh)[15].x = -32.56;
+        (*hh)[15].y =  0.127;
+
+        // this is also safe
+        CalcArea (hh);               // pass the handle, not the master pointer!
+
+        // dispose allocated memory
+        BMhKill ((GSHandle *) &amp;hh);
+    }
+</pre>
+
+    <p>Please use the <!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/BMManagers/BMManager_Documentation_id.html">BMxxx</a> functions of the GSRoot package to operate on handles. Do not try to pass the address of a normal pointer allocated by <code>malloc</code> as a parameter, where Archicad requires a handle. Also do not try to free a handle just calling the <code>free</code> function on the dereferenced value. Your add-on will crash in these cases.</p>
+
+    <p>These functions are disposing handles through the the structures given in their required parameters. They should be used instead of disposing handles by one by one as the definitions of the structures might change in later versions of the API.</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_DisposeAddParHdl.html">ACAPI_DisposeAddParHdl</a><br>
+        <a href="../Functions/ACAPI_DisposeAttrDefsHdls.html">ACAPI_DisposeAttrDefsHdls</a><br>
+        <a href="../Functions/ACAPI_DisposeBeamRelationHdls.html">ACAPI_DisposeBeamRelationHdls</a><br>
+        <a href="../Functions/ACAPI_DisposeBeamSegmentRelationHdls.html">ACAPI_DisposeBeamSegmentRelationHdls</a><br>
+        <a href="../Functions/ACAPI_DisposeElemMemoHdls.html">ACAPI_DisposeElemMemoHdls</a><br>
+        <a href="../Functions/ACAPI_DisposeRoomRelationHdls.html">ACAPI_DisposeRoomRelationHdls</a><br>
+        <a href="../Functions/ACAPI_DisposeWallRelationHdls.html">ACAPI_DisposeWallRelationHdls</a>
+    </blockquote>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 16, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

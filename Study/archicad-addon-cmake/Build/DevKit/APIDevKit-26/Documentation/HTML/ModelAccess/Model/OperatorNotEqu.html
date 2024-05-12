@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>operator!=</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Model/OperatorNotEqu.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="Model.html">Model</a>::operator!=</h1><br>
+    Returns whether or not two models are different.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>bool  operator!= (
+    const <a href="Model.html">Model</a>&amp; model
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>model</em></dt>
+
+        <dd>Right operand of the <font face="Courier New">!=</font> operation.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>True, if the two models are different.</p>
+
+    <h3>Description</h3>
+
+    <p>This method compares <b>this</b> model to the <i>model</i> parameter. It can be used to follow the changes of the model. The add-on may store the model for the next rendering process. If the stored model and the new one are different, then the model is changed between the two rendering processes.</p>
+
+    <p><b>Available from version: 8</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

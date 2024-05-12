@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Database Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level1/Database_Overview_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Database Overview</h1>
+
+    <p><br>
+    The API enables you to work on the Archicad database. Various functions are present to create, get, modify and also delete elements, attributes and library parts. It is also possible to control the selection of elements, and some settings of the overall environment; for example stories, grid settings, etc.</p>
+
+    <p>
+    To read the rules of data structure modifications, please read <a href="../Level2/Command_Overview.html">Command Overview</a> paper.</p>
+
+    <p>In this section, some information is provided about how the Virtual Building database is built up, and what the links are among the different components.</p>
+    <hr>
+
+    <h4>Elements</h4>
+
+    <p>Database items named <b>elements</b> directly appear in one of the project windows. Their parameters can be set in the Settings Dialogs or in the Info Box. Most of them refer to many attributes, some of them to library parts.</p>
+
+    <p>API functions operating on elements begin with the <b>ACAPI_Element_</b> prefix. Refer to the <!--NoCHM--><a href="../Level3/Element_Manager_id.html">Element Manager</a> to see the whole collection of functions that support element manipulations.</p>
+
+    <p>API structures referenced by the handler functions are explained in details in the <!--NoCHM--><a href="../Level3/Element_Database_id.html">Element Database</a> document. Refer to this document to get specific information about the data structures related to all element types.</p>
+
+    <p>To read general information about elements refer to the <a href="../Level2/Element_Overview.html">Element Overview</a> paper.</p>
+    <hr>
+
+    <h4>Properties</h4>
+
+    <p>Properties allows one to store user-defined name-value pairs for Model elements. <img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"></p>
+
+    <p>To read general information about properties refer to the <a href="../Level3/Properties_id.html">Properties</a> paper.</p>
+    <hr>
+
+    <h4>Classifications</h4>
+
+    <p>Classifications allows one to classify elements and create custom classifications. <img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"></p>
+
+    <p>To read general information about classifications refer to the <a href="../Level3/Classification_id.html">Classification</a> paper.</p>
+    <hr>
+
+    <h4>Attributes</h4>
+
+    <p>Database items named <b>attributes</b> are global collections of layers, pen colors, surface materials, fill patterns, etc. that are available to all eligible tools. These attribute sets are editable, and the lists and palettes in the Tool Settings dialog boxes display their current settings.</p>
+
+    <p>API functions operating on attributes begin with the <b>ACAPI_Attribute_</b> prefix. Refer to the <!--NoCHM--><a href="../Level3/Attribute_Manager_id.html">Attribute Manager</a> to see the whole collection of functions that support attribute manipulations.</p>
+
+    <p>API structures referenced by the handler functions are explained in details in the <!--NoCHM--><a href="../Level3/Attribute_Database_id.html">Attribute Database</a> document. Refer to these papers to get specific information about the data structures related to all attribute types.</p>
+
+    <p>To read general information about attributes refer to the <a href="../Level2/Attribute_Overview.html">Attribute Overview</a> paper.</p>
+
+    <p>The API also provides a platform-independent way to use those custom controls in Archicad which provide the user a list of certain attributes he can choose from. You can read more on this in the <!--NoCHM--><a href="../Level3/FAQ.html#FAQ_15">FAQ</a>.</p>
+    <hr>
+
+    <h4>Library Parts</h4>
+
+    <p>Database items named <b>Library Parts</b> are prefabricated elements which may have instances in the project with different parameters like scaling, rotation, etc. Many elements have a reference to a specific Library Part, like windows, objects, rooms, etc. Library Parts can be created and edited through the Library Part editor dialog. The active library folders can be controlled through the Library Manager... dialog of Archicad. From v4.1, you may receive notification when the loaded libraries change.</p>
+
+    <p>API functions operating on a Library Part file begin with the <b>ACAPI_LibPart_</b> prefix. Refer to the <!--NoCHM--><a href="../Level3/Library_Part_Manager_id.html">Library Part Manager</a> to see the available collection of functions to manage a Library Part file. API functions which control the active library folders can be accessed through the <!--NoCHM--><a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a> function.</p>
+
+    <p>API structures referenced by the handler functions are explained in details in the <!--NoCHM--><a href="../Level3/Library_Part_Database_id.html">Library Part Database</a> document. Refer to these papers to get specific information about the data structures related to a Library Part file.</p>
+
+    <p>To read general information about library parts refer to the <a href="../Level2/LibPart_Overview.html">LibPart Overview</a> paper.</p>
+    <hr>
+
+    <h4>Structural Analytical Model</h4>
+
+    <p>To read general information about the Structural Analytical Model refer to the <a href="../Level2/Analytical_Model_Overview.html">Analytical Model Overview</a> paper.</p>
+    <hr>
+
+    <h4>Environment</h4>
+
+    <p>There are database items which do not fit into any categories listed above, but have influence on the project's appearance and to the behavior of elements; such as the preferences like parameters, the drawing scale, the 3D projection parameters and so on.</p>
+
+    <p>API functions operating on the exported items of such data can be accessed through the <!--NoCHM--><a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a> function.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 28, 2006<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

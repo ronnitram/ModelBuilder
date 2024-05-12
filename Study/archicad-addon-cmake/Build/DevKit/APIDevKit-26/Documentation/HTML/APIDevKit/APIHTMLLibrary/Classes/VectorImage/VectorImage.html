@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>VectorImage</title><!-- index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/VectorImage/VectorImage.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>VectorImage class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>A collection of high-level drawing primitives. <!-- Not Index --><a href="#Detailed%20description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td>Advanced graphics</td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>VectorImage.hpp</td>
+        </tr>
+    </table><br>
+    <br>
+
+    <h3>Public methods</h3>
+
+    <p>&nbsp;&nbsp;&nbsp; <a href="Constructors.html">Constructors</a><br>
+    &nbsp;&nbsp;&nbsp; Copy constructor<br>
+    &nbsp;&nbsp;&nbsp; operator=<br>
+    <br>
+    <b>Scale and bounding box</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetScale.html">GetScale</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetScale.html">SetScale</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetBounds.html">GetBounds</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="CalcAndGetBounds.html">CalcAndGetBounds</a><br>
+    <br>
+    <b>Draw and drawing order</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Draw.html">Draw</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsUsingDrawQueue.html">IsUsingDrawQueue</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsUsingSortQueue.html">IsUsingSortQueue</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetDrawQueueUsing.html">SetDrawQueueUsing</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetSortQueueUsing.html">SetSortQueueUsing</a><br>
+    <br>
+    <b>Container functionality</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsEmpty.html">IsEmpty</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetItemCount.html">GetItemCount</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetItemCountOfType.html">GetItemCountOfType</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Clear.html">Clear</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="DeleteItemsOfType.html">DeleteItemsOfType</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Append.html">Append</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetCapacity.html">SetCapacity</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetCapacity.html">GetCapacity</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetUsedBytes.html">GetUsedBytes</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetItemFramePoints.html">GetItemFramePoints</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetItemPointsOfType.html">GetItemPointsOfType</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OffsetImage.html">OffsetImage</a><br>
+    <br>
+    <b>Element addition</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="AddHotspotRec.html">AddHotspotRec</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddHotspot.html">AddHotspot</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddSideHotspot.html">AddSideHotspot</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddLineRec.html">AddLineRec</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddLine.html">AddLine</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddPolyLineRec.html">AddPolyLineRec</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddPolyLine.html">AddLine</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddCircle.html">AddCircle</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddArcRec.html">AddArcRec</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddArc.html">AddArc</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddSplineRec.html">AddSplineRec</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddSpline.html">AddSpline</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddHatchRec.html">AddHatchRec</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddHatch.html">AddHatch</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddHatchWhole.html">AddHatchWhole</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddTextRec.html">AddTextRec</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddText.html">AddText</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddPixMapRec.html">AddPixMapRec</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddPixMap.html">AddPixMap</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddFontRec.html">AddFontRec</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddFragment.html">AddFragment</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AddEndMark.html">AddEndMark</a><br>
+    <br>
+    <b>Administrative</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetStatus.html">GetStatus</a><br>
+    <br>
+    <b>Direct internal content access</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetElements.html">GetElements</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetElementsRef.html">GetElementsRef</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="TakeElements.html">TakeElements</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetElements.html">SetElements</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="ConnectToElements.html">ConnectToElements</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="PassElements.html">PassElements</a><br>
+    <br></p>
+
+    <h3><a name="Detailed description"></a>Detailed description</h3>
+
+    <p>You can assemble, manipulate or draw a full vectorial picture with the VectorImage. It is a collection of vectorial primitives similar to the Windows EMF or WMF or Macintosh Picture file. For the iteration of its elements you can use the <!-- Not Index --><a href="../VectorImageIterator/VectorImageIterator.html">VectorImageIterator</a> and <!-- Not Index --><a href="../ConstVectorImageIterator/ConstVectorImageIterator.html">ConstVectorImageIterator</a> classes.</p>
+
+    <h3>See Also</h3>&nbsp;&nbsp;&nbsp; <!-- Not Index --><a href="../VectorPrimitives/VectorPrimitives.html">Graphical Primitives</a> &nbsp;&nbsp;&nbsp; <!-- Not Index --><a href="../VIDrawContext/VIDrawContext.html">Draw Context</a><br>
+    <br>
+    <!-- FOOTER  FOOTEREND -->
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 10, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

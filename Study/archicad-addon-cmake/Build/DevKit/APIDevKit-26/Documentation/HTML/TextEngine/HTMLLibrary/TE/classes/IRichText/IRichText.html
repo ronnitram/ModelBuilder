@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>TE::IRichText Class</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <!-- Index -->
+  
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTMLLibrary/TE/classes/IRichText/IRichText.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">TextEngine</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TE::IRichText Class</h1>
+    <!--exp="TE::IRichText Class"-->
+    <p>
+      <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">IRichText</b> is an interface class for handling multistyled text. TextEngine handles rich texts (measuring, drawing,...)
+     through this interface. Beside the declarations of pure virtual methods the interface <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">implements</b> some usefull methods for common problems.
+  
+    </p>
+    <pre class="Syntax"><span class="SyntaxKeyword">class</span> <span class="SyntaxIdentifier">IRichText</span></pre>
+    <h2 class="SectionHeading" id="members">Members</h2>
+    <p>
+      <!-- Don't index --><a href="#PublicMethods">Public Methods</a><br>
+      <!-- Don't index --><a href="#ProtectedMethods">Protected Methods</a><br>
+    </p>
+    
+    <h2 class="SectionHeading" id="PublicMethods">Public Methods</h2>
+    <p>
+      
+    </p>
+    <table class="Summary">
+      <tr>
+        <th class="LinkColumn">Method</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td class="LinkColumn">
+          <a href="AddParagraph.html">AddParagraph</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function</b>. Appends a paragraph to the paragraph list of rich text.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="CopyAsSimple.html">CopyAsSimple</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Implemented method</b>. It has ANSI and Unicode version. Makes a multiline "simple text".
+    Converts texts for Archicad 8.1 and before.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetCharSpaceFactor.html">GetCharSpaceFactor</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function</b>. Returns the current value of character spacing factor.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetContent.html">GetContent</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Returns the content.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetDefaultTab.html">GetDefaultTab</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function</b>. Returns the width of the default tab.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetGSCharCode.html">GetGSCharCode</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function</b>. Returns the GSCharCode of rich text.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetLineWidths.html">GetLineWidths</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Retrieves the line widths of the given paragraph in pixels.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetNumOfLines.html">GetNumOfLines</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Implemented method</b>. Returns the number of lines in all the richtext.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetNumOfParagraphs.html">GetNumOfParagraphs</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Returns the number of contained paragraphs.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetParagraph.html">GetParagraph</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function</b>. Returns an interface pointer to the requested <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../IParagraph/IParagraph.html" shape="rect">paragraph</a>.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetRotAngle.html">GetRotAngle</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Returns the rotation angle of the text in radian.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetWidthFactor.html">GetWidthFactor</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function</b>. Returns the current width factor.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="Destructor.html">~IRichText</a>
+        </td>
+        <td>
+          
+    Destructor.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="ParagraphIndexFromPos.html">ParagraphIndexFromPos</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Implemented method</b>. Retrieves the index of the paragraph contains the given character position.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="RunIndexFromPos.html">RunIndexFromPos</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Implemented method</b>. Retrieves the index of the paragraph and the index of the run contains the given character position.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="SetContent.html">SetContent</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Sets the content.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="SetNumOfParagraphs.html">SetNumOfParagraphs</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Sets the number of contained paragraphs.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="SetParagraph.html">SetParagraph</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function</b>. Gets the index-th paragraph of rich text and copies the paragraph in argument into it.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="SimpleToRich.html">SimpleToRich</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Implemented method</b>. It has ANSI and Unicode version. Converts multiline text into paragraph.
+    Handling texts of Archicad 8.1 and before.
+  
+        </td>
+      </tr>
+    </table>
+    
+    <h2 class="SectionHeading" id="ProtectedMethods">Protected Methods</h2>
+    <p>
+      
+    </p>
+    <table class="Summary">
+      <tr>
+        <th class="LinkColumn">Method</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td class="LinkColumn">
+          <a href="CreateParagraphs.html">CreateParagraphs</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Implemented method</b>. Creates paragraphs based on content using the first paragraph as a sample.
+  
+        </td>
+      </tr>
+    </table>
+    <h2 class="SectionHeading">Description</h2>
+    <p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"><b>Plain texts</b> have a font and a style for each of the contained letters. <b>Rich texts</b> also allow the use of
+  <!-- Don't index --><a href="../IFont/IFont.html" shape="rect">more fonts</a> and <!-- Don't index --><a href="../ICharStyle/ICharStyle.html" shape="rect">more styles</a>. The text consists of
+  special blocks named <!-- Don't index --><a href="../IParagraph/IParagraph.html" shape="rect">paragraphs</a>. <b>IRichText</b> has a complex data
+  structure to describe a rich text (see figure).
+  </p><p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">
+  TextEngine uses <b>IRichText</b> interface to get data from a derived class. The TextEngine expects <b>floating point pixels</b> for the
+   "length" type data and <b>floating point typographic font size</b> for fonts. If an implementation of IRichText uses other
+   units (for example "mm") it must <b>convert the data</b> in the appropriate implemented methods.
+  </p><p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"><b>IRichText</b> handles the text content as a <b>Unicode</b> string. It needs an <!-- Don't index --><a href="GetGSCharCode.html" shape="rect">
+  encoding</a>(charCode)to convert content to or from ANSI properly.
+  </p><p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">
+  The <b>Unicode-ANSI conversion</b> contains another problem too. The same string can have <b>different character sizes</b> in Unicode
+   and ANSI implementations (for example: unicode diacritics or multibyte languages such as japanese). In case of different sizes
+   the character offset type parameters (<b>positions and ranges</b> of runs and paragraphs) become <b>wrong</b>. You shold call
+    <!-- Don't index --><a href="Invalid link: AddANSIParagraph.html" shape="rect">AddANSIParagraph</a> and <!-- Don't index --><a href="Invalid link: ConvertToANSI.html" shape="rect">ConvertToANSI</a> to
+    convert the rich text properly.
+  </p><p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">
+  The Archicad 8.1 and previous versions use plain texts only. The <!-- Don't index --><a href="CopyAsSimple.html" shape="rect">CopyAsSimple</a> and
+  <!-- Don't index --><a href="SimpleToRich.html" shape="rect">SimpleToRich</a> methods handle those simple texts.</p><p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"><img src="../../../../ImageLibrary/IRichText_UML.gif" alt="IRichText UML diagram"></p>
+    <h2 class="SectionHeading">Example</h2>
+    <p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"><!-- Don't index --><a href="Invalid link: ../../Examples/IRichText.html" shape="rect">Example for using IRichText</a></p>
+    <h2 class="SectionHeading">Requirements</h2>
+    <p>
+      <span class="RequirementsSection">Namespace:</span> <!-- Don't index --><a href="../../TE.html">TE</a>
+    </p>
+    <p>
+      <span class="RequirementsSection">Header:</span> IRichText.hpp
+    </p>
+    <p>
+      <span class="RequirementsSection">Platforms:</span> 
+    TextEngine Version 9.0.0 R1 (6306 / 1812)<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Windows 2000, Windows XP, OSX 10.2x, OSX 10.3x
+  
+    </p>
+    <h2 class="SectionHeading">See Also</h2>
+    <p>
+      <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../IParagraph/IParagraph.html" shape="rect">TE::IParagraph</a> | <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../ICharStyle/ICharStyle.html" shape="rect">TE::ICharStyle</a> | 
+        <!-- Don't index --><a href="../RichText/RichText.html">TE::RichText</a>
+    </p>
+  
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ParagraphType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ParagraphType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ParagraphType</h1>
+
+    <p>Describes a paragraph of a text.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>Int32</strong>           <em>from</em>;
+        <strong>Int32</strong>           <em>range</em>;
+        <strong><a href="API_JustID.html">API_JustID</a></strong>      <em>just</em>;
+        <strong>Int32</strong>           <em>filler_1</em>;
+        <strong>double</strong>          <em>firstIndent</em>;
+        <strong>double</strong>          <em>indent</em>;
+        <strong>double</strong>          <em>rightIndent</em>;
+        <strong>double</strong>          <em>spacing</em>;
+        <strong><a href="API_TabType.html">API_TabType</a></strong>     <em>*tab</em>;
+        <strong><a href="API_RunType.html">API_RunType</a></strong>     <em>*run</em>;
+        <strong>Int32</strong>           <em>*eolPos</em>;
+        <strong>Int32</strong>           <em>filler_2</em>;
+        <strong>double</strong>          <em>width</em>;
+        <strong>double</strong>          <em>height</em>;
+        <strong>double</strong>          <em>filler_3[2]</em>;
+    <strong>}</strong> <em>API_ParagraphType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>from</b></dt>
+
+        <dd>The beginning byte offset of the paragraph in the content.</dd>
+
+        <dt><b>range</b></dt>
+
+        <dd>The range of the paragraph in byte offset.</dd>
+
+        <dt><b>just</b></dt>
+
+        <dd>Justification of the paragraph (see <a href="API_JustID.html">API_JustID</a>).</dd>
+
+        <dt><b>firstIndent</b></dt>
+
+        <dd>First indent in mm.</dd>
+
+        <dt><b>indent</b></dt>
+
+        <dd>Indent in mm.</dd>
+
+        <dt><b>rightIndent</b></dt>
+
+        <dd>Right indent in mm.</dd>
+
+        <dt><b>spacing</b></dt>
+
+        <dd>Spacing factor between text lines (it should be between -10.0 and -1.0).</dd>
+
+        <dt><b>tab</b></dt>
+
+        <dd>Tabulator(s) of a paragraph (see <a href="API_TabType.html">API_TabType</a>).</dd>
+
+        <dt><b>run</b></dt>
+
+        <dd>Run(s) of a paragraph (see <a href="API_RunType.html">API_RunType</a>).</dd>
+
+        <dt><b>eolPos</b></dt>
+
+        <dd>Line end positions in byte offset.</dd>
+
+        <dt><b>width</b></dt>
+
+        <dd>Width of the paragraph in mm (output only).</dd>
+
+        <dt><b>height</b></dt>
+
+        <dd>Height of the paragraph in mm (output only).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>From Archicad 9 you are able to create multistyle text or textual label. <code>API_ParagraphType</code> structure contains all related informations for a paragraph. By text or textual label element creating you can pass the content as a UniCode string (set <code>charCode</code> field of <a href="API_TextType.html">API_TextType</a> structure to <code>CC_UniCode</code> and cast <code>textContent</code> field of <a href="API_ElementMemo.html">API_ElementMemo</a> to <code>(unsigned short*)</code>). In this case all offsets (<code>from, range...</code>) are character offset instead of byte offset. For more details examine <a href="../Level3/Element_Manager_id.html">Element Manager</a> example project.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 6.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_TabID.html">API_TabID</a>, <a href="API_TabType.html">API_TabType</a>, <a href="API_RunType.html">API_RunType</a>, <a href="API_TextType.html">API_TextType</a>, <a href="API_LabelType.html">API_LabelType</a>, <a href="API_ElementMemo.html">API_ElementMemo</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

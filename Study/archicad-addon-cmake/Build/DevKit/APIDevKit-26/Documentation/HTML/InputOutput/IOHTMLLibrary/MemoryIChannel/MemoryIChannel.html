@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>MemoryIChannel</title><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/MemoryIChannel/MemoryIChannel.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>MemoryIChannel class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>Input channel with data source located in memory. <!-- Not Index --><a href="#Description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td><!-- Not Index --><a href="../../InputOutput.html">InputOutput</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td><!-- Not Index --><a href="../IChannelAdapter/IChannelAdapter.html">IChannelAdapter</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>MemoryIChannel.hpp</td>
+        </tr>
+    </table><br>
+    <br>
+
+    <h3>Public methods</h3>
+
+    <p><br>
+    &nbsp;&nbsp;&nbsp; <a href="Constructors.html">Constructors</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Destructor.html">Destructor</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <b><font color="#FF0000">Note:</font></b> copy constructor and assignment operator are disabled<br>
+    <br>
+    <b>Data source setting / query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="SetSource.html">SetSource</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetSource.html">GetSource</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="RemoveSource.html">RemoveSource</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="ResetSource.html">ResetSource</a><br>
+    <br>
+    <b>Other methods</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Available.html">Available</a><br>
+    <br>
+    <br></p>
+
+    <h3>Public types</h3>
+
+    <p><a href="OwnershipType.html">OwnershipType<br></a><br>
+    <br></p>
+
+    <h3><a name="Description"></a>Description</h3>
+
+    <p>MemoryIChannel is an input channel which reads data from a buffer in memory.</p>
+
+    <p>The source buffer is supplied by the user. Its ownership can be controlled and changed. MemoryIChannel will delete a buffer (for example at destruction time) only if it owns that one.</p>
+
+    <p>Default input protocol is <!-- Not Index -->
+    <a href="../BinIProtocol/BinIProtocol.html">BinIProtocol</a>.</p>
+
+    <p><br>
+    <br></p>
+
+    <h3>See Also</h3>
+
+    <p><a href="../MemoryOChannel/MemoryOChannel.html">MemoryOChannel</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

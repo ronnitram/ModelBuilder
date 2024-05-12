@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Bende Laszlo">
+
+    <title>DGRichEditChangeData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGRichEditChangeData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGRichEditChangeData</h1>
+
+    <p>If the <a href="CallbackFunctions.html">dialog callback function</a> receives a <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a> message for a <a href="RichEditControl.html">rich edit control</a> dialog item, the message data parameter is a pointer to a <b>DGRichEditChangeData</b> structure that contains information about the user action causing the change.</p>
+    <pre class="syntax">
+    <strong>struct</strong> <em>DGRichEditChangeData</em> {
+      <strong>short</strong>            <em>changeFlag;</em>
+      <strong>short</strong>            <em>filler;</em>
+      <strong>Int32</strong>            <em>oldLength;</em>
+      <strong>Int32</strong>            <em>newLength;</em>
+      <strong>Int32</strong>            <em>oldMinPos;</em>
+      <strong>Int32</strong>            <em>oldMaxPos;</em>
+      <strong>Int32</strong>            <em>newMinPos;</em>
+      <strong>Int32</strong>            <em>newMaxPos;</em>
+      <strong>DGUniChangeData</strong>  <em>uniRich;</em>
+    };
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>changeFlag</b></dt>
+
+        <dd>Determines what happened to the rich edit control. Possible values are:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">changeFlag</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RECF_SELECTION</tt></td>
+
+                    <td>Selection changed. Only the selection related members are filled in the structure.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RECF_CONTENT</tt></td>
+
+                    <td>Content changed. All the structure members (except <b>uniRich</b>) are filled with values.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RECF_RESIZEREQUEST</tt></td>
+
+                    <td>Resizing will happen in an UniRichEdit item. The <b>reqLeft</b>, <b>reqTop</b>, <b>reqWidth</b>, <b>reqHeight</b> structure members of <b>uniRich</b> are filled with the recommended/requested values; all the other fields are 0.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_RECF_SCROLLBARPOS</tt></td>
+
+                    <td>UniRichEdit item's content was scrolled. The <b>oldHScrollPos</b>, <b>hScrollPos</b>, <b>oldVScrollPos</b>, <b>vScrollPos</b> structure members are filled with values; all the other fields are 0.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>filler</b></dt>
+
+        <dd>Reserved.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>oldLength</b></dt>
+
+        <dd>The length of the contained text before the change in unicode characters.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>newLength</b></dt>
+
+        <dd>The length of the contained text after the change in unicode characters.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>oldMinPos</b></dt>
+
+        <dd>The beginning position of the selection before the change.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>oldMaxPos</b></dt>
+
+        <dd>The end position of the selection before the change.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>newMinPos</b></dt>
+
+        <dd>The beginning position of the selection after the change.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>newMaxPos</b></dt>
+
+        <dd>The end position of the selection after the change.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>uniRich</b></dt>
+
+        <dd>Contains information on changes in UniRichEdit items.</dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Structures_id.html">DG Structures</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="RichEditControl.html">Rich Edit Control</a>, <a href="DG_MSG_CHANGE.html">DG_MSG_CHANGE</a>, <a href="DGUniChangeData.html">DGUniChangeData</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 10, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

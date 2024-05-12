@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>SortRecord</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/ConstVectorImageIterator/SortRecord.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><!-- Not Index --><a href="ConstVectorImageIterator.html">ConstVectorImageIterator</a>::SortRecord</h1>
+
+    <p>Stores information about items for determining sorting order.</p>
+    <pre class="syntax">
+<strong>struct</strong> SortRecord {
+    <strong>short</strong>           itemType;
+    <strong>short</strong>           itemPriority;
+    <strong>short</strong>           drwIndex;
+    <strong>long</strong>            itemPositionIndex;
+    <strong>ULong</strong>           itemOffset;
+};
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><em>itemType</em></dt>
+
+        <dd>The item type. See <a href="../VectorImage/SyEnum.html">SyEnum</a>.</dd>
+
+        <dt><em>itemPriority</em></dt>
+
+        <dd>The priority due to the type of the item. The hotspots has the highest (less number) and the pixmaps has the lowest (greater number) priority.</dd>
+
+        <dt><em>drwIndex</em></dt>
+
+        <dd>The item's drawing order index.</dd>
+
+        <dt><em>itemPositionIndex</em></dt>
+
+        <dd>The item's natural position in the VectorImage. First item has the 0 and so on.</dd>
+
+        <dt><em>itemOffset</em></dt>
+
+        <dd>The item's offset in bytes in the VectorImage.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10.0 or later, ModelerGraphics 8 or later</dd>
+
+        <dd><b>Header:</b> Symb2D.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><!-- Not Index --><a href="ConstVectorImageIterator.html">ConstVectorImageIterator</a> <!-- FOOTER  FOOTEREND --></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 3, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

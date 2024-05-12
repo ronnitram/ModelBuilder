@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Interface_SetElementHighlight</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Interface_SetElementHighlight.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Interface_SetElementHighlight</h1>
+
+    <p>Highlight elements in the 2D (floor plan and section) and 3D window.</p>
+    <pre class="syntax">
+    <strong>GSErrCode ACAPI_Interface_SetElementHighlight</strong> (
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/HashTable/HashTable.html">GS::HashTable</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>,<a href="../Structures/API_RGBAColor.html">API_RGBAColor</a>&gt;&amp;</strong>  <em>highlightedElems,</em>
+        <strong>const <a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt;bool&gt;&amp;</strong>                     <em>wireframe3D = GS::NoValue,</em>
+        <strong>const <a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt;API_RGBAColor&gt;&amp;</strong>            <em>nonHighlightedElemsColor = GS::NoValue</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>highlightedElems</em></dt>
+
+        <dd>Hash table containing the elements (identified by their GUIDs) and the colors to highlight the element with.</dd>
+
+        <dt><em>[wireframe3D]</em></dt>
+
+        <dd>Switch other elements in the 3D window to wireframe (does not have effect in case of using Vectorial Engine). Optional, it can be <tt>GS::NoValue</tt>.</dd>
+
+        <dt><em>[nonHighlightedElemsColor]</em></dt>
+
+        <dd>It contains the color and the transparency of the non highlighted elements. Optional, it can be <tt>GS::NoValue</tt>.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You can remove element highlight by calling <a href="ACAPI_Interface_ClearElementHighlight.html">ACAPI_Interface_ClearElementHighlight</a>.</p>
+    <p>After changing element highlights the model needs to be redrawn by calling <a href="APIDo_RedrawID.html"><b>ACAPI_Automate (APIDo_RedrawID)</b></a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+    <pre><code>
+//------------------------------------------------------
+// Highlight every mesh
+//------------------------------------------------------
+static void Do_HighlightElements (void)
+{
+    static bool hled = false;
+
+    if (hled) {
+        // remove the highlight
+        <font color="#FF0066">ACAPI_Interface_ClearElementHighlight ();
+        <b>ACAPI_Automate (APIDo_RedrawID)</b></font>;
+    } else {
+        GS::Array&lt;API_Guid&gt; meshList;
+        ACAPI_Element_GetElemList (API_MeshID, &amp;meshList);
+
+        if (meshList.GetSize () > 0) {
+            GS::HashTable&lt;API_Guid, API_RGBAColor&gt;  hlElems;
+            API_RGBAColor   hlColor = { 0.0, 0.5, 0.75, 0.5 };
+            for (auto it = meshList.Enumerate (); it != nullptr; ++it) {
+                hlElems.Add (*it, hlColor);
+                hlColor.f_red += 0.1;
+                if (hlColor.f_red > 1.0)
+                    hlColor.f_red = 0.0;
+            }
+
+            bool wireframe3D = false;
+            API_RGBAColor nonHighlightedElemsColor = {0.7, 0.7, 0.7, 0.95};
+
+            <font color="#FF0066">ACAPI_Interface_SetElementHighlight</font> (hlElems, wireframe3D, nonHighlightedElemsColor);
+            <font color="#FF0066"><b>ACAPI_Automate (APIDo_RedrawID)</b></font>;
+        }
+    }
+
+    hled = !hled;
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 26 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_Interface_ClearElementHighlight.html">ACAPI_Interface_ClearElementHighlight</a>,<br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 17, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

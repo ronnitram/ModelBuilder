@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_DetailType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_DetailType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_DetailType, API_WorksheetType</h1>
+
+    <p>Represents a detail/worksheet (detail/worksheet mark).</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>              <em>head</em>;
+        <strong>short</strong>                      <em>pen</em>;
+        <strong>short</strong>                      <em>filler_1</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>         <em>ltypeInd</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                  <em>pos</em>;
+        <strong>double</strong>                     <em>angle</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                   <em>markId</em>;
+        <strong>Int32</strong>                      <em>filler_2</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>                <em>detailName [API_UniLongNameLen]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>                <em>detailIdStr [API_UniLongNameLen]</em>;
+        <strong>bool</strong>                       <em>horizontalMarker</em>;
+        <strong>bool</strong>                       <em>windOpened</em>;
+        <strong>bool</strong>                       <em>constructionElementsOnly</em>;
+        <strong>bool</strong>                       <em>filler_3[5]</em>;
+        <strong><a href="API_DatabaseUnId.html">API_DatabaseUnId</a></strong>           <em>databaseID</em>;
+        <strong>Int32</strong>                      <em>filler_4[8]</em>;
+        <strong><a href="API_Polygon.html">API_Polygon</a></strong>                <em>poly</em>;
+        <strong><a href="API_MarkerLinkDataType.html">API_MarkerLinkDataType</a></strong>     <em>linkData</em>;
+        <strong>Int32</strong>                      <em>filler_5[8]</em>;
+    <strong>}</strong> <em>API_DetailType, API_WorksheetType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>pen</b></dt>
+
+        <dd>Pen attribute index.</dd>
+
+        <dt><b>ltypeInd</b></dt>
+
+        <dd>Line type attribute index.</dd>
+
+        <dt><b>pos</b></dt>
+
+        <dd>Coordinate of the marker symbol. (See remarks)</dd>
+
+        <dt><b>angle</b></dt>
+
+        <dd>The rotation angle (radian) of the marker symbol.</dd>
+
+        <dt><b>markId</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Guid of the marker symbol.</dd>
+
+        <dt><b>detailName</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Name of the detail/worksheet (Unicode string, UTF-8 encoding).</dd>
+
+        <dt><b>detailIdStr</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Reference ID of the detail/worksheet (Unicode string, UTF-8 encoding). If the text contains a '/' character, then the text is split between the beginning and end marks.</dd>
+
+        <dt><b>horizontalMarker</b></dt>
+
+        <dd>Marker symbol is always horizontal?</dd>
+
+        <dt><b>windOpened</b></dt>
+
+        <dd>Side (detail/worksheet) window is opened?</dd>
+
+        <dt><b>constructionElementsOnly</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Copy construction elements only</dd>
+
+        <dt><b>databaseID</b></dt>
+
+        <dd><!--@4.1-->Database ID to switch to (see <!--NoCHM--><a href="API_DatabaseUnId.html">API_DatabaseUnId</a>).</dd>
+
+        <dt><b>poly</b></dt>
+
+        <dd>The polygon of the detail/worksheet.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Refer to the <a href="../Functions/APIDb_ChangeCurrentDatabaseID.html">APIDb_ChangeCurrentDatabaseID</a> function to access and operate on the corresponding Detail/Worksheet database. For detail related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>Note that the origin of the coordinate system of a detail/worksheet database corresponds to the reference point location of the detail/worksheet element on the floor plan, thus elements on the detail/worksheet databases are offseted by <code>pos</code> from their original location on the floor plan.<br>
+    If the referencing detail/worksheet element was placed on a section/elevation window, then the y coordinate on the detail/worksheet database equals to the y value of the section database in order to help working with the vertical (elevation) level. In this case the <code>pos.y</code> data is ignored.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_Element.html">API_Element</a>, <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_Coord.html">API_Coord</a><br>
+    <a href="../Functions/APIDb_ChangeCurrentDatabaseID.html">APIDb_ChangeCurrentDatabaseID</a>, <a href="../Functions/APIDb_GetDetailDatabasesID.html">APIDb_GetDetailDatabasesID</a>, <a href="../Functions/APIDb_GetWorksheetDatabasesID.html">APIDb_GetWorksheetDatabasesID</a>, <a href="../Functions/APIDb_DeleteDatabaseID.html">APIDb_DeleteDatabaseID</a><br>
+    <a href="../Functions/ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a>, <a href="../Functions/ACAPI_Element_ChangeExt.html">ACAPI_Element_ChangeExt</a><br>
+    <a href="../Functions/ACAPI_Element_GetDefaultsExt.html">ACAPI_Element_GetDefaultsExt</a>, <a href="../Functions/ACAPI_Element_ChangeDefaultsExt.html">ACAPI_Element_ChangeDefaultsExt</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 23, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

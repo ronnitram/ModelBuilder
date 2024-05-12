@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ModelessDialog Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/ModelessDialog/ModelessDialog.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="DialogState.html">DialogState</A><A href="GetNextModelessDialog.html">GetNextModelessDialog</A><A href="GetNextVisibleModelessDialog.html">GetNextVisibleModelessDialog</A><A href="GetPrevModelessDialog.html">GetPrevModelessDialog</A><A href="GetPrevVisibleModelessDialog.html">GetPrevVisibleModelessDialog</A><A href="GetRestoredClientHeight.html">GetRestoredClientHeight</A><A href="GetRestoredClientPosition.html">GetRestoredClientPosition</A><A href="GetRestoredClientRect.html">GetRestoredClientRect</A><A href="GetRestoredClientWidth.html">GetRestoredClientWidth</A><A href="GetRestoredFrameHeight.html">GetRestoredFrameHeight</A><A href="GetRestoredFramePosition.html">GetRestoredFramePosition</A><A href="GetRestoredFrameRect.html">GetRestoredFrameRect</A><A href="GetRestoredFrameWidth.html">GetRestoredFrameWidth</A><A href="GetState.html">GetState</A><A href="IsMaximizedState.html">IsMaximizedState</A><A href="IsMinimizedState.html">IsMinimizedState</A><A href="IsRestoredState.html">IsRestoredState</A><A href="Maximize.html">Maximize</A><A href="Minimize.html">Minimize</A><A href="Constructors.html">ModelessDialog</A><A href="Destructor.html">~ModelessDialog</A><A href="Restore.html">Restore</A><A href="SendBehind.html">SendBehind</A><A href="SetState.html">SetState</A>--><H2>ModelessDialog Class</H2><!--exp="ModelessDialog Class"-->
+<P><topic id="$DG.$ModelessDialog.BriefDescription">
+		Modeless dialog base class.
+	</topic></P>
+<PRE class="syntax"><B>class ModelessDialog : public <!----><a class="nodecorate" href="../ModelessBase/ModelessBase.html">ModelessBase</A></B></PRE>
+<H4>Members</H4>
+<P><B><A name="PublicMethods"></A>Public Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetNextModelessDialog.html">GetNextModelessDialog</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$GetNextModelessDialog.BriefDescription">
+		Retrieves the next modeless dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetNextVisibleModelessDialog.html">GetNextVisibleModelessDialog</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$GetNextVisibleModelessDialog.BriefDescription">
+		Retrieves the next visible modeless dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetPrevModelessDialog.html">GetPrevModelessDialog</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$GetPrevModelessDialog.BriefDescription">
+		Retrieves the previous modeless dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetPrevVisibleModelessDialog.html">GetPrevVisibleModelessDialog</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$GetPrevVisibleModelessDialog.BriefDescription">
+		Retrieves the previous visible modeless dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetRestoredClientHeight.html">GetRestoredClientHeight</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$GetRestoredClientHeight.BriefDescription">
+		Retrieves the height of the dialog client area, when the dialog is in restored state.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetRestoredClientPosition.html">GetRestoredClientPosition</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$GetRestoredClientPosition.BriefDescription">
+		Retrieves the position of the dialog client area, when the dialog is in restored state.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetRestoredClientRect.html">GetRestoredClientRect</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$GetRestoredClientRect.BriefDescription">
+		Retrieves the rectangle of the dialog client area, when the dialog is
+		in restored state.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetRestoredClientWidth.html">GetRestoredClientWidth</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$GetRestoredClientWidth.BriefDescription">
+		Retrieves the width of the dialog client area, when the dialog is in
+		restored state.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetRestoredFrameHeight.html">GetRestoredFrameHeight</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$GetRestoredFrameHeight.BriefDescription">
+		Retrieves the height of the dialog frame rectangle, when the dialog is
+		in restored state.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetRestoredFramePosition.html">GetRestoredFramePosition</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$GetRestoredFramePosition.BriefDescription">
+		Retrieves the position of the dialog frame rectangle, when the dialog is in restored state.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetRestoredFrameRect.html">GetRestoredFrameRect</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$GetRestoredFrameRect.BriefDescription">
+		Retrieves the dialog frame rectangle, when the dialog is in restored state.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetRestoredFrameWidth.html">GetRestoredFrameWidth</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$GetRestoredFrameWidth.BriefDescription">
+		Retrieves the width of the dialog frame rectangle, when the dialog is
+		in restored state.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetState.html">GetState</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$GetState.BriefDescription">
+		Retrieves the minimized, maximized or restored state of the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsMaximizedState.html">IsMaximizedState</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$IsMaximizedState.BriefDescription">
+		Tests whether the dialog is in maximized state or not.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsMinimizedState.html">IsMinimizedState</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$IsMinimizedState.BriefDescription">
+		Tests whether the dialog is in minimized state or not.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsRestoredState.html">IsRestoredState</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$IsRestoredState.BriefDescription">
+		Tests whether the dialog is in restored state or not.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Maximize.html">Maximize</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$Maximize.BriefDescription">
+		Maximizes the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Minimize.html">Minimize</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$Minimize.BriefDescription">
+		Minimizes the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">ModelessDialog</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$ModelessDialog.BriefDescription">
+		Class constructor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Destructor.html">~ModelessDialog</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$~ModelessDialog.BriefDescription">
+		Class destructor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Restore.html">Restore</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$Restore.BriefDescription">
+		Restores the dialog from minimized or maximized state.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SendBehind.html">SendBehind</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$SendBehind.BriefDescription">
+		Moves the dialog behind the specified dialog in the Z order.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetState.html">SetState</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$SetState.BriefDescription">
+		Sets the minimized, maximized or restored state of the dialog.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicTypes"></A>Public Types</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DialogState.html">DialogState</A></TD>
+<TD width="70%"><topic id="$DG.$ModelessDialog.$DialogState.BriefDescription">
+		The state of the dialog.
+	</topic></TD>
+</TR>
+</table>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../DG.html">DG</A></P>
+<P><B>Header: </B>DGDialog.hpp</P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

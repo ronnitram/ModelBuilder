@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DG_MSG_INIT</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_INIT.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_INIT</h1>
+
+    <p>The dialog and its items have been created and the items need to be initialized.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>Not used, always zero.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_POS_SAVED</tt></td>
+
+                    <td>The position and the size of the dialog has been restored from the last saved dialog rectangle.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_POS_DEFAULT</tt></td>
+
+                    <td>The dialog was resized to the size given in the GRC and the dialog has been positioned at the middle of the screen.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_POS_ADJUSTED</tt></td>
+
+                    <td>The size of the dialog has been restored from the last saved dialog rectangle but the position has been adjusted because the saved position was fully or partially out of the screen.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Not used, should be set to zero.</p>
+
+    <h4>Remarks</h4>
+
+    <p>When handling <tt>DG_MSG_INIT</tt>, the application should initialize the dialog items. The initialization can include among others:</p>
+
+    <ul>
+        <li>filling <a href="ListBox.html">list boxes</a>, <a href="ListView.html">list views</a>, <a href="TreeView.html">tree views</a>, <a href="Pop-upControl.html">pop-up controls</a> and <a href="PushMenuControl.html">push menu controls</a> with items and initializing the inserted items,</li>
+
+        <li>setting the checked state of <a href="CheckBox.html">check boxes</a> and <a href="RadioButton.html">radio buttons</a>,</li>
+
+        <li>setting the range and value of numeric-type <a href="EditControl.html">edit controls</a>, <a href="DateTimeControl.html">date &amp; time controls</a>, <a href="ProgressBar.html">progress bars</a>, <a href="ScrollBar.html">scroll bars</a>, <a href="SliderBar.html">slider bars</a>, <a href="SpinControl.html">spin controls</a> and <a href="UserControl.html">user controls</a>,</li>
+
+        <li>assigning images to <a href="Icon.html">icon</a> and <a href="Picture.html">picture</a> controls,</li>
+
+        <li>setting the text of text-type <a href="EditControl.html">edit controls</a>, <a href="RichEditControl.html">rich edit controls</a> and <a href="StaticText.html">static texts</a>,</li>
+
+        <li>adjusting ontab dialog items on list boxes,</li>
+
+        <li>setting the keyboard focus to a specified item, etc..</li>
+    </ul>
+
+    <p>If the keyboard focus is not set explicitly, DG automatically focuses the first focusable item (if any) of the dialog.</p>
+
+    <p>Note that only main dialogs receive <tt>DG_MSG_INIT</tt> messages. Dialog items of possible <a href="TabPages.html">tab pages</a> should also be initialized at the main dialog's init message.</p>
+
+    <p>When the <a href="CallbackFunctions.html">dialog callback function</a> receives the <tt>DG_MSG_INIT</tt> message, the dialog is not shown yet.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="TabPages.html">Tab Pages</a>, <a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="CallbackFunctions.html">Callback functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on May 16, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

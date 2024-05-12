@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>IsReadable</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/Folder/IsReadable.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="Folder.html">Folder</a>::IsReadable</h1><br>
+    Returns whether is the folder readable <b>at this moment</b>.<br>
+    <br>
+    <pre class="syntax">
+<b>virtual bool  IsReadable (
+    void
+) const;</b>
+</pre>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="238">
+        <tr>
+            <th width="62">Value</th>
+
+            <th width="134">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="62">true</td>
+
+            <td width="134">folder is readable</td>
+        </tr>
+
+        <tr>
+            <td width="62">false</td>
+
+            <td width="134">folder is not readable</td>
+        </tr>
+    </table>
+
+    <h3>Description</h3>
+
+    <p>This method returns whether is the folder readable <b>at this moment</b>. If a folder is not readable, then operations with read-like semantics (content query, attribute query) will surely fail, otherwise they may succeed.<br>
+    <br></p><img src="../../IOImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>Root folder is readable. (Readability of other folders is currently determined by trying to enumerate the given folder).</li>
+        </ul>
+    </blockquote><img src="../../IOImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>Root folder is readable.</li>
+        </ul>
+    </blockquote><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

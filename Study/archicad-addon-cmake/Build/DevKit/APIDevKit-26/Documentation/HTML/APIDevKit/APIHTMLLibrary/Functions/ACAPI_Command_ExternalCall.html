@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Command_ExternalCall</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Command_ExternalCall.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Command_ExternalCall</h1>
+
+    <p>Call a command of an other add-on in another Archicad instance.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Command_ExternalCall</strong> (
+        <strong>const <a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a>*</strong>          <em>projectFileLoc</em>,
+        <strong>const <a href="../Structures/API_ModulID.html">API_ModulID</a>*</strong>           <em>mdid</em>,
+        <strong>GSType</strong>                       <em>cmdID</em>,
+        <strong>Int32</strong>                        <em>cmdVersion</em>,
+        <strong>GSHandle</strong>                     <em>params</em>,
+        <strong>bool</strong>                         <em>silentMode</em>,
+        <strong><a href="APIExternalCallBackProc.html">APIExternalCallBackProc</a>*</strong>     <em>externalCallbackProc</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>projectFileLoc</em></dt>
+
+        <dd>[in] the location of the project file to be opened during the remote call</dd>
+
+        <dt><em>mdid</em></dt>
+
+        <dd>[in] the identifier of the target add-on. It is defined by the <a href="../Resources/MDID.html">'MDID'</a> resource</dd>
+
+        <dt><em>cmdID</em></dt>
+
+        <dd>[in] the identifier of the command to be executed</dd>
+
+        <dt><em>cmdVersion</em></dt>
+
+        <dd>[in] the required command version</dd>
+
+        <dt><em>params</em></dt>
+
+        <dd>[in/out] passed parameters (optional). See the Inter-add-on communication section of the <a href="ACAPI_Goodies_id.html#API_GoodiesID">ACAPI_Goodies</a> functions</dd>
+
+        <dt><em>silentMode</em></dt>
+
+        <dd>[in] instruct the target add-on to work in silent mode. No option dialogs, error alerts ...etc.</dd>
+
+        <dt><em>externalCallbackProc</em></dt>
+
+        <dd>[in] optional callback procedure for handling the responses asynchronously</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>the function completed successfully</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>the <code>mdid</code> or the <code>projectFileLoc</code> parameter is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_REFUSEDPAR</code></dt>
+
+        <dd>the location defined by <code>projectFileLoc</code> is empty or invalid</dd>
+
+        <dt><code>APIERR_MODULNOTINSTALLED</code></dt>
+
+        <dd>the referenced add-on is not installed</dd>
+
+        <dt><code>APIERR_MODULCMDNOTSUPPORTED</code></dt>
+
+        <dd>the referenced command is not supported by the target add-on</dd>
+
+        <dt><code>APIERR_MODULCMDVERSNOTSUPPORTED</code></dt>
+
+        <dd>the requested command version is too new; not supported by the target add-on</dd>
+
+        <dt><code>APIERR_CANCEL</code></dt>
+
+        <dd>the external operation has been canceled (either by the user or due to communication problem)</dd>
+    </dl>
+
+    <p>For other common errors see the <a href="../Level2/Error_Codes.html">list of error codes</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to call an add-on implemented command on a different plan loaded into another instance of Archicad.</p>
+
+    <p>The system provides that the requested project would be available for performing the command in the following way:</p>
+
+    <ul>
+        <li>if there is already an Archicad application running with the specified plan, it attempts to reserve it for the external call (it waits for the application to be available if currently busy with some other operation)</li>
+
+        <li>if there is an Archicad running with currently no plan opened in it (empty), it reserves that application and makes it load the project file</li>
+
+        <li>if there is no available Archicad running, it launches a new application instance with loading the requested project file</li>
+    </ul>
+
+    <p>After the external Archicad instance is reserved for serving the add-on command call, the operation works similarly to the <a href="ACAPI_Command_Call.html">ACAPI_Command_Call</a> function. On the server side the callee add-on does not even realize that the command request comes from another application instance. The only difference is that the <code>resultData</code> parameter is always <code>nullptr</code> when calling its <a href="APIModulCommandProc.html">APIModulCommandProc</a> handler, because this pointer cannot be passed between ARCHICADs. However you can change the content of the <code>params</code> handle modifying any parameters to communicate the result to the caller.</p>
+
+    <p>The caller can decide the function to return immediately after sending the command request (asynchronous operation) or to wait for the external call to be finished (synchronous operation). You need to pass an <a href="APIExternalCallBackProc.html">APIExternalCallBackProc</a> handler function to collect the responses asynchronously; if this parameter is <code>nullptr</code>, the function does not return until the external operation is finished. The advantage of the asynchronous way is that you can initiate more calls even with different project files at the same time, and the internal task scheduler will optimize the sequence of execution.</p>
+
+    <p>Please note that if you use a loop for waiting for the asynchronous responses, do not reserve the processor time superfluously, let other threads run by calling the <a href="../../../GSRoot/GSRootHTMLLibrary/TimeManagers/ClockManager/reference/TIWait.html">TIWait</a> function of the GSRoot module.</p>
+
+    <p>Refer to the <a href="../Level3/Communication_Manager_id.html">Communication Manager</a> for more detailed description on</p>
+
+    <ul>
+        <li>how to pass parameters</li>
+
+        <li>how to get return values</li>
+
+        <li>how the heaps and API environments are managed by the API</li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>The following sample exports the elements of the example project into a specified DWG file by calling the standard DXF/DWG add-on synchronously in an external Archicad:</p>
+
+    <blockquote>
+        <pre><code>
+API_ModulID mdid = { 1198731108, 1322668197 };  // MDID of the DXF/DWG add-on
+
+IO::Location projectFileLoc;
+API_SpecFolderID specFolderID = API_ApplicationFolderID;
+ACAPI_Environment (APIEnv_GetSpecFolderID, &amp;specFolderID, &amp;projectFileLoc);
+projectFileLoc.AppendToLocal ("Archicad Examples");
+projectFileLoc.AppendToLocal ("Residential House");
+projectFileLoc.AppendToLocal ("Residential House.pla");
+
+IO::Location outputLoc;
+specFolderID = API_UserDocumentsFolderID;
+ACAPI_Environment (APIEnv_GetSpecFolderID, &amp;specFolderID, &amp;outputLoc);
+outputLoc.AppendToLocal ("Residential House.DWG");
+
+IO::Location configFile;                        // translator to be applied for this output
+specFolderID = API_DefaultsFolderID;
+ACAPI_Environment (APIEnv_GetSpecFolderID, &amp;specFolderID, &amp;configFile);
+configFile.AppendToLocal ("DXF-DWG Translators");
+configFile.AppendToLocal ("For as is output.Xml");
+
+GSHandle parHdl = nullptr;                         // handle of command call parameters
+
+GSErrCode err = ACAPI_Goodies (APIAny_InitMDCLParameterListID, &amp;parHdl, nullptr);
+if (err == NoError) {
+    API_MDCLParameter par;                      // parameter describing the output file
+    char str[512];
+    IO::URL url;
+
+    BNZeroMemory (&amp;par, sizeof (API_MDCLParameter));
+    par.name = "FileName";
+    par.type = MDCLPar_string;
+    outputLoc.ToURL (&amp;url);
+    CHTruncate ((const char*) url, str, sizeof (str));
+    par.string_par = str;
+    err = ACAPI_Goodies (APIAny_AddMDCLParameterID, parHdl, &amp;par);
+
+    if (err == NoError) {
+        BNZeroMemory (&amp;par, sizeof (API_MDCLParameter));
+        par.name = "ConfigFile";
+        par.type = MDCLPar_string;
+        configFile.ToURL (&amp;url);
+        CHTruncate ((const char*) url, str, sizeof (str));
+        par.string_par = str;
+        err = ACAPI_Goodies (APIAny_AddMDCLParameterID, parHdl, &amp;par);
+    }
+
+    if (err == NoError) {
+        err = <font color="#FF0066">ACAPI_Command_ExternalCall</font> (&amp;projectFileLoc, &amp;mdid, 'SAV2', 1, parHdl, true, nullptr);
+        if (err != NoError) {
+            DBPrintf ("DXF/DWG export %s\n", (err == APIERR_CANCEL) ? "canceled" : "failed");
+        }
+    }
+
+    ACAPI_Goodies (APIAny_FreeMDCLParameterListID, &amp;parHdl, nullptr);
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <p>Please also check the <strong><em>Communication Manager</em></strong> example add-on for an asynchronous external module call sample.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_ModulID.html">API_ModulID</a>, <a href="../Resources/MDID.html">'MDID'</a><br>
+    <a href="APIExternalCallBackProc.html">APIExternalCallBackProc</a><br>
+    <a href="APIModulCommandProc.html">APIModulCommandProc</a><br>
+    <a href="ACAPI_Command_Call.html">ACAPI_Command_Call</a><br>
+    <a href="ACAPI_Command_Test.html">ACAPI_Command_Test</a><br>
+    <a href="../Level3/Communication_Manager_id.html">Communication Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

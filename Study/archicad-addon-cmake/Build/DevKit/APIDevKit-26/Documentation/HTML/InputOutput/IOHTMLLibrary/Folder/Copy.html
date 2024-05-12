@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Copy</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/Folder/Copy.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="Folder.html">Folder</a>::Copy&nbsp;&nbsp; <font size="2">(3)</font></h1><br>
+    Copies the specified entry in this folder to the given destination.<br>
+    <br>
+    <pre class="syntax">
+<b>virtual GSErrCode  Copy (
+    const <a href="../Name/Name.html">Name</a>&amp; from,
+    const <a href="../Name/Name.html">Name</a>&amp; to
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>from</em></dt>
+
+        <dd>Name of the entry (in this folder) to be copied.</dd>
+
+        <dt><em>to</em></dt>
+
+        <dd>Name of the copied entry (in this folder).</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="474">
+        <tr>
+            <th width="106">Value</th>
+
+            <th width="326">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="106">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="326">OK</td>
+        </tr>
+
+        <tr>
+            <td width="106">SourceNotFound<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="326">source entry to be copied is not found</td>
+        </tr>
+
+        <tr>
+            <td width="106">TargetExists<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="326">an entry with the new name already exists in the folder</td>
+        </tr>
+
+        <tr>
+            <td width="106">DeviceIsFull<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="326">device is full</td>
+        </tr>
+
+        <tr>
+            <td width="106">AccessDenied<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="326">operation is not allowed on this folder or on the entry</td>
+        </tr>
+
+        <tr>
+            <td width="106">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="326">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Folder class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method copies (duplicates) the file system entry (file, folder, link) with name <i>from</i> under the new name <i>to</i> in the folder. Copy operation is applied to the whole entry (together with its internal content), meaning that copy operation is inherently recursive. Some of the entry's attributes (read-only flag on Windows and lock flag on Macintosh) are also copied.</p>
+
+    <p>Copy fails if the folder already contains an entry (file, folder, link) with the name <i>to</i>, and if the folder is not readable and writeable. If it fails during the copy operation, then it will try to restore the original file system state.<br>
+    <br></p><img src="../../IOImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>This method fails on the root folder (because it is virtual and not writeable).</li>
+        </ul>
+    </blockquote><img src="../../IOImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>This method fails on the root folder (because it is virtual and not writeable).</li>
+
+            <li>If the volume doesn't support the file copy operation, then the file is "manually" copied (with open, read, write and close operations).</li>
+
+            <li>Both resource fork and data fork are copied.</li>
+        </ul>
+    </blockquote><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>virtual GSErrCode  Copy (
+    const <a href="../Name/Name.html">Name</a>&amp; from,
+    Folder&amp;     target,
+    const <a href="../Name/Name.html">Name</a>&amp; to
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>from</em></dt>
+
+        <dd>Name of the entry (in this folder) to be copied.</dd>
+
+        <dt><em>target</em></dt>
+
+        <dd>Destination folder of the copy operation.</dd>
+
+        <dt><em>to</em></dt>
+
+        <dd>Name of the copied entry in the destination folder.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="538">
+        <tr>
+            <th width="106">Value</th>
+
+            <th width="390">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="106">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="390">OK</td>
+        </tr>
+
+        <tr>
+            <td width="106">SourceNotFound<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="390">source entry to be copied is not found</td>
+        </tr>
+
+        <tr>
+            <td width="106">TargetExists<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="390">an entry with the new name already exists in the destination folder</td>
+        </tr>
+
+        <tr>
+            <td width="106">DeviceIsFull<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="390">device is full</td>
+        </tr>
+
+        <tr>
+            <td width="106">AccessDenied<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="390">operation is not allowed on either of folders or on the entry</td>
+        </tr>
+
+        <tr>
+            <td width="106">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="390">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Folder class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method copies (duplicates) the file system entry (file, folder, link) with name <i>from</i> in this folder to the destination folder specified by <i>target</i> under the new name <i>to</i>. Names <i>from</i> and <i>to</i> can be equal. This folder and <i>target</i> folder also can be the same (they can refer to the same location). Copy operation is applied to the whole entry (together with its internal content), meaning that copy operation is inherently recursive. Some of the entry's attributes (read-only flag on Windows and lock flag on Macintosh) are also copied.</p>
+
+    <p>Copy fails if the destination folder already contains an entry (file, folder, link) with the name <i>to</i>, and if this folder is not readable or destination folder is not writeable. If it fails during the copy operation, then it will try to restore the original file system state.<br>
+    <br></p><img src="../../IOImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>This method fails if the destination (<i>target</i>) folder is the root folder (because it is virtual and not writeable).</li>
+        </ul>
+    </blockquote><img src="../../IOImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>This method fails if the destination (<i>target</i>) folder is the root folder (because it is virtual and not writeable).</li>
+
+            <li>If the volumes don't support the file copy operation, then the file is "manually" copied (with open, read, write and close operations).</li>
+
+            <li>Both resource fork and data fork are copied.</li>
+        </ul>
+    </blockquote><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>virtual GSErrCode  Copy (
+    const <a href="../Name/Name.html">Name</a>&amp; from,
+    Folder&amp;     target,
+    const <a href="../Name/Name.html">Name</a>&amp; to
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>from</em></dt>
+
+        <dd>Name of the entry (in this folder) to be copied.</dd>
+
+        <dt><em>target</em></dt>
+
+        <dd>Destination folder of the copy operation.</dd>
+
+        <dt><em>to</em></dt>
+
+        <dd>Name of the copied entry in the destination folder.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="538">
+        <tr>
+            <th width="106">Value</th>
+
+            <th width="390">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="106">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="390">OK</td>
+        </tr>
+
+        <tr>
+            <td width="106">SourceNotFound<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="390">source entry to be copied is not found</td>
+        </tr>
+
+        <tr>
+            <td width="106">TargetExists<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="390">an entry with the new name already exists in the destination folder</td>
+        </tr>
+
+        <tr>
+            <td width="106">DeviceIsFull<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="390">device is full</td>
+        </tr>
+
+        <tr>
+            <td width="106">AccessDenied<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="390">operation is not allowed on either of folders or on the entry</td>
+        </tr>
+
+        <tr>
+            <td width="106">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="390">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Folder class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method copies (duplicates) the file system entry (file, folder, link) with name <i>from</i> in this folder to the destination folder specified by <i>target</i> under the new name <i>to</i>. Names <i>from</i> and <i>to</i> can be equal. This folder and <i>target</i> folder can not be the same (they must refer to different locations - this condition is run-time checked). Copy operation is applied to the whole entry (together with its internal content), meaning that copy operation is inherently recursive. Some of the entry's attributes (read-only flag on Windows and lock flag on Macintosh) are also copied.</p>
+
+    <p>Copy fails if the destination folder already contains an entry (file, folder, link) with the name <i>to</i>, and if this folder is not readable or destination folder is not writeable. If it fails during the copy operation, then it will try to restore the original file system state.<br>
+    <br></p><img src="../../IOImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>This method fails if the destination (<i>target</i>) folder is the root folder (because it is virtual and not writeable).</li>
+        </ul>
+    </blockquote><img src="../../IOImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>This method fails if the destination (<i>target</i>) folder is the root folder (because it is virtual and not writeable).</li>
+
+            <li>If the volumes don't support the file copy operation, then the file is "manually" copied (with open, read, write and close operations).</li>
+
+            <li>Both resource fork and data fork are copied.</li>
+        </ul>
+    </blockquote><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

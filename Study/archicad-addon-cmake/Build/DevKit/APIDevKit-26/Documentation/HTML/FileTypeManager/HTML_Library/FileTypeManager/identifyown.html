@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta name="Author" content="Magyari Denes">
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta name="ProgId" content="FrontPage.Editor.Document">
+
+    <title>IdentifyOwn</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/FileTypeManager/identifyown.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">File&nbsp;Type&nbsp;Manager</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>FileTypeManager::IdentifyOwn</h1>
+
+    <p>Searches for the best matching FileType. Types owned by this manager are privileged.</p>
+    <pre class="syntax">
+    <strong><a href="GeneralID/generalid.html">GeneralID</a> IdentifyOwn (</strong>
+      <strong>const Location&amp;</strong>    <em>loc</em>,
+      <strong><a href="GroupID/groupid.html">GroupID</a></strong>            <em>rootGroupID</em><em> = <a href="globals.html#rootgroup">RootGroup</a></em>,
+      <strong>void*</strong>              <em>retVal = NULL</em>
+    ) const;
+</pre>
+    <pre class="syntax">
+    <strong>USize     Identify (</strong>
+      <strong>const Location&amp;</strong>    <em>loc</em>,
+      <strong>TypeID*</strong>            <em>retList</em>,
+      <strong>USize</strong>              <em>listSize</em>,
+      <strong><a href="GroupID/groupid.html">GroupID</a></strong>            <em>rootGroupID</em><em> = <a href="globals.html#rootgroup">RootGroup</a></em>,
+      <strong>void**</strong>             <em>retValArray = NULL</em>
+    ) const;
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>loc</em></dt>
+
+        <dd>Location of the file to be identified.</dd>
+
+        <dt><em>retList</em></dt>
+
+        <dd>Array of TypeIDs. This can be NULL.</dd>
+
+        <dt><em>listSize</em></dt>
+
+        <dd>Size of retList.</dd>
+
+        <dt><em>rootGroupID</em></dt>
+
+        <dd>Limits searching to children of this group.</dd>
+
+        <dt><em>retVal</em></dt>
+
+        <dd>Callback specific return value. The callback function can optionally use this supplied pointer to a data structure to return type specific values.</dd>
+
+        <dt><em>retValArray</em></dt>
+
+        <dd>Callback specific return value array. The callback function can optionally use this supplied pointer array to data structures to return type specific values.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The first version returns a group if more then one equally good best matches found. If a type would be an only best match without types owned by other managers, than this type will be returned. The returned group will contain all the best matching types and the least not matching types. This group can be the <a href="globals.html#rootgroup">RootGroup</a> if no other group contains all the best matching types. If only one type fits best than it will be returned. If no type matches than <a href="globals.html#unknowntype">UnknownType</a> will be returned.</p>
+
+    <p>&nbsp;</p>
+
+    <p>The second version returns the best matching types in the supplied TypeId array. The return value is the number of equally best matching types.</p>
+
+    <h4>Remarks</h4>
+
+    <p>Use this function to find the best matching types based on <a href="../matchingprecedence.html">mach level</a>. This function will return a type if it is the only best match among types owned by this manager. This assures if our manager has a carefully assembled group and type hierarchy other managers will not affect the identification of types owned by this manager but still will let through other types if they are not interference with this manager. If you want to prevent types from other managers to be used limit the searching with rootGroupID.&nbsp; Do not use this function to compare a TypeID or more ids to a file, because this function needs the most processing from all identifying functions. In this case use one of the much more effective matching functions (<a href="exactmatch.html">ExactMatch</a>, <a href="exactmatchown.html">ExactMatchOwn</a>, <a href="match.html">Match</a>, <a href="matchown.html">MatchOwn</a>). See <a href="../identifyvsmatch.html">Identify vs. Match</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <p>Note that if neither the extension nor the mac type matches, this function will not call all the callback functions to identify the file, but will return <a href="globals.html#unknowntype">UnknownType</a>.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> Input-Output Library 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> FileTypeManager.hpp</dd>
+
+        <dd><b>Import Library:</b> InputOutput.lib [WIN]</dd>
+
+        <dd><b>Module:</b> InputOutputLib [MAC], InputOutput.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="../../FileTypeManager.html">File Type Manager</a>, <a href="filetypemanager.html#members">Class Members</a>,&nbsp; <a href="exactmatch.html">ExactMatch</a>, <a href="exactmatchown.html">ExactMatchOwn</a>, <a href="match.html">Match</a>, <a href="matchown.html">MatchOwn</a>, <a href="../typefiletypeinspectorcallback.html">FileTypeInspectorCallBack</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on Aug 15, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

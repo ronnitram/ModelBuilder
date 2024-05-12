@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<TITLE>ConstForwardIterator Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/ConstForwardIterator/ConstForwardIterator.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="operator__star_.html">operator *</A><A href="operator!=.html">operator!=</A><A href="operator++.html">operator++</A><A href="operator==.html">operator==</A><A href="operator-_gt_.html">operator-&gt;</A>--><H2>ConstForwardIterator Class</H2><!--exp="ConstForwardIterator Class"-->
+<P><topic id="$GS.$ConstForwardIterator.BriefDescription">
+		Iterator for forward enumeration of sequence of constant items.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>Type</I><B>&gt;
+</B>class ConstForwardIterator : public <!----><a class="nodecorate" href="../IteratorBase/IteratorBase.html">IteratorBase&lt; Type &gt;</A></B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>Type</I></DT><DD><topic id="$GS.$ConstForwardIterator.$Type.TemplateParamDescription">
+		Type of items the iterator iterates on.
+	</topic></DD>
+</DL>
+<H4>Members</H4>
+<P><B><A name="PublicOperators"></A>Public Operators</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator__star_.html">operator *</A></TD>
+<TD width="70%"><topic id="$GS.$ConstForwardIterator.$operator *.BriefDescription">
+		Returns constant reference to the item iterator is currently referring to.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator-_gt_.html">operator-&gt;</A></TD>
+<TD width="70%"><topic id="$GS.$ConstForwardIterator.$operator->.BriefDescription">
+		Returns constant pointer to the item iterator is currently referring to.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator++.html">operator++</A></TD>
+<TD width="70%"><topic id="$GS.$ConstForwardIterator.$operator++.BriefDescription">
+		Moves forward to the next item of the sequence.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator==.html">operator==</A></TD>
+<TD width="70%"><topic id="$GS.$ConstForwardIterator.$operator==.BriefDescription">
+		Iterator comparision (equal to).
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator!=.html">operator!=</A></TD>
+<TD width="70%"><topic id="$GS.$ConstForwardIterator.$operator!=.BriefDescription">
+		Iterator comparision (not equal to).
+	</topic></TD>
+</TR>
+</table>
+<H4>Description</H4>
+<P><topic id="$GS.$ConstForwardIterator.LongDescription">
+		A Constant Forward Iterator is a constant iterator that corresponds to the usual intuitive
+		notion of a linear sequence of values. It is possible to use Constant Forward Iterators
+		in multipass algorithms. Constant Forward Iterators do not, however, allow stepping
+		backwards through a sequence, but only, as the name suggests, forward.
+		A constant forward iterator returns a constant object when is dereferenced.
+		<P>Iterators are created and returned by containers and than used to go through the
+		elements of the container or they are passes as arguments to algorithm functions.</P>
+		<P>Most algorithms are expressed not in terms of a single iterator but in terms of
+		a <I>range</I> of iterators the notation <TT>[first,
+		last)</TT> refers to all of the iterators from <TT>first</TT> up to, but <B>not
+		including</B>, <TT>last</TT>. Note that a range may be
+		empty, <I>i.e.</I> <TT>first</TT> and <TT>last</TT> may be the same iterator.
+		Note also that if there are <TT>n</TT> iterators in a range, then the notation
+		<TT>[first, last)</TT> represents <TT>n+1</TT> positions. This is crucial:
+		algorithms that operate on <TT>n</TT> things frequently require <TT>n + 1</TT>
+		positions. Linear search, for example <TT><!----><A href="../Find.html">Find</A></TT>
+		must be able to return some value to indicate that the search was unsuccessful.</P>
+		<P>Iterators are the mechanism that makes it possible to decouple algorithms from
+		containers: algorithms are templates, and are parameterized by the type of
+		iterator, so they are not restricted to a single type of container.</P>
+	</topic></P>
+<H4>Example</H4><topic id="$GS.$ConstForwardIterator.Example">
+	<PRE class="code">
+GS::Array&lt;GS::String&gt; array;                      // array of strings
+const GS::Array&lt;GS::String&gt;&amp; constArray = array;  // constant array of strings
+
+GS::Array&lt;GS::String&gt;::ConstIterator it = constArray.Enumerate ();    // obtaining a constant iterator (or constArray.Begin ())
+while (it != NULL) {                    // until the end of sequence (constant array)
+    GS::String s = *it;                 // dereferencing the constant iterator (returns constant reference)
+    USize length = it-&gt;GetLength ();    // dereferencing the constant iterator (returns constant pointer)
+    ++it;                               // advance to the next element
+}
+
+
+GS::Find (constArray.Begin (), constArray.End (), GS::String ("Test"));    // using constant iterators in algorithms
+
+</PRE><P>This example illustrates the use of constant iterators obtained from a constant container (constant array).</P>
+	</topic><H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../GS.html">GS</A></P>
+<P><B>Header: </B>ForwardIterator.hpp</P>
+<H4>See Also</H4>
+<P><topic id="$GS.$ConstForwardIterator.SeeAlso">
+		<!----><a href="../ForwardIterator/ForwardIterator.html">ForwardIterator</a>
+	</topic> | <a href="../ConstBidirectionalIterator/ConstBidirectionalIterator.html">ConstBidirectionalIterator&lt; Type &gt;</A></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

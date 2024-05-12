@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>SetTabFieldProperties (ListBox)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/ListBox/SetTabFieldProperties.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="ListBox.html">ListBox</A>::SetTabFieldProperties</H2><!--exp="ListBox::SetTabFieldProperties"-->
+<P><topic id="$DG.$ListBox.$SetTabFieldProperties.BriefDescription">
+		Sets the properties of a tabulator field of the list box.
+	</topic></P>
+<PRE class="syntax"><B>void SetTabFieldProperties (</B>
+    <B>short               </B><I>tabIndex</I>,
+    <B>short               </B><I>begPos</I>,
+    <B>short               </B><I>endPos</I>,
+    <B><a class="nodecorate" href="../../DG/ListBox/Justification.html">Justification</A>       </B><I>just</I>,
+    <B><a class="nodecorate" href="../../DG/ListBox/Truncation.html">Truncation</A>          </B><I>trunc</I>,
+    <B>bool                </B><I>hasSeparator</I><B> = false</B>
+<B>);</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>tabIndex</I></DT><DD><topic id="$DG.$ListBox.$SetTabFieldProperties.$tabIndex.ParamDescription">
+		1-based index of the tabulator field.
+	</topic></DD><DT><I>begPos</I></DT><DD><topic id="$DG.$ListBox.$SetTabFieldProperties.$begPos.ParamDescription">
+		The begin position of the tabulator field in pixels, relative to the
+		client rectangle of the list box.
+	</topic></DD><DT><I>endPos</I></DT><DD><topic id="$DG.$ListBox.$SetTabFieldProperties.$endPos.ParamDescription">
+		The end position of the tabulator field in pixels, relative to the
+		client rectangle of the list box.
+	</topic></DD><DT><I>just</I></DT><DD><topic id="$DG.$ListBox.$SetTabFieldProperties.$just.ParamDescription">
+		The <A href="Justification.html">Justification</A> of the content in the
+		tabulator field.
+	</topic></DD><DT><I>trunc</I></DT><DD><topic id="$DG.$ListBox.$SetTabFieldProperties.$trunc.ParamDescription">
+		The way how the text of a tabulator field should be truncated if
+		it does not fit into the tabulator field. Use
+		<A href="Truncation.html">Truncation</A> to set the desired value.
+	</topic></DD><DT><I>hasSeparator</I></DT><DD><topic id="$DG.$ListBox.$SetTabFieldProperties.$hasSeparator.ParamDescription">
+		If this flag is set, a vertical separator line is drawn at the right edge of the
+		tabulator field in each list box item.
+	</topic></DD>
+</DL>
+<H4>Description</H4>
+<P><topic id="$DG.$ListBox.$SetTabFieldProperties.LongDescription">
+		The separator line color can be set or modified by the
+		<a href="SetSeparatorLineColor.html">SetSeparatorLineColor</a>
+		method.
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Picture</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/Picture.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Picture</h1>
+
+    <p>Picture controls display images and they are generally used to label other controls in a dialog. Picture controls can also serve as background for other controls. I.e. it is possible to use one large explanatory picture for more focusable controls (for example edit controls) instead of using small separate pictures.</p>
+
+    <p>By default a picture control is drawn without frame, however it can have three types of frames: static edge, client edge and modal frame.</p>
+
+    <p>Picture controls are very similar to <a href="Icon.html">Icon controls</a>. The only difference is that their images are not masked.</p>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_PICTITEM</tt></dd>
+    </dl>
+
+    <h4>Frame types</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Frame type</th>
+
+                    <th align="left" width="360">Meaning</th>
+
+                    <th align="left"></th>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FT_NONE</tt></td>
+
+                    <td>It will be drawn without frame.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FT_STATIC</tt></td>
+
+                    <td>Thin three-dimensional border with a sunken edge.</td>
+
+                    <td><img src="../DGImageLibrary/FrameStatic_Mac.png" width="40" height="40" alt="FrameStatic_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/FrameStatic_Win.png" alt="FrameStatic_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FT_CLIENT</tt></td>
+
+                    <td>Thick three-dimensional border with a sunken edge.</td>
+
+                    <td><img src="../DGImageLibrary/FrameClient_Mac.png" width="40" height="40" alt="FrameClient_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/FrameClient_Win.png" alt="FrameClient_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FT_MODAL</tt></td>
+
+                    <td>Thick three-dimensional border with a raised edge.</td>
+
+                    <td><img src="../DGImageLibrary/FrameModal_Mac.png" width="40" height="40" alt="FrameModal_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/FrameModal_Win.png" alt="FrameModal_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    Picture    <i>x  y  dx  dy  pictID</i>  [frameType]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the picture control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. On Macintosh, <em>pictID</em> defines the control's picture resource ID. On Windows, however, <em>pictID</em> refers to a bitmap resource. If the optional <em>frameType</em> flag is omitted, the picture is drawn without frame.</p>
+
+    <p>Possible values of <em>frameType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Default</tt></td>
+
+                    <td>The <tt>DG_FT_NONE</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>StaticEdge</tt></td>
+
+                    <td>The <tt>DG_FT_STATIC</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ClientEdge</tt></td>
+
+                    <td>The <tt>DG_FT_CLIENT</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ModalFrame</tt></td>
+
+                    <td>The <tt>DG_FT_MODAL</tt> frame type is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a></td>
+
+                    <td>The picture control is clicked. The message data parameter is always zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a></td>
+
+                    <td>The picture control is double clicked. The message data parameter is always zero.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>If a picture control is used as explanatory background for other controls, it must precede them in the dialog item list. These controls can be fully or partly within the picture control's area.</p>
+
+    <p>The image of a picture control can be assigned either by the resource ID or by the handle of the image. To set and retrieve the image use <a href="DGSetItemImageId.html">DGSetItemImageId</a> or <a href="DGSetItemImage.html">DGSetItemImage</a> and <a href="DGGetItemImageId.html">DGGetItemImageId</a> or <a href="DGGetItemImage.html">DGGetItemImage</a>, respectively. Note that the image resource ID can be defined in GRC, too.</p>
+
+    <p>When a picture control is created or a new image is assigned to it from program code, the control is automatically resized to the size of the image. During this operation the center of the control is not moved and the possible frame is taken into account.</p>
+
+    <p>Although picture controls are not masked, black &amp; white pictures seem to be transparent. The reason is that when a black &amp; white picture is drawn, the white and black pixels are substituted with the dialog background and foreground colors, respectively.</p>
+
+    <p>In order to spare with resource space, always use as few colors in the image's color table as possible. For example if your image contains 6 different colors only, do not use an image with 256 colors, but use one with 16 colors instead.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="Icon.html">Icon</a><br>
+    <a href="DGGetItemImage.html">DGGetItemImage</a>, <a href="DGGetItemImageId.html">DGGetItemImageId</a>, <a href="DGSetItemImage.html">DGSetItemImage</a>, <a href="DGSetItemImageId.html">DGSetItemImageId</a><br>
+    <a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a>, <a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

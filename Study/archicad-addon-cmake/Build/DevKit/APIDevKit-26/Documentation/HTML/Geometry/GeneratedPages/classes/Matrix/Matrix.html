@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+
+<html>
+<head>
+    <title>Geometry::Matrix Class</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="GRAPHISOFT SE"><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GeneratedPages/classes/Matrix/Matrix.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Geometry::Matrix Class</h1><!--exp="Geometry::Matrix Class"-->
+
+    <p>The matrix representation.</p>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">template</span> <span class="SyntaxSymbol">&lt;</span><span class="SyntaxTypename">USize</span> <span class="SyntaxTemplateIdentifier">RowCount</span><span class="SyntaxSymbol">,</span> <span class="SyntaxTypename">USize</span> <span class="SyntaxTemplateIdentifier">ColumnCount</span><span class="SyntaxSymbol">,</span> <span class="SyntaxTypename">class</span> <span class="SyntaxTemplateIdentifier">ElementType</span><span class="SyntaxSymbol">&gt;</span>
+<span class="SyntaxKeyword">class</span> <span class="SyntaxIdentifier">Matrix</span>
+</pre>
+
+    <h2 class="SectionHeading">Template parameters</h2>
+
+    <dl>
+        <dt><span class="Parameter">RowCount</span></dt>
+
+        <dd>The count of the matrix rows.</dd>
+
+        <dt><span class="Parameter">ColumnCount</span></dt>
+
+        <dd>The count of the matrix columns.</dd>
+
+        <dt><span class="Parameter">ElementType</span></dt>
+
+        <dd>The type of the number in the matrix.</dd>
+    </dl>
+
+    <h2 class="SectionHeading" id="members">Members</h2>
+
+    <p><!-- Don't index --><a href="#NestedClasses">Nested Classes</a><br>
+    <!-- Don't index --><a href="#PublicMethods">Public Methods</a><br>
+    <!-- Don't index --><a href="#PublicOperators">Public Operators</a><br>
+    <!-- Don't index --><a href="#PublicEnums">Public Enums</a><br>
+    <!-- Don't index --><a href="#PublicTypes">Public Types</a><br></p>
+
+    <h2 class="SectionHeading" id="NestedClasses">Nested Classes</h2>
+
+    <table class="Summary">
+        <tr>
+            <th class="LinkColumn">Class</th>
+
+            <th>Description</th>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="ConstRow/ConstRow.html">ConstRow</a></td>
+
+            <td>Representation for a row of the matrix (<i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">read only!</i>).</td>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="Row/Row.html">Row</a></td>
+
+            <td>Representation for a row of the matrix (not <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">read only!</i>).</td>
+        </tr>
+    </table>
+
+    <h2 class="SectionHeading" id="PublicMethods">Public Methods</h2>
+
+    <table class="Summary">
+        <tr>
+            <th class="LinkColumn">Method</th>
+
+            <th>Description</th>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="Get.html">Get</a></td>
+
+            <td>Returns the right element of the matrix.</td>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="GetColumnCount.html">GetColumnCount</a></td>
+
+            <td>Returns the count of the matrix columns.</td>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="GetRowCount.html">GetRowCount</a></td>
+
+            <td>Returns the count of the matrix rows.</td>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="GetType.html">GetType</a></td>
+
+            <td>Returns the type of the matrix.</td>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="Constructors.html">Matrix</a></td>
+
+            <td>This is the constructor.</td>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="Destructor.html">~Matrix</a></td>
+
+            <td>The destructor. It's not used (it's an <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">empty</i> method).</td>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="Set.html">Set</a></td>
+
+            <td>Sets new value to the right element of the matrix.</td>
+        </tr>
+    </table>
+
+    <h2 class="SectionHeading" id="PublicOperators">Public Operators</h2>
+
+    <table class="Summary">
+        <tr>
+            <th class="LinkColumn">Operator</th>
+
+            <th>Description</th>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="operator().html">operator()</a></td>
+
+            <td>Returns the right element of the matrix.</td>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="operator_assign_.html">operator=</a></td>
+
+            <td>Assigns value to the primary matrix.</td>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="operator[].html">operator[]</a></td>
+
+            <td>Returns the right row of the matrix.</td>
+        </tr>
+    </table>
+
+    <h2 class="SectionHeading" id="PublicEnums">Public Enums</h2>
+
+    <table class="Summary">
+        <tr>
+            <th class="LinkColumn">Enum</th>
+
+            <th>Description</th>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn">Type</td>
+
+            <td>The types of the matrix.</td>
+        </tr>
+    </table>
+
+    <h2 class="SectionHeading" id="PublicTypes">Public Types</h2>
+
+    <table class="Summary">
+        <tr>
+            <th class="LinkColumn">Type</th>
+
+            <th>Description</th>
+        </tr>
+
+        <tr>
+            <td class="LinkColumn"><a href="ElemType.html">ElemType</a></td>
+
+            <td>The type of the elements in the matrix.</td>
+        </tr>
+    </table>
+
+    <h2 class="SectionHeading">Requirements</h2>
+
+    <p><span class="RequirementsSection">Namespace:</span> <!-- Don't index --><a href="../../Geometry.html">Geometry</a></p>
+
+    <p><span class="RequirementsSection">Header:</span> Matrix.hpp</p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Open</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/File/Open.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="File.html">File</a>::Open</h1><br>
+    Opens (allows) access to the content of the file.<br>
+    <br>
+    <pre class="syntax">
+<b>virtual GSErrCode  Open (
+    <a href="OpenMode.html">OpenMode</a> om
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>om</em></dt>
+
+        <dd>Determines the way content of the file can be accessed. Possible modes are:</dd>
+
+        <dd>
+            <blockquote>
+                <table class="enumeration" width="531">
+                    <tr>
+                        <th width="104">Value</th>
+
+                        <th width="385">Meaning</th>
+                    </tr>
+
+                    <tr>
+                        <td width="104">ReadMode</td>
+
+                        <td width="385">Content of the file can be accessed only by operations with read semantics.</td>
+                    </tr>
+
+                    <tr>
+                        <td width="104">WriteMode</td>
+
+                        <td width="385">Content of the file can be accessed only by operations with write semantics.</td>
+                    </tr>
+
+                    <tr>
+                        <td width="104">WriteEmptyMode</td>
+
+                        <td width="385">Same as WriteMode, except that content of the file is cleared at opening (length of the file content is set to 0).</td>
+                    </tr>
+
+                    <tr>
+                        <td width="104">ReadWriteMode</td>
+
+                        <td width="385">
+                            ReadMode + WriteMode.
+
+                            <p><b>Important</b>: buffering performed by the File class is disabled in this mode, so writing lot of simple types (Write (<i>type</i>) operations) is fairly ineffective. Furthermore block support on the output channel is <b>disabled</b> in this mode. Binary writing (in major chunks) is not affected.</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="104">AppendMode</td>
+
+                        <td width="385">A special WriteMode where write operations always take place at the current end of the file content (appending). At opening file content position is automatically set to the end of the original content (thus existing data can not be overwritten).<br>
+                        Operations related to the random accessible property of the file content (seeking, file position query / set) are not allowed.</td>
+                    </tr>
+                </table>
+            </blockquote>
+        </dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="346">
+        <tr>
+            <th width="95">Value</th>
+
+            <th width="209">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="95">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="209">OK</td>
+        </tr>
+
+        <tr>
+            <td width="95">AccessDenied<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="209">operation is not allowed on this file</td>
+        </tr>
+
+        <tr>
+            <td width="95">NoMoreOSFile<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="209">file can not be opened because there is no free OS handle</td>
+        </tr>
+
+        <tr>
+            <td width="95">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="209">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in File class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>Before content of a file can be accessed, it must be opened in some mode. (Other file attributes like dates can be manipulated directly without surrounding open / close operations). During opening, file content position is set to the beginning of the file content (0 position), except in appending mode, where it is set to the end of the file content.</p>
+
+    <p>After opening, file content can be accessed or manipulated with read, write and positioning operations according to the open mode <i>om</i>. An opened File instance can be used as a proper input channel (<a href="../../../GSRoot/GSRootHTMLLibrary/GS/IChannel/IChannel.html">GS::IChannel</a>), output channel (<a href="../../../GSRoot/GSRootHTMLLibrary/GS/OChannel/OChannel.html">GS::OChannel</a>) or both, depending on the open mode.</p>
+
+    <p>After the use, access to the file content can be explicitly closed with the <a href="Close.html">Close</a> method (preferred style). Anyway, if the file content was left opened, it will be automatically closed at the destruction time. File content can be opened and closed arbitrary times.<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

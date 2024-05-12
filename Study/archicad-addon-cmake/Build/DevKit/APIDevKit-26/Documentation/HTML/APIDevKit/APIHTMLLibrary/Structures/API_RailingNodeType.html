@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>API_RailingNodeType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_RailingNodeType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_RailingNodeType</h1>
+    <p>Represents a Railing Node element.</p>
+
+<pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                     <em>head</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                          <em>owner</em>;
+        <strong>bool</strong>                              <em>visible</em>;
+        <strong>bool</strong>                              <em>unifyPatterns</em>;
+        <strong>bool</strong>                              <em>isStatic</em>;
+        <strong>bool</strong>                              <em>filler_1[5]</em>;
+        <strong><a href="API_RailingPostType.html">API_RailingPostType</a></strong>               <em>defPost</em>;
+        <strong><a href="API_RailingRailEndType.html">API_RailingRailEndType</a></strong>            <em>defRailEnd</em>;
+        <strong><a href="API_RailingRailEndType.html">API_RailingRailEndType</a></strong>            <em>defHandrailEnd[2]</em>;
+        <strong><a href="API_RailingRailEndType.html">API_RailingRailEndType</a></strong>            <em>defToprailEnd</em>;
+        <strong><a href="API_RailingRailConnectionType.html">API_RailingRailConnectionType</a></strong>     <em>defRailConnection</em>;
+        <strong><a href="API_RailingRailConnectionType.html">API_RailingRailConnectionType</a></strong>     <em>defHandrailConnection[2]</em>;
+        <strong><a href="API_RailingRailConnectionType.html">API_RailingRailConnectionType</a></strong>     <em>defToprailConnection</em>;
+        <strong>short</strong>                             <em>visiblePostNum</em>;
+        <strong>short</strong>                             <em>filler_2[3]</em>;
+        <strong>double</strong>                            <em>elevation</em>;
+        <strong>double</strong>                            <em>postOffset</em>;
+        <strong>UInt32</strong>                            <em>nRailConnections</em>;
+        <strong>UInt32</strong>                            <em>nRailEnds</em>;
+        <strong>bool</strong>                              <em>autoConnectionOffset</em>;
+        <strong>bool</strong>                              <em>tiltedPost</em>;
+        <strong>bool</strong>                              <em>filler_3[6]</em>;
+        <strong>double</strong>                            <em>connectionOffset</em>;
+        <strong>double</strong>                            <em>endingOffset</em>;
+    <strong>}</strong> <em>API_RailingNodeType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+    <dl>
+        <dt><b>head</b></dt>
+        <dd>General element header.</dd>
+
+        <dt><b>owner</b></dt>
+        <dd>GUID of the Railing element owning this Railing Node.</dd>
+
+        <dt><b>visible</b></dt>
+        <dd>True, if the Railing Node is visible.</dd>
+
+        <dt><b>unifyPatterns</b></dt>
+        <dd>If unifyPatterns is false, than crop segment at Node, otherwise continue the pattern.</dd>
+
+        <dt><b>isStatic</b></dt>
+        <dd>True, if the Railing Node is static.</dd>
+
+        <dt><b>defPost</b></dt>
+        <dd>The default Railing Post element, from which the Railing Post instances will be generated.</dd>
+
+        <dt><b>defRailEnd</b></dt>
+        <dd>The default Rail End element, from which the default Rail End instances will be generated.</dd>
+
+        <dt><b>defHandrailEnd</b></dt>
+        <dd>The default Handrail End elements, from which the Handrail End instances will be generated.</dd>
+
+        <dt><b>defToprailEnd</b></dt>
+        <dd>The default Toprail End element, from which the Toprail End instances will be generated.</dd>
+
+        <dt><b>defRailConnection</b></dt>
+        <dd>The default Rail Connection element, from which the default Rail Connection instances will be generated.</dd>
+
+        <dt><b>defHandrailConnection</b></dt>
+        <dd>The default Handrail Connection elements, from which the Handrail Connection instances will be generated.</dd>
+
+        <dt><b>defToprailConnection</b></dt>
+        <dd>The default Toprail Connection element, from which the Toprail Connection instances will be generated.</dd>
+
+        <dt><b>visiblePostNum</b></dt>
+        <dd>Amount of visible posts.</dd>
+
+        <dt><b>elevation</b></dt>
+        <dd>Vertical offset.</dd>
+
+        <dt><b>postOffset</b></dt>
+        <dd>Post offset from Node.</dd>
+
+        <dt><b>nRailConnections</b></dt>
+        <dd>The number of Rail Connections.</dd>
+
+        <dt><b>nRailEnds</b></dt>
+        <dd>The number of Rail Ends.</dd>
+
+        <dt><b>autoConnectionOffset</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd> .</dd>
+
+        <dt><b>tiltedPost</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd> .</dd>
+
+        <dt><b>connectionOffset</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd> .</dd>
+
+        <dt><b>endingOffset</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd> .</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+    <p>
+    	Railing Node elements contain Railing Posts, and Rail connections and endings.
+    	Each Node represents a vertex in the reference line of the railing.
+    </p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+    <p>
+    	<a href="API_Element.html">API_Element</a>, <a href="API_RailingType.html">API_RailingType</a>,
+    	<a href="API_RailingPostType.html">API_RailingPostType</a>,
+        <a href="API_RailingRailEndType.html">API_RailingRailEndType</a>,
+        <a href="API_RailingRailConnectionType.html">API_RailingRailConnectionType</a>
+        <br>
+    	<a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

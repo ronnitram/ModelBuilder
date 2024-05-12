@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Scroll Bar</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/ScrollBar.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Scroll Bar</h1>
+
+    <p>The scroll bar control is a rectangle that contains a sliding scroll box and has direction arrows at both ends. Besides the scroll box and the direction arrows, a scroll bar has one more active part: the so called gray area (the two rectangles between the scroll box and the arrows). The user can modify the current position of the scroll box by clicking the mouse on the direction arrows or anywhere in the gray area or by tracking the scroll box. A click on the direction arrows modifies the control value by 1, while a click in the gray area modifies it by a page (see Remarks). On Windows, scroll bars can have the keyboard focus. When a scroll bar is focused, its scroll box is blinking and the user can modify the control value by pressing the <tt>Home</tt>, <tt>End</tt>, <tt>PageUp</tt>, <tt>PageDown</tt> and arrow keys.</p>
+
+    <p>A scroll bar has a range and a current position. The range represents the minimum and maximum position values for the control. Because these values are expressed as short integers, the highest possible range and current position value is <tt>SHRT_MAX</tt>. The control itself uses the range and the current value to determine the pixel position of the scroll box.</p>
+
+    <p>There are two basic types of scroll bars: the horizontal and vertical ones. When you create a scroll bar, DG automatically determines its orientation according to the specified horizontal and vertical sizes. If the horizontal size is greater than the vertical one DG creates a horizontal scroll bar. In the opposite case DG creates a vertical scroll bar.</p>
+
+    <p>Scroll bars should be typically attached to <a href="UserItem.html">user items</a> whose contents extend beyond their border. A horizontal scroll bar enables the user to scroll the content of the user item to the left or right. A vertical scroll bar enables the user to scroll the content up or down. Moreover, a scroll bar can be positioned anywhere in a dialog and used whenever needed to provide an analog representation of the current position. In this situation, however, using a <a href="SliderBar.html">slider bar</a> is a better alternative than using a scroll bar.</p>
+
+    <p>Note that some controls in DG (<a href="EditControl.html">edit control</a>, <a href="ListBox.html">list box</a>, <a href="ListView.html">list view</a> and <a href="TreeView.html">tree view</a>) have built-in scroll bars that are parts of the controls and handled internally by DG. These scroll bars are usually disabled, but they become active if the controls are not large enough to display all of their content. You should not attach separate scroll bars to the controls mentioned above.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/ScrollBar_Mac.png" width="128" height="92" alt="ScrollBar_Mac">&nbsp;&nbsp;&nbsp;&nbsp;<img src="../DGImageLibrary/ScrollBar_Win.png" alt="ScrollBar_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_SCROLLBAR</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left" width="300">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SB_NORMAL</tt></td>
+
+                    <td width="500">Normal scroll bar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SB_PROPORTIONAL</tt></td>
+
+                    <td width="500">The scroll box size changes automatically, when the page size is changed.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Flags</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left" width="300">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SB_NONFOCUSABLE</tt></td>
+
+                    <td width="500">If it is set, the scroll bar item will not get the keyboard focus.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SB_NOAUTOSCROLL</tt></td>
+
+                    <td width="500">If it is set, the scroll bar handles only the <tt>DG_TSM_THUMBTRACK</tt> sub-message, the other sub-messages should be handled by the dialog callback function, so the application is responsible to move the scroll box according to the event. If it is not set, the sub-message is <tt>DG_TSM_TRACKING</tt> always, and the scroll box will move automatically.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    ScrollBar    <i>x  y  dx  dy  pageSize  min  max [styleFlag]</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the scroll bar, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>pageSize</em> defines the page size of the scroll bar (see Remarks for details). <em>min</em> and <em>max</em> specifies the initial range of the scroll bar. The optional <em>styleFlag</em> parameter can be any <tt>OR(|)</tt> combination of the proportional, focusable and autoscroll flags.</p>
+
+    <p>Possible values of the proportional flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Normal</tt></td>
+
+                    <td>Normal scroll bar. Not proportional.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Proportional</tt></td>
+
+                    <td>Proportional scroll bar. The scroll box size changes automatically, when the page size is changed.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the focusable flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Focusable</tt></td>
+
+                    <td>The scroll bar can have the keyboard focus.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NonFocusable</tt></td>
+
+                    <td>The scroll bar cannot have the keyboard focus.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the autoscroll flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>AutoScroll</tt></td>
+
+                    <td>The scroll bar handles the scroll bar specific events itself, the dialog callback function is notified just about the beginning, finishing, and during tracking.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoAutoScroll</tt></td>
+
+                    <td>The scroll bar handles only the <tt>DG_TSM_THUMBTRACK</tt> sub-message, the other sub-messages should be handled by the dialog callback function, so the application is responsible to move the scroll box according to the event.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>The position of the scroll box is changed. The message data parameter contains the previous position.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_TRACK.html"><tt>DG_MSG_TRACK</tt></a></td>
+
+                    <td>The position of the scroll box is changed during tracking. The message data parameter is the sub-message.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p><a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a> and <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a> functions can set the scroll bar's modification flag except if they are called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. The flag can also be set by user actions that generate <tt>DG_MSG_CHANGE</tt> or <tt>DG_MSG_TRACK</tt> messages. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The range of a scroll bar can be specified not only in GRC. You can dynamically alter the range by using the <b>DGSetItemMinLong</b> and <b>DGSetItemMaxLong</b> functions. The possible minimum of the range is zero while the maximum is <tt>SHRT_MAX</tt>. Use <a href="DGGetItemMinLong.html">DGGetItemMinLong</a> and <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a> to retrieve the range of a scroll bar. The current value can be set and retrieved by <b>DGSetItemValLong</b> and <a href="DGGetItemValLong.html">DGGetItemValLong</a>, respectively.</p>
+
+    <p>If either of the range or value setting functions is called, DG checks the consistency of data (i.e. whether the <em>minimum &lt;= value &lt;= maximum</em> condition is true or not). If data are inconsistent, DG automatically adjusts them. For the details of this adjustment see <b>DGSetItemValLong</b>, <b>DGSetItemMinLong</b> and <b>DGSetItemMaxLong</b>.</p>
+
+    <p>The position of the scroll box is derived from the current value based on the minimum and maximum value. The relative position is calculated using the following formula: <em>relative position</em> = (<em>value - minimum</em>) / (<em>maximum - minimum</em>). On Windows, if minimum and maximum values are equal, the scroll box is placed at the beginning of the control. However, on Macintosh, the scroll bar becomes disabled in this case.</p>
+
+    <p>If the user clicks and tracks the scroll box, or clicks and holds down the (left) mouse button on one of the arrows or in the gray area of the control, or presses and holds down one of the direction keys when the scroll bar has the keyboard focus, DG sends <tt>DG_MSG_TRACK</tt> messages to the dialog callback function until the user releases the (left) mouse button or the pressed key. With <tt>DG_MSG_TRACK</tt> message, a sub-message will be delivered also, which specifies the scroll bar event more detailed. This allows the application to modify other controls during tracking. When handling <tt>DG_MSG_TRACK</tt> messages call <b>DGGetItemValLong</b> to retrieve the current value of the scroll bar. As soon as tracking is finished the callback function receives a <tt>DG_MSG_CHANGE</tt> message; the message data parameter is the scroll box position before tracking. Note that every <tt>DG_MSG_CHANGE</tt> message is preceded by at least one <tt>DG_MSG_TRACK</tt> message.</p>
+
+    <p>When the user clicks in the gray area of a scroll bar, or on Windows presses the <tt>PageUp</tt> or <tt>PageDown</tt> keys while the scroll bar has the keyboard focus, the scroll box position is modified by the value of the page size. The page size is initialized from GRC.</p>
+
+    <p>If you want to set the page size to a particular value use <a href="DGScrollBarSetPageSize.html">DGScrollBarSetPageSize</a>. To retrieve the current page size use <a href="DGScrollBarGetPageSize.html">DGScrollBarGetPageSize</a>.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="EditControl.html">Edit Control</a>, <a href="ListBox.html">List Box</a>, <a href="ListView.html">List View</a>, <a href="SliderBar.html">Slider Bar</a>, <a href="TreeView.html">Tree View</a>, <a href="UserItem.html">User Item</a><br>
+    <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a>, <a href="DGGetItemMinLong.html">DGGetItemMinLong</a>, <a href="DGGetItemValLong.html">DGGetItemValLong</a>, <a href="DGModified.html">DGModified</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a>, <a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="DGScrollBarGetPageSize.html">DGScrollBarGetPageSize</a>, <a href="DGScrollBarSetPageSize.html">DGScrollBarSetPageSize</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a>, <a href="DG_MSG_TRACK.html"><tt>DG_MSG_TRACK</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 30, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

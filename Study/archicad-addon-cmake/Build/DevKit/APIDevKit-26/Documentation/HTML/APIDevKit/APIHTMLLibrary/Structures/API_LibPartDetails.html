@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_LibPartDetails</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_LibPartDetails.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_LibPartDetails</h1>
+
+    <p>Detail parameters of a Library Part.</p>
+    <pre class="syntax">
+<tt>    <strong>typedef union {</strong>
+      <strong>struct</strong> {
+             <strong>bool</strong>                   <em>fixSize</em>;
+             <strong>bool</strong>                   <em>autoHotspot</em>;
+             <strong>bool</strong>                   <em>uiTabDefault</em>;
+             <strong>bool</strong>                   <em>sizeTo2D</em>;
+             <strong>bool</strong>                   <em>uiUseHierarchicalPages</em>;
+             <strong>bool</strong>                   <em>runVLScriptOnlyOnce</em>;
+             <strong>bool</strong>                   <em>enableHideFixNamedParams</em>;
+             <strong>bool</strong>                   <em>enable2DScriptDrawingOrder</em>;
+             <strong>Int32</strong>                  <em>filler_2[6]</em>;
+      } <em>object, light, label, zone</em>;
+      <strong>struct</strong> {
+             <strong>char</strong>                   <em>mirThickExpr[512]</em>;
+             <strong>char</strong>                   <em>wallInsetExpr[512]</em>;
+             <strong>char</strong>                   <em>leftFramExpr[512]</em>;
+             <strong>char</strong>                   <em>righFramExpr[512]</em>;
+             <strong>char</strong>                   <em>topFramExpr[512]</em>;
+             <strong>char</strong>                   <em>botFramExpr[512]</em>;
+             <strong>float</strong>                  <em>mirThick</em>;
+             <strong>float</strong>                  <em>wallInset</em>;
+             <strong>float</strong>                  <em>leftFram</em>;
+             <strong>float</strong>                  <em>righFram</em>;
+             <strong>float</strong>                  <em>topFram</em>;
+             <strong>float</strong>                  <em>botFram</em>;
+             <strong>char</strong>                   <em>orientation</em>;
+             <strong>char</strong>                   <em>filler_3</em>;
+             <strong>bool</strong>                   <em>contours_3D</em>;
+             <strong>bool</strong>                   <em>uiTabDefault</em>;
+             <strong>bool</strong>                   <em>uiUseHierarchicalPages</em>;
+             <strong>bool</strong>                   <em>runVLScriptOnlyOnce</em>;
+             <strong>bool</strong>                   <em>enable2DScriptDrawingOrder</em>;
+             <strong>char</strong>                   <em>filler_1[1]</em>;
+             <strong>char</strong>                   <em>defaultLabel[32]</em>;
+             <strong>char</strong>                   <em>mirroredLabel[32]</em>;
+             <strong>Int32</strong>                  <em>filler_2[8]</em>;
+      } <em>wind, door</em>;
+    <strong>}</strong> <em>API_LibPartDetails</em>;
+</tt>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>fixSize</b></dt>
+
+        <dd>Store fix values rather than the ratio of current/default A/B sizes</dd>
+
+        <dt><b>autoHotspot</b></dt>
+
+        <dd>Place hotspots on the bounding box</dd>
+
+        <dt><b>uiTabDefault</b></dt>
+
+        <dd>Open the dialog with the User Interface tab page as the default</dd>
+
+        <dt><b>sizeTo2D</b></dt>
+
+        <dd>Adjust parameters A and B to the bounding box of the 2D symbol <img border="0" src="../../APIImageLibrary/43.png" alt="4.3" width="19" height="12"></dd>
+
+        <dt><b>uiUseHierarchicalPages</b></dt>
+
+        <dd>Use the new hierarchycal UI page system in object settings dialog <img border="0" src="../../APIImageLibrary/18.png" alt="Changed in API 18" width="19" height="12"></dd>
+        
+        <dt><b>runVLScriptOnlyOnce</b></dt>
+
+        <dd>Run the parameter script of the library only once. </dd>
+     
+        <dt><b>enable2DScriptDrawingOrder</b></dt>
+
+        <dd>Drawing order follows order of commands in 2D Script.</dd>
+
+       <dt><b>mirThickExpr</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>Window/door draw mirror thickness expression</dd>
+
+        <dt><b>wallInsetExpr</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>Window/door parapet wall inset expression</dd>
+
+        <dt><b>leftFramExpr</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>Window/door left frame expression</dd>
+
+        <dt><b>righFramExpr</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>Window/door right frame expression</dd>
+
+        <dt><b>topFramExpr</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>Window/door top frame expression</dd>
+
+        <dt><b>botFramExpr</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>Window/door bottom frame expression</dd>
+
+        <dt><b>mirThick</b></dt>
+
+        <dd>Window/door draw mirror thickness if not expression</dd>
+
+        <dt><b>wallInset</b></dt>
+
+        <dd>Window/door parapet wall inset if not expression</dd>
+
+        <dt><b>leftFram</b></dt>
+
+        <dd>Window/door left frame if not expression</dd>
+
+        <dt><b>righFram</b></dt>
+
+        <dd>Window/door right frame if not expression</dd>
+
+        <dt><b>topFram</b></dt>
+
+        <dd>Window/door top frame if not expression</dd>
+
+        <dt><b>botFram</b></dt>
+
+        <dd>Window/door bottom frame if not expression</dd>
+
+        <dt><b>orientation</b></dt>
+
+        <dd>
+            Defines the way the opening's orientation is displayed:
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <td><code>API_Orient_Default</code></td>
+
+                    <td>Display Door/Window opening orientation as a standard default setting</td>
+                </tr>
+
+                <tr>
+                    <td><code>API_Orient_Reverse</code></td>
+
+                    <td>Display Door/Window opening orientation in reverse as a standard default setting</td>
+                </tr>
+
+                <tr>
+                    <td><code>API_Orient_Custom</code></td>
+
+                    <td>Use customized display of Door/Window opening orientation</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>contours_3D</b></dt>
+
+        <dd>3D image is framed (wind/door)</dd>
+
+        <dt><b>uiTabDefault</b></dt>
+
+        <dd>Open the dialog with the User Interface tab page as the default.</dd>
+
+        <dt><b>uiUseHierarchicalPages</b></dt>
+
+        <dd>Use the new hierarchycal UI page system in object settings dialog <img border="0" src="../../APIImageLibrary/18.png" alt="Changed in API 18" width="19" height="12"></dd>
+
+        <dt><b>runVLScriptOnlyOnce</b></dt>
+
+        <dd>Run the parameter script of the library only once. </dd>
+
+        <dt><b>enable2DScriptDrawingOrder</b></dt>
+
+        <dd>Drawing order follows order of commands in 2D Script.</dd>
+
+       <dt><b>defaultLabel</b></dt>
+
+        <dd>Default position label</dd>
+
+        <dt><b>mirroredLabel</b></dt>
+
+        <dd>Mirrored position label</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure contains the detail parameters of the library part. These parameters can be edited in Archicad by clicking the Details button on the parameter list editor dialog box.</p>
+
+    <p>Note, that the parameters depend on the type of the Library Part. These parameters are coded in the parameter section (<code>API_SectParamDef</code>) of the Library Part.</p>
+
+    <p>Refer to the <a href="../Functions/ACAPI_LibPart_GetDetails.html">ACAPI_LibPart_GetDetails</a> and <a href="../Functions/ACAPI_LibPart_SetDetails_ParamDef.html">ACAPI_LibPart_SetDetails_ParamDef</a> functions to get or modify such parameters of a Library Part.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12">&nbsp; In Archicad 10 the <code>contours_2D</code> field has been removed from the structure.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_LibraryParts.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/ACAPI_LibPart_GetDetails.html">ACAPI_LibPart_GetDetails</a>, <a href="../Functions/ACAPI_LibPart_SetDetails_ParamDef.html">ACAPI_LibPart_SetDetails_ParamDef</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 18, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

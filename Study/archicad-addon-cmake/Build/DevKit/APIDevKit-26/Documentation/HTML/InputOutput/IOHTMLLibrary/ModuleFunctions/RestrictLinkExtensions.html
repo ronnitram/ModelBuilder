@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>RestrictLinkExtensions</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/ModuleFunctions/RestrictLinkExtensions.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>RestrictLinkExtensions</h1><br>
+    Restricts extension of links to "<font face="Courier New">.lnk</font>" on <b>Windows</b>.
+
+    <p><b><font color="#008080">Header:</font></b> IOMain.hpp<br>
+    <br></p>
+    <pre class="syntax">
+<b>void  RestrictLinkExtensions (
+    void
+);</b>
+</pre>
+
+    <h3>Description</h3>
+
+    <p>Links are automatically resolved when <a href="../File/File.html">File</a> or <a href="../Folder/Folder.html">Folder</a> instances are created from a <a href="../Location/Location.html">Location</a>. However determining whether is a file system entry a link is fairly slow on <b>Windows</b>, because its native file system has only files and folders, and links are files (and folders) with special content which must be examined.<br>
+    Process of link examination can be considerably speeded up on <b>Windows</b> with the common assumption that links must have extension "<font face="Courier New">.lnk</font>". This means that a file system entry with extension other than "<font face="Courier New">.lnk</font>" <b>is not</b> a link (it will be treated file or folder), and a file system entry with extension "<font face="Courier New">.lnk</font>" <b>may be</b> a link and its content will be further examined. This is a reasonable assumption which is adopted by most of applications.</p>
+
+    <p>By default <a href="../../InputOutput.html">InputOutput</a> module doesn't expose any restriction on the extension of links. This function instructs the <b>Windows</b> implementation to use the former assumption (it has no effect on other platforms). It has several consequences:</p>
+
+    <ul>
+        <li><a href="../Folder/CreateLink.html">CreateLink</a> method of the <a href="../Folder/Folder.html">Folder</a> class will fail to create links with extension other than "<font face="Courier New">.lnk</font>".</li>
+
+        <li><a href="../FileSystem/ResolveLocation.html">ResolveLocation</a> method of the <a href="../FileSystem/FileSystem.html">FileSystem</a> class will examine file system entries only with extension "<font face="Courier New">.lnk</font>" for potential link resolvation.</li>
+
+        <li><a href="../Folder/GetType.html">GetType</a> and <a href="../Folder/GetResolvedType.html">GetResolvedType</a> methods of the <a href="../Folder/Folder.html">Folder</a> and <a href="../FileSystem/FileSystem.html">FileSystem</a> classes will examine file system entries only with extension "<font face="Courier New">.lnk</font>" for potential link type.</li>
+
+        <li><a href="../File/File.html">File</a> and <a href="../Folder/Folder.html">Folder</a> constructors will try automatic resolvation only for file system entries with extension "<font face="Courier New">.lnk</font>".</li>
+
+        <li>There are special folder links (folders with special content) on <b>Windows</b> which typically have no "<font face="Courier New">.lnk</font>" extension. These links will not be recognized, but such links are commonly considered and resolved only in (system) file dialogs.</li>
+    </ul>
+
+    <p>Please note that this function is for optimization purposes only and may change to have less or no effect in the future, so <b>do not rely</b> in any way on its peculiarities and consequences.<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ShellBaseType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ShellBaseType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ShellBaseType</h1>
+
+    <p>The common parameters of roof (<a href="API_RoofType.html">API_RoofType</a>) and shell (<a href="API_ShellType.html">API_ShellType</a>) elements.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>short</strong>                              <em>pen</em>;
+        <strong>short</strong>                              <em>filler_0</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>ltypeInd</em>;
+        <strong><a href="API_ModelElemStructureType.html">API_ModelElemStructureType</a></strong>         <em>modelElemStructureType</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>buildingMaterial</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>composite</em>;
+        <strong>short</strong>                              <em>filler_1[2]</em>;
+        <strong><a href="API_PenOverrideType.html">API_PenOverrideType</a></strong>                <em>penOverride</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>sectContLtype</em>;
+        <strong>short</strong>                              <em>sectContPen</em>;
+        <strong>short</strong>                              <em>floorFillPen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>floorFillInd</em>;
+        <strong>short</strong>                              <em>floorFillBGPen</em>;
+        <strong>short</strong>                              <em>aboveViewLinePen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>aboveViewLineType</em>;
+        <strong>short</strong>                              <em>filler_2[2]</em>;
+        <strong>bool</strong>                               <em>useFloorFill</em>;
+        <strong>bool</strong>                               <em>use3DHatching</em>;
+        <strong>bool</strong>                               <em>useFillLocBaseLine</em>;
+        <strong>bool</strong>                               <em>useSlantedFill</em>;
+        <strong>Int32</strong>                              <em>filler_3[8]</em>;
+        <strong><a href="API_HatchOrientation.html">API_HatchOrientation</a></strong>               <em>hatchOrientation</em>;
+        <strong>char</strong>                               <em>filler_4[16]</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>            <em>topMat</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>            <em>sidMat</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>            <em>botMat</em>;
+        <strong>bool</strong>                               <em>materialsChained</em>;
+        <strong>bool</strong>                               <em>isAutoOnStoryVisibility</em>;
+        <strong><a href="API_StoryVisibility.html">API_StoryVisibility</a></strong>                <em>visibilityCont</em>;
+        <strong><a href="API_StoryVisibility.html">API_StoryVisibility</a></strong>                <em>visibilityFill</em>;
+        <strong><a href="API_LinkToSettings.html">API_LinkToSettings</a></strong>                 <em>linkToSettings</em>;
+        <strong>bool</strong>                               <em>filler_5[12]</em>;
+        <strong>Int32</strong>                              <em>filler_6</em>;
+        <strong>double</strong>                             <em>level</em>;
+        <strong>double</strong>                             <em>thickness</em>;
+        <strong><a href="API_EdgeTrim.html">API_EdgeTrim</a></strong>                       <em>edgeTrim</em>;
+        <strong><a href="API_ShellBaseCutBodyTypeID.html">API_ShellBaseCutBodyTypeID</a></strong>         <em>cutBodyType</em>;
+        <strong><a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a></strong>           <em>displayOption</em>;
+        <strong><a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a></strong>     <em>viewDepthLimitation</em>;
+        <strong>Int32</strong>                              <em>compositionPriority</em>;
+    <strong>}</strong> <em>API_ShellBaseType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>pen</b></dt>
+
+        <dd>Pen attribute index of the contour.</dd>
+
+        <dt><b>ltypeInd</b></dt>
+
+        <dd>Line type attribute index of the contour.</dd>
+
+        <dt><b>modelElemStructureType</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>The structure type of the shellBase.</dd>
+
+        <dt><b>buildingMaterial</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Building Material index of shellBase's hatch. Used only, if structure type is <a href="API_ModelElemStructureType.html">API_BasicStrucure</a>.</dd>
+
+        <dt><b>composite</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Composite index of shellBase. Used only, if structure type is <a href="API_ModelElemStructureType.html">API_CompositeStructure</a>.</dd>
+
+        <dt><b>penOverride</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Cut fill pens set in the used structure (building material, composite) can be overridden on the element level.</dd>
+
+        <dt><b>sectContPen</b></dt>
+
+        <dd>Contour pen attribute index of the fill in sections.</dd>
+
+        <dt><b>sectContLtype</b>&nbsp;<img border="0" src="../../APIImageLibrary/51.png" alt="5.1" width="19" height="12"></dt>
+
+        <dd>Line type attribute index of the element's section contour.</dd>
+
+        <dt><b>floorFillPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Pen attribute index of element's cover fill.</dd>
+
+        <dt><b>floorFillBGPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Background pen attribute index of the element's cover fill.</dd>
+
+        <dt><b>floorFillInd</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Fill attribute index of the element's cover fill.</dd>
+
+        <dt><b>aboveViewLinePen</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Pen used when "Overhead All" is selected from the "Floor Plan Display" popup. Corresponds to the "Overhead Line Pens" value in the element's Settings dialog.</dd>
+
+        <dt><b>aboveViewLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Line type used when "Overhead All" is selected from the "Floor Plan Display" popup. Corresponds to the "Overhead Lines" value in the element's Settings dialog.</dd>
+
+        <dt><b>useFloorFill</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Use cover fill.</dd>
+
+        <dt><b>use3DHatching</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Use the fill attribute assigned to the surface material (vectorial 3D hatch) of the element.</dd>
+
+        <dt><b>useFillLocBaseLine</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Align the cover fill pattern with the pivot line of the roof instead of using the fill handle.</dd>
+
+        <dt><b>useSlantedFill</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Distort the cover fill to have the effect of a sloped roof as seen from above.</dd>
+
+        <dt><b>hatchOrientation</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Orientation and distortion parameters of the cover fill.</dd>
+
+        <dt><b>topMat</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Top material attribute override structure.</dd>
+
+        <dt><b>sideMat</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Side material attribute override structure.</dd>
+
+        <dt><b>botMat</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Bottom material attribute override structure.</dd>
+
+        <dt><b>materialsChained</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></dt>
+
+        <dd>Are surface materials chained?</dd>
+
+        <dt><b>isAutoOnStoryVisibility</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Recalculate the story visibility automatically according to the actual vertical extent of the element.</dd>
+
+        <dt><b>visibilityCont</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Visibility of the element's contour line. On the element's own story the contour should always be visible.</dd>
+
+        <dt><b>visibilityFill</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Visibility of the element's cover fill.</dd>
+
+        <dt><b>linkToSettings</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Mode of linking to home story.</dd>
+
+        <dt><b>level</b></dt>
+
+        <dd>Base level of the element (reference line height in case of Roof elements) from the floor level.</dd>
+
+        <dt><b>thickness</b></dt>
+
+        <dd>Thickness of the element.</dd>
+
+        <dt><b>edgeTrim</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Type of the trim of the element's edges. <em>(In former API versions this parameter used to be called <code>sideType</code>.)</em></dd>
+
+        <dt><b>cutBodyType</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Type of the element's body extension for connections (see <a href="API_ShellBaseCutBodyTypeID.html">API_ShellBaseCutBodyTypeID</a>).</dd>
+
+        <dt><b>displayOption</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Display options of the element on the floor plan (see <a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a>).</dd>
+
+        <dt><b>viewDepthLimitation</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Defines the range within the element is shown on the floor plan (see <a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a>).</dd>
+
+        <dt><b>compositionPriority</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Corresponds to the value of "Junction Order" in the settings dialogs, visible only when "Use legacy intersection and Surface methods for model elements" is set in Project Preferences / Legacy.<br>
+        Its value is in the [0-16] range.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p><img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12">&nbsp; This structure is created from <code>API_RoofType</code> to hold the common parameters of <a href="API_RoofType.html">API_RoofType</a> and <a href="API_ShellType.html">API_ShellType</a>.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the type of the elements' structure is defined with the new <code>modelElemStructureType</code> member. The related attribute indices are separated into <code>buildingMaterial</code> and <code>composite</code>. The composite index is a non-negative index.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the the elements' cut fill foreground and background pens inherit from the element structure, and can be overridden on the element level.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the the elements' surface materials inherit from the element structure, and can be overridden on the element level.</p>
+
+    <p>For shell related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 15 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_HatchOrientation.html">API_HatchOrientation</a>, <a href="API_StoryVisibility.html">API_StoryVisibility</a>, <a href="API_LinkToSettings.html">API_LinkToSettings</a><br>
+    <a href="API_EdgeTrim.html">API_EdgeTrim</a>, <a href="API_ShellBaseCutBodyTypeID.html">API_ShellBaseCutBodyTypeID</a>, <a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a>, <a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a><br>
+    <a href="API_RoofType.html">API_RoofType</a>, <a href="API_ShellType.html">API_ShellType</a>, <a href="API_Element.html">API_Element</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 13, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

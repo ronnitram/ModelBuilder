@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Lipcsei Peter">
+
+    <title>DG List Box drag and drop</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/ListBoxDragDrop.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>List Box control Drag and Drop</h1>
+
+    <p>You can drag and drop list box items, between list boxes or other controls (with drag and drop support), using the drag and drop capability of the Dialog Manager module.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The default drag format is 'LBEX' its scope is dialog wide. When a drag and drop operation starts from a list box, DG sets up data with <tt>'LBEX'</tt> format. This data block contains the selected list box items. To alter the scope or the base format of the drag and drop use <a href="DGDragModifyBaseFormat.html">DGDragModifyBaseFormat</a>. The maximum scope can be application wide: <tt>DG_DRAG_SCOPE_APP</tt>. If you want to specify <tt>DG_DRAG_SCOPE_SYSTEM</tt> scope, user defined drag and drop data must be specified which can be interpreted by the targeted application.</p>
+
+    <p>It is possible to find out the list box drag source by using the <a href="DGDragGetSourceDialog.html">DGDragGetSourceDialog</a> and the <a href="DGDragGetSourceItem.html">DGDragGetSourceItem</a> functions. Then use the <a href="DGDragGetListBoxItem.html">DGDragGetListBoxItem</a> to get the source list box items.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGEnableMessage.html">DGEnableMessage</a>, <a href="DGDragDropMsgData.html">DGDragDropMsgData</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 4, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

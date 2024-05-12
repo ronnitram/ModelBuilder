@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>About Timer Manager</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/TimeManagers/TimerManager/about.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>About Timer Manager</h1>
+
+    <p>The Timer Manager is used to manage timers.</p>
+
+    <p>The Timer Manager uses the <a href="reference/GSTimer.html"><strong>GSTimer</strong></a> type (structure in C language, class in C++ language) to represent a timer. The <strong>GSTimer</strong> type is used to store the parameters and state of a timer. For specifying a timer use the <strong>GSTimer</strong> type in order to exploit the services provided by the Timer Manager.</p>
+
+    <p>Use the <a href="reference/TPReset.html"><strong>TPReset</strong></a> function to initialize a timer, to set its name and to reset its value to zero. You can start a timer at the initialization with <b><a href="reference/TPResetAndStart.html">TPResetAndStart</a>,</b> or later by calling the <a href="reference/TPStart.html"><strong>TPStart</strong></a> function. Once the timer is started, you can obtain its value by calling the <a href="reference/TPGetValue.html"><strong>TPGetValue</strong></a> function. The value of a timer is the elapsed time in seconds since its startup. Each timer has a name as a parameter. <a href="reference/TPGetName.html"><strong>TPGetName</strong></a> function retrieves the name of a timer. If you don't know whether a timer has already started or not, you can check running by calling the <strong><a href="reference/TPRun.html">TPRun</a></strong> function. You can stop a timer with the <a href="../../../GSRootHTMLLibrary/TimeManagers/TimerManager/reference/TPStop.html"><strong>TPStop</strong></a> function.</p>
+
+    <p>The <a href="reference/TPPrintValue.html"><strong>TPPrintValue</strong></a> function supports debugging; it sends a debug string containing information about the value of the specified timer.</p>
+
+    <p>If you use C++, you can use the <strong>GSTimer</strong> to operate with timers as objects. For more information see the <a href="../../../GSRootHTMLLibrary/TimeManagers/TimerManager/reference/GStimer/GSTimer_id.html"><strong>GSTimer</strong></a> class.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

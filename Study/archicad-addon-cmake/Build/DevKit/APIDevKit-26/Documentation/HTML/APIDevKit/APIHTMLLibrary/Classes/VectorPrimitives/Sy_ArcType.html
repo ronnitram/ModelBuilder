@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Sy_ArcType</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/VectorPrimitives/Sy_ArcType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Sy_ArcType</h1>
+
+    <p>Defines a 2D arc.</p>
+    <pre class="syntax">
+<strong>struct</strong> Sy_ArcType {
+    <strong>long</strong>             item_Len;
+    <strong>unsigned char</strong>    item_Typ;
+    <strong>char</strong>             drwIndex;
+    <strong>short</strong>            sy_pen;
+    <strong>short</strong>            sy_layer;
+    <strong>short</strong>            pattern;
+    <strong>long</strong>             whole;
+    <strong>long</strong>             elliptic;
+    <strong>long</strong>             reflected;
+    <strong>long</strong>             filler_0;
+    <strong>long</strong>             origC;
+    <strong>long</strong>             r;
+    <strong>long</strong>             angle;
+    <strong>long</strong>             ratio;
+    <strong>long</strong>             begAng;
+    <strong>long</strong>             endAng;
+    <strong>Coord</strong>            begC;
+    <strong>Coord</strong>            endC;
+    <strong>long</strong>             filler_2;
+    <strong>long</strong>             filler_3;
+};
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><em>item_Len</em></dt>
+
+        <dd>The length of the data record = sizeof(Sy_ArcType).</dd>
+
+        <dt><em>item_Typ</em></dt>
+
+        <dd>Constant SyArc.</dd>
+
+        <dt><em>drwIndex</em></dt>
+
+        <dd>Index in drawing order or 0.</dd>
+
+        <dt><em>sy_pen</em></dt>
+
+        <dd>Pen (color and line thickness) information or 0 if deleted.</dd>
+
+        <dt><em>sy_layer</em></dt>
+
+        <dd>The number of the fragment (layer) this element belongs to (Ranges 1 - 16).</dd>
+
+        <dt><em>pattern</em></dt>
+
+        <dd>The lineType info.</dd>
+
+        <dt><em>whole</em></dt>
+
+        <dd>True, if it is not a partial arc but a whole circle or ellipse.</dd>
+
+        <dt><em>elliptic</em></dt>
+
+        <dd>True, if it is a distorted, elliptical arc. In this case the ratio is taking into account.</dd>
+
+        <dt><em>reflected</em></dt>
+
+        <dd><!--True, if the partial arc is reverse oriented. It still goes from the starting point to the ending point but with negative orientation.-->
+        On the smaller axis.</dd>
+
+        <dt><em>filler_0</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>origC</em></dt>
+
+        <dd>The center point of the arc.</dd>
+
+        <dt><em>r</em></dt>
+
+        <dd>The radius in the model (in meters).</dd>
+
+        <dt><em>angle</em></dt>
+
+        <dd>The declination of the major axis in the model (in radians).</dd>
+
+        <dt><em>ratio</em></dt>
+
+        <dd>The ration of the axes: major axis : minor axis.</dd>
+
+        <dt><em>begAng</em></dt>
+
+        <dd>The angle of the starting point of a partial arc in the model (in radians).</dd>
+
+        <dt><em>endAng</em></dt>
+
+        <dd>The angle of the ending point of a partial arc in the model (in radians).</dd>
+
+        <dt><em>begC</em></dt>
+
+        <dd>The starting point in the model (in meters).</dd>
+
+        <dt><em>endC</em></dt>
+
+        <dd>The ending point in the model (in meters).</dd>
+
+        <dt><em>filler_2</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>filler_3</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>This arc can consist of a lot of simple lines if it has a very complex line type. The arc can be a circle, a fraction of a circle, an ellipse or a fraction of an ellipse.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10.0 or later, ModelerGraphics 8 or later</dd>
+
+        <dd><b>Header:</b> Symb2D.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><!-- Not Index --><a href="../VectorImage/VectorImage.html">VectorImage</a> <!-- FOOTER  FOOTEREND --></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 3, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

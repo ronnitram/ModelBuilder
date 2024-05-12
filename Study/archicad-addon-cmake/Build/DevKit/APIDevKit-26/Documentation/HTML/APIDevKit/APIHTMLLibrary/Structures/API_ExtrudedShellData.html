@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ExtrudedShellData</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ExtrudedShellData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ExtrudedShellData</h1>
+
+    <p>This structure holds the Extruded Shell specific data of <a href="API_ShellType.html">API_ShellType</a>.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>double</strong>                  <em>slantAngle</em>;
+        <strong>double</strong>                  <em>shapePlaneTilt</em>;
+        <strong>double</strong>                  <em>begPlaneTilt</em>;
+        <strong>double</strong>                  <em>endPlaneTilt</em>;
+        <strong><a href="API_Polygon.html">API_Polygon</a></strong>             <em>shellShape</em>;
+        <strong><a href="API_Coord3D.html">API_Coord3D</a></strong>             <em>begC</em>;
+        <strong><a href="API_Coord3D.html">API_Vector3D</a></strong>            <em>extrusionVector</em>;
+        <strong><a href="API_Coord.html">API_Vector</a></strong>              <em>shapeDirection</em>;
+        <strong><a href="API_ContourEdgeData.html">API_ContourEdgeData</a></strong>     <em>begShapeEdgeData</em>;
+        <strong><a href="API_ContourEdgeData.html">API_ContourEdgeData</a></strong>     <em>endShapeEdgeData</em>;
+        <strong><a href="API_ContourEdgeData.html">API_ContourEdgeData</a></strong>     <em>extrudedEdgeDatas[2]</em>;
+    <strong>}</strong> <em>API_ExtrudedShellData</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>slantAngle</b></dt>
+
+        <dd>Angle of the extrusion vector from the horizontal plane.</dd>
+
+        <dt><b>shapePlaneTilt</b></dt>
+
+        <dd>Parameter of the plane of the extruded profile.</dd>
+
+        <dt><b>begPlaneTilt</b></dt>
+
+        <dd>Parameter of the starting plane of the extrusion.</dd>
+
+        <dt><b>endPlaneTilt</b></dt>
+
+        <dd>Parameter of the end plane of the extrusion.</dd>
+
+        <dt><b>shellShape</b></dt>
+
+        <dd>Profile polygon specification to extrude. The shape data arrays are held in the first <a href="API_ShellShapeData.html">API_ShellShapeData</a> record of <code>shellShapes</code> in <a href="API_ElementMemo.html">API_ElementMemo</a>.</dd>
+
+        <dt><b>begC</b></dt>
+
+        <dd>Start the extrusion from here (3D point).</dd>
+
+        <dt><b>extrusionVector</b></dt>
+
+        <dd>Extrude the profile in this direction (3D vector).</dd>
+
+        <dt><b>shapeDirection</b></dt>
+
+        <dd>Direction of the profile (2D vector).</dd>
+
+        <dt><b>begShapeEdgeData</b></dt>
+
+        <dd>Edge information for the starting plane of the shell</dd>
+
+        <dt><b>endShapeEdgeData</b></dt>
+
+        <dd>Edge information for the end plane of the shell</dd>
+
+        <dt><b>extrudedEdgeDatas</b></dt>
+
+        <dd>Edge information for the edges connecting points of the starting and end plane.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For shell related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 15 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_ShellType.html">API_ShellType</a>, <a href="API_Polygon.html">API_Polygon</a>, <a href="API_ContourEdgeData.html">API_ContourEdgeData</a><br>
+    <a href="API_ShellShapeData.html">API_ShellShapeData</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 24, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

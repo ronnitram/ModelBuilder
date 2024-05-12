@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>VATinit</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/VAManagers/VAT/reference/VATInit.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>VATInit</h1>
+
+    <p>The <b>VAtInit</b> function initializes a VAT (Virtual Array of records with Type field).</p>
+    <pre class="syntax">
+<b>GSErr VAtInit(
+  VATDESC          </b><i>*dptr,</i>       // pointer to VAT<b>
+  long             </b><i>npage,</i>       // the number of elements by which
+                        // the VAT is increased or decreased <b>
+  long             </b><i>n <b>    </b></i>// the size of elements<b>
+);</b>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><i>dptr</i></dt>
+
+        <dd>Pointer to the VAT to initialize.</dd>
+
+        <dt><i>npage</i></dt>
+
+        <dd>Number of elements by which the VAT is increased or decreased. It must be greater than zero.</dd>
+
+        <dt><i>n</i></dt>
+
+        <dd>Size of elements stored in the <i>dptr</i> VAT. It must be greater than zero.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>If the function succeeds, the return value is 0 (<strong>NoError</strong>).</p>
+
+    <p>If the function fails, the return value is a Graphisoft error code. For more information about error codes, see <a href="../../../reference/errorcodes.html">GSRoot error codes</a>.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <strong>VATInit</strong> function allocates a buffer for the VAT. The allocated buffer can supply the storage of exactly <strong>npage</strong> elements. The <strong>VATInit</strong> also initializes the members of the <em>dptr</em> <a href="VATDESC.html"><strong>VATDESC</strong></a> structure. The initial value of <strong>maxind</strong> is <strong>npage</strong> and the initial value of <strong>lastind</strong> is 0. The <strong>VATInit</strong> sets the <strong>freeind</strong> value to 0.</p>
+
+    <h4>Requirements</h4>
+
+    <p>&nbsp;&nbsp;&nbsp; <b>Header:</b> Declared in VA.hpp<br>
+    <b>&nbsp;&nbsp;&nbsp; Import Library:</b> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="structures_id.html">VAT Structures</a>, <a href="functions_id.html">VAT Functions</a>, <a href="VATFree.html">VATFree</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

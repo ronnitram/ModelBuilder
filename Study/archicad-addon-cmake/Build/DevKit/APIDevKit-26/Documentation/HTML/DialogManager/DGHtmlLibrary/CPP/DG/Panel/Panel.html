@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Panel Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/Panel/Panel.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="Attach.html">Attach</A><A href="ClearFocus.html">ClearFocus</A><A href="Detach.html">Detach</A><A href="DisableHotKeys.html">DisableHotKeys</A><A href="DisableItems.html">DisableItems</A><A href="EnableDragAndDropEvent.html">EnableDragAndDropEvent</A><A href="EnableHotKeys.html">EnableHotKeys</A><A href="EnableItems.html">EnableItems</A><A href="GetHeight.html">GetHeight</A><A href="GetId.html">GetId</A><A href="GetItem.html">GetItem</A><A href="GetItemCount.html">GetItemCount</A><A href="GetReference.html">GetReference</A><A href="GetResourceId.html">GetResourceId</A><A href="GetResourceModule.html">GetResourceModule</A><A href="GetWidth.html">GetWidth</A><A href="HideItems.html">HideItems</A><A href="IsValid.html">IsValid</A><A href="MoveItems.html">MoveItems</A><A href="Constructors.html">Panel</A><A href="Destructor.html">~Panel</A><A href="RedrawItems.html">RedrawItems</A><A href="RegisterHotKey.html">RegisterHotKey</A><A href="SetItemStatus.html">SetItemStatus</A><A href="SetItemVisibility.html">SetItemVisibility</A><A href="SetResourceModule.html">SetResourceModule</A><A href="ShowItems.html">ShowItems</A><A href="UnregisterHotKey.html">UnregisterHotKey</A>--><H2>Panel Class</H2><!--exp="Panel Class"-->
+<P><topic id="$DG.$Panel.BriefDescription">
+		Generic base class for panels.
+	</topic></P>
+<PRE class="syntax"><B>class Panel</B></PRE>
+<H4>Members</H4>
+<P><B><A name="PublicMethods"></A>Public Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Attach.html">Attach</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$Attach.BriefDescription">
+		Attaches an observer object to this event source.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ClearFocus.html">ClearFocus</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$ClearFocus.BriefDescription">
+		Removes the keyboard focus from the currently focused dialog item on the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Detach.html">Detach</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$Detach.BriefDescription">
+		Detaches an observer object from this event source.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DisableHotKeys.html">DisableHotKeys</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$DisableHotKeys.BriefDescription">
+		Disables hotkeys registered to the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DisableItems.html">DisableItems</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$DisableItems.BriefDescription">
+		Disables all dialog items on the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnableDragAndDropEvent.html">EnableDragAndDropEvent</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$EnableDragAndDropEvent.BriefDescription">
+		Enables receiving drag and drop events.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnableHotKeys.html">EnableHotKeys</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$EnableHotKeys.BriefDescription">
+		Enables hotkeys registered to the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnableItems.html">EnableItems</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$EnableItems.BriefDescription">
+		Enables all dialog items on the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeight.html">GetHeight</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$GetHeight.BriefDescription">
+		Retrieves the heigth of the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetId.html">GetId</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$GetId.BriefDescription">
+		Retrieves the panel ID.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItem.html">GetItem</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$GetItem.BriefDescription">
+		Retrieves the pointer of a dialog item specified by the given index.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemCount.html">GetItemCount</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$GetItemCount.BriefDescription">
+		Retrieves the number of dialog items on the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetResourceId.html">GetResourceId</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$GetResourceId.BriefDescription">
+		Retrieves the resource ID of the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetResourceModule.html">GetResourceModule</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$GetResourceModule.BriefDescription">
+		Retrieves the resource module associated with the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetAnchorString.html">GetAnchorString</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$GetAnchorString.BriefDescription">
+		Reads anchor string of the dialog from 'DLGH' resource.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetWidth.html">GetWidth</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$GetWidth.BriefDescription">
+		Retrieves the width of the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="HideItems.html">HideItems</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$HideItems.BriefDescription">
+		Hides all dialog items on the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsValid.html">IsValid</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$IsValid.BriefDescription">
+		Checks the valid status of the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="MoveItems.html">MoveItems</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$MoveItems.BriefDescription">
+		Moves all dialog items on the panel with the given relative values.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">Panel</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$Panel.BriefDescription">
+		Class constructor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Destructor.html">~Panel</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$~Panel.BriefDescription">
+		Class destructor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="RedrawItems.html">RedrawItems</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$RedrawItems.BriefDescription">
+		Redraws all dialog items on the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="RegisterHotKey.html">RegisterHotKey</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$RegisterHotKey.BriefDescription">
+		Registers a hotkey to the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemStatus.html">SetItemStatus</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$SetItemStatus.BriefDescription">
+		Sets the enabled/disabled status of all dialog items on the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemVisibility.html">SetItemVisibility</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$SetItemVisibility.BriefDescription">
+		Sets the visibility state of all dialog items on the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetResourceModule.html">SetResourceModule</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$SetResourceModule.BriefDescription">
+		Associates a resource module with the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ShowItems.html">ShowItems</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$ShowItems.BriefDescription">
+		Shows the items on the panel.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="UnregisterHotKey.html">UnregisterHotKey</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$UnregisterHotKey.BriefDescription">
+		Unregisters a hotkey of the panel.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ProtectedMethods"></A>Protected Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetReference.html">GetReference</A></TD>
+<TD width="70%"><topic id="$DG.$Panel.$GetReference.BriefDescription">
+		Retrieves a reference to the panel.
+	</topic></TD>
+</TR>
+</table>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../DG.html">DG</A></P>
+<P><B>Header: </B>DGPanel.hpp</P>
+<H4>See Also</H4>
+<P><a href="../Dialog/Dialog.html">Dialog</A> | <a href="../SystemDialogPanel/SystemDialogPanel.html">SystemDialogPanel</A> | <a href="../TabPage/TabPage.html">TabPage</A></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

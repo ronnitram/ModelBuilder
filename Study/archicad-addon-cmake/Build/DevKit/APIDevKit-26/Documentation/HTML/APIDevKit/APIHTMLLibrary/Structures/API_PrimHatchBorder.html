@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_PrimHatchBorder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_PrimHatchBorder.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_PrimHatchBorder</h1>
+
+    <p>Hatch border for primitive elements.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>bool</strong>                     <em>doFrame</em>;
+        <strong>bool</strong>                     <em>filler_1[3]</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>       <em>fillInd</em>;
+        <strong><a href="API_ExtendedPenType.html">API_ExtendedPenType</a></strong>      <em>fillPen</em>;
+        <strong>short</strong>                    <em>fillbkgPen</em>;
+        <strong>short</strong>                    <em>transparency</em>;
+        <strong>short</strong>                    <em>determination</em>;
+        <strong>short</strong>                    <em>filler_2[3]</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>             <em>fillRgb</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>             <em>fillbkgRgb</em>;
+        <strong>bool</strong>                     <em>isGradient</em>;
+        <strong>bool</strong>                     <em>isLinear</em>;
+        <strong>bool</strong>                     <em>filler_3[6]</em>;
+        <strong><a href="API_HatchOrientation.html">API_HatchOrientation</a></strong>     <em>hatchOrientation</em>;
+    <strong>}</strong> <em>API_PrimHatchBorder</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>doFrame</b></dt>
+
+        <dd>The frame of the hatch is visible.</dd>
+
+        <dt><b>fillInd</b></dt>
+
+        <dd>Fill attribute index.</dd>
+
+        <dt><b>fillPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></dt>
+
+        <dd>(Overridden) pen attribute index for the fill lines. If this value is 1008 (RGB Pen), then the foreground color of the fill is defined in the <code>fillRgb</code> parameter.</dd>
+
+        <dt><b>fillbkgPen</b></dt>
+
+        <dd>Pen attribute index for the fill background. If this value is 1008 (RGB Pen), then the background color of the fill is defined in the <code>fillbkgRgb</code> parameter.</dd>
+
+        <dt><b>transparency</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dt><b>determination&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></b></dt>
+
+        <dd>Fill category:</dd>
+
+        <dd>
+            <table border="1" cellpadding="5">
+                <tr>
+                    <td><code>APIHatch_DraftingFills</code></td>
+
+                    <td>Default fill category. Drafting fills adopt the Drafting Fill settings chosen in Display Options.</td>
+                </tr>
+
+                <tr>
+                    <td><code>APIHatch_CoverFills</code></td>
+
+                    <td>The Cover Fill category is assigned to the fills of Slabs, Roofs, Meshes and Zones on the floor plan. Cover fills adopt the Element Cover Fill settings chosen in Display Options.</td>
+                </tr>
+
+                <tr>
+                    <td><code>APIHatch_CutFills</code></td>
+
+                    <td>The Cut Fill category is assigned to the fills of Cut Elements. Cut fills adopt the Cut Fill settings chosen in Display Options.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>fillRgb</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Foreground color of the fill; valid only if <code>fillPen</code> is RGB Pen (value 1008).</dd>
+
+        <dt><b>fillbkgRgb</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Background color of the fill; valid only if <code>fillbkgPen</code> is RGB Pen (value 1008).</dd>
+
+        <dt><b>isGradient</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>The hatch has gradient fill (from foreground to background color).</dd>
+
+        <dt><b>isLinear</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>The fill gradient is linear, otherwise it is radial.</dd>
+
+        <dt><b>hatchOrientation</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="Featuring API 13" width="19" height="12"></dt>
+
+        <dd>Orientation and distortion parameters of the cover fill.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is used to pass parameters of the hatch to be drawn in the <a href="../Functions/ShapePrimsProc.html">ShapePrimsProc</a> callback function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_Coord.html">API_Coord</a>, <a href="API_RGBColor.html">API_RGBColor</a>, <a href="API_ExtendedPenType.html">API_ExtendedPenType</a><br>
+    <a href="../Functions/ShapePrimsProc.html">ShapePrimsProc</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 14, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

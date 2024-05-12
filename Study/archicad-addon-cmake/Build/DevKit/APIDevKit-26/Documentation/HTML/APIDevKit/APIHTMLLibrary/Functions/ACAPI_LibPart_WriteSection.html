@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_LibPart_WriteSection</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_LibPart_WriteSection.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_LibPart_WriteSection</h1>
+
+    <p>Writes data into an opened section of the Library Part under creation.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_LibPart_WriteSection</strong> (
+        <strong>Int32</strong>          <em>nByte</em>,
+        <strong>GSConstPtr</strong>     <em>data</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>nByte</em></dt>
+
+        <dd>[in] Number of bytes.</dd>
+
+        <dt><em>data</em></dt>
+
+        <dd>[in] Data to be written.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_GENERAL</code></dt>
+
+        <dd>No section has been opened with the <a href="ACAPI_LibPart_NewSection.html">ACAPI_LibPart_NewSection</a> function.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors.</a></p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to write data into the section recently opened with <a href="ACAPI_LibPart_NewSection.html">ACAPI_LibPart_NewSection</a> function.</p>
+
+    <p>It writes the given data (<code>nByte</code> number of bytes addressed by <code>data</code>) to the section recently opened with <a href="ACAPI_LibPart_NewSection.html">ACAPI_LibPart_NewSection</a> function. If you write the data to a textual section, don't forget to include the newline (+linefeed for Windows) character(s) in data.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>See the example of the <a href="ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_LibPart_NewSection.html">ACAPI_LibPart_NewSection,</a> <a href="ACAPI_LibPart_EndSection.html">ACAPI_LibPart_EndSection</a>, <a href="ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a>,<br>
+    <a href="../Level3/Library_Part_Manager_id.html">LibPart Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 21, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

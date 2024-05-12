@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>IsEqual</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/IsEqual.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>IsEqual</H2><!--exp="IsEqual Enum"-->
+<P><topic id="$GS.$IsEqual.BriefDescription">
+		Compares two ranges element by element either for equality or equivalence in a 
+		sense specified by a binary predicate.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>In1</I>, <B>class</B> <I>In2</I>, <B>class</B> <I>BinPred</I><B>&gt;
+</B>bool IsEqual (</B>
+    <B>In1                 </B><I>first1</I>,
+    <B>In1                 </B><I>last1</I>,
+    <B>In2                 </B><I>first2</I>,
+    <B>BinPred             </B><I>pred</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>In1</I>, <B>class</B> <I>In2</I><B>&gt;
+</B>bool IsEqual (</B>
+    <B>In1                 </B><I>first1</I>,
+    <B>In1                 </B><I>last1</I>,
+    <B>In2                 </B><I>first2</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>In1</I></DT><DD><topic id="$GS.$IsEqual.$In1.TemplateParamDescription">
+		Input iterator.
+	</topic></DD><DT><I>In2</I></DT><DD><topic id="$GS.$IsEqual.$In2.TemplateParamDescription">
+		Input iterator.
+	</topic></DD><DT><I>BinPred</I></DT><DD><topic id="$GS.$IsEqual.$BinPred.TemplateParamDescription">
+		Binary predicate.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first1</I></DT><DD><topic id="$GS.$IsEqual.$first1.ParamDescription">
+		An input iterator addressing the position of the first element in the first 
+		range to be tested.
+	</topic></DD><DT><I>last1</I></DT><DD><topic id="$GS.$IsEqual.$last1.ParamDescription">
+		An input iterator addressing the position one past the final element in the 
+		first range to be tested.
+	</topic></DD><DT><I>first2</I></DT><DD><topic id="$GS.$IsEqual.$first2.ParamDescription">
+		An input iterator addressing the position of the first element in the second 
+		range to be tested.
+	</topic></DD><DT><I>pred</I></DT><DD><topic id="$GS.$IsEqual.$pred.ParamDescription">
+		User-defined predicate function object that defines the condition to be 
+		satisfied if two elements are to be taken as equivalent. A binary predicate 
+		takes two arguments and returns <B>true </B>when satisfied and <B>false</B> when 
+		not satisfied.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$IsEqual.ReturnDescription">
+		<B>true</B> if and only if the ranges are identical or equivalent under the 
+		binary predicate when compared element by element; otherwise, <B>false</B>.
+	</topic></P><P><topic id="$GS.$IsEqual.1.ReturnDescription"></topic></P><P><topic id="$GS.$IsEqual.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$IsEqual.LongDescription">
+		<B>IsEqual</B> returns <TT>true</TT> if the two ranges <TT>[first1, last1)</TT> 
+		and <TT>[first2, first2 + (last1 - first1))</TT> are identical when compared 
+		element-by-element, and otherwise returns <TT>false</TT>.
+		The first version of <B>IsEqual</B> returns <TT>true</TT> if and only if for 
+		every iterator <TT>i</TT> in <TT>[first1, last1)</TT>, <TT>*i == *(first2 + (i - 
+		first1))</TT>. The second version of <B>IsEqual</B> returns <TT>true</TT> if and 
+		only if for every iterator <TT>i</TT> in <TT>[first1, last1)</TT>, 
+		<TT>pred(*i, *(first2 + (i - first1))</TT> is <TT>true</TT>. 
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$IsEqual.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

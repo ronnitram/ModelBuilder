@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <title>GSAPI::APIOutputApplicaton class</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Framework/APIOutputApplication.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GSAPI::APIOutputApplicaton class</h1>
+
+    <p>The application class which contains only one method (with a few overloads to allow for different use-cases): the <a href="#OutputElements">OutputElements ()</a> method.</p>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">class</span> <span class="SyntaxIdentifier">APIOutputApplicaton</span><span class="SyntaxSymbol">;</span>
+</pre>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">template</span> <span class="SyntaxSymbol">&lt;</span><span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">ElemContainerType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">OutputFactoryType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">ElemSelectorType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">AttributeProxyType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">AttributeFactoryType</span><span class="SyntaxSymbol">&gt;</span>
+<span class="SyntaxTypename">GSErrCode</span> <span class="SyntaxIdentifier">OutputElements</span> <span class="SyntaxSymbol">(</span><!-- Don't index --><a href="IAPIOutputManager.html"><span class="SyntaxTypename">GSAPI::IAPIOutputManager&amp;</span></a>       <span class="SyntaxIdentifier">manager</span><span class="SyntaxSymbol">,</span>
+                          <!-- Don't index --><a href="../Structures/API_ElemFilter.html"><span class="SyntaxTypename">const API_ElemFilter&amp;</span></a>           <span class="SyntaxIdentifier">elemFilter</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">const GSAPI::AttributeFilter&amp;</span>   <span class="SyntaxIdentifier">attributeFilter</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">GSAPI::OutputUsedAttributesType</span> <span class="SyntaxIdentifier">attributeOutputType</span>  <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">DoNotOutput</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">bool</span>                            <span class="SyntaxIdentifier">dumpDatabaseSettings</span> <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">true</span><span class="SyntaxSymbol">)</span><span class="SyntaxSymbol">;</span>
+</pre>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">template</span> <span class="SyntaxSymbol">&lt;</span><span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">ElemContainerType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">OutputFactoryType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">ElemSelectorType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">AttributeFactoryType</span><span class="SyntaxSymbol">&gt;</span>
+<span class="SyntaxTypename">GSErrCode</span> <span class="SyntaxIdentifier">OutputElements</span> <span class="SyntaxSymbol">(</span><!-- Don't index --><a href="IAPIOutputManager.html"><span class="SyntaxTypename">GSAPI::IAPIOutputManager&amp;</span></a>       <span class="SyntaxIdentifier">manager</span><span class="SyntaxSymbol">,</span>
+                          <!-- Don't index --><a href="../Structures/API_ElemFilter.html"><span class="SyntaxTypename">const API_ElemFilter&amp;</span></a>           <span class="SyntaxIdentifier">elemFilter</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">const GSAPI::AttributeFilter&amp;</span>   <span class="SyntaxIdentifier">attributeFilter</span><span class="SyntaxSymbol">,</span>
+                          <!-- Don't index --><a href="IAttributeProxy.html"><span class="SyntaxTypename">GSAPI::IAttributeProxy&amp;</span></a>         <span class="SyntaxIdentifier">attributeProxy</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">GSAPI::OutputUsedAttributesType</span> <span class="SyntaxIdentifier">attributeOutputType</span>  <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">DoNotOutput</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">bool</span>                            <span class="SyntaxIdentifier">dumpDatabaseSettings</span> <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">true</span><span class="SyntaxSymbol">)</span><span class="SyntaxSymbol">;</span>
+</pre>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">template</span> <span class="SyntaxSymbol">&lt;</span><span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">ElemContainerType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">OutputFactoryType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">ElemSelectorType</span><span class="SyntaxSymbol">&gt;</span>
+<span class="SyntaxTypename">GSErrCode</span> <span class="SyntaxIdentifier">OutputElements</span> <span class="SyntaxSymbol">(</span><!-- Don't index --><a href="IAPIOutputManager.html"><span class="SyntaxTypename">GSAPI::IAPIOutputManager&amp;</span></a>       <span class="SyntaxIdentifier">manager</span><span class="SyntaxSymbol">,</span>
+                          <!-- Don't index --><a href="../Structures/API_ElemFilter.html"><span class="SyntaxTypename">const API_ElemFilter&amp;</span></a>           <span class="SyntaxIdentifier">elemFilter</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">bool</span>                            <span class="SyntaxIdentifier">dumpDatabaseSettings</span> <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">true</span><span class="SyntaxSymbol">)</span><span class="SyntaxSymbol">;</span>
+</pre>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">template</span> <span class="SyntaxSymbol">&lt;</span><span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">ElemContainerType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">OutputFactoryType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">AttributeProxyType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">AttributeFactoryType</span><span class="SyntaxSymbol">&gt;</span>
+<span class="SyntaxTypename">GSErrCode</span> <span class="SyntaxIdentifier">OutputElements</span> <span class="SyntaxSymbol">(</span><!-- Don't index --><a href="IAPIOutputManager.html"><span class="SyntaxTypename">GSAPI::IAPIOutputManager&amp;</span></a>       <span class="SyntaxIdentifier">manager</span><span class="SyntaxSymbol">,</span>
+                          <!-- Don't index --><a href="../Structures/API_ElemFilter.html"><span class="SyntaxTypename">const API_ElemFilter&amp;</span></a>           <span class="SyntaxIdentifier">elemFilter</span><span class="SyntaxSymbol">,</span>
+                          <!-- Don't index --><a href="IDatabaseSelector.html"><span class="SyntaxTypename">const GSAPI::IDatabaseSelector&amp;</span></a> <span class="SyntaxIdentifier">selector</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">const GSAPI::AttributeFilter&amp;</span>   <span class="SyntaxIdentifier">attributeFilter</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">GSAPI::OutputUsedAttributesType</span> <span class="SyntaxIdentifier">attributeOutputType</span>  <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">DoNotOutput</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">bool</span>                            <span class="SyntaxIdentifier">dumpDatabaseSettings</span> <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">true</span><span class="SyntaxSymbol">)</span><span class="SyntaxSymbol">;</span>
+</pre>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">template</span> <span class="SyntaxSymbol">&lt;</span><span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">ElemContainerType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">OutputFactoryType</span><span class="SyntaxSymbol">&gt;</span>
+<span class="SyntaxTypename">GSErrCode</span> <span class="SyntaxIdentifier">OutputElements</span> <span class="SyntaxSymbol">(</span><!-- Don't index --><a href="IAPIOutputManager.html"><span class="SyntaxTypename">GSAPI::IAPIOutputManager&amp;</span></a>       <span class="SyntaxIdentifier">manager</span><span class="SyntaxSymbol">,</span>
+                          <!-- Don't index --><a href="../Structures/API_ElemFilter.html"><span class="SyntaxTypename">const API_ElemFilter&amp;</span></a>           <span class="SyntaxIdentifier">elemFilter</span><span class="SyntaxSymbol">,</span>
+                          <!-- Don't index --><a href="IDatabaseSelector.html"><span class="SyntaxTypename">const GSAPI::IDatabaseSelector&amp;</span></a> <span class="SyntaxIdentifier">selector</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">bool</span>                            <span class="SyntaxIdentifier">dumpDatabaseSettings</span> <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">true</span><span class="SyntaxSymbol">)</span><span class="SyntaxSymbol">;</span>
+</pre>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">template</span> <span class="SyntaxSymbol">&lt;</span><span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">ElemContainerType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">OutputFactoryType</span><span class="SyntaxSymbol">,</span>
+          <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">AttributeFactoryType</span><span class="SyntaxSymbol">&gt;</span>
+<span class="SyntaxTypename">GSErrCode</span> <span class="SyntaxIdentifier">OutputElements</span> <span class="SyntaxSymbol">(</span><!-- Don't index --><a href="IAPIOutputManager.html"><span class="SyntaxTypename">GSAPI::IAPIOutputManager&amp;</span></a>       <span class="SyntaxIdentifier">manager</span><span class="SyntaxSymbol">,</span>
+                          <!-- Don't index --><a href="../Structures/API_ElemFilter.html"><span class="SyntaxTypename">const API_ElemFilter&amp;</span></a>           <span class="SyntaxIdentifier">elemFilter</span><span class="SyntaxSymbol">,</span>
+                          <!-- Don't index --><a href="IDatabaseSelector.html"><span class="SyntaxTypename">const GSAPI::IDatabaseSelector&amp;</span></a> <span class="SyntaxIdentifier">selector</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">const GSAPI::AttributeFilter&amp;</span>   <span class="SyntaxIdentifier">attributeFilter</span><span class="SyntaxSymbol">,</span>
+                          <!-- Don't index --><a href="IAttributeProxy.html"><span class="SyntaxTypename">GSAPI::IAttributeProxy&amp;</span></a>         <span class="SyntaxIdentifier">attributeProxy</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">GSAPI::OutputUsedAttributesType</span> <span class="SyntaxIdentifier">attributeOutputType</span>  <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">DoNotOutput</span><span class="SyntaxSymbol">,</span>
+                          <span class="SyntaxTypename">bool</span>                            <span class="SyntaxIdentifier">dumpDatabaseSettings</span> <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">true</span><span class="SyntaxSymbol">)</span><span class="SyntaxSymbol">;</span>
+</pre>
+
+    <h2 class="SectionHeading">Template parameters</h2>
+
+    <dl>
+        <dt><span class="Parameter">ElemContainerType</span></dt>
+
+        <dd>The element container type (must implement the <!-- Don't index --><a href="IAPIPseudoContainer.html">IAPIPseudoContainer</a> interface).</dd>
+
+        <dt><span class="Parameter">OutputFactoryType</span></dt>
+
+        <dd>The output adapter factory type (must implement the <!-- Don't index --><a href="IAPIOutputAdapterFactory.html">IAPIOutputAdapterFactory</a> interface).</dd>
+
+        <dt><span class="Parameter">ElemSelectorType</span></dt>
+
+        <dd>The database selector functor type (must implement the <!-- Don't index --><a href="IDatabaseSelector.html">IDatabaseSelector</a> interface).</dd>
+
+        <dt><span class="Parameter">AttributeProxyType</span></dt>
+
+        <dd>The attribute proxy container type (must implement the <!-- Don't index --><a href="IAttributeProxy.html">IAttributeProxy</a> interface).</dd>
+
+        <dt><span class="Parameter">AttributeFactoryType</span></dt>
+
+        <dd>The attribute adapter factory type (must implement the <!-- Don't index --><a href="IAPIAttributeAdapterFactory.html">IAPIAttributeAdapterFactory</a> interface).</dd>
+    </dl>
+
+    <h2 class="SectionHeading">Parameters</h2>
+
+    <dl>
+        <dt><span class="Parameter">manager</span></dt>
+
+        <dd>The output manager object (see the <!-- Don't index --><a href="IAPIOutputManager.html">IAPIOutputManager</a> interface).</dd>
+
+        <dt><span class="Parameter">elemFilter</span></dt>
+
+        <dd>Output only these types.</dd>
+
+        <dt><span class="Parameter">attributeFilter</span></dt>
+
+        <dd>Output only these types (GSAPI::AttributeFilter is a bool array similar to <!-- Don't index --><a href="../Structures/API_ElemFilter.html">API_ElemFilter</a> for attributes).</dd>
+
+        <dt><span class="Parameter">attributeOutputType</span></dt>
+
+        <dd>A setting of where and how to output attributes.</dd>
+
+        <dt><span class="Parameter">dumpDatabaseSettings</span></dt>
+
+        <dd>A flag to output layout/master layout settings or not.</dd>
+
+        <dt><span class="Parameter">attributeProxy</span></dt>
+
+        <dd>The attribute proxy container object (must implement the <!-- Don't index --><a href="IAttributeProxy.html">IAttributeProxy</a> interface).</dd>
+
+        <dt><span class="Parameter">selector</span></dt>
+
+        <dd>The database selector functor object (must implement the <!-- Don't index --><a href="IDatabaseSelector.html">IDatabaseSelector</a> interface).</dd>
+    </dl>
+
+    <h2 class="SectionHeading">Description</h2>
+
+    <p>The <a name="OutputElements" id="OutputElements">OutputElements ()</a> method does the following:</p>
+
+    <ol>
+        <li>builds a database graph of the Archicad databases</li>
+
+        <li>selects the required databases from this graph using the user provided <!-- Don't index --><a href="IDatabaseSelector.html">IDatabaseSelector</a> type/object</li>
+
+        <li>for each of the selected databases
+
+            <ol>
+                <li>creates an <!-- Don't index --><a href="IAPIPseudoContainer.html">IAPIPseudoContainer</a> using the user provided type</li>
+
+                <li>iterates through the container with <!-- Don't index --><a href="IAPIPseudoIterator.html">IAPIPseudoIterator</a>s (provided with the container type)</li>
+
+                <li>gets an <!-- Don't index --><a href="IAPIOutputAdapter.html">IAPIOutputAdapter</a> for each element from the user provided <!-- Don't index --><a href="IAPIOutputAdapterFactory.html">IAPIOutputAdapterFactory</a>, and uses the adapter's <!-- Don't index --><a href="IAPIOutputAdapter.html">operator&gt;&gt; ()</a> (wrapper for it's <!-- Don't index --><a href="IAPIOutputAdapter.html">Output ()</a> method) on the <!-- Don't index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/OChannel/OChannel.html">GS::OChannel</a> gained from the <!-- Don't index --><a href="IAPIOutputManager.html">IAPIOutputManager</a> object provided by the user (basically output the element)</li>
+
+                <li>if the user asked for attribute output after each database then iterates through the attributes loaded into the user provided <!-- Don't index --><a href="IAttributeProxy.html">IAttributeProxy</a> type/object container, which are from this database and output them as well (in the same way as the elements)</li>
+            </ol>
+        </li>
+
+        <li>if the user asked for attribute output after full element output then iterates through the attributes loaded into the user provided <!-- Don't index --><a href="IAttributeProxy.html">IAttributeProxy</a> type/object container and output them as well</li>
+    </ol>
+
+    <h2 class="SectionHeading">Requirements</h2>
+
+    <p><span class="RequirementsSection">Namespace:</span> GSAPI</p>
+
+    <p><span class="RequirementsSection">Header:</span> APIOutputApplication.hpp</p>
+
+    <p><span class="RequirementsSection">Version:</span> API 10.21 or later</p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

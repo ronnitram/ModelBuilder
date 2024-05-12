@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Pair Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/Pair/Pair.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="FirstType.html">FirstType</A><A href="Get.html">Get</A><A href="operator=.html">operator=</A><A href="operator==.html">operator==</A><A href="Constructors.html">Pair</A><A href="SecondType.html">SecondType</A><A href="Set.html">Set</A>--><H2>Pair Class</H2><!--exp="Pair Class"-->
+<P><topic id="$GS.$Pair.BriefDescription">
+		A class that provides for the ability to treat two objects as a single object.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>Type1</I>, <B>class</B> <I>Type2</I><B>&gt;
+</B>class Pair</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>Type1</I></DT><DD><topic id="$GS.$Pair.$Type1.TemplateParamDescription">
+		Type1 type template parameter.
+	</topic></DD><DT><I>Type2</I></DT><DD><topic id="$GS.$Pair.$Type2.TemplateParamDescription">
+		Type2 type template parameter.
+	</topic></DD>
+</DL>
+<H4>Members</H4>
+<P><B><A name="PublicMethods"></A>Public Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">Pair</A></TD>
+<TD width="70%"><topic id="$GS.$Pair.$Pair.BriefDescription">
+		Class contructor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Get.html">Get</A></TD>
+<TD width="70%"><topic id="$GS.$Pair.$Get.BriefDescription">
+		Returns the two values from a pair instance.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Set.html">Set</A></TD>
+<TD width="70%"><topic id="$GS.$Pair.$Set.BriefDescription">
+		Sets the two values in a pair instance.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicOperators"></A>Public Operators</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator=.html">operator=</A></TD>
+<TD width="70%"><topic id="$GS.$Pair.$operator=.BriefDescription">
+		Assigment operator.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator==.html">operator==</A></TD>
+<TD width="70%"><topic id="$GS.$Pair.$operator==.BriefDescription">
+		Compares two pair objects if there are equal or not.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicTypes"></A>Public Types</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FirstType.html">FirstType</A></TD>
+<TD width="70%"><topic id="$GS.$Pair.$FirstType.BriefDescription">
+		Type of the pair's first member.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SecondType.html">SecondType</A></TD>
+<TD width="70%"><topic id="$GS.$Pair.$SecondType.BriefDescription">
+		Type of the pair's second member.
+	</topic></TD>
+</TR>
+</table>
+<H4>Description</H4>
+<P><topic id="$GS.$Pair.LongDescription">
+		<P>The template class stores a pair of objects of type <B>Type1</B> and 
+		<B>Type2</B>, respectively.
+		The type <B>FirstType</B> is the same as the template parameter <B>Type1</B> 
+		and the type <B>SecondType</B> is the same as the template parameter 
+		<B>Type2</B>.
+		<B>Type1</B> and <B>Type2</B> each need 
+		supply only a default constructor, a single-argument constructor, and a 
+		destructor. All members of the type <B>Pair</B> are public. The most common 
+		use for the Pair is as return type for functions that return two values.</P>
+	</topic></P>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../GS.html">GS</A></P>
+<P><B>Header: </B>Pair.hpp</P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

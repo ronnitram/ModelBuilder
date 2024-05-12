@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGListGetItemRect</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListGetItemRect.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListGetItemRect</h1>
+
+    <p>Retrieves the item rectangle of a <a href="ListBox.html">list box</a> item.</p>
+    <pre class="syntax">
+    <strong>short DGListGetItemRect</strong> (
+      <strong>short</strong>   <em>dialId</em>,
+      <strong>short</strong>   <em>item</em>,
+      <strong>short</strong>   <em>listItem</em>,
+      <strong>short*</strong>  <em>left</em>,
+      <strong>short*</strong>  <em>top</em>,
+      <strong>short*</strong>  <em>right</em>,
+      <strong>short*</strong>  <em>bottom</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>listItem</em></dt>
+
+        <dd>1-based index of the list item. <tt>DG_LIST_TOP</tt> specifies the first item of the list, <tt>DG_LIST_BOTTOM</tt> specifies the last item of the list.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>left</em></dt>
+
+        <dd>Output parameter: horizontal position of the upper left corner of the item rectangle in pixels, relative to the dialog client rectangle. This parameter can be <tt>nullptr</tt>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>top</em></dt>
+
+        <dd>Output parameter: vertical position of the upper left corner of the item rectangle in pixels, relative to the dialog client rectangle. This parameter can be <tt>nullptr</tt>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>right</em></dt>
+
+        <dd>Output parameter: horizontal position of the lower right corner of the item rectangle in pixels, relative to the dialog client rectangle. This parameter can be <tt>nullptr</tt>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>bottom</em></dt>
+
+        <dd>Output parameter: vertical position of the lower right corner of the item rectangle in pixels, relative to the dialog client rectangle. This parameter can be <tt>nullptr</tt>.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The list item rectangle is not in the visible part of the list or the function parameters are incorrect.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>1</td>
+
+                    <td>The list item rectangle is in the visible part of the list.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>List item coordinates are always returned in the main dialog coordinate system even if the item is on a tab page.</p>
+
+    <p>If either of the position parameter pointers are <tt>nullptr</tt>, that coordinate is not returned.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ListBox.html">List Box</a><br>
+    <a href="DGListGetItemHeight.html">DGListGetItemHeight</a>, <a href="DGListGetItemWidth.html">DGListGetItemWidth</a>, <a href="DGListSetItemHeight.html">DGListSetItemHeight</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 5, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

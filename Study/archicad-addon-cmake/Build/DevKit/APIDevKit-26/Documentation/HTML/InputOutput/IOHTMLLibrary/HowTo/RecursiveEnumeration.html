@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Recursive enumeration of a folder tree</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/HowTo/RecursiveEnumeration.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Recursive enumeration of a folder tree</h1><br>
+    <br>
+
+    <p>Class <a href="../Folder/Folder.html">Folder</a> is responsible for its <b>direct</b> content (direct children). Here content means file system entries (file, folder, link) which can be enumerated through an appropriate enumeration callback function supplied by the user. However often recursive enumeration of a whole folder tree is needed. This task is supported by the class <a href="../TreeEnumerator/TreeEnumerator.html">TreeEnumerator</a>. It encapsulates a set of callback functions with default implementations which can be overridden by the user.&nbsp;Separate methods are invoked when a new file, folder or link is found, and when a subfolder is entered or exited.<br>
+    User should create a TreeEnumerator instance with the root folder of the enumeration as parameter, start the enumeration and appropriate methods will be invoked. To do something more useful then running through the folder tree (this is the default implementation in TreeEnumerator), user should derive own class from TreeEnumerator and override appropriate methods. Inside the body of every "callback" method user can invoke few additional methods like query of the parent folder of the current file system entry (file, folder, link) or stopping the enumeration.</p>
+
+    <p>&nbsp;</p>
+
+    <p><b>Example</b></p>
+
+    <p>Following sample code implements a recursive file counter which counts number of files (and links referring to files) in a given folder tree. In addition it can exclude folder(s) of a given name from the enumeration. The body of <font face="Courier New">Test</font> function below counts number of files in the desktop folder, but it skips temporary folder(s) with the name <font face="Courier New">Temp</font>. Class <font face="Courier New">RecursiveFileCounter</font> is derived from <font face="Courier New">TreeEnumerator</font>, and overrides two methods: <font face="Courier New">FileFound</font> and <font face="Courier New">FolderFound</font>. When a file is found file counter is incremented (for the present <font face="Courier New">FileFound</font> should always return false). When a folder is found, return value of the <font face="Courier New">FolderFound</font> method determines whether will be its content also enumerated. True means yes, so in the sample we test if the name of the current folder is not equal to the name of the temporary folder. For more information about the order in which these (and few other) methods are invoked see the class <a href="../TreeEnumerator/TreeEnumerator.html">TreeEnumerator</a>.</p>
+
+    <p>Note that error codes of operations in the sample code are not processed, only their possibility is shown.</p>
+
+    <p>To this sample work, <a href="../../InputOutput.html">InputOutput</a> module must be initialized (<a href="IOInitialization.html">=&gt; more information</a>).</p><br>
+    <br>
+    <pre>
+#include "FileSystem.hpp"        // brings everything needed to use the class FileSystem (e.g. Location)
+#include "TreeEnumerator.hpp"    // brings everything needed to use the class TreeEnumerator (e.g. Folder)
+</pre>
+    <pre>
+class RecursiveFileCounter: public IO::TreeEnumerator {
+private:
+    USize     fileCount;    // counts number of files in the folder tree
+    IO::Name  skip;         // name of folder(s) to be skipped
+
+    virtual bool    FileFound   (const IO::Name&amp; /*fileName*/) { fileCount++; return false; }    // file is found
+    virtual bool    FolderFound (const IO::Name&amp; folderName)   { return (folderName != skip); }  // process if ...
+
+public:
+    RecursiveFileCounter (const IO::Folder&amp; root, const IO::Name&amp; folderToSkip):    // constructor
+        IO::TreeEnumerator (root),
+        fileCount (0),
+        skip (folderToSkip) {}
+
+    USize    GetResult (void) const { return fileCount; }    // returns result of the enumeration (file count)
+};
+
+
+void    Test (void)
+{
+    // ...
+
+    IO::Location desktopLoc;    // it will hold location of the desktop folder
+    GSErrCode errorCode = IO::fileSystem.GetSpecialLocation (IO::FileSystem::Desktop, &amp;desktopLoc);
+
+    IO::Folder desktop (desktopLoc);               // root of the folder tree to be enumerated
+    RecursiveFileCounter rfc (desktop, "Temp");    // file counter instance over the desktop folder, skips "Temp"
+
+    if (rfc.Do () == NoError) {                    // start the file counting
+        USize fileCount = rfc.GetResult ();        // query of the result
+        // ...
+    }
+
+    // ...
+}
+</pre><br>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_GetDefaultsExt</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_GetDefaultsExt.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_GetDefaultsExt</h1>
+
+    <p>Retrieves the actual default settings for the Window, Door, Section, Elevation, Interior Elevation, ChangeMarker, Detail, Worksheet, or Stair element with its marker(s). You are able to obtain Curtain Wall and its subelem default settings also via this function.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_GetDefaultsExt</strong> (
+        <strong><a href="../Structures/API_Element.html">API_Element</a>*</strong>             <em>element</em>,
+        <strong><a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>*</strong>         <em>memo</em>,
+        <strong>UInt32</strong>                   <em>nSubElems</em>,
+        <strong><a href="../Structures/API_SubElement.html">API_SubElement</a>*</strong>          <em>subElems</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>element</em></dt>
+
+        <dd>[in/out] The desired element for which the defaults are needed. The <code>element-&gt;header.type</code> can be <code>API_WindowID, API_DoorID, API_CutPlaneID, API_ElevationID, API_InteriorElevationID, API_ChangeMarkerID, API_DetailID, API_WorksheetID, API_CurtainWallID, API_CurtainWallPanelID, API_CurtainWallFrameID, API_CurtainWallJunctionID, API_CurtainWallAccessoryID</code>, or <code>API_StairID</code>.</dd>
+
+        <dt><em>memo</em></dt>
+
+        <dd>[out] This is needed only in case of library part-based elements (including zone stamps).</dd>
+
+        <dt><em>nSubElems</em>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Modified in API 12" width="19" height="12"></dt>
+
+        <dd>[out] The subelem of the desired element for which the defaults are needed.</dd>
+
+        <dt><em>subElems</em>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Modified in API 12" width="19" height="12"></dt>
+
+        <dd>[out] The subelem(s) (normal, story handle, interior elevation common marker) of the desired element.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed <code>element</code> parameter is <code>nullptr</code>.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>The element type should be <code>API_WindowID</code>, <code>API_DoorID</code>, <code>API_CutPlaneID</code>, <code>API_ElevationID</code>, <code>API_InteriorElevationID</code>, <code>API_ChangeMarkerID</code>, <code>API_DetailID</code>, <code>API_WorksheetID</code>, <code>API_CurtainWallID</code>, <code>API_CurtainWallFrameID</code>, <code>API_CurtainWallPanelID</code>, <code>API_CurtainWallJunctionID</code>, <code>API_CurtainWallAccessoryID</code>, or <code>API_StairID</code>.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to obtain the actual default settings for a Window, Door, Section, Elevation, Interior Elevation, ChangeMarker, Detail or Worksheet element, as an alternative of <a href="ACAPI_Element_GetDefaults.html">ACAPI_Element_GetDefaults</a>.</p>
+
+    <p>The requested type is identified by the <code>type</code> field of the header. The function fills the central part of the <a href="../Structures/API_Element.html">API_Element</a> structure with values from the Settings dialog. You have to fill in the geometric information yourself, if you need it.</p>
+
+    <p>The <code>memo</code> parameter is used only for library part based elements (including zone stamps), where the <code>params</code> field is filled with the actual parameter values of the referenced Library Part. Do not forget to call the <a href="ACAPI_DisposeElemMemoHdls.html">ACAPI_DisposeElemMemoHdls</a> function to dispose of the obtained handles.</p>
+
+    <p>To change the default settings use the <a href="ACAPI_Element_ChangeDefaultsExt.html">ACAPI_Element_ChangeDefaultsExt</a> function.</p>
+
+    <p>You can use the returned values to initialize the element attributes and parameters to create a new instance. Refer to the <a href="ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a> function for more details.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_Element          element;
+API_ElementMemo      memo;
+API_MarkerMemoMask   markers[2];
+GSErrCode            err;
+
+BNZeroMemory (&amp;element, sizeof (API_Element));
+BNZeroMemory (&amp;memo, sizeof (API_ElementMemo));
+BNZeroMemory (&amp;markers, sizeof (markers));
+
+element.header.type = API_CutPlaneID;
+markers[0].markType = (API_MarkerMemoMaskType) (APIMarkerMemoMask_MainMarker | APIMarkerMemoMask_NoParams); // only the element is needed
+markers[1].markType = (API_MarkerMemoMaskType) (APIMarkerMemoMask_SHMarker | APIMarkerMemoMask_NoElem);     // only the memo is needed
+
+err = ACAPI_Element_GetDefaultsExt (&amp;element, &amp;memo, 2UL, &amp;markers);
+if (err == NoError) {
+    if (markers[1].memo.params != nullptr) {
+        DBPrintf ("Cut Plane Default: Show Story Level Marker head is %s\n",
+            ((*markers[1].memo.params)[3].value.real &gt; 0.0) ? "ON" : "OFF");     // "marker_head" parameter
+    }
+
+    API_LibPart libPart;
+    BNZeroMemory (&amp;libPart, sizeof (API_LibPart));
+    libPart.index = markers[0].markElem.object.libInd;
+    if (ACAPI_LibPart_Get (&amp;libPart) == NoError) {
+        DBPrintf ("Section Marker currently selected for Cut Plane Default: \"%s\"\n", (const char *) GS::UniString (libPart.docu_UName).ToCStr ());
+    }
+    if (libPart.location != nullptr)
+        delete libPart.location;
+}
+
+ACAPI_DisposeElemMemoHdls (&amp;memo);
+ACAPI_DisposeElemMemoHdls (&amp;markers[1].memo);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Element.html">API_Element</a>, <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="ACAPI_Element_GetDefaults.html">ACAPI_Element_GetDefaults</a>, <a href="ACAPI_Element_ChangeDefaultsExt.html">ACAPI_Element_ChangeDefaultsExt</a>, <a href="ACAPI_DisposeElemMemoHdls.html">ACAPI_DisposeElemMemoHdls</a><br>
+    <a href="ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a>, <a href="ACAPI_Element_ChangeExt.html">ACAPI_Element_ChangeExt</a><br>
+    <a href="../Structures/API_WindowType.html">API_WindowType</a>, <a href="../Structures/API_CutPlaneType.html">API_CutPlaneType</a>, <a href="../Structures/API_CutPlaneType.html">API_ElevationType</a>, <a href="../Structures/API_InteriorElevationType.html">API_InteriorElevationType</a>, <a href="../Structures/API_ChangeMarkerType.html">API_ChangeMarkerType</a>, <a href="../Structures/API_DetailType.html">API_DetailType</a>, <a href="../Structures/API_DetailType.html">API_WorksheetType</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on August 20, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

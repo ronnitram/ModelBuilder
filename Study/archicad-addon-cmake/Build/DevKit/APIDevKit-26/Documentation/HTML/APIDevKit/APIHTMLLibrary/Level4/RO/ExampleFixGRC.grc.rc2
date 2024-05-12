@@ -1,0 +1,22 @@
+﻿
+/*---- This file was created by GRC compiler --------------------------------------------*/
+/*                                                                                       */
+/*     Source file: C:\W\Main\Bin.Win\Objects_VS10_64.fin\APITools\DG_Test\RINT\ExampleFixGRC.grc.rc2.i        Code table: NUL              */
+/*                                                                                       */
+/*---- Version 2.0 - Windows ------------------------------ (c) 1996-2016 by Graphisoft -*/
+
+
+10000	ICON 10000.ico
+
+20000	ICON WallTool.ico
+
+20001	ICON DoorTool.ico
+
+20002	ICON WindowTool.ico
+
+20003	ICON ObjectTool.ico
+
+30000	ICON TWEditable.ico
+
+30001	ICON TWLocked.ico
+

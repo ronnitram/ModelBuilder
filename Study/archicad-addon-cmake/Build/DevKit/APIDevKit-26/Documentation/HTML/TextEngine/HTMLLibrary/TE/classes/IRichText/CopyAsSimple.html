@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>TE::IRichText::CopyAsSimple Method</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+  
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTMLLibrary/TE/classes/IRichText/CopyAsSimple.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">TextEngine</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TE::IRichText::CopyAsSimple Method</h1>
+    <!--exp="TE::IRichText::CopyAsSimple Method"-->
+    <p>
+      <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Implemented method</b>. It has ANSI and Unicode version. Makes a multiline "simple text".
+    Converts texts for Archicad 8.1 and before.
+  
+    </p>
+    <pre class="Syntax"><span class="SyntaxTypename">Int32</span> <span class="SyntaxIdentifier">CopyAsSimple</span> <span class="SyntaxSymbol">(</span>
+    <span class="SyntaxTypename">GS::UniString *</span>     <span class="SyntaxParameter">content</span><span class="SyntaxSymbol">,</span>
+    <span class="SyntaxTypename">short *</span>             <span class="SyntaxParameter">lStarts</span><span class="SyntaxSymbol">,</span>
+    <span class="SyntaxTypename">EOLType</span>             <span class="SyntaxParameter">typeOfParSeparator</span> <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">EOL_CR</span>
+<span class="SyntaxSymbol">)</span> <span class="SyntaxKeyword">const</span><span class="SyntaxSymbol">;</span></pre>
+    <h2 class="SectionHeader">Parameters</h2>
+    <dl>
+      <dt><span class="Parameter">content</span></dt>
+      <dd>
+        <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[out]</i> In ANSI case <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">CopyAsSimple</b> converts <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">content</b> from Unicode to ANSI using <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="GetGSCharCode.html" shape="rect">GetGSCharCode</a>.
+  The length of "C" string can be different from Unicode length, it is recommended to set it min. twice as big as the length of Unicode content + 1.
+    <pre xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" class="code" space="preserve">// Example:
+  TE::IRichText*  iRTxt = ....;
+  GS::UniString&amp;  uContent = iRTxt-&gt;GetContent ();
+  USize ansiBufferLength = 2 * uContent.GetLength () + 1;
+</pre>
+      </dd>
+      <dt><span class="Parameter">lStarts</span></dt>
+      <dd>
+        <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[out]</i> This is a pointer to the first item of the array of line start positions.
+    See <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="SimpleToRich.html" shape="rect">IRichText::SimpleToRich</a>.
+  
+      </dd>
+      <dt><span class="Parameter">typeOfParSeparator</span></dt>
+      <dd>
+        <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[in]</i> Paragraph separator. This separator will be inserted at the boundaries of paragraphs. The default value is CR.
+  
+      </dd>
+    </dl>
+    <h2 class="SectionHeader">Return Value</h2>
+    <p>
+      
+    </p>
+    
+    <h2 class="SectionHeader">Description</h2>
+    <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Implemented method</b>. It has ANSI and Unicode version. "Simple texts" are stored as a <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">string</b> and an array is
+  filled with the <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">line start positions</b>. See <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="SimpleToRich.html" shape="rect">IRichText::SimpleToRich</a>. In ANSI version
+  the line start positions are filled according to ANSI string positions. The conversion inserts a paragraph separator
+  at the boundaries of the paragraphs. The default separator is the CR.
+  
+    
+    <h2 class="SectionHeader">Example</h2>
+    <p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"><!-- Don't index --><a href="Invalid link: ../../Examples/IRichText.html" shape="rect">Example for using IRichText</a></p>
+    
+    <h2 class="SectionHeader">See Also</h2>
+    <p>
+      <!-- Don't index --><a href="IRichText.html">IRichText Overview</a> | 
+      <!-- Don't index --><a href="IRichText.html#members">Class Members</a> | 
+      <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="SimpleToRich.html" shape="rect">IRichText::SimpleToRich</a>
+    </p>
+  
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

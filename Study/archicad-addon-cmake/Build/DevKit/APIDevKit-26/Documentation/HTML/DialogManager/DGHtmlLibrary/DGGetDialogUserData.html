@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGGetDialogUserData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGGetDialogUserData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGGetDialogUserData</h1>
+
+    <p>Retrieves the user-specified data of a <a href="ModalDialogs.html">modal</a> or <a href="ModelessDialogs.html">modeless</a> dialog.</p>
+    <pre class="syntax">
+    <strong><a href="DGUserData.html">DGUserData</a> DGGetDialogUserData</strong> (
+      <strong>short</strong>  <em>dialId</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The user-specified data of the dialog.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The application can assign a <strong><tt>DGUserData</tt></strong> value to every modal or modeless dialog. This value can be used to store any dialog-specific user data. It can be given when creating the dialog by <a href="DGModelessInit.html">DGModelessInit</a> or <a href="DGModalDialog.html">DGModalDialog</a> as the user data parameter of these functions, or can be modified later by <a href="DGSetDialogUserData.html">DGSetDialogUserData</a>. When handling <a href="Messages_id.html">DG messages</a> in the <a href="CallbackFunctions.html">dialog callback function</a>, this dialog-specific data is available as the user data parameter of the message. Otherwise you can retrieve this value by <b>DGGetDialogUserData</b>.</p>
+
+    <p>It is advised to gather all the dialog related data into a user-defined structure. After filling this structure, give <tt><strong>DGUserData</strong></tt> to <b>DGModelessInit</b> or <b>DGModalDialog</b> as the user data parameter.</p>
+
+    <p>If a dialog has one ore more tab pages, they have a common user data. Therefore <b>DGGetDialogUserData</b> retrieves the same value for a dialog and for all of its tab pages.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.1.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ModalDialogs.html">Modal Dialogs</a>, <a href="ModelessDialogs.html">Modeless Dialogs</a>, <a href="DGSetDialogUserData.html">DGSetDialogUserData</a><br>
+    <a href="DGModelessInit.html">DGModelessInit</a>, <a href="DGModalDialog.html">DGModalDialog</a>, <a href="Messages_id.html">DG Messages</a>, <a href="CallbackFunctions.html">Callback functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>RegisterHotKey (Panel)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/Panel/RegisterHotKey.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="Panel.html">Panel</A>::RegisterHotKey</H2><!--exp="Panel::RegisterHotKey"-->
+<P><topic id="$DG.$Panel.$RegisterHotKey.BriefDescription">
+		Registers a hotkey to the panel.
+	</topic></P>
+<PRE class="syntax"><B>short RegisterHotKey (</B>
+    <B><a class="nodecorate" href="../../DG_Key/Special.html">Key::Special</A>        </B><I>keyCode</I>,
+    <B><a class="nodecorate" href="../../DG_Key/Modifier.html">Key::Modifier</A>       </B><I>mod1</I><B> = Key::NoModifier</B>,
+    <B><a class="nodecorate" href="../../DG_Key/Modifier.html">Key::Modifier</A>       </B><I>mod2</I><B> = Key::NoModifier</B>,
+    <B><a class="nodecorate" href="../../DG_Key/Modifier.html">Key::Modifier</A>       </B><I>mod3</I><B> = Key::NoModifier</B>
+<B>);</B></PRE>
+<PRE class="syntax"><B>short RegisterHotKey (</B>
+    <B>short               </B><I>keyCode</I>,
+    <B><a class="nodecorate" href="../../DG_Key/Modifier.html">Key::Modifier</A>       </B><I>mod1</I><B> = Key::NoModifier</B>,
+    <B><a class="nodecorate" href="../../DG_Key/Modifier.html">Key::Modifier</A>       </B><I>mod2</I><B> = Key::NoModifier</B>,
+    <B><a class="nodecorate" href="../../DG_Key/Modifier.html">Key::Modifier</A>       </B><I>mod3</I><B> = Key::NoModifier</B>
+<B>);</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>keyCode</I></DT><DD><topic id="$DG.$Panel.$RegisterHotKey.$keyCode.ParamDescription">
+		A character code or a <a href="../../DG_Key/Special.html">predefined key code</a>.
+	</topic></DD><DT><I>mod1</I></DT><DD><topic id="$DG.$Panel.$RegisterHotKey.$mod1.ParamDescription">
+		A <a href="../../DG_Key/Modifier.html">key modifier</a>.
+	</topic></DD><DT><I>mod2</I></DT><DD><topic id="$DG.$Panel.$RegisterHotKey.$mod2.ParamDescription">
+		A <a href="../../DG_Key/Modifier.html">key modifier</a>.
+	</topic></DD><DT><I>mod3</I></DT><DD><topic id="$DG.$Panel.$RegisterHotKey.$mod3.ParamDescription">
+		A <a href="../../DG_Key/Modifier.html">key modifier</a>.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$DG.$Panel.$RegisterHotKey.ReturnDescription">
+		1-based identifier of the hotkey if the registration is successful, or
+		zero if an error occurs.
+	</topic></P><P><topic id="$DG.$Panel.$RegisterHotKey.1.ReturnDescription"></topic></P><P><topic id="$DG.$Panel.$RegisterHotKey.2.ReturnDescription"></topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

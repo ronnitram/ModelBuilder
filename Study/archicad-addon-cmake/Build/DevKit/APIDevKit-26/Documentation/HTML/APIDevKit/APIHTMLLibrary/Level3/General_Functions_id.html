@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>General Functions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/General_Functions_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>General Functions</h1>
+
+    <p>&nbsp;</p>
+
+    <p>There are container functions, the execution of witch depend on the actual parameters. All of them pass a function code and two general purpose data pointers on the parameter list (some of which may be optional).</p>
+
+    <p>The interpretation of the data pointers depends on the function code.</p>
+
+    <p>The function families are:</p>
+
+    <blockquote>
+        <a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a>
+
+        <blockquote>
+            This function set makes available to operate on general environment settings. Using this function you can get information on the current project, teamwork environment, preferences settings, etc. You can also change most of these settings.
+        </blockquote>
+
+        <p><a href="../Functions/ACAPI_Database_id.html">ACAPI_Database</a></p>
+
+        <blockquote>
+            This function set controls all of the database dependent API functionality. All of the Archicad project windows have their own database system. Using these functions you can either specify on which database the subsequent API calls should work, or you can open/close additional database windows. Also here are the functions which set overall database parameters, such the grid parameters, or the drawing scale, etc.
+        </blockquote>
+
+        <p><a href="../Functions/acapi_interface_id.html">ACAPI_Interface</a></p>
+
+        <blockquote>
+            This function set collects all of the API functionality related to interface services. Using this function set you can either modify the menu items you have mounted into the Archicad menu structure (rename, mark/unmark, disable/enable), or force the user to input geometry data (type a point, line, arc, or polygon), or even control the gravity or shape of the cursor while these input functions are running.
+        </blockquote>
+
+        <p><a href="../Functions/ACAPI_Goodies_id.html">ACAPI_Goodies</a></p>
+
+        <blockquote>
+            This function set collects service functions. They are real general purpose operations, which are not database dependent, and also do not effect any parameter can be set in a dialog box in Archicad. For example here you can modify the value of a GDL variable of a parameter list, convert a picture from one standard to an other, or triangulate a polygon etc.
+        </blockquote>
+
+        <p><a href="../Functions/acapi_automate_id.html">ACAPI_Automate</a></p>
+
+        <blockquote>
+            This function set provides some automation-like operation. You can force the server application to execute the same commands can be called from the File and Display menus. You can for example save the current project, open a new one, print the active one, or even make a rebuild or zoom command.
+
+            <p>These functions are supported also when Archicad has been started as an OLE automation server.</p>
+
+            <p><b>Note</b>: there are certain limitations to execute such a command. For example these commands are not allowed to execute during notification processing. Also the Quit command is accepted only in OLE automation environment.</p>
+        </blockquote>
+    </blockquote>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 13, 1999<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

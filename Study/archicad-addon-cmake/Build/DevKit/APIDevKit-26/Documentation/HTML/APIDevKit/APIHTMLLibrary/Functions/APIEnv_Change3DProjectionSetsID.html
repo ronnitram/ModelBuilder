@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIEnv_Change3DProjectionSetsID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIEnv_Change3DProjectionSetsID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIEnv_Change3DProjectionSetsID</h1>
+
+    <p>Changes the parameters of the 3D projection.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_environment_id.html">ACAPI_Environment</a></strong> (
+        <strong>APIEnv_Change3DProjectionSetsID</strong>,
+        <strong><a href="../Structures/API_3DProjectionInfo.html">API_3DProjectionInfo</a>*</strong>     <em>proj3DInfo</em>,
+        <strong>bool*</strong>                     <em>switchOnlyAxonoOrPersp</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>proj3DInfo</em></dt>
+
+        <dd>[in] Parameters of the '3D Projection Settings...' dialog</dd>
+
+        <dt><em>switchOnlyAxonoOrPersp</em></dt>
+
+        <dd>[in] Optional parameter. If it is not <code>nullptr</code> and the value is <code>true</code>, only the <code>isPersp</code> field of <code>proj3DInfo</code> is considered</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>proj3DInfo</code> is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_NOPLAN</code></dt>
+
+        <dd>No open project</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to change the 3D projection.</p>
+
+    <p>If you pass <code>true</code> in the <code>switchOnlyAxoOrPersp</code> parameter, the kind of the projection (parallel or perspective) will be changed only, all the other parameters will be ignored.<br>
+    If the value of <code>camGuid</code> or <code>actCamSet</code> field of <a href="../Structures/API_3DProjectionInfo.html">API_3DProjectionInfo</a> is non-zero, the perspective projection will be defined according to the camera identified by <code>camGuid</code>. If <code>camGuid</code> is invalid, the first camera of the camera set defined by the <code>actCamSet</code> field will be used. Otherwise the perspective settings will not be related to any floorplan camera element, and will be defined by the <a href="../Structures/API_PerspPars.html">API_PerspPars</a> data. These fields are irrelevant when changing the axonometric projection parameters.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+/* Change to the next perspective camera */
+API_Element           element;
+API_3DProjectionInfo  proj3DInfo;
+GSErrCode             err;
+
+BNZeroMemory (&amp;proj3DInfo, sizeof (API_3DProjectionInfo));
+err = ACAPI_Environment (APIEnv_Get3DProjectionSetsID, &amp;proj3DInfo, nullptr, nullptr);
+if (err == NoError &amp;&amp; proj3DInfo.isPersp &amp;&amp; proj3DInfo.camGuid != APINULLGuid) {
+    BNZeroMemory (&amp;element, sizeof (API_Element));
+    element.header.guid = proj3DInfo.camGuid;
+    err = ACAPI_Element_Get (&amp;element);
+    if (err == NoError &amp;&amp; element.camera.perspCam.nextCam != APINULLGuid) {
+        proj3DInfo.camGuid = element.camera.perspCam.nextCam;
+        err = ACAPI_Environment (APIEnv_Change3DProjectionSetsID, &amp;proj3DInfo, nullptr, nullptr);
+    }
+}
+</code></pre>
+    </blockquote>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="APIEnv_Get3DProjectionSetsID.html">APIEnv_Get3DProjectionSetsID</a>, <a href="acapi_environment_id.html">ACAPI_Environment</a>, <a href="../Structures/API_3DProjectionInfo.html">API_3DProjectionInfo</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 5, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>OpenBlock (OChannel)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/OChannel/OpenBlock.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="OChannel.html">OChannel</A>::OpenBlock</H2><!--exp="OChannel::OpenBlock-->
+<P><topic id="$GS.$OChannel.$OpenBlock.BriefDescription">
+		Opens a new data block extended with data size.
+	</topic></P>
+<PRE class="syntax"><B>GSErrCode OpenBlock (</B><B>void</B><I></I><B>);</B></PRE>
+<H4>Return Value</H4>
+<P><topic id="$GS.$OChannel.$OpenBlock.ReturnDescription">
+		<table class="enumeration">
+		  <tr>
+			<th>Value</th>
+			<th>Meaning</th>
+		  </tr>
+		  <tr>
+			<td>NoError<sup><font color="#0000FF">*</font></sup></td>
+			<td>OK</td>
+		  </tr>
+		  <tr>
+			<td>OutputIsFull<sup><font color="#FF0000">*</font></sup></td>
+			<td>output device is full</td>
+		  </tr>
+		  <tr>
+			<td>WriteError<sup><font color="#FF0000">*</font></sup></td>
+			<td>write error on the output device</td>
+		  </tr>
+		  <tr>
+			<td>ErrMemoryFull<sup><font color="#0000FF">*</font></sup></td>
+			<td>out of memory</td>
+		  </tr>
+		  <tr>
+			<td>Error<sup><font color="#0000FF">*</font></sup></td>
+			<td>unspecified error</td>
+		  </tr>
+		</table>
+		<blockquote>
+		  <p><font color="#FF0000"><sup>*</sup></font> declared in OChannel class scope<br>
+		  <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope
+		  </p>
+		</blockquote>
+	</topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$OChannel.$OpenBlock.LongDescription">
+		This is a utility method (implemented with block methods) which supports writing data in blocks
+		with the data size placed at the begining of the block. This method opens a new block and reserves
+		(skips) space for the data size. After the data has been written, block should be closed with the
+		<!----><a href="CloseBlock.html">CloseBlock</a> method which writes back size of the data (and returns
+		write pointer to the end of the output stream). Data size is written as unsigned long.
+		Blocks can be nested.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$OChannel.$OpenBlock.SeeAlso">
+		<!----><a href="CloseBlock.html">CloseBlock</a> | <!----><a href="PushMark.html">PushMark</a> | <!----><a href="PopMark.html">PopMark</a> | <!----><a href="GetOffset.html">GetOffset</a> | <!----><a href="ResetOffset.html">ResetOffset</a>
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

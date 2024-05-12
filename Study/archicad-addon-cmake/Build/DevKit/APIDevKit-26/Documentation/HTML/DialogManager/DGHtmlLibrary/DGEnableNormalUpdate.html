@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Vegh Miklos">
+
+    <title>DGEnableNormalUpdate</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGEnableNormalUpdate.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGEnableNormalUpdate</h1>
+
+    <p>Enables normal update mechanism of partially updateable <a href="UserItem.html">user items</a> of a dialog.</p>
+    <pre class="syntax">
+    <strong>void DGEnableNormalUpdate</strong> (
+      <strong>short</strong>  <em>dialId</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog. <tt>DG_ALL_DIALOGS</tt> specifies all dialogs.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>User items receive <tt>DG_MSG_UPDATE</tt> messages whenever they should be updated. If the update process of a user item takes too much time, it is advised to enable partial update for that item. If partial update is enabled, in addition to normal update messages DG sends partial update messages also automatically or for the application's requirement.</p>
+
+    <p>If partial update is not enabled for a user item, disabling the normal update has no effect.</p>
+
+    <p>If the application disables the normal update with the <a href="DGDisableNormalUpdate.html">DGDisableNormalUpdate</a> function the dialog will receive partial update messages only until the normal update is enabled again with the <strong>DGEnableNormalUpdate</strong> function.</p>
+
+    <p>Disabling the normal update for a dialog is useful in the following case for example: Assume that the application has opened many modeless windows simultaneously, each one having a partial updateable user item with graphics taking long time to calculate and redraw, and these windows need to be arranged on the screen (tiled or cascaded for example). If the normal update is not disabled the windows are arranged in the following manner: the first window is moved to its new position, resized and the whole content is redrawn. Until the redraw process lasts the size and position of the next window is unchanged. Between arranging two windows long time expires. If the normal update is disabled the first window is moved, resized and receives a partial update message. Responding to this message it can repaint its background and do some basic drawing functions without time consumption. This process continues with the next window. After all windows have their new positions and sizes set, DG sends normal update messages for each window. In this case no window arrangement happens after the first normal update message is sent.</p>
+
+    <p>With every update message the current invalid region is sent in the message data. If the normal update is suspended for a dialog which contains a partial updateable user item, the invalid regions which are sent with partial update messages are collected by DG. The union of the collected invalid regions are sent to the <a href="CallbackFunctions.html">dialog callback function</a> in a normal update message when the normal update is restored by calling the <strong>DGEnableNormalUpdate</strong> function.</p>
+
+    <p>This function should not be called with a tab page ID.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="UserItem.html">User Item</a><br>
+    <a href="DGDisableNormalUpdate.html">DGDisableNormalUpdate</a><br>
+    <a href="CallbackFunctions.html">Callback functions</a>, <a href="DG_MSG_UPDATE.html">DG_MSG_UPDATE</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 2, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

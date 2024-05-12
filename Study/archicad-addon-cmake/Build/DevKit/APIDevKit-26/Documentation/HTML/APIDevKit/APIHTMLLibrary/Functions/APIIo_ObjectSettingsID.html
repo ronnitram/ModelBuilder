@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIIo_ObjectSettingsID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIIo_ObjectSettingsID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIIo_ObjectSettingsID</h1>
+
+    <p>Opens the Object/Lamp(/Window/Door) Settings dialog.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_interface_id.html">ACAPI_Interface</a></strong> (
+        <strong>APIIo_ObjectSettingsID</strong>,
+        <strong><a href="../Structures/API_ObjectSettingsPars.html">API_ObjectSettingsPars</a>*</strong>     <em>objectSettingsPars</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>objectSettingsPars</em></dt>
+
+        <dd>[in/out] The parameters to open the dialog with. Also contains the selected object on return.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>objectSettingsPars</code> is <code>nullptr</code>.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd><code>objectSettingsPars</code> contains invalid data.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The Settings dialog may show only library parts with a given subtype. The default library part's library index can also be passed onto this function.</p>
+
+    <p>It returns the parameters set in the Settings dialog, and also the additional parameters of the selected library part.</p>
+
+    <p>If <code>subtypeID</code> is an empty string, then the passed <code>typeID</code> and <code>variationID</code> will be used to identify the tool whose subtype will serve as a filter.</p>
+
+    <p>If <code>libIndex</code> is 0 (i.e. you haven't used <code>ACAPI_LibPart_Search</code> to find an appropriate library item), then the function tried to find the first item in the loaded libraries, whose subtype matches the passed <code>subTypeID</code> (or <code>typeID</code> and <code>variationID</code>).</p>
+
+    <p><img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12">&nbsp;The linked properties information specified on the Listing and Labeling page returns in the <code>propIndivLibInd</code> and <code>propCriteria</code> fields. These properties should be linked to the element you would create after calling the Object Settings dialog (see <a href="ACAPI_Element_SetLinkedPropertyObjects.html">ACAPI_Element_SetLinkedPropertyObjects</a>).</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+GSErrCode SelectObject (void)
+{
+    GSErrCode    err = NoError;
+    API_ObjectSettingsPars api_objSetPars;
+
+    BNZeroMemory (&amp;api_objSetPars, sizeof (API_ObjectSettingsPars));
+
+    api_objSetPars.elemDef.object.head.type = API_ObjectID;    // this tells the API which dialog it should bring up
+    CHCopyC ("{D65FA25D-A6D4-48A4-BD9B-2DFE16D58297}-{0D053320-4961-4B12-A2C3-BEA101B0E56F}", api_objSetPars.subtypeID);
+    // GUID of Gas Supply Terminal subtype                       // the appropriate subtype should be copied here; it'll be used for filtering
+
+    err = ACAPI_Interface (<font color="#FF0066">APIIo_ObjectSettingsID</font>, &amp;api_objSetPars, nullptr);
+    if (err == NoError) {
+        char msgStr[256];
+        sprintf (msgStr, "Object #%d was selected!", api_objSetPars.elemDef.object.libInd);
+        ACAPI_WriteReport (msgStr, true);
+
+        // Create an object element:
+        {
+            API_Element     element;
+            API_ElementMemo memo;
+            BNZeroMemory (&amp;element, sizeof (API_Element));
+            BNZeroMemory (&amp;memo, sizeof (API_ElementMemo));
+
+            element.object = api_objSetPars.elemDef.object;
+            element.object.pos.x = ...x...;
+            element.object.pos.y = ...y...;
+            element.header.floorInd = ...story...;
+            memo.params = api_objSetPars.addPars;
+
+            err = ACAPI_CallUndoableCommand ("...",
+                [&amp;] () -&gt; GSErrCode {
+                    GSErrCode err1 = ACAPI_Element_Create (&amp;element, &amp;memo);
+                    if (err1 == NoError)
+                        err1 = ACAPI_Element_SetLinkedPropertyObjects (&amp;element.header, api_objSetPars.propCriteria, api_objSetPars.propIndivLibInd);
+                    return err1;
+                });
+        }
+    }
+
+    if (api_objSetPars.addPars != nullptr)
+        ACAPI_DisposeAddParHdl (&amp;api_objSetPars.addPars);    // do not forget to dispose the handle
+
+    return err;
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_ObjectSettingsPars.html">API_ObjectSettingsPars</a><br>
+    <a href="acapi_interface_id.html">ACAPI_Interface</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on July 29, 2015<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

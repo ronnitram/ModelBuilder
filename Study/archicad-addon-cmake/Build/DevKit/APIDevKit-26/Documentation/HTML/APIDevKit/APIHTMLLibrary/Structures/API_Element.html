@@ -1,0 +1,425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_Element</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_Element.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_Element</h1>
+
+    <p>A union collecting all known element types.</p>
+    <pre class="syntax">
+    <strong>typedef union {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                     <em>header</em>;
+        <strong><a href="API_WallType.html">API_WallType</a></strong>                      <em>wall</em>;
+        <strong><a href="API_ColumnType.html">API_ColumnType</a></strong>                    <em>column</em>;
+        <strong><a href="API_BeamType.html">API_BeamType</a></strong>                      <em>beam</em>;
+        <strong><a href="API_WindowType.html">API_WindowType</a></strong>                    <em>window</em>;
+        <strong><a href="API_WindowType.html">API_DoorType</a></strong>                      <em>door</em>;
+        <strong><a href="API_ObjectType.html">API_ObjectType</a></strong>                    <em>object</em>;
+        <strong><a href="API_ObjectType.html">API_LampType</a></strong>                      <em>lamp</em>;
+        <strong><a href="API_SlabType.html">API_SlabType</a></strong>                      <em>slab</em>;
+        <strong><a href="API_RoofType.html">API_RoofType</a></strong>                      <em>roof</em>;
+        <strong><a href="API_MeshType.html">API_MeshType</a></strong>                      <em>mesh</em>;
+        <strong><a href="API_DimensionType.html">API_DimensionType</a></strong>                 <em>dimension</em>;
+        <strong><a href="API_RadialDimensionType.html">API_RadialDimensionType</a></strong>           <em>radialDimension</em>;
+        <strong><a href="API_LevelDimensionType.html">API_LevelDimensionType</a></strong>            <em>levelDimension</em>;
+        <strong><a href="API_AngleDimensionType.html">API_AngleDimensionType</a></strong>            <em>angleDimension</em>;
+        <strong><a href="API_TextType.html">API_TextType</a></strong>                      <em>text</em>;
+        <strong><a href="API_LabelType.html">API_LabelType</a></strong>                     <em>label</em>;
+        <strong><a href="API_ZoneType.html">API_ZoneType</a></strong>                      <em>zone</em>;
+        <strong><a href="API_HatchType.html">API_HatchType</a></strong>                     <em>hatch</em>;
+        <strong><a href="API_LineType.html">API_LineType</a></strong>                      <em>line</em>;
+        <strong><a href="API_PolyLineType.html">API_PolyLineType</a></strong>                  <em>polyLine</em>;
+        <strong><a href="API_ArcType.html">API_ArcType</a></strong>                       <em>arc</em>;
+        <strong><a href="API_CircleType.html">API_CircleType</a></strong>                    <em>circle</em>;
+        <strong><a href="API_SplineType.html">API_SplineType</a></strong>                    <em>spline</em>;
+        <strong><a href="API_HotspotType.html">API_HotspotType</a></strong>                   <em>hotspot</em>;
+        <strong><a href="API_PictureType.html">API_PictureType</a></strong>                   <em>picture</em>;
+        <strong><a href="API_CutPlaneType.html">API_CutPlaneType</a></strong>                  <em>cutPlane</em>;
+        <strong><a href="API_CutPlaneType.html">API_ElevationType</a></strong>                 <em>elevation</em>;
+        <strong><a href="API_InteriorElevationType.html">API_InteriorElevationType</a></strong>         <em>interiorElevation</em>;
+        <strong><a href="API_CameraType.html">API_CameraType</a></strong>                    <em>camera</em>;
+        <strong><a href="API_CamSetType.html">API_CamSetType</a></strong>                    <em>camset</em>;
+        <strong><a href="API_DrawingType.html">API_DrawingType</a></strong>                   <em>drawing</em>;
+        <strong><a href="API_SectElemType.html">API_SectElemType</a></strong>                  <em>sectElem</em>;
+        <strong><a href="API_DetailType.html">API_DetailType</a></strong>                    <em>detail</em>;
+        <strong><a href="API_DetailType.html">API_WorksheetType</a></strong>                 <em>worksheet</em>;
+        <strong><a href="API_HotlinkType.html">API_HotlinkType</a></strong>                   <em>hotlink</em>;
+        <strong><a href="API_CurtainWallType.html">API_CurtainWallType</a></strong>               <em>curtainWall</em>;
+        <strong><a href="API_CWSegmentType.html">API_CWSegmentType</a></strong>                 <em>cwSegment</em>;
+        <strong><a href="API_CWFrameType.html">API_CWFrameType</a></strong>                   <em>cwFrame</em>;
+        <strong><a href="API_CWPanelType.html">API_CWPanelType</a></strong>                   <em>cwPanel</em>;
+        <strong><a href="API_CWJunctionType.html">API_CWJunctionType</a></strong>                <em>cwJunction</em>;
+        <strong><a href="API_CWAccessoryType.html">API_CWAccessoryType</a></strong>               <em>cwAccessory</em>;
+        <strong><a href="API_ShellType.html">API_ShellType</a></strong>                     <em>shell</em>;
+        <strong><a href="API_MorphType.html">API_MorphType</a></strong>                     <em>morph</em>;
+        <strong><a href="API_SkylightType.html">API_SkylightType</a></strong>                  <em>skylight</em>;
+        <strong><a href="API_ChangeMarkerType.html">API_ChangeMarkerType</a></strong>              <em>changeMarker</em>;
+        <strong><a href="API_StairType.html">API_StairType</a></strong>                     <em>stair</em>;
+        <strong><a href="API_StairRiserType.html">API_StairRiserType</a></strong>                <em>stairRiser</em>;
+        <strong><a href="API_StairTreadType.html">API_StairTreadType</a></strong>                <em>stairTread</em>;
+        <strong><a href="API_StairStructureType.html">API_StairStructureType</a></strong>            <em>stairStructure</em>;
+        <strong><a href="API_RailingType.html">API_RailingType</a></strong>                   <em>railing</em>;
+        <strong><a href="API_RailingToprailType.html">API_RailingToprailType</a></strong>            <em>railingToprail</em>;
+        <strong><a href="API_RailingHandrailType.html">API_RailingHandrailType</a></strong>           <em>railingHandrail</em>;
+        <strong><a href="API_RailingRailType.html">API_RailingRailType</a></strong>               <em>railingRail</em>;
+        <strong><a href="API_RailingRailEndType.html">API_RailingRailEndType</a></strong>            <em>railingToprailEnd</em>;
+        <strong><a href="API_RailingRailEndType.html">API_RailingRailEndType</a></strong>            <em>railingHandrailEnd</em>;
+        <strong><a href="API_RailingRailEndType.html">API_RailingRailEndType</a></strong>            <em>railingRailEnd</em>;
+        <strong><a href="API_RailingFinishType.html">API_RailingFinishType</a></strong>             <em>railingEndFinish</em>;
+        <strong><a href="API_RailingRailConnectionType.html">API_RailingRailConnectionType</a></strong>     <em>railingToprailConnection</em>;
+        <strong><a href="API_RailingRailConnectionType.html">API_RailingRailConnectionType</a></strong>     <em>railingHandrailConnection</em>;
+        <strong><a href="API_RailingRailConnectionType.html">API_RailingRailConnectionType</a></strong>     <em>railingRailConnection</em>;
+        <strong><a href="API_RailingPostType.html">API_RailingPostType</a></strong>               <em>railingPost</em>;
+        <strong><a href="API_RailingInnerPostType.html">API_RailingInnerPostType</a></strong>          <em>railingInnerPost</em>;
+        <strong><a href="API_RailingBalusterSetType.html">API_RailingBalusterSetType</a></strong>        <em>railingBalusterSet</em>;
+        <strong><a href="API_RailingBalusterType.html">API_RailingBalusterType</a></strong>           <em>railingBaluster</em>;
+        <strong><a href="API_RailingPanelType.html">API_RailingPanelType</a></strong>              <em>railingPanel</em>;
+        <strong><a href="API_RailingNodeType.html">API_RailingNodeType</a></strong>               <em>railingNode</em>;
+        <strong><a href="API_RailingSegmentType.html">API_RailingSegmentType</a></strong>            <em>railingSegment</em>;
+        <strong><a href="API_RailingPatternType.html">API_RailingPatternType</a></strong>            <em>railingPattern</em>;
+        <strong><a href="API_ColumnSegmentType.html">API_ColumnSegmentType</a></strong>             <em>columnSegment</em>;
+        <strong><a href="API_BeamSegmentType.html">API_BeamSegmentType</a></strong>               <em>beamSegment</em>;
+        <strong>API_ExternalElemType</strong>              externalElem
+    <strong>}</strong> <em>API_Element</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>header</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>wall</b></dt>
+
+        <dd>Represents a wall.</dd>
+
+        <dt><b>column</b></dt>
+
+        <dd>Represents a column.</dd>
+
+        <dt><b>beam</b></dt>
+
+        <dd>Represents a beam.</dd>
+
+        <dt><b>window</b></dt>
+
+        <dd>Represents a window.</dd>
+
+        <dt><b>door</b></dt>
+
+        <dd>Represents a door.</dd>
+
+        <dt><b>object</b></dt>
+
+        <dd>Represents an object.</dd>
+
+        <dt><b>lamp</b></dt>
+
+        <dd>Represents a lamp.</dd>
+
+        <dt><b>slab</b></dt>
+
+        <dd>Represents a slab.</dd>
+
+        <dt><b>roof</b></dt>
+
+        <dd>Represents a roof.</dd>
+
+        <dt><b>mesh</b></dt>
+
+        <dd>Represents a mesh.</dd>
+
+        <dt><b>dimension</b></dt>
+
+        <dd>Represents a dimension.</dd>
+
+        <dt><b>radialDimension</b></dt>
+
+        <dd>Represents a radial dimension.</dd>
+
+        <dt><b>levelDimension</b></dt>
+
+        <dd>Represents a level dimension.</dd>
+
+        <dt><b>angleDimension</b></dt>
+
+        <dd>Represents an angle dimension.</dd>
+
+        <dt><b>text</b></dt>
+
+        <dd>Represents a text.</dd>
+
+        <dt><b>label</b></dt>
+
+        <dd>Represents a label.</dd>
+
+        <dt><b>zone</b></dt>
+
+        <dd>Represents a zone.</dd>
+
+        <dt><b>hatch</b></dt>
+
+        <dd>Represents a hatch.</dd>
+
+        <dt><b>line</b></dt>
+
+        <dd>Represents a 2D line.</dd>
+
+        <dt><b>polyLine</b></dt>
+
+        <dd><!--@4.1-->Represents a 2D polyline.</dd>
+
+        <dt><b>arc</b></dt>
+
+        <dd>Represents a 2D arc.</dd>
+
+        <dt><b>circle</b></dt>
+
+        <dd>Represents a 2D circle.</dd>
+
+        <dt><b>spline</b></dt>
+
+        <dd>Represents a 2D spline.</dd>
+
+        <dt><b>hotspot</b></dt>
+
+        <dd>Represents a hotspot.</dd>
+
+        <dt><b>picture</b></dt>
+
+        <dd>Represents a picture.</dd>
+
+        <dt><b>cutPlane</b></dt>
+
+        <dd>Represents a section.</dd>
+
+        <dt><b>elevation</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd><!--@11-->Represents an elevation.</dd>
+
+        <dt><b>interiorElevation</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd><!--@11-->Represents an interior elevation.</dd>
+
+        <dt><b>camera</b></dt>
+
+        <dd>Represents a camera.</dd>
+
+        <dt><b>camset</b></dt>
+
+        <dd>Represents a camera set.</dd>
+
+        <dt><b>drawing</b></dt>
+
+        <dd>Represents a drawing element.</dd>
+
+        <dt><b>sectElem</b></dt>
+
+        <dd>Represents an element in the section window.</dd>
+
+        <dt><b>detail</b></dt>
+
+        <dd><!--@4.1-->Represents a detail drawing.</dd>
+
+        <dt><b>hotlink</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Represents a hotlink.</dd>
+
+        <dt><b>worksheet</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd><!--@11-->Represents a worksheet.</dd>
+
+        <dt><b>curtainWall</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Represents a curtain wall.</dd>
+
+        <dt><b>cwSegment</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Represents a curtain wall segment.</dd>
+
+        <dt><b>cwFrame</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Represents a curtain wall frame.</dd>
+
+        <dt><b>cwPanel</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Represents a curtain wall panel.</dd>
+
+        <dt><b>cwJunction</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Represents a curtain wall junction.</dd>
+
+        <dt><b>cwAccessory</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Represents a curtain wall accessory.</dd>
+
+        <dt><b>shell</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Changed in API 15" width="19" height="12"></dt>
+
+        <dd>Represents a shell <em>(kind of a roof with special geometry)</em>.</dd>
+
+        <dt><b>skylight</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Changed in API 15" width="19" height="12"></dt>
+
+        <dd>Represents a skylight <em>(a window put into roofs and shells)</em>.</dd>
+
+        <dt><b>morph</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="Changed in API 16" width="19" height="12"></dt>
+
+        <dd>Represents a morph.</dd>
+
+        <dt><b>changeMarker</b>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="Changed in API 18" width="19" height="12"></dt>
+
+        <dd>Represents a ChangeMarker.</dd>
+
+        <dt><b>stair</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Represents a Stair.</dd>
+
+        <dt><b>stairRiser</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Represents a Riser.</dd>
+
+        <dt><b>stairTread</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Represents a Tread.</dd>
+
+        <dt><b>stairStructure</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+        <dd>Represents a Stair structure.</dd>
+
+        <dt><b>railing</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Railing structure.</dd>
+
+        <dt><b>railingToprail</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Toprail structure.</dd>
+
+        <dt><b>railingHandrail</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Handrail structure.</dd>
+
+        <dt><b>railingRail</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Rail structure.</dd>
+
+        <dt><b>railingToprailEnd</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Toprail End structure.</dd>
+
+        <dt><b>railingHandrailEnd</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Handrail End structure.</dd>
+
+        <dt><b>railingRailEnd</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Rail End structure.</dd>
+
+        <dt><b>railingToprailConnection</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Toprail Connection structure.</dd>
+
+        <dt><b>railingHandrailConnection</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Handrail Connection structure.</dd>
+
+        <dt><b>railingRailConnection</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Rail Connection structure.</dd>
+
+        <dt><b>railingPost</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Railing Post structure.</dd>
+
+        <dt><b>railingInnerPost</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents an Inner Post structure.</dd>
+
+        <dt><b>railingBalusterSet</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Baluster Set structure.</dd>
+
+        <dt><b>railingBaluster</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Baluster structure.</dd>
+
+        <dt><b>railingPanel</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Railing Panel structure.</dd>
+
+        <dt><b>railingNode</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Railing Node structure.</dd>
+
+        <dt><b>railingSegment</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Railing Segment structure.</dd>
+
+        <dt><b>railingPattern</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+        <dd>Represents a Railing Pattern structure.</dd>
+
+        <dt><b>columnSegment</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="New in API 23" width="19" height="12"></dt>
+        <dd>Represents a Column segment structure.</dd>
+
+        <dt><b>beamSegment</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="New in API 23" width="19" height="12"></dt>
+        <dd>Represents a Beam segment structure.</dd>
+
+        <dt><b>externalElem</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"></dt>
+        <dd>Represents an external element. See remarks for more information.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Database items named <b>elements</b> are global collections of constuction and drawing elements which are placed onto the floorplan, Section/Elevation etc. windows.</p>
+
+    <p>API functions operating on the element databases begin with the <b>ACAPI_Element_</b> prefix, refer to the <a href="../Level3/Element_Manager_id.html">Element Manager</a> for more details.</p>
+
+    <p>Many element related functions use the <tt>API_Element</tt> structure on the parameter list. As a general rule, you have to fill the required fields in the union, then the server application parses the request based on the values and passes the return parameters in the same parameter. This is why most of the functions do not have the <tt>const</tt> directive in the prototypes.</p>
+
+    <p>Refer to the <a href="../Level3/Elements_Save.html">Save data into the Element records</a> document to get information how to save/assign custom data to the element records and save it into the project file for later use.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"> In version 26 the Analytical element types were replaced by the <code>externalElem</code> member. The former structures (e.g. <code>API_AnalyticalLinkType</code>) can be obtained by the appropriate functions (e.g. <code>ACAPI_AnalyticalModel_GetLinkFromElement</code>).</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Elem_Head.html">API_Elem_Head</a>,<br>
+    <a href="API_WallType.html">API_WallType</a>, <a href="API_ColumnType.html">API_ColumnType</a>, <a href="API_BeamType.html">API_BeamType</a>, <a href="API_WindowType.html">API_WindowType</a>, <a href="API_WindowType.html">API_DoorType</a>, <a href="API_ObjectType.html">API_ObjectType</a>, <a href="API_ObjectType.html">API_LampType</a>, <a href="API_SlabType.html">API_SlabType</a>, <a href="API_RoofType.html">API_RoofType</a>, <a href="API_MeshType.html">API_MeshType</a>, <a href="API_DimensionType.html">API_DimensionType</a>, <a href="API_RadialDimensionType.html">API_RadialDimensionType</a>, <a href="API_LevelDimensionType.html">API_LevelDimensionType</a>, <a href="API_AngleDimensionType.html">API_AngleDimensionType</a>, <a href="API_TextType.html">API_TextType</a>, <a href="API_LabelType.html">API_LabelType</a>, <a href="API_ZoneType.html">API_ZoneType</a>, <a href="API_HatchType.html">API_HatchType</a>, <a href="API_LineType.html">API_LineType</a>, <a href="API_PolyLineType.html">API_PolyLineType</a>, <a href="API_ArcType.html">API_ArcType</a>, <a href="API_CircleType.html">API_CircleType</a>, <a href="API_SplineType.html">API_SplineType</a>, <a href="API_HotspotType.html">API_HotspotType</a>, <a href="API_PictureType.html">API_PictureType</a>, <a href="API_CutPlaneType.html">API_CutPlaneType</a>, <a href="API_CutPlaneType.html">API_ElevationType</a>, <a href="API_InteriorElevationType.html">API_InteriorElevationType</a>, <a href="API_CameraType.html">API_CameraType</a>, <a href="API_CamSetType.html">API_CamSetType</a>, <a href="API_DrawingType.html">API_DrawingType</a>, <a href="API_SectElemType.html">API_SectElemType</a>, <a href="API_ChangeMarkerType.html">API_ChangeMarkerType</a>, <a href="API_DetailType.html">API_DetailType</a>, <a href="API_DetailType.html">API_WorksheetType</a>, <a href="API_HotlinkType.html">API_HotlinkType</a>, <a href="API_CurtainWallType.html">API_CurtainWallType</a>, <a href="API_CWSegmentType.html">API_CWSegmentType</a>, <a href="API_CWFrameType.html">API_CWFrameType</a>, <a href="API_CWPanelType.html">API_CWPanelType</a>, <a href="API_CWJunctionType.html">API_CWJunctionType</a>, <a href="API_CWAccessoryType.html">API_CWAccessoryType</a>, <a href="API_ShellType.html">API_ShellType</a>, <a href="API_SkylightType.html">API_SkylightType</a>, <a href="API_MorphType.html">API_MorphType</a>, <a href="API_StairType.html">API_StairType</a>, <a href="API_RailingType.html">API_RailingType</a>, 
+    <a href="API_ColumnSegmentType.html">API_ColumnSegmentType</a>, <a href="API_BeamSegmentType.html">API_BeamSegmentType</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 03, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

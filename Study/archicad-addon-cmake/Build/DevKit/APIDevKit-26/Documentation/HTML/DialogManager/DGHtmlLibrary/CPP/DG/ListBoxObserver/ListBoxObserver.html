@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ListBoxObserver Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/ListBoxObserver/ListBoxObserver.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="ListBoxClicked.html">ListBoxClicked</A><A href="ListBoxContextMenuRequested.html">ListBoxContextMenuRequested</A><A href="ListBoxDoubleClicked.html">ListBoxDoubleClicked</A><A href="ListBoxHeaderButtonClicked.html">ListBoxHeaderButtonClicked</A><A href="ListBoxHeaderItemClicked.html">ListBoxHeaderItemClicked</A><A href="ListBoxHeaderItemDragged.html">ListBoxHeaderItemDragged</A><A href="ListBoxHeaderItemResized.html">ListBoxHeaderItemResized</A><A href="ListBoxHeaderItemResizeEntered.html">ListBoxHeaderItemResizeEntered</A><A href="ListBoxHeaderItemResizeExited.html">ListBoxHeaderItemResizeExited</A><A href="ListBoxItemDragged.html">ListBoxItemDragged</A><A href="ListBoxMouseMoved.html">ListBoxMouseMoved</A><A href="Constructors.html">ListBoxObserver</A><A href="Destructor.html">~ListBoxObserver</A><A href="ListBoxSelectionChanged.html">ListBoxSelectionChanged</A><A href="ListBoxTabFieldUpdate.html">ListBoxTabFieldUpdate</A>--><H2>ListBoxObserver Class</H2><!--exp="ListBoxObserver Class"-->
+<P><topic id="$DG.$ListBoxObserver.BriefDescription">
+		Observer class for list box controls.
+	</topic></P>
+<PRE class="syntax"><B>class ListBoxObserver : public <!----><a class="nodecorate" href="../ItemObserver/ItemObserver.html">ItemObserver</A>, public <!----><A class="nodecorate" href="../ListBoxDragSourceObserver/ListBoxDragSourceObserver.html">ListBoxDragSourceObserver</A>, public <!----><A class="nodecorate" href="../ListBoxDropTargetObserver/ListBoxDropTargetObserver.html">ListBoxDropTargetObserver</A></B></PRE>
+<H4>Members</H4>
+<P><B><A name="PublicMethods"></A>Public Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">ListBoxObserver</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxObserver.BriefDescription">
+		Class constructor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Destructor.html">~ListBoxObserver</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$~ListBoxObserver.BriefDescription">
+		Class destructor.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ProtectedMethods"></A>Protected Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxClicked.html">ListBoxClicked</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxClicked.BriefDescription">
+		Event handler for the list box clicked notification.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxContextMenuRequested.html">ListBoxContextMenuRequested</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxContextMenuRequested.BriefDescription">
+		Event handler for the context menu requested notification.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxDoubleClicked.html">ListBoxDoubleClicked</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxDoubleClicked.BriefDescription">
+		Event handler for the list box double clicked notification.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxHeaderButtonClicked.html">ListBoxHeaderButtonClicked</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxHeaderButtonClicked.BriefDescription">
+		Event handler for the header button clicked notification.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxHeaderItemClicked.html">ListBoxHeaderItemClicked</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxHeaderItemClicked.BriefDescription">
+		Event handler for the header item clicked notification.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxHeaderItemDragged.html">ListBoxHeaderItemDragged</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxHeaderItemDragged.BriefDescription">
+		Event handler for the header item dragged notification.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxHeaderItemResized.html">ListBoxHeaderItemResized</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxHeaderItemResized.BriefDescription">
+		Event handler for the header item resized notification.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxHeaderItemResizeEntered.html">ListBoxHeaderItemResizeEntered</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxHeaderItemResizeEntered.BriefDescription">
+		Event handler for the header item resize entered notification.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxHeaderItemResizeExited.html">ListBoxHeaderItemResizeExited</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxHeaderItemResizeExited.BriefDescription">
+		Event handler for the header item resize exited notification.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxItemDragged.html">ListBoxItemDragged</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxItemDragged.BriefDescription">
+		Event handler for the item dragged notification.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxMouseMoved.html">ListBoxMouseMoved</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxMouseMoved.BriefDescription">
+		Event handler for the mouse moved notification.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxSelectionChanged.html">ListBoxSelectionChanged</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxSelectionChanged.BriefDescription">
+		Event handler for the list box slection changed notification.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxTabFieldUpdate.html">ListBoxTabFieldUpdate</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxTabFieldUpdate.BriefDescription">
+		Event handler for the tabulator field update notification.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ListBoxItemUpdate.html">ListBoxItemUpdate</A></TD>
+<TD width="70%"><topic id="$DG.$ListBoxObserver.$ListBoxItemUpdate.BriefDescription">
+		Event handler for the list item update notification.
+	</topic></TD>
+</TR>
+
+</table>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../DG.html">DG</A></P>
+<P><B>Header: </B>DGListBox.hpp</P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

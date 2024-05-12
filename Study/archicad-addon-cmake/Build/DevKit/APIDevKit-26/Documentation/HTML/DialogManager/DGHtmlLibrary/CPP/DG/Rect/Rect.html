@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Rect Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/Rect/Rect.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="Contains.html">Contains</A><A href="GetBottom.html">GetBottom</A><A href="GetCenter.html">GetCenter</A><A href="GetHeight.html">GetHeight</A><A href="GetLeft.html">GetLeft</A><A href="GetLeftBottom.html">GetLeftBottom</A><A href="GetLeftTop.html">GetLeftTop</A><A href="GetRight.html">GetRight</A><A href="GetRightBottom.html">GetRightBottom</A><A href="GetRightTop.html">GetRightTop</A><A href="GetTop.html">GetTop</A><A href="GetWidth.html">GetWidth</A><A href="Inflate.html">Inflate</A><A href="IsEmpty.html">IsEmpty</A><A href="Move.html">Move</A><A href="operatorne.html">operator!=</A><A href="operatoreq.html">operator==</A><A href="Constructors.html">Rect</A><A href="Destructor.html">~Rect</A><A href="Resize.html">Resize</A><A href="Set.html">Set</A><A href="SetBottom.html">SetBottom</A><A href="SetCenter.html">SetCenter</A><A href="SetHeight.html">SetHeight</A><A href="SetLeft.html">SetLeft</A><A href="SetLeftBottom.html">SetLeftBottom</A><A href="SetLeftTop.html">SetLeftTop</A><A href="SetRight.html">SetRight</A><A href="SetRightBottom.html">SetRightBottom</A><A href="SetRightTop.html">SetRightTop</A><A href="SetSize.html">SetSize</A><A href="SetTop.html">SetTop</A><A href="SetWidth.html">SetWidth</A>--><H2>Rect Class</H2><!--exp="Rect Class"-->
+<P><topic id="$DG.$Rect.BriefDescription">
+		Generic rectangle class.
+	</topic></P>
+<PRE class="syntax"><B>class Rect</B></PRE>
+<H4>Members</H4>
+<P><B><A name="PublicMethods"></A>Public Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Contains.html">Contains</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$Contains.BriefDescription">
+		Checks if the rectangle contains the specified point.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetBottom.html">GetBottom</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$GetBottom.BriefDescription">
+		Retrieves the bottom side of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetCenter.html">GetCenter</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$GetCenter.BriefDescription">
+		Retrieves the center of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeight.html">GetHeight</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$GetHeight.BriefDescription">
+		Retrieves the height of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetLeft.html">GetLeft</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$GetLeft.BriefDescription">
+		Retrieves the left side of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetLeftBottom.html">GetLeftBottom</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$GetLeftBottom.BriefDescription">
+		Retrieves the left and bottom sides of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetLeftTop.html">GetLeftTop</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$GetLeftTop.BriefDescription">
+		Retrieves the left and top sides of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetRight.html">GetRight</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$GetRight.BriefDescription">
+		Retrieves the right side of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetRightBottom.html">GetRightBottom</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$GetRightBottom.BriefDescription">
+		Retrieves the right and bottom sides of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetRightTop.html">GetRightTop</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$GetRightTop.BriefDescription">
+		Retrieves the right and top sides of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetTop.html">GetTop</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$GetTop.BriefDescription">
+		Retrieves the top side of rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetWidth.html">GetWidth</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$GetWidth.BriefDescription">
+		Retrieves the width of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Inflate.html">Inflate</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$Inflate.BriefDescription">
+		Inflates the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsEmpty.html">IsEmpty</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$IsEmpty.BriefDescription">
+		Checks if the rectangle is empty.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Move.html">Move</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$Move.BriefDescription">
+		Moves the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">Rect</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$Rect.BriefDescription">
+		Class constructor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Destructor.html">~Rect</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$~Rect.BriefDescription">
+		Class destructor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Resize.html">Resize</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$Resize.BriefDescription">
+		Resizes the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Set.html">Set</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$Set.BriefDescription">
+		Sets the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetBottom.html">SetBottom</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$SetBottom.BriefDescription">
+		Sets the bottom side of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetCenter.html">SetCenter</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$SetCenter.BriefDescription">
+		Sets the center of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeight.html">SetHeight</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$SetHeight.BriefDescription">
+		Sets the height of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetLeft.html">SetLeft</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$SetLeft.BriefDescription">
+		Sets the left side of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetLeftBottom.html">SetLeftBottom</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$SetLeftBottom.BriefDescription">
+		Sets the left and bottom sides of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetLeftTop.html">SetLeftTop</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$SetLeftTop.BriefDescription">
+		Sets the left and top sides of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetRight.html">SetRight</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$SetRight.BriefDescription">
+		Sets the right side of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetRightBottom.html">SetRightBottom</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$SetRightBottom.BriefDescription">
+		Sets the right and bottom sides of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetRightTop.html">SetRightTop</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$SetRightTop.BriefDescription">
+		Sets the right and top sides of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetSize.html">SetSize</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$SetSize.BriefDescription">
+		Sets the size of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTop.html">SetTop</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$SetTop.BriefDescription">
+		Sets the top side of the rectangle.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetWidth.html">SetWidth</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$SetWidth.BriefDescription">
+		Sets the width of the rectangle.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicOperators"></A>Public Operators</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operatorne.html">operator!=</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$operator!=.BriefDescription">
+		Operator != for rectangle objects.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operatoreq.html">operator==</A></TD>
+<TD width="70%"><topic id="$DG.$Rect.$operator==.BriefDescription">
+		Operator == for rectangle objects.
+	</topic></TD>
+</TR>
+</table>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../DG.html">DG</A></P>
+<P><B>Header: </B>DGUtility.hpp</P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

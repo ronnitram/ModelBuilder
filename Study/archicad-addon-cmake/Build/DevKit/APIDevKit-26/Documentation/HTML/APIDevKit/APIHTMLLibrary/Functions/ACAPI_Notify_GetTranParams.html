@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Notify_GetTranParams</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Notify_GetTranParams.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Notify_GetTranParams</h1>
+
+    <p>Returns the transformation parameters of the actual edit operation.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Notify_GetTranParams</strong> (
+        <strong><a href="../Structures/API_ActTranPars.html">API_ActTranPars</a>*</strong>     <em>actTranPars</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>actTranPars</em></dt>
+
+        <dd>[out] The transformation parameters to be returned.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has been executed without error.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The <code>actTranPars</code> parameter is <code>nullptr</code>.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to get the parameters of the actual editing operation. The transformation data is valid only between a <code>APINotifyElement_BeginEvents</code> and the following <code>APINotifyElement_EndEvents</code> notification.</p>
+
+    <p>By using this function your add-on is able to update some elements according to the user's edit action.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+[ ... ]
+
+API_Neig        **neig;
+API_ActTranPars actTranPars;
+API_EditPars    editPars;
+Int32           elemIndex = 1;      // transform this element according to
+GSErrCode       err;                // the last user edit parameters
+
+    case APINotifyElement_Edit:
+
+            BNZeroMemory (&amp;editPars, sizeof (API_EditPars));
+
+            <font color="#FF0066">ACAPI_Notify_GetTranParams</font> (&amp;actTranPars);
+
+            switch (actTranPars.typeID) {
+                case APIEdit_Drag:
+                        editPars.typeID = APIEdit_Drag;
+                        editPars.begC.x = 0.0;
+                        editPars.endC.y = 0.0;
+                        editPars.endC.z = 0.0;
+                        editPars.endC.x = actTranPars.theDisp.x;
+                        editPars.endC.y = actTranPars.theDisp.y;
+                        editPars.endC.z = actTranPars.theDispZ;
+                        break;
+                case APIEdit_Rotate:
+                        editPars.typeID = APIEdit_Rotate;
+                        editPars.origC = actTranPars.theOrigo;
+                        editPars.begC.x = editPars.origC.x + 1.0;
+                        editPars.begC.y = editPars.origC.y;
+                        editPars.begC.z = 0.0;
+                        editPars.endC.x = editPars.origC.x + actTranPars.theCosA;
+                        editPars.endC.y = editPars.origC.y + actTranPars.theSinA;
+                        editPars.endC.z = 0.0;
+                        break;
+                case APIEdit_Mirror:
+                        editPars.typeID = APIEdit_Mirror;
+                        editPars.begC.x = actTranPars.theOrigo.x;
+                        editPars.begC.y = actTranPars.theOrigo.y;
+                        editPars.begC.z = 0.0;
+                        editPars.endC.x = actTranPars.theOrigo.x + actTranPars.theAxeVect.x;
+                        editPars.endC.y = actTranPars.theOrigo.y + actTranPars.theAxeVect.y;
+                        editPars.endC.z = 0.0;
+                        break;
+                case APIEdit_Stretch:
+                        editPars.typeID = APIEdit_Stretch;
+                        editPars.endC.x = actTranPars.theDisp.x;
+                        editPars.endC.y = actTranPars.theDisp.y;
+                        editPars.endC.z = 0.0;
+                        break;
+            }
+
+            editPars.withDelete = true;
+
+            neig = reinterpret_cast&lt;API_Neig**&gt; BMAllocateHandle (sizeof (API_Neig), ALLOCATE_CLEAR, 0);
+            if (neig != nullptr) {
+                (*neig)[0].neigID  = APINeig_CircOn;
+                (*neig)[0].index   = elemIndex;
+                (*neig)[0].inIndex = 1;
+
+                err = ACAPI_Element_Edit (neig, 1, &amp;editPars);
+                if (err != NoError)
+                    GiveMessage_Err ("Error in ACAPI_Element_Edit", err);
+
+                BMKillHandle (reinterpret_cast&lt;GSHandle *&gt; &amp;neig);
+            }
+        }
+        break;
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_ActTranPars.html">API_ActTranPars</a>,<br>
+    <a href="../Level3/notification_manager_id.html">Notification Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 1, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

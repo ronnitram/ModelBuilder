@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Spin Control</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/SpinControl.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Spin Control</h1>
+
+    <p>A spin control is a pair of arrow buttons that the user can click to increment or decrement a value, such as a scroll position or a number displayed in a companion <a href="EditControl.html">edit control</a> control. There are two basic types of spin controls: the so called single spin control and the edit spin control.</p>
+
+    <p>A single spin control functions as a sort of simplified scroll bar. It can be positioned anywhere in a dialog and used whenever needed to provide a scrolling input. On Windows, when you create a single spin control, DG automatically determines its orientation according to the specified horizontal and vertical sizes. If the horizontal size is greater than the vertical one DG creates a horizontal spin control. In the opposite case DG creates a vertical spin control. On Macintosh, only vertical single spin controls are supported.</p>
+
+    <p>An edit spin control is always associated with an edit control of integer or positive integer type. The edit spin control and the edit control can be associated with each other only when they are created. The edit spin control must be just after its companion edit control in the dialog item list and it must be positioned next to the right of the edit control. On Windows, DG closes up these controls so that they look like a single control that is sometimes referred to as a spinner control. Edit spin controls always have vertical orientation. Clicking the up or down arrows increments or decrements the values of both controls. On Windows, when the companion edit control has the keyboard focus, the value of the controls can be modified not only by mouse clicks but by pressing the up or down arrow keys as well.</p>
+
+    <p>The value associated with a spin control is called its current position. A spin control also has a range that is a set of continuous values that the spin control can represent. Because these values are expressed as short integers, the possible minimum and maximum values are <tt>SHRT_MIN</tt> and <tt>SHRT_MAX</tt>, respectively. This implies that the range of the integer-type edit control must also be restricted to short values.</p>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_SPINCONTROL</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ST_SINGLESPIN</tt></td>
+
+                    <td>Independent spin control.<br>
+                    <br>
+                    <img src="../DGImageLibrary/SpinControlSingleSpin_Mac.png" width="20" height="29" alt="SpinControlSingleSpin_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/SpinControlSingleSpin_Win.png" alt="SpinControlSingleSpin_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ST_EDITSPIN</tt></td>
+
+                    <td width="400">Spin control associated with an edit control of integer or positive integer type.<br>
+                    <br>
+                    <img src="../DGImageLibrary/SpinControlEditSpin_Mac.png" width="101" height="31" alt="SpinControlEditSpin_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/SpinControlEditSpin_Win.png" alt="SpinControlEditSpin_Win"><br>
+                    <br></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    SingleSpin    <i>x  y  dx  dy  min  max</i>
+    EditSpin      <i>x  y  dx  dy  editID</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the spin control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>min</em> and <em>max</em> specifies the initial range of the single spin control. <em>editID</em> is the dialog item identifier of the edit control associated with the edit spin control. The edit control's type must be integer or positive integer (<tt>DG_ET_INT</tt> or <tt>DG_ET_POSINT</tt>) and <em>editID</em> must be one less than the ID of the edit spin control.</p>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>The value of the single spin control is changed. The message data parameter contains the previous value. This message is sent to single spin controls only.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_TRACK.html"><tt>DG_MSG_TRACK</tt></a></td>
+
+                    <td>The value of the single spin control is changed during tracking. The message data parameter is the sub-message. This message is sent to single spin controls only.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p><a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a> and <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a> functions can set the spin control's modification flag except they are called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. The flag can also be set by user actions that generate <tt>DG_MSG_CHANGE</tt> or <tt>DG_MSG_TRACK</tt> messages. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>When a single spin control is created its range is specified in GRC. However, the range of an edit spin control is initialized according to the analogous values of the companion edit control. Later you can dynamically alter the range by using the <b>DGSetItemMinLong</b> and <b>DGSetItemMaxLong</b> functions. The possible minimum of the range is <tt>SHRT_MIN</tt> while the maximum is <tt>SHRT_MAX</tt>. Of course, in case of an edit spin control with a positive integer type edit control the possible minimum value is zero. Use <a href="DGGetItemMinLong.html">DGGetItemMinLong</a> and <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a> to retrieve the range of a spin control. The current value of the spin control can be set and retrieved by <b>DGSetItemValLong</b> and <a href="DGGetItemValLong.html">DGGetItemValLong</a>, respectively.</p>
+
+    <p>If either of the range or value setting functions is called, DG checks the consistency of data (i.e. whether the <em>minimum &lt;= value &lt;= maximum</em> condition is true or not). If data are inconsistent, DG automatically adjusts them. For the details of this adjustment see <b>DGSetItemValLong</b>, <b>DGSetItemMinLong</b> and <b>DGSetItemMaxLong</b>.</p>
+
+    <p>If the user clicks and holds down the (left) mouse button on one of the arrows of a single spin control, DG sends <tt>DG_MSG_TRACK</tt> messages to the dialog callback function until the user releases the (left) mouse button. With <tt>DG_MSG_TRACK</tt> message, a sub-message will be delivered also, which specifies the spin control event more detailed. This allows the application to modify other controls during tracking. When handling <tt>DG_MSG_TRACK</tt> messages call <b>DGGetItemValLong</b> to retrieve the current value of the spin control. As soon as the user releases the (left) mouse button the callback function receives a <tt>DG_MSG_CHANGE</tt> message; the message data parameter is the value of the control before tracking. Note that every <tt>DG_MSG_CHANGE</tt> message is preceded by at least one <tt>DG_MSG_TRACK</tt> message.</p>
+
+    <p>The range and the value of an edit spin control and its companion edit control are synchronized automatically by DG every time when you call one of the <b>DGSetItemValLong</b>, <b>DGSetItemMinLong</b> or <b>DGSetItemMaxLong</b> functions on either of the controls. Note that an edit spin control does not receive <tt>DG_MSG_CHANGE</tt> messages, they are sent to the companion edit control instead.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="EditControl.html">Edit Control</a><br>
+    <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a>, <a href="DGGetItemMinLong.html">DGGetItemMinLong</a>, <a href="DGGetItemValLong.html">DGGetItemValLong</a>, <a href="DGModified.html">DGModified</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a>, <a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a>, <a href="DG_MSG_TRACK.html"><tt>DG_MSG_TRACK</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 4, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

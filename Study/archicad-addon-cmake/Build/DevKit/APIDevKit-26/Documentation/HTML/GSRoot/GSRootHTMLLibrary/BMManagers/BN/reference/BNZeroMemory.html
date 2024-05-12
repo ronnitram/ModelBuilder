@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>BNZeroMemory</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/BMManagers/BN/reference/BNZeroMemory.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>BNZeroMemory</h1>
+
+    <p>The <strong>BNZeroMemory</strong> function fills a memory range with zeros.</p>
+    <pre class="syntax">
+<strong>void BNZeroMemory(
+  void</strong>            <em>*destPtr,</em>              // address of memory range to fill
+  <strong>GSSize</strong>          <em>len,</em>           // length of memory range
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>destPtr</em></dt>
+
+        <dd>Specifies the address of the memory range to fill.</dd>
+
+        <dt><em>len</em></dt>
+
+        <dd>Specifies the length of the memory range to fill.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>If the application is compiled as a debugging version, and the process does not have write access to <em>destPtr</em> (the <a href="BNValidWritePtr.html"><strong>BNValidWritePtr</strong></a> function returns <strong>false</strong>), the function causes an assertion fault and breaks into the debugger.</p>
+
+    <p>The <strong>BNZeroMemory</strong> function wraps the <strong>memset</strong> standard C Run-Time function.</p>
+
+    <h4>Requirements</h4>
+
+    <p><strong>&nbsp;&nbsp;&nbsp; Header:</strong> Declared in BM.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../../../../GSRootHTMLLibrary/BMManagers/BN/reference/functions_id.html">BN Functions</a>, <a href="BNFillMemory.html">BNFillMemory</a>, <a href="BNCopyMemory.html">BNCopyMemory</a>, <a href="BNMoveMemory.html">BNMoveMemory</a>, <a href="BNCompareMemory.html">BNCompareMemory</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

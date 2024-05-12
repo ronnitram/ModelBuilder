@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="Faller Gyula" />
+
+    <title>GXDrawGSPixMapPartOnCGContext</title>
+
+    <meta http-equiv="Content-Language" content="en-US" />
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css" />
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GXHtmlLibrary/GXDrawGSPixMapPartOnCGContext.html" />
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GX&nbsp;Module</span><span class="TitleVersion">Version: 16</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GXDrawGSPixMapPartOnCGContext</h1>
+
+    <p>Draw part of a GSPixMap on the given CGContext.</p>
+    <pre class="syntax">
+    <strong>GSErr</strong> GXDrawGSPixMapPartOnCGContext (
+      <strong>CGContextRef</strong>         <em>gc</em>,
+      <strong>GSPixMapHandle</strong>       <em>pixMap</em>,
+      <strong>const GSRect</strong>&amp;        <em>srcRect</em>,
+      <strong>const GSRect</strong>&amp;        <em>dstRect</em>,
+      <strong>Int32</strong>                <em>cgContextHeight</em>,
+      <strong>AlphaChannelUsage</strong>    <em>acUsage</em>
+    );
+</pre>
+
+    <h2>Parameters</h2>
+
+    <dl class="Parameters">
+        <dt>gc</dt>
+
+        <dd>The graphics context to draw on.</dd>
+
+        <dt>pixMap</dt>
+
+        <dd>The GSPixMap to be drawn.</dd>
+
+        <dt>srcRect</dt>
+
+        <dd>Rectangle that determines a part of the source pixmap that is to be drawn.</dd>
+
+        <dt>dstRect</dt>
+
+        <dd>Destination rectangle in the graphics context. The picture is stretched to fit this rectangle.</dd>
+
+        <dt>cgContextHeight</dt>
+
+        <dd>Height of the gc graphics context.</dd>
+
+        <dt>acUsage</dt>
+
+        <dd>If this value is AlphaChannelBlending, then the alpha channel value is used for blending the source pixel to the destination pixel. If it is CopyAlphaChannel (default), then the alpha channel value is copied just like the RGB color values.</dd>
+    </dl>
+
+    <h2>Return Values</h2>
+
+    <p>If the function succeeds, the return value is NoError. If the function fails, the return value is the error code.</p>
+
+    <h2>Remarks</h2>
+
+    <p>This function acessible only on Macintosh.</p>
+
+    <h2>Requirements</h2>
+
+    <dl class="Requirements">
+        <dt>Version:</dt>
+
+        <dd>GX 10 or later</dd>
+
+        <dt>Header:</dt>
+
+        <dd>Graphics2DMac.h</dd>
+
+        <dt>Import Library:</dt>
+
+        <dd>GXImp.lib</dd>
+
+        <dt>Module:</dt>
+
+        <dd>GX.framework [MAC]</dd>
+    </dl>
+
+    <h2>See Also</h2>
+
+    <p><a href="Graphics2DMac.html">Mac-specific functions</a></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

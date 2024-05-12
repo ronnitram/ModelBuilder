@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Body_AddPolyNormal</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Body_AddPolyNormal.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Body_AddPolyNormal</h1>
+
+    <p>Adds a polygon normal vector to the body data object.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Body_AddPolyNormal</strong> (
+        <strong>void*</strong>                   <em>bodyData</em>,
+        <strong>const <a href="../Structures/API_Coord3D.html">API_Vector3D</a>&amp;</strong>     <em>normal</em>,
+        <strong>Int32&amp;</strong>                  <em>index</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>bodyData</em></dt>
+
+        <dd>[in] The body data object to add the normal vector to.</dd>
+
+        <dt><em>normal</em></dt>
+
+        <dd>[in] The normal vector to add.</dd>
+
+        <dt><em>index</em></dt>
+
+        <dd>[out] The index of the created normal vector, can be used later to create polygons.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed parameter is <code>nullptr</code>; <code>bodyData</code></dd>
+
+        <dd>The vector length is 0; <code>normal</code></dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to add a normal vector to a body data object.</p>
+
+    <p>A normal vector can be used for multiple polygons and can be passed with positive and negative direction too.</p>
+
+    <p>The normal vector is perpendicular to the polygon plane and points the direction you want to see the polygon from. (In case of a complete body, the normal vectors point ot of the body)</p>
+
+    <p>The returned index can be used to create polygons with the <a href="../Functions/ACAPI_Body_AddPolygon.html">ACAPI_Body_AddPolygon</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>See the example of the <a href="ACAPI_Body_AddPolygon.html">ACAPI_Body_AddPolygon</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 16 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/ACAPI_Body_AddVertex.html">ACAPI_Body_AddVertex</a>, <a href="../Functions/ACAPI_Body_AddEdge.html">ACAPI_Body_AddEdge</a>, <a href="../Functions/ACAPI_Body_AddPolygon.html">ACAPI_Body_AddPolygon</a>,<br>
+    <a href="../Functions/ACAPI_Body_Create.html">ACAPI_Body_Create</a>, <a href="../Functions/ACAPI_Body_Finish.html">ACAPI_Body_Finish</a>, <a href="../Functions/ACAPI_Body_Dispose.html">ACAPI_Body_Dispose</a>,<br>
+    <a href="../Level3/Body_Manager_id.html">Body Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 8, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

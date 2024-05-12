@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_Elem_Head</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_Elem_Head.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_Elem_Head</h1>
+
+    <p>General element header for element types.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_ElemType.html">API_ElemType</a></strong>                 <em>type</em>;
+        <strong>UInt32</strong>                       <em>filler_0</em>;
+        <strong>Int32</strong>                        <em>filler_1</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                     <em>guid</em>;
+        <strong>UInt64</strong>                       <em>modiStamp</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                     <em>groupGuid</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                     <em>hotlinkGuid</em>;
+        <strong>short</strong>                        <em>floorInd</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>           <em>layer</em>;
+        <strong>bool</strong>                         <em>hasMemo</em>;
+        <strong>char</strong>                         <em>drwIndex</em>;
+        <strong>short</strong>                        <em>userId</em>;
+        <strong>short</strong>                        <em>lockId</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>           <em>rgr_layer</em>;
+        <strong><a href="API_RenovationStatusType.html">API_RenovationStatusType</a></strong>     <em>renovationStatus</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                     <em>renovationFilterGuid</em>;
+    <strong>}</strong> <em>API_Elem_Head</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>type</b></dt>
+
+        <dd>The type of the element.</dd>
+
+       <dt><b>guid</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>The globally unique identifier of the element. It is type-independent, and guaranteed to be globally unique in all projects. (The only possible guid clash is between projects which have evolved from the same base project.) Also, it doesn't change under any circumstances.</dd>
+
+        <dt><b>modiStamp</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>The modification stamp of the element.</dd>
+
+        <dt><b>groupGuid</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>The identifier of the group the element belongs to. <code>APINULLGuid</code> means the element is not grouped. Doesn't apply to certain (non-groupable) element types.</dd>
+
+        <dt><b>hotlinkGuid</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>The identifier of the hotlink instance the element belongs to (see <a href="API_HotlinkType.html">API_HotlinkType</a>). <code>APINULLGuid</code> means the element is not part of any hotlinks.</dd>
+
+        <dt><b>floorInd</b></dt>
+
+        <dd>The element belongs to this floor.</dd>
+
+        <dt><b>layer</b></dt>
+
+        <dd>The layer attribute index of the element.</dd>
+
+        <dt><b>hasMemo</b></dt>
+
+        <dd>Tells whether an element has extended information (memo) attached.</dd>
+
+        <dt><b>drwIndex</b></dt>
+
+        <dd>The index of the element in drawing order. It is important for bring to front/send to back type operations. Elements with higher <code>drwIndex</code> are drawn last.</dd>
+
+        <dt><b>userId</b></dt>
+
+        <dd>The member ID of the owner in TeamWork mode.</dd>
+
+        <dt><b>lockId</b></dt>
+
+        <dd>The member ID of the locker in TeamWork mode, bool in normal mode.</dd>
+
+        <dt><b>rgr_layer</b></dt>
+
+        <dd>Reference group layer (-1: special/locked group).</dd>
+
+        <dt><b>renovationStatus</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Renovation status of the element.</dd>
+
+        <dt><b>renovationFilterGuid</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Renovation filter GUID for the element. If set, the element's visibility is determined by the given renovation filter. No special filter set when its value <tt>APIUndefinedGuid</tt>; APINULLGuid means that the renovation filter cannot be determined at the time of the query.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p><img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12">&nbsp; From version 12 the element refers to the containing group by the Guid of the group element. The <code>m_groupId</code> field has been eliminated, the top level group can be obtained with the <a href="../Functions/APIAny_GetMainGroupGuidID.html">APIAny_GetMainGroupGuidID</a> goody function.</p>
+    <p><img border="0" src="../../APIImageLibrary/18.png" alt="Changed in API 18" width="19" height="12">&nbsp; From version 18 the <tt>index</tt>-based identification is not available any more; please use GUIDs.</p>
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="Changed in API 26" width="19" height="12">&nbsp; From version 26 the <tt>typeID</tt> and <tt>variationID</tt> members were merged into an <a href="../Structures/API_ElemType.html">API_ElemType</a> structure.
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Element.html">API_Element</a>, <a href="API_AttributeIndex.html">API_AttributeIndex</a>,<br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 02, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

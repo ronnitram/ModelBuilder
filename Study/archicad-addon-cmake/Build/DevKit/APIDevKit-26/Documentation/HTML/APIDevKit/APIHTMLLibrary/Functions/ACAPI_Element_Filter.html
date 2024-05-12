@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_Filter</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_Filter.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_Filter</h1>
+
+    <p>Tests an element by some given criteria.</p>
+    <pre class="syntax">
+    <strong>bool  ACAPI_Element_Filter</strong> (
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>         <em>guid</em>,
+        <strong>API_ElemFilterFlags</strong>     <em>filterBits</em>,
+        <strong><a href="../Structures/API_ElemVariationID.html">API_ElemVariationID</a></strong>     <em>variationID = APIVarId_Generic</em>
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>     <em>renovationFilterGuid = APINULLGuid</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>guid</em>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>[in] Global unique identifier of the element to be tested</dd>
+
+        <dt><em>filterBits</em></dt>
+
+        <dd>[in] The flags used for filtering (see the table below)</dd>
+
+        <dt><em>variationID</em>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></dt>
+
+        <dd>[in] Optional variation ID for objects. Used in combination with <code>APIFilt_IsOfVariation</code>. The default value is <code>APIVarId_Generic</code>.</dd>
+
+        <dt><em>renovationFilterGuid</em>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>[in] Optional global unique identifier of the renovation filter. Used in combination with <code>APIFilt_IsVisibleByRenovation</code>. The default value is <code>APINULLGuid</code>.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>true</code></dt>
+
+        <dd>The given element (defined by <code>guid</code>) matches the criteria defined by <code>filterbits</code></dd>
+
+        <dt><code>false</code></dt>
+
+        <dd>
+            The referenced element does not pass the criteria
+
+            <p>&nbsp;</p>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+	<p>Note that the 3D visibility of GDL-based elements can also be modified through GDL parameters which work independently from the element settings. Due to this there may be cases where the ACAPI_Element_Filter function shows that an elem is visible on 3D, but its GDL script hides it on 3D-based views.</p>
+
+    <p>Returns <code>true</code>, if the given element matches the criteria defined by <code>filterbits</code>:</p><a name="filterbits" id="filterbits"></a>
+
+    <table border="1" cellpadding="5">
+        <tr>
+            <th align="left"><code>filterbits</code> value</th>
+
+            <th align="left">Checks whether the element</th>
+
+            <th align="left">Concerned elements</th>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_None</code></td>
+
+            <td>not filtered</td>
+
+            <td>&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_IsEditable</code></td>
+
+            <td>is not on a locked/deleted/invisible layer</td>
+
+            <td>all (for windows, doors and skylights this tests the layer of the owner element)</td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_OnVisLayer</code></td>
+
+            <td>is on a visible layer</td>
+
+            <td>all (for windows, doors and skylights this tests the layer of the owner element)</td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_OnActFloor</code></td>
+
+            <td>is on the active floor</td>
+
+            <td>all (always <code>true</code> for cut planes and groups)</td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_In3D</code></td>
+
+            <td>has 3D representation</td>
+
+            <td><code>API_WallID</code>, <code>API_ColumnID</code>, <code>API_BeamID</code>, <code>API_WindowID</code>, <code>API_DoorID</code>, <code>API_SkylightID</code>, <code>API_ObjectID</code>, <code>API_LampID</code>, <code>API_SlabID</code>, <code>API_RoofID</code>, <code>API_MeshID</code>, <code>API_ShellID</code>, <code>API_CurtainWallID</code>, <code>API_MorphID</code></td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_InMyWorkspace</code></td>
+
+            <td>is in my workspace (in Teamwork mode)</td>
+
+            <td>all element types</td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_IsIndependent</code></td>
+
+            <td>is independent (not a sub elem)</td>
+
+            <td><code>API_ObjectID</code>, <code>API_TextID</code></td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_OnActLayout</code> &nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></td>
+
+            <td>is on the active layout</td>
+
+            <td>drawing type elements</td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_InCroppedView</code> &nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></td>
+
+            <td>is visible inside the cropped part of a drawing database</td>
+
+            <td>drawing type elements</td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_IsOfVariation</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></td>
+
+            <td>tells if the given element has the variation ID passed in the <code>variationID</code> parameter.</td>
+
+            <td>object type elements</td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_FromFloorplan</code> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></td>
+
+            <td>additional flag; instructs the function to take the element from the floor plan database</td>
+
+            <td>all element types</td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_HasAccessRight</code> &nbsp;<img border="0" src="../../APIImageLibrary/14.png" alt="API 14" width="19" height="12"></td>
+
+            <td>additional flag; checks if the element is accessible for the current user</td>
+
+            <td>all element types</td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_IsVisibleByRenovation</code> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="API 15" width="19" height="12"></td>
+
+            <td>additional flag; checks if the element is visible by the renovation filter passed in the <code>renovationFilterGuid</code> parameter, default by the current renovation filter.</td>
+
+            <td>all element types</td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_IsOverriddenByRenovation</code> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="API 15" width="19" height="12"></td>
+
+            <td>additional flag; checks if the attributes of the element are overridden by current renovation filter</td>
+
+            <td>all element types</td>
+        </tr>
+
+        <tr>
+            <td nowrap><code>APIFilt_IsInStructureDisplay</code> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18" width="19" height="12"></td>
+
+            <td>additional flag; checks if the element is visible taking into account the current <a href="../Structures/API_StructureDisplay.html">structure display</a> setting</td>
+
+            <td>all element types</td>
+        </tr>
+    </table>
+
+    <p>If the value of <code>filterBits</code> is 0, only the existence of the element is checked.</p>
+
+    <p>This routine helps you quickly test different attributes without converting the whole model, for example when you walk through all the elements, and test for the existence of the 3D representation of an element.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+GS::Array&lt;API_Guid&gt; elemList;
+ACAPI_Element_GetElemList (API_LineID, &amp;elemList);
+DBPrintf ("number of lines = %ld,", elemList.GetSize ());
+
+short visible = 0;
+short onStory = 0;
+short inView = 0;
+for (GS::Array&lt;API_Guid&gt;::ConstIterator it = elemList.Enumerate (); it != nullptr; ++it) {
+    if (ACAPI_Element_Filter (*it, APIFilt_OnVisLayer))
+        ++visible;
+    if (ACAPI_Element_Filter (*it, APIFilt_OnActFloor))
+        ++onStory;
+    if (ACAPI_Element_Filter (*it, APIFilt_InCroppedView))
+        ++inView;
+}
+DBPrintf ("%d visible, %d on the view\'s floor, %d in the cropped view\n", visible, onStory, inView);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Guid.html">API_Guid</a><br>
+    <a href="../Functions/ACAPI_Element_GetElemList.html">ACAPI_Element_GetElemList</a><br>
+    <a href="../Functions/APIDb_DrawOrderGetNextID.html">APIDb_DrawOrderGetNextID</a><br>
+    <a href="../Functions/APIDb_CreationOrderGetNextID.html">APIDb_CreationOrderGetNextID</a><br>
+    <a href="../Structures/API_ElemSearchPars.html">API_ElemSearchPars</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on August 9, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

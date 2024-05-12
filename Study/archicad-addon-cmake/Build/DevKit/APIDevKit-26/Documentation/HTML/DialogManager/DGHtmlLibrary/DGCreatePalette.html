@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Bende Laszlo">
+
+    <title>DGCreatePalette</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGCreatePalette.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGCreatePalette</h1>
+
+    <p>Creates a <a href="PaletteDialogs.html">palette dialog</a> without showing it.</p>
+    <pre class="syntax">
+    <strong>short DGCreatePalette</strong> (
+      <strong>GSResModule</strong>           <em>dialResModule</em>,
+      <strong>short</strong>                 <em>resId</em>,
+      <strong>GSResModule</strong>           <em>dialIconResModule</em>,
+      <strong>const <a href="CallbackFunctions.html">DGDialCallBack</a></strong>  <em>dCallBack</em>,
+      <strong><a href="DGUserData.html">DGUserData</a></strong>            <em>userData</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialResModule</em></dt>
+
+        <dd>The resource module the <tt>GDLG</tt> resource is in.</dd>
+
+        <dt><em>resId</em></dt>
+
+        <dd><tt>GDLG</tt> resource identifier of the dialog.</dd>
+
+        <dt><em>dialIconResModule</em></dt>
+
+        <dd>The resource module the icons for this dialog are in.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>dCallBack</em></dt>
+
+        <dd>Constant pointer to the <a href="CallbackFunctions.html">dialog callback</a> procedure.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>userData</em></dt>
+
+        <dd>The user-specified data of the dialog.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>ID of the dialog if it was created successfully, or zero if the function parameters or the GRC description is incorrect.</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function creates the window, the dialog items and the internal data of the palette dialog defined in the GRC resource. It returns immediately as soon as the dialog is created. It does not show the dialog and even does not begin event processing. To receive dialog messages in the <a href="CallbackFunctions.html">dialog callback function</a>the event processing should be started with the <a href="DGBeginProcessEvents.html">DGBeginProcessEvents</a> function. Use <a href="DGShowModelessDialog.html">DGShowModelessDialog</a> to show the dialog after the event processing was started.</p>
+
+    <p>The application should store the returned dialog ID and use this value in following calls of <a href="FunctionList_id.html">DG functions</a> instead of a fixed resource ID. Basically there are two situations when this is a must:</p>
+
+    <ul>
+        <li>You want to create more instances of a dialog (based on the same resource).</li>
+
+        <li>You want to open more dialogs of the same type that are defined in different modules with the same resource ID.</li>
+    </ul>
+
+    <p>In such cases DG creates new (negative) unique dialog IDs at the second and subsequent <b>DGCreatePalette</b> calls to solve the resource collision. It is strongly recommended to get used to this method even if the application consists of one module and every dialog is opened only once.</p>
+
+    <p>The user data block given by the <em>userData</em> parameter is passed to the dialog callback function with every <a href="Messages_id.html">DG message</a>. The application can store dialog-specific information in this data block and cast its pointer to <strong><tt>DGUserData</tt></strong>.</p>
+
+    <p>Palette dialogs can be created without resource by using the <a href="DGCreateBlankPalette.html">DGCreateBlankPalette</a> or the <a href="DGCreateBlankDockablePalette.html">DGCreateBlankDockablePalette</a> function which creates an empty palette. To append dialog items on the created palette use the <a href="DGAppendDialogItem.html">DGAppendDialogItem</a> function.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="PaletteDialogs.html">Palette Dialogs</a>, <a href="ModelessDialogs.html">Modeless Dialogs</a><br>
+    <a href="DGCreateBlankPalette.html">DGCreateBlankPalette</a>, <a href="DGCreateBlankDockablePalette.html">DGCreateBlankDockablePalette</a>, <a href="DGDestroyPalette.html">DGDestroyPalette</a><br>
+    <a href="DGModelessInit.html">DGModelessInit</a>, <a href="DGModelessClose.html">DGModelessClose</a>, <a href="DGModelessHandler.html">DGModelessHandler</a>, <a href="DGShowModelessDialog.html">DGShowModelessDialog</a>, <a href="DGCreateModelessDialog.html">DGCreateModelessDialog</a>, <a href="DGCreateBlankModelessDialog.html">DGCreateBlankModelessDialog</a>, <a href="DGAppendDialogItem.html">DGAppendDialogItem</a>, <a href="DGBeginProcessEvents.html">DGBeginProcessEvents</a><br>
+    <a href="CallbackFunctions.html">Callback functions</a>, <a href="Messages_id.html">DG Messages</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 20, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

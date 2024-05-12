@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_WindowInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_WindowInfo.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_WindowInfo, API_DatabaseInfo</h1>
+
+    <p>Identification parameters of a project window or window related database.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_WindowTypeID.html">API_WindowTypeID</a></strong>     <em>typeID</em>;
+        <strong>Int32</strong>                <em>index</em>;
+        <strong><a href="API_DatabaseUnId.html">API_DatabaseUnId</a></strong>     <em>databaseUnId</em>;
+        <strong><a href="API_DatabaseUnId.html">API_DatabaseUnId</a></strong>     <em>masterLayoutUnId</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>          <em>title[API_UniLongNameLen]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>          <em>name[API_UniLongNameLen]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>          <em>ref[API_UniLongNameLen]</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>             <em>linkedElement</em>;
+        <strong><a href="API_DatabaseUnId.html">API_DatabaseUnId</a></strong>     <em>linkedDatabaseUnId</em>;
+        <strong>Int32</strong>                <em>linkedSegmentMemoIndex</em>;
+        <strong>Int32</strong>                <em>filler_1[3]</em>;
+    <strong>}</strong> <em>API_WindowInfo, API_DatabaseInfo</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>typeID</b></dt>
+
+        <dd>the window/database type identifier</dd>
+
+        <dt><b>index</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>usually the database/window index (the refCon value in case of custom windows, not used for Section/Elevation Detail and Worksheet database/window).</dd>
+
+        <dt><b>databaseUnId</b></dt>
+
+        <dd>Section/Elevation/Interior Elevation, Detail and Worksheet database/window unique identifier</dd>
+
+        <dt><b>masterLayoutUnId</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>for Layouts only; database unique ID of the master layout</dd>
+
+        <dt><b>title</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Modified in API 11" width="19" height="12"></dt>
+
+        <dd>the title of the database (Unicode string), as it is displayed on the window title bar (generally "ref"+" "+"name")</dd>
+
+        <dt><b>name</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Modified in API 11" width="19" height="12"></dt>
+
+        <dd>the name of the database (Unicode string)</dd>
+
+        <dt><b>ref</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Modified in API 11" width="19" height="12"></dt>
+
+        <dd>reference string/id of the database</dd>
+
+        <dt><b>linkedElement</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="11" width="19" height="12"></dt>
+
+        <dd>Element linked to the database (e.g. section to a section database) except for drawing databases where it is the drawing element's <i>guid</i></dd>
+
+        <dt><b>linkedDatabaseUnId</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd>For databases linked to elements (section, detail, etc.): the database containing the element.</dd>
+
+        <dt><b>linkedSegmentMemoIndex</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd>For interior elevations only; the section segment index in the element memo.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Database/window reference is used for several purposes:</p>
+
+    <ul>
+        <li>Returned while asking for the active window or database (<a href="../Functions/APIDb_GetCurrentWindowID.html">APIDb_GetCurrentWindowID</a>, <a href="../Functions/APIDb_GetCurrentDatabaseID.html">APIDb_GetCurrentDatabaseID</a>)</li>
+
+        <li>Must be setup when changing the current window or database (<a href="../Functions/APIDo_ChangeWindowID.html">APIDo_ChangeWindowID</a>, <a href="../Functions/APIDb_ChangeCurrentDatabaseID.html">APIDb_ChangeCurrentDatabaseID</a>)</li>
+
+        <li>Defines the database when creating/modifying/deleting an independent detail, worksheet, layout or master layout database (<a href="../Functions/APIDb_NewDatabaseID.html">APIDb_NewDatabaseID</a>, <a href="../Functions/APIDb_ModifyDatabaseID.html">APIDb_ModifyDatabaseID</a>, <a href="../Functions/APIDb_DeleteDatabaseID.html">APIDb_DeleteDatabaseID</a>)</li>
+    </ul>
+
+    <p>The databases are referenced with their unique ID, except Floor Plan, 3D Model and custom window databases. The unique IDs can be found in the connecting elements (<a href="API_CutPlaneType.html">API_CutPlaneType</a>, <a href="API_DetailType.html">API_DetailType</a>, <a href="API_DetailType.html">API_WorksheetType</a>), or can be listed for independent detail, worksheet, layout and master layout databases (<a href="../Functions/APIDb_GetDetailDatabasesID.html">APIDb_GetDetailDatabasesID</a>, <a href="../Functions/APIDb_GetWorksheetDatabasesID.html">APIDb_GetWorksheetDatabasesID</a>, <a href="../Functions/APIDb_GetLayoutDatabasesID.html">APIDb_GetLayoutDatabasesID</a>, <a href="../Functions/APIDb_GetMasterLayoutDatabasesID.html">APIDb_GetMasterLayoutDatabasesID</a> respectively).</p>
+
+    <p>In case of Floor Plan and 3D Model databases the <code>typeID</code> field is enough to identify them. Custom API windows (<code>APIWind_MyDrawID</code>, <code>APIWind_MyTextID</code>) are identified with <code>typeID</code> and <code>index</code>.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12">&nbsp; With this structure you can retrieve the name, the title and the reference ID of a given window/database (see <a href="../Functions/APIDb_GetDatabaseInfoID.html">APIDb_GetDatabaseInfoID</a>). You can also rename independent detail, worksheet, layout and master layout databases using the <code>name</code> and <code>ref</code> fields in <a href="../Functions/APIDb_ModifyDatabaseID.html">APIDb_ModifyDatabaseID</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_WindowTypeID.html">API_WindowTypeID</a>, <a href="API_DatabaseUnId.html">API_DatabaseUnId</a><br>
+    <a href="API_CutPlaneType.html">API_CutPlaneType</a>, <a href="API_CutPlaneType.html">API_ElevationType</a>, <a href="API_InteriorElevationType.html">API_InteriorElevationType</a>, <a href="API_DetailType.html">API_DetailType</a>, <a href="API_DetailType.html">API_WorksheetType</a><br>
+    <a href="API_Types.html">API Types</a>, <a href="../Functions/ACAPI_Database_id.html#API_DatabaseID">API_DatabaseID</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 27, 2012<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

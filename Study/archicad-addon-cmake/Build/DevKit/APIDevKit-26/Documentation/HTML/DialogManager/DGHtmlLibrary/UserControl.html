@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>User Control</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/UserControl.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>User Control</h1>
+
+    <p>Sometimes an application may need such special user interactions that can not be elegantly achieved by any controls provided by DG. In such special cases you can develop your own controls that perfectly satisfy all requirements. These types of controls are called "user controls" in DG.</p>
+
+    <p>For example, suppose that the user must choose a specific color from a predefined palette of colors in a dialog. This task can be solved either by a <a href="ListBox.html">list box</a> or by a <a href="Pop-upControl.html">pop-up control</a>, but the following user control may be the best solution. When the user presses the button-like control that displays the currently selected color, a pop-up palette appears from which the user can choose the new color by keypresses or by a mouse click.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/UserControl_Mac.png" width="209" height="182" alt="UserControl_Mac">&nbsp;&nbsp;&nbsp;&nbsp;<img src="../DGImageLibrary/UserControl_Win.png" alt="UserControl_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>A user control has a range and a current value. The range is the set of continuous values that the control can represent. Because these values are expressed as short integers, the possible minimum and maximum values are <tt>SHRT_MIN</tt> and <tt>SHRT_MAX</tt>, respectively. User controls can send only three types of DG messages (see Messages) and there is only one function pair that serves to set or retrieve control specific data of user controls.</p>
+
+    <p>User controls can be easily integrated into DG. They can be created both from GRC or from program code by <a href="DGAppendDialogItem.html">DGAppendDialogItem</a>. When you write a user control you must keep only a few rules (see Remarks).</p>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_USERCONTROL</tt></dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    UserControl    <i>x  y  dx  dy  cdefID</i>
+                   [data<b>1</b>  ...  data<b>i</b>  ...  data<b>n</b>]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the user control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>cdefID</em> is the control definition procedure ID (it must be within the range of 512 &lt;= <i>ldefID</i> &lt;= 999). The optional <em>data</em><em><b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) short parameters may initialize the user control (n can be zero). These parameters can be given both in decimal or hexadecimal formats and they can be written in more lines.</p>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>The value of the user control is changed. The message data parameter contains the previous value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a></td>
+
+                    <td>The user control is double clicked. The message data parameter is always zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_TRACK.html"><tt>DG_MSG_TRACK</tt></a></td>
+
+                    <td>The value of the user control is changed during tracking. The message data parameter is the sub-message.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p><a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a> and <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a> functions can set the user control's modification flag except if they are called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. The flag can also be set by user actions that generate <tt>DG_MSG_CHANGE</tt> or <tt>DG_MSG_TRACK</tt> messages. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The value and range of a user control can be initialized by the <em>data</em><em><b>i</b></em> parameters in GRC. Later you can dynamically alter the range by using the <b>DGSetItemMinLong</b> and <b>DGSetItemMaxLong</b> functions. The possible minimum of the range is <tt>SHRT_MIN</tt> while the maximum is <tt>SHRT_MAX</tt>. Use <a href="DGGetItemMinLong.html">DGGetItemMinLong</a> and <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a> to retrieve the range of a user control. The current value of the user control can be set and retrieved by <b>DGSetItemValLong</b> and <a href="DGGetItemValLong.html">DGGetItemValLong</a>, respectively.</p>
+
+    <p>If any of the range or value setting functions is called, DG checks the consistency of data (i.e. whether the <em>minimum &lt;= value &lt;= maximum</em> condition is true or not). If data are inconsistent, DG automatically adjusts them. For the details of this adjustment see <b>DGSetItemValLong</b>, <b>DGSetItemMinLong</b> and <b>DGSetItemMaxLong</b>.</p>
+
+    <p>Besides the value and range a user control can have a block of data describing - among others - the visual appearance and the behavior of the control. Moreover, the application can store any other information in this block. These control specific data can be initialized from GRC and can be accessed from program code by the <a href="DGSetItemData.html">DGSetItemData</a> and <a href="DGGetItemData.html">DGGetItemData</a> functions. However these functions are obsolote from version DGLib 2.2.0. on, because the predeclared user controls in the UC module all controls have their own interface for changing their settings.</p>
+
+    <p>As a result of user actions a user control can send three types of DG messages, however it does not need to support all of the three messages. It depends on the nature of the control which messages are supported by it. If a user control supports tracking and the user clicks and tracks the control DG sends <tt>DG_MSG_TRACK</tt> messages to the dialog callback function until the user releases the (left) mouse button. With <tt>DG_MSG_TRACK</tt> message, a sub-message will be delivered also, which specifies the user control event more detailed. This allows the application to modify other controls during tracking. When handling <tt>DG_MSG_TRACK</tt> messages call <b>DGGetItemValLong</b> to retrieve the current value of the control. As soon as tracking is finished the callback function receives a <tt>DG_MSG_CHANGE</tt> message; the message data parameter is the control value before tracking.</p>
+
+    <p>For user controls many tasks are handled internally by DG (show, hide, size, move, etc.). However, many other tasks (updating, drawing, handling user actions, etc.) must be implemented by the control itself.</p>
+
+    <p><img src="../DGImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh only:</b></p>
+
+    <p>On Macintosh, if you need a user control, write a standard control definition procedure and place it into the application's resource fork. The CDEF resource must have the index given by the <i>cdefID</i> parameter of GRC, or the <em>itemData</em> parameter of <b>DGAppendDialogItem</b>. The control must support the following Macintosh API function calls: <b>SetControlValue</b>, <b>GetControlValue</b>, <b>SetControlMinimum</b>, <b>GetControlMinimum</b>, <b>SetControlMaximum</b>, <b>GetControlMaximum</b>, <b>SetControlData</b> and <b>GetControlData</b>. (See Macintosh API documentation for details.)</p>
+
+    <p><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></p>
+
+    <p>On Windows, the situation is a bit more complicated. First the application has to register an own window class with the name of "<tt>CDEFXXX</tt>", where "<tt>XXX</tt>" represents the three numeric digits of the control definition procedure ID. In order to communicate with DG, a user control has to respond to some DG specific control messages in its window procedure. These messages, their parameters, return values and the functions from which DG sends them are summarized in the following table.</p>
+
+    <dl>
+        <dd>
+            <table border="0" cellpadding="3">
+                <tr valign="top">
+                    <th align="left" width="150">Message</th>
+
+                    <th align="left" width="150">wParam</th>
+
+                    <th align="left" width="150">lParam</th>
+
+                    <th align="left" width="150">Return value</th>
+
+                    <th align="left" valign="top">Function</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_CM_SETMIN</tt></td>
+
+                    <td>1</td>
+
+                    <td>control minimum</td>
+
+                    <td>not used</td>
+
+                    <td><b>DGSetItemMinLong</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_CM_GETMIN</tt></td>
+
+                    <td>0</td>
+
+                    <td>0</td>
+
+                    <td>control minimum</td>
+
+                    <td><b>DGGetItemMinLong</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_CM_SETMAX</tt></td>
+
+                    <td>1</td>
+
+                    <td>control maximum</td>
+
+                    <td>not used</td>
+
+                    <td><b>DGGetItemMaxLong</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_CM_GETMAX</tt></td>
+
+                    <td>0</td>
+
+                    <td>0</td>
+
+                    <td>control maximum</td>
+
+                    <td><b>DGGetItemMaxLong</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_CM_SETVAL</tt></td>
+
+                    <td>1</td>
+
+                    <td>control value</td>
+
+                    <td>not used</td>
+
+                    <td><b>DGSetItemValLong</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_CM_GETVAL</tt></td>
+
+                    <td>0</td>
+
+                    <td>0</td>
+
+                    <td>control value</td>
+
+                    <td><b>DGGetItemValLong</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_CM_SETDATA</tt></td>
+
+                    <td>size of data block<br>
+                    in bytes</td>
+
+                    <td>pointer to data block<br>
+                    (can not be nullptr)</td>
+
+                    <td>-1 if error occurs,<br>
+                    zero otherwise</td>
+
+                    <td><b>DGSetItemData</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_CM_GETDATA</tt></td>
+
+                    <td>size of data block<br>
+                    in bytes</td>
+
+                    <td>pointer to data block<br>
+                    (can be nullptr)</td>
+
+                    <td>size of the whole<br>
+                    control data in bytes</td>
+
+                    <td><b>DGGetItemData</b></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Notes on <tt>DG_CM_SETDATA</tt> message:</p>
+
+    <ul>
+        <li>If <em>wParam</em> is larger than the current size of the control's data block, the control should increase its memory block to make room for the new data.</li>
+
+        <li>If <em>wParam</em> is smaller than the current size of the control's data block, the control should update only the first <em>wParam</em> bytes in its data block.</li>
+
+        <li>The control has to return -1 if an error occurs, and zero otherwise.</li>
+    </ul>
+
+    <p>Notes on <tt>DG_CM_GETDATA</tt> message:</p>
+
+    <ul>
+        <li>If <em>lParam</em> is not zero and <em>wParam</em> is smaller than the current size of the control's data block, the control should copy only the first <em>wParam</em> bytes to the <em>lParam</em> buffer.</li>
+
+        <li>If <em>lParam</em> is zero, the control has to return the size of its data block.</li>
+    </ul>
+
+    <p>When the current value of a user control is changed by a user action, the control should send DG specific notification messages to its parent dialog using the <b>SendMessage</b> Windows API function. DG translates these notifications into standard <a href="Messages_id.html">DG messages</a> then sends them to the dialog callback function. The following table contains the notification messages, their parameters and the corresponding DG messages:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Notification</th>
+
+                    <th align="left">wParam</th>
+
+                    <th align="left">lParam</th>
+
+                    <th align="left" width="150">DG message</th>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_CN_CHANGE</tt></td>
+
+                    <td>1-based index of the control</td>
+
+                    <td>previous value of the control</td>
+
+                    <td><tt>DG_MSG_CHANGE</tt></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_CN_TRACK</tt></td>
+
+                    <td>1-based index of the control</td>
+
+                    <td>not used</td>
+
+                    <td><tt>DG_MSG_TRACK</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>If a user control supports tracking and the user clicks and tracks the control, <tt>DG_CN_TRACK</tt> notification messages should be sent to the parent dialog until the user releases the (left) mouse button. If tracking is finished and the current value of the control differs from its value before tracking, the control should send a <tt>DG_CN_CHANGE</tt> notification, too.</p>
+
+    <p>Besides the DG specific control messages any message can be handled in the control's window procedure. Not handled messages have to be passed to the default window procedure.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="ListBox.html">List Box</a>, <a href="Pop-upControl.html">Pop-up Control</a><br>
+    <a href="DGAppendDialogItem.html">DGAppendDialogItem</a>, <a href="DGGetItemData.html">DGGetItemData</a>, <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a>, <a href="DGGetItemMinLong.html">DGGetItemMinLong</a>, <a href="DGGetItemValLong.html">DGGetItemValLong</a>, <a href="DGModified.html">DGModified</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetItemData.html">DGSetItemData</a>, <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a>, <a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="Messages_id.html">DG Messages</a>, <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a>, <a href="DG_MSG_TRACK.html"><tt>DG_MSG_TRACK</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 5, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

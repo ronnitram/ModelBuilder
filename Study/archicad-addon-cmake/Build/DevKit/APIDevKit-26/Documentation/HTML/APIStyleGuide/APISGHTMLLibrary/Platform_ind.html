@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>Platform independence</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APISGHTMLLibrary/Platform_ind.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Style&nbsp;Guide</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Platform independence</h1>
+
+    <p><em>DO</em> use the functionality provided by the API and the modules in it: the <a href="../../DialogManager/DialogManager.html">Dialog Manager</a> and <a href="../../GSRoot/GSRoot.html">GSRoot</a> (string, memory management etc.). They are robust and well tested on both platforms.</p>
+
+    <ul>
+        <li><em>DG</em> is a platform-independent dialog manager, providing many different dialog and dialog item types. It also includes the platform-independent resource format called GRC. All of Archicad's dialogs (except for file and print dialogs) were created with it.</li>
+
+        <li><em>GSRoot</em> provides string, memory, date and time, and timer management, generic container classes, and includes general debugging services on both platforms. You can also use the <a href="../../GSRoot/GSRootHTMLLibrary/IV/def_id.html">byte swapping functions</a> to convert data between Mac and Windows.</li>
+    </ul>
+
+    <p><em>DO</em> use standard C and C++ calls. You can also use STL if you want, though some standard containers are now supplied by the GSRoot module.</p>
+
+    <p><em>DO</em> use the <a href="../../InputOutput/IOHTMLLibrary/Location/Location.html">Location</a> class to access/store file/folder information. It can be mapped to platform-specific structures when needed.</p>
+
+    <p>Leave place for byte swapping (Mac and Win machines store the basic types in different byte orders). If you plan to do cross-platform reading/writing then you have to write the swapping routines yourself.</p>
+
+    <p>Take into account the internal alignment of the structures. Different compilers may align the internals of structures differently. Always align those which may go into a file/preferences to 8 bytes internally; see the structures in the API for examples.</p>
+
+    <p>Use application frameworks with care; they haven't been tested with the API.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 7, 2004<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Register_Menu</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Register_Menu.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Register_Menu</h1>
+
+    <p>Registers the menu items of the add-on.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Register_Menu</strong> (
+        <strong>short</strong>             <em>menuStrResID</em>,
+        <strong>short</strong>             <em>promptStrResID</em>,
+        <strong><a href="../Structures/APIMenuCodeID.html">APIMenuCodeID</a></strong>     <em>menuPosCode</em>,
+        <strong>GSFlags</strong>           <em>menuFlags</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>menuStrResID</em></dt>
+
+        <dd>[in] The resource ID of the menu resource, which should be in the resource fork of the add-on.</dd>
+
+        <dt><em>promptStrResID</em></dt>
+
+        <dd>[in] The resource ID of the propmt string resource, which should be in the resource fork of the add-on. These strings appear in the status bar.</dd>
+
+        <dt><em>menuPosCode</em></dt>
+
+        <dd>[in] Defines the server application's menu to insert the command into.</dd>
+
+        <dt><em>menuFlags</em></dt>
+
+        <dd>[in] Flags describing whether you would like to see any separator item in the menu before or after the registered menu item. Its possible values are: <code>MenuFlag_Default</code>, <code>MenuFlag_SeparatorBefore</code>, and <code>MenuFlag_SeparatorAfter</code></dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dd>&nbsp;</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function should be called from the <a href="RegisterInterface.html">RegisterInterface</a> routine in your add-on. You can register more than one menu from the same add-on, even appearing in different menus of the server application.</p>
+
+    <p>The supplied <code>menuStrResID</code> parameter should be the same in the <a href="ACAPI_Install_MenuHandler.html">ACAPI_Install_MenuHandler</a> function, which you have to call from your <a href="Initialize.html">Initialize</a> routine.</p>
+
+    <p>The following scenarios are possible:</p>
+
+    <ul>
+        <li>the add-on inserts one menu item at the position defined by <code>menuPosCode</code><br>
+
+            <blockquote>
+                <pre><code>
+'STR#' 32500    "Menu Description" {
+/* [  1] */        "My add-on's solo menuitem"
+}
+
+</code></pre>
+            </blockquote>
+        </li>
+
+        <li>the add-on inserts a submenu at the position defined by <code>menuPosCode</code><br>
+
+            <blockquote>
+                <pre><code>
+'STR#' 32501    "Menu Description" {
+/* [  1] */        "My add-on's submenu"
+/* [  2] */            "My add-on's menuitem #1"
+/* [  3] */            "My add-on's menuitem #2"
+}
+
+</code></pre>
+            </blockquote>
+        </li>
+
+        <li>the add-on inserts its own main menu; <code>menuPosCode</code> should be <code>MenuCode_UserDef</code><br>
+
+            <blockquote>
+                <pre><code>
+'STR#' 32502    "Menu Description" {
+/* [  1] */        "My add-on's main menu"
+/* [  2] */            "My add-on's solo menuitem"
+}
+
+</code></pre>
+            </blockquote>
+        </li>
+
+        <li>the add-on inserts its own main menu with a submenu; <code>menuPosCode</code> should be <code>MenuCode_UserDef</code><br>
+
+            <blockquote>
+                <pre><code>
+'STR#' 32503    "Menu Description" {
+/* [  1] */        "My add-on's main menu"
+/* [  2] */            "My add-on's submenu"
+/* [  3] */                "My add-on's menuitem #1"
+/* [  4] */                "My add-on's menuitem #2"
+}
+
+</code></pre>
+            </blockquote>
+        </li>
+    </ul>
+
+    <p>As you see, the add-on may define its own main menu, if it uses <code>MenuCode_UserDef</code> and the menu position. In this case the first item in the <code>STR#</code> resource will be the title of the main menu, and the other items correspond to the menu items in the non-main menu case. If this first item is the same as one of the server application's main menu titles, then the API won't open a new main menu, rather it inserts the add-on's menu into the original main menu, as defined by the rules for that menu. This also means if you use an already existing menu title (e.g. <b>Window</b>) which doesn't have an insertion place for add-ons, your add-on's menu won't appear.</p>
+
+    <p>This implies that the location of the add-on within the Add-Ons folder doesn't have any impact on the menu position of your add-on's commands.</p>
+
+    <p>The appearance of menu items can be controlled by control codes appended to the menu item string resource as described in the <a href="../Level2/Required_Resources.html">Required Resources</a> section.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>In the GRC file:</p>
+
+    <blockquote>
+        <pre><code>
+'STR#' 32500 "Menu strings" {
+/* [  1] */     "Show Selections^ES^E3^ED^32500"
+}
+
+'STR#' 32520 "Status bar prompt strings" {
+/* [  1] */     "Show Selections palette"
+}
+
+/* Toolbar icon resource ("RFIX\Images\TB_show_selections.png") */
+'GICN' 32500 "TB_show_selections" {
+    "TB_show_selections"
+}
+</code></pre>
+    </blockquote>
+
+    <p>In the <a href="RegisterInterface.html">RegisterInterface</a> function:</p>
+
+    <blockquote>
+        <pre><code>
+//------------------------------------------------------
+// Interface definitions
+//------------------------------------------------------
+GSErrCode __ACENV_CALL    RegisterInterface (void)
+{
+    GSErrCode    err;
+
+    // Register menu command
+    err = <font color="#FF0066">ACAPI_Register_Menu</font> (32500, 32520, MenuCode_Palettes, MenuFlag_Default);
+
+    return err;
+}   // RegisterInterface
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/APIMenuCodeID.html">APIMenuCodeID</a><br>
+    <a href="ACAPI_Install_MenuHandler.html">ACAPI_Install_MenuHandler</a><br>
+    <a href="RegisterInterface.html">RegisterInterface</a><br>
+    <a href="../Level2/Required_Resources.html">Required Resources</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 1, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

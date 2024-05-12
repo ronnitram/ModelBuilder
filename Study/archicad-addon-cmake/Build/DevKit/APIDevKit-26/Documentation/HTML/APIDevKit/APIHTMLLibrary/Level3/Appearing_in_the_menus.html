@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Appearing in the Archicad menus</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Appearing_in_the_menus.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Appearing in the Archicad menus</h1>
+
+    <p><br>
+    There are several levels of controlling the appearance of an add-on command in the menu structure of the server application.</p>
+
+    <p>You can let the user organize the external command menus on the file-system level by creating subfolders in the Add-Ons folder. The commands which are contained in an <b>.apx</b> file put into such a subdirectory, will be mounted into a specially created menu in the main menu bar with the folder name as the menu title. Those subdirectories of the Add-Ons folder which do not contain loadable API tool extension or have their name put between parenthesis will not appear as an extra menu in the menu bar.</p>
+
+    <p>Add-ons located in the main level of the Add-Ons folder or mounted by the "Load Add-On..." command will be added to the Tools menu.</p>
+
+    <p>You can override this default rule by forcing your add-on commands into one of the predefined menu positions. Almost every standard Archicad menu has at least one entry point to mount external tools into. This position can be defined in the <code><b>menuPosCode</b></code> parameter of the <a href="../Functions/ACAPI_Register_Menu.html">ACAPI_Register_Menu</a> function. For example if you specify <code>MenuCode_File</code> as the <code>menuPosCode</code>, your add-on command will be inserted into the File menu after the Project Info menu item.</p>
+
+    <p>As a general limit none of the main menus can contain more than 63 items. If this limit would exceed by mounting an add-on, the server application opens a new submenu according to the forced menu code, and all the external commands mounted into that menu position will be reorganized into the newly inserted submenu.</p>
+
+    <p>Furthermore you can control the accessibility of your add-on commands by appending control codes at the end of each menu item string in the 'STR#' resource. This facility lets you enable your command above section/elevation type windows, disable above the floor plan window or when there are no elements selected in the active window. For more information see the <a href="../Level2/Required_Resources.html">Required Resources</a> section.</p>
+
+    <p>If you decide to put a menu command into the Floating Palettes submenu of the Window menu (<code>MenuCode_Palettes</code>) for controlling the visibility of your palette, please handle the Show/Hide All Palettes command as it is described in the <a href="Modeless_Palettes.html">Modeless Palettes</a> section.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 11, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

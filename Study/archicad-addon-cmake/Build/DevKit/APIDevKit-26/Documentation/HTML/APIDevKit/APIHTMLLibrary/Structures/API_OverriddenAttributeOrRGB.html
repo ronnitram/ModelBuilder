@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_OverriddenAttributeOrRGB</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_OverriddenAttributeOrRGB.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_OverriddenAttributeOrRGB <img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"></h1>
+
+    <p>Attribute override structure with option, to override with explicit RGB color.</p>
+    <pre class="syntax">
+	<strong>struct API_OverriddenAttributeOrRGB {</strong>
+        <strong>GS::Variant&lt;<a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_RGBColor.html">API_RGBColor</a>&gt;</strong>   <em>attributeStyle</em>;
+        <strong>bool</strong>				                <em>overridden</em>;
+        <strong>bool</strong>				                <em>filler_1[3]</em>;
+    <strong>}</strong>;
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>attributeStyle</b></dt>
+
+        <dd>Contains the overridden attribute style, that is an attribute index, or an RGB color value.</dd>
+
+        <dt><b>overridden</b></dt>
+
+        <dd>If true, the attribute is overridden on the relevant level.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+	
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 25 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a><br>
+    <a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></p>
+	
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 30, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

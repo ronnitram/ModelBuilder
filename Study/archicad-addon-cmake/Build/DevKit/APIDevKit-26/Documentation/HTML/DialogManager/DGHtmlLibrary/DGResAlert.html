@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGResAlert</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGResAlert.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGResAlert</h1>
+
+    <p>Invokes a standard DG <a href="Alerts.html">alert</a> given in a <tt>GALR</tt> resource.</p>
+    <pre class="syntax">
+    <strong>short DGResAlert</strong> (
+      <strong>GSResModule</strong>  <em>resModule</em>,
+      <strong>short</strong>        <em>alertId</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>resModule</em></dt>
+
+        <dd>The resource module the <tt>GALR</tt> resource is in.</dd>
+
+        <dt><em>alertId</em></dt>
+
+        <dd><tt>GALR</tt> resource ID of the alert.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_OK</tt></td>
+
+                    <td>The first button is clicked.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_CANCEL</tt></td>
+
+                    <td>The second button is clicked.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_THIRD</tt></td>
+
+                    <td>The third button is clicked.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>If the function parameters are incorrect or the specified resource is not found, zero is returned.</p>
+
+    <h4>Remarks</h4>
+
+    <p><b>DGResAlert</b> has the same behavior as of <a href="DGAlert.html">DGAlert</a>. The only difference is in the way how the icon and the alert and button texts are specified.</p>
+
+    <p>Alerts are sized automatically to the minimal size that contains all of the given elements. If the first and/or the second alert text does not fit into one line, DG automatically breaks it/them into more lines. Of course, these texts can contain explicit line breaks as well.</p>
+
+    <p>On Windows, if the user clicks the close box in the caption, <b>DGResAlert</b> returns <tt>DG_CANCEL</tt>. If there is no second button in the alert <tt>DG_OK</tt> is returned.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="Alerts.html">Alerts</a>, <a href="DGAlert.html">DGAlert</a>, <a href="DGResAlertParam.html">DGResAlertParam</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

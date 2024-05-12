@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Write (OProtocol)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/OProtocol/Write.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="OProtocol.html">OProtocol</A>::Write</H2><!--exp="OProtocol::Write-->
+<P><topic id="$GS.$OProtocol.$Write.BriefDescription">
+		Decomposes simple C++ types (and <!----><a href="../Object/Object.html">Object</a>) to an
+		<!----><a href="../OChannel/OChannel.html">output channel</a>.
+	</topic></P>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>char                </B><I>c</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>unsigned char       </B><I>c</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>bool                </B><I>b</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>short               </B><I>s</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>unsigned short      </B><I>s</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>int                 </B><I>i</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>unsigned int        </B><I>i</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>long                </B><I>l</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>unsigned long       </B><I>l</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>float               </B><I>f</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>double              </B><I>d</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>long double         </B><I>d</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>const void *        </B><I>p</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B>const char *        </B><I>cStr</I>
+<B>) = 0;</B></PRE>
+<PRE class="syntax"><B>virtual GSErrCode Write (</B>
+    <B><a class="nodecorate" href="../../GS/OChannel/OChannel.html">OChannel &amp;</A>          </B><I>output</I>,
+    <B><a class="nodecorate" href="../../GS/Object/Object.html">const Object &amp;</A>      </B><I>obj</I>
+<B>) = 0;</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>output</I></DT><DD><topic id="$GS.$OProtocol.$Write.$output.ParamDescription">
+		Output channel receiving the binary data (usually using the <!----><a href="../OChannel/WriteBin.html">OChannel::WriteBin</a> method).
+	</topic></DD><DT><I>c</I></DT><DD><topic id="$GS.$OProtocol.$Write.$c.ParamDescription">
+		Character value to be decomposed.
+	</topic></DD><DT><I>b</I></DT><DD><topic id="$GS.$OProtocol.$Write.$b.ParamDescription">
+		Boolean value to be decomposed.
+	</topic></DD><DT><I>s</I></DT><DD><topic id="$GS.$OProtocol.$Write.$s.ParamDescription">
+		Short integer value to be decomposed.
+	</topic></DD><DT><I>i</I></DT><DD><topic id="$GS.$OProtocol.$Write.$i.ParamDescription">
+		Integer value to be decomposed.
+	</topic></DD><DT><I>l</I></DT><DD><topic id="$GS.$OProtocol.$Write.$l.ParamDescription">
+		Long integer value to be decomposed.
+	</topic></DD><DT><I>f</I></DT><DD><topic id="$GS.$OProtocol.$Write.$f.ParamDescription">
+		Float value to be decomposed.
+	</topic></DD><DT><I>d</I></DT><DD><topic id="$GS.$OProtocol.$Write.$d.ParamDescription">
+		Double value to be decomposed.
+	</topic></DD><DT><I>p</I></DT><DD><topic id="$GS.$OProtocol.$Write.$p.ParamDescription">
+		Pointer to be decomposed (for debuging purposes only).
+	</topic></DD><DT><I>cStr</I></DT><DD><topic id="$GS.$OProtocol.$Write.$cStr.ParamDescription">
+		C string to be decomposed.
+	</topic></DD><DT><I>obj</I></DT><DD><topic id="$GS.$OProtocol.$Write.$obj.ParamDescription">
+		<!----><a href="../Object/Object.html">Object</a> to be decomposed.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$OProtocol.$Write.ReturnDescription">
+		<table class="enumeration">
+		  <tr>
+			<th>Value</th>
+			<th>Meaning</th>
+		  </tr>
+		  <tr>
+			<td>NoError<sup><font color="#0000FF">*</font></sup></td>
+			<td>OK</td>
+		  </tr>
+		  <tr>
+			<td>OutputIsFull<sup><font color="#FF0000">*</font></sup></td>
+			<td>output device is full</td>
+		  </tr>
+		  <tr>
+			<td>WriteError<sup><font color="#FF0000">*</font></sup></td>
+			<td>write error on the output device</td>
+		  </tr>
+		  <tr>
+			<td>Error<sup><font color="#0000FF">*</font></sup></td>
+			<td>unspecified error</td>
+		  </tr>
+		</table>
+		<blockquote>
+		  <p><font color="#FF0000"><sup>*</sup></font> declared in <!----><a href="../OChannel/OChannel.html">OChannel</a> class scope<br>
+		  <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope
+		  </p>
+		</blockquote>
+	</topic></P><P><topic id="$GS.$OProtocol.$Write.1.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.2.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.3.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.4.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.5.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.6.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.7.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.8.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.9.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.10.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.11.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.12.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.13.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.14.ReturnDescription"></topic></P><P><topic id="$GS.$OProtocol.$Write.15.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$OProtocol.$Write.LongDescription">
+		This method decomposes simple C++ types (and <!----><a href="../Object/Object.html">Object</a>)
+		using binary level of the specified <!----><a href="../OChannel/OChannel.html">output channel</a>.
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

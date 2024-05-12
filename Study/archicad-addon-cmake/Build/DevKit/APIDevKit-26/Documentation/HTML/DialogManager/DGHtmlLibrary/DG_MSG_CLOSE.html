@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DG_MSG_CLOSE</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_CLOSE.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_CLOSE</h1>
+
+    <p>The dialog is about to be closed.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ABORT</tt></td>
+
+                    <td>The dialog has been aborted by <a href="DGAbortModalDialog.html">DGAbortModalDialog</a>.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_CLOSEBOX</tt></td>
+
+                    <td>The <a href="ModelessDialogs.html">modeless</a> or <a href="PaletteDialogs.html">palette</a> dialog has been closed by <a href="DGModelessClose.html">DGModelessClose</a> or by the user clicking on the close box.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Any positive number</td>
+
+                    <td>The application returns this value when handling the <a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a> or <a href="DG_MSG_NULL.html"><tt>DG_MSG_NULL</tt></a> messages. In case of <tt>DG_MSG_CLICK</tt> messages this positive value is usually the 1-based index of the clicked push button.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>Not used, always zero.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Not used, should be set to zero.</p>
+
+    <h4>Remarks</h4>
+
+    <p>Before a dialog is in fact closed, DG always sends a <tt>DG_MSG_CLOSE</tt> message to the <a href="CallbackFunctions.html">dialog callback function</a>. The value of the <em>item</em> parameter refers to the method as the dialog has been closed. In case of <a href="ModalDialogs.html">modal dialogs</a> the value of <em>item</em> will also be the return value of the <a href="DGModalDialog.html">DGModalDialog</a> function.</p>
+
+    <p>When the dialog callback function receives the <tt>DG_MSG_CLOSE</tt> message its dialog items have not been destroyed yet. This means that they keep their values, states, etc. that the user set in the dialog. Use dialog item specific functions to retrieve these current settings. You can call <a href="DGModified.html">DGModified</a> to test whether a dialog item has been modified during the lifetime of the dialog or not.</p>
+
+    <p>If the application has allocated resources (images, memory blocks, etc.) to a dialog or to one or more of its items, it is advised to free them when handling the <tt>DG_MSG_CLOSE</tt> message.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="ModalDialogs.html">Modal Dialogs</a>, <a href="ModelessDialogs.html">Modeless Dialogs</a>, <a href="PaletteDialogs.html">Palette Dialogs</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGAbortModalDialog.html">DGAbortModalDialog</a>, <a href="DGModalDialog.html">DGModalDialog</a>, <a href="DGModelessClose.html">DGModelessClose</a>, <a href="DGModified.html">DGModified</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 4, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

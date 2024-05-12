@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>UniString Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/UniString/UniString.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="Append.html">Append</A><A href="Assign.html">Assign</A><A href="BeginsWith.html">BeginsWith</A><A href="Clear.html">Clear</A><A href="Contains.html">Contains</A><A href="Count.html">Count</A><A href="Delete.html">Delete</A><A href="DeleteAll.html">DeleteAll</A><A href="DeleteFirst.html">DeleteFirst</A><A href="DeleteLast.html">DeleteLast</A><A href="EndsWith.html">EndsWith</A><A href="Fill.html">Fill</A><A href="FindFirst.html">FindFirst</A><A href="FindFirstIn.html">FindFirstIn</A><A href="FindFirstNotIn.html">FindFirstNotIn</A><A href="FindLast.html">FindLast</A><A href="FindLastIn.html">FindLastIn</A><A href="FindLastNotIn.html">FindLastNotIn</A><A href="GetCapacity.html">GetCapacity</A><A href="GetChar.html">GetChar</A><A href="GetLength.html">GetLength</A><A href="GetPrefix.html">GetPrefix</A><A href="GetSubstring.html">GetSubstring</A><A href="GetSuffix.html">GetSuffix</A><A href="Insert.html">Insert</A><A href="IsEmpty.html">IsEmpty</A><A href="operator!=.html">operator!=</A><A href="operator().html">operator()</A><A href="operator[].html">operator[]</A><A href="operator+.html">operator+</A><A href="operator+=.html">operator+=</A><A href="operator_lt_.html">operator&lt;</A><A href="operator_lt_=.html">operator&lt;=</A><A href="operator=.html">operator=</A><A href="operator==.html">operator==</A><A href="operator_gt_.html">operator&gt;</A><A href="operator_gt_=.html">operator&gt;=</A><A href="Pad.html">Pad</A><A href="ReplaceAll.html">ReplaceAll</A><A href="ReplaceFirst.html">ReplaceFirst</A><A href="ReplaceLast.html">ReplaceLast</A><A href="SetCapacity.html">SetCapacity</A><A href="SetChar.html">SetChar</A><A href="SetLength.html">SetLength</A><A href="SetSubstring.html">SetSubstring</A><A href="SetToLowerCase.html">SetToLowerCase</A><A href="SetToUpperCase.html">SetToUpperCase</A><A href="ToCStr.html">ToCStr</A><A href="ToPStr.html">ToPStr</A><A href="ToUStr.html">ToUStr</A><A href="Trim.html">Trim</A><A href="TrimLeft.html">TrimLeft</A><A href="TrimRight.html">TrimRight</A><A href="Constructors.html">UniString</A>--><H2>UniString Class</H2><!--exp="UniString Class"-->
+<P><topic id="$GS.$UniString.BriefDescription">
+		Unicode string.
+	</topic></P>
+<PRE class="syntax"><B>class UniString : public <!----><a class="nodecorate" href="../Object/Object.html">Object</A></B></PRE>
+<H4>Members</H4>
+<P><B><A name="ConstructorsAndAssigmentOperators"></A>Constructors and assigments operators</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">UniString</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$UniString.BriefDescription">
+		UniString constructor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator=.html">operator=</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$operator=.BriefDescription">
+		Assigment operator.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Assign.html">Assign</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$Assign.BriefDescription">
+		Assigment with multiply parameters.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="CharacterAccess"></A>Character access</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator[].html">operator[]</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$operator[].BriefDescription">
+		Character access by index.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetChar.html">GetChar</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$GetChar.BriefDescription">
+		Returns character specified by its index.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetChar.html">SetChar</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$SetChar.BriefDescription">
+		Sets value of the character specified by its index.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="SubstringAccess"></A>Substring access</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator().html">operator()</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$operator().BriefDescription">
+		Returns a substring of the string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSubstring.html">GetSubstring</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$GetSubstring.BriefDescription">
+		Returns a substring of the string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetPrefix.html">GetPrefix</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$GetPrefix.BriefDescription">
+		Returns a prefix substring of the string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSuffix.html">GetSuffix</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$GetSuffix.BriefDescription">
+		Returns a suffix substring of the string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetSubstring.html">SetSubstring</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$SetSubstring.BriefDescription">
+		Sets content of the specified substring.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="InsertingAppendingFilling"></A>Inserting, appending and filling</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Insert.html">Insert</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$Insert.BriefDescription">
+		Inserts new content into the string at the specified position.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Append.html">Append</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$Append.BriefDescription">
+		Appends new content to the end of the string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator+=.html">operator+=</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$operator+=.BriefDescription">
+		Appends new content to the end of the string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator+.html">operator+</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$operator+.BriefDescription">
+		Concatenation of strings and other types.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Pad.html">Pad</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$Pad.BriefDescription">
+		Extends the string to reach a given length.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Fill.html">Fill</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$Fill.BriefDescription">
+		Fills the string with a given character.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="Deleting"></A>Deleting</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Delete.html">Delete</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$Delete.BriefDescription">
+		Deletes the specified character or range of characters from the string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DeleteFirst.html">DeleteFirst</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$DeleteFirst.BriefDescription">
+		Deletes the first character or the first occurence of a given character or string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DeleteLast.html">DeleteLast</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$DeleteLast.BriefDescription">
+		Deletes the last character or the last occurence of a given character or string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DeleteAll.html">DeleteAll</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$DeleteAll.BriefDescription">
+		Deletes all occurences of a given character or string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="TrimLeft.html">TrimLeft</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$TrimLeft.BriefDescription">
+		Deletes all leading whitespace or specified characters.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="TrimRight.html">TrimRight</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$TrimRight.BriefDescription">
+		Deletes all trailing whitespace or specified characters.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Trim.html">Trim</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$Trim.BriefDescription">
+		Deletes all leading and trailing whitespace or specified characters.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Clear.html">Clear</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$Clear.BriefDescription">
+		Clears content of the string.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="LengthAndCapacityManagement"></A>Length and capacity management</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetLength.html">SetLength</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$SetLength.BriefDescription">
+		Sets length of the string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetLength.html">GetLength</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$GetLength.BriefDescription">
+		Returns length of the string in characters.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsEmpty.html">IsEmpty</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$IsEmpty.BriefDescription">
+		Returns whether is the string empty.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetCapacity.html">SetCapacity</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$SetCapacity.BriefDescription">
+		Sets capacity of the string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetCapacity.html">GetCapacity</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$GetCapacity.BriefDescription">
+		Returns capacity of the string.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="Comparison"></A>Comparison</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator==.html">operator==</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$operator==.BriefDescription">
+		Case sensitive 'equal to' comparison of strings and other types.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator!=.html">operator!=</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$operator!=.BriefDescription">
+		Case sensitive 'not equal to' comparison of strings and other types.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator_lt_.html">operator&lt;</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$operator<.BriefDescription">
+		Case sensitive 'less than' comparison of strings.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator_lt_=.html">operator&lt;=</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$operator<=.BriefDescription">
+		Case sensitive 'less than or equal to' comparison of strings.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator_gt_.html">operator&gt;</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$operator>.BriefDescription">
+		Case sensitive 'greater than' comparison of strings.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator_gt_=.html">operator&gt;=</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$operator>=.BriefDescription">
+		Case sensitive 'greater than or equal to' comparison of strings.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="FindAndReplace"></A>Find and replace</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Contains.html">Contains</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$Contains.BriefDescription">
+		Returns whether the string contains a given character or string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FindFirst.html">FindFirst</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$FindFirst.BriefDescription">
+		Searches for the first occurence of a given character or string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FindLast.html">FindLast</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$FindLast.BriefDescription">
+		Searches for the last occurence of a given character or string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FindFirstIn.html">FindFirstIn</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$FindFirstIn.BriefDescription">
+		Searches for the first occurence of any character from a given set of characters.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FindLastIn.html">FindLastIn</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$FindLastIn.BriefDescription">
+		Searches for the last occurence of any character from a given set of characters.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FindFirstNotIn.html">FindFirstNotIn</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$FindFirstNotIn.BriefDescription">
+		Searches for the first occurence of any character not specified in a given set of characters.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FindLastNotIn.html">FindLastNotIn</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$FindLastNotIn.BriefDescription">
+		Searches for the last occurence of any character not specified in a given set of characters.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="BeginsWith.html">BeginsWith</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$BeginsWith.BriefDescription">
+		Returns whether the string begins with a given character or string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EndsWith.html">EndsWith</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$EndsWith.BriefDescription">
+		Returns whether the string ends with a given character or string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ReplaceFirst.html">ReplaceFirst</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$ReplaceFirst.BriefDescription">
+		Replaces first occurence of a character or string with another one.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ReplaceLast.html">ReplaceLast</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$ReplaceLast.BriefDescription">
+		Replaces last occurence of a character or string with another one.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ReplaceAll.html">ReplaceAll</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$ReplaceAll.BriefDescription">
+		Replaces all occurence of a character or string with another one.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Count.html">Count</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$Count.BriefDescription">
+		Counts number of occurences of a given character or string.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="CharacterSpecificManipulation"></A>Character specific manipulation</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetToLowerCase.html">SetToLowerCase</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$SetToLowerCase.BriefDescription">
+		Converts string to lowercase.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetToUpperCase.html">SetToUpperCase</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$SetToUpperCase.BriefDescription">
+		Converts string to uppercase.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="Conversion"></A>Conversion</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ToUStr.html">ToUStr</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$ToUStr.BriefDescription">
+		Returns Unicode layout representation of the string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ToCStr.html">ToCStr</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$ToCStr.BriefDescription">
+		Returns C string form of the string.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ToPStr.html">ToPStr</A></TD>
+<TD width="70%"><topic id="$GS.$UniString.$ToPStr.BriefDescription">
+		Return Pascal string form of the string.
+	</topic></TD>
+</TR>
+</table>
+<H4>Description</H4>
+<P><topic id="$GS.$UniString.LongDescription">
+		UniString is a Unicode string, that is sequence of Unicode characters
+		(<!----><a href="../UniChar/UniChar.html">UniChars</a>).<br>
+		UniString has reference counted implementation, so strings can be passed and
+		copied by value very fast because copies and their sources will share the same content
+		until any of them are modified (this technique is called COW: Copy On Write).
+		The reference counted implementation facilitates returning strings by value.<br>
+		UniString stores Unicode characters in one continuous reallocating memory buffer.
+		When a new character does not fit into the internal buffer a larger one is allocated and
+		all characters are copied into the new buffer. Size of the new buffer will be 1.5 times
+		larger than the old one. Reallocation may also happen when characters are deleted from
+		the string to free the unused memory. This happens when less (or equal) than half of
+		the buffer is used. In such cases size of the new buffer will be approximately as much
+		large as is currently requeired.<br>
+		Few memory buffers of recently destroyed smaller strings are cached and are reclaimed to
+		new strings, so for example it is cheap to use (smaller) local strings inside
+		methods and functions because their creation and destruction rarely involve memory heap
+		operations. Note that empty strings do not use memory.<br>
+		Strings, characters, substrings and C strings can be very effectively concatenated in
+		one expression using the <!----><a href="operator+.html">operator+</a> operation
+		because the whole concatenation is performed in one step after all of the operands
+		of the concatenation are gathered.<br>
+		String has substring creating operations (eg. <!----><a href="operator().html">operator()</a>).
+		A substring refers to some part of the source string, so itself never allocates memory.
+		Substrings can be effectively compared with various types (string, substring, C string etc)
+		and can participate in various assigments and concatenations. These operations are always
+		performed on the corresponding parts of the source strings.
+	</topic></P>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../GS.html">GS</A></P>
+<P><B>Header: </B>UniString.hpp</P>
+<H4>See Also</H4>
+<P><topic id="$GS.$UniString.SeeAlso">
+		<!----><a href="../UniChar/UniChar.html">UniChar</a>
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

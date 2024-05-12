@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>API_StairLayoutData</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_StairLayoutData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_StairLayoutData</h1>
+    <p>Represents the layout of a Stair element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_StoryVisibility.html">API_StoryVisibility</a></strong>             <em>visibility</em>;
+        <strong>bool</strong>                            <em>isAutoOnStoryVisibility</em>;
+        <strong>bool</strong>                            <em>filler_1[3]</em>;
+        <strong><a href="#API_StairGridTypeID">API_StairGridTypeID</a></strong>             <em>gridTypeAbove</em>;
+        <strong><a href="#API_StairGridTypeID">API_StairGridTypeID</a></strong>             <em>gridTypeTop</em>;
+        <strong><a href="#API_StairGridTypeID">API_StairGridTypeID</a></strong>             <em>gridTypeMiddle</em>;
+        <strong><a href="#API_StairGridTypeID">API_StairGridTypeID</a></strong>             <em>gridTypeBottom</em>;
+        <strong><a href="#API_StairGridTypeID">API_StairGridTypeID</a></strong>             <em>gridTypeBelow</em>;
+        <strong><a href="#API_StairStoryVisibilityID">API_StairStoryVisibilityID</a></strong>      <em>storyVisibility</em>;
+        <strong>bool</strong>                            <em>showWalkingLine</em>;
+        <strong>bool</strong>                            <em>showNumbering</em>;
+        <strong>bool</strong>                            <em>showUpDownText</em>;
+        <strong>bool</strong>                            <em>showDescription</em>;
+        <strong>bool</strong>                            <em>filler_2[2]</em>;
+        <strong>bool</strong>                            <em>showStructure</em>;
+        <strong>bool</strong>                            <em>filler_3[5]</em>;
+        <strong>double</strong>                          <em>breakLineAngle</em>;
+        <strong>Int32</strong>                           <em>breakLineAngleNumberOfGoings</em>;
+        <strong><a href="#API_BreakLineAngleTypeID">API_BreakLineAngleTypeID</a></strong>        <em>breakLineAngleType</em>;
+        <strong>double</strong>                          <em>breakLineDistance</em>;
+        <strong><a href="#API_BreakLinePositionTypeID">API_BreakLinePositionTypeID</a></strong>     <em>breakLinePositionType</em>;
+        <strong>Int32</strong>                           <em>filler_4</em>;
+        <strong>double</strong>                          <em>upperBreakLineCustomPosition</em>;
+        <strong>double</strong>                          <em>lowerBreakLineCustomPosition</em>;
+        <strong>UInt32</strong>                          <em>upperBreakLineNthRiserPosition</em>;
+        <strong>UInt32</strong>                          <em>lowerBreakLineNthRiserPosition</em>;
+        <strong>bool</strong>                            <em>overrideLineType</em>;
+        <strong>bool</strong>                            <em>overridePen</em>;
+        <strong>short</strong>                           <em>pen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>              <em>lineType</em>;
+        <strong>bool</strong>                            <em>overrideSymbolFill</em>;
+        <strong>bool</strong>                            <em>filler_5[3]</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>              <em>symbolFill</em>;
+        <strong>short</strong>                           <em>symbolFillPen</em>;
+        <strong>short</strong>                           <em>symbolFillBkgPen</em>;
+        <strong>short</strong>                           <em>filler_6[2]</em>;
+    <strong>}</strong> <em>API_StairLayoutData</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>visibility</b></dt>
+        <dd>The option to define on which stories are the stairs displayed.</dd>
+
+        <dt><b>isAutoOnStoryVisibility</b></dt>
+        <dd>It will be true, if <code>showOnHome</code> in <code>visibility</code> is false.</dd>
+
+        <dt><a name="API_StairGridTypeID"><b>gridTypeAbove</b></a></dt>
+        <dd>
+            Layout above relevant stories:
+            <table>
+                <tr>
+                    <td><p><code>APIStairGrid_NotRelevant</code></p></td>
+                    <td><p>Not Relevant.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_WithSingleBreaklineFull</code></p></td>
+                    <td><p>With Break Mark: Visible - Hidden</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_NoBreaklineFull</code></p></td>
+                    <td><p>No Break Mark: Visible</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_BelowBreakline</code></p></td>
+                    <td><p>Below Break Mark: Visible</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_AboveBreakline</code></p></td>
+                    <td><p>Above Break Mark: Visible</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_MiddleBreakline</code></p></td>
+                    <td><p>Multistory 2D: Visible Inbetween Break Marks</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_MiddleBreaklineFull</code></p></td>
+                    <td><p>Multistory 2D: Hidden - Visible - Hidden</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_NoBreakMarkHidden</code></p></td>
+                    <td><p>No Break Mark: Hidden</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_AboveBreakMarkHidden</code></p></td>
+                    <td><p>Above Break Mark: Hidden</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_BelowBreakMarkHidden</code></p></td>
+                    <td><p>Below Break Mark: Hidden</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_Multistory2DAllVisible</code></p></td>
+                    <td><p>Multistory 2D: All Visible</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_Multistory2DHiddenVisible</code></p></td>
+                    <td><p>Multistory 2D: Hidden - Visible - None</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_Multistory2DNoneVisibleHidden</code></p></td>
+                    <td><p>Multistory 2D: None - Visible - Hidden</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_WithBreakMarkAllVisible</code></p></td>
+                    <td><p>With Break Mark: All Visible</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIStairGrid_WithBreakMarkHiddenVisible</code></p></td>
+                    <td><p>With Break Mark: Hidden - Visible</p></td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>gridTypeTop</b></dt>
+        <dd>Layout on top relevant stories.</dd>
+
+        <dt><b>gridTypeMiddle</b></dt>
+        <dd>Layout on middle stories.</dd>
+
+        <dt><b>gridTypeBottom</b></dt>
+        <dd>Layout on bottom story.</dd>
+
+        <dt><b>gridTypeBelow</b></dt>
+        <dd>Layout below relevant stories.</dd>
+
+        <dt><b>showWalkingLine</b></dt>
+        <dd>If true, the walking line is shown.</dd>
+
+        <dt><b>showNumbering</b></dt>
+        <dd>If true, the stair numbering is shown.</dd>
+
+        <dt><b>showUpDownText</b></dt>
+        <dd>If true, the stair direction label is shown.</dd>
+
+        <dt><b>showDescription</b></dt>
+        <dd>If true, the stair description is shown.</dd>
+
+        <dt><b>showStructure</b></dt>
+        <dd>If true, the stair structures are shown.</dd>
+
+        <dt><b>breakLineAngle</b></dt>
+        <dd>The angle of the break line.</dd>
+
+        <dt><b>breakLineAngleNumberOfGoings</b></dt>
+        <dd>The amount of goings of the break line.</dd>
+
+        <dt><a name="API_BreakLineAngleTypeID"><b>breakLineAngleType</b></a></dt>
+        <dd>
+            The angle type of the break line:
+            <table>
+                <tr>
+                    <td><p><code>APIBreakLineAngle_AngleToVertical</code></p></td>
+                    <td><p>Angel to vertical.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIBreakLineAngle_AngleToHorizontal</code></p></td>
+                    <td><p>Angle to horizontal.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIBreakLineAngle_NumberOfGoings</code></p></td>
+                    <td><p>Angle will be calculated based on the given Number of Goings.</p></td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>breakLineDistance</b></dt>
+        <dd>The gap of the break line.</dd>
+
+        <dt><a name="API_BreakLinePositionTypeID"><b>breakLinePositionType</b></a></dt>
+        <dd>
+            The line position type of the break line:
+            <table>
+                <tr>
+                    <td><p><code>APIBreakLinePosition_FloorPlanCutPlaneHeight</code></p></td>
+                    <td><p>Break line height is determined from the Floor Plan Cut Plane Height.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIBreakLinePosition_CustomHeight</code></p></td>
+                    <td><p>Break line is on Custom Height.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIBreakLinePosition_AtNthRiser</code></p></td>
+                    <td><p>Break line is on a given Riser.</p></td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>upperBreakLineCustomPosition</b></dt>
+        <dd>Custom position of the upper break line.</dd>
+
+        <dt><b>lowerBreakLineCustomPosition</b></dt>
+        <dd>Custom position of the lower break line.</dd>
+
+        <dt><b>upperBreakLineNthRiserPosition</b></dt>
+        <dd>Riser position of the upper break line.</dd>
+
+        <dt><b>lowerBreakLineNthRiserPosition</b></dt>
+        <dd>Riser position of the lower break line.</dd>
+
+        <dt><b>overrideLineType</b></dt>
+        <dd>If true, the line type will be overridden.</dd>
+
+        <dt><b>overridePen</b></dt>
+        <dd>If true, the line pen will be overridden.</dd>
+
+        <dt><b>lineType</b></dt>
+        <dd>The line type index for the Stair.</dd>
+
+        <dt><b>pen</b></dt>
+        <dd>The line pen index for the Stair.</dd>
+
+        <dt><b>overrideSymbolFill</b></dt>
+        <dd>If true, the fill will be overridden.</dd>
+
+        <dt><b>symbolFill</b></dt>
+        <dd>The symbol fill type index for the Stair.</dd>
+
+        <dt><b>symbolFillPen</b></dt>
+        <dd>The sybol fill pen index for the Stair.</dd>
+
+        <dt><b>symbolFillBkgPen</b></dt>
+        <dd>The symbol fill background pen index for the Stair.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+    <p>The Stair is a hierarchical (system) element consisting of Tread, Riser, and Structure components: these are the members of the Stair, arranged on a base surface according to a pre-defined scheme.</p>
+    <p>To create a Stair, one must provide its base line and position.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a><br>
+	<a href="API_StoryVisibility.html">API_StoryVisibility</a><br>
+    <a href="API_StairType.html">API_StairType</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 13, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>TDInit</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Delaunay2D/TDInit.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Geometry::TDInit</h1>
+
+    <p>Initializes the Delaunay triangulizer with the polygon and the ridges of polygon.</p>
+    <pre class="syntax">
+    <strong> bool</strong> TDInit (
+      <strong>double</strong>*  <em>polyx</em>,
+      <strong>double</strong>*  <em>polyy</em>,
+      <strong>double</strong>*  <em>polyz</em>,
+      <strong>short</strong>*   <em>mask</em>,
+      <strong>long</strong>     <em>ncoord</em>,
+      <strong>double</strong>*  <em>meshLevelx</em>,
+      <strong>double</strong>*  <em>meshLevely</em>,
+      <strong>double</strong>*  <em>meshLevelz</em>,
+      <strong>long</strong>     <em>numMeshLevelPts</em>,
+      <strong>long</strong>*    <em>subLineEnds</em>,
+      <strong>long</strong>     <em>numSubLineEnds</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>polyx</em></dt>
+
+        <dd><em>x</em> coordinates of all contours of the polygon being triangularized. Must have <em>ncoord</em> elements.</dd>
+
+        <dt><em>polyy</em></dt>
+
+        <dd><em>y</em> coordinates of all contours of the polygon being triangularized. Must have <em>ncoord</em> elements.</dd>
+
+        <dt><em>polyz</em></dt>
+
+        <dd><em>z</em> coordinates of all contours of the polygon being triangularized. Must have <em>ncoord</em> elements.</dd>
+
+        <dt><em>mask</em></dt>
+
+        <dd>It' a value assigned to the coordinates. This value is -1 at the last coordinates of the contours, otherwise 0. Must have <em>ncoord</em> elements.</dd>
+
+        <dt><em>ncoord</em></dt>
+
+        <dd>Sum of the number of the coordinates of all contours of the polygon being triangularized.</dd>
+
+        <dt><em>meshLevelx</em></dt>
+
+        <dd><em>x</em> coordinates of all inner points and ridges of the polygon being triangularized. Must have <em>numMeshLevelPts</em> elements.</dd>
+
+        <dt><em>meshLevely</em></dt>
+
+        <dd><em>y</em> coordinates of all inner points and ridges of the polygon being triangularized. Must have <em>numMeshLevelPts</em> elements.</dd>
+
+        <dt><em>meshLevelz</em></dt>
+
+        <dd><em>z</em> coordinates of all inner points and ridges of the polygon being triangularized. Must have <em>numMeshLevelPts</em> elements.</dd>
+
+        <dt><em>numMeshLevelPts</em></dt>
+
+        <dd>Number of all inner points and ridges of the polygon being triangularized.</dd>
+
+        <dt><em>subLineEnds</em></dt>
+
+        <dd>Array of indices of the ends of the ridges. A sole point is a special - one element - ridge. Must have <em>numSubLineEnds</em> element.</dd>
+
+        <dt><em>numSubLineEnds</em></dt>
+
+        <dd>Number of separate ridges.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>true</code></dt>
+
+        <dd>Initialization is successful.</dd>
+
+        <dt><code>false</code></dt>
+
+        <dd>Initialization failed.</dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> TD.h</dd>
+
+        <dd><b>Import Library:</b> GeometryImp.lib [Win]</dd>
+
+        <dd><b>Module:</b> Geometry.dll [WIN] GeometryLib [Mac]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Delaunay2D_id.html">Delaunay triangulation</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 6, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

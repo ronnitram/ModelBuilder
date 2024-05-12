@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIDb_GetHotlinkNodesID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIDb_GetHotlinkNodesID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIDb_GetHotlinkNodesID</h1>
+
+    <p>Returns the list of hotlink nodes.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Database_id.html">ACAPI_Database</a></strong> (
+        <strong>APIDb_GetHotlinkNodesID</strong>,
+        <strong>const <a href="../Structures/API_HotlinkTypeID.html">API_HotlinkTypeID</a>*</strong>     <em>type</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;*</strong>         <em>nodeRefList</em>,
+        <strong>bool*</strong>                        <em>enableUnplaced</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>type</em></dt>
+
+        <dd>[in] optional type selector (<code>APIHotlink_Module</code> or <code>APIHotlink_XRef</code>), if this variable is <code>nullptr</code>, all nodes are collected</dd>
+
+        <dt><em>nodeRefList</em></dt>
+
+        <dd>[out] the list of hotlink nodes found in the project</dd>
+
+        <dt><em>enableUnplaced</em>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="API version 19" width="19" height="12"></dt>
+
+        <dd>[in] True if the search is performed in all hotlink nodes (including cached ones) and false if only in placed ones.<br>
+        Note that cached but unplaced hotlink nodes are not visible in the Hotlink Manager dialog.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>the <code>nodeRefList</code> parameter is <code>nullptr</code></dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function returns the hotlink nodes as a list of Guids. The data of a hotlink node can be retrieved with the <a href="APIDb_GetHotlinkNodeID.html">APIDb_GetHotlinkNodeID</a> function. To explore a nested node hierarchy, use <a href="APIDb_GetHotlinkNodeTreeID.html">APIDb_GetHotlinkNodeTreeID</a>. In order to get the hotlink instances placed in the project, use the <a href="APIDb_GetHotlinkInstancesID.html">APIDb_GetHotlinkInstancesID</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>See the examples section of <a href="APIDb_GetHotlinkInstancesID.html">APIDb_GetHotlinkInstancesID</a>. Further hotlink-related code samples can be found in the <strong><em>Element_Test</em></strong> example add-on.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 12 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="APIDb_GetHotlinkNodeID.html">APIDb_GetHotlinkNodeID</a><br>
+    <a href="APIDb_GetHotlinkNodeTreeID.html">APIDb_GetHotlinkNodeTreeID</a><br>
+    <a href="APIDb_GetHotlinkRootNodeGuidID.html">APIDb_GetHotlinkRootNodeGuidID</a><br>
+    <a href="APIDb_GetHotlinkInstancesID.html">APIDb_GetHotlinkInstancesID</a><br>
+    <a href="ACAPI_Database_id.html">ACAPI_Database</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 13, 2009<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <title>Name</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs"><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/Name/Name.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Name class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>Name of a file system entry. <!-- Not Index --><a href="#Description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td><!-- Not Index --><a href="../../InputOutput.html">InputOutput</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td><!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Object/Object.html">GS::Object</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>Name.hpp</td>
+        </tr>
+    </table><br>
+    <br>
+
+    <h3>Public methods</h3>
+
+    <p><br>
+    &nbsp;&nbsp;&nbsp; <a href="Constructors.html">Constructors</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; Copy constructor<br>
+    &nbsp;&nbsp;&nbsp; <a href="operatorAssignment.html">operator=</a><br>
+    <br>
+    <b>Content manipulation</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Append.html">Append</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Clear.html">Clear</a><br>
+    <br>
+    <b>Content query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="operatorIndex.html">operator[]</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetLength.html">GetLength</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsEmpty.html">IsEmpty</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="ToString.html">ToString</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="operatorUniString.html">operator GS::UniString</a><br>
+    <br>
+    <b>Extension management</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetBase.html">GetBase</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetExtension.html">GetExtension</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="HasExtension.html">HasExtension</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="AppendExtension.html">AppendExtension</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="DeleteExtension.html">DeleteExtension</a><br>
+    <br>
+    <b>Comparing</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="operatorEqu.html">operator==</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="operatorNotEqu.html">operator!=</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="operatorLesser.html">operator&lt;</a><br>
+    <br>
+    <b>Platform dependency support</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsLegal.html">IsLegal</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsMultiplatform.html">IsMultiplatform</a><br>
+    <br>
+    <b>I/O</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; Read<font face="Courier New">&nbsp; -&gt;</font> <!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Object/Object.html">GS::Object</a><br>
+    &nbsp;&nbsp;&nbsp; Write<font face="Courier New">&nbsp; -&gt;</font> <!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Object/Object.html">GS::Object</a><br>
+    <br>
+    <b>Debug</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; Print<font face="Courier New">&nbsp; -&gt;</font> <!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Object/Object.html">GS::Object</a><br>
+    <br>
+    <br></p>
+
+    <h3><a name="Description"></a>Description</h3>
+
+    <p>This class holds a name of a file system entry in Unicode representation. It is elementary logical building block of locations (<!-- Not Index --><a href="../Location/Location.html">Location</a>, <!-- Not Index --><a href="../RelativeLocation/RelativeLocation.html">RelativeLocation</a>). On the other hand Name holds a string of arbitrary length and content.</p>
+
+    <p>Although generally there is no any restriction related to the content of a name, there can be some at the point of use on the particular platform. For example when creating a file, it is not allowed on Windows for its name to contain some special characters like '|' or '*'. User can check whether is a name syntactically legal on the current platform (with <!-- Not Index --><a href="IsLegal.html">IsLegal</a> method) or on every platform supported by InputOutput module (with <!-- Not Index --><a href="IsMultiplatform.html">IsMultiplatform</a> method). Syntactically legal means simply that a file system entry with such name <b>may</b> exist.</p><br>
+    <br>
+
+    <h3>See Also</h3>
+
+    <p><a href="../Location/Location.html">Location</a>, <a href="../RelativeLocation/RelativeLocation.html">RelativeLocation</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

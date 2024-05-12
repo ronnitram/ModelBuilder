@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Interface</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/acapi_interface_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Interface</h1>
+
+    <p>Controls several user interface components.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Interface</strong> (
+        <strong><a href="#API_InterfaceID">API_InterfaceID</a></strong>     <em>code</em>,
+        <strong>void*</strong>               <em>par1</em> = nullptr,
+        <strong>void*</strong>               <em>par2</em> = nullptr,
+        <strong>void*</strong>               <em>par3</em> = nullptr,
+        <strong>void*</strong>               <em>par4</em> = nullptr,
+        <strong>void*</strong>               <em>par5</em> = nullptr
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>code</em></dt>
+
+        <dd>[in] Interface function identifier.</dd>
+
+        <dt><em>par1</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par2</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par3</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par4</em>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="API 16 feature" width="19" height="12"></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par5</em>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The interface function completed with success.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>Invalid <code>code</code> parameter was passed.</dd>
+    </dl>
+
+    <p>More return values can be found at the description of each interface functions.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function collects all of the user interface control capability that can be used from an API tool add-on (except the DG functionality).</p>
+
+    <p>The type of the interface function is specified with the <code>code</code> parameter.</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><b><code><!-- comment --><a name="API_InterfaceID" id="API_InterfaceID"></a>API_InterfaceID</code></b></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Menu items</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_GetMenuItemFlagsID.html">APIIo_GetMenuItemFlagsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the flag values of a specified menu item.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_SetMenuItemFlagsID.html">APIIo_SetMenuItemFlagsID</a></p>
+                </td>
+
+                <td>
+                    <p>Sets the flag values of a specified menu item.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_GetMenuItemTextID.html">APIIo_GetMenuItemTextID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the text of a specified menu item.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_SetMenuItemTextID.html">APIIo_SetMenuItemTextID</a></p>
+                </td>
+
+                <td>
+                    <p>Sets the text of a specified menu item.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_AddMenuItemTextID.html">APIIo_AddMenuItemTextID</a>&nbsp; <img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Sets the text of a specified menu item that will appear in the Work Environment dialog.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Process Window</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_InitProcessWindowID.html">APIIo_InitProcessWindowID</a></p>
+                </td>
+
+                <td>
+                    <p>Opens the process window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_CloseProcessWindowID.html">APIIo_CloseProcessWindowID</a></p>
+                </td>
+
+                <td>
+                    <p>Closes the process window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_SetNextProcessPhaseID.html">APIIo_SetNextProcessPhaseID</a></p>
+                </td>
+
+                <td>
+                    <p>Starts the next process phase in the process window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_SetProcessValueID.html">APIIo_SetProcessValueID</a></p>
+                </td>
+
+                <td>
+                    <p>Sets the value of the progress bar.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_IncProcessValueID.html">APIIo_IncProcessValueID</a></p>
+                </td>
+
+                <td>
+                    <p>Increases the value of the progress bar.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_IsProcessCanceledID.html">APIIo_IsProcessCanceledID</a></p>
+                </td>
+
+                <td>
+                    <p>Checks for user breaks during long processes.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_GetProcessOnOffSwitchID.html">APIIo_GetProcessOnOffSwitchID</a> &nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns whether the process window will appear.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_SetProcessOnOffSwitchID.html">APIIo_SetProcessOnOffSwitchID</a> &nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Turns the process window on/off.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>User input</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_InitNeigFilterID.html">APIIo_InitNeigFilterID</a></p>
+                </td>
+
+                <td>
+                    <p>Initializes the neig filter for an input.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_SetNeigFilterID.html">APIIo_SetNeigFilterID</a></p>
+                </td>
+
+                <td>
+                    <p>Sets one of the neig types to be filtered.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_ClearNeigFilterID.html">APIIo_ClearNeigFilterID</a></p>
+                </td>
+
+                <td>
+                    <p>Sets one of the neig types not to be filtered.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_GetPointID.html">APIIo_GetPointID</a></p>
+                </td>
+
+                <td>
+                    <p>Performs a point input.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_GetLineID.html">APIIo_GetLineID</a></p>
+                </td>
+
+                <td>
+                    <p>Performs a line input.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_GetArcID.html">APIIo_GetArcID</a></p>
+                </td>
+
+                <td>
+                    <p>Performs an arc input.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_GetPolyID.html">APIIo_GetPolyID</a></p>
+                </td>
+
+                <td>
+                    <p>Performs a polygon input.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_DrawRubberLineID.html">APIIo_DrawRubberLineID</a></p>
+                </td>
+
+                <td>
+                    <p>Draws graphical feedback during an input process.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!--@4.1--><a href="APIIo_DrawRubberArcID.html">APIIo_DrawRubberArcID</a></p>
+                </td>
+
+                <td>
+                    <p>Draws graphical feedback during an input process.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!--@4.1--><a href="APIIo_PetPaletteID.html">APIIo_PetPaletteID</a></p>
+                </td>
+
+                <td>
+                    <p>Opens a pet palette for the add-on.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!--@4.1--><a href="APIIo_CompleteUserInputID.html">APIIo_CompleteUserInputID</a></p>
+                </td>
+
+                <td>
+                    <p>Finishes the user input.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!--@4.1--><a href="APIIo_CancelUserInputID.html">APIIo_CancelUserInputID</a></p>
+                </td>
+
+                <td>
+                    <p>Cancels the user input.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!--@4.1--><a href="APIIo_SetUserControlCallbackID.html">APIIo_SetUserControlCallbackID</a></p>
+                </td>
+
+                <td>
+                    <p>Sets the default callback procedures for user controls.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_ObjectSettingsID.html">APIIo_ObjectSettingsID</a></p>
+                </td>
+
+                <td>
+                    <p>Brings up the Object/Lamp/Window/Door Settings dialog.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_SettingsDialogID.html">APIIo_SettingsDialogID</a></p>
+                </td>
+
+                <td>
+                    <p>Opens any Settings dialog.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_SetConstraintID.html">APIIo_SetConstraintID</a>&nbsp; <img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Sets the drawing constraint for graphical user input.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_ResetConstraintID.html">APIIo_ResetConstraintID</a>&nbsp; <img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Dissolves the drawing constraint.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>File dialogs</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_SaveLibPartFileDialogID.html">APIIo_SaveLibPartFileDialogID</a> &nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Opens a Library Part file saving dialog window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Cutting Planes</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_Is3DCutawayEnabledID.html">APIIo_Is3DCutawayEnabledID</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns whether the 3DCutaway is enabled.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_Set3DCutawayStatusID.html">APIIo_Set3DCutawayStatusID</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Turns the 3DCutaway on/off.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_IsCuttingPlanesVisibleID.html">APIIo_IsCuttingPlanesVisibleID</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns whether the Cutting Planes are visible.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIIo_SetCuttingPlanesVisibilityID.html">APIIo_SetCuttingPlanesVisibilityID</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Shows or hides the Cutting Planes.</p>
+                </td>
+            </tr>
+
+        </table>&nbsp;
+    </blockquote>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><!--X--><a href="../Level3/General_Functions_id.html">General Functions</a>, <!--X--><a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 17, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

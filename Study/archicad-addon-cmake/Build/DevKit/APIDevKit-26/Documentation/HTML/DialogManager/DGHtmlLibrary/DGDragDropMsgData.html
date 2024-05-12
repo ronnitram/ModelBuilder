@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Lipcsei Peter">
+
+    <title>DGDragDropMsgData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGDragDropMsgData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGDragDropMsgData</h1>
+
+    <p>The <b>DGDragDropMsgData</b> structure contains information about a drag and drop operation.</p>
+    <pre class="syntax">
+    <strong>struct</strong> <em>DGDragDropMsgData</em> {
+      <strong>UShort</strong>              <em>subMessage;</em>
+      <strong>UShort</strong>              <em>effect;</em>
+      <strong>UShort</strong>              <em>denyFeedback;</em>
+      <strong>short</strong>               <em>xPos;</em>
+      <strong>short</strong>               <em>yPos;</em>
+      <strong>Int32</strong>               <em>insertPos;</em>
+      <strong>short</strong>               <em>relativePos;</em>
+      <strong>DGDragFormat</strong>        <em>rqFormat;</em>
+      <strong>const void*</strong>         <em>sourceFeedback;</em>
+      <strong>short</strong>               <em>feedbackLeft;</em>
+      <strong>short</strong>               <em>feedbackTop;</em>
+      <strong>short</strong>               <em>feedbackRight;</em>
+      <strong>short</strong>               <em>feedbackBottom;</em>
+      <strong>bool</strong>                <em>rightDragCtxMenu;</em>
+      <strong>const GS::uchar_t*</strong>  <em>folderPath;</em>
+    };
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>subMessage</b></dt>
+
+        <dd>Reason to call.</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_STARTING.html">DG_DRAG_STARTING</a></tt></td>
+
+                    <td>Drag source message: a drag and drop operation is about to start. If the return value on this message is 1 the drag starting is accepted. An exception is when drag is started in an edit text control, in this case 0 return value means accepted drag starting.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_START.html">DG_DRAG_START</a></tt></td>
+
+                    <td>Drag source message: a drag and drop operation is started, this is the moment to set your customized drag and drop data and feedback.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_END.html">DG_DRAG_END</a></tt></td>
+
+                    <td>Drag source message: a drag and drop operation ended.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_SETDELAYEDDATA.html">DG_DRAG_SETDELAYEDDATA</a></tt></td>
+
+                    <td>When this event rises, you can set delayed drag and drop data base on the <b>rqFormat</b> (requested format) value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_ENTER.html">DG_DRAG_ENTER</a></tt></td>
+
+                    <td>Drag target message: the mouse moves above an item during dragging.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_LEAVE.html">DG_DRAG_LEAVE</a></tt></td>
+
+                    <td>Drag target message: the mouse leaves an item during dragging.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_OVER.html">DG_DRAG_OVER</a></tt></td>
+
+                    <td>Drag target message: the mouse moves over an item during dragging.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_DROP.html">DG_DRAG_DROP</a></tt></td>
+
+                    <td>Drag target message: the item gets dropped data.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>effect</b></dt>
+
+        <dd>Used as both output and input parameter. If submessage is <tt>DG_DRAG_STARTING</tt> use this field to specify the effects allowed by the source. If the current submessage is a target one, use this field to provide the necessary feedback. Can take the following values: <tt>DG_DRAG_REJECT</tt>, <tt>DG_DRAG_ACCEPT_COPY</tt>, <tt>DG_DRAG_ACCEPT_MOVE</tt>, <tt>DG_DRAG_ACCEPT_LINK</tt>, <tt>DG_DRAG_ACCEPT</tt>, <tt>DG_DRAG_DELETE</tt>. This values can be combined with bitwise OR. For example <tt>DG_DRAG_ACCEPT</tt> is the combination of <tt>DG_DRAG_ACCEPT_COPY</tt>, <tt>DG_DRAG_ACCEPT_MOVE</tt>, <tt>DG_DRAG_ACCEPT_LINK</tt>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>denyFeedback</b></dt>
+
+        <dd>Return value: Denies built-in feedback functionality, based on <tt>DG_DRAG_REJECT_SEL</tt> (target selection canceled), <tt>DG_DRAG_REJECT_INS</tt> (target insertion line canceled) values.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>xPos</b></dt>
+
+        <dd>Horizontal mouse position in pixels, relative to the item client rectangle.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>yPos</b></dt>
+
+        <dd>Vertical mouse position in pixels, relative to the item client rectangle.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>insertPos</b></dt>
+
+        <dd>Insertion position, which can differ by item type. For example: the caret position at edit text, the item identifier at tree view, list view and list box.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>relativePos</b></dt>
+
+        <dd>Relative insertion position. It is used at tree view, list view and list box controls. Relative position is based on the following values: <tt>DG_DRAG_INSERT_ON</tt>, <tt>DG_DRAG_INSERT_UNDER</tt>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>rqFormat</b></dt>
+
+        <dd>Contains the requested delayed data format when a <tt>DG_DRAG_SETDELAYEDDATA</tt> message occurs. In this case you must set the requested format with the <a href="DGDragSetData.html">DGDragSetData</a> function.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>sourceFeedback</b></dt>
+
+        <dd>Customized feedback data. Platform dependent native image: on Mac it must be a CGImage, on Windows HBITMAP handle is used. Used for creating user item feedback.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>feedbackLeft</b></dt>
+
+        <dd>Left of the feedback image bounding rectangle.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>feedbackTop</b></dt>
+
+        <dd>Top of the feedback image bounding rectangle.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>feedbackRight</b></dt>
+
+        <dd>Right of the feedback image bounding rectangle.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>feedbackBottom</b></dt>
+
+        <dd>Bottom of the feedback image bounding rectangle.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>rightDragCtxMenu</b></dt>
+
+        <dd>Brings up the 'Copy/Move/Cancel' right drag context menu.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>folderPath</b></dt>
+
+        <dd>The destination folder on a delayed 'FILE' drag and drop.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is used only as the <em>msgData</em> parameter of the <a href="DG_MSG_DRAGDROP.html"><tt>DG_MSG_DRAGDROP</tt></a> message.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Structures_id.html">DG Structures</a>, <a href="DG_MSG_DRAGDROP.html"><tt>DG_MSG_DRAGDROP</tt></a><br>
+    <a href="ListViewDragDrop.html">List view drag and drop</a>, <a href="ListBoxDragDrop.html">List box drag and drop</a>, <a href="TreeViewDragDrop.html">Tree view drag and drop</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 4, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

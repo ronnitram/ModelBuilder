@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_StairModelViewOptions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_StairModelViewOptions.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_StairModelViewOptions</h1>
+
+    <p>Represents the model view options of Stairs made with Stair Tool. The entire structure is Archicad only.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>char</strong>                 <em>stair3DDetailLevel</em>;
+        <strong>char</strong>                 <em>stairFloorPlanVisualization</em>;
+        <strong>bool</strong>                 <em>showStairHeadroom</em>;
+        <strong>char</strong>                 <em>filler_1[5]</em>;
+        <strong>bool</strong>                 <em>stairFloorPlanCompWalkingLine</em>;
+        <strong>bool</strong>                 <em>stairFloorPlanCompNumbering</em>;
+        <strong>bool</strong>                 <em>stairFloorPlanCompUPDOWNText</em>;
+        <strong>bool</strong>                 <em>stairFloorPlanCompDescription</em>;
+        <strong>bool</strong>                 <em>stairFloorPlanCompTreadAccessories</em>;
+        <strong>bool</strong>                 <em>stairFloorPlanCompStructureBeamSupport</em>;
+        <strong>bool</strong>                 <em>stairFloorPlanCompStructureStringers</em>;
+        <strong>bool</strong>                 <em>stairFloorPlanCompStructureCantilevered</em>;
+        <strong>bool</strong>                 <em>stairReflectedCompWalkingLine</em>;
+        <strong>bool</strong>                 <em>stairReflectedCompDescription</em>;
+        <strong>bool</strong>                 <em>stairReflectedCompStructureBeamSupport</em>;
+        <strong>bool</strong>                 <em>stairReflectedCompStructureStringers</em>;
+        <strong>bool</strong>                 <em>stairReflectedCompStructureCantilevered</em>;
+        <strong>bool</strong>                 <em>filler_2[3]</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>   <em>stairSchemeSurfaceIndex</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>   <em>stairSchemeCutLineIndex</em>;
+        <strong>short</strong>                <em>stairSchemeCutLinePenIndex</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>   <em>stairSchemeUncutLineIndex</em>;
+        <strong>short</strong>                <em>stairSchemeUncutLinePenIndex</em>;
+        <strong>short</strong>                <em>filler_3[3]</em>;
+    <strong>}</strong> <em>API_StairModelViewOptions</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>stair3DDetailLevel</b></dt>
+
+        <dd>Detail level of Stairs in 3D display.<br>
+        Possible values: <code>API_Stair3DDetail_Full</code>, <code>API_Stair3DDetail_Schematic</code>.</dd>
+
+        <dt><b>stairFloorPlanVisualization</b></dt>
+
+        <dd>Visualization mode for Stairs in Floor Plan view<br>
+        Possible values: <code>API_StairFloorPlanVisual_FloorPlan</code>, <code>API_StairFloorPlanVisual_Reflected</code>.</dd>
+
+        <dt><b>showStairHeadroom</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Show the headroom above the stair.</dd>
+
+		<dt><b>stairFloorPlanCompWalkingLine</b></dt>
+		<dd>Walking Line is visible in Floor Plan Visualization.</dd>
+
+		<dt><b>stairFloorPlanCompNumbering</b></dt>
+		<dd>Numbering is visible in Floor Plan Visualization.</dd>
+
+		<dt><b>stairFloorPlanCompUPDOWNText</b></dt>
+		<dd>UP-DOWN Text is visible in Floor Plan Visualization.</dd>
+
+		<dt><b>stairFloorPlanCompDescription</b></dt>
+		<dd>Description is visible in Floor Plan Visualization.</dd>
+
+		<dt><b>stairFloorPlanCompTreadAccessories</b></dt>
+		<dd>Accessories of Treads are visible in Floor Plan Visualization.</dd>
+
+		<dt><b>stairFloorPlanCompStructureBeamSupport</b></dt>
+		<dd>Structure beams of Stairs are visible in Floor Plan Visualization.</dd>
+
+		<dt><b>stairFloorPlanCompStructureStringers</b></dt>
+		<dd>Stringers are visible in Floor Plan Visualization.</dd>
+
+		<dt><b>stairFloorPlanCompStructureCantilevered</b></dt>
+		<dd>Cantilevered structure is visible in Floor Plan Visualization.</dd>
+
+		<dt><b>stairReflectedCompWalkingLine</b></dt>
+		<dd>Walking Line is visible in Reflected Ceiling Plan Display.</dd>
+
+		<dt><b>stairReflectedCompDescription</b></dt>
+		<dd>Description is visible in Reflected Ceiling Plan Display.</dd>
+
+		<dt><b>stairReflectedCompStructureBeamSupport</b></dt>
+		<dd>Structural beams of Stairs are visible in Reflected Ceiling Plan Display.</dd>
+
+		<dt><b>stairReflectedCompStructureStringers</b></dt>
+		<dd>Stringers of Stairs are visible in Reflected Ceiling Plan Display.</dd>
+
+		<dt><b>stairReflectedCompStructureCantilevered</b></dt>
+		<dd>Cantilevered structure is visible in Reflected Ceiling Plan Display.</dd>
+
+        <dt><b>stairSchemeSurfaceIndex</b></dt>
+
+        <dd>Index of the Surface attribute to use in Schematic 3D Display Detail.</dd>
+
+		<dt><b>stairSchemeCutLineIndex</b></dt>
+
+        <dd>Index of the Line attribute to use in Schematic 3D Display Detail as Cut Line.</dd>
+
+		<dt><b>stairSchemeCutLinePenIndex</b></dt>
+
+        <dd>Index of the Pen in the current Pen Table to use in Schematic 3D Display Detail as the Cut Line Pen.</dd>
+
+		<dt><b>stairSchemeUncutLineIndex</b></dt>
+
+        <dd>Index of the Line attribute to use in Schematic 3D Display Detail as Uncut Line.</dd>
+
+		<dt><b>stairSchemeUncutLinePenIndex</b></dt>
+
+        <dd>Index of the Pen in the current Pen Table to use in Schematic 3D Display Detail as the Uncut Line Pen.</dd>
+
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>These settings correspond to the relevant items in the Document/Set Model View/Model View Options dialog/Stair Options page.</p>
+
+    <blockquote>
+        <p><img src="../../APIImageLibrary/MVO_Stair.png" alt="Stair MVO"></p>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_ModelViewOptions.html">API_ModelViewOptions</a>, <a href="../Functions/APIEnv_GetViewOptionsID.html">APIEnv_GetViewOptionsID</a>, <a href="../Functions/APIEnv_ChangeViewOptionsID.html">APIEnv_ChangeViewOptionsID</a>,<br>
+    <a href="API_NavigatorView.html">API_NavigatorView</a>,<br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 16, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

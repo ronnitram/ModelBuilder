@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Urban Eszter">
+    <title>GRC Specification of the Dialog Helps</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/GRC_DialogHelps.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GRC Specification of the Dialog Helps</h1>
+
+    <p>Dialogs can provide context-sensitive help for their dialog items.</p>
+
+    <h4>Help GRC Specification for any type of Dialogs</h4>
+    <pre class="syntax">
+    'DLGH'  <i>resID</i>  <i>DialogHelpAnchor</i> {
+      [<i>index<b>1</b></i>]  <i>"toolTip<b>1</b>"  ItemHelpAnchor<b>1</b></i>
+        ...
+      [<i>index<b>i</b></i>]  <i>"toolTip<b>j</b>"  ItemHelpGroup<b>k</b>-ItemHelpGroup<b>l</b>-ItemAnchor<b>j</b></i>
+        ...
+      [<i>index<b>k</b></i>]  <i>"toolTip<b>n</b>"  ItemHelpAnchor<b>n</b></i>
+    }
+</pre>
+
+    <p>where <em>index<b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;k</tt>) is the 1-based index of a dialog item; <i>"toolTip<b>j</b>"</i> and <i>ItemHelpAnchor<b>j</b></i> (<tt>1&nbsp;&lt;=&nbsp;j&nbsp;&lt;=&nbsp;n</tt>) is the tooltip and the help anchor string of the item, respectively. Note that <em>k</em> can differ from <em>n</em> because one dialog item can have more than one tooltip and help anchor (see <strong>DGSetItemHelpIndex</strong>). The <em>index<b>i</b></em> parameters are optional. The GRC compiler processes the lines from the top to the bottom and if it finds a tooltip and a help string without an item index, then it uses the index in the previous line. If there is no item index in the first line then 1 is used. Note that item indices should not be regressive.</p>
+
+    <p>A dialog item on every type of dialog can have two types of help information: a short one and a detailed one. On Macintosh, the short displayed in one balloon help if this feature is enabled through the Macintosh system Help menu. On Windows, the usual tooltips serve to show the short item help. Tooltips are displayed only if they are enabled. When DG is initialized, tooltips are automatically enabled. Use <a href="DGDisableToolTips.html">DGDisableToolTips</a> to disable displaying tooltips and <a href="DGEnableToolTips.html">DGEnableToolTips</a> to enable them again.</p>
+
+    <p>The detailed version of the item help can be invoked by setting the keyboard focus to a focusable dialog item then pressing the [F1] key on Windows or [Help] key on Macintosh; or by clicking the right mouse button on the item; or by clicking the help [?] button in the dialog caption then clicking on the item itself (this last alternative is only avaiable on Windows platform and Modal dialogs, and if the dialog has help resource). The tooltips and the help anchor strings are defined in <tt>DLGH</tt> resources. The resource ID of the <tt>DLGH</tt> resource should be the same as the resource ID of the dialog's <tt>GDLG</tt> resource.</p>
+
+    <h4>Help GRC Specification for dynamically generated help content purposes</h4>
+    <pre class="syntax">
+    'DHLP'  <i>resID</i> {
+      <i>"toolTip<b>1</b>"  ItemHelpAnchor<b>1</b></i>
+        ...
+      <i>"toolTip<b>j</b>"  ItemHelpGroup<b>k</b>-ItemHelpGroup<b>l</b>-ItemAnchor<b>j</b></i>
+        ...
+      <i>"toolTip<b>n</b>"  ItemHelpAnchor<b>n</b></i>
+    }
+</pre>
+
+    <p>If you want to provide dynamic help information it is recommended to store the tooltip - help anchor pairs in a DHLP resource. When either <a href="CPP/DG/ItemObserver/ItemContextHelpRequested.html">ItemContextHelpRequested</a> or <a href="CPP/DG/ItemObserver/ItemToolTipRequested.html">ItemToolTipRequested</a> event occurs, you can load the required information with <a href="DGGetDynamicHelpStrings.html">DGGetDynamicHelpStrings</a> function. The format of the DHLP is very similar to the DLGH format, but there is no DialogItemAnchor and there's no indexes.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.1.0.66 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+
+<div id="wrapper">
+<h4 class="also">See Also</h4>
+<div id="first">
+	<dl>
+		<dd class="also"> <a href="GRC_DialogItemTypes.html">GRC specification of the Dialog Item Types</a> </dd>
+		<dd class="also"> <a href="GRC_DialogTypes.html">GRC specification of the Dialog Types</a> </dd>
+		<dd class="also"> <a href="GRC_ImageTypes.html">GRC specification of the Image Types</a> </dd>
+		<dd class="also"> <a href="ModalDialogs.html">Modal Dialogs</a> </dd>
+		<dd class="also"> <a href="ModelessDialogs.html">Modeless Dialogs</a> </dd>
+		<dd class="also"> <a href="PaletteDialogs.html">Palette Dialogs</a> </dd>
+		<dd class="also"> <a href="TabPages.html">TabPages</a> </dd>
+		<dd class="also"> <a href="DlgItemTypes_id.html">Dialog item types</a> </dd>
+	</dl>
+</div>
+<div id="second">
+	<dl>
+		<dd class="also"> <a href="DGSetItemHelpIndex.html">DGSetItemHelpIndex</a> </dd>
+		<dd class="also"> <a href="DGDisableToolTips.html">DGDisableToolTips</a> </dd>
+		<dd class="also"> <a href="DGEnableToolTips.html">DGEnableToolTips</a> </dd>
+		<dd class="also"> <a href="DGRegisterAdditionalHelpLocation.html">DGRegisterAdditionalHelpLocation</a> </dd>
+		<dd class="also"> <a href="DGUnregisterAdditionalHelpLocation.html">DGUnregisterAdditionalHelpLocation</a> </dd>
+		<dd class="also"> <a href="DGDisplayContextHelp.html">DGDisplayContextHelp</a> </dd>
+		<dd class="also"> <a href="DGShowContextHelpWithAnchor.html">DGShowContextHelpWithAnchor</a> </dd>
+		<dd class="also"> <a href="DGGetDynamicHelpStrings.html">DGGetDynamicHelpStrings</a> </dd>
+	</dl>
+</div>
+</div>
+
+    <footer> <p class="footer"> Graphisoft August 6, 2014 </p> </footer>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

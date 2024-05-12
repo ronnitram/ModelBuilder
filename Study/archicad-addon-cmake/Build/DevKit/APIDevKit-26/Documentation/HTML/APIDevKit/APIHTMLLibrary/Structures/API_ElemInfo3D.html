@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ElemInfo3D</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ElemInfo3D.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ElemInfo3D</h1>
+
+    <p>3D data of an element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>UInt32</strong>        <em>fElemIdx</em>;
+        <strong>UInt32</strong>        <em>fBodyIdx</em>;
+        <strong>UInt32</strong>        <em>lElemIdx</em>;
+        <strong>UInt32</strong>        <em>lBodyIdx</em>;
+        <strong>Int32</strong>         <em>fbody</em>;
+        <strong>Int32</strong>         <em>lbody</em>;
+        <strong>Int32</strong>         <em>flight</em>;
+        <strong>Int32</strong>         <em>llight</em>;
+        <strong>Int32</strong>         <em>filler_1[2]</em>;
+        <strong><a href="API_Box3D.html">API_Box3D</a></strong>     <em>bounds</em>;
+    <strong>}</strong> <em>API_ElemInfo3D</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>fElemIdx</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>It is equal to the incoming element index.</dd>
+
+        <dt><b>fBodyIdx</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>It is always zero.</dd>
+
+        <dt><b>lElemIdx</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>It is equal to the incoming element index.</dd>
+
+        <dt><b>lBodyIdx</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Index of the last body which belongs to the element. (not flat list)</dd>
+
+        <dt><b>fbody</b></dt>
+
+        <dd>Index of the first body which belongs to the element.</dd>
+
+        <dt><b>lbody</b></dt>
+
+        <dd>Index of the last body which belongs to the element.</dd>
+
+        <dt><b>flight</b></dt>
+
+        <dd>Index of the first light source which belongs to the element.</dd>
+
+        <dt><b>llight</b></dt>
+
+        <dd>Index of the last light source which belongs to the element.</dd>
+
+        <dt><b>bounds</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>The 3D bounding box of the element.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Use the <a href="../Functions/ACAPI_Element_Get3DInfo.html">ACAPI_Element_Get3DInfo</a> function to get the 3D representation of a construction element.</p>
+
+    <p>Once an element is converted to 3D, it will have the following components:</p>
+
+    <ul>
+        <li>model information based on BODYs,</li>
+
+        <li>lighting model based on LIGHTs; if lights are defined from the 3D GDL script,</li>
+
+        <li>materials; either from the global attribute pool, or defined from the 3D GDL script.</li>
+    </ul>
+
+    <p>All of the data can be accessed through the <a href="API_Component3D.html">API_Component3D</a> structure.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Component3D.html">API_Component3D</a>,<br>
+    <a href="../Level3/3D_Manager_id.html">3D Manager</a>, <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 11, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

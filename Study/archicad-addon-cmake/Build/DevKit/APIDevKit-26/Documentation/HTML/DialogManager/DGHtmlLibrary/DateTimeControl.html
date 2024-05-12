@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Date &amp; Time Control</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DateTimeControl.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Date &amp; Time Control</h1>
+
+    <p>A date &amp; time control provides a simple and intuitive interface through which the user can easily select date and time.</p>
+
+    <p>A date &amp; time control has two separate areas: the client (display) and the up-down area. The control's client area consists of fields. Each field displays a portion of the date and time information that the control stores internally. The date or time information is displayed in the format based on the settings of the system script (on Macintosh) or of the system locale (on Windows).</p>
+
+    <p>The user can click a field to set the keyboard focus and then provide keyboard input to change the information represented by that field. The spin control in the up-down area can also be used to alter the content of the selected field. The control automatically updates internal information based on the user's input.</p>
+
+    <p>On Windows, there is a so called calendar type date control, too. A calendar control contains a down arrow instead of the spin control. If the user presses this button a calendar popup appears on which the date can be selected using the mouse or the arrow keys.</p>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_DATETIME</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left" width="300">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_DT_DATE</tt></td>
+
+                    <td>Date control (year, month, day).<br>
+                    <br>
+                    <img src="../DGImageLibrary/DateTimeDate_Mac.png" width="178" height="31" alt="DateTimeDate_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/DateTimeDate_Win.png" alt="DateTimeDate_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_DT_TIME</tt></td>
+
+                    <td>Time control (hour, minute, second).<br>
+                    <br>
+                    <img src="../DGImageLibrary/DateTimeTime_Mac.png" width="178" height="31" alt="DateTimeTime_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/DateTimeTime_Win.png" alt="DateTimeTime_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <th colspan="2" align="left"><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo">&nbsp;Windows only:</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_DT_CALENDAR</tt></td>
+
+                    <td>Calendar control (year, month, day).<br>
+                    <br>
+                    <img src="../DGImageLibrary/DateTimeCalendar_Win.png" alt="DateTimeCalendar_Win"><br>
+                    <br></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    DateControl    <i>x  y  dx  dy</i>  [Calendar]
+    TimeControl    <i>x  y  dx  dy</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the date &amp; time control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. On Macintosh, the optional <em>Calendar</em> flag has no effect, the control is always drawn with the <tt>DG_DT_DATE</tt> subtype.</p>
+
+    <p>Possible values of <em>Calendar</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Standard</tt></td>
+
+                    <td>Control with the <tt>DG_DT_DATE</tt> subtype. <tt>Standard</tt> is the default value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Calendar</tt></td>
+
+                    <td>Control with the <tt>DG_DT_CALENDAR</tt> subtype (Windows only).</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Suggested sizes</h4>
+
+    <p>For date &amp; time controls the suggested item height is 22 pixels. It is advisable to use this value in GRC or when date &amp; time controls are created from program code.</p>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>The date or time information is changed. The message data parameter contains the previous date and time information.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_FOCUS.html"><tt>DG_MSG_FOCUS</tt></a></td>
+
+                    <td>The date &amp; time control gains or loses the keyboard focus. The message data is 1 or zero, respectively.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p><a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a> and <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a> functions can set the date &amp; time control's modification flag except they are called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. The flag can also be set by user actions that generate <tt>DG_MSG_CHANGE</tt> messages. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The date and time information is represented in the standard C language system time format (for details see the <em>C Run-Time Libraries Reference</em> of your C/C++ compiler). The system time is different on the two platforms:</p>
+
+    <dl>
+        <dt>The system time is different on the two platforms:</dt>
+
+        <dt><img src="../DGImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh only:</b></dt>
+
+        <dd>The number of seconds elapsed since January 1, 1904 (0 &lt;= value &lt;= <tt>ULONG_MAX</tt>).</dd>
+
+        <dt><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></dt>
+
+        <dd>The number of seconds elapsed since January 1, 1970 (0 &lt;= value &lt;= <tt>LONG_MAX</tt>).</dd>
+    </dl>
+
+    <p>To retrieve the C system time representation of the time information currently displayed in a date &amp; time control call <a href="DGGetItemValLong.html">DGGetItemValLong</a> and cast the return value to <strong><tt>time_t</tt></strong>. A C system time value can be assigned to a date &amp; time control by <b>DGSetItemValLong</b>.</p>
+
+    <p>A date &amp; time control can be restricted to show time values that fall into a given time interval only. Use <b>DGSetItemMinLong</b> and <b>DGSetItemMaxLong</b> to define the beginning and the end of the interval. The previously set limit values can be retrieved by <a href="DGGetItemMinLong.html">DGGetItemMinLong</a> and <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a>. All these functions work on C system time.</p>
+
+    <p>When a date &amp; time control is initialized, its font is automatically set to the large plain font (<tt>DG_IS_LARGE | DG_IS_PLAIN</tt>). This setting can be modified later by <a href="DGSetItemFont.html">DGSetItemFont</a>. Use <a href="DGGetItemFont.html">DGGetItemFont</a> to retrieve the font currently assigned to a date &amp; time control.</p>
+
+    <p>The date &amp; time control is one of the focusable controls of DG. When a date &amp; time control gains or loses the keyboard focus as a result of user actions, the dialog callback function receives a <tt>DG_MSG_FOCUS</tt> message. The keyboard focus can be set to a date &amp; time control from the program code, too, by <a href="DGSetFocus.html">DGSetFocus</a>. To retrieve the control that currently has the keyboard focus use <a href="DGGetFocus.html">DGGetFocus</a>.</p>
+
+    <p>The keyboard focus and the focusable control categories in DG essentially have the same meaning as in the Macintosh operating system (i.e. the same type of controls are focusable in DG and on Macintosh). On Windows, however, more controls can have keyboard focus. Focusable controls of DG form a subset of the focusable controls of Windows. The <b>DGSetFocus</b> and <b>DGGetFocus</b> functions work on the focusable controls of DG only.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.1.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a><br>
+    <a href="DGGetFocus.html">DGGetFocus</a>, <a href="DGGetItemFont.html">DGGetItemFont</a>, <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a>, <a href="DGGetItemMinLong.html">DGGetItemMinLong</a>, <a href="DGGetItemValLong.html">DGGetItemValLong</a>, <a href="DGModified.html">DGModified</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetFocus.html">DGSetFocus</a>, <a href="DGSetItemFont.html">DGSetItemFont</a>, <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a>, <a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_FOCUS.html"><tt>DG_MSG_FOCUS</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 30, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

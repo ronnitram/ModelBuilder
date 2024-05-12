@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>VATFind</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/VAManagers/VAT/reference/VATFind.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>VATFind</h1>
+
+    <p>The <b>VATFind</b> function searches for the index of the first free cell in a VAT.</p>
+    <pre class="syntax">
+<b>long VATFind(
+  VATDESC</b>              <i>*dptr</i>    // pointer to VAT<b>
+);</b>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><i>dptr</i></dt>
+
+        <dd>Pointer to the VAT of which the first free cell is needed.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>If the function succeeds, the return value is the index of the first free cell.</p>
+
+    <p>If the function fails, the return value is a a Graphisoft error code. For more information about error codes, see <a href="../../../reference/errorcodes.html">GSRoot error codes</a>.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <strong>VATFind</strong> function increases the size of the allocated buffer of the VAT if it can't find free cell in the buffer. In this case the size of the buffer will be&nbsp; increased by <strong>npage</strong> elements.</p>
+
+    <p>Note that if you want to insert an element into a VAT or add an element to a VAT, first you must call the <strong>VATFind</strong> function to obtain the index of a free cell. Then you can write the new element into the free cell identified by the return value of the <strong>VATFind</strong>.</p>
+
+    <h4>Requirements</h4>
+
+    <p>&nbsp;&nbsp;&nbsp; <b>Header:</b> Declared in VA.hpp<br>
+    <b>&nbsp;&nbsp;&nbsp; Import Library:</b> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="structures_id.html">VAT Structures</a>, <a href="functions_id.html">VAT Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

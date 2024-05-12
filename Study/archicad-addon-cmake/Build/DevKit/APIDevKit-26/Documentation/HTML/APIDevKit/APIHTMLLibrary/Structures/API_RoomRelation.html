@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_RoomRelation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_RoomRelation.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_RoomRelation</h1>
+
+    <p>Structure for retrieving data related to a room.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/HashTable/HashTable.html">GS::HashTable</a>&lt;<a href="API_ElemType.html">API_ElemType</a>, <a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="API_Guid.html">API_Guid</a>&gt;&gt;</strong>  <em>elementsGroupedByType</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="API_WallPart.html">API_WallPart</a>&gt;</strong>                           <em>wallPart</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="API_BeamPart.html">API_BeamPart</a>&gt;</strong>                           <em>beamPart</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="API_WallPart.html">API_CWSegmentPart</a>&gt;</strong>                      <em>cwSegmentPart</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="API_Niche.html">API_Niche</a>&gt;</strong>                              <em>niches</em>;
+    <strong>}</strong> <em>API_RoomRelation</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>elementsGroupedByType</b>&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="24" width="19" height="12"></dt>
+
+        <dd>Related elements of the room grouped by type. The keys in this table are the types and the values are the GUIDs of the elements with the given type.</dd>
+
+        <dt><b>wallPart</b>&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="24" width="19" height="12"></dt>
+
+        <dd>Wall parts that borders the room polygon</dd>
+
+        <dt><b>beamPart</b><img border="0" src="../../APIImageLibrary/24.png" alt="24" width="19" height="12"></b>&nbsp;</dt>
+
+        <dd>Beam parts that related to the room.</dd>
+
+        <dt><b>cwSegmentPart&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="24" width="19" height="12"></b>&nbsp;</dt>
+
+        <dd>Curtain Wall Segment parts that related to the room.</dd>
+
+        <dt><b>niches</b><img border="0" src="../../APIImageLibrary/24.png" alt="24" width="19" height="12"></b>&nbsp;</dt>
+
+        <dd>Niches inside the room.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Get the array's size with it's GetSize() function.</p>
+    <p>To learn more about the usage of the room relation structure please refer to the <a href="../Functions/ACAPI_Element_GetRelations.html">ACAPI_Element_GetRelations</a> function.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"> From version 26 the type of the <tt>elementsGroupedByType</tt> member was changed into <tt>GS::HashTable&lt;<a href="API_ElemType.html">API_ElemType</a>, GS::Array&lt;API_Guid&gt;&gt;</tt>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/ACAPI_Element_GetRelations.html">ACAPI_Element_GetRelations</a>, <a href="API_WallPart.html">API_WallPart</a>, <a href="API_Niche.html">API_Niche</a>, <a href="API_BeamPart.html">API_BeamPart</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 03, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

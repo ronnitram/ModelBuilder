@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIIo_PetPaletteID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIIo_PetPaletteID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIIo_PetPaletteID</h1>
+
+    <p>Opens a pet palette for performing user input from the add-on.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_interface_id.html">ACAPI_Interface</a></strong> (
+        <strong>APIIo_PetPaletteID</strong>,
+        <strong><a href="../Structures/API_PetPaletteType.html">API_PetPaletteType</a>*</strong>            <em>petPaletteInfo</em>,
+        <strong><a href="APIPetPaletteCallBackProc.html">APIPetPaletteCallBackProc</a>*</strong>     <em>petPaletteProc</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>petPaletteInfo</em></dt>
+
+        <dd>[in] identifies the pet palette.</dd>
+
+        <dt><em>petPaletteProc</em></dt>
+
+        <dd>[in] callback procedure for the palette.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>One or both of the parameters are <code>nullptr</code>.</dd>
+
+        <dt><code>APIERR_NESTING</code></dt>
+
+        <dd>Pet palettes cannot be opened when the input has already begun.</dd>
+
+        <dt><code>APIERR_BADWINDOW</code></dt>
+
+        <dd>Pet palettes can be opened only above drawing windows.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>
+            One of the following errors occured:
+
+            <ul>
+                <li>The petIconIDsHdl is nullptr.</li>
+
+                <li>The petIconIDsHdl contain more or less IDs, than indicated by <code>nCols * nRows</code>.</li>
+
+                <li>The supplied <code>petPaletteID</code> collides with a built-in Archicad petpalette identifier. Choosing the old <code>pictID</code> for identifier is a good idea.</li>
+
+                <li>The supplied <code>petPaletteID</code> collides with another petpalette, which differs from the actual one: it has more or less items, or it has the same number of items, but at least one of them has different icon resource identifier.</li>
+
+                <li>The Add-On is using the old <code>API_PetPaletteType</code> structure.</li>
+            </ul>
+        </dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The pet palette consists of individual 'GICN' icon resources (pet items). Each pet item in the palette assumed to be 22 pixels wide and 22 pixels high. Larger icons will appear truncated. The iconIDs should be passed to the Archicad in a <code>GSHandle</code> consisting of <code>short</code> numbers. The Archicad builds up the palette from these icons. Besides this, each different pet palette should have a unique identifier. Choosing the old <code>pictID</code> for identifier is a good idea.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12">&nbsp; The pet palette can have tooltip (yellow bar) strings and help anchors (the help mechanism is loaded with it). The strings should be placed as pairs into a 'DHLP' resource. In the 'DHLP' resource, every tooltip and help anchor pair belongs to the corresponding pet item on the palette. This resource should be compiled into the API resource module, and their identifier can be passed to the <a href="../Structures/API_PetPaletteType.html">API_PetPaletteType</a> structure.</p>
+
+    <p>The API will search for only this resource, and will index this with the pet palette item's relative index to get the help object and take an action: it will display the tooltip string, or will pass the anchor as a parameter to the help engine configured by the add-on.<br>
+    If the add-on wants to take these opportunities, then it should set the Location of its own help engine by the <code>DGRegisterAdditionalHelpLocation</code> function of the Dialog Manager module. This can be done during the <code>Initialize</code> phase, and you should unregister the help location by calling <code>DGUnregisterAdditionalHelpLocation</code> during the <code>FreeData</code> phase. The developerId and localId is the MDID stored in your 32500 'MDID' resource.</p>
+
+    <p>The palette callback procedure is called with the actual value of the pet palette (see <a href="APIPetPaletteCallBackProc.html">APIPetPaletteCallBackProc</a>).</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+static GSErrCode __ACENV_CALL   PetPaletteCallBack (short actValue)
+{
+    GSErrCode err = NoError;
+
+    short inputMode = actValue + 1;
+
+    switch (inputMode) {
+        case 1:     err = Do_InputAPoint ();
+                    break;
+        case 2:     err = Do_InputALine ();
+                    break;
+        case 3:     err = Do_InputAnArc ();
+                    break;
+        default:    err = APIERR_GENERAL;
+                    break;
+    }
+
+    return err;
+}
+
+
+static GSErrCode   Do_InputWithPetPalette (void)
+{
+    GSErrCode           err;
+    API_PetPaletteType  petPaletteInfo;
+    short**             petItemIdsHdl;
+    short               petItemIds[5] = { 32201, 32202, 32203, 32204, 32205 };
+
+    BNZeroMemory (&amp;petPaletteInfo, sizeof (API_PetPaletteType));
+
+    // Constructing the handle, which contains the pet item icons' resource IDs
+    short nIcons = sizeof (petItemIds) / sizeof (short);
+    petItemIdsHdl = (short**) BMhAll (nIcons * sizeof (short));
+    for (short i = 0; i &lt; nIcons; i++)
+        (*petItemIdsHdl)[i] = petItemIds[i];
+
+    // Filling petPaletteInfo
+    petPaletteInfo.petPaletteID = 32200;
+    petPaletteInfo.nCols = 5;
+    petPaletteInfo.nRows = 1;
+    petPaletteInfo.value = 0;
+    petPaletteInfo.grayBits = 0;
+    petPaletteInfo.petIconIDsHdl = petItemIdsHdl;
+    petPaletteInfo.dhlpResourceID = 32200;
+
+    err = ACAPI_Interface (<font color="#FF0066">APIIo_PetPaletteID</font>, &amp;petPaletteInfo, PetPaletteCallBack);
+
+    BMhKill ((GSHandle *) &amp;petItemIdsHdl);
+
+    return;
+}
+
+
+GSErrCode   __ACENV_CALL    Initialize (void)
+{
+    IO::Location helpLocation;
+    ACAPI_GetOwnLocation (&amp;helpLocation);
+    helpLocation.DeleteLastLocalName ();
+    IO::Path helpPath;
+    helpLoc.ToDisplayText (&amp;helpPath);
+    DGRegisterAdditionalHelpLocation (developerId, localId, (const char*) helpPath);
+
+    return;
+}
+
+
+GSErrCode   __ACENV_CALL    FreeData (void)
+{
+    DGUnregisterAdditionalHelpLocation (developerId, localId);
+
+    return;
+}
+</code></pre>
+    </blockquote>
+
+    <p>Please also study the <em>Interface Functions</em> example add-on.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 5.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_PetPaletteType.html">API_PetPaletteType</a>, <a href="APIPetPaletteCallBackProc.html">APIPetPaletteCallBackProc</a><br>
+    <a href="acapi_interface_id.html">ACAPI_Interface</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 25, 2006<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

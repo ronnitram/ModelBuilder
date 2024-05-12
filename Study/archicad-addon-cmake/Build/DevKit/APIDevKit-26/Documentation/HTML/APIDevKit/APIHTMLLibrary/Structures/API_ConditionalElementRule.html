@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ConditionalElementRule</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ConditionalElementRule.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ConditionalElementRule</h1>
+
+    <p>The representation of a conditional element rule on the Preferences / Calculation Rules tab page.</p>
+<pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_ConditionalElementPropertyTypeID.html">API_ConditionalElementPropertyTypeID</a></strong>  <em>propertyType</em>;
+        <strong>double</strong>                                <em>holeLimit</em>;
+        <strong>GS::HashSet&lt;<a href="API_ElemType.html">API_ElemType</a>&gt;</strong>             <em>elementTypes</em>;
+    <strong>}</strong> <em>API_ConditionalElementRule</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>propertyType</b></dt>
+
+        <dd>Type of element property to which the rule is applied.</dd>
+
+        <dt><b>holeLimit</b></dt>
+
+        <dd>Limit of element hole size. Holes smaller than the limit are ignored in calculations.</dd>
+
+        <dt><b>elementTypes</b></dt>
+
+        <dd>List of element types to which the rule is applied.</dd></dt>
+    </dl>
+
+    <p>&nbsp;</p>
+
+	<h4>Remarks</h4>
+
+    <p>Valid element types for <code>APIConditionalElementPropertyType_Volume</code>:</p>
+
+    <ul>
+        <li><code>API_WallID</code></li>
+        <li><code>API_SlabID</code></li>
+        <li><code>API_RoofID</code></li>
+        <li><code>API_ShellID</code></li>
+        <li><code>API_BeamID</code></li>
+    </ul>
+
+    <p>Valid element types for <code>APIConditionalElementPropertyType_Surface</code>:</p>
+
+    <ul>
+        <li><code>API_WallID</code></li>
+        <li><code>API_SlabID</code></li>
+        <li><code>API_RoofID</code></li>
+        <li><code>API_ShellID</code></li>
+    </ul>
+
+    <p>Valid element types for <code>APIConditionalElementPropertyType_Length</code>:</p>
+
+    <ul>
+        <li><code>API_WallID</code></li>
+    </ul>
+
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"> From version 26 the type of the <tt>elementTypes</tt> member was changed into <tt>GS::HashSet&lt;<a href="API_ElemType.html">API_ElemType</a>&gt;</tt>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 25.0 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_CalcRulesPrefs.html">API_CalcRulesPrefs</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

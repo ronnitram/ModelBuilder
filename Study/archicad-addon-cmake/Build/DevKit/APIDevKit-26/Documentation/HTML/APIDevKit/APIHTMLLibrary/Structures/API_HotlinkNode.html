@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_HotlinkNode</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_HotlinkNode.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_HotlinkNode</h1>
+
+    <p>Describes a hotlink node.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                    <em>guid</em>;
+        <strong><a href="API_HotlinkTypeID.html">API_HotlinkTypeID</a></strong>           <em>type</em>;
+        <strong><a href="API_HotlinkStoryRangeID.html">API_HotlinkStoryRangeID</a></strong>     <em>storyRangeType</em>;
+        <strong>GSTime</strong>                      <em>updateTime</em>;
+        <strong><a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a></strong>                <em>*sourceLocation</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>                 <em>name [API_UniLongNameLen]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>                 <em>refFloorName [API_UniLongNameLen]</em>;
+        <strong>short</strong>                       <em>refFloorInd</em>;
+        <strong>bool</strong>                        <em>filler_3</em>;
+        <strong>bool</strong>                        <em>filler_1</em>;
+        <strong>GSType</strong>                      <em>ownerId</em>;
+        <strong><a href="API_HotlinkUserData.html">API_HotlinkUserData</a></strong>         <em>userData</em>;
+        <strong>Int32</strong>                       <em>filler_2[4]</em>;
+        <strong><a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a></strong>                <em>*serverSourceLocation</em>;&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="Coming in Archicad 24" width="19" height="12">
+        <strong>API_HotlinkSourceTypeID</strong>     <em>sourceType</em>;
+        <strong>UInt64</strong>                      <em>fileSize</em>;
+        <strong>Int64</strong>                       <em>versionNumber</em>;
+    <strong>}</strong> <em>API_HotlinkNode</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>guid</b></dt>
+
+        <dd>Globally unique Id of the node</dd>
+
+        <dt><b>type</b></dt>
+
+        <dd>Hotlink source reference type (Hotlinked Module or XRef)</dd>
+
+        <dt><b>storyRangeType</b></dt>
+
+        <dd>Single or multistory hotlink</dd>
+
+        <dt><b>updateTime</b></dt>
+
+        <dd>Time of last updated</dd>
+
+        <dt><b>sourceLocation</b></dt>
+
+        <dd>Location of the source file</dd>
+
+        <dt><b>name</b></dt>
+
+        <dd>Display name of the hotlink node</dd>
+
+        <dt><b>refFloorName</b></dt>
+
+        <dd>Name of the hotlinked story in case of single story hotlinked module</dd>
+
+        <dt><b>refFloorInd</b></dt>
+
+        <dd>Index of the hotlinked story in case of single story hotlinked module</dd>
+
+        <dt><b>ownerId</b></dt>
+
+        <dd>Owner identifier of the hotlink node (0 means the Hotlink Manager of Archicad)</dd>
+
+        <dt><b>userData</b></dt>
+
+        <dd>Optional custom data handled by the owner</dd>
+
+        <dt><b>serverSourceLocation</b>&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="Coming in Archicad 24" width="19" height="12"></dt>
+
+        <dd>Location of the source file on the server</dd>
+
+        <dt><b>sourceType</b>&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="Coming in ARCHICAD 24" width="19" height="12"></dt>
+
+        <dd>Source reference type, could be either <tt>APIHotlink_SingleStory</tt>, or <tt>APIHotlink_AllStories</tt></dd>
+
+        <dt><b>fileSize</b>&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="Coming in ARCHICAD 24" width="19" height="12"></dt>
+
+        <dd>Size of the source file.</dd>
+
+        <dt><b>versionNumber</b>&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="Coming in ARCHICAD 24" width="19" height="12"></dt>
+
+        <dd>File revision number (only for revisions).</dd>
+
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The destructor of this structure will automatically deallocate the memory pointed by the <code>sourceLocation</code>, <code>serverSourceLocation</code> and <code>userData</code> fields. Make sure those point to memory on heap.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 12 or later (for <code>serverSourceLocation</code> member: API 24 or later)</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_HotlinkTypeID.html">API_HotlinkTypeID</a><br>
+    <a href="API_HotlinkStoryRangeID.html">API_HotlinkStoryRangeID</a><br>
+    <a href="API_HotlinkUserData.html">API_HotlinkUserData</a><br>
+    <a href="API_HotlinkType.html">API_HotlinkType</a><br>
+    <a href="../Functions/APIDb_GetHotlinkNodeID.html">APIDb_GetHotlinkNodeID</a><br>
+    <a href="../Functions/APIDb_CreateHotlinkNodeID.html">APIDb_CreateHotlinkNodeID</a><br>
+    <a href="../Functions/APIDb_GetHotlinkInstancesID.html">APIDb_GetHotlinkInstancesID</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 8, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

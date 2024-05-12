@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Rich Edit Control</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/UniRichEdit.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Rich Edit Control</h1>
+
+    <p>A rich edit control is a window in which the user can type and edit formatted text. When the user clicks the mouse in a rich edit control it displays an I-beam cursor signaling that the control is focused. While a rich edit control has the keyboard focus, the user can use the keyboard to enter text or edit the existing content. Editing keys include the <tt>BACKSPACE</tt>, <tt>DELETE</tt>, <tt>TAB</tt> and arrow keys. The user can also use the mouse to select characters to be deleted or to select the place to insert new characters.</p>
+
+    <p>Rich edit controls are similar to multi-line <a href="EditControl.html">edit controls</a>, but they have the following additional features:</p>
+
+    <ul>
+        <li>The size of their content is practically unlimited because they can contain up to <tt>LONG_MAX/2</tt> bytes of text. (The size of the content in multi-line edit controls is limited to 32K.)</li>
+
+        <li>Their fonts are not restricted to the standard dialog item fonts of DG as in case of other controls. Fonts with arbitrary size and face name can be assigned to rich edit controls.</li>
+
+        <li>The user can enter tabulator (<tt>TAB</tt>) characters into them.</li>
+
+        <li>The current selection in them can be set and retrieved from program code.</li>
+
+        <li>They have a built-in text searching feature.</li>
+    </ul>
+
+    <p>The above features qualify rich edit controls for using them as text editors in dialogs.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/RicheditControl_Mac.png" width="320" height="129" alt="RicheditControl_Mac">&nbsp;&nbsp;&nbsp;&nbsp;<img src="../DGImageLibrary/RicheditControl_Win.png" alt="RicheditControl_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_EDITTEXT</tt></dd>
+    </dl>
+
+    <h4>Subtype</h4>
+
+    <dl>
+        <dd><tt>DG_ET_RICHEDITTEXT</tt></dd>
+    </dl>
+
+    <h4>Scroll flags</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_HSCROLL</tt></td>
+
+                    <td>Rich edit control with horizontal scrollbar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_VSCROLL</tt></td>
+
+                    <td>Rich edit control with vertical scrollbar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_NOSCROLL</tt></td>
+
+                    <td>Rich edit control without any scrollbars.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dd><tt>DG_ET_HSCROLL</tt> and <tt>DG_ET_VSCROLL</tt> flags can be combined to get both horizontal and vertical scrollbars.</dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    RichEdit    <i>x  y  dx  dy  fontSpec  [readonlyFlag]  scrollMode</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the rich edit control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the size and style of the control's font. <em>scrollMode</em> defines whether the control should have horizontal and/or vertical scrollbars.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>readonlyFlag</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>editable</tt></td>
+
+                    <td>The rich edit control is editable.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>readOnly</tt></td>
+
+                    <td>The rich edit control is read-only.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>scrollMode</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HScroll</tt></td>
+
+                    <td>Rich edit control with horizontal scrollbar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>VScroll</tt></td>
+
+                    <td>Rich edit control with vertical scrollbar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HVScroll</tt></td>
+
+                    <td>Rich edit control with both horizontal and vertical scrollbars.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoScroll</tt></td>
+
+                    <td>Rich edit control without any scrollbars.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>The text of a text-type edit control or the value of a numeric-type edit control is changed. The message data parameter is always zero for text-type edit controls. For integer- or double-type edit controls this parameter contains the control's previous value or a pointer to a double precision variable holding the previous double value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_FILTERCHAR.html"><tt>DG_MSG_FILTERCHAR</tt></a></td>
+
+                    <td>A key is pressed while the edit control has the keyboard focus. The message data parameter contains the character code of the key pressed. If the application returns 1 in the dialog callback function the character is filtered out.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_FOCUS.html"><tt>DG_MSG_FOCUS</tt></a></td>
+
+                    <td>The edit control gains or loses the keyboard focus. The message data is 1 or zero, respectively.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DRAGDROP.html"><tt>DG_MSG_DRAGDROP</tt></a></td>
+
+                    <td>Drag and drop related event occured. This message is enabled by default for edit controls. Edit controls can be both drag source and target.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p><a href="DGRichEditSetText.html">DGRichEditSetText</a>, <a href="DGRichEditCatText.html">DGRichEditCatText</a> and <a href="DGRichEditSetTextRange.html">DGRichEditSetTextRange</a> functions can set the rich edit control's modification flag except if they are called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. When the user enters or edits the text of a rich edit control, the modification flag is also set but the control does not send <tt>DG_MSG_CHANGE</tt> message to the dialog callback function. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The text of a rich edit control can be set and altered by using <b>DGRichEditSetText</b>, <b>DGRichEditCatText</b> and <b>DGRichEditSetTextRange</b> functions. To retrieve the whole content or only a specified range of characters use <a href="DGRichEditGetText.html">DGRichEditGetText</a> or <a href="DGRichEditGetTextRange.html">DGRichEditGetTextRange</a>, respectively. If you set the text of a rich edit control and the end-of-line markers are not the platform specific ones (CR on Macintosh, CRLF on Windows), DG automatically converts end-of-line markers in the text before sets it to the control. When you retrieve text by <b>DGRichEditGetText</b> or <b>DGRichEditGetTextRange</b>, the functions convert end-of-line markers in the text to a given type.</p>
+
+    <p>The font of a rich edit control can be specified in GRC and from program code by <b>DGSetItemFont</b> or <a href="DGRichEditSetFont.html">DGRichEditSetFont</a>. Using <b>DGSetItemFont</b> only the standard dialog item fonts of DG can be assigned to a rich edit control. However, <b>DGRichEditSetFont</b> gives you more control on setting the font of a rich edit control: any font typeface, size and style can be specified by this function. <a href="DGRichEditGetFont.html">DGRichEditGetFont</a> retrieves the parameters of the font currently assigned to a rich edit control in a <a href="DGTEFontData.html">DGTEFontData</a> structure.</p>
+
+    <p>When a rich edit control has the keyboard focus, the user can enter tabulator characters into the control's text by pressing the <tt>TAB</tt> key. This feature is unique to rich edit controls. For other types of edit controls the keyboard focus is transferred to the next focusable item in the same situation. The size of a tabulator is measured in characters and one tabulator size is applied to the whole content of a rich edit control. The tabulator size can be set and retrieved by <a href="DGRichEditSetTabSize.html">DGRichEditSetTabSize</a> and <a href="DGRichEditGetTabSize.html">DGRichEditGetTabSize</a>, respectively. When a rich edit control is created the tabulator size is initialized to 4 characters by DG.</p>
+
+    <p>The selection and the caret position in a rich edit control can be changed not only by user actions but from program code, too. Use <a href="DGRichEditSetSelect.html">DGRichEditSetSelect</a> or <a href="DGRichEditGetSelect.html">DGRichEditGetSelect</a> to select a range or retrieve the starting and ending positions of the current selection, respectively. Note that these functions work with character positions instead of byte offsets in a buffer of the content. This can be particularly important on multi-byte systems.</p>
+
+    <p>The text length can be retrieved in unicode characters by the <a href="DGRichEditGetLength.html">DGRichEditGetLength</a> function. If you need to know the number of lines in a rich edit control or the number of characters in a line call <a href="DGRichEditGetLineCount.html">DGRichEditGetLineCount</a> or <a href="DGRichEditGetLineLength.html">DGRichEditGetLineLength</a>, respectively. The line and character positions can be synchronized by means of <a href="DGRichEditGetLinePos.html">DGRichEditGetLinePos</a> and <a href="DGRichEditGetLineFromPos.html">DGRichEditGetLineFromPos</a>.</p>
+
+    <p>You can search the whole content or a given range of the content of a rich edit control for a specified text using the <a href="DGRichEditFindText.html">DGRichEditFindText</a> function. The function can search the text downwards or upwards. The searching can be case sensitive or case insensitive and you can match whole words, too.</p>
+
+    <p>Of course, the standard clipboard operations (cut, copy, paste) work on rich edit controls. After the user selects any part of the content of a rich edit control, the selected data can be copied or cut to the clipboard or replaced from the clipboard. Clipboard operations are initiated by the user when she/he presses one of the usual keyboard shortcuts or chooses the appropriate command from the application's edit menu. On Windows, the user can click the right mouse button on the rich edit control and choose the command from the appearing context menu as well. The application should execute the chosen clipboard command by calling the <a href="DGEditTextCut.html">DGEditTextCut</a>, <a href="DGEditTextCopy.html">DGEditTextCopy</a> or <a href="DGEditTextPaste.html">DGEditTextPaste</a> function. The selection can also be cleared without copying it to the clipboard by <a href="DGEditTextClear.html">DGEditTextClear</a>. Use <a href="DGEditTextUndo.html">DGEditTextUndo</a> to undo the last operation (clear, copy, cut, paste or typing) in the focused rich edit control.</p>
+
+    <p>The rich edit control is one of the focusable controls of DG. When an edit control gains or loses the keyboard focus as a result of user actions, the dialog callback function receives a <tt>DG_MSG_FOCUS</tt> message. The keyboard focus can be set to an edit control from program code, too, by <a href="DGSetFocus.html">DGSetFocus</a>. To retrieve the control that currently has the keyboard focus use <a href="DGGetFocus.html">DGGetFocus</a>.</p>
+
+    <p>The keyboard focus and the focusable control categories in DG essentially have the same meaning as in the Macintosh operating system (i.e. the same type of controls are focusable in DG and on Macintosh). On Windows, however, more controls can have keyboard focus. Focusable controls of DG form a subset of focusable controls of Windows. The <b>DGSetFocus</b> and <b>DGGetFocus</b> functions work on focusable controls of DG only.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="EditControl.html">Edit Control</a><br>
+    <a href="ClipboardSpecific_id.html">Clipboard specific functions</a>, <a href="DGGetFocus.html">DGGetFocus</a>, <a href="DGModified.html">DGModified</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetFocus.html">DGSetFocus</a>, <a href="DGSetItemFont.html">DGSetItemFont</a>, <a href="RichEditSpecific_id.html">Rich edit control specific functions</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_FOCUS.html"><tt>DG_MSG_FOCUS</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a><br>
+    <a href="DGTEFontData.html">DGTEFontData</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 2, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

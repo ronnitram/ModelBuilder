@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+    <title>Tab Pages</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/TabPages.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Tab Pages</h1>
+
+    <p>Although tab pages are not real dialogs they have similar functions as dialogs. They serve to specify <a href="DlgItemTypes_id.html">dialog items</a> on pages of normal and simple <a href="TabControl.html">tab controls</a>. Every tab control has a display area in which the application displays the current tab page.</p>
+
+    <p>A tab page can be assigned to a tab control item either in the resource script or dynamically from the program code. Use <a href="DGCreateTabPage.html">DGCreateTabPage</a> to create a tab page which is defined in the GRC file as resource, or use <a href="DGCreateBlankTabPage.html">DGCreateBlankTabPage</a> to create an empty tab page on which dialog items are created with the <a href="DGAppendDialogItem.html">DGAppendDialogItem</a> function. To remove a tab item from a tab control, the tab page must be destroyed first with the <a href="DGDestroyTabPage.html">DGDestroyTabPage</a> function.</p>
+
+    <p>In GRC files tab pages are defined as special <tt>GDLG</tt> resources. A tab page resource contains only the dimensions of the page and the specifications of its dialog items. The application loads this resource when it creates a tab control during a <a href="DGModalDialog.html">DGModalDialog</a> or <a href="DGModelessInit.html">DGModelessInit</a> function call, or when the application calls the <strong>DGCreateTabPage</strong> function. Tab pages have no <a href="CallbackFunctions.html">dialog callback function</a>; <a href="Messages_id.html">messages</a> for dialog items on tab pages are sent to the callback function of the main dialog (the dialog that contains the tab control). For these messages, however, the ID of the tab page subdialog is passed to the callback function in the <em>dialId</em> parameter instead of the ID of the main dialog.</p>
+
+    <p>Tab pages are placed in the display area of the tab control according to the fix (anchor) point and the grow type of the tab page. By default tab pages are centered in the display area. While resizing the tab control the fix point of the tab page keeps its place in the tab control and the size of the tab page is modified according to the grow type. The fix point and the grow type can be set and retrieved with the <a href="DGSetTabPageFixPoint.html">DGSetTabPageFixPoint</a>, <a href="DGSetTabPageGrowType.html">DGSetTabPageGrowType</a> and <a href="DGGetTabPageFixPoint.html">DGGetTabPageFixPoint</a>, <a href="DGGetTabPageGrowType.html">DGGetTabPageGrowType</a> functions. The size of a tab page can be modified with the <a href="DGSetTabPageSize.html">DGSetTabPageSize</a> function. Use <a href="DGGetTabPageSize.html">DGGetTabPageSize</a> to retrieve the current size. To retrieve the location and the size of a tab page in the main dialog coordinate system use the <a href="DGGetTabPageRect.html">DGGetTabPageRect</a> function. Tab pages have a minimal size which is the size given in the resource script or given in the program code in the <strong>DGCreateBlankTabPage</strong> function. This size can be modified and retrieved with the <a href="DGSetTabPageMinSize.html">DGSetTabPageMinSize</a> and the <a href="DGGetTabPageMinSize.html">DGGetTabPageMinSize</a> function.</p>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    'GDLG'  <i>resID</i>  TabPage  0  0  <i>dx  dy  ""</i> {
+      <i>dialogItem<b>1</b></i>
+          ...
+      <i>dialogItem<b>i</b></i>
+          ...
+      <i>dialogItem<b>n</b></i>
+    }
+</pre>
+
+    <p>where <em>resID</em> is the resource ID of the tab page. <em>dx</em> and <em>dy</em> are the width and height of the tab page in pixels. <em>dialogItem<b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) specify <em>n</em> pieces of dialog items. For the GRC specifications of the various dialog items see the <a href="DlgItemTypes_id.html">DG dialog items</a> page.</p>
+
+    <h4>Help GRC Specification</h4>
+
+    <p>Dialog items on tab pages can also have context-sensitive help information. The tab control help information can be described in a <tt>DLGH</tt> resource as in case of other dialog types. For more information about context-sensitive helps see the: <a href="GRC_DialogHelps.html">GRC Specification of the Dialog Helps</a>.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The tab page IDs passed to the callback function of the main dialog are usually the same as the IDs defined in GRC, but in special cases they can be different. For example, if you have a modeless dialog with a multi-page tab control, DG passes the tab page IDs given in the GRC to the callback function. Suppose, however, you want an other instance of the modeless dialog. Since in DG every dialog and tab page must have a unique ID, DG assigns internally generated unique (negative) IDs to the second dialog and its tab pages, when it creates them. Later you must refer to this dialog and its tab pages by the internally generated IDs.</p>
+
+    <p>You can retrieve the IDs of the tab page subdialogs of a tab control by the <a href="DGTabControlGetTabPageId.html">DGTabControlGetTabPageId</a> function when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the dialog callback function. Use <a href="DGGetTabPageParentId.html">DGGetTabPageParentId</a> to retrieve the ID of the main dialog of a tab page.</p>
+
+<div id="wrapper">
+<h4 class="also">See Also</h4>
+<div id="first">
+<dl>
+    <dd class="also"> <a href="DGCreateTabPage.html">DGCreateTabPage</a> </dd>
+    <dd class="also"> <a href="DGCreateBlankTabPage.html">DGCreateBlankTabPage</a> </dd>
+    <dd class="also"> <a href="DGDestroyTabPage.html">DGDestroyTabPage</a> </dd>
+    <dd class="also"> <a href="DGSetTabPageSize.html">DGSetTabPageSize</a> </dd>
+    <dd class="also"> <a href="DGSetTabPageMinSize.html">DGSetTabPageMinSize</a> </dd>
+    <dd class="also"> <a href="DGTabControlGetTabPageId.html">DGTabControlGetTabPageId</a> </dd>
+    <dd class="also"> <a href="DGGetTabPageParentId.html">DGGetTabPageParentId</a> </dd>
+    <dd class="also"> <a href="DGAppendDialogItem.html">DGAppendDialogItem</a> </dd>
+</dl>
+</div>
+<div id="second">
+<dl>
+    <dd class="also"> <a href="DGModalDialog.html">DGModalDialog</a> </dd>
+    <dd class="also"> <a href="DGModelessInit.html">DGModelessInit</a> </dd>
+    <dd class="also"> <a href="DialogTypes_id.html">Dialog types</a> </dd>
+    <dd class="also"> <a href="CallbackFunctions.html">Callback functions</a> </dd>
+    <dd class="also"> <a href="Messages_id.html">DG Messages</a> </dd>
+    <dd class="also"> <a href="DlgItemTypes_id.html">Dialog item types</a> </dd>
+    <dd class="also"> <a href="GRC_DialogHelps.html">GRC Specification of the Dialog Helps</a> </dd>
+</dl>
+</div>
+</div>
+
+    <footer> <p class="footer"> Graphisoft August 6, 2014 </p> </footer>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

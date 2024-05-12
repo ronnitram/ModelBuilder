@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>PartialSortCopy</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/PartialSortCopy.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>PartialSortCopy</H2><!--exp="PartialSortCopy Enum"-->
+<P><topic id="$GS.$PartialSortCopy.BriefDescription">
+		Copies elements from a source range into a destination range where the source 
+		elements are ordered by either less than or another specified binary predicate.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>In</I>, <B>class</B> <I>Ran</I><B>&gt;
+</B>Ran PartialSortCopy (</B>
+    <B>In                  </B><I>first1</I>,
+    <B>In                  </B><I>last1</I>,
+    <B>Ran                 </B><I>first2</I>,
+    <B>Ran                 </B><I>last2</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>In</I>, <B>class</B> <I>Ran</I>, <B>class</B> <I>BinPred</I><B>&gt;
+</B>Ran PartialSortCopy (</B>
+    <B>In                  </B><I>first1</I>,
+    <B>In                  </B><I>last1</I>,
+    <B>Ran                 </B><I>first2</I>,
+    <B>Ran                 </B><I>last2</I>,
+    <B>BinPred             </B><I>pred</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>In</I></DT><DD><topic id="$GS.$PartialSortCopy.$In.TemplateParamDescription">
+		Input iterator.
+	</topic></DD><DT><I>Ran</I></DT><DD><topic id="$GS.$PartialSortCopy.$Ran.TemplateParamDescription">
+		Random-access iterator.
+	</topic></DD><DT><I>BinPred</I></DT><DD><topic id="$GS.$PartialSortCopy.$BinPred.TemplateParamDescription">
+		Binary predicate.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first1</I></DT><DD><topic id="$GS.$PartialSortCopy.$first1.ParamDescription">
+		An input iterator addressing the position of the first element in the source range.
+	</topic></DD><DT><I>last1</I></DT><DD><topic id="$GS.$PartialSortCopy.$last1.ParamDescription">
+		An input iterator addressing the position one past the final element in the source range.
+	</topic></DD><DT><I>first2</I></DT><DD><topic id="$GS.$PartialSortCopy.$first2.ParamDescription">
+		A random-access iterator addressing the position of the first element in the 
+		sorted destination range.
+	</topic></DD><DT><I>last2</I></DT><DD><topic id="$GS.$PartialSortCopy.$last2.ParamDescription">
+		A random-access iterator addressing the position one past the final element in 
+		the sorted destination range.
+	</topic></DD><DT><I>pred</I></DT><DD><topic id="$GS.$PartialSortCopy.$pred.ParamDescription">
+		User-defined predicate function object that defines the condition to be 
+		satisfied if two elements are to be taken as equivalent. A binary predicate 
+		takes two arguments and returns <B>true </B>when satisfied and <B>false</B> when 
+		not satisfied.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$PartialSortCopy.ReturnDescription">
+		A random-access iterator addressing the element in the destination range one 
+		position beyond the last element inserted from the source range.
+	</topic></P><P><topic id="$GS.$PartialSortCopy.1.ReturnDescription"></topic></P><P><topic id="$GS.$PartialSortCopy.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$PartialSortCopy.LongDescription">
+		<B>PartialSortCopy</B> copies the smallest <TT>N</TT> elements from the 
+		range <TT>[first, last)</TT> to the range <TT>[result_first, result_first + 
+		N)</TT>, where <TT>N</TT> is the smaller of <TT>last - first</TT> and 
+		<TT>result_last - result_first</TT>. The elements in <TT>[result_first, 
+		result_first + N)</TT> will be in ascending order. 
+		The two versions of <B>PartialSortCopy</B> differ in how they define 
+		whether one element is less than another. The first version compares objects 
+		using <TT>operator&lt;</TT>, and the second compares objects using a predicate <TT>pred</TT>. 
+		The postcondition for the first version of <B>PartialSortCopy</B> is as 
+		follows. If <TT>i</TT> and <TT>j</TT> are any two valid iterators in the range 
+		<TT>[result_first, result_first + N)</TT> such that <TT>i</TT> precedes 
+		<TT>j</TT>, then <TT>*j &lt; *i</TT> will be <TT>false</TT>. The corresponding 
+		postcondition for the second version is that <TT>pred(*j, *i)</TT> will be 
+		<TT>false</TT>. 
+		The return value is <TT>result_first + N</TT>.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$PartialSortCopy.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ColumnType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ColumnType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ColumnType</h1>
+
+    <p>Represents a column element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                      <em>head</em>;
+        <strong>short</strong>                              <em>corePen</em>;
+        <strong><a href="API_PenOverrideType.html">API_PenOverrideType</a></strong>                <em>penOverride</em>;
+        <strong>short</strong>                              <em>belowViewLinePen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>belowViewLineType</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>contLtype</em>;
+        <strong>bool</strong>                               <em>wrapping</em>;
+        <strong><a href="API_ZoneRelID.html">API_ZoneRelID</a></strong>                      <em>zoneRel</em>;
+        <strong>short</strong>                              <em>coreSymbolType</em>;
+        <strong>short</strong>                              <em>coreAnchor</em>;
+        <strong>double</strong>                             <em>height</em>;
+        <strong>double</strong>                             <em>bottomOffset</em>;
+        <strong>double</strong>                             <em>topOffset</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>venLineType</em>;
+        <strong>short</strong>                              <em>venLinePen</em>;
+        <strong>short</strong>                              <em>coreSymbolPen</em>;
+        <strong>double</strong>                             <em>coreSymbolPar1</em>;
+        <strong>double</strong>                             <em>coreSymbolPar2</em>;
+        <strong><a href="API_StoryVisibility.html">API_StoryVisibility</a></strong>                <em>visibility</em>;
+        <strong><a href="API_LinkToSettings.html">API_LinkToSettings</a></strong>                 <em>linkToSettings</em>;
+        <strong>short</strong>                              <em>relativeTopStory</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>hiddenLineType</em>;
+        <strong>short</strong>                              <em>hiddenLinePen</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                          <em>origoPos</em>;
+        <strong>double</strong>                             <em>axisRotationAngle</em>;
+        <strong>short</strong>                              <em>aboveViewLinePen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>aboveViewLineType</em>;
+        <strong>bool</strong>                               <em>isAutoOnStoryVisibility</em>;
+        <strong>bool</strong>                               <em>isSlanted</em>;
+        <strong>bool</strong>                               <em>isFlipped</em>;
+        <strong>double</strong>                             <em>slantAngle</em>;
+        <strong>double</strong>                             <em>slantDirectionAngle</em>;
+        <strong><a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a></strong>           <em>displayOption</em>;
+        <strong><a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a></strong>     <em>viewDepthLimitation</em>;
+        <strong>UInt32</strong>                             <em>nCuts<em>;
+        <strong>UInt32</strong>                             <em>nSegments<em>;
+        <strong>UInt32</strong>                             <em>nSchemes<em>;
+        <strong>UInt32</strong>                             <em>nProfiles<em>;
+        <strong>bool</strong>                               <em>useCoverFill</em>;
+        <strong>bool</strong>                               <em>useCoverFillFromSurface</em>;
+        <strong>bool</strong>                               <em>coverFillOrientationComesFrom3D</em>;
+        <strong>bool</strong>                               <em>filler_5</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>coverFillType</em>;
+        <strong>short</strong>                              <em>coverFillForegroundPen</em>;
+        <strong>short</strong>                              <em>coverFillBackgroundPen</em>;
+        <strong>short</strong>                              <em>filler_6</em>;
+        <strong><a href="API_CoverFillTransformationTypeID.html">API_CoverFillTransformationTypeID</a></strong>  <em>coverFillTransformationType</em>;
+        <strong>Int32</strong>                              <em>filler_7</em>;
+        <strong><a href="API_CoverFillTransformation.html">API_CoverFillTransformation</a></strong>        <em>coverFillTransformation</em>;
+    <strong>}</strong> <em>API_ColumnType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header</dd>
+
+        <dt><b>corePen</b></dt>
+
+        <dd>The pen index of the core</dd>
+
+        <dt><b>penOverride</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Cut fill pens set in the used structure (building material, complex profile) can be overridden on the element level.</dd>
+
+        <dt><b>belowViewLinePen</b></dt>
+
+        <dd>The pen index of the column's contour in 3D</dd>
+
+        <dt><b>belowViewLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Linetype of the uncut lines</dd>
+
+        <dt><b>contLtype</b></dt>
+
+        <dd>The line type index of core</dd>
+
+        <dt><b>wrapping</b></dt>
+
+        <dd>Defines the wall wrapping. If <code>true</code>, the wall wraps around the column</dd>
+
+        <dt><b>zoneRel</b></dt>
+
+        <dd>Defines the column's relation to zones (see <a href="API_ZoneRelID.html">API_ZoneRelID</a>)</dd>
+
+        <dt><b>coreSymbolType</b></dt>
+
+        <dd>Determines the display of the column on the floor plan:</dd>
+
+        <dd>
+            <table>
+                <tr>
+                    <td>
+                        <center>
+                            <code>1</code>
+                        </center>
+                    </td>
+
+                    <td>
+                        <p>Plain</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <center>
+                            <code>2</code>
+                        </center>
+                    </td>
+
+                    <td>
+                        <p>Slash</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <center>
+                            <code>3</code>
+                        </center>
+                    </td>
+
+                    <td>
+                        <p>X</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <center>
+                            <code>4</code>
+                        </center>
+                    </td>
+
+                    <td>
+                        <p>CrossHair&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>coreAnchor</b></dt>
+
+        <dd>Anchor point of core:</dd>
+
+        <dd>
+            <table>
+                <tr>
+                    <td>
+                        <center>
+                            <code>0</code>
+                        </center>
+                    </td>
+
+                    <td>
+                        <center>
+                            <code>1</code>
+                        </center>
+                    </td>
+
+                    <td>
+                        <center>
+                            <code>2</code>
+                        </center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <center>
+                            <code>3</code>
+                        </center>
+                    </td>
+
+                    <td>
+                        <center>
+                            <code>4</code>
+                        </center>
+                    </td>
+
+                    <td>
+                        <center>
+                            <code>5</code>
+                        </center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <center>
+                            <code>6</code>
+                        </center>
+                    </td>
+
+                    <td>
+                        <center>
+                            <code>7</code>
+                        </center>
+                    </td>
+
+                    <td>
+                        <center>
+                            <code>8</code>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>height</b></dt>
+
+        <dd>The height of the column</dd>
+
+        <dt><b>bottomOffset</b></dt>
+
+        <dd>The column base level relative to the floor level</dd>
+
+        <dt><b>topOffset</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>The offset from top floor if column is top linked</dd>
+
+        <dt><b>venLinetype</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>The line type index of veneer line</dd>
+
+        <dt><b>venLinePen</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>The color index of veneer line</dd>
+
+        <dt><b>coreSymbolPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>The color index of column cross line</dd>
+
+        <dt><b>coreSymbolPar1</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>The length of the crosshair outside the column's contour line</dd>
+
+        <dt><b>coreSymbolPar2</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>The distance of the crosshair from the column's center</dd>
+
+        <dt><b>visibility</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Defines on which floor the given element is visible (see <a href="API_StoryVisibility.html">API_StoryVisibility</a>)</dd>
+
+        <dt><b>linkToSettings</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Mode of linking to home story.</dd>
+
+        <dt><b>relativeTopStory</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>The top linked story (relative to home story). Negative values are invalid. 0 = not top linked.</dd>
+
+        <dt><b>hiddenLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd></dd>
+
+        <dt><b>hiddenLinePen</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>The top linked story (relative to home story). Negative values are invalid. 0 = not top linked.</dd>
+
+        <dt><b>origoPos</b></dt>
+
+        <dd>The position of the column</dd>
+
+        <dt><b>axisRotationAngle</b></dt>
+
+        <dd>The angle of rotation around the axis of the column (in radian)</dd>
+
+        <dt><b>aboveViewLinePen</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Pen index of the overhead lines</dd>
+
+        <dt><b>aboveViewLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Linetype of the overhead lines</dd>
+
+        <dt><b>isAutoOnStoryVisibility</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>If set to true, the application will automatically provide the story dependent visibility of the element (if the element is physically on a story, it will be shown on that story)</dd>
+
+        <dt><b>isSlanted</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Defines whether the column is slanted or vertical</dd>
+
+         <dt><b>isFlipped</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Flipped column.</dd>
+
+       <dt><b>slantAngle</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Slant angle (in radian)</dd>
+
+        <dt><b>slantDirectionAngle</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>The rotation angle of the column on the horizontal plane (in radian)</dd>
+
+        <dt><b>displayOption</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Display options of the element on the floor plan (see <a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a>)</dd>
+
+        <dt><b>viewDepthLimitation</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Defines the range within the element is shown on the floor plan (see <a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a>)</dd>
+
+        <dt><b>nCuts</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Number of cuts.</dd>
+
+        <dt><b>nSegments</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Number of segments.</dd>
+
+        <dt><b>nSchemes</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Number of schemes.</dd>
+
+        <dt><b>nProfiles</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Number of profiles.</dd>
+
+        <dt><b>useCoverFill</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Use Floor plan fill.</dd>
+
+        <dt><b>useCoverFillFromSurface</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Use the fill attribute assigned to the surface material of the element.</dd>
+
+        <dt><b>coverFillOrientationComesFrom3D</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Use cover fill orientation from 3D element view.</dd>
+
+        <dt><b>coverFillType</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Type of the fill.</dd>
+
+        <dt><b>coverFillForegroundPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Foreground pen of the cover fill.</dd>
+
+        <dt><b>coverFillBackgroundPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Background pen of the cover fill.</dd>
+
+        <dt><b>coverFillTransformationType</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>TransformationType of the fill (see <a href="API_CoverFillTransformationTypeID.html">API_CoverFillTransformationTypeID</a>).</dd>
+
+        <dt><b>coverFillTransformation</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Orientation and distortion parameters of the cover fill. (see <a href="API_CoverFillTransformation.html">API_CoverFillTransformation</a>).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the type of the elements' structure is defined with the new <code>modelElemStructureType</code> member. The related attribute indices are separated into <code>buildingMaterial</code> and <code>profileAttr</code>.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the the elements' cut fill foreground and background pens inherit from the element structure, and can be overridden on the element level.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the the elements' surface materials inherit from the element structure, and can be overridden on the element level.</p>
+
+    <p>For column related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_ZoneRelID.html">API_ZoneRelID</a>, <a href="API_Coord.html">API_Coord</a>, <a href="API_StoryVisibility.html">API_StoryVisibility</a>, <a href="API_LinkToSettings.html">API_LinkToSettings</a><br>
+    <a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a>, <a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a><br>
+    <a href="API_Element.html">API_Element</a>, <a href="API_Gable.html">API_Gable</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="API_ColumnSegmentType.html">API_ColumnSegmentType</a>, <a href="API_AssemblySegmentData.html">API_AssemblySegmentData</a><br>
+    <a href="API_AssemblySegmentSchemeData.html">API_AssemblySegmentSchemeData</a>, <a href="API_AssemblySegmentProfileData.html">API_AssemblySegmentProfileData</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on March 19, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

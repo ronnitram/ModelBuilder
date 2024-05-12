@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>BinarySearch</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/BinarySearch.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>BinarySearch</H2><!--exp="BinarySearch Enum"-->
+<P><topic id="$GS.$BinarySearch.BriefDescription">
+		Tests whether there is an element in a sorted range that is equal to a 
+		specified value or that is equivalent to it in a sense specified by a binary 
+		predicate.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For</I>, <B>class</B> <I>T</I><B>&gt;
+</B>bool BinarySearch (</B>
+    <B>For                 </B><I>first</I>,
+    <B>For                 </B><I>last</I>,
+    <B>const T &amp;           </B><I>value</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For</I>, <B>class</B> <I>T</I>, <B>class</B> <I>BinPred</I><B>&gt;
+</B>bool BinarySearch (</B>
+    <B>For                 </B><I>first</I>,
+    <B>For                 </B><I>last</I>,
+    <B>const T &amp;           </B><I>value</I>,
+    <B>BinPred             </B><I>pred</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>For</I></DT><DD><topic id="$GS.$BinarySearch.$For.TemplateParamDescription">
+		Forward iterator.
+	</topic></DD><DT><I>T</I></DT><DD><topic id="$GS.$BinarySearch.$T.TemplateParamDescription">
+		T type value.
+	</topic></DD><DT><I>BinPred</I></DT><DD><topic id="$GS.$BinarySearch.$BinPred.TemplateParamDescription">
+		Binary predicate.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first</I></DT><DD><topic id="$GS.$BinarySearch.$first.ParamDescription">
+		A forward iterator addressing the position of the first element in the range to be searched.
+	</topic></DD><DT><I>last</I></DT><DD><topic id="$GS.$BinarySearch.$last.ParamDescription">
+		A forward iterator addressing the position one past the final element in the range to be searched.
+	</topic></DD><DT><I>value</I></DT><DD><topic id="$GS.$BinarySearch.$value.ParamDescription">
+		The value required to be matched by the value of the element or that must 
+		satisfy the condition with the element value specified by the binary predicate.
+	</topic></DD><DT><I>pred</I></DT><DD><topic id="$GS.$BinarySearch.$pred.ParamDescription">
+		User-defined predicate function object that defines sense in which one 
+		element is less than another. A binary predicate takes two arguments and returns 
+		<B>true </B>when satisfied and <B>false</B> when not satisfied.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$BinarySearch.ReturnDescription">
+		<B>true</B> if an element is found in the range that is equal or equivalent 
+		to the specified value; otherwise, <B>false</B>.
+	</topic></P><P><topic id="$GS.$BinarySearch.1.ReturnDescription"></topic></P><P><topic id="$GS.$BinarySearch.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$BinarySearch.LongDescription">
+		<B>BinarySearch</B> is a version of binary search: it attempts to find the 
+		element <TT>value</TT> in an ordered range <TT>[first, last)</TT> It returns 
+		<TT>true</TT> if an element that is equivalent to 
+		<TT>value</TT> is present in <TT>[first, last)</TT> and <TT>false</TT> if no 
+		such element exists. The first version of 
+		<B>BinarySearch</B> uses <TT>operator&lt;</TT> for comparison, and the second 
+		uses the predicate <TT>pred</TT>. 
+		Specifically, the first version returns <TT>true</TT> if and only if there 
+		exists an iterator <TT>i</TT> in <TT>[first, last)</TT> such that <TT>*i &lt; 
+		value</TT> and <TT>value &lt; *i</TT> are both <TT>false</TT>. The second 
+		version returns <TT>true</TT> if and only if there exists an iterator <TT>i</TT> 
+		in <TT>[first, last)</TT> such that <TT>pred (*i, value)</TT> and <TT>pred (value, 
+		*i)</TT> are both <TT>false</TT>.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$BinarySearch.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

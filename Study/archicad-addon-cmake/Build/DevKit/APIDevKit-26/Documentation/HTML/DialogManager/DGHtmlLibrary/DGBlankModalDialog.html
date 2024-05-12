@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Bende Laszlo">
+
+    <title>DGBlankModalDialog</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGBlankModalDialog.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGBlankModalDialog</h1>
+
+    <p>Displays a <a href="ModalDialogs.html">modal dialog</a>. The dialog is created without resource data.</p>
+    <pre class="syntax">
+    <strong>short DGBlankModalDialog</strong> (
+      <strong>short</strong>                 <em>hSize</em>,
+      <strong>short</strong>                 <em>vSize</em>,
+      <strong>short</strong>                 <em>growFlag</em>,
+      <strong>short</strong>                 <em>captionFlag</em>,
+      <strong>short</strong>                 <em>frameFlag</em>,
+      <strong>const <a href="CallbackFunctions.html">DGDialCallBack</a></strong>  <em>dCallBack</em>,
+      <strong><a href="DGUserData.html">DGUserData</a></strong>            <em>userData</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>hSize</em></dt>
+
+        <dd>Horizontal size of the dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>vSize</em></dt>
+
+        <dd>Vertical size of the dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>growFlag</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Flag</th>
+
+                    <th align="left">Description</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_DLG_NOGROW</tt></td>
+
+                    <td>The dialog is not resizable.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_DLG_HGROW</tt></td>
+
+                    <td>The dialog can be resized horizontally.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_DLG_VGROW</tt></td>
+
+                    <td>The dialog can be resized vertically.</td>
+                </tr>
+            </table>To allow both horizontal and vertical resize, use <tt>DG_DLG_HGROW | DG_DLG_VGROW</tt> as the <em>growFlag</em> parameter.
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>captionFlag</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Flag</th>
+
+                    <th align="left">Description</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_DLG_NOCAPTION</tt></td>
+
+                    <td>The dialog has no caption.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>0</tt></td>
+
+                    <td>The dialog has a top caption.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>frameFlag</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Flag</th>
+
+                    <th align="left">Description</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_DLG_NOFRAME</tt></td>
+
+                    <td>The dialog has no frame.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_DLG_THICKFRAME</tt></td>
+
+                    <td>The dialog has a thick frame.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_DLG_NORMALFRAME</tt></td>
+
+                    <td>The dialog has a normal frame.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>dCallBack</em></dt>
+
+        <dd>Constant pointer to the <a href="CallbackFunctions.html">dialog callback</a> procedure.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>userData</em></dt>
+
+        <dd>The user-specified data of the dialog.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The function parameters are incorrect or the dialog cannot be created.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>A positive value</td>
+
+                    <td>A positive value was returned by the dialog callback function. This is usually the 1-based dialog item index of the clicked button.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ABORT</tt></td>
+
+                    <td>The modal dialog was aborted by <a href="DGAbortModalDialog.html">DGAbortModalDialog</a>.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td colspan="2"><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_CLOSEBOX</tt></td>
+
+                    <td>The dialog was closed by its close box.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p><b>DGBlankModalDialog</b> returns only if the modal dialog is closed by the user or from program code.</p>
+
+    <p>The application should store the dialog ID when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the dialog callback function and use this value in following calls of DG functions.</p>
+
+    <p><b>DGBlankModalDialog</b> returns only if the modal dialog is closed. The user usually closes a modal dialog by clicking the OK or the Cancel button. The dialog callback function receives a <tt>DG_MSG_CLICK</tt> message with <tt>DG_OK</tt> or <tt>DG_CANCEL</tt> as the <em>item</em> parameter. On Windows, if the user clicks the close box in the caption the <em>item</em> parameter is <tt>DG_CANCEL</tt> (or <tt>DG_OK</tt> if there is no Cancel button in the dialog). The dialog is indeed closed only if the callback function returns a non-zero value (typically <tt>DG_OK</tt> or <tt>DG_CANCEL</tt>) for the <tt>DG_MSG_CLICK</tt> message. The application can use this return value to determine whether the modal dialog completed its task successfully or was canceled by the user.</p>
+
+    <p>Note that a modal dialog can also be exited from program code by calling the <b>DGAbortModalDialog</b> function or by returning a non-zero value for a <a href="DG_MSG_NULL.html"><tt>DG_MSG_NULL</tt></a> message in the dialog callback function. If <b>DGAbortModalDialog</b> is called, the callback function receives a <tt>DG_MSG_CLOSE</tt> message with <tt>DG_ABORT</tt> as the <em>item</em> parameter and <b>DGBlankModalDialog</b> returns <tt>DG_ABORT</tt>.</p>
+
+    <p>The dialog created with <b>DGBlankModalDialog</b> initially has no dialog items. Dialog items can be added with the <a href="DGAppendDialogItem.html">DGAppendDialogItem</a> function.</p>
+
+    <p>The user data block given by the <em>userData</em> parameter is passed to the dialog callback function with every <a href="Messages_id.html">DG message</a>. The application can store dialog-specific information in this data block and cast its pointer to <strong><tt>DGUserData</tt></strong>.</p>
+
+    <p>Modal dialogs defined in GRC resource can be showed by using <a href="DGModalDialog.html">DGModalDialog</a>. This function creates dialog items also.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ModalDialogs.html">Modal Dialogs</a><br>
+    <a href="DGAbortModalDialog.html">DGAbortModalDialog</a>, <a href="DGAppendDialogItem.html">DGAppendDialogItem</a>, <a href="DGModalDialog.html">DGModalDialog</a><br>
+    <a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a>, <a href="DG_MSG_NULL.html"><tt>DG_MSG_NULL</tt></a>, <a href="CallbackFunctions.html">Callback functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 3, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>PMAddObject</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/PerfManager/reference/PMAddObject.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>PMAddObject</h1>
+
+    <p><font color="#FF0000">Windows NT only!</font></p>
+
+    <p>The <strong>PMAddObject</strong> function adds the specified object to the list of counter objects.</p>
+    <pre class="syntax">
+<strong>long PMAddObject(
+  const char    </strong><em>*name,             </em>// object name
+  <strong>const char    </strong><em>*help              </em>// additional information
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4><strong>Parameters</strong></h4>
+
+    <dl>
+        <dt><em>name</em></dt>
+
+        <dd>Specifies the name of the object.</dd>
+
+        <dt><em>help</em></dt>
+
+        <dd>Specifies the additional information displayed in explain section of the Performance Monitor.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>If the function succeeds, return value is a zero-based index of the object within the object list. You can refer to the added object with the returned index.</p>
+
+    <p>If the function fails, return value is -1.</p>
+
+    <h4>Remarks</h4>
+
+    <p>Use this function only if counters are not in use.</p>
+
+    <p>Call of <strong>PMAddObject</strong> must be always followed by at least one call of <a href="PMAddCounter.html"><strong>PMAddCounter</strong></a><strong>,</strong> in order to add a counter to the new object.</p>
+
+    <h4>Requirements</h4>
+
+    <p>&nbsp;&nbsp;&nbsp; <strong>Header:</strong> Declared in GSRoot.h<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="functions_id.html">Performance Monitor Manager Functions</a>, <a href="PMAddCounter.html">PMAddCounter</a>, <a href="PMDeleteObjects.html">PMDeleteObjects</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

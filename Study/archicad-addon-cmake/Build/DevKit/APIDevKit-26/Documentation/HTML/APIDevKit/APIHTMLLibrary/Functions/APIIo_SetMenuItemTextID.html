@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIIo_SetMenuItemTextID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIIo_SetMenuItemTextID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIIo_SetMenuItemTextID</h1>
+
+    <p>Sets the text of the specified menu item.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_interface_id.html">ACAPI_Interface</a></strong> (
+        <strong>APIIo_SetMenuItemTextID</strong>,
+        <strong>const <a href="../Structures/API_MenuItemRef.html">API_MenuItemRef</a>*</strong>     <em>menuItemRef</em>,
+        <strong>char*</strong>                      <em>itemText</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>*</strong>             <em>itemUniText</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>menuItemRef</em></dt>
+
+        <dd>[in] Identifies the menu item.</dd>
+
+        <dt><em>itemText</em></dt>
+
+        <dd>[in] Menu item text to set (if you don't pass <tt>itemUniText</tt>).</dd>
+
+        <dt><em>itemUniText</em>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>[in] Optional Unicode menu item text to set.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><tt>menuItemRef</tt> or both <tt>itemText</tt> and <tt>itemUniText</tt> are <code>nullptr</code></dd>
+
+        <dt><code>APIERR_BADINDEX</code></dt>
+
+        <dd>the specified menu item does not belong to the caller add-on</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to set the text of a menu item which belongs to the caller API tool add-on. The menu item is referenced with the resource ID and the string number.</p>
+
+    <p>To get the current text of a menu item use the <a href="APIIo_GetMenuItemTextID.html">APIIo_GetMenuItemTextID</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+void    SetPaletteMenuText (short paletteItemInd, bool paletteIsVisible)
+
+{
+    API_MenuItemRef     itemRef;
+    GS::UniString       itemStr;
+
+    if (paletteIsVisible)
+        itemStr.Append ("Hide Palette");
+    else
+        itemStr.Append ("Show Palette");
+
+    BNZeroMemory (&amp;itemRef, sizeof (API_MenuItemRef));
+    itemRef.menuResID = 32500;
+    itemRef.itemIndex = paletteItemInd;
+    ACAPI_Interface (APIIo_SetMenuItemTextID, &amp;itemRef, nullptr, itemStr);
+
+    return;
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_MenuItemRef.html">API_MenuItemRef</a>,<br>
+    <a href="APIIo_GetMenuItemTextID.html">APIIo_GetMenuItemTextID</a>,<br>
+    <a href="acapi_interface_id.html">ACAPI_Interface</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on March 22, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

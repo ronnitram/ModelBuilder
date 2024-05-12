@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_LtypItemID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_LtypItemID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_LtypItemID</h1>
+
+    <p>Describes the various item types of a symbol line.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>APILine_IllegalItemType</em>,
+        <em>APILine_SeparatorItemType</em>,
+        <em>APILine_CenterDotItemType</em>,
+        <em>APILine_CenterLineItemType</em>,
+        <em>APILine_DotItemType</em>,
+        <em>APILine_RightAngleItemType</em>,
+        <em>APILine_ParallelItemType</em>,
+        <em>APILine_LineItemType</em>,
+        <em>APILine_CircItemType</em>,
+        <em>APILine_ArcItemType</em>
+    <strong>}</strong> <em>API_LtypItemID</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>APILine_IllegalItemType</b></dt>
+
+        <dd>Dummy (illegeal) item type.</dd>
+
+        <dt><b>APILine_SeparatorItemType</b></dt>
+
+        <dd>Separator line item type. It is described with a center offset (vertical distance from the origin).</dd>
+
+        <dt><b>APILine_CenterDotItemType</b></dt>
+
+        <dd>Center dotted line item type (a horizontal row of dots going through the vertical center). It is described with a center offset (vertical distance from the origin).</dd>
+
+        <dt><b>APILine_CenterLineItemType</b></dt>
+
+        <dd>Center line item type (a horizontal solid line going through the vertical center).It is described with a center offset (vertical distance from the origin) and its length.</dd>
+
+        <dt><b>APILine_DotItemType</b></dt>
+
+        <dd>Dotted line item type (a horizontal row of dots). It is described by its beginning position.</dd>
+
+        <dt><b>APILine_RightAngleItemType</b></dt>
+
+        <dd>A solid vertical line item, described by its beginning position and length.</dd>
+
+        <dt><b>APILine_ParallelItemType</b></dt>
+
+        <dd>A solid line item, parallel with the horizontal direction. It is described by its beginning position and length.</dd>
+
+        <dt><b>APILine_LineItemType</b></dt>
+
+        <dd>A solid line item, described by its beginning and end position.</dd>
+
+        <dt><b>APILine_CircItemType</b></dt>
+
+        <dd>A circle item, described by its beginning position (the center) and radius.</dd>
+
+        <dt><b>APILine_ArcItemType</b></dt>
+
+        <dd>An arc item, described by its beginning position (the center), its radius, its beginning and end angle.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>These are the item types you can use to describe a symbol line.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Attributes.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 1, 1999<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

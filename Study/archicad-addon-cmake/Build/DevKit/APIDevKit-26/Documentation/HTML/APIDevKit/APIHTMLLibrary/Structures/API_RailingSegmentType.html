@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>API_RailingSegmentType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_RailingSegmentType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_RailingSegmentType</h1>
+    <p>Represents a Railing Segment element.</p>
+
+<pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                    <em>head</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                         <em>owner</em>;
+        <strong>bool</strong>                             <em>visible</em>;
+        <strong>bool</strong>                             <em>relativeSkewingAngle</em>;
+        <strong>bool</strong>                             <em>filler_1[2]</em>;
+        <strong><a href="#API_RailingRefLineLocationID">API_RailingRefLineLocationID</a></strong>     <em>refLineLocation</em>;
+        <strong>double</strong>                           <em>height</em>;
+        <strong>double</strong>                           <em>yOffset</em>;
+        <strong>double</strong>                           <em>zOffset</em>;
+        <strong>double</strong>                           <em>slantAngle</em>;
+        <strong>double</strong>                           <em>skewAngle</em>;
+        <strong><a href="API_RailingPatternType.html">API_RailingPatternType</a></strong>           <em>defPattern</em>;
+        <strong><a href="API_RailingHandrailType.html">API_RailingHandrailType</a></strong>          <em>defDefaultHandrail</em>;
+        <strong><a href="API_RailingHandrailType.html">API_RailingHandrailType</a></strong>          <em>defHandrails</em>;
+        <strong><a href="API_RailingToprailType.html">API_RailingToprailType</a></strong>           <em>defToprail</em>;
+        <strong><a href="API_RailingRailType.html">API_RailingRailType</a></strong>              <em>defDefaultRail</em>;
+        <strong><a href="API_RailingRailType.html">API_RailingRailType</a></strong>              <em>defRails</em>;
+    <strong>}</strong> <em>API_RailingSegmentType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+    <dl>
+        <dt><b>head</b></dt>
+        <dd>General element header.</dd>
+
+        <dt><b>owner</b></dt>
+        <dd>GUID of the Railing element owning this Railing Node.</dd>
+
+        <dt><b>visible</b></dt>
+        <dd>True, if the Railing Segment is visible.</dd>
+
+        <dt><b>relativeSkewingAngle</b></dt>
+        <dd>True, if the skew angle of the Railing Segment is relative.</dd>
+
+        <dt><b>refLineLocation</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+        <dd><a name="API_RailingRefLineLocationID">The location of the segment's reference line</a>
+            <table>
+                <tr>
+                    <td>
+                        <p><code>APIRLL_Left</code></p>
+                    </td>
+
+                    <td>
+                        <p>Reference line is on the left</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIRLL_Center</code></p>
+                    </td>
+
+                    <td>
+                        <p>Reference line is at the centre</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIRLL_Right</code></p>
+                    </td>
+
+                    <td>
+                        <p>Reference line is on the right</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>height</b></dt>
+        <dd>The height of the Railing Segment.</dd>
+
+        <dt><b>yOffset</b></dt>
+        <dd>Reference line offset.</dd>
+
+        <dt><b>zOffset</b></dt>
+        <dd>Railing vertical offset.</dd>
+
+        <dt><b>slantAngle</b></dt>
+        <dd>The slanting angle of the Railing Segment.</dd>
+
+        <dt><b>skewAngle</b></dt>
+        <dd>The skewing angle of the Railing Segment.</dd>
+
+        <dt><b>defPattern</b></dt>
+        <dd>The default Railing Pattern element, from which the Railing Pattern instances will be generated.</dd>
+
+        <dt><b>defDefaultHandrail</b></dt>
+        <dd>The default Handrail element, from which the upper Handrail instances will be generated.</dd>
+
+        <dt><b>defHandrails</b></dt>
+        <dd>The default Handrail element, from which the lower Handrail instances will be generated.</dd>
+
+        <dt><b>defToprail</b></dt>
+        <dd>The default Toprail element, from which the Toprail instances will be generated.</dd>
+
+        <dt><b>defDefaultRail</b></dt>
+        <dd>The default Rail element, from which the default Rail instances will be generated.</dd>
+
+        <dt><b>defRails</b></dt>
+        <dd>The default Rail element, from which the added Rail instances will be generated.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p>
+        <a href="API_Element.html">API_Element</a>, <a href="API_RailingType.html">API_RailingType</a>,
+        <a href="API_RailingPatternType.html">API_RailingPatternType</a>, <a href="API_RailingHandrailType.html">API_RailingHandrailType</a>
+        <a href="API_RailingToprailType.html">API_RailingToprailType</a>, <a href="API_RailingRailType.html">API_RailingRailType</a><br>
+        <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 25, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

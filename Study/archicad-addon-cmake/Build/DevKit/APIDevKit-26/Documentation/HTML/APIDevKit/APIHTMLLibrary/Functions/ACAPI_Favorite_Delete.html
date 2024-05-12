@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Favorite_Delete</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Favorite_Delete.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Favorite_Delete</h1>
+
+    <p>Deletes a Favorites entry.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Favorite_Delete</strong> (
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&amp;</strong>     <em>name</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+    <dl>
+        <dt><em>name</em></dt>
+        <dd>[in] The name of the Favorites entry to delete.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+    <dl>
+        <dt><code>NoError</code></dt>
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADNAME</code></dt>
+        <dd>Invalid name given.</dd>
+
+        <dt><code>APIERR_NOTMINE</code></dt>
+        <dd>In Teamwork mode, the given Favorites entry is owned by someone else.</dd>
+    </dl>
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    For detailed example, please see the Favorite_Test example Add-On.
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p>
+        <a href="ACAPI_Favorite_Create.html">ACAPI_Favorite_Create</a>,<br>
+        <a href="ACAPI_Favorite_Export.html">ACAPI_Favorite_Export</a>,<br>
+        <a href="ACAPI_Favorite_Get.html">ACAPI_Favorite_Get</a>,<br>
+        <a href="ACAPI_Favorite_GetNum.html">ACAPI_Favorite_GetNum</a>,<br>
+        <a href="ACAPI_Favorite_Import.html">ACAPI_Favorite_Import</a>,<br>
+        <a href="ACAPI_Favorite_Read.html">ACAPI_Favorite_Read</a>,<br>
+        <br>
+        <a href="API_Functions.html">API Functions</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on October 29, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

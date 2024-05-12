@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>BMError</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/BMManagers/BM/reference/BMError.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>BMError</h1>
+
+    <p>The <strong>BMError</strong> function returns the error code produced by the last direct Basic Memory Manager function call within the application.</p>
+    <pre class="syntax">
+<strong>GSErr BMError();</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <p>The return value is the error code of the last error occurred in the Basic Memory Manager.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The most functions in the Basic Memory Manager set the last error code value when they fail. Therefore when a function fails you must immediately call the <strong>BMError</strong> function in order to get the last error code. Hence the <strong>BMError</strong> function sets the last error code value to <strong>NoError</strong>, the second call of the function always returns <strong>NoError</strong>. For more information about error codes see <a href="../../../reference/errorcodes.html">GSRoot Error Codes.</a></p>
+
+    <h4>Requirements</h4>
+
+    <p><strong>&nbsp;&nbsp;&nbsp; Header:</strong> Declared in BM.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="functions_id.html">BM Manager Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

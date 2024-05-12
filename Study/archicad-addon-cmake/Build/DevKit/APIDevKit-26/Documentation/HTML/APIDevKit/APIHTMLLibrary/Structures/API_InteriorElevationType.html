@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_InteriorElevationType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_InteriorElevationType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_InteriorElevationType</h1>
+
+    <p>An iterior elevation element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>            <em>head</em>;
+        <strong><a href="API_CutPlaneType.html#API_CutPlaneShowType">API_CutPlaneShowType</a></strong>     <em>cutPlShow</em>;
+        <strong>short</strong>                    <em>storyToShowOn</em>;
+        <strong>short</strong>                    <em>filler_1</em>;
+        <strong><a href="API_SectionSegment.html">API_SectionSegment</a></strong>       <em>segment</em>;
+        <strong>bool</strong>                     <em>useCommonMarker</em>;
+        <strong>bool</strong>                     <em>filler_2[7]</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                 <em>markerGuid</em>;
+        <strong>short</strong>                    <em>markerPen</em>;
+        <strong>short</strong>                    <em>markerFont</em>;
+        <strong>Int32</strong>                    <em>filler_3</em>;
+        <strong>double</strong>                   <em>markerSize</em>;
+        <strong>double</strong>                   <em>markerTextSize</em>;
+        <strong>UInt32</strong>                   <em>nSegments</em>;
+        <strong>Int32</strong>                    <em>nLineCoords</em>;
+        <strong><a href="API_Polygon.html">API_Polygon</a></strong>              <em>poly</em>;
+        <strong>Int32</strong>                    <em>filler_4[6]</em>;
+    <strong>}</strong> <em>API_InteriorElevationType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>The element header.</dd>
+
+        <dt><b>cutPlShow</b></dt>
+
+        <dd>Stories to show cutplane on.</dd>
+
+        <dt><b>storyToShowOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Story to show cutplane on, if <em>cutPlShow</em> is <code>APICutPl_ShowOnOneStory</code>.</dd>
+
+        <dt><b>segment</b></dt>
+
+        <dd>Used to get and set the defaults; real segments are in the memo.</dd>
+
+        <dt><b>useCommonMarker</b></dt>
+
+        <dd>Show the common marker.</dd>
+
+        <dt><b>markerGuid</b>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API version 18" width="19" height="12"></dt>
+
+        <dd>Guid of the common marker object.</dd>
+
+        <dt><b>markerPen</b></dt>
+
+        <dd>Pen of the common marker.</dd>
+
+        <dt><b>markerFont</b></dt>
+
+        <dd>Font of the common marker.</dd>
+
+        <dt><b>markerSize</b></dt>
+
+        <dd>Size of the common marker.</dd>
+
+        <dt><b>markerTextSize</b></dt>
+
+        <dd>Size of the common marker's text.</dd>
+
+        <dt><b>nSegments</b></dt>
+
+        <dd>Number of segments in the memo.</dd>
+
+        <dt><b>nLineCoords</b></dt>
+
+        <dd>Total number of segment line coordinates.</dd>
+
+        <dt><b>poly</b></dt>
+
+        <dd>Polyline of the connected segments.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure represents an interior elevation element. The section segment information is stored in the element memo.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 11 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_CutPlaneType.html#API_CutPlaneShowType">API_CutPlaneShowType</a>, <a href="API_SectionSegment.html">API_SectionSegment</a>, <a href="API_Polygon.html">API_Polygon</a>, <a href="API_ElementMemo.html">API_ElementMemo</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 09, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>BNCopyMemory</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/BMManagers/BN/reference/BNCopyMemory.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>BNCopyMemory</h1>
+
+    <p>The <strong>BNCopyMemory</strong> function copies a block of memory from one location to an other.</p>
+    <pre class="syntax">
+<strong>void BNCopyMemory(
+  void</strong>            <em>*destPtr,</em>              // address of destination memory block
+  <strong>const void</strong>      <em>*srcPtr,</em>               // address of source memory block
+  <strong>GSize</strong>           <em>len</em>            // number of bytes to copy
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>destPtr</em></dt>
+
+        <dd>Specifies the address of the destination memory block.</dd>
+
+        <dt><em>srcPtr</em></dt>
+
+        <dd>Specifies the address of the source memory block.</dd>
+
+        <dt><em>len</em></dt>
+
+        <dd>Specifies the number of bytes to copy.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>If the application is compiled as a debugging version, and the process does not have write access to <em>destPtr</em> (the <a href="../../../../GSRootHTMLLibrary/BMManagers/BN/reference/BNValidWritePtr.html"><strong>BNValidWritePtr</strong></a> function returns <strong>false</strong>) or does not have read access to <em>srcPtr</em>, the function causes an assertion fault and breaks into the debugger.</p>
+
+    <p>If the application is compiled as a debugging version, and the two memory block are overlapping, the function causes an assertion fault and breaks into the debugger.</p>
+
+    <p>The <strong>BNCopyMemory</strong> function uses standard C Run-Time functions to perform the copy operations. It uses the <strong>memcpy</strong> in the debug version and the <strong>memmove</strong> in the release version.</p>
+
+    <h4>Requirements</h4>
+
+    <p><strong>&nbsp;&nbsp;&nbsp; Header:</strong> Declared in BM.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../../../../GSRootHTMLLibrary/BMManagers/BN/reference/functions_id.html">BN Functions</a>, <a href="../../../../GSRootHTMLLibrary/BMManagers/BN/reference/BNZeroMemory.html">BNZeroMemory</a>, <a href="../../../../GSRootHTMLLibrary/BMManagers/BN/reference/BNFillMemory.html">BNFillMemory</a>, <a href="../../../../GSRootHTMLLibrary/BMManagers/BN/reference/BNMoveMemory.html">BNMoveMemory</a>, <a href="BNCompareMemory.html">BNCompareMemory</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Lipcsei Peter">
+
+    <title>DG_MSG_DRAGDROP</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_DRAGDROP.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_DRAGDROP</h1>
+
+    <p>A drag and drop event occurs on a dialog or on a dialog item.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>Pointer to a <a href="DGDragDropMsgData.html">DGDragDropMsgData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The return value depends on the <b>subMessage</b> field of the <b>DGDragDropMsgData</b>.</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">submessage</th>
+
+                    <th align="left">Value</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_STARTING.html">DG_DRAG_STARTING</a></tt></td>
+
+                    <td>1, if the drag starting is accepted, 0 otherwise. When starting from an edit text control, 0 means accepted drag starting. If the message is not processed by the item is forwarded to its parent dialog.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_START.html">DG_DRAG_START</a></tt></td>
+
+                    <td>Not used.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_END.html">DG_DRAG_END</a></tt></td>
+
+                    <td>1, if the message was processed by the application, 0 otherwise. If 0 is returned, DG calls the default drag and drop end-handler.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_SETDELAYEDDATA.html">DG_DRAG_SETDELAYEDDATA</a></tt></td>
+
+                    <td>Not used.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_ENTER.html">DG_DRAG_ENTER</a></tt></td>
+
+                    <td>1, if the message was processed by the application, 0 otherwise. At entering an edit control 0 means processed message (message not forwarded to parent dialog).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_LEAVE.html">DG_DRAG_LEAVE</a></tt></td>
+
+                    <td>Not used.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_OVER.html">DG_DRAG_OVER</a></tt></td>
+
+                    <td>1, if the message was processed by the application, 0 otherwise. At entering an edit control 0 means processed message (message not forwarded to parent dialog).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt><a href="DG_DRAG_DROP.html">DG_DRAG_DROP</a></tt></td>
+
+                    <td>1, if the message was processed by the application, 0 otherwise. At entering an edit control 0 means processed message (message not forwarded to parent dialog).</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The <a href="CallbackFunctions.html">dialog callback function</a> can receive this message only after it was enabled by <a href="DGEnableMessage.html">DGEnableMessage</a>. This message must be enabled for tab pages as well.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGEnableMessage.html">DGEnableMessage</a>, <a href="DGDragDropMsgData.html">DGDragDropMsgData</a><br>
+    <a href="TreeViewDragDrop.html">Tree view drag and drop</a>, <a href="ListViewDragDrop.html">List view drag and drop</a>, <a href="ListBoxDragDrop.html">List Box drag and drop</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 5, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Classification and Property Visibility</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Classification_and_Property_Visibility_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Classification Visibility <img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"></h1>
+
+    <h2>Overview</h2>
+
+    <p>This feature of the Archicad allows one to control whether specific Classifications should be visible in the element settings dialog or not.</p>
+
+    <ul>
+        <li>To tell Archicad that your add-on wants to modify classification visibility use <a href="../Functions/ACAPI_Register_ClassificationVisibilityHandler.html">ACAPI_Register_ClassificationVisibilityHandler</a>.</li>
+        <li>To install the <a href="../Functions/APIClassificationVisibilityHandlerProc.html">callback function</a> which decides if a classification should be visible or not use <a href="../Functions/ACAPI_Install_ClassificationVisibilityHandler.html">ACAPI_Install_ClassificationVisibilityHandler</a>.</li>
+    </ul>
+
+    <h2>Handler functions</h2>
+
+    <p><a name="ClassificationVisibilityRequests" id="ClassificationVisibilityRequests">The following functions let you query whether a specific classification definition is visible or not.</a></p>
+    <blockquote>
+        <a href="../Functions/ACAPI_Element_IsClassificationItemVisible.html">ACAPI_Element_IsClassificationItemVisible</a><br>
+        <a href="../Functions/ACAPI_Element_IsClassificationItemVisibleDefault.html">ACAPI_Element_IsClassificationItemVisibleDefault</a><br>
+		<a href="../Functions/ACAPI_Attribute_IsClassificationItemVisible.html">ACAPI_Attribute_IsClassificationItemVisible</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+    </blockquote>
+
+    <p><a name="ClassificationNotifications" id="ClassificationNotifications">The following functions let you send and receive <code>APINotify_ClassificationVisibilityChanged</code> notifications.</a></p>
+    <blockquote>
+        Use <a href="../Functions/ACAPI_Notify_ClassificationVisibilityChanged.html">ACAPI_Notify_ClassificationVisibilityChanged</a> to send a notification<br />
+        Use <a href="../Functions/ACAPI_Notify_CatchProjectEvent.html">ACAPI_Notify_CatchProjectEvent</a> with <code>APINotify_ClassificationVisibilityChanged</code> parameter to receive notifications<br />
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h1>Property Visibility <img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"></h1>
+
+    <h2>Overview</h2>
+
+    <p>This feature of the Archicad allows one to control whether specific Properties should be visible in the element settings dialog or not.</p>
+
+    <ul>
+        <li>To tell Archicad that your add-on wants to modify property visibility use <a href="../Functions/ACAPI_Register_PropertyVisibilityHandler.html">ACAPI_Register_PropertyVisibilityHandler</a>.</li>
+        <li>To install the <a href="../Functions/APIPropertyVisibilityHandlerProc.html">callback function</a> which decides if a property should be visible or not use <a href="../Functions/ACAPI_Install_PropertyVisibilityHandler.html">ACAPI_Install_PropertyVisibilityHandler</a>.</li>
+    </ul>
+
+    <h2>Handler functions</h2>
+
+    <p><a name="PropertyVisibilityRequests" id="PropertyVisibilityRequests">The following functions let you query whether a specific property definition is visible or not.</a></p>
+    <blockquote>
+        <a href="../Functions/ACAPI_Element_IsPropertyDefinitionVisible.html">ACAPI_Element_IsPropertyDefinitionVisible</a><br>
+        <a href="../Functions/ACAPI_Element_IsPropertyDefinitionVisibleDefault.html">ACAPI_Element_IsPropertyDefinitionVisibleDefault</a><br>
+        <a href="../Functions/ACAPI_Attribute_IsPropertyDefinitionVisible.html">ACAPI_Attribute_IsPropertyDefinitionVisible</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+    </blockquote>
+
+    <p><a name="PropertyVisibilityNotifications" id="PropertyVisibilityNotifications">The following functions let you send and receive <code>APINotify_PropertyVisibilityChanged</code> notifications.</a></p>
+    <blockquote>
+        Use <a href="../Functions/ACAPI_Notify_PropertyVisibilityChanged.html">ACAPI_Notify_PropertyVisibilityChanged</a> to send a notification<br />
+        Use <a href="../Functions/ACAPI_Notify_CatchProjectEvent.html">ACAPI_Notify_CatchProjectEvent</a> with <code>APINotify_PropertyVisibilityChanged</code> parameter to receive notifications<br />
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

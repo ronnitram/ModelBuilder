@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <title>API Output Framework helper templates</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Framework/HelperTemplates.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API Output Framework helper templates</h1>
+
+    <p>These template (<b>GSAPI::IteratorElem</b>, <b>GSAPI::Element</b>) and non-template (<b>GSAPI::PrimElement</b>) structures provide a common interface for the elements contained by the different containers and referenced by the different iterators.</p>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">template</span> <span class="SyntaxSymbol">&lt;</span><span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">ElemType</span><span class="SyntaxSymbol">&gt;</span>
+<span class="SyntaxKeyword">struct</span> <span class="SyntaxIdentifier">GSAPI::IteratorElem</span> <span class="SyntaxSymbol">{</span>
+    <!-- Don't index --><a href="../Structures/API_WindowInfo.html"><span class="SyntaxTypename">API_DatabaseInfo</span></a> <span class="SyntaxIdentifier">databaseInfo</span><span class="SyntaxSymbol">;</span>
+    <span class="SyntaxTypename">ElemType</span>         <span class="SyntaxIdentifier">elem</span><span class="SyntaxSymbol">;</span>
+<span class="SyntaxSymbol">};</span>
+</pre>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">template</span> <span class="SyntaxSymbol">&lt;</span><span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">ElemType</span><span class="SyntaxSymbol">&gt;</span>
+<span class="SyntaxKeyword">struct</span> <span class="SyntaxIdentifier">GSAPI::Element</span> <span class="SyntaxSymbol">{</span>
+    <!-- Don't index --><a href="../Structures/API_ElemTypeID.html"><span class="SyntaxTypename">API_ElemTypeID</span></a>   <span class="SyntaxIdentifier">elemType</span><span class="SyntaxSymbol">;</span>
+    <span class="SyntaxTypename">UInt32</span>           <span class="SyntaxIdentifier">unId</span><span class="SyntaxSymbol">;</span>
+    <span class="SyntaxTypename">ElemType</span>         <span class="SyntaxIdentifier">element</span><span class="SyntaxSymbol">;</span>
+    <!-- Don't index --><a href="../Structures/API_ElementMemo.html"><span class="SyntaxTypename">API_ElementMemo*</span></a> <span class="SyntaxIdentifier">memo</span><span class="SyntaxSymbol">;</span>
+<span class="SyntaxSymbol">};</span>
+</pre>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">struct</span> <span class="SyntaxIdentifier">GSAPI::PrimElement</span> <span class="SyntaxSymbol">{</span>
+  <!-- Don't index --><a href="../Structures/API_PrimElement.html"><span class="SyntaxTypename">API_PrimElement</span></a> <span class="SyntaxIdentifier">primElem</span><span class="SyntaxSymbol">;</span>
+    <span class="SyntaxTypename">GSPtr</span>         <span class="SyntaxIdentifier">shapeProcParam1<span class="SyntaxSymbol">;</span>
+    <span class="SyntaxTypename">GSPtr</span>         <span class="SyntaxIdentifier">shapeProcParam2<span class="SyntaxSymbol">;</span>
+    <span class="SyntaxTypename">GSPtr</span>         <span class="SyntaxIdentifier">shapeProcParam3<span class="SyntaxSymbol">;</span>
+<span class="SyntaxSymbol">};</span></span></span></span>
+</pre>
+
+    <h2 class="SectionHeading">Description</h2>
+
+    <p>The <b>IteratorElem</b> structure is as follows:</p>
+
+    <ul>
+        <li>an <!-- Don't index --><a href="../Structures/API_WindowInfo.html">API_DatabaseInfo</a> structure of the database which contains the element, and</li>
+
+        <li>either an <!-- Don't index --><a href="../Structures/API_Attribute.html">API_Attribute</a></li>
+
+        <li>or an <b>Element</b> which in turn contains
+
+            <ul>
+                <li>the type, unique ID and possibly the <!-- Don't index --><a href="../Structures/API_ElementMemo.html">API_ElementMemo</a> of the <!-- Don't index --><a href="../Structures/API_Element.html">API_Element</a> it contains</li>
+
+                <li>the element which is either an <!-- Don't index --><a href="../Structures/API_Element.html">API_Element</a></li>
+
+                <li>or a <!-- Don't index --><a href="../Structures/API_PrimElement.html">API_PrimElement</a> of an <!-- Don't index --><a href="../Structures/API_Element.html">API_Element</a> which in turn contains
+
+                    <ul>
+                        <li>the <!-- Don't index --><a href="../Structures/API_PrimElement.html">API_PrimElement</a></li>
+
+                        <li>and all the supplemental data returned by the <!-- Don't index --><a href="../Functions/ShapePrimsProc.html">ShapePrimsProc ()</a> for that primitive.</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2 class="SectionHeading">Requirements</h2>
+
+    <p><span class="RequirementsSection">Namespace:</span> GSAPI</p>
+
+    <p><span class="RequirementsSection">Header:</span> GSAPIWrappers.hpp</p>
+
+    <p><span class="RequirementsSection">Version:</span> API 10.21 or later</p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

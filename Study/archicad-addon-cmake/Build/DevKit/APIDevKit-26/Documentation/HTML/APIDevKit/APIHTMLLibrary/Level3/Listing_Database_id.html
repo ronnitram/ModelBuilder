@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Listing Database</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Listing_Database_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Listing Database</h1>
+
+    <p><br>
+    To have an overview what the listing database are, and how they fit into the entire database please read this document carefully.</p>
+
+    <p>In this papers only the used structures are explained in full details.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Structures</h4>
+
+    <p>Listing data items are organized into listdata sets; each listdata set has its own database of keys, units, components and descriptors. Listdata sets are represented with on structure.</p>
+
+    <blockquote>
+        <a href="../Structures/API_ListDataSetType.html">API_ListDataSetType</a><br>
+    </blockquote>
+
+    <p>There is a container data structure, which is a union that can hold the data of any listdata type; referencing to the parent listdata set.</p>
+
+    <blockquote>
+        <a href="../Structures/API_ListData.html">API_ListData</a><br>
+    </blockquote>
+
+    <p>The structures below correspond to a specific entry; each of them represent one listdata type.</p>
+
+    <blockquote>
+        <a href="../Structures/API_KeyType.html">API_KeyType</a><br>
+        <a href="../Structures/API_UnitType.html">API_UnitType</a><br>
+        <a href="../Structures/API_Obsolete_ComponentType.html">API_Obsolete_ComponentType</a><br>
+        <a href="../Structures/API_DescriptorType.html">API_DescriptorType</a><br>
+    </blockquote>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 2, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

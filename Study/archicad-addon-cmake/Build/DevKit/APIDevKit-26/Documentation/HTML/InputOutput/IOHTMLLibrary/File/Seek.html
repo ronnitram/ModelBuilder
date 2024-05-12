@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <title>Seek</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/File/Seek.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="File.html">File</a>::Seek</h1><br>
+    Adjusts file content position.<br>
+    <br>
+    <pre class="syntax">
+<b>virtual GSErrCode  Seek (
+    </b><b><a href="SeekOrigin.html">SeekOrigin</a> so,</b><b>
+    Int64       offset
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>so</em></dt>
+
+        <dd>
+            Origin for the <i>offset</i> parameter. Possible values are:
+
+            <blockquote>
+                <table class="enumeration" width="267">
+                    <tr>
+                        <th width="57">Value</th>
+
+                        <th width="168">Meaning</th>
+                    </tr>
+
+                    <tr>
+                        <td width="57">Start</td>
+
+                        <td width="168">beginning of the file content</td>
+                    </tr>
+
+                    <tr>
+                        <td width="57">Current</td>
+
+                        <td width="168">current file content position</td>
+                    </tr>
+
+                    <tr>
+                        <td width="57">End</td>
+
+                        <td width="168">end of the file content</td>
+                    </tr>
+                </table>
+            </blockquote>
+        </dd>
+
+        <dt><em>offset</em></dt>
+
+        <dd>Seek offset. It is related to the seek origin (<i>so</i>). Unit of the offset is character (byte).</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="446">
+        <tr>
+            <th width="168">Value</th>
+
+            <th width="236">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="168">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="236">OK</td>
+        </tr>
+
+        <tr>
+            <td width="168">IllegalPosition<font color="#FF0000"><sup>*</sup></font></td>
+
+            <td width="236">illegal file content position was specified</td>
+        </tr>
+
+        <tr>
+            <td width="168">GS::OChannel::OutputIsFull</td>
+
+            <td width="236">output device is full</td>
+        </tr>
+
+        <tr>
+            <td width="168">GS::OChannel::WriteError</td>
+
+            <td width="236">write error on the output device</td>
+        </tr>
+
+        <tr>
+            <td width="168">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="236">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in File class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method sets file content position to the current value of the seek origin (<i>so</i>) offsetted by <i>offset</i>. Resulting position should not be negative. It is not allowed to set the position <b>beyond</b> the end of the file content, but it can be set <b>to</b> the end of the file content. Position setting can imply output buffers to be flushed, so write error may occur.&nbsp;</p>
+
+    <p>This operation is not allowed if the file content was not opened, or it was opened in appending mode. It is also disallowed "inside" output channel (<a href="../../../GSRoot/GSRootHTMLLibrary/GS/OChannel/OChannel.html">GS::OChannel</a>) block operations (that is when mark was put, or when offset is not reset).<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

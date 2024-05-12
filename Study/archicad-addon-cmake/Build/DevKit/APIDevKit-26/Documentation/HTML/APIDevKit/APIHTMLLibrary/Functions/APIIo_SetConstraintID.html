@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIIo_SetConstraintID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIIo_SetConstraintID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIIo_SetConstraintID</h1>
+
+    <p>Set the drawing constraint for graphical user input.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_interface_id.html">ACAPI_Interface</a></strong> (
+        <strong>APIIo_SetConstraintID</strong>,
+        <strong><a href="../Structures/API_ConstraintPars.html">API_ConstraintPars</a>*</strong>     <em>constraintPars</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>constraintPars</em></dt>
+
+        <dd>[in] Parameters of the drawing constraint.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>constraintPars</code> is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>Invalid type of drawing constraint in <code>constraintPars</code></dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to set drawing constraint before the user input.</p>
+
+    <p>It could be called just before <a href="APIIo_GetPointID.html">APIIo_GetPointID</a>, <a href="APIIo_GetLineID.html">APIIo_GetLineID</a>, <a href="APIIo_GetArcID.html">APIIo_GetArcID</a>, <a href="APIIo_GetPolyID.html">APIIo_GetPolyID</a> or in the <code>addPolyNodeProc</code>, <code>delPolyNodeProc</code> callback functions. After finishing the input do not forget to call <a href="APIIo_ResetConstraintID.html">APIIo_ResetConstraintID</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_GetPointType    pointInfo;
+API_GetLineType     lineInfo;
+API_ConstraintPars  constPars;
+Int32               ind;
+char                buffer [256];
+GSErrCode           err;
+
+BNZeroMemory (&amp;pointInfo, sizeof (API_GetPointType));
+BNZeroMemory (&amp;lineInfo, sizeof (API_GetLineType));
+BNZeroMemory (&amp;constPars, sizeof (API_ConstraintPars));
+
+
+CHCopyC ("Click the first point of the line", pointInfo.prompt);
+
+err = ACAPI_Interface (APIIo_GetPointID, &amp;pointInfo, nullptr);
+
+if (err == NoError) {
+    constPars.constType = APIConst_X;
+    constPars.constValue = 2.0;
+    constPars.useLocOrigo = true;
+    err = ACAPI_Interface (APIIo_SetConstraintID, &amp;constPars, nullptr);
+    if (err == NoError) {
+        CHCopyC ("Enter the second point of the line", lineInfo.prompt);
+        lineInfo.startCoord = pointInfo.pos;                  /* line starts with the clicked point */
+        err = ACAPI_Interface (APIIo_GetLineID, &amp;lineInfo, nullptr);
+    }
+    ACAPI_Interface (APIIo_ResetConstraintID, nullptr, nullptr);
+}
+
+if (err == APIERR_CANCEL)
+    ACAPI_WriteReport ("Input was interrupted", true);
+</code></pre>
+    </blockquote>
+
+    <blockquote>
+        <p>&nbsp;</p>
+
+        <p>See also the <em><strong>Interface_Functions</strong></em> example project of APIDevKit.</p>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 6.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="APIIo_ResetConstraintID.html">APIIo_ResetConstraintID</a><br>
+    <a href="../Structures/API_ConstraintPars.html">API_ConstraintPars</a><br>
+    <a href="../Structures/API_GetPolyType.html">API_GetPolyType</a><br>
+    <a href="../Structures/API_RubberPolyCallbacks.html">API_RubberPolyCallbacks</a><br>
+    <a href="APIIo_GetPointID.html">APIIo_GetPointID</a><br>
+    <a href="APIIo_GetLineID.html">APIIo_GetLineID</a><br>
+    <a href="APIIo_GetArcID.html">APIIo_GetArcID</a><br>
+    <a href="acapi_interface_id.html">ACAPI_Interface</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on July 9, 2004<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

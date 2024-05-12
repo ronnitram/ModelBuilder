@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_GetPolyType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_GetPolyType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_GetPolyType</h1>
+
+    <p>Parameters of the polygon input operation.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>char</strong>                  <em>prompt[256]</em>;
+        <strong>bool</strong>                  <em>changeCursorSet</em>;
+        <strong>bool</strong>                  <em>changePlane</em>;
+        <strong>bool</strong>                  <em>disableDefaultFeedback</em>;
+        <strong>bool</strong>                  <em>getZCoords</em>;
+        <strong><a href="#API_PolyGetMethod">API_PolyGetMethod</a></strong>     <em>method</em>;
+        <strong><a href="API_CursorSet.html">API_CursorSet</a></strong>         <em>cursorSet</em>;
+        <strong><a href="API_Coord3D.html">API_Vector3D</a></strong>          <em>planeNormal</em>;
+        <strong><a href="API_Coord3D.html">API_Coord3D</a></strong>           <em>startCoord</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>             <em>**coords</em>;
+        <strong><a href="API_PolyArc.html">API_PolyArc</a></strong>           <em>**parcs</em>;
+        <strong>Int32</strong>                 <em>nCoords</em>;
+        <strong>Int32</strong>                 <em>nArcs</em>;
+        <strong><a href="API_Neig.html">API_Neig</a></strong>              <em>neig</em>;
+        <strong>double</strong>                <em>**zCoords</em>;
+        <strong>Int32</strong>                 <em>filler_1</em>;
+        <strong>bool</strong>                  <em>polylineWas</em>;
+        <strong>bool</strong>                  <em>useStandardPetPalette</em>;
+        <strong>bool</strong>                  <em>filler_2[2]</em>;
+        <strong>Int32</strong>                 <em>filler_3</em>;
+    <strong>}</strong> <em>API_GetPolyType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>prompt</b></dt>
+
+        <dd>[in] Prompt string to be displayed in the control box during input</dd>
+
+        <dt><b>changeCursorSet</b></dt>
+
+        <dd>[in] Use the <code>cursorSet</code> field for changing cursor forms</dd>
+
+        <dt><b>changePlane</b></dt>
+
+        <dd>[in] Use the <code>startCoord</code> and <code>planeNormal</code> fields for defining the input plane</dd>
+
+        <dt><b>disableDefaultFeedback</b></dt>
+
+        <dd>[in] Disable the default polygon drawing feedback</dd>
+
+        <dt><b>getZCoords</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>[in] Retrieve z coordinates in case of 3D input</dd>
+
+        <dt><a name="API_PolyGetMethod" id="API_PolyGetMethod"><b>method</b></a></dt>
+
+        <dd>
+            [in] The polygon input method
+
+            <dl>
+                <dd>
+                    <table>
+                        <tr>
+                            <th>
+                                <p><b><code>API_PolyGetMethod</code></b></p>
+                            </th>
+
+                            <th>
+                                <p><b>Meaning</b></p>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p><code>APIPolyGetMethod_General</code></p>
+                            </td>
+
+                            <td>
+                                <p>Gets an arbitrary closed polygon</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p><code>APIPolyGetMethod_Rect</code></p>
+                            </td>
+
+                            <td>
+                                <p>Gets a rectangle</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p><code>APIPolyGetMethod_RotRect</code></p>
+                            </td>
+
+                            <td>
+                                <p>Gets a base vector then a rectangle perpendicular to it</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <p><code>APIPolyGetMethod_Polyline</code></p>
+                            </td>
+
+                            <td>
+                                <p>Gets a polyline (can be open)</p>
+                            </td>
+                        </tr>
+                    </table>
+                </dd>
+            </dl>
+        </dd>
+
+        <dt><b>cursorSet</b></dt>
+
+        <dd>[in] Cursor set for customized visual feedback</dd>
+
+        <dt><b>planeNormal</b></dt>
+
+        <dd>[in] The normal vector of the input plane</dd>
+
+        <dt><b>startCoord</b></dt>
+
+        <dd>[in] The start coordinate of the polygon</dd>
+
+        <dt><b>coords</b></dt>
+
+        <dd>[out] The polygon coordinates, indexed from 1 to <code>nCoords</code>. The first coordinate is the same as the last one</dd>
+
+        <dt><b>parcs</b></dt>
+
+        <dd>[out] The polygon arcs segments, indexed from 1 to <code>nArcs</code></dd>
+
+        <dt><b>nCoords</b></dt>
+
+        <dd>[out] The number of the polygon coordinates</dd>
+
+        <dt><b>nArcs</b></dt>
+
+        <dd>[out] The number of curves in the polygon</dd>
+
+        <dt><b>neig</b></dt>
+
+        <dd>[out] The closing neig of the polygon</dd>
+
+        <dt><b>zCoords</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>[out] Handle containing the z coordinates of the correspondong polygon nodes (retrieved only on demand by passing <code>true</code> in <code>getZCoords</code>)</dd>
+
+        <dt><b>polylineWas</b></dt>
+
+        <dd>[out] Polyline contour has been entered</dd>
+
+        <dt><b>useStandardPetPalette</b></dt>
+
+        <dd>[out] Use standard polygon input palette</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For the utilization of API_GetPolyType see the <a href="../Functions/APIIo_GetPolyID.html">APIIo_GetPolyID</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIIo_GetPolyID.html">APIIo_GetPolyID</a><br>
+    <a href="API_CursorSet.html">API_CursorSet</a><br>
+    <a href="API_Coord3D.html">API_Vector3D</a><br>
+    <a href="API_Coord3D.html">API_Coord3D</a><br>
+    <a href="API_Coord.html">API_Coord</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 20, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

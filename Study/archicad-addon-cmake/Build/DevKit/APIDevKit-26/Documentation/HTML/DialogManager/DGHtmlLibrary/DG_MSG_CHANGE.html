@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DG_MSG_CHANGE</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_CHANGE.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_CHANGE</h1>
+
+    <p>This message has different meaning for different type of dialog items:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Item type</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="CheckBox.html">Check Box</a></td>
+
+                    <td>The checked state of a check box is changed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DateTimeControl.html">Date &amp; Time Control</a></td>
+
+                    <td>The date or time information is changed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="EditControl.html">Edit Control</a></td>
+
+                    <td>The text of a text-type edit control or the value of a numeric-type edit control is changed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="ListBox.html">List Box</a></td>
+
+                    <td>The selection is changed in a list box or a list item is dragged to a new position.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="ListView.html">List View</a></td>
+
+                    <td>The selection is changed in a list view.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="Pop-upControl.html">Pop-up Control</a></td>
+
+                    <td>The selected item in a pop-up control is changed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="PushMenuControl.html">Push Menu Control</a></td>
+
+                    <td>The checked state or the selected menu item of a push menu control is changed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="RadioButton.html">Radio Button</a></td>
+
+                    <td>A radio button is checked (switched on).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="RichEditControl.html">Rich Edit Control</a></td>
+
+                    <td>The content or the selection of a rich edit control has changed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="ScrollBar.html">Scroll Bar</a></td>
+
+                    <td>The position of a scroll box is changed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="SliderBar.html">Slider Bar</a></td>
+
+                    <td>The position of a slider is changed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="SpinControl.html">Spin Control</a></td>
+
+                    <td>The value of a single spin control is changed. Note that edit spin controls do not receive this message.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="TabControl.html">Tab Control</a></td>
+
+                    <td>The current (displayed) tab page of a normal tab control is changed. Note that simple tab controls do not receive this message.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="TreeView.html">Tree View</a></td>
+
+                    <td>A tree view item is edited or dragged by the user, or new item(s) is/are selected in the tree view.</td>
+                </tr>
+
+                <!-- tr valign="top">
+                    <td><a href="UniRichEdit.html">Unicode Rich Edit Control</a></td>
+
+                    <td>The content, the selection, the rectangle, or the scroll bar position of a unicode rich edit control has changed.</td>
+                </tr -->
+
+                <tr valign="top">
+                    <td><a href="UserControl.html">User Control</a></td>
+
+                    <td>The value of a user control is changed.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Item type</th>
+
+                    <th align="left"><em>msgData</em></th>
+                </tr>
+
+                <tr valign="top">
+                    <td>Check Box</td>
+
+                    <td>Previous state of the check box (0: unchecked; 1: checked).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Date &amp; Time Control</td>
+
+                    <td>Previous date and time information (in the standard C language system time format).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Edit Control</td>
+
+                    <td>Zero for text-type edit controls. The control's previous value or a pointer to a double precision variable holding the previous double value for integer- or double-type edit controls.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>List Box</td>
+
+                    <td>Zero if the selection is changed. The previous position if a list item is dragged to a new position.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>List View</td>
+
+                    <td>Not used, always zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Pop-up Control</td>
+
+                    <td>1-based index of the previously selected pop-up item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Push Menu Control</td>
+
+                    <td>The previous state and the previously selected menu item of the push menu control packed into a <tt><strong>DGMessageData</strong></tt> value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Radio Button</td>
+
+                    <td>1-based index of the previously selected radio button in the same group.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Rich Edit Control</td>
+
+                    <td>Pointer to a <a href="DGRichEditChangeData.html">DGRichEditChangeData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Scroll Bar</td>
+
+                    <td>Previous position of the scroll box.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Slider Bar</td>
+
+                    <td>Previous position of the slider.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Spin Control</td>
+
+                    <td>Previous value of the control.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Tab Control</td>
+
+                    <td>1-based index of the previously displayed tab.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Tree View</td>
+
+                    <td>Pointer to a <a href="DGTreeViewChangeData.html">DGTreeViewChangeData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>User Control</td>
+
+                    <td>Previous value of the control.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Not used, should be set to zero.</p>
+
+    <h4>Remarks</h4>
+
+    <p>If a list box receives the <tt>DG_MSG_CHANGE</tt> message with non-zero message data, use <a href="DGListGetOldDragPos.html">DGListGetOldDragPos</a> and <a href="DGListGetNewDragPos.html">DGListGetNewDragPos</a> macros to retrieve the old and new index of the dragged list item.</p>
+
+    <p>For push menu controls the message data parameter contains the previous state and the previously selected menu item of the control packed into a <tt><strong>DGMessageData</strong></tt> value. The <a href="DGGetPrevItemVal.html">DGGetPrevItemVal</a> and <a href="DGGetPrevMenuItem.html">DGGetPrevMenuItem</a> macros can be used to separate the packed information.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGGetPrevItemVal.html">DGGetPrevItemVal</a>, <a href="DGGetPrevMenuItem.html">DGGetPrevMenuItem</a>, <a href="DGListGetNewDragPos.html">DGListGetNewDragPos</a>, <a href="DGListGetOldDragPos.html">DGListGetOldDragPos</a>, <a href="DGRichEditChangeData.html">DGRichEditChangeData</a>, <a href="DGTreeViewChangeData.html">DGTreeViewChangeData</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 24, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

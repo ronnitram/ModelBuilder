@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIIFCRelationshipDataProc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIIFCRelationshipDataProc.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIIFCRelationshipDataProc</h1>
+
+    <p>User supplied callback procedure for helping BCF Import.</p>
+    <pre class="syntax">
+    <strong>typedef GSErrCode  APIIFCRelationshipDataProc</strong> (
+        <strong>GS::HashTable&lt;API_Guid, <a href="../Structures/API_IFCRelationshipData.html">API_IFCRelationshipData</a>&gt;*</strong>	<em>ifcRelationshipDataTable</em>,
+        <strong>const void*</strong>						<em>par1</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>ifcRelationshipDataTable</em></dt>
+
+        <dd>[out] Gives back a Hashtable where the keys are the IFCProject's GlobalIds and the values are their <a href="../Structures/API_IFCRelationshipData.html">API_IFCRelationshipData</a>.</dd>
+
+    </dl>
+	
+	<dl>
+	
+		<dt><em>par1</em></dt>
+
+        <dd>[in] Optional parameter.</dd>
+	
+	</dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_GENERAL</code></dt>
+
+        <dd>Any user-defined error can be returned.</dd>
+    </dl>
+
+    <p>For other common errors see the <a href="../Level2/Error_Codes.html">list of error codes</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+	<p><a href="../Structures/API_IFCRelationshipData.html">API_IFCRelationshipData</a> may be needed by BCF topics when they refer to such components which are represented by their parent elements in Archicad.</p>
+	<p>A typical example is when an Archicad Wall is exported in IFC as an IFCWall instance having several IFCBuildingElementPart components and the imported BCF topic refers to a certain IFCBuildingElementPart.</p>
+	In this case the BCF importer should convert the IFCBuildingElementPart reference to its parent (IFCWall) and connect its corresponding Archicad Wall element to the created MarkUp Entry.</p>
+	<p>In code it looks like the following:</p>
+	
+	    <blockquote>
+        <pre><code>
+API_IFCRelationshipData ifcRelationshipData;
+ifcRelationshipData.containmentTable.Add (ifcBuildingElementPartGuid1, ifcWallGuid);
+ifcRelationshipData.containmentTable.Add (ifcBuildingElementPartGuid2, ifcWallGuid);
+ifcRelationshipData.containmentTable.Add (ifcBuildingElementPartGuid3, ifcWallGuid);
+
+ifcRelationshipDataTable->Add (ifcProjectGuid, ifcRelationshipData);
+</code></pre>
+    </blockquote>
+
+	<p>If the origin of the model is the current Archicad project, then we can get the <a href="../Structures/API_IFCRelationshipData.html">API_IFCRelationshipData</a> which can be generated with <a href="../Functions/ACAPI_IFC_GetIFCRelationshipData.html">ACAPI_IFC_GetIFCRelationshipData</a>.
+	The ifcRelationshipDataTable can have several <a href="../Structures/API_IFCRelationshipData.html">API_IFCRelationshipData</a> of several IFCProjects. This is because the components of a BCF topic can refer several components which may be located under different IFCProjects.
+	</p>
+	
+	<p>For use see <a href="ACAPI_MarkUp_ImportFromBCF.html">ACAPI_MarkUp_ImportFromBCF</a>.</p>
+
+	
+	<p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    For detailed examples, please see the MarkUp_Manager add-on.
+	
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 23 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Callback.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 16, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

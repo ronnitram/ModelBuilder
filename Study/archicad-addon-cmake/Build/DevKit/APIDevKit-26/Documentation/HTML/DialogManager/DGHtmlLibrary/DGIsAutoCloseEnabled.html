@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Bende Laszlo">
+
+    <title>DGIsAutoCloseEnabled</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGIsAutoCloseEnabled.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGIsAutoCloseEnabled</h1>
+
+    <p>An <a href="Alerts.html">alert</a> or a <a href="ModalDialogs.html">modal dialog</a> usually terminates by the result of a user action, i.e. click on the OK or Cancel button, or the Close Box (Windows only). However, there is a feature in DG to close these types of dialogs automatically (without user action) if a given interval expires. This function retrieves whether the automatic close of modal dialogs and alerts is enabled or not.</p>
+    <pre class="syntax">
+    <strong>bool DGIsAutoCloseEnabled</strong> (
+      <strong>void</strong>
+    );
+</pre>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="100">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>true</tt></td>
+
+                    <td>Automatic close of modal dialogs and alerts is enabled.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>false</tt></td>
+
+                    <td>Automatic close of modal dialogs and alerts is disabled.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>To enable or disable the automatic closing of alerts and dialogs use the <a href="DGEnableAutoClose.html">DGEnableAutoClose</a> and <a href="DGDisableAutoClose.html">DGDisableAutoClose</a> functions respectively. By default the automatic closing is disabled.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="Alerts.html">Alerts</a>, <a href="ModalDialogs.html">Modal Dialogs</a><br>
+    <a href="DGEnableAutoClose.html">DGEnableAutoClose</a>, <a href="DGDisableAutoClose.html">DGDisableAutoClose</a>, <a href="DGSetAutoCloseState.html">DGSetAutoCloseState</a><br>
+    <a href="DGSetAutoCloseDelay.html">DGSetAutoCloseDelay</a>, <a href="DGGetAutoCloseDelay.html">DGGetAutoCloseDelay</a><br>
+    <a href="DGAlert.html">DGAlert</a>, <a href="DGModalDialog.html">DGModalDialog</a>, <a href="DGResAlert.html">DGResAlert</a>, <a href="DGResAlertParam.html">DGResAlertParam</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 24 18, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

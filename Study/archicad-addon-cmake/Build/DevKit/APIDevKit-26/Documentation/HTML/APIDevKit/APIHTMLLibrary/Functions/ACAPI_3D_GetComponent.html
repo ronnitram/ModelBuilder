@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_3D_GetComponent</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_3D_GetComponent.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_3D_GetComponent</h1>
+
+    <p>Retrieves a component from the 3D model of Archicad.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_3D_GetComponent</strong> (
+        <strong><a href="../Structures/API_Component3D.html">API_Component3D</a>*</strong>     <em>component</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>component</em></dt>
+
+        <dd>[in/out] The <code>typeID</code> and the <code>index</code> field of the component header must be passed. You get the desired component data in the appropriate part of the union.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed parameter is <code>nullptr; component</code></dd>
+
+        <dt><code>APIERR_REFUSEDCMD</code></dt>
+
+        <dd>The 3D model is not available in the current context, or</dd>
+
+        <dd>The component type cannot be queried directly; no active body</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>The component type is invalid</dd>
+
+        <dt><code>APIERR_BADINDEX</code></dt>
+
+        <dd>The component index is out of range</dd>
+
+        <dt><code>APIERR_DELETED</code></dt>
+
+        <dd>In case of <code>typeID</code> is <a href="../Structures/API_3DTypeID.html">API_BodyID</a>, you can get this error code, meaning the body has been removed from the 3D model because it was deleted, it is shadow body instead of a model one or it was eliminated during the model creation.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to retrieve one component from the 3D data structure.</p>
+
+    <p>The component is defined by the <code>typeID</code> and <code>index</code> fields in the header of the <code>component</code> parameter. If the <code>typeID</code> is <a href="../Structures/API_3DTypeID.html">API_BodyID</a> you may get the error code <code>APIERR_DELETED</code>, meaning the body has been removed from the 3D model.</p>
+
+    <p>It is very important to organize your algorithm on a loop based on the component <a href="../Structures/API_3DTypeID.html">API_BodyID</a> (see example below) for the following reasons:</p>
+
+    <ul>
+        <li>Body indices are continuos in all cases, others are not.</li>
+
+        <li>The 3D model also can have data from deleted floor plan elements. They can be identified only through the deleted bodies.</li>
+
+        <li>Floor plan elements which have the same geometry may share the primitives of the 3D representation data, but not the bodies. All the bodies contain a transformation matrix which transforms the referenced shared vertices and normal vectors to the right places and directions.</li>
+    </ul>
+
+    <p>Once you have the definition of a body, you can set up sub loops to go through the primitives you are interested for. In the <a href="../Structures/API_BodyType.html">API_BodyType</a> record you get the number of all internal components. Indices should start from 1.</p>
+
+    <p>The light and material components can be obtained in their own loops, because they are global (not body relative) components of the 3D model.</p>
+
+    <p><b>It is very important</b>, that you get the data of the 3D model of Archicad that actually exists. This data is often not consistent with the floor plan elements. The update mechanism of the 3D window depends on many things, such as the switches in the preferences dialogs. As a general rule, you get the model which can be seen in the 3D window, if you use the above template.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_Component3D          comp3D;
+Int32                    nBody, i;
+
+err = ACAPI_3D_GetNum (API_BodyID, &amp;nBody);
+BNZeroMemory (&amp;comp3D, sizeof (API_Component3D));
+comp3D.header.typeID = API_BodyID;
+for (i = 1; i &lt;= nBody &amp;&amp; err == NoError; i++) {
+    comp3D.header.index = i;
+    err = ACAPI_3D_GetComponent (&amp;comp3D);
+    if (err == NoError) {
+        /* explode the body into pgon, vert etc... */
+    }
+    if (err == APIERR_DELETED)
+        err = NoError;
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Component3D.html">API_Component3D</a>, <a href="../Structures/API_BodyType.html">API_BodyType</a>, <a href="../Structures/API_3DTypeID.html">API_3DTypeID</a>,<br>
+    <a href="ACAPI_3D_GetNum.html">ACAPI_3D_GetNum</a>,<br>
+    <a href="../Level3/3D_Manager_id.html">3D Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 26, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

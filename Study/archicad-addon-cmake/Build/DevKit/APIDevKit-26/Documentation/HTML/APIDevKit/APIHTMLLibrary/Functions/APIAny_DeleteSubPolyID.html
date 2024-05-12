@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIAny_DeleteSubPolyID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIAny_DeleteSubPolyID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIAny_DeleteSubPolyID</h1>
+
+    <p>Deletes a whole subpolygon (hole) from a polygon.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a></strong> (
+        <strong>APIAny_DeleteSubPolyID</strong>,
+        <strong><a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>*</strong>     <em>elementMemo</em>,
+        <strong>Int32*</strong>               <em>subPolyIndex</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>elementMemo</em></dt>
+
+        <dd>[in/out] The polygon data.</dd>
+
+        <dt><em>subPolyIndex</em></dt>
+
+        <dd>[in] subpolygon index to delete</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>any of the parameters are <code>nullptr</code> or invalid <code>subPolyIndex</code> passed</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>low memory condition</dd>
+
+        <dt><code>APIERR_IRREGULARPOLY</code></dt>
+
+        <dd>Input polygon is irregular.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to delete a whole subpolygon (hole) from a polygon passed in an <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a> structure.</p>
+
+    <p>Refer to the <a href="../Structures/API_Polygon.html">API_Polygon</a> structure to have more details on the polygon data structure. The <code>coords</code>, <code>pends</code>, <code>parcs</code> and <code>vertexIDs</code> handles in the <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a> structure must be initialized.</p>
+
+    <p><b>Note that other memo handles are not touched</b>. In the case the polygon belongs to a roof with side angles initialized, it must be aligned manually.</p>
+
+    <center>
+        &nbsp;
+    </center>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+GSErrCode DeleteSubPoly (const API_Guid&amp; guid)
+{
+    API_ElementMemo   memo;
+    Int32             lastSubPoly;
+    GSErrCode         err;
+
+    err = ACAPI_Element_GetMemo (guid, &amp;memo);
+    if (err) {
+        lastSubPoly = BMGetHandleSize ((GSHandle) memo.pends) / sizeof (Int32) - 1;
+        if (lastSubPoly &gt; 1)
+            err = ACAPI_Goodies (APIAny_DeleteSubPolyID, &amp;memo, &amp;lastSubPoly);
+    }
+    return err;
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Goodies.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Polygon.html">API_Polygon</a>, <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>,<br>
+    <a href="APIAny_InsertPolyNodeID.html">APIAny_InsertPolyNodeID</a>, <a href="APIAny_DeletePolyNodeID.html">APIAny_DeletePolyNodeID</a>, <a href="APIAny_InsertSubPolyID.html">APIAny_InsertSubPolyID</a>,<br>
+    <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2012<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

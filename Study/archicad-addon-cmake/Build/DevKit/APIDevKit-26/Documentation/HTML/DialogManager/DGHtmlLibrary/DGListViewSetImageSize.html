@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Urban Eszter">
+
+    <title>DGListViewSetImageSize</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListViewSetImageSize.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListViewSetImageSize</h1>
+
+    <p>Sets the width and height of the image associated with a <a href="ListView.html">list view</a> control.</p>
+    <pre class="syntax">
+    <strong>void DGListViewSetImageSize</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>short</strong>  <em>imageWidth</em>,
+      <strong>short</strong>  <em>imageHeight</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>imageWidth</em></dt>
+
+        <dd>The width of the image in pixels.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>imageHeight</em></dt>
+
+        <dd>The height of the image in pixels.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The image rectangle cannot exceed the list view item rectangle. If the image rectangle is greater then the list view item, the image is clipped to fit in.</p>
+
+    <p>All the item images in a list view control have the same size.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ListView.html">List View</a>, <a href="DGListViewGetImageSize.html">DGListViewGetImageSize</a><br>
+    <a href="DGListViewSetImage.html">DGListViewSetImage</a>, <a href="DGListViewGetImage.html">DGListViewGetImage</a>, <a href="DGListViewSetImageId.html">DGListViewSetImageId</a>, <a href="DGListViewGetImageId.html">DGListViewGetImageId</a>, <a href="DGListViewSetImageResource.html">DGListViewSetImageResource</a>, <a href="DGListViewGetImageResource.html">DGListViewGetImageResource</a>, <a href="DGListViewGetImageLayout.html">DGListViewGetImageLayout</a>, <a href="DGListViewGetImageType.html">DGListViewGetImageType</a><br>
+    <a href="DGListViewSetItemImage.html">DGListViewSetItemImage</a>, <a href="DGListViewGetItemImage.html">DGListViewGetItemImage</a>, <a href="DGListViewSetItemImageId.html">DGListViewSetItemImageId</a>, <a href="DGListViewGetItemImageId.html">DGListViewGetItemImageId</a>, <a href="DGListViewSetItemImageResource.html">DGListViewSetItemImageResource</a>, <a href="DGListViewGetItemImageResource.html">DGListViewGetItemImageResource</a>, <a href="DGListViewSetItemImageIndex.html">DGListViewSetItemImageIndex</a>, <a href="DGListViewGetItemImageIndex.html">DGListViewGetItemImageIndex</a>, <a href="DGListViewGetItemImageType.html">DGListViewGetItemImageType</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 23, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

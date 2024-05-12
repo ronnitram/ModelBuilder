@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>GetEdgeIndex</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Polygon/GetEdgeIndex.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="Polygon.html">Polygon</a>::GetEdgeIndex</h1><br>
+    Calculate body relative edge index.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>Int32  GetEdgeIndex (
+    Int32   edgeIndex
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>edgeIndex</em></dt>
+
+        <dd>Index of the edge. The index range is [1..n] where n = <a href="GetEdgeNum.html">GetEdgeNum</a> ().</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>The body relative signed index, or zero value, if it is a contour separator.</p>
+
+    <h3>Description</h3>
+
+    <p>The polygon stores reference of edges instead of edge data itself. This method calculates the body relative signed edge index from polygon relative edge index. The returned zero value shows that this is not a valid edge, but a contour separator. This index (if it is not zero) can be used to get the edge from the body which contains <b>this</b> polygon. If <i>edgeIndex</i> is out of range, then it throws an exception.</p>Here is an example how to enumerate polygons and their edges:
+    <pre class="syntax">
+<b>
+// body: The body, which is enumerated.
+
+for (Int32 polygonIndex = 1; polygonIndex &lt;= body.<a href="Invalid link: ../Body/GetPolygonNum.html">GetPolygonNum</a> (); polygonIndex++) {
+    ModelerAPI::<a href="Polygon.html">Polygon</a> polygon;
+    body.<a href="../Body/GetPolygon.html">GetPolygon</a> (polygonIndex, &amp;polygon);
+    // Begin of polygon.
+    Int32 edgeIndex = 1;
+    while (edgeIndex &lt;= polygon.<a href="GetEdgeNum.html">GetEdgeNum</a> ()) {
+        // Begin of contour.
+        for ( ; edgeIndex &lt;= polygon.<a href="GetEdgeNum.html">GetEdgeNum</a> (); edgeIndex++) {
+            Int32 bodyEdgeIndex = polygon.GetEdgeIndex (edgeIndex);
+            if (bodyEdgeIndex == 0) {
+                break;
+            }
+            ModelerAPI::<a href="../Edge/Edge.html">Edge</a> edge;
+            body.<a href="../Body/GetEdge.html">GetEdge</a> (bodyEdgeIndex, &amp;edge);
+            // edge processing
+        }
+        // End of contour.
+        edgeIndex++;
+    }
+    // End of polygon.
+}
+</b>
+</pre>
+
+    <p><b>Available from version: 8</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta name="Author" content="Magyari Denes">
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta name="ProgId" content="FrontPage.Editor.Document">
+
+    <title>GroupID type</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/typefiletypeinspectorcallback.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">File&nbsp;Type&nbsp;Manager</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><strong>FileTypeInspectorCallBack</strong></h1>
+
+    <p>Callback function that identifies a FileType by reading into it.</p>
+    <pre class="syntax">
+    <strong>bool FileTypeInspectorCallBack (</strong>
+      <strong><a href="../../GSRoot/GSRootHTMLLibrary/GS/IChannel/IChannel.html">IChannel&amp;</a></strong>  <em>ic</em>,
+      <strong>void*</strong>      <em>retVal</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>ic</em></dt>
+
+        <dd>Input channel to be inspected.</dd>
+
+        <dt><em>retVal</em></dt>
+
+        <dd>Implementation specific return value. Must be checked for NULL.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <table border="0">
+        <tbody>
+            <tr valign="top">
+                <th align="left" width="200">Value</th>
+
+                <th align="left">Meaning</th>
+            </tr>
+
+            <tr valign="top">
+                <td>true</td>
+
+                <td>The input channel is identified as the given FileType.</td>
+            </tr>
+
+            <tr valign="top">
+                <td>false</td>
+
+                <td>The input channel is not identified.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table border="0"></table>
+
+    <table border="0"></table>
+
+    <h4>Remarks</h4>
+
+    <p>This callback function is used by FileTypeManager when concurrent file extensions must be resolved and it is only possible by inspecting the content of file. This callback function should be supplied for every FileType object in <a href="FileType/constructor.html">FileType::FileType</a> that is entered into FileTypeManger, but it is not mandatory.&nbsp; If the callback function is not supplied than false is assumed as return value.&nbsp;</p>
+
+    <p>The input channel is always set to position 0 before the FileTypeManager calls this function. The retVal is a pointer to an implementation specific data structure, that will be returned by <a href="FileTypeManager/identify.html">FileTypeManager::Identify</a>. It must be checked for NULL before usage. It can be used for any purpose, such as identification of subtype of the file.</p>
+
+    <p>The following example identifies a Windows bitmap file.</p>
+    <pre>
+bool BMPTypeCallback(IChannel&amp; ic, void* /*retVal*/)
+{
+        char buffer[2];
+        if (ic.ReadBin (buffer, 2) != NoError)
+                return false;
+        if (buffer[0] == 'B' &amp;&amp; buffer[1] == 'M')
+                return true;
+
+        return false;
+}
+  
+</pre>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> Input-Output Library 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> FileTypeManager.hpp</dd>
+
+        <dd><b>Import Library:</b> InputOutput.lib [WIN]</dd>
+
+        <dd><b>Module:</b> InputOutputLib [MAC], InputOutput.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="../FileTypeManager.html">File Type Manager</a>, <a href="FileType/constructor.html">FileType::FileType</a>, <a href="FileTypeManager/identify.html">FileTypeManager::Identify</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on Aug 15, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_GetSyTran</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_GetSyTran.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_GetSyTran</h1>
+
+    <p>Obtains the transformation parameters of an actual instance of a library part.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_GetSyTran</strong> (
+        <strong>const <a href="../Structures/API_Elem_Head.html">API_Elem_Head</a>*</strong>     <em>elemHead</em>,
+        <strong><a href="../Structures/API_SyTran.html">API_SyTran</a>*</strong>              <em>syTran</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>elemHead</em>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>[in] Identifies the element. Its type should be <code>API_WindowID</code>, <code>API_DoorID</code>, <code>API_ObjectID</code>, <code>API_LampID</code>, or <code>API_ZoneID.</code></dd>
+
+        <dt><em>syTran</em></dt>
+
+        <dd>[out] The function returns the transformation parameters here.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The <code>syTran</code> parameter was <code>nullptr</code>.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>The element reference is invalid; <code>elemHead-&gt;guid</code>.</dd>
+
+        <dt><code>APIERR_DELETED</code></dt>
+
+        <dd>The element does not exist in the database</dd>
+
+        <dt><code>APIERR_GENERAL</code></dt>
+
+        <dd>The element reference is invalid; <code>elemHead-&gt;guid</code>.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You can get the transformation parameters of an actual instance of a library part (<code>type</code> should be <code>API_WindowID</code>, <code>API_DoorID</code>, <code>API_ObjectID</code>, <code>API_LampID</code>, or <code>API_ZoneID</code>) with this function. The transformation parameters are not easy to calculate and keep up-to-date, this function helps you to obtain this information.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_ElemTypeID.html">API_ElemTypeID</a>, <a href="../Structures/API_SyTran.html">API_SyTran</a>,<br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 24, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

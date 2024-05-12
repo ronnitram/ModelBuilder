@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_MagicWandInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_MagicWandInfo.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_MagicWandInfo</h1>
+
+    <p>Curve tracing parameters.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>short</strong>      <em>divArcMode</em>;
+        <strong>short</strong>      <em>traceMethod</em>;
+        <strong>short</strong>      <em>filler_1</em>;
+        <strong>short</strong>      <em>arcSegNumb</em>;
+        <strong>double</strong>     <em>arcDiff</em>;
+        <strong>double</strong>     <em>partLength</em>;
+        <strong>Int32</strong>      <em>filler_2[8]</em>;
+    <strong>}</strong> <em>API_MagicWandInfo</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>divArcMode</b></dt>
+
+        <dd>Mode of the approximating curves with linear segments. Possible values are:<br>
+        <code>API_ArcDiv_DivArc</code>, <code>API_ArcDiv_DivCircle</code>, <code>API_ArcDiv_DiffArc</code>, <code>API_ArcDiv_PartLength</code>, <code>API_ArcDiv_DivArc</code></dd>
+
+        <dt><b>traceMethod</b></dt>
+
+        <dd>Trace method mode. Possible values are:<br>
+        <code>API_ArcTrace_Linear</code>, <code>API_ArcTrace_BestMatch</code></dd>
+
+        <dt><b>arcSegNumb</b></dt>
+
+        <dd>The deviation from curves less than</dd>
+
+        <dt><b>arcDiff</b></dt>
+
+        <dd>Number of the segment along arc/circles</dd>
+
+        <dt><b>partLength</b></dt>
+
+        <dd>Segment length</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure corresponds to the "Magic Wand Settings..." dialog of Archicad. Follow the actual settings in the case yo need to trace curves with linear segments.</p>
+
+    <p>Refer to the <a href="../Functions/APIEnv_GetMagicWandSetsID.html">APIEnv_GetMagicWandSetsID</a> function to get the current settings.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIEnv_GetMagicWandSetsID.html">APIEnv_GetMagicWandSetsID</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 12, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

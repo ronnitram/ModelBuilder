@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGSetItemMaxDouble</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGSetItemMaxDouble.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGSetItemMaxDouble</h1>
+
+    <p>Sets the maximum double value of an <a href="EditControl.html">edit control</a>.</p>
+    <pre class="syntax">
+    <strong>void DGSetItemMaxDouble</strong> (
+      <strong>short</strong>   <em>dialId</em>,
+      <strong>short</strong>   <em>item</em>,
+      <strong>double</strong>  <em>value</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>value</em></dt>
+
+        <dd>The new maximum value.</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Edit control subtype</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_REAL</tt></td>
+
+                    <td>Simple real value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_ANGLE</tt></td>
+
+                    <td>Angle value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_POLARANGLE</tt></td>
+
+                    <td>Polar angle value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_LENGTH</tt></td>
+
+                    <td>Length value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_AREA</tt></td>
+
+                    <td>Area value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_VOLUME</tt></td>
+
+                    <td>Volume value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_MM_OR_PT</tt></td>
+
+                    <td>Scale independent length value given in mm, shown in mm or point.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The edit control accepts values entered by the user according to the limits given in GRC or set by <a href="DGSetItemMinDouble.html">DGSetItemMinDouble</a> and <b>DGSetItemMaxDouble</b>. If a value outside this range is entered, it is automatically changed by DG to the maximum or minimum.</p>
+
+    <p>If either the current or the minimal value is greater than the given maximum, it is/they are automatically set to the maximum by DG.</p>
+
+    <p>The angle <em>value</em> must be given in degrees for angle-type edit controls (<tt>DG_ET_ANGLE</tt>, <tt>DG_ET_POLARANGLE</tt>).</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="DGGetItemMaxDouble.html">DGGetItemMaxDouble</a>, <a href="DGGetItemMinDouble.html">DGGetItemMinDouble</a>, <a href="DGGetItemValDouble.html">DGGetItemValDouble</a>, <a href="DGSetItemMinDouble.html">DGSetItemMinDouble</a>, <a href="DGSetItemValDouble.html">DGSetItemValDouble</a><br>
+    <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a>, <a href="EditControl.html">Edit Control</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+// *****************************************************************************
+// Source code for the Action Center Example Add-On
+// *****************************************************************************
+
+// ---------------------------------- Includes ---------------------------------
+
+#include	"APIEnvir.h"
+#include	"ACAPinc.h"					// also includes APIdefs.h
+#include	"APICommon.h"
+#include	"ResourceIDs.hpp"
+
+
+// ---------------------------------- Types ------------------------------------
+
+
+// ---------------------------------- Variables --------------------------------
+
+
+// ---------------------------------- Prototypes -------------------------------
+
+
+
+// =============================================================================
+//
+// Main functions
+//
+// =============================================================================
+
+// Checks if hotlinks are up-to-date, and shows in Action Center if not;
+
+static void CheckHotlinks ()
+{
+	ACAPI_ActionCenter_Check (APIActionCenterItem_Hotlinks);
+}
+
+
+// -----------------------------------------------------------------------------
+// Entry points to handle ARCHICAD events
+//
+// -----------------------------------------------------------------------------
+
+enum MenuItems {
+	CheckHotlinksID = 1
+};
+
+
+GSErrCode __ACENV_CALL	MenuCommandHandler (const API_MenuParams *params)
+{
+	switch (params->menuItemRef.itemIndex) {
+		case CheckHotlinksID:
+			CheckHotlinks ();
+			break;
+	}
+
+	return NoError;
+}		// DoCommand
+
+
+// =============================================================================
+//
+// Required functions
+//
+// =============================================================================
+
+
+//------------------------------------------------------
+// Dependency definitions
+//------------------------------------------------------
+API_AddonType	__ACENV_CALL	CheckEnvironment (API_EnvirParams* envir)
+{
+	envir->addOnInfo.name			= RSGetIndString (ID_ADDON_INFO, 1, ACAPI_GetOwnResModule ());
+	envir->addOnInfo.description	= RSGetIndString (ID_ADDON_INFO, 2, ACAPI_GetOwnResModule ());
+
+	return APIAddon_Normal;
+}		/* CheckEnvironment */
+
+
+//------------------------------------------------------
+// Interface definitions
+//------------------------------------------------------
+GSErrCode	__ACENV_CALL	RegisterInterface (void)
+{
+	ACAPI_Register_Menu (ID_MENU_STRINGS, 0, MenuCode_UserDef, MenuFlag_Default);
+
+	return NoError;
+}		/* RegisterInterface */
+
+
+//------------------------------------------------------
+// Called when the Add-On has been loaded into memory
+// to perform an operation
+//------------------------------------------------------
+GSErrCode	__ACENV_CALL Initialize	(void)
+{
+	GSErrCode err = ACAPI_Install_MenuHandler (ID_MENU_STRINGS, MenuCommandHandler);
+	if (err != NoError) {
+		DBPrintf ("Action Center example add-on:: Initialize() ACAPI_Install_MenuHandler failed\n");
+	}
+
+	return err;
+}		/* Initialize */
+
+
+// -----------------------------------------------------------------------------
+// FreeData
+//		called when the Add-On is going to be unloaded
+// -----------------------------------------------------------------------------
+
+GSErrCode __ACENV_CALL	FreeData (void)
+{
+	return NoError;
+}		// FreeData

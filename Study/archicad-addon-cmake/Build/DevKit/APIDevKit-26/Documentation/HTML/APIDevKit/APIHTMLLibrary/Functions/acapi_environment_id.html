@@ -1,0 +1,1175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Environment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/acapi_environment_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Environment</h1>
+
+    <p>Controls the environmental data of the server application.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Environment</strong> (
+        <strong><a href="#API_EnvironmentID">API_EnvironmentID</a></strong>     <em>code</em>,
+        <strong>void*</strong>                 <em>par1</em> = nullptr,
+        <strong>void*</strong>                 <em>par2</em> = nullptr,
+        <strong>void*</strong>                 <em>par3</em> = nullptr
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>code</em></dt>
+
+        <dd>[in] Environment function identifier.</dd>
+
+        <dt><em>par1</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par2</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par3</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The environment function completed with success.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>Invalid <code>code</code> parameter was passed.</dd>
+    </dl>
+
+    <p>More return values can be found at the description of each environment function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to access the environmental information of the server application.</p>
+
+    <p>The type of the environment function is specified with the <code>code</code> parameter.</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><!-- comment --><a name="API_EnvironmentID" id="API_EnvironmentID"><b><code>API_EnvironmentID</code></b></a></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>General environment</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ApplicationID.html">APIEnv_ApplicationID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns information about the current application.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ProjectID.html">APIEnv_ProjectID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns information about the current project file.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ProjectSharingID.html">APIEnv_ProjectSharingID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the project sharing data in the case of a TeamWork project.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetProjectNotesID.html">APIEnv_GetProjectNotesID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns information about the 'Project Info' dialog.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangeProjectNotesID.html">APIEnv_ChangeProjectNotesID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the data of the 'Project Info' dialog.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Active libraries</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetLibrariesID.html">APIEnv_GetLibrariesID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the list of loaded libraries.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_SetLibrariesID.html">APIEnv_SetLibrariesID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the list of loaded libraries.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ResetLibrariesID.html">APIEnv_ResetLibrariesID</a></p>
+                </td>
+
+                <td>
+                    <p>Resets the loaded libraries.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_NewLibDialID.html">APIEnv_NewLibDialID</a></p>
+                </td>
+
+                <td>
+                    <p>Instructs the user to select a new library folder in a dialog.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_AddLibrariesID.html">APIEnv_AddLibrariesID</a></p>
+                </td>
+
+                <td>
+                    <p>Registers a new folder into the list of active libraries.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_CheckLibrariesID.html">APIEnv_CheckLibrariesID</a></p>
+                </td>
+
+                <td>
+                    <p>Checks the currently loaded libraries.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_OverwriteLibPartID.html">APIEnv_OverwriteLibPartID</a></p>
+                </td>
+
+                <td>
+                    <p>Sets the overwrite mode for the library part create function.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_CreateFolderInLibraryID.html">APIEnv_CreateFolderInLibraryID</a>&nbsp; <img border="0" src="../../APIImageLibrary/20.png" alt="API 20" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Creates a new folder inside a loaded library.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_CopyFilesIntoLibraryID.html">APIEnv_CopyFilesIntoLibraryID</a>&nbsp; <img border="0" src="../../APIImageLibrary/20.png" alt="API 20" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Copies files into a folder inside a loaded library.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Active Settings</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetToolBoxModeID.html">APIEnv_GetToolBoxModeID</a></p>
+                </td>
+
+                <td>
+                    <p>Gets the actual toolbox mode.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_SetToolBoxModeID.html">APIEnv_SetToolBoxModeID</a></p>
+                </td>
+
+                <td>
+                    <p>Sets the actual toolbox mode.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetToolBoxInfoID.html">APIEnv_GetToolBoxInfoID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns information on the toolbox.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_IsAutoGroupOnID.html">APIEnv_IsAutoGroupOnID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the current state of the autogroup mode.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_IsSuspendGroupOnID.html">APIEnv_IsSuspendGroupOnID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the current state of the Suspend Groups mode.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetViewOptionsID.html">APIEnv_GetViewOptionsID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the actual display &amp; output options.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangeViewOptionsID.html">APIEnv_ChangeViewOptionsID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Changes the actual display &amp; output options.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetStorySettingsID.html">APIEnv_GetStorySettingsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the data of the installed stories.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangeStorySettingsID.html">APIEnv_ChangeStorySettingsID</a></p>
+                </td>
+
+                <td>
+                    <p>Modifies the story structure.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetGhostStorySettingsID.html">APIEnv_GetGhostStorySettingsID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the current ghost story settings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetPreferencesID.html">APIEnv_GetPreferencesID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the preferences data.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetConvertedUnitValueID.html">APIEnv_GetConvertedUnitValueID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the preferences data.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetSunSetsID.html">APIEnv_GetSunSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns information on sun parameters.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetPlaceSetsID.html">APIEnv_GetPlaceSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns information on location parameters.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangePlaceSetsID.html">APIEnv_ChangePlaceSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the place settings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_CanChangePlaceSetsID.html">APIEnv_CanChangePlaceSetsID</a>&nbsp; <img border="0" src="../../APIImageLibrary/20.png" alt="Featuring API 20" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>May the current user change the place settings now?</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetGeoLocationID.html">APIEnv_GetGeoLocationID</a>&nbsp; <img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the Location data stored for the project.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_SetGeoLocationID.html">APIEnv_SetGeoLocationID</a>&nbsp; <img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Sets the Location data of the project.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetSurveyPointTransformationID.html">APIEnv_GetSurveyPointTransformationID</a>&nbsp; <img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the transformation matrix that transforms points given in the Project Origin's coordinate system into the Survey Point's coordinate system.</p>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>
+                    <p><a href="APIEnv_IsSurveyPointVisibleID.html">APIEnv_IsSurveyPointVisibleID</a>&nbsp; <img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Checks the visibility of the Survey Point.</p>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>
+                    <p><a href="APIEnv_SetSurveyPointVisibilityID.html">APIEnv_SetSurveyPointVisibilityID</a>&nbsp; <img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Sets the visibility of the Survey Point.</p>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>
+                    <p><a href="APIEnv_IsSurveyPointLockedID.html">APIEnv_IsSurveyPointLockedID</a>&nbsp; <img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the lock state of the Survey Point.</p>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>
+                    <p><a href="APIEnv_SetSurveyPointLockedID.html">APIEnv_SetSurveyPointLockedID</a>&nbsp; <img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Locks or Unlocks the Survey Point.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetExportToleranceID.html">APIEnv_GetExportToleranceID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns arc difference in output.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetMagicWandSetsID.html">APIEnv_GetMagicWandSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns information on curve tracing parameters.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_Get3DProjectionSetsID.html">APIEnv_Get3DProjectionSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns information on the 3D projection settings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_Change3DProjectionSetsID.html">APIEnv_Change3DProjectionSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the 3D projection settings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetRenderingSetsID.html">APIEnv_GetRenderingSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns information on the photorendering settings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangeRenderingSetsID.html">APIEnv_ChangeRenderingSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the photorendering settings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetRenderingSceneNamesID.html">APIEnv_GetRenderingSceneNamesID</a>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="Featuring API 18" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Gets the names of all named Rendering Scenes.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_SetCurrentRenderingSceneID.html">APIEnv_SetCurrentRenderingSceneID</a>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="Featuring API 18" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Sets the current Rendering Scene to the given named Scene.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_Get3DImageSetsID.html">APIEnv_Get3DImageSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the 3D image item settings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_Change3DImageSetsID.html">APIEnv_Change3DImageSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the 3D image item settings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_Get3DWindowSetsID.html">APIEnv_Get3DWindowSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the 3D window settings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_Change3DWindowSetsID.html">APIEnv_Change3DWindowSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the 3D window settings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_Get3DCuttingPlanesID.html">APIEnv_Get3DCuttingPlanesID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the 3D cutting planes settings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_Change3DCuttingPlanesID.html">APIEnv_Change3DCuttingPlanesID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the 3D cutting planes.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetCurrLayerCombID.html">APIEnv_GetCurrLayerCombID</a>&nbsp; <img border="0" src="../../APIImageLibrary/52.png" alt="5.2" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the index of the current layer combination.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangeCurrLayerCombID.html">APIEnv_ChangeCurrLayerCombID</a>&nbsp; <img border="0" src="../../APIImageLibrary/52.png" alt="5.2" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Activates a layer combination.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetCurrPenSetID.html">APIEnv_GetCurrPenSetID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the index of the current pen set.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetNumberingGridLinesID.html">APIEnv_GetNumberingGridLinesID</a>&nbsp; <img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the lines of the grid-based drawing numbering system.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_IsAutoIntersectOnID.html">APIEnv_IsAutoIntersectOnID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the state of the automatic intersection flag.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangeAutoIntersectID.html">APIEnv_ChangeAutoIntersectID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Changes the automatic intersection flag.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_IsMarkerDrawingEnabledID.html">APIEnv_IsMarkerDrawingEnabledID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Checks whether attached objects are processed and returned during primitive decomposition.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangeMarkerDrawingEnabledID.html">APIEnv_ChangeMarkerDrawingEnabledID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Sets whether attached objects should be processed and returned during primitive decomposition.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>System Environment</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetShowHideStateID.html">APIEnv_GetShowHideStateID</a></p>
+                </td>
+
+                <td>
+                    <p>Gets visibility of application.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangeShowHideStateID.html">APIEnv_ChangeShowHideStateID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes visibility of application.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetMiscAppInfoID.html">APIEnv_GetMiscAppInfoID</a></p>
+                </td>
+
+                <td>
+                    <p>Gets miscellaneous information about application.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetMiscPrinterInfoID.html">APIEnv_GetMiscPrinterInfoID</a></p>
+                </td>
+
+                <td>
+                    <p>Gets general information about the current printer.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetMiscPlotterInfoID.html">APIEnv_GetMiscPlotterInfoID</a></p>
+                </td>
+
+                <td>
+                    <p>Gets general information about the plotter.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetPrinterParsID.html">APIEnv_GetPrinterParsID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Gets various printer settings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetSpecFolderID.html">APIEnv_GetSpecFolderID</a> <img border="0" src="../../APIImageLibrary/41.png" alt="4.1" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the location of special application folders.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!-- comment --><a name="ArchiCADLayoutInfo" id="ArchiCADLayoutInfo"><b>Archicad Layout Info</b></a>&nbsp; <img border="0" src="../../APIImageLibrary/51.png" alt="5.1" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_CreateLayoutID.html">APIEnv_CreateLayoutID</a>&nbsp; <img border="0" src="../../APIImageLibrary/24.png" alt="API 24" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Creates a new layout.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetLayoutSetsID.html">APIEnv_GetLayoutSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the current layout properties.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangeLayoutSetsID.html">APIEnv_ChangeLayoutSetsID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the current layout properties.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!-- comment --><a name="3DDocument"><b>3D Document and partial structure display options</b></a>&nbsp; <img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetDocumentFrom3DDefaultsID.html">APIEnv_GetDocumentFrom3DDefaultsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the 3D document setting default values.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangeDocumentFrom3DDefaultsID.html">APIEnv_ChangeDocumentFrom3DDefaultsID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the 3D document setting default values.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetDocumentFrom3DSettingsID.html">APIEnv_GetDocumentFrom3DSettingsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the 3D document settings of the specified database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangeDocumentFrom3DSettingsID.html">APIEnv_ChangeDocumentFrom3DSettingsID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the 3D document settings of the specified database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetStructureDisplayID.html">APIEnv_GetStructureDisplayID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the partial structure display options for the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangeStructureDisplayID.html">APIEnv_ChangeStructureDisplayID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the partial structure display options for the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!-- comment --><a name="Library Parts"><b>Library Parts</b></a></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetLibPartRefGuidID.html">APIEnv_GetLibPartRefGuidID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the reference guid of the given library part.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetLibPartUnIDStrID.html">APIEnv_GetLibPartUnIDStrID</a>&nbsp; <img border="0" src="../../APIImageLibrary/15.png" alt="API 15" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the unique ID of the library part as string.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetLibPartLockStatusID.html">APIEnv_GetLibPartLockStatusID</a>&nbsp; <img border="0" src="../../APIImageLibrary/15.png" alt="API 15" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the current lock status of the given library part.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_DeleteEmbeddedLibItemID.html">APIEnv_DeleteEmbeddedLibItemID</a>&nbsp; <img border="0" src="../../APIImageLibrary/21.png" alt="API 21" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Deletes the given embedded library item (folder or library part).</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!-- comment --><a name="Miscellaneous" id="Miscellaneous"><b>Miscellaneous</b></a></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_CreateCopyOfGdlUserGlobalsHandleID.html">APIEnv_CreateCopyOfGdlUserGlobalsHandleID</a>&nbsp; <img border="0" src="../../APIImageLibrary/19.png" alt="Featuring API 19" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns a copy of the current GDL globals (APIEnv_GetGdlUserGlobalsHandleID was removed).</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_DestroyCopyOfGdlUserGlobalsHandleID.html">APIEnv_DestroyCopyOfGdlUserGlobalsHandleID</a>&nbsp; <img border="0" src="../../APIImageLibrary/19.png" alt="Featuring API 19" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Destroys the previously copied GDL globals handle.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_IsInCurtainWallEditModeID.html">APIEnv_IsInCurtainWallEditModeID</a>&nbsp; <img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns if applicaton is in curtain wall editing mode.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_IsInStairEditModeID.html">APIEnv_IsInStairEditModeID</a>&nbsp; <img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns if applicaton is in stair editing mode.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_IsInBeamEditModeID.html">APIEnv_IsInBeamEditModeID</a>&nbsp; <img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns if applicaton is in beam editing mode.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_IsInColumnEditModeID.html">APIEnv_IsInColumnEditModeID</a>&nbsp; <img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns if applicaton is in column editing mode.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetTWAccessRightID.html">APIEnv_GetTWAccessRightID</a>&nbsp; <img border="0" src="../../APIImageLibrary/14.png" alt="Featuring API 14" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns if the current user has the specifed access right.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_GetGDLDateID.html">APIEnv_GetGDLDateID</a>&nbsp; <img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns GDL environment date information.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIEnv_ChangeGDLDateID.html">APIEnv_ChangeGDLDateID</a>&nbsp; <img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Changes GDL environment date.</p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h, APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><!--X--><a href="../Level3/General_Functions_id.html">General Functions</a>, <!--X--><a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 25, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

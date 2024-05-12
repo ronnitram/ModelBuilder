@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Navigator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Navigator_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Navigator</h1>
+
+    <p>Controls the Navigator of the server application.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Navigator</strong> (
+        <strong><a href="#API_NavigatorID">API_NavigatorID</a></strong>       <em>code</em>,
+        <strong>void*</strong>                 <em>par1</em> = nullptr,
+        <strong>void*</strong>                 <em>par2</em> = nullptr,
+        <strong>void*</strong>                 <em>par3</em> = nullptr
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>code</em></dt>
+
+        <dd>[in] Navigator function identifier.</dd>
+
+        <dt><em>par1</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par2</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par3</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The Navigator function completed with success.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>Invalid <code>code</code> parameter was passed.</dd>
+    </dl>
+
+    <p>More return values can be found at the description of each Navigator function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to access the Navigator information of the server application.</p>
+
+    <p>The type of the Navigator function is specified with the <code>code</code> parameter.</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><!-- comment --><a name="API_NavigatorID" id="API_NavigatorID"><b><code>API_NavigatorID</code></b></a></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!-- comment --><a name="NavigatorManagement" id="NavigatorManagement"><b>Navigator management</b></a>&nbsp; <img border="0" src="../../APIImageLibrary/43.png" alt="4.3" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_GetNavigatorSetNumID.html">APINavigator_GetNavigatorSetNumID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the number of Navigator's sets.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_GetNavigatorSetID.html">APINavigator_GetNavigatorSetID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns Navigator's sets.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_GetNavigatorItemID.html">APINavigator_GetNavigatorItemID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns item of the Navigator.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_GetNavigatorParentItemID.html">APINavigator_GetNavigatorParentItemID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns parent item of the Navigator item.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_GetNavigatorChildNumID.html">APINavigator_GetNavigatorChildNumID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns children number of the Navigator item.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_GetNavigatorChildrenItemsID.html">APINavigator_GetNavigatorChildrenItemsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns children items of the Navigator item.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_GetNavigatorViewID.html">APINavigator_GetNavigatorViewID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns view of the Navigator item.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_SearchNavigatorItemID.html">APINavigator_SearchNavigatorItemID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns views of of the requested database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_ChangeNavigatorViewID.html">APINavigator_ChangeNavigatorViewID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Modifies a view in the Navigator.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_NewNavigatorViewID.html">APINavigator_NewNavigatorViewID</a>&nbsp; <img border="0" src="../../APIImageLibrary/13.png" alt="Featuring API 13" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Creates a view in the Navigator.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_DeleteNavigatorViewID.html">APINavigator_DeleteNavigatorViewID</a>&nbsp; <img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Deletes a view from the Navigator.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_ChangeNavigatorItemID.html">APINavigator_ChangeNavigatorItemID</a>&nbsp; <img border="0" src="../../APIImageLibrary/18.png" alt="Featuring API 18" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Changes a Navigator view map item.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_SetNavigatorItemPositionID.html">APINavigator_SetNavigatorItemPositionID</a>&nbsp; <img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Moves Navigator item to an other place.</p>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>
+                    <p><a href="APINavigator_CloneProjectMapItemToViewMapID.html">APINavigator_CloneProjectMapItemToViewMapID</a>&nbsp; <img border="0" src="../../APIImageLibrary/24.png" alt="Featuring API 24" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Clones a Navigator item from the project map to view map.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!-- comment --><a name="ArchiCADLayoutInfo" id="ArchiCADLayoutInfo"><b>Navigator viewpoint management</b></a>&nbsp; <img border="0" src="../../APIImageLibrary/22.png" alt="Featuring API 22" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_CreateNavigatorVPItemID.html">APINavigator_CreateNavigatorVPItemID</a></p>
+                </td>
+
+                <td>
+                    <p>Creates a new viewpoint in the Navigator.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_DeleteNavigatorVPItemID.html">APINavigator_DeleteNavigatorVPItemID</a></p>
+                </td>
+
+                <td>
+                    <p>Deletes an existing viewpoint from the Navigator.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_ChangeNavigatorVPItemID.html">APINavigator_ChangeNavigatorVPItemID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes an existing Navigator viewpoint.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_GetNavigatorVPItemID.html">APINavigator_GetNavigatorVPItemID</a></p>
+                </td>
+
+                <td>
+                    <p>Gets the data of a given Navigator viewpoint.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_GetNavigatorVPRootGroupsID.html">APINavigator_GetNavigatorVPRootGroupsID</a></p>
+                </td>
+
+                <td>
+                    <p>Gets the list of Navigator root groups.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_GetNavigatorVPItemChildrenID.html">APINavigator_GetNavigatorVPItemChildrenID</a></p>
+                </td>
+
+                <td>
+                    <p>Gets the child items of a Navigator group.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APINavigator_RegisterCallbackInterfaceID.html">APINavigator_RegisterCallbackInterfaceID</a></p>
+                </td>
+
+                <td>
+                    <p>Registers an object that is called back by Archicad.</p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 22 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h, APIdefs_Navigator.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><!--X--><a href="../Level3/General_Functions_id.html">General Functions</a>, <!--X--><a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on August 17, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

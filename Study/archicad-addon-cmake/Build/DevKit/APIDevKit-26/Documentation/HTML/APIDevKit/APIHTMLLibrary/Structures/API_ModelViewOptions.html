@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ModelViewOptions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ModelViewOptions.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ModelViewOptions</h1>
+
+    <p>Represents the model view options.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>char</strong>                                <em>filler_0[2]</em>;
+        <strong>char</strong>                                <em>doorMode</em>;
+        <strong>char</strong>                                <em>windowMode</em>;
+        <strong>char</strong>                                <em>skylightMode</em>;
+        <strong>char</strong>                                <em>filler_1</em>;
+        <strong>char</strong>                                <em>sectionMarker</em>;
+        <strong>char</strong>                                <em>beamMethod</em>;
+        <strong>char</strong>                                <em>roofShellMode</em>;
+        <strong>char</strong>                                <em>showColumnSymbol</em>;
+        <strong>char</strong>                                <em>slabMethod</em>;
+        <strong>char</strong>                                <em>filler_2</em>;
+        <strong>bool</strong>                                <em>coluHiddenlineUnderSlabs</em>;
+        <strong>bool</strong>                                <em>beamHiddenlineUnderSlabs</em>;
+        <strong>bool</strong>                                <em>showMarkupItems</em>;
+        <strong>bool</strong>                                <em>zoneHideZoneStamp</em>;
+        <strong><a href="API_CurtainWallModelViewOptions.html">API_CurtainWallModelViewOptions</a></strong>     <em>curtainWallModelViewOptions</em>;
+        <strong><a href="API_StairModelViewOptions.html">API_StairModelViewOptions</a></strong>           <em>stairModelViewOptions</em>;
+        <strong><a href="API_RailingModelViewOptions.html">API_RailingModelViewOptions</a></strong>         <em>railingModelViewOptions</em>;
+        <strong><a href="API_GDLModelViewOptions.html">API_GDLModelViewOptions</a></strong>             <em>*gdlOptions</em>;
+    <strong>}</strong> <em>API_ModelViewOptions</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>doorMode</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Door display definition.<br>
+        Possible values: <code>API_Hole_ShowWithDim</code>, <code>API_Hole_ShowOnPlan</code>, <code>API_Hole_HideOnPlan</code>, <code>API_Hole_ReflCeiling</code>, <code>API_Hole_HideHole</code>.</dd>
+
+        <dt><b>windowMode</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Window display definition.<br>
+        Possible values: <code>API_Hole_ShowWithDim</code>, <code>API_Hole_ShowOnPlan</code>, <code>API_Hole_HideOnPlan</code>, <code>API_Hole_ReflCeiling</code>, <code>API_Hole_HideHole</code>.</dd>
+
+        <dt><b>skylightMode</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></dt>
+
+        <dd>API_Hole_ShowWithDim...API_Hole_HideHole.</dd>
+
+        <dt><b>sectionMarker</b></dt>
+
+        <dd>
+            Specifies the section markers visibility (Archicad only).<br>
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <td><code>API_Section_Marker_Normal</code></td>
+
+                    <td>Section Markers are fully displayed on the floor plan.</td>
+                </tr>
+
+                <tr>
+                    <td><code>API_Section_Marker_KeyPlan</code></td>
+
+                    <td>Section Markers are displayed with only one marker at the midpoint between the two ends of the imaginary Section Line.</td>
+                </tr>
+
+                <tr>
+                    <td><code>API_Section_Marker_AsInSettings</code></td>
+
+                    <td>Section Markers are displayed as they are set in the Section Settings dialog box.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>beamMethod</b></dt>
+
+        <dd>Specifies the beam drawing style (Archicad only).<br>
+        Possible values: <code>API_Beam_Drawing_Full</code>, <code>API_Beam_Drawing_RefLine</code>, <code>API_Beam_Drawing_Contour</code>.</dd>
+
+        <dt><b>roofShellMode</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></dt>
+
+        <dd>API_RoofShellShow_AllDetails, API_RoofShellShow_TopSurface, API_RoofShellShow_ContourDrawing.</dd>
+
+        <dt><b>showColumnSymbol</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Specifies whether column symbols are displayed on the floor plan (Archicad only).<br>
+        Possible values: <code>API_Column_Symbol_Hide</code>, <code>API_Column_Symbol_Show</code>.</dd>
+
+        <dt><b>slabMethod</b></dt>
+
+        <dd>For adjoining slabs with the same top surface and top height.<br>
+        Possible values: <code>API_Slab_ShowCommonEdges</code>, <code>API_Slab_EliminateCommonEdges</code>, <code>API_Slab_HiddenCommonEdges</code>.</dd>
+
+        <dt><b>coluHiddenlineUnderSlabs</b></dt>
+
+        <dd>Use hidden line under slab in columns.</dd>
+
+        <dt><b>beamHiddenlineUnderSlabs</b></dt>
+
+        <dd>Use hidden line under slab in beams.</dd>
+
+        <dt><b>showMarkupItems</b></dt>
+
+        <dd>Tells whether mark-up items should be visible.</dd>
+
+        <dt><b>zoneHideZoneStamp</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>Tells whether the zone stamps should be visible.</dd>
+
+        <dt><b>curtainWallModelViewOptions</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="22" width="19" height="12"></dt>
+
+        <dd>Structure of Curtain Wall Model View Options.</dd>
+
+        <dt><b>stairModelViewOpions</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Structure of Stair Model View Options.</dd>
+
+        <dt><b>railingModelViewOpions</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Railing Model View Options.</dd>
+
+        <dt><b>gdlOptions</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="12" width="19" height="12"></dt>
+
+        <dd>Array of GDL related view options (GSPtr). It has an effect only on library part based elements' appearence (window, door, object, lamp).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>These settings correspond to the relevant items in the Document/Set Model View/Model View Options dialog.</p>
+
+    <p>Model view options are also part of the <a href="API_NavigatorView.html">navigator view</a> definition.</p>
+
+    <p>Call the <a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a> function with the <a href="../Functions/APIEnv_GetViewOptionsID.html">APIEnv_GetViewOptionsID</a> or <a href="../Functions/APIEnv_ChangeViewOptionsID.html">APIEnv_ChangeViewOptionsID</a> function codes to operate on this data.</p>
+
+    <p>Do not forget to dispose the <code>gdlOptions</code> pointer when it is not needed any more. Refer to the <a href="../Functions/ACAPI_FreeGDLModelViewOptionsPtr.html">ACAPI_FreeGDLModelViewOptionsPtr</a> to do that.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIEnv_GetViewOptionsID.html">APIEnv_GetViewOptionsID</a>, <a href="../Functions/APIEnv_ChangeViewOptionsID.html">APIEnv_ChangeViewOptionsID</a>,<br>
+    <a href="API_NavigatorView.html">API_NavigatorView</a>,<br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

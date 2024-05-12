@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>Model</title><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Model/Model.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1>Model class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>Reference to a 3D model. <!-- Not Index --><a href="#Detailed%20description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td><!-- Not Index --><a href="../ModelAccessAPI.html">Model Access API</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>Model.hpp</td>
+        </tr>
+    </table><br>
+    <br>
+
+    <h3>Public methods</h3>
+
+    <p>&nbsp;&nbsp;&nbsp; <a href="Constructors.html">Constructors</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Copy Constructor.html">Copy constructor</a><br>
+    &nbsp;&nbsp;&nbsp; operator=<br>
+    <br>
+    <b>Comparing</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Compare.html">Compare</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorEqu.html">operator==</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorNotEqu.html">operator!=</a><br>
+    <br>
+    <b>Geometry data</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetBounds.html">GetBounds</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetElementNum.html">GetElementNum</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetElement.html">GetElement</a><br>
+    <br>
+    <b>Color attributes</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetColorNum.html">GetColorNum</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetColor.html">GetColor</a><br>
+    <br>
+    <b>Fill attributes</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetFillNum.html">GetFillNum</a><br>
+    <br>
+    <b>Material attributes</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetMaterialNum.html">GetMaterialNum</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetMaterial.html">GetMaterial</a><br>
+    <br>
+    <b>Texture attributes</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetTextureNum.html">GetTextureNum</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetTexture.html">GetTexture</a><br>
+    <br>
+    <b>Light data</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetLightNum.html">GetLightNum</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetLight.html">GetLight</a><br></p>
+	<br>
+    <b>Model data</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetGuid.html">GetGuid</a><br>
+	&nbsp;&nbsp;&nbsp; <a href="Changed.html">Changed</a><br></p>
+    <h3><a name="#Detailed description"></a>Detailed description</h3>
+
+    <p>The model object is a reference to a 3D model. Its only a viewer, you can not create or modify models via <b>this</b> object. Geometric informations are stored in elements. Visualization informations are stored separate from geometry. Geometry elements reference these data by indexes. The color, material, texture and light attributes can be retrieved from the model using these indexes.</p>
+
+    <p><br>
+    <br>
+    <br></p>
+
+    <h3>See Also</h3>
+
+    <p><!-- Not Index --> <a href="../Box3D/Box3D.html">Box3D</a> , <!-- Not Index --> <a href="../Element/Element.html">Element</a> , <!-- Not Index --> <a href="../Color/Color.html">Color</a> , <!-- Not Index --> <a href="../Material/Material.html">Material</a> , <!-- Not Index --> <a href="../Texture/Texture.html">Texture</a> , <!-- Not Index --> <a href="../Light/Light.html">Light</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

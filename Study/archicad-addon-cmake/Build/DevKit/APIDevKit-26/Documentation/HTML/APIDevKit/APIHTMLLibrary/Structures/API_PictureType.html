@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_PictureType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_PictureType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_PictureType</h1>
+
+    <p>Represents a figure (picture) element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>         <em>head</em>;
+        <strong>bool</strong>                  <em>mirrored</em>;
+        <strong>bool</strong>                  <em>usePixelSize</em>;
+        <strong>short</strong>                 <em>pixelSizeX</em>;
+        <strong>short</strong>                 <em>pixelSizeY</em>;
+        <strong>bool</strong>                  <em>transparent</em>;
+        <strong>bool</strong>                  <em>directCreate</em>;
+        <strong>double</strong>                <em>rotAngle</em>;
+        <strong><a href="API_Box.html">API_Box</a></strong>               <em>destBox</em>;
+        <strong><a href="API_Box.html">API_Box</a></strong>               <em>origBox</em>;
+        <strong><a href="API_ColorDepthID.html">API_ColorDepthID</a></strong>      <em>colorDepth</em>;
+        <strong><a href="API_AnchorID.html">API_AnchorID</a></strong>          <em>anchorPoint</em>;
+        <strong><a href="API_PictureFormat.html">API_PictureFormat</a></strong>     <em>storageFormat</em>;
+        <strong>Int32</strong>                 <em>filler_1</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>           <em>pictName[API_UniLongNameLen]</em>;
+        <strong>char</strong>                  <em>mime[128]</em>;
+        <strong>Int32</strong>                 <em>filler_2[6]</em>;
+    <strong>}</strong> <em>API_PictureType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>mirrored</b></dt>
+
+        <dd><code>True</code> if mirrored to local vertical axis.</dd>
+
+        <dt><b>usePixelSize</b></dt>
+
+        <dd>Has meaning only when creating the picture, see the table <a href="#Remarks">below</a>.</dd>
+
+        <dt><b>pixelSizeX</b></dt>
+
+        <dd>Physical x size in pixels (When creating the picture and <code>usePixelSize</code> is <code>true</code>, then the logical x size in pixels of the current zoom. See the table <a href="#Remarks">below</a>.)</dd>
+
+        <dt><b>pixelSizeY</b></dt>
+
+        <dd>Physical y size in pixels (When creating the picture and <code>usePixelSize</code> is <code>true</code>, then the logical y size in pixels of the current zoom. See the table <a href="#Remarks">below</a>.)</dd>
+
+        <dt><b>transparent</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>White pixels of the picture are drawn transparently.</dd>
+
+        <dt><b>directCreate</b>&nbsp;<img border="0" src="../../APIImageLibrary/51.png" alt="5.1" width="19" height="12"></dt>
+
+        <dd>Create the picture element without parameter checking and re-calculating (input only).</dd>
+
+        <dt><b>rotAngle</b></dt>
+
+        <dd>Rotation angle.</dd>
+
+        <dt><b>destBox</b></dt>
+
+        <dd>Current box of the picture (when creating the picture, see the table <a href="#Remarks">below</a>).</dd>
+
+        <dt><b>origBox</b></dt>
+
+        <dd>Original box of the picture.</dd>
+
+        <dt><b>colorDepth</b></dt>
+
+        <dd>Color depth of the image, see <a href="API_ColorDepthID.html">API_ColorDepthID</a>.</dd>
+
+        <dt><b>anchorPoint</b></dt>
+
+        <dd>Anchor point of core, see <a href="API_AnchorID.html">API_AnchorID</a>.</dd>
+
+        <dt><b>storageFormat</b></dt>
+
+        <dd>Storage format of the picture.</dd>
+
+        <dt><b>pictName[API_UniLongNameLen]</b>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="Modified in 18" width="19" height="12"></dt>
+
+        <dd>Unicode (UTF-16) name of the picture.</dd>
+
+        <dt><b>mime[128]</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>MIME string identifying the image format (output only).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <center>
+        &nbsp;<a name="Remarks" id="Remarks"></a>
+
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>
+                    <p>&nbsp;</p>
+                </th>
+
+                <th>
+                    <p><code>creating</code> (usePixelSize is true)</p>
+                </th>
+
+                <th>
+                    <p><code>creating</code> (usePixelSize is false)</p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>mirrored</b></p>
+                </td>
+
+                <td>
+                    <center>
+                        required
+                    </center>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>pixelSizeX</b></p>
+                </td>
+
+                <td>
+                    <center>
+                        required
+                    </center>
+                </td>
+
+                <td>
+                    <center>
+                        ignored
+                    </center>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>pixelSizeY</b></p>
+                </td>
+
+                <td>
+                    <center>
+                        required
+                    </center>
+                </td>
+
+                <td>
+                    <center>
+                        ignored
+                    </center>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>rotAngle</b></p>
+                </td>
+
+                <td>
+                    <center>
+                        required
+                    </center>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>destBox: xMin, yMin</b></p>
+                </td>
+
+                <td>
+                    <center>
+                        required (insert position)
+                    </center>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>destBox: xMax, yMax</b></p>
+                </td>
+
+                <td>
+                    <center>
+                        ignored
+                    </center>
+                </td>
+
+                <td>
+                    <center>
+                        required
+                    </center>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>origBox</b></p>
+                </td>
+
+                <td>
+                    <center>
+                        ignored
+                    </center>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>colorDepth</b></p>
+                </td>
+
+                <td>
+                    <center>
+                        ignored
+                    </center>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>anchorPoint</b></p>
+                </td>
+
+                <td>
+                    <center>
+                        required
+                    </center>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>storageFormat</b></p>
+                </td>
+
+                <td>
+                    <center>
+                        required
+                    </center>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>pictName</b></p>
+                </td>
+
+                <td>
+                    <center>
+                        optional
+                    </center>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <p><b><code>Creating</code></b></p>
+
+        <p><img src="../../APIImageLibrary/PictUsePixelSize.png" class="size2x" width="793" align="bottom" alt="Picture with pixel size"></p>
+
+        <p>&nbsp;</p>
+
+        <p><b><code>Not creating</code></b></p>
+
+        <p><img src="../../APIImageLibrary/PictDestBox.png" class="size2x" width="565" align="bottom" alt="Picture destination box"></p>
+
+        <p>&nbsp;</p>
+    </center>
+
+    <p>Use the <code>directCreate</code> option if you do not want the parameters you passed to be checked and re-calculated.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_Box.html">API_Box</a>, <a href="API_ColorDepthID.html">API_ColorDepthID</a>, <a href="API_AnchorID.html">API_AnchorID</a>, <a href="API_PictureFormat.html">API_PictureFormat</a>, <a href="API_Element.html">API_Element</a>,<br>
+    <a href="API_ElementMemo.html">API_ElementMemo</a>,<br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 31, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

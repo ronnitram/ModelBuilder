@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_DimensionType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_DimensionType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_DimensionType</h1>
+
+    <p>Describes a (linear) dimension.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                      <em>head</em>;
+        <strong>short</strong>                              <em>linPen</em>;
+        <strong>short</strong>                              <em>filler_1</em>;
+        <strong><a href="API_TextPosID.html">API_TextPosID</a></strong>                      <em>textPos</em>;
+        <strong><a href="API_DirID.html">API_DirID</a></strong>                          <em>textWay</em>;
+        <strong><a href="API_AppearID.html">API_AppearID</a></strong>                       <em>dimAppear</em>;
+        <strong>bool</strong>                               <em>detailedHoleDim</em>;
+        <strong>char</strong>                               <em>nominalHoleDim</em>;
+        <strong>char</strong>                               <em>compAutoThick</em>;
+        <strong>bool</strong>                               <em>defStaticDim</em>;
+        <strong><a href="API_WitnessID.html">API_WitnessID</a></strong>                      <em>defWitnessForm</em>;
+        <strong>double</strong>                             <em>defWitnessVal</em>;
+        <strong><a href="API_NoteType.html">API_NoteType</a></strong>                       <em>defNote</em>;
+        <strong><a href="API_MarkerData.html">API_MarkerData</a></strong>                     <em>markerData</em>;
+        <strong>char</strong>                               <em>ed_dimForm</em>;
+        <strong>char</strong>                               <em>ed_arrowAng</em>;
+        <strong>bool</strong>                               <em>ed_arrowFill</em>;
+        <strong>bool</strong>                               <em>ed_arrowUp</em>;
+        <strong>bool</strong>                               <em>ed_needPlus</em>;
+        <strong>bool</strong>                               <em>usedIn3D</em>;
+        <strong>bool</strong>                               <em>horizontalText</em>;
+        <strong>bool</strong>                               <em>onlyDimensionText</em>;
+        <strong><a href="API_DimOriginID.html">API_DimOriginID</a></strong>                    <em>ed_origin</em>;
+        <strong><a href="API_CircleLevelDimensionFillID.html">API_CircleLevelDimensionFillID</a></strong>     <em>ed_circleLevelDimensionFill</em>;
+        <strong>Int32</strong>                              <em>filler_4[4]</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                          <em>refC</em>;
+        <strong><a href="API_Coord.html">API_Vector</a></strong>                         <em>direction</em>;
+        <strong><a href="API_DimBase.html">API_DimBase</a></strong>                        <em>arcBase</em>;
+        <strong>Int32</strong>                              <em>nDimElem</em>;
+        <strong>Int32</strong>                              <em>filler_5</em>;
+        <strong><a href="API_Coord3D.html">API_Coord3D</a></strong>                        <em>refC3D</em>;
+        <strong><a href="API_Coord3D.html">API_Vector3D</a></strong>                       <em>direction3D</em>;
+        <strong><a href="API_Coord3D.html">API_Vector3D</a></strong>                       <em>normVect3D</em>;
+        <strong><a href="API_DimLayoutID.html">API_DimLayoutID</a></strong>                    <em>dimLayout</em>;
+        <strong>bool</strong>                               <em>pushNeighborEnabled</em>;
+        <strong>bool</strong>                               <em>placeUnderEnabled</em>;
+        <strong>bool</strong>                               <em>advanced</em>;
+        <strong>bool</strong>                               <em>clipOtherSide</em>;
+        <strong>Int32</strong>                              <em>filler_6[6]</em>;
+    <strong>}</strong> <em>API_DimensionType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>linPen</b></dt>
+
+        <dd>Pen attribute index of dimension and witness lines.</dd>
+
+        <dt><b>textPos</b></dt>
+
+        <dd>Dimension text position (see <a href="API_TextPosID.html">API_TextPosID</a>).</dd>
+
+        <dt><b>textWay</b></dt>
+
+        <dd>The position of the text relative to the dimension line (see <a href="API_DirID.html">API_DirID</a>). The possible values are: <code>APIDir_Parallel</code>, <code>APIDir_Horizontal</code>, <code>APIDir_Vertical</code>, <code>APIDir_ArcDim</code>.</dd>
+
+        <dt><b>dimAppear</b></dt>
+
+        <dd>Appearance of the dimension (see <a href="API_AppearID.html">API_AppearID</a>).</dd>
+
+        <dt><b>detailedHoleDim</b></dt>
+
+        <dd>Detailed door/window dimension.</dd>
+
+        <dt><b>nominalHoleDim</b></dt>
+
+        <dd>Nominal height for door/window dimension.</dd>
+
+        <dt><b>compAutoThick</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Modified in API 21" width="19" height="12"></dt>
+
+        <dd>Dimension type bits of composite walls.<br>
+        <img border="0" src="../../APIImageLibrary/CompAutoThick.png" class="size2x" alt="Composite thickness" width="447"></dd>
+
+        <dt><b>defStaticDim</b></dt>
+
+        <dd>Static dimension (default)?</dd>
+
+        <dt><b>defWitnessForm</b></dt>
+
+        <dd>Default witness line format (see <a href="API_WitnessID.html">API_WitnessID</a>).</dd>
+
+        <dt><b>defWitnessVal</b></dt>
+
+        <dd>Default gap (<code>APIWtn_Fix</code>) or length (<code>APIWtn_Large</code>) of witness line according to <code>defWitnessForm</code>.</dd>
+
+        <dt><b>defNote</b></dt>
+
+        <dd>Default note parameters (see <a href="API_NoteType.html">API_NoteType</a>).</dd>
+
+        <dt><b>markerData</b></dt>
+
+        <dd>Marker specification (see <a href="API_MarkerData.html">API_MarkerData</a>).</dd>
+
+        <dt><b>ed_dimForm</b></dt>
+
+        <dd>Elevation dimension marker type.</dd>
+
+        <dt><b>ed_arrowAng</b></dt>
+
+        <dd>Elevation dimension half-arrow angle:</dd>
+
+        <dd>
+            <table>
+                <tr>
+                    <td>
+                        <center>
+                            <code>0</code>
+                        </center>
+                    </td>
+
+                    <td>
+                        <p>30 degrees</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <center>
+                            <code>1</code>
+                        </center>
+                    </td>
+
+                    <td>
+                        <p>45 degrees</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <center>
+                            <code>2</code>
+                        </center>
+                    </td>
+
+                    <td>
+                        <p>60 degrees</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>ed_arrowFill</b></dt>
+
+        <dd>Elevation dimension arrow is filled or not.</dd>
+
+        <dt><b>ed_arrowUp</b></dt>
+
+        <dd>Elevation dimension arrow is up/down.</dd>
+
+        <dt><b>ed_needPlus</b></dt>
+
+        <dd>Elevation dimension plus sign needed for positive numbers.</dd>
+
+        <dt><b>usedIn3D</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Used for dimensioning 3D points.</dd>
+
+        <dt><b>horizontalText</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Dimension texts are horizontal.</dd>
+
+        <dt><b>onlyDimensionText</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="New in API 20" width="19" height="12"></dt>
+
+        <dd>Only dimension texts (notes) are visible &mdash; no leader line.</dd>
+
+        <dt><b>ed_origin</b></dt>
+
+        <dd>Elevation dimension origin./</dd>
+
+        <dt><b>ed_circleLevelDimensionFill</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Elevation dimension: the circle style marker fill.</dd>
+
+        <dt><b>refC</b></dt>
+
+        <dd>Dimension line location.</dd>
+
+        <dt><b>direction</b></dt>
+
+        <dd>Direction of the dimension line if parallel.</dd>
+
+        <dt><b>arcBase</b></dt>
+
+        <dd>Neig &amp; unique ID of the base element for an arc dimension chain.</dd>
+
+        <dt><b>nDimElem</b></dt>
+
+        <dd>Number of segments in dimension elements' chain (see <a href="API_ElementMemo.html">API_ElementMemo</a>)</dd>
+
+        <dt><b>refC3D</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Position of the dimension chain (used only in 3D).</dd>
+
+        <dt><b>direction3D</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Direction of the dimension line (used only in 3D).</dd>
+
+        <dt><b>normVect3D</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Dimension plane's normal vector (used only in 3D).</dd>
+
+        <dt><b>dimLayout</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Layouting algorithm used by the dimension.</dd>
+
+        <dt><b>pushNeighborEnabled</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Enable a note to push its neighbours (In case of API_Flexible layouting algorithm).</dd>
+
+        <dt><b>placeUnderEnabled</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Try to place a note under the dimension line (In case of API_Flexible layouting algorithm).</dd>
+
+        <dt><b>advanced</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Use advanced logic (In case of API_Centered layouting algorithm).</dd>
+
+        <dt><b>clipOtherSide</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>No witness line part on the other side (opposite to basepoint).</dd>
+
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For dimension related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_TextPosID.html">API_TextPosID</a>, <a href="API_DirID.html">API_DirID</a>, <a href="API_AppearID.html">API_AppearID</a>, <a href="API_WitnessID.html">API_WitnessID</a>, <a href="API_NoteType.html">API_NoteType</a>, <a href="API_MarkerData.html">API_MarkerData</a>, <a href="API_Coord.html">API_Coord</a>, <a href="API_Coord.html">API_Vector</a>, <a href="API_Coord3D.html">API_Coord3D</a>, <a href="API_Coord3D.html">API_Vector3D</a>, <a href="API_Neig.html">API_Neig</a>, <a href="API_Element.html">API_Element</a>,<br>
+    <a href="API_DimElem.html">API_DimElem</a>, <a href="API_DimBase.html">API_DimBase</a>, <a href="API_ElementMemo.html">API_ElementMemo</a>,<br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

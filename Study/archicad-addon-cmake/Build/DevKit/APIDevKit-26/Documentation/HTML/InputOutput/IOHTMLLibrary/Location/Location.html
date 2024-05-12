@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Location</title><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/Location/Location.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Location class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>Absolute address of entries (file, folder, link) in the file system. <!-- Not Index --><a href="#Description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td><!-- Not Index --><a href="../../InputOutput.html">InputOutput</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td><!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Object/Object.html">GS::Object</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>Location.hpp</td>
+        </tr>
+    </table><br>
+    <br>
+
+    <h3>Public methods</h3>
+
+    <p><br>
+    &nbsp;&nbsp;&nbsp; <a href="Constructors.html">Constructors</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; Copy constructor<br>
+    &nbsp;&nbsp;&nbsp; operator=<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <b>static</b> <a href="New.html">New</a><br>
+    <br>
+    <b>State query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetStatus.html">GetStatus</a><br>
+    <br>
+    <b>Global setting / query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Set.html">Set</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Clear.html">Clear<br></a> &nbsp;&nbsp;&nbsp; <a href="IsEmpty.html">IsEmpty</a><br>
+    <br>
+    <b>Network address operations</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetNetworkName.html">GetNetworkName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetNetworkName.html">SetNetworkName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetLastNetworkName.html">GetLastNetworkName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetLastNetworkName.html">SetLastNetworkName</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="AppendToNetwork.html">AppendToNetwork</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="DeleteNetworkName.html">DeleteNetworkName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="DeleteLastNetworkName.html">DeleteLastNetworkName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="MoveLastNetworkName.html">MoveLastNetworkName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="ClearNetwork.html">ClearNetwork</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetNetworkLength.html">GetNetworkLength</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsLocal.html">IsLocal</a><br>
+    <b><br>
+    Local address operations</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetLocalName.html">GetLocalName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetLocalName.html">SetLocalName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetLastLocalName.html">GetLastLocalName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetLastLocalName.html">SetLastLocalName</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="AppendToLocal.html">AppendToLocal</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetDifference.html">GetDifference</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="DeleteLocalName.html">DeleteLocalName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="DeleteLastLocalName.html">DeleteLastLocalName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="MoveLastLocalName.html">MoveLastLocalName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="ClearLocal.html">ClearLocal</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetLocalLength.html">GetLocalLength</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsRoot.html">IsRoot</a><br>
+    <br>
+    <b>Comparing</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="operatorEqu.html">operator==</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="operatorNotEqu.html">operator!=</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsAncestorOf.html">IsAncestorOf</a><br>
+    <br>
+    <b>Conversions</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="ToPath.html">ToPath</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="ToPOSIXPath.html">ToPOSIXPath</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="ToFSRef.html">ToFSRef</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="ToCFURL.html">ToCFURL</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="ToFSSpec.html"><i>ToFSSpec (Obsoleted)</i></a><br>
+    &nbsp;&nbsp;&nbsp; <a href="ToURL.html">ToURL</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="ToDisplayText.html">ToDisplayText</a><br>
+    <br>
+    <b>Platform dependency support</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsLegal.html">IsLegal</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsMultiplatform.html">IsMultiplatform</a><br>
+    <br>
+    <b>I/O</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; Read<font face="Courier New">&nbsp; -&gt;</font> <!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Object/Object.html">GS::Object</a><br>
+    &nbsp;&nbsp;&nbsp; Write<font face="Courier New">&nbsp; -&gt;</font> <!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Object/Object.html">GS::Object</a><br>
+    <br>
+    <b>Debug</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; Print<font face="Courier New">&nbsp; -&gt;</font> <!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Object/Object.html">GS::Object</a><br>
+    <br>
+    <br></p>
+
+    <h3><a name="Description"></a>Description</h3>
+
+    <p>Location is address or path of entries (file, folder, link) in the file system. File system is hierarchical structure (tree) of file system entries, where internal nodes are folders (or machines and subnetworks) and leaf nodes are files or empty folders. (Note that term file system is generalized to include the whole network, while the term local file system refers to the traditional file system of a standalone machine.) Every entry has a <!-- Not Index --><a href="../Name/Name.html">Name</a> associated with it, which is unique within its context (in its parent folder). Because file system is a tree, there is a single unambiguous path from the root of the file system through internal nodes (folders, machines or subnetworks) to the particular entry, yielding sequence of names. Location in fact is a sequence of names, but it can refer to nonexisting entries (user can build arbitrary locations). Structure of the location is the following:</p>
+
+    <p>&nbsp;</p>
+
+    <blockquote>
+        <blockquote>
+            <p><img border="0" src="../../IOImageLibrary/Location.gif" alt="Location" width="308" height="139"></p>
+        </blockquote>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <p>Location has two main parts: network address and local address. Each address consists of arbitrary long sequence of names, and each name consists of arbitrary long sequence of characters. These addresses can be freely manipulated with several methods. Network address determines location of the machine containing the particular entry on the network. If the network address is empty, then location is treated <b>local</b>, which means that it refers to the local file system of the <b>current</b> machine. Local address determines location of the particular entry inside the local file system of the given machine. If the local address is empty, then location refers to the root of the local file system of the given machine. Note that this root is virtual on some platforms, e.g. on Windows and Macintosh it contains volumes (logical drives).</p>
+
+    <p>Although generally there is no any restriction related to the content of a location, there can be some at the point of use on the particular platform. For example when creating a file, it is not allowed on Windows for its location to contain some special characters like '|' or '*'. User can check whether is a location syntactically legal on the current platform (with <!-- Not Index --><a href="IsLegal.html">IsLegal</a> method) or on every platform supported by InputOutput module (with <!-- Not Index --><a href="IsMultiplatform.html">IsMultiplatform</a> method). Syntactically legal means simply that a file system entry with such location <b>may</b> exist, and not that it actually exists.</p>
+
+    <p>Locations can be permanently saved and restored later. Locations can be ported between different platforms with some restrictions. (Note that as far as a Location object in isolation is considered, its content can be always properly restored and manipulated later, but at point of actual use it can turn out to be unusable on the particular system.) First, location must be multiplatform according to the IsMultiplatform method. Multiplatform <b>local</b> locations are portable. Second, there are some restrictions to the network protocol. The following table summarizes portability (and restorability) properties. It specifies whether is possible to properly <b>use</b> a Location object saved on a system with <font color="#008080"><i><b>Source</b></i></font> network protocol on the system with <font color="#800000"><i><b>Target</b></i></font> network protocol. Proper using means that entry referred to by the original location can be properly accessed (referred to) on the target system.</p>
+
+    <blockquote>
+        <table width="691">
+            <tr>
+                <th width="105">
+                    <p align="center"><font color="#008080"><i>Source</i></font> \ <font color="#800000"><i>Target</i></font></p>
+                </th>
+
+                <th width="84">
+                    <p align="center"><font color="#800000">Windows</font></p>
+                </th>
+
+                <th width="102">
+                    <p align="center"><font color="#800000">Mac: AppleTalk</font></p>
+                </th>
+
+                <th width="148">
+                    <p align="center"><font color="#800000">Mac: TCP / IP</font></p>
+                </th>
+
+                <th width="150">
+                    <p align="center"><font color="#800000">Mac: Other (e.g. Dave)</font></p>
+                </th>
+            </tr>
+
+            <tr>
+                <th width="105"><font color="#008080">Windows</font></th>
+
+                <td align="center" width="84">OK</td>
+
+                <td align="center" width="102">OK<sup><font color="#FF0000">*</font></sup></td>
+
+                <td align="center" width="148">Volume must be mounted</td>
+
+                <td align="center" width="150">Volume must be mounted</td>
+            </tr>
+
+            <tr>
+                <th width="105"><font color="#008080">Mac: AppleTalk</font></th>
+
+                <td align="center" width="84">OK</td>
+
+                <td align="center" width="102">OK</td>
+
+                <td align="center" width="148">OK</td>
+
+                <td align="center" width="150">OK</td>
+            </tr>
+
+            <tr>
+                <th align="center" width="105"><font color="#008080">Mac: TCP / IP</font></th>
+
+                <td align="center" width="84">OK</td>
+
+                <td align="center" width="102">OK</td>
+
+                <td align="center" width="148">OK</td>
+
+                <td align="center" width="150">OK</td>
+            </tr>
+
+            <tr>
+                <th width="105"><font color="#008080">Mac: Other<br>
+                (e.g. Dave)</font></th>
+
+                <td align="center" width="84">-</td>
+
+                <td align="center" width="102">OK</td>
+
+                <td align="center" width="148">OK</td>
+
+                <td align="center" width="150">OK</td>
+            </tr>
+        </table>
+
+        <blockquote>
+            <p><sup><font color="#FF0000">*</font></sup> Currently one level flat network model is supported by Windows, that is only server name is used (there are no subnetworks). Macintosh AppleTalk is a two level zone-server network model. When porting from flat to zone-server model, search is performed in all of the zones for the given server, which may take some time. However, when the server is found, then the volume is mounted, so subsequent references can be resolved without searching. Naturally servers with the same name in different zones may lead to unpredictable results.</p>
+        </blockquote>
+    </blockquote>
+
+    <p>Location represents an absolute address (at least absolute to the local machine). Sometimes it is more convenient to deal with one absolute and more relative addresses. This is supported by the class <!-- Not Index --><a href="../RelativeLocation/RelativeLocation.html">RelativeLocation</a>. A relative location can be manipulated, saved, restored and finally appended to an absolute location.</p>
+
+    <p>Implementation of the Location class is highly optimized both to space and speed. Copy constructor and assignment operator are fast and do not require additional heap space. Internally, locations are stored in a common shared tree. Similar locations require additional space only for different segments.</p>
+
+    <p><b><br>
+    Note:</b> in every method where <font face="Courier New">const Name&amp;</font> is expected, C string can be also passed, because there is implicit conversion from <font face="Courier New">char*</font> to <font face="Courier New">Name</font>.<br>
+    <br>
+    <br></p>
+
+    <h3>See Also</h3>
+
+    <p><a href="../Name/Name.html">Name</a>, <a href="../RelativeLocation/RelativeLocation.html">RelativeLocation</a>, <a href="../File/File.html">File</a>, <a href="../Folder/Folder.html">Folder</a></p>
+
+    <p><a href="../HowTo/ObtainingLocation.html">Obtaining or building the desired Location</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

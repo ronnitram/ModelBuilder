@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_Variant</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_Variant.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_Variant</h1>
+
+    <p>A container that can store different types of data.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="#API_VariantType">API_VariantType</a></strong>     <em>type</em>;
+        <strong>Int32</strong>               <em>intValue</em>;
+        <strong>double</strong>              <em>doubleValue</em>;
+        <strong>bool</strong>                <em>boolValue</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>       <em>uniStringValue</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>            <em>guidValue</em>;
+    <strong>}</strong> <em>API_Variant</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>type</b></dt>
+
+        <dd>Type of the data that the variant stores
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th>
+                        <p><b><code><a name="API_VariantType" id="API_VariantType">API_VariantType</a></code></b></p>
+                    </th>
+
+                    <th>
+                        <p><b>Meaning</b></p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyIntegerValueType</code></p>
+                    </td>
+
+                    <td>
+                        <p>Variant with an integer value</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyRealValueType</code></p>
+                    </td>
+
+                    <td>
+                        <p>Variant with a real (double) value</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyStringValueType</code></p>
+                    </td>
+
+                    <td>
+                        <p>Variant with a string value</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyBooleanValueType</code></p>
+                    </td>
+
+                    <td>
+                        <p>Variant with a boolean value</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyGuidValueType</code>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21" width="19" height="12"></p>
+                    </td>
+
+                    <td>
+                        <p>Variant with a GUID value</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>intValue</b></dt>
+
+        <dd>Integer value</dd>
+
+        <dt><b>doubleValue</b></dt>
+
+        <dd>Real value</dd>
+
+        <dt><b>boolValue</b></dt>
+
+        <dd>Boolean value</dd>
+
+        <dt><b>uniStringValue</b></dt>
+
+        <dd>String value</dd>
+
+        <dt><b>guidValue</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21" width="19" height="12"></dt>
+
+        <dd>GUID value</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 20 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Properties.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_SingleVariant.html">API_SingleVariant</a><br>
+    <a href="API_ListVariant.html">API_ListVariant</a><br>
+    <a href="API_SingleEnumerationVariant.html">API_SingleEnumerationVariant</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 19, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

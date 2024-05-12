@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_LevelDimensionType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_LevelDimensionType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_LevelDimensionType</h1>
+
+    <p>Represents a level dimension.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>       <em>head</em>;
+        <strong>short</strong>               <em>pen</em>;
+        <strong>short</strong>               <em>dimForm</em>;
+        <strong>bool</strong>                <em>filler_0</em>;
+        <strong>bool</strong>                <em>needPlus</em>;
+        <strong>bool</strong>                <em>staticLevel</em>;
+        <strong>bool</strong>                <em>filler_1</em>;
+        <strong>double</strong>              <em>markerSize</em>;
+        <strong>double</strong>              <em>angle</em>;
+        <strong>Int32</strong>               <em>filler_2[8]</em>;
+        <strong><a href="API_NoteType.html">API_NoteType</a></strong>        <em>note1</em>;
+        <strong><a href="API_NoteType.html">API_NoteType</a></strong>        <em>note2</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>           <em>loc</em>;
+        <strong>double</strong>              <em>level</em>;
+        <strong><a href="API_ElemType.html">API_ElemType</a></strong>        <em>parentType</em>;
+        <strong>Int32</strong>               <em>filler_3</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>            <em>parentGuid</em>;
+        <strong><a href="API_DimOriginID.html">API_DimOriginID</a></strong>     <em>origin</em>;
+        <strong>Int32</strong>               <em>filler_4[7]</em>;
+    <strong>}</strong> <em>API_LevelDimensionType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>pen</b></dt>
+
+        <dd>Pen attribute index of the dimension.</dd>
+
+        <dt><b>dimForm</b></dt>
+
+        <dd>Format [0..9]:</dd>
+
+        <dd><img src="../../APIImageLibrary/levdim.png" class="size2x" width="266" height="88" align="bottom" alt="Level dimension"></dd>
+
+        <dt><b>needPlus</b></dt>
+
+        <dd>Plus sign needed for positive numbers?</dd>
+
+        <dt><b>staticLevel</b></dt>
+
+        <dd>Static level dimension?</dd>
+
+        <dt><b>markerSize</b></dt>
+
+        <dd>Marker size in mm.</dd>
+
+        <dt><b>angle</b></dt>
+
+        <dd>Angle of lev dimension marker [radian].</dd>
+
+        <dt><b>note1</b></dt>
+
+        <dd>Parameters of the dimension text (see <a href="API_NoteType.html">API_NoteType</a>).</dd>
+
+        <dt><b>note2</b></dt>
+
+        <dd>Parameters of the secondary dimension text (see <a href="API_NoteType.html">API_NoteType</a>); for <code>dimForm</code> = 8, 9.</dd>
+
+        <dt><b>loc</b></dt>
+
+        <dd>Location of the marker.</dd>
+
+        <dt><b>level</b></dt>
+
+        <dd>Level of the parent/floor, or static.</dd>
+
+        <dt><b>parentType</b></dt>
+
+        <dd>Refers to this element (see <a href="API_ElemType.html">API_ElemType</a>); refers to floor if <code>API_ZombieElemID</code>.</dd>
+
+        <dt><b>parentGuid</b></dt>
+
+        <dd>Unique ID of referred element if parentType is not <code>API_ZombieElemID</code>.</dd>
+
+        <dt><b>parentGuid</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Guid of referred element.</dd>
+
+        <dt><b>origin</b></dt>
+
+        <dd><!--@4.1-->Origin of dimensioning (see <a href="API_DimOriginID.html">API_DimOriginID</a>).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <code>needFrame</code> member has been removed in v13; framing is now handled by the dimension <a href="API_NoteType.html">note</a>.</p>
+    <p>The <code>parentIndex</code> member has been removed in v18; use the <code>parentGuid</code> field instead.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"> From version 26 the type of the <tt>parentType</tt> member was changed into <a href="../Structures/API_ElemType.html">API_ElemType</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_ElemType.html">API_ElemType</a>, <a href="API_NoteType.html">API_NoteType</a>, <a href="API_Coord.html">API_Coord</a>, <a href="API_Element.html">API_Element</a>,<br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 03, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

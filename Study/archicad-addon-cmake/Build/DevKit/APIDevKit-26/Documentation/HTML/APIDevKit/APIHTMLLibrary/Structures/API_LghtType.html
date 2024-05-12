@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_LghtType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_LghtType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_LghtType</h1>
+
+    <p>Representation of a 3D light source.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_3D_Head.html">API_3D_Head</a></strong>       <em>head</em>;
+        <strong><a href="API_LghtSouID.html">API_LghtSouID</a></strong>     <em>type</em>;
+        <strong>Int32</strong>             <em>status</em>;
+        <strong>Int32</strong>             <em>filler_1[2]</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>      <em>lightRGB</em>;
+        <strong>double</strong>            <em>posx</em>;
+        <strong>double</strong>            <em>posy</em>;
+        <strong>double</strong>            <em>posz</em>;
+        <strong>double</strong>            <em>dirx</em>;
+        <strong>double</strong>            <em>diry</em>;
+        <strong>double</strong>            <em>dirz</em>;
+        <strong>double</strong>            <em>radius</em>;
+        <strong>double</strong>            <em>cosa</em>;
+        <strong>double</strong>            <em>cosb</em>;
+        <strong>double</strong>            <em>afall</em>;
+        <strong>double</strong>            <em>dist1</em>;
+        <strong>double</strong>            <em>dist2</em>;
+        <strong>double</strong>            <em>dfall</em>;
+    <strong>}</strong> <em>API_LghtType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>Header information of this component. This specifies the type (<code>API_LghtID</code>) and database index.</dd>
+
+        <dt><b>type</b></dt>
+
+        <dd>The type of the light</dd>
+
+        <dt><b>status</b></dt>
+
+        <dd>The light casts shadow or not.</dd>
+
+        <dt><b>lightRGB</b></dt>
+
+        <dd>The color of the light source.</dd>
+
+        <dt><b>posx, posy, posz</b></dt>
+
+        <dd>The local origin of the light.</dd>
+
+        <dt><b>dirx, diry, dirz</b></dt>
+
+        <dd>The direction of the light.</dd>
+
+        <dt><b>radius</b></dt>
+
+        <dd>The radius of the light source.</dd>
+
+        <dt><b>cosa</b></dt>
+
+        <dd>The cosine of the angle of the cone within the light has its maximum intensity.</dd>
+
+        <dt><b>cosb</b></dt>
+
+        <dd>The cosine of the angle of the cone within the intensity falls to zero.</dd>
+
+        <dt><b>afall</b></dt>
+
+        <dd>The falloff control of the light (decrease of intensity depending on the cone angle).</dd>
+
+        <dt><b>dist1, dist2</b></dt>
+
+        <dd>The clipping values along the x axis.</dd>
+
+        <dt><b>dfall</b></dt>
+
+        <dd>Controls the fall-of of intensity depending on the distance.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>A light source radiates <code>lightRGB</code> colored light from the local origin (<code>posx</code>, <code>posy</code>, <code>posz</code>) along the direction vector (<code>dirx</code>, <code>diry</code>, <code>dirz</code>). The light is projected parallel to the direction vector from a point or circle source. (See figure below!) It has its maximum intensity within the alpha-angle frustum of a cone and falls to zero at the beta-angle frustum of a cone. This falloff is controlled by the <code>afall</code> parameter. (Zero gives the light a sharp edge, higher values mean that the transition is smoother.) The effect of the light is limited along the axis by the <code>dist1</code> and <code>dist2</code> clipping values. The <code>dfall</code> parameter controls the decrease in intensity depending on the distance. (Zero value means a constant intensity, bigger values are used for stronger falloff.)</p>
+
+    <p>The <code>type</code> of the light source can be one of the <a href="API_LghtSouID.html">API_LghtSouID</a> member.</p>
+
+    <p>The <code>status</code> must be <code>APILight_CastShadow</code> if you want Archicad to calculate shadow casting from this light source, or else remain it zero.</p>
+
+    <center>
+        &nbsp;<img src="../../APIImageLibrary/LightSource.png" class="size2x" width="536" align="bottom" alt="Light source">
+    </center>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_3D.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_3D_Head.html">API_3D_Head</a>, <a href="API_LghtSouID.html">API_LghtSouID</a>, <a href="API_RGBColor.html">API_RGBColor</a>, <a href="API_Component3D.html">API_Component3D</a>,<br>
+    <a href="../Level3/3D_Manager_id.html">3D Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

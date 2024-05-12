@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APINavigator_GetNavigatorVPRootGroupsID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APINavigator_GetNavigatorVPRootGroupsID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APINavigator_GetNavigatorVPRootGroupsID</h1>
+
+    <p>Gets the list of Navigator viewpoint roots.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Navigator_id.html">ACAPI_Navigator</a></strong> (
+        <strong>APINavigator_GetNavigatorVPRootGroupsID</strong>,
+        <strong>GS::Array&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;*</strong>     <em>rootGuids</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>rootGuids</em></dt>
+
+        <dd>[out] The GUIDs of the current AddOn's Navigator viewpoint roots.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>rootGuids</code> was <code>nullptr</code>.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>This example prints all Navigator viewpoint roots, groups and leaf nodes to the debug output.</p>
+
+    <blockquote>
+        <pre><code>
+enum NextEnumAction {
+    ProcessSubtree,
+    SkipSubtree,
+    BreakEnumeration
+};
+
+
+// breadth-first enumeration
+static void     EnumerateAllNavigatorAddOnViewPoints (const std::function&lt;NextEnumAction (const API_NavigatorAddOnViewPointData& vp)&gt;& processor)
+{
+    GS::Array&lt;API_Guid&gt; rootGuids;
+    DBVERIFY (ACAPI_Navigator (APINavigator_GetNavigatorVPRootGroupsID, &rootGuids) == NoError);
+
+    GS::Queue&lt;API_Guid&gt; q;
+
+    for (const API_Guid& guid : rootGuids)
+        q.Push (guid);
+
+    while (!q.IsEmpty ()) {
+        API_NavigatorAddOnViewPointData viewPointData;
+        viewPointData.guid = q.Pop ();
+        DBVERIFY (ACAPI_Navigator (APINavigator_GetNavigatorVPItemID, &viewPointData) == NoError);
+
+        switch (processor (viewPointData)) {
+            case ProcessSubtree:
+                if (viewPointData.itemType == API_NavigatorAddOnViewPointRootID || viewPointData.itemType == API_NavigatorAddOnViewPointGroupID) {
+                    GS::Array&lt;API_Guid&gt; childGuids;
+                    DBVERIFY (ACAPI_Navigator (APINavigator_GetNavigatorVPItemChildrenID, &viewPointData.guid, &childGuids) == NoError);
+                    for (const API_Guid& guid : childGuids)
+                        q.Push (guid);
+                }
+                break;
+
+            case SkipSubtree:
+                // do not process children
+                break;
+
+            case BreakEnumeration:
+                return;
+
+            default:
+                DBBREAK ();
+                return;
+        }
+    }
+}
+
+
+static void    PrintAllNavigatorAddOnViewPoints (void)
+{
+    EnumerateAllNavigatorAddOnViewPoints ([] (const API_NavigatorAddOnViewPointData& vp) -> NextEnumAction {
+        DBPrintf (GS::UniString (vp.displayId + " " + vp.displayName + "\n").ToCStr ());
+        return ProcessSubtree;
+    });
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 22 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Navigator.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="APINavigator_GetNavigatorVPItemChildrenID.html">APINavigator_GetNavigatorVPItemChildrenID</a>,<br>
+    <a href="APINavigator_GetNavigatorVPItemID.html">APINavigator_GetNavigatorVPItemID</a>,<br>
+    <a href="ACAPI_Navigator_id.html">ACAPI_Navigator</a>,<br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on August 17, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

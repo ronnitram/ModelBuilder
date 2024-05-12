@@ -1,0 +1,58 @@
+﻿/* *****************************************************************************
+// Localizable resource description for the IFC Test Add-On
+// ****************************************************************************/
+
+#include "Resources.hpp"
+
+'STR#' IFC_TEST_ADDON_NAME "Add-on Name and Description" {
+/* [  1] */		"IFC Test"
+/* [  2] */		"IFC Test Add-On"
+}
+
+
+'STR#' IFCPRESETCOMMANDS_TEST_MENU_STRINGS "IFC Test Menu" {
+/* [   ] */		"Test"
+/* [   ] */		"IFC Test"
+/* [  1] */		"Create Preset"
+/* [  2] */		"Has Preset"
+/* [  3] */		"Clear Preset"
+/* [  4] */		"Add New Type Mapping For Import"
+/* [  5] */		"Add New Type Mapping For Export for IFC2x3"
+/* [  6] */		"Add New Type Mapping For Export"
+/* [  7] */		"Add New Property Mapping For Export"
+/* [  8] */		"Add New Property Mapping For Import"
+/* [  9] */		"-"
+}
+
+
+'STR#' IFCPRESETCOMMANDS_TEST_MENU_PROMPT_STRINGS "Menu Prompt Strings" {
+/* [   ] */		"Test"
+/* [   ] */		"IFC Test"
+/* [  1] */		"Create Preset"
+/* [  2] */		"Has Preset"
+/* [  3] */		"Clear Preset"
+/* [  4] */		"Add New Type Mapping For Import"
+/* [  5] */		"Add New Type Mapping For Export for IFC2x3"
+/* [  6] */		"Add New Type Mapping For Export"
+/* [  7] */		"Add New Property Mapping For Export"
+/* [  8] */		"Add New Property Mapping For Import"
+/* [  9] */		""
+}
+
+
+'STR#' IFCDIFFERENCE_TEST_MENU_STRINGS "IFC Test Menu" {
+/* [   ] */		"Test"
+/* [   ] */		"IFC Test"
+/* [  1] */		"Set Environment for IFCDifference^E2^E3"
+/* [  2] */		"Store current IFCSnapshot for IFCDifference^E2^E3"
+/* [  3] */		"Generate IFCDifference and select changed elements^E2^E3"
+}
+
+
+'STR#' IFCDIFFERENCE_TEST_MENU_PROMPT_STRINGS "Menu Prompt Strings" {
+/* [   ] */		""
+/* [   ] */		""
+/* [  1] */		"Set view and IFC Translator for IFCDifference."
+/* [  2] */		"Create an IFCSnapshot for IFCDifference."
+/* [  3] */		"Show differences between last and actually IFCSnapshot."
+}

@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_LibPartSection</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_LibPartSection.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_LibPartSection</h1>
+
+    <p>Definition of a Library Part section.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>GSType</strong>             <em>sectType</em>;
+        <strong>unsigned short</strong>     <em>subIdent</em>;
+        <strong>short</strong>              <em>version</em>;
+        <strong>Int32</strong>              <em>filler_2</em>;
+    <strong>}</strong> <em>API_LibPartSection</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>sectType</b></dt>
+
+        <dd>Section type</dd>
+
+        <dt><b>subIdent</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>Section secondary identifier. Became <code>unsigned short</code> in v13.</dd>
+
+        <dt><b>version</b></dt>
+
+        <dd>Version of section data (not used for custom sections)</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>A Library Part is composed of several sections. Each section has an owner, a signature versioning information and data bytes. This data structure is designed to hold the available section headers.</p>
+
+    <p>The built in section types (that can be interpreted by Archicad) are:</p>
+
+    <center>
+        <table>
+            <tr>
+                <th>
+                    <p align="left">Section type (API 1.3 or later)</p>
+                </th>
+
+                <th>
+                    <p>&nbsp;</p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectParamDef</code></p>
+                </td>
+
+                <td>
+                    <p>Parameter section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_Sect1DScript</code></p>
+                </td>
+
+                <td>
+                    <p>1D script section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_Sect2DDraw</code></p>
+                </td>
+
+                <td>
+                    <p>2D binary (draw) section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_Sect2DScript</code></p>
+                </td>
+
+                <td>
+                    <p>2D script section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_Sect3DScript</code></p>
+                </td>
+
+                <td>
+                    <p>3D script section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectPRScript</code></p>
+                </td>
+
+                <td>
+                    <p>Properties script section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectUIScript</code></p>
+                </td>
+
+                <td>
+                    <p>User Interface script section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectVLScript</code></p>
+                </td>
+
+                <td>
+                    <p>Value List script section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_Sect3DBinData</code></p>
+                </td>
+
+                <td>
+                    <p>3D binary section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectPropData</code></p>
+                </td>
+
+                <td>
+                    <p>Properties section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectComText</code></p>
+                </td>
+
+                <td>
+                    <p>Comment text section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectInfoPict</code></p>
+                </td>
+
+                <td>
+                    <p>Info picture section type (PICT format)</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectInfoGIF</code></p>
+                </td>
+
+                <td>
+                    <p>Info picture section type (GIF format)</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <p align="left">Section type (API 2.1 or later)</p>
+                </th>
+
+                <th>
+                    <p>&nbsp;</p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectGDLPict</code></p>
+                </td>
+
+                <td>
+                    <p>Pictures referenced from the GDL (GIF format)</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectSubKind</code></p>
+                </td>
+
+                <td>
+                    <p>Symbol SubKind data section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectCompDef</code></p>
+                </td>
+
+                <td>
+                    <p>Component section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectDescDef</code></p>
+                </td>
+
+                <td>
+                    <p>Descriptor section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <p align="left">Section type (API 4.1 or later)</p>
+                </th>
+
+                <th>
+                    <p>&nbsp;</p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectCalledMacros</code></p>
+                </td>
+
+                <td>
+                    <p>Called macros section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectAncestors</code></p>
+                </td>
+
+                <td>
+                    <p>Ancestor for subtyping</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <p align="left">Section type (API 15 or later)</p>
+                </th>
+
+                <th>
+                    <p>&nbsp;</p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectFWMScript</code></p>
+                </td>
+
+                <td>
+                    <p>Forward migration script section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectBWMScript</code></p>
+                </td>
+
+                <td>
+                    <p>Backward migration script section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectMigrTable</code></p>
+                </td>
+
+                <td>
+                    <p>Migration table section type</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    <p align="left">Section type (API 16 or later)</p>
+                </th>
+
+                <th>
+                    <p>&nbsp;</p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectLibPartURL</code></p>
+                </td>
+
+                <td>
+                    <p>BIMcomponents.com URL</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectCopyright</code></p>
+                </td>
+
+                <td>
+                    <p>Copyright information for BIMcomponents.com elements</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_SectKeywords</code></p>
+                </td>
+
+                <td>
+                    <p>Lists keywords for searching</p>
+                </td>
+            </tr>
+		</table>
+    </center>
+
+    <p>If the <code>sectType</code> field (a four-character case-sensitive identifier) does not match any types listed above, it is interpreted as a custom type. In this case the owner application is responsible for the content and the management of the section data.</p>
+
+    <p>This structure is used by many <a href="../Level3/Library_Part_Manager_id.html">Library Part Manager</a> functions as a parameter.</p>
+
+    <p>More detailed information on the standard Library Part sections can be found in the <b>Archicad Reference Manual</b>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_LibraryParts.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Level3/Library_Part_Manager_id.html">Library Part Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on March 18, 2015<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

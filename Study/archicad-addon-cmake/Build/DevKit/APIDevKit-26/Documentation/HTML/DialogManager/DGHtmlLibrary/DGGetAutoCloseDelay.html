@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Lipcsei Peter">
+
+    <title>DGGetAutoCloseDelay</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGGetAutoCloseDelay.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGGetAutoCloseDelay</h1>
+
+    <p>An <a href="Alerts.html">alert</a> or a <a href="ModalDialogs.html">modal dialog</a> usually terminates by the result of a user action, i.e. click on the OK or Cancel button, or the Close Box (Windows only). However, there is a feature in DG to close these types of dialogs automatically (without user action) if a given interval expires. <b>DGGetAutoCloseDelay</b> retrieves this auto close delay.</p>
+    <pre class="syntax">
+    <strong>ULong DGGetAutoCloseDelay</strong> (
+      <strong>void</strong>
+    );
+</pre>
+
+    <h4>Return Values</h4>
+
+    <p>The value of the current auto close delay in seconds. This value can be zero as well, that means the dialog does not appear at all.</p>
+
+    <h4>Remarks</h4>
+
+    <p>If the given interval expires, DG closes the current alert or modal dialog. Alert functions (<a href="DGAlert.html">DGAlert</a>, <a href="DGResAlert.html">DGResAlert</a>, <a href="DGResAlertParam.html">DGResAlertParam</a>) and <a href="DGModalDialog.html">DGModalDialog</a> return the 1-based index of the default button. The default button is the OK button (<tt>DG_OK</tt>). If this button is disabled, the default is the Cancel button (<tt>DG_CANCEL</tt>). If both are disabled, the default is the OK button.</p>
+
+    <p>The given auto close delay value applies to all DG alerts and modal dialogs until a new value is set by <a href="DGSetAutoCloseDelay.html">DGSetAutoCloseDelay</a>.</p>
+
+    <p>To enable or disable the automatic closing of alerts and dialogs use the <a href="DGEnableAutoClose.html">DGEnableAutoClose</a> and <a href="DGDisableAutoClose.html">DGDisableAutoClose</a> functions respectively. To retrieve the current state of the automatic closing status call the <a href="DGIsAutoCloseEnabled.html">DGIsAutoCloseEnabled</a> function. By default the automatic closing is disabled.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="Alerts.html">Alerts</a>, <a href="ModalDialogs.html">Modal Dialogs</a><br>
+    <a href="DGSetAutoCloseDelay.html">DGSetAutoCloseDelay</a><br>
+    <a href="DGEnableAutoClose.html">DGEnableAutoClose</a>, <a href="DGDisableAutoClose.html">DGDisableAutoClose</a>, <a href="DGIsAutoCloseEnabled.html">DGIsAutoCloseEnabled</a><br>
+    <a href="DGAlert.html">DGAlert</a>, <a href="DGModalDialog.html">DGModalDialog</a>, <a href="DGResAlert.html">DGResAlert</a>, <a href="DGResAlertParam.html">DGResAlertParam</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 24, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

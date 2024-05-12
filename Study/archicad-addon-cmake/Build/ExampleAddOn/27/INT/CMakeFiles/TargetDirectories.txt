@@ -1,0 +1,3 @@
+C:/FREELANCE/Archicad/Study/archicad-addon-cmake/Build/ExampleAddOn/27/INT/CMakeFiles/ExampleAddOn.dir
+C:/FREELANCE/Archicad/Study/archicad-addon-cmake/Build/ExampleAddOn/27/INT/CMakeFiles/ALL_BUILD.dir
+C:/FREELANCE/Archicad/Study/archicad-addon-cmake/Build/ExampleAddOn/27/INT/CMakeFiles/ZERO_CHECK.dir

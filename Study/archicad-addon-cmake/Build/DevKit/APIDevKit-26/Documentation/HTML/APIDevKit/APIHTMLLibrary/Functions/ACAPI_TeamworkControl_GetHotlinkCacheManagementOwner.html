@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_TeamworkControl_GetHotlinkCacheManagementOwner</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_TeamworkControl_GetHotlinkCacheManagementOwner.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_TeamworkControl_GetHotlinkCacheManagementOwner</h1>
+
+    <p>Provides the current owner of the Hotlink/XRef Management in Teamwork mode.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_TeamworkControl_GetHotlinkCacheManagementOwner</strong> (
+        <strong>short*</strong>     <em>owner</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>owner</em></dt>
+
+        <dd>[out] userId of the current owner if there is any (must not be <code>nullptr</code>).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+    
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+        
+        <dd>The given parameter is nullptr.</dd>
+        
+        <dt><code>APIERR_NOPLAN</code></dt>
+
+        <dd>There is no open project.</dd>
+        
+        <dt><code>APIERR_NOTEAMWORKPROJECT</code></dt>
+
+        <dd>The current project is not a Teamwork project.</dd>
+    </dl>
+
+    <p>For other common errors see the <a href="../Level2/Error_Codes.html">list of error codes</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Use this function to get the current owner of the Hotlink/XRef Management.</p>
+    
+    <p>You can find out more about the owner from the <a href="../Structures/API_SharingInfo.html">API_SharingInfo</a> structure which can be obtained by calling the <a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a> function with the <a href="../Functions/APIEnv_ProjectSharingID.html">APIEnv_ProjectSharingID</a> function code.</p>
+    
+    <p>The userId of the current Teamwork Client can be retrieved from the <a href="../Structures/API_ProjectInfo.html">API_ProjectInfo</a> structure which can be obtained by calling the <a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a> function with the <a href="../Functions/APIEnv_ProjectID.html">APIEnv_ProjectID</a> function code.</p>
+    
+    <p>If the Hotlink/XRef Management is not reserved by anybody the result will be 0.</p>
+    
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+short owner;
+GSErrCode err = ACAPI_GetHotlinkCacheManagementOwner (&amp;owner);
+if (err == NoError) {
+    API_ProjectInfo projectInfo;
+    ACAPI_Environment (APIEnv_ProjectID, &amp;projectInfo);
+    if (projectInfo.userId == owner)
+        ACAPI_WriteReport ("The Hotlink/XRef Management is being reserved by this client.", true);
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 18 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_TeamworkControl_ReserveHotlinkCacheManagement.html">ACAPI_TeamworkControl_ReserveHotlinkCacheManagement</a><br>
+    <a href="ACAPI_TeamworkControl_ReleaseHotlinkCacheManagement.html">ACAPI_TeamworkControl_ReleaseHotlinkCacheManagement</a><br>
+    <a href="../Level3/Teamwork_Control_id.html">Teamwork Control</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 18, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

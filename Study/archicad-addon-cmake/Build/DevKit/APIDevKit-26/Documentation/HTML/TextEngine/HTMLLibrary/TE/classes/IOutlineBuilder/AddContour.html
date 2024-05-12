@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>TE::IOutlineBuilder::AddContour Method</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+  
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTMLLibrary/TE/classes/IOutlineBuilder/AddContour.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">TextEngine</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TE::IOutlineBuilder::AddContour Method</h1>
+    <!--exp="TE::IOutlineBuilder::AddContour Method"-->
+    <p>
+      <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Called before outlining every curve in the glyph.
+  
+    </p>
+    <pre class="Syntax"><span class="SyntaxTypename">Int32</span> <span class="SyntaxIdentifier">AddContour</span> <span class="SyntaxSymbol">(</span>
+    <span class="SyntaxTypename">const <!-- Don't index --><A class="SyntaxLink" href="../../TE.html">TE</A>::<!-- Don't index --><A class="SyntaxLink" href="IOutlineBuilder.html">IOutlineBuilder</A>::<!-- Don't index --><A class="SyntaxLink" href="PixCoord/PixCoord.html">PixCoord</A> *</span>    <span class="SyntaxParameter">points</span><span class="SyntaxSymbol">,</span>
+    <span class="SyntaxTypename">Int32</span>               <span class="SyntaxParameter">numOfPoints</span>
+<span class="SyntaxSymbol">)</span> <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">0</span><span class="SyntaxSymbol">;</span></pre>
+    <h2 class="SectionHeader">Parameters</h2>
+    <dl>
+      <dt><span class="Parameter">points</span></dt>
+      <dd>
+        <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[in]</i> The points of the contour in an array. The points are in screen coordinate system and connecting them
+    (also the last with the first) will allways draw a closed non self meshing polygon.
+  
+      </dd>
+      <dt><span class="Parameter">numOfPoints</span></dt>
+      <dd>
+        <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[in]</i> The size of the array containing the points of the contour.
+  
+      </dd>
+    </dl>
+    <h2 class="SectionHeader">Return Value</h2>
+    <p>
+      
+    Zero if there is no error.
+  
+    </p>
+    
+    <h2 class="SectionHeader">Description</h2>
+    <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Glyphs contain one or more contours that can be the inner and outer curves and the accents.
+    The contours bulid up from points defined by the <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">IOutliner::PixCoord</b>.
+    After each contour the <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">EndPoly</b> is called.
+  
+    
+    <h2 class="SectionHeader">See Also</h2>
+    <p>
+      <!-- Don't index --><a href="IOutlineBuilder.html">IOutlineBuilder Overview</a> | 
+      <!-- Don't index --><a href="IOutlineBuilder.html#members">Class Members</a> | 
+      <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="EndPoly.html" shape="rect">EndPoly</a>
+    </p>
+  
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

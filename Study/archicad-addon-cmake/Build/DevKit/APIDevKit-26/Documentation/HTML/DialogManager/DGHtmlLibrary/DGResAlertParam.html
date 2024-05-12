@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGResAlertParam</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGResAlertParam.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGResAlertParam</h1>
+
+    <p>Invokes a standard parametric DG <a href="Alerts.html">alert</a> given in a <tt>GALR</tt> resource.</p>
+    <pre class="syntax">
+    <strong>short DGResAlertParam</strong> (
+      <strong>GSResModule</strong>  <em>resModule</em>,
+      <strong>short</strong>                 <em>alertId</em>,
+      <strong>const GS::UniString&amp;</strong>  <em>paramText1</em>,
+      <strong>const GS::UniString&amp;</strong>  <em>paramText2</em>,
+      <strong>const GS::UniString&amp;</strong>  <em>paramText3</em>,
+      <strong>const GS::UniString&amp;</strong>  <em>paramText4</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>resModule</em></dt>
+
+        <dd>The resource module the <tt>GALR</tt> resource is in.</dd>
+
+        <dt><em>alertId</em></dt>
+
+        <dd><tt>GALR</tt> resource ID of the alert.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>paramText1</em></dt>
+
+        <dd>First parameter text. This parameter must not be empty.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>paramText2</em></dt>
+
+        <dd>Second parameter text. This parameter can be empty.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>paramText3</em></dt>
+
+        <dd>Third parameter text. This parameter can be empty.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>paramText4</em></dt>
+
+        <dd>Fourth parameter text. This parameter can be empty.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_OK</tt></td>
+
+                    <td>The first button is clicked.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_CANCEL</tt></td>
+
+                    <td>The second button is clicked.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_THIRD</tt></td>
+
+                    <td>The third button is clicked.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>On Windows, if the user clicks the close box in the caption, <b>DGResAlertParam</b> returns <tt>DG_CANCEL</tt>. If there is no second button in the alert <tt>DG_OK</tt> is returned.</p>
+
+    <p>If the function parameters are incorrect or the specified resource is not found, zero is returned.</p>
+
+    <h4>Remarks</h4>
+
+    <p><b>DGResAlertParam</b> is similar to <a href="DGAlert.html">DGAlert</a> and <a href="DGResAlert.html">DGResAlert</a>. The only difference is that its content can be specified partly in GRC, partly in run time.</p>
+
+    <p>The first and second alert texts are drawn using the large plain and small plain fonts, respectively. These alert texts can contain up to four <code>"%s"</code>format specifiers in the <tt>GALR</tt> resource. Before displaying the alert, these format specifiers are substituted with <em>paramText1</em>, <em>paramText2</em>, <em>paramText3</em> and <em>paramText4</em> in the order of their appearance. <em>paramText3</em> can be <tt>nullptr</tt> only if both <em>paramText1</em> and <em>paramText2</em> are non-<tt>nullptr</tt>. <em>paramText4</em> can be <tt>nullptr</tt> only if all the other text parameters are non-<tt>nullptr</tt>.</p>
+
+    <p>Alerts are sized automatically to the minimal size that contains all of the given elements. If the first and/or the second alert text does not fit into one line, DG automatically breaks it/them into more lines. Of course, these texts can contain explicit line breaks as well.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="Alerts.html">Alerts</a>, <a href="DGAlert.html">DGAlert</a>, <a href="DGResAlert.html">DGResAlert</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

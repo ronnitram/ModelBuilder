@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_AM_VisibilitySettings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_AM_VisibilitySettings.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_AM_VisibilitySettings</h1>
+
+    <p>Describes the Analytical Model Visiblity Settings</p>
+    <pre class="syntax">
+    <strong>struct</strong> <em>API_AM_VisibilitySettings</em> <strong>{</strong>
+        <strong><a href="API_AM_VisibilityMode.html">API_AM_VisibilityMode</a></strong>         <em>visibilityMode</em>;
+        <strong>bool</strong>                          <em>isAnalyticalModelVisible</em>;
+        <strong>bool</strong>                          <em>areMembersTransparent</em>;
+        <strong>bool</strong>                          <em>areSymbolsTransparent</em>;
+        <strong>bool</strong>                          <em>areNodesVisible</em>;
+        <strong>bool</strong>                          <em>areReleasesVisible</em>;
+        <strong>bool</strong>                          <em>areCrossSectionsVisible</em>;
+        <strong>bool</strong>                          <em>areCoordinationProfilesVisible</em>;
+        <strong>bool</strong>                          <em>areLocalCoordSystemsVisible</em>;
+        <strong><a href="API_LoadVisibilityMode.html">API_LoadVisibilityMode</a></strong>        <em>loadVisibilityMode</em>;
+    <strong>}</strong>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>visibilityMode</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="22" width="19" height="12"></dt>
+
+        <dd>Visiblity mode of the Analytical Model.</dd>
+
+        <dt><b>isAnalyticalModelEnabled</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="22" width="19" height="12"></dt>
+
+        <dd>Is the Analytical Model enabled.</dd>
+
+        <dt><b>areMembersTransparent</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="22" width="19" height="12"></dt>
+
+        <dd>Are Analytical Members displayed as transparent.</dd>
+
+        <dt><b>areSymbolsTransparent</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="22" width="19" height="12"></dt>
+
+        <dd>Are symbols (e.g. Nodes) displayed as transparent.</dd>
+
+        <dt><b>areNodeVisible</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="22" width="19" height="12"></dt>
+
+        <dd>Are the Nodes of the Analytical Members visible.</dd>
+
+        <dt><b>areReleasesVisible</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="22" width="19" height="12"></dt>
+
+        <dd>Are the End/Edge Releases of the Analytical Members visible.</dd>
+
+        <dt><b>areCrossSectionsVisible</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="22" width="19" height="12"></dt>
+
+        <dd>Are the Cross Sections of the Analytical Members visible.</dd>
+
+        <dt><b>areCoordinationProfilesVisible</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="22" width="19" height="12"></dt>
+
+        <dd>Are the Coordination Profiles of the Analytical Members visible.</dd>
+
+        <dt><b>areLocalCoordSystemsVisible</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="22" width="19" height="12"></dt>
+
+        <dd>Are the Local Coordinate System of the Analytical Members visible.</dd>
+
+        <dt><b>loadVisibilityMode</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="22" width="19" height="12"></dt>
+
+        <dd>Visiblity mode of the Loads in the Analytical Model.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 26 or later</dd>
+
+        <dd><b>Header:</b> .\APIdefs_AnalyticalModel.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 5, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

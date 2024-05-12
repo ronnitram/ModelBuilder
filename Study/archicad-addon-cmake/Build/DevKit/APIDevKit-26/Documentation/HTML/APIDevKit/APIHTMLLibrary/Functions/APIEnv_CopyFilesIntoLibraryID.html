@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIEnv_CopyFilesIntoLibraryID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIEnv_CopyFilesIntoLibraryID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIEnv_CopyFilesIntoLibraryID</h1>
+
+    <p>Copies files into a folder inside a loaded library.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_environment_id.html">ACAPI_Environment</a></strong> (
+        <strong>APIEnv_CopyFilesIntoLibraryID</strong>,
+        <strong>const <a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a>*</strong>             <em>targetFolderLocationInLibrary</em>,
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a>&gt;*</strong>  <em>filesToCopy</em>,
+        <strong>const bool*</strong>                     <em>overwriteIfExists</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>targetFolderLocationInLibrary</em></dt>
+
+        <dd>[in] The target folder location.</dd>
+
+        <dt><em>filesToCopy</em></dt>
+
+        <dd>[in] The list of files to be copied.</dd>
+
+        <dt><em>overwriteIfExists</em></dt>
+
+        <dd>[in] Overwrite existing files found on the target location (optional parameter; if omitted, the value is considered <em>false</em>, resulting existing files to be skipped).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The target folder location parameter is invalid or nullptr.</dd>
+    </dl>
+
+    <dl>
+        <dt><code>APIERR_NOPLAN</code></dt>
+
+        <dd>There is no user project.</dd>
+    </dl>
+
+    <dl>
+        <dt><code>APIERR_NOTMINE</code></dt>
+
+        <dd>The target folder is not reserved by the current user in Teamwork.</dd>
+    </dl>
+
+    <dl>
+        <dt><code>APIERR_READONLY</code></dt>
+
+        <dd>The target location is not writable.</dd>
+    </dl>
+
+    <dl>
+        <dt><code>APIERR_NOACCESSRIGHT</code></dt>
+
+        <dd>The user does not have access right to the BIM server library, or the BIM server is not available.</dd>
+    </dl>
+
+    <dl>
+        <dt><code>APIERR_REFUSEDPAR</code></dt>
+
+        <dd>The given target location is not a subfolder of any of the active linked or server libraries, nor the Embedded Library.</dd>
+    </dl>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The function copies file from the passed locations into a folder in an existing library loaded in the current project. The target folder must be writable and, in Teamwork, must be reserved.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+	<pre><code>
+GS::Array&lt;IO::Location&gt; filesToCopy;
+API_SpecFolderID specID = API_UserDocumentsFolderID;
+IO::Location fileLocation;
+ACAPI_Environment (APIEnv_GetSpecFolderID, &amp;specID, &amp;fileLocation);
+filesToCopy.Push (IO::Location (fileLocation, IO::Name (&quot;Test1.JPG&quot;)));
+filesToCopy.Push (IO::Location (fileLocation, IO::Name (&quot;Test2.JPG&quot;)));
+
+GS::Array&lt;API_LibraryInfo&gt; libInfo;
+GSErrCode err = ACAPI_Environment (APIEnv_GetLibrariesID, &amp;libInfo);
+if (err == NoError) {
+    for (UInt32 ii = libInfo.GetSize (); ii &gt; 0; --ii) {
+        const API_LibraryInfo&amp; libraryInfo = libInfo[ii - 1];
+        if (libraryInfo.libraryType == API_LocalLibrary || libraryInfo.libraryType == API_EmbeddedLibrary || libraryInfo.libraryType == API_ServerLibrary) {
+            IO::Location targetFolderLocation = libraryInfo.location;
+            bool overwriteIfExists = true;
+            err = ACAPI_Environment (<font color="#FF0066">APIEnv_CopyFilesIntoLibraryID</font>, &amp;targetFolderLocation, &amp;filesToCopy, &amp;overwriteIfExists);
+            break;
+        }
+    }
+}
+</code></pre>
+</blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 20 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="APIEnv_CreateFolderInLibraryID.html">APIEnv_CreateFolderInLibraryID</a>, <a href="APIEnv_GetLibrariesID.html">APIEnv_GetLibrariesID</a>, <a href="APIEnv_AddLibrariesID.html">APIEnv_AddLibrariesID</a>,<br>
+    <a href="acapi_environment_id.html">ACAPI_Environment</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

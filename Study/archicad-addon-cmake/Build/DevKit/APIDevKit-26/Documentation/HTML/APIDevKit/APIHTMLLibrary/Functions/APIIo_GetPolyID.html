@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIIo_GetPolyID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIIo_GetPolyID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIIo_GetPolyID</h1>
+
+    <p>Performs polygon input.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_interface_id.html">ACAPI_Interface</a></strong> (
+        <strong>APIIo_GetPolyID</strong>,
+        <strong><a href="../Structures/API_GetPolyType.html">API_GetPolyType</a>*</strong>             <em>polyInfo</em>,
+        <strong><a href="../Structures/API_RubberPolyCallbacks.html">API_RubberPolyCallbacks</a>*</strong>     <em>rubberPolyCallbacks</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>polyInfo</em></dt>
+
+        <dd>[in/out] Parameters of the polygon input operation.</dd>
+
+        <dt><em>rubberPolyCallbacks</em></dt>
+
+        <dd>[in] Callback functions for custom feedback drawing. Optional, can be <code>nullptr</code>.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>polyInfo</code> is <code>nullptr</code> or one of the rubber callback function pointers in <code>rubberProcs</code> is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_BADPLANE</code></dt>
+
+        <dd>Invalid plane definition in <code>polyInfo</code></dd>
+
+        <dt><code>APIERR_BADWINDOW</code></dt>
+
+        <dd>The operation cannot be performed in the current front window of the application</dd>
+
+        <dt><code>APIERR_CANCEL</code></dt>
+
+        <dd>The input was canceled by the user</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to let the user input a polygon graphically.</p>
+
+    <p>If the input process has failed, the function returns <code>APIERR_CANCEL</code>. Otherwise the result is returned in the <code>coords, parcs, nCoords, nArcs</code> and <code>polylineWas</code> fields of <code>polyInfo</code>. The returned polygon consists of at least 2 points. The polygon's coordinates start from index 1, and the polygon is closed if <code>polyInfo-&gt;polylineWas</code> is false, meaning that the last point is equal to the first. Do not forget to dispose the <code>coords</code> and <code>parcs</code> handle with <code>BMKillHandle</code>.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12">&nbsp; If <code>changePlane</code> has not been set for the input, the z coordinates of the polygon nodes can be also retrieved in the <code>zCoords</code> handle by passing <code>true</code> in the <code>getZCoords</code> member of <a href="../Structures/API_GetPolyType.html">API_GetPolyType</a>. In this case the add-on should dispose this handle when it is not needed any more.</p>
+
+    <p>The start point of the polyline can be defined directly, or entered graphically with the <a href="APIIo_GetPointID.html">APIIo_GetPointID</a> interface function.</p>
+
+    <p>The prompt string displayed in the control box can contain instructions about the action. You can control the cursor shapes, set the input plane and the specify the polygon input method. From API v3.1 it is <b>possible</b> to draw your own graphical feedback during the input, as it is provided in the <a href="APIIo_GetPointID.html">APIIo_GetPointID</a>, <a href="APIIo_GetLineID.html">APIIo_GetLineID</a>, <a href="APIIo_GetArcID.html">APIIo_GetArcID</a> functions. For more details on the utilization refer to the documentation of the <a href="../Structures/API_GetPolyType.html">API_GetPolyType</a> structure.</p>
+
+    <p>Do not invoke any input operation while there are modal dialogs open.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_GetPointType    pointInfo;
+API_GetPolyType     polyInfo;
+Int32               ind;
+char                buffer [256];
+GSErrCode           err;
+
+BNZeroMemory (&amp;pointInfo, sizeof (API_GetPointType));
+BNZeroMemory (&amp;polyInfo, sizeof (API_GetPolyType));
+
+CHCopyC ("Click the first node of the polygon", pointInfo.prompt);
+
+err = ACAPI_Interface (APIIo_GetPointID, &amp;pointInfo, nullptr);
+
+if (err == NoError) {
+    CHCopyC ("Enter the polygon nodes", polyInfo.prompt);
+    polyInfo.startCoord = pointInfo.pos;                  /* polygon starts with the clicked point */
+    polyInfo.method = APIPolyGetMethod_General;
+
+    err = ACAPI_Interface (APIIo_GetPolyID, &amp;polyInfo, nullptr);
+}
+
+if (err == NoError) {
+    ACAPI_WriteReport ("Polygon Coordinates:", false);
+    for (ind = 1; ind &lt;= polyInfo.nCoords; ind++) {
+        sprintf (buffer, "[%2d]  (%Lf, %Lf)", ind, (*polyInfo.pos) [ind].x, (*polyInfo.pos) [ind].y);
+        ACAPI_WriteReport (buffer, false, false);
+    }
+} else if (err == APIERR_CANCEL)
+    ACAPI_WriteReport ("Input was interrupted", true);
+</code></pre>
+    </blockquote>
+
+    <blockquote>
+        <p>&nbsp;</p>
+
+        <p>See also the <em><strong>Interface_Functions</strong></em> example project of APIDevKit.</p>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_GetPolyType.html">API_GetPolyType</a><br>
+    <a href="../Structures/API_RubberPolyCallbacks.html">API_RubberPolyCallbacks</a><br>
+    <a href="APIIo_GetPointID.html">APIIo_GetPointID</a><br>
+    <a href="APIIo_GetLineID.html">APIIo_GetLineID</a><br>
+    <a href="APIIo_GetArcID.html">APIIo_GetArcID</a><br>
+    <a href="acapi_interface_id.html">ACAPI_Interface</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on June 24, 2004<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

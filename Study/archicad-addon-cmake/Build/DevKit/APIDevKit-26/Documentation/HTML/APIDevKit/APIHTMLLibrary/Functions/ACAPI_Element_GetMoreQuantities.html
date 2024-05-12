@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_GetMoreQuantities</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_GetMoreQuantities.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_GetMoreQuantities &nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="Featuring API 15" width="19" height="12"></h1>
+
+    <p>Returns information on the quantities parameters of multiple elements of the same type.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_GetMoreQuantities</strong> (
+        <strong>const GS::Array&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;*</strong>     <em>elemGuids</em>,
+        <strong>const <a href="../Structures/API_QuantityPar.html">API_QuantityPar</a>*</strong>         <em>params</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../Structures/API_Quantities.html">API_Quantities</a>&gt;*</strong>     <em>quantities</em>,
+        <strong>const <a href="../Structures/API_QuantitiesMask.html">API_QuantitiesMask</a>*</strong>     <em>mask</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>elemGuids</em></dt>
+
+        <dd>[in] Guids of the elements.</dd>
+
+        <dt><em>params</em></dt>
+
+        <dd>[in] Input parameters.</dd>
+
+        <dt><em>quantities</em></dt>
+
+        <dd>[Out] Optional quantity parameters, one in the array for each Guid.<br>
+        The member pointers of the <strong><a href="../Structures/API_Quantities.html">API_Quantities</a></strong> need to be filled with the same pattern.</dd>
+
+        <dt><em>mask</em></dt>
+
+        <dd>[In] Optional parameter for masking the relevant fields of <code>quantities</code> (by default it is <code>nullptr</code>).<br>
+        If the <code>mask</code> parameter is nullptr, then both <code>elements</code> and <code>composites</code> fields need to be filled in <code>quantities</code>.<br>
+        For improving performance you can select which data is needed with the <code>mask</code> parameter. This feature provides filtered access to the required data; instead of converting all of them, the function returns only those which are in interest.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>Either <code>elemGuids</code> or <code>quantities</code> is <code>nullptr</code>, <code>quantities</code> does not have the same size as <code>elemGuids</code>, or <code>mask</code> is nullptr and either <code>elements</code> or <code>composites</code> field is nullptr in <code>quantities</code>.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>Incorrect <code>elemGuids</code> was specified.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to get the quantity parameters of multiple elements of the same type. The quantitites are: surface, volume, perimeter, length and several other parameters. This applies to all construction elements. The elemGuids and the quantities arrays need to have the same size.</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_ElementQuantity       quantity;
+GS::Array&lt;API_Quantities&gt; quantities;
+API_QuantitiesMask        mask;
+GS::Array&lt;API_Guid&gt;       elemGuids;
+API_QuantityPar           params;
+char                      s[256] = { '\0' };
+GSErrCode                 err;
+
+ACAPI_ELEMENT_QUANTITY_MASK_CLEAR (mask);
+ACAPI_ELEMENT_QUANTITY_MASK_SET (mask, wall, surface1);
+ACAPI_ELEMENT_QUANTITY_MASK_SET (mask, wall, volume);
+
+quantities.SetSize (1);
+quantities[0].elements = &amp;quantity;
+elemGuids.Push (elemGuid);
+params.minOpeningSize = EPS;
+err = ACAPI_Element_GetMoreQuantities (&amp;elemGuids, &amp;params, &amp;quantities, &amp;mask);
+if (!err) {
+    sprintf (s, "surface1: %.2lf  volume: %.2lf", quantity.wall.surface1, quantity.wall.volume);
+    ACAPI_WriteReport (s, true);
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 19.0 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_ElemTypeID.html">API_ElemTypeID</a>, <a href="../Structures/API_QuantityPar.html">API_QuantityPar</a>, <a href="../Structures/API_Quantities.html">API_Quantities</a>, <a href="../Structures/API_QuantitiesMask.html">API_QuantitiesMask</a>, <a href="../Structures/API_CWallComponent.html">API_CWallComponent</a>,<br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Functions.html">API Functions</a>,<br>
+    <a href="../Structures/API_ElementQuantity.html">API_ElementQuantity</a>, <a href="../Structures/API_ElementQuantityMask.html">API_ElementQuantityMask</a>, <a href="../Structures/API_CompositeQuantity.html">API_CompositeQuantity</a>, <a href="../Structures/API_CompositeQuantityMask.html">API_CompositeQuantityMask</a>, <a href="../Structures/API_ElemPartQuantity.html">API_ElemPartQuantity</a>, <a href="../Structures/API_ElemPartCompositeQuantity.html">API_ElemPartCompositeQuantity</a>,<br>
+    <a href="../Structures/API_BeamQuantity.html">API_BeamQuantity</a>, <a href="../Structures/API_WallQuantity.html">API_WallQuantity</a>, <a href="../Structures/API_ColumnQuantity.html">API_ColumnQuantity</a>, <a href="../Structures/API_WindowQuantity.html">API_WindowQuantity</a>, <a href="../Structures/API_WindowQuantity.html">API_DoorQuantity</a>, <a href="../Structures/API_SkylightQuantity.html">API_SkylightQuantity</a>, <a href="../Structures/API_ObjectQuantity.html">API_ObjectQuantity</a>, <a href="../Structures/API_ObjectQuantity.html">API_LightQuantity</a>, <a href="../Structures/API_SlabQuantity.html">API_SlabQuantity</a>, <a href="../Structures/API_RoofQuantity.html">API_RoofQuantity</a>, <a href="../Structures/API_MeshQuantity.html">API_MeshQuantity</a>, <a href="../Structures/API_ZoneAllQuantity.html">API_ZoneAllQuantity</a>, <a href="../Structures/API_HatchQuantity.html">API_HatchQuantity</a>, <a href="../Structures/API_CurtainWallQuantity.html">API_CurtainWallQuantity</a>, <a href="../Structures/API_CWFrameQuantity.html">API_CWFrameQuantity</a>, <a href="../Structures/API_CWPanelQuantity.html">API_CWPanelQuantity</a>, <a href="../Structures/API_CWJunctionQuantity.html">API_CWJunctionQuantity</a>, <a href="../Structures/API_CWAccessoryQuantity.html">API_CWAccessoryQuantity</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on October 29, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

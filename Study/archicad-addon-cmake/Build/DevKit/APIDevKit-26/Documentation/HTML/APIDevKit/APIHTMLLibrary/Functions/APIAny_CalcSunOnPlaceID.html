@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIAny_CalcSunOnPlaceID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIAny_CalcSunOnPlaceID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIAny_CalcSunOnPlaceID</h1>
+
+    <p>Calculates the sun position in a given place.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a></strong> (
+        <strong>APIAny_CalcSunOnPlaceID</strong>,
+        <strong><a href="../Structures/API_PlaceInfo.html">API_PlaceInfo</a>*</strong>     <em>placeInfo</em>,
+
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>placeInfo</em></dt>
+
+        <dd>
+            [in/out] Parameters of the sun place.<br>
+
+            <table>
+                <tr>
+                    <th>
+                        <h4>API_PlaceInfo</h4>
+                    </th>
+
+                    <th></th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>longitude</code></p>
+                    </td>
+
+                    <td>
+                        <p>required, longitude</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>latitude</code></p>
+                    </td>
+
+                    <td>
+                        <p>required, latitude</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>sumTime</code></p>
+                    </td>
+
+                    <td>
+                        <p>required, daylight saving on/off</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>year</code></p>
+                    </td>
+
+                    <td>
+                        <p>required, year</p>
+                    </td>
+                </tr>
+
+               <tr>
+                    <td>
+                        <p><code>month</code></p>
+                    </td>
+
+                    <td>
+                        <p>required, month</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>day</code></p>
+                    </td>
+
+                    <td>
+                        <p>required, day</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>hour</code></p>
+                    </td>
+
+                    <td>
+                        <p>required, hour</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>minute</code></p>
+                    </td>
+
+                    <td>
+                        <p>required, minute</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>second</code></p>
+                    </td>
+
+                    <td>
+                        <p>required, second</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>time zone</code></p>
+                    </td>
+
+                    <td>
+                        <p>required, time zone in minutes</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>north</code></p>
+                    </td>
+
+                    <td>
+                        <p>required, north direction</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>sunAngX</code>Y</p>
+                    </td>
+
+                    <td>
+                        <p>out, the sun angle</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>sunAngZ</code></p>
+                    </td>
+
+                    <td>
+                        <p>out, the sun angle</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_NOPLAN</code></dt>
+
+        <dd>no open project</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>placeInfo</code> is <code>nullptr</code> or contains invalid data</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used get the sun angles to in a custom place. The sun angles are calculated in a given place and on a certain day and time. The calculated angles are returned in the <code>sunAngX</code>Y and <code>sunAngZ</code> fields of the structure.</p>
+
+    <p>Refer to the <a href="APIEnv_GetPlaceSetsID.html">APIEnv_GetPlaceSetsID</a> function to get the actual location and date parameters.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+    API_PlaceInfo  placeInfo = {};
+    GSErrCode      err;
+
+    placeInfo.longitude = 47.497913;
+    placeInfo.latitude = 19.040236;
+    placeInfo.sumTime = false;    /* winter time */
+    placeInfo.year= 2001; 
+    placeInfo.month = 11;  
+    placeInfo.day = 11;      
+    placeInfo.hour= 10;   
+    placeInfo.minute = 7;  
+    placeInfo.second = 12; 
+    placeInfo.timeZoneInMinutes = 60;
+    placeInfo.north = PI / 2;     /* up direction */
+
+    err = ACAPI_Goodies (APIAny_CalcSunOnPlaceID, &amp;placeInfo, nullptr);
+
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Goodies.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_PlaceInfo.html">API_PlaceInfo</a>,<br>
+    <a href="APIEnv_GetPlaceSetsID.html">APIEnv_GetPlaceSetsID</a>,<br>
+    <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 2, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

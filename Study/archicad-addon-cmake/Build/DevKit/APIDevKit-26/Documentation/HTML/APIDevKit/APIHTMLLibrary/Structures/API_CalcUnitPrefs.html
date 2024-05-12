@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_CalcUnitPrefs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_CalcUnitPrefs.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_CalcUnitPrefs</h1>
+
+    <p>The representation of the Project Preferences / Calculation Units &amp; Rules tab page.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_CalcLengthFormat.html">API_CalcLengthFormat</a></strong>     <em>length</em>;
+        <strong><a href="API_CalcAreaFormat.html">API_CalcAreaFormat</a></strong>       <em>area</em>;
+        <strong><a href="API_CalcVolumeFormat.html">API_CalcVolumeFormat</a></strong>     <em>volume</em>;
+        <strong><a href="API_CalcAngleFormat.html">API_CalcAngleFormat</a></strong>      <em>angle</em>;
+        <strong>bool</strong>                     <em>useDisplayedValues</em>;
+        <strong>bool</strong>                     <em>filler_0[15]</em>;
+    <strong>}</strong> <em>API_CalcUnitPrefs</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>length</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Changed in API 22" width="19" height="12"></dt>
+
+        <dd>Length preferences.</dd>
+
+        <dt><b>area</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Changed in API 22" width="19" height="12"></dt>
+
+        <dd>Area preferences.</dd>
+
+        <dt><b>volume</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Changed in API 22" width="19" height="12"></dt>
+
+        <dd>Volume preferences.</dd>
+
+        <dt><b>angle</b></dt>
+
+        <dd>Angle preferences.</dd>
+
+        <dt><b>useDisplayedValues</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API version 20" width="19" height="12"></dt>
+
+        <dd>Represents the "Calculate Totals by" RadioButton.
+        <ul>
+            <li><code>true</code> means that Archicad should use the displayed values in calculations. This way the calculations can be verified manually.</li>
+            <li><code>false</code> means that Archicad should use the exact values (in <code>double</code> precision) in calculations.</li>
+        </ul>
+        </dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is used by the <a href="../Functions/APIEnv_GetPreferencesID.html">APIEnv_GetPreferencesID</a> function to get the settings of the Calculation Units &amp; Rules preferences page.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

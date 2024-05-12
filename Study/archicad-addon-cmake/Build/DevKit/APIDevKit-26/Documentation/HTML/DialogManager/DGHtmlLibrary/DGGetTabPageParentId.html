@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGGetTabPageParentId</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGGetTabPageParentId.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGGetTabPageParentId</h1>
+
+    <p>Retrieves the identifier of the main dialog the given <a href="TabPages.html">tab page</a> belongs to.</p>
+    <pre class="syntax">
+    <strong>short DGGetTabPageParentId</strong> (
+      <strong>short</strong>  <em>dialId</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the tab page.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>ID of the main dialog of the tab page.</p>
+
+    <h4>Remarks</h4>
+
+    <p><a href="TabControl.html">Tab controls</a> define multiple pages for the same area of a dialog. Each page consists of a group of controls that the application displays when the user selects the corresponding tab. The pages of a tab control are either defined in GRC in a special dialog resource format (the so called tab page resource format) of DG or created dynamically from code. The main dialog of a tab page is the dialog that contains the tab control. <b>DGGetTabPageParentId</b> returns the ID of this main dialog.</p>
+
+    <p>Tab pages are special dialogs, because they have no <a href="CallbackFunctions.html">dialog callback function</a>. Messages for controls on tab pages are sent to the callback function of the main dialog. For these messages, however, the ID of the tab page subdialog is passed to the callback function in the <em>dialId</em> parameter instead of the ID of the main dialog. The tab page IDs passed to the callback function are usually the same as the IDs defined in GRC, but in special cases they can be different. You can retrieve these IDs by the <a href="DGTabControlGetTabPageId.html">DGTabControlGetTabPageId</a> function when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the dialog callback function.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="TabPages.html">Tab Pages</a>, <a href="TabControl.html">Tab Control</a><br>
+    <a href="DGTabControlGetTabPageId.html">DGTabControlGetTabPageId</a><br>
+    <a href="CallbackFunctions.html">Callback functions</a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 14, 2004<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

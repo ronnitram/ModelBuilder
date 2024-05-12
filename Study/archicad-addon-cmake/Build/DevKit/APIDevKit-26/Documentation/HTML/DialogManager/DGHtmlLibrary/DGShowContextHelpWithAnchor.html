@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Urb&aacute;n Eszter">
+
+    <title>DGShowContextHelpWithAnchor</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGShowContextHelpWithAnchor.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGShowContextHelpWithAnchor</h1>
+
+    <p>With this function you can launch context sensitive help browser by the parameters.</p>
+    <pre class="syntax">
+    <strong>bool DGShowContextHelpWithAnchor</strong> (
+      <strong>Int32</strong>                  <em>developerId</em>,
+      <strong>Int32</strong>                  <em>localId</em>,
+      <strong>const GS::UniString&amp;</strong>   <em>helpAnchor</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>developerId</em></dt>
+
+        <dd>Input parameter: The DeveloperID part of the AddOn's MDID.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>localId</em></dt>
+
+        <dd>Input parameter: The LocalID part of the AddOn's MDID.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>helpAnchor</em></dt>
+
+        <dd>Input parameter: The anchor to be reached.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>true</tt></td>
+
+                    <td>DG was able to find the location of the registered help engine.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>false</tt></td>
+
+                    <td>DG was unable to find the registered help engine, or some other problems occured. Due to the problems, no action was taken.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.1.0.66 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="GRC_DialogHelps.html">GRC Specification of the Dialog Helps</a><br>
+    <a href="DGDisableToolTips.html">DGDisableToolTips</a>, <a href="DGEnableToolTips.html">DGEnableToolTips</a><br>
+    <a href="DGRegisterAdditionalHelpLocation.html">DGRegisterAdditionalHelpLocation</a>, <a href="DGUnregisterAdditionalHelpLocation.html">DGUnregisterAdditionalHelpLocation</a><br>
+    <a href="DGGetDynamicHelpStrings.html">DGGetDynamicHelpStrings</a>, <a href="DGShowContextHelpWithAnchor.html">DGShowContextHelpWithAnchor</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 20, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Urban Eszter">
+
+    <title>DGListGetTabItemIconId</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListGetTabItemIconId.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListGetTabItemIconId</h1>
+
+    <p>Retrieves the icon ID of a tabulator field of a <a href="ListBox.html">list box</a> item.</p>
+    <pre class="syntax">
+    <strong>short DGListGetTabItemIconId</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>short</strong>  <em>listItem</em>,
+      <strong>short</strong>  <em>tabIndex</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>listItem</em></dt>
+
+        <dd>1-based index of the list item. <tt>DG_LIST_TOP</tt> specifies the first item of the list, <tt>DG_LIST_BOTTOM</tt> specifies the last item of the list.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>tabIndex</em></dt>
+
+        <dd>1-based index of the tabulator field.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The ID of the icon in the given tabulator field. <tt>DG_NO_ICON</tt> is returned if the field has no icon, if the icon was set by <a href="DGListSetTabItemIcon.html">DGListSetTabItemIcon</a>, or if the function parameters are incorrect.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The content of list items can be divided into more columns. A DG listbox can be imagined as a two-dimensional list consisting of rows and columns. One column is called a "tabulator field", a "tabulator item" is the intersection of a tabulator field and a row. The names "tabulator field" and "tabulator item" are inherited from the previous versions of DG. In the earlier versions texts of columns could be separated within a list item by inserting tabulator (<tt>'\t'</tt>) characters into its text. You can specify an icon and/or text to the tabulator item: see <a href="DGListSetTabItemIconId.html">DGListSetTabItemIconId</a> and <a href="DGListSetTabItemText.html">DGListSetTabItemText</a> for details.</p>
+
+    <p>A tabulator item can contain an icon and/or text also, but only one icon can appear in a tabulator item. In case of using an icon with text in a tabulator item, the item text can be set with the <strong>DGListSetTabItemText</strong> function. If a tabulator item contains an icon and text also, the icon will be positioned either at the beginning or at the end of the text according to the justification. (The <tt>DG_IS_LEFT</tt> justification is applied for the tabulator item containing an icon and text also, even if the <tt>DG_IS_CENTER</tt> justification was given.)</p>
+
+    <p>Call this routine only after you set the number of tabulator fields and their properties by <a href="DGListSetTabFieldCount.html">DGListSetTabFieldCount</a> and <a href="DGListSetTabFieldData.html">DGListSetTabFieldData</a>.</p>
+
+    <p>To implement ontab check boxes an icon on the tabulator field can be set by <strong>DGListSetTabItemIconId</strong>. In this case the <a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a> messages should be handled in the <a href="CallbackFunctions.html">dialog callback function</a>. These special check boxes look much nicer than ordinary <a href="CheckBox.html">check box</a> controls glued onto a tabulator field because they are transparent and sizeable. Possible icon IDs are:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LIST_CHECKEDICON</tt></td>
+
+                    <td>Checked check box icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LIST_GRAYCHECKICON</tt></td>
+
+                    <td>Grayed check box icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LIST_MIXEDCHECKICON</tt></td>
+
+                    <td>Filled check box icon, used to indicate mixed or undefined selection.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LIST_FRAMELESSCHECKEDICON</tt></td>
+
+                    <td>Frameless check box icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LIST_UNCHECKEDICON</tt></td>
+
+                    <td>Unchecked check box icon.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ListBox.html">List Box</a>, <a href="DGListSetTabItemIconId.html">DGListSetTabItemIconId</a><br>
+    <a href="DGListGetTabItemIcon.html">DGListGetTabItemIcon</a>, <a href="DGListGetTabItemIconResource.html">DGListGetTabItemIconResource</a>, <a href="DGListGetTabItemText.html">DGListGetTabItemText</a><br>
+    <a href="DGListSetTabItemIcon.html">DGListSetTabItemIcon</a>, <a href="DGListSetTabItemIconResource.html">DGListSetTabItemIconResource</a>, <a href="DGListSetTabItemText.html">DGListSetTabItemText</a><br>
+    <a href="CallbackFunctions.html">Callback functions</a>, <a href="CheckBox.html">Check Box</a>, <a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a>, <a href="DGListSetTabFieldCount.html">DGListSetTabFieldCount</a>, <a href="DGListSetTabFieldData.html">DGListSetTabFieldData</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 20, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

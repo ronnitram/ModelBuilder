@@ -1,0 +1,592 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Urban Eszter">
+    <title>GRC Specification of the Dialog Types</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/GRC_DialogTypes.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GRC Specification of the Dialog Types</h1>
+
+    <p>There are two ways for creating dialogs with the help of the <em>DG module</em>. Either from code or from resoruce script. To create dialogs which are defined in a resource script, the application must supply a <tt>GDLG</tt> resource in a GRC file to describe the size, style and the content of the dialog. This page helps in accessing all the necessary information about the GRC specification of the supported dialog types by the <em>DG module</em>.</p>
+
+    <p><a href="#Alerts">Alerts</a><br>
+    <a href="#ModalDialogs">Modal Dialogs</a><br>
+    <a href="#ModelessDialogs">Modeless Dialogs</a><br>
+    <a href="#PaletteDialogs">Palette Dialogs</a></p><a name="Alerts" id="Alerts"></a>
+
+    <h4>GRC Specification of the <a href="Alerts.html">Alerts</a></h4>
+    <pre class="syntax">
+    'GALR'  <i>resID  iconID</i>  [<i>"title"</i>] {
+      <i>"largeText"</i> (\)
+      <i>"smallText"</i> (\)
+      <i>"button1"</i>
+      <i>"button2"</i>
+      <i>"button3"</i>
+    }
+</pre>
+
+    <p>where <em>resID</em> is the resource ID of the alert, <em>iconID</em> is the alert's icon resource ID. The optional <em>title</em> parameter defines the title of the alert. <em>largeText</em> and <em>smallText</em> are texts of the first and second text fields of the alert. Using backslash (\) characters at the end of the lines, these strings can be written in more than one line. <em>button1</em>, <em>button2</em> and <em>button3</em> are the button texts.</p>
+
+    <h4>Remarks</h4>
+
+    <p><b>DGResAlert</b> and <b>DGResAlertParam</b> use the same GRC specification. The only difference is that the <em>largeText</em> and <em>smallText</em> can contain up to four <tt>"%s"</tt> format specifiers in <tt>GALR</tt> resources for <b>DGResAlertParam</b>. Before displaying the alert, these format specifiers are substituted with the <em>paramText1</em>, <em>paramText2</em>, <em>paramText3</em> and <em>paramText4</em> parameters of <b>DGResAlertParam</b> in the order of their appearance.</p>
+
+    <p>If the <em>iconID</em> parameter of <b>DGAlert</b> or <tt>GALR</tt> resource is a valid icon resource ID, the alert displays the custom color icon loaded from resource. However, if this parameter is one of the following special constants, it determines not only the alert icon but the type and the title of the alert as well.</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150"><em>iconID</em></th>
+
+                    <th align="left" width="150">Alert type</th>
+
+                    <th align="left" width="320">Meaning</th>
+
+                    <th width="120">Macintosh&nbsp;icon</th>
+
+                    <th width="120">Windows&nbsp;icon</th>
+                </tr>
+
+                <tr>
+                    <td><tt>Error</tt></td>
+
+                    <td><tt>DG_ERROR</tt></td>
+
+                    <td align="left"><b>Stop</b> on Macintosh; <b>Error</b> on Windows.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconError_Mac.png" width="32" height="32" alt="IconError_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconError_Win.png" alt="IconError_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>Information</tt></td>
+
+                    <td><tt>DG_INFORMATION</tt></td>
+
+                    <td align="left"><b>Note</b> on Macintosh; <b>Information</b> on Windows.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconInfo_Mac.png" width="32" height="32" alt="IconInfo_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconInfo_Win.png" alt="IconInfo_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>Warning</tt></td>
+
+                    <td><tt>DG_WARNING</tt></td>
+
+                    <td align="left"><b>Caution</b> on Macintosh; <b>Warning</b> on Windows.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconWarning_Mac.png" width="32" height="32" alt="IconWarning_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconWarning_Win.png" alt="IconWarning_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>If the <em>titleText</em> parameter of <b>DGAlert</b> is <tt>nullptr</tt> or the optional <em>title</em> parameter is omitted in the <tt>GALR</tt> resource, the alert has no title on Macintosh and DG uses the appropriate standard alert title given in <a href="DGInit.html">DGInit</a> on Windows.</p>
+
+    <p>Texts of the first and second text fields are drawn using the large plain and small plain fonts, respectively. If <em>largeText</em> or <em>smallText</em> parameter of <b>DGAlert</b> is <tt>nullptr</tt> or the corresponding string is empty ("") in the <tt>GALR</tt> resource, there is no first or second text field in the alert. Note however, that both text fields should not be missing from the alert.</p>
+
+    <p>If <em>button1Text</em>, <em>button2Text</em> or <em>button3Text</em> parameter of <b>DGAlert</b> is <tt>nullptr</tt> or the <em>button1</em>, <em>button2</em> or <em>button3</em> string is empty ("") in the <tt>GALR</tt> resource, there is no first, second or third button, respectively. Note however, that at least one button must exist in the alert.</p><a name="ModalDialogs" id="ModalDialogs"></a>
+
+    <h4>GRC Specification of the <a href="ModalDialogs.html">Modal Dialogs</a></h4>
+    <pre class="syntax">
+    'GDLG'  <i>resID</i>  Modal [| <i>frameFlag</i> | <i>growFlag</i> | <i>captionFlag</i>]  <i>x  y  dx  dy  "dlgTitle"</i> {
+      <i>dialogItem<b>1</b></i>
+          ...
+      <i>dialogItem<b>i</b></i>
+          ...
+      <i>dialogItem<b>n</b></i>
+    }
+</pre>
+
+    <p>where <em>resID</em> is the resource ID of the modal dialog. The <em>Modal</em> keyword can be combined with the optional <i>frameFlag</i>, <i>growFlag</i> and <i>captionFlag</i> using the <tt>OR</tt> <tt>(|)</tt> operator. If the <i>frameFlag</i> is omitted, the dialog has a normal frame. If <i>growFlag</i> is omitted, the dialog is not growable. If the <i>captionFlag</i> is not specified, the dialog has a top caption by default. <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the dialog, <em>dx</em> and <em>dy</em> are the width and height of the dialog in pixels. <em>dlgTitle</em> defines the title of the dialog. <em>dialogItem<b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) specify <em>n</em> pieces of dialog items. For the GRC specifications of the various dialog items see the <a href="DlgItemTypes_id.html">DG dialog items</a> page.</p>
+
+    <p>Possible values of the <i>frameFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>normalFrame</tt></td>
+
+                    <td>The dialog has normal dialog frame.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>thickFrame</tt></td>
+
+                    <td>The dialog has thick frame.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>noFrame</tt></td>
+
+                    <td>The dialog has no frame.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>growFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>noGrow</tt></td>
+
+                    <td>The dialog cannot be sized.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>hGrow</tt></td>
+
+                    <td>The dialog can be sized horizontally.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>vGrow</tt></td>
+
+                    <td>The dialog can be sized vertically.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>grow</tt></td>
+
+                    <td>The dialog can be sized in both directions.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>captionFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>noCaption</tt></td>
+
+                    <td>The dialog has no caption.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><a name="ModelessDialogs" id="ModelessDialogs"></a>
+
+    <h4>GRC Specification of the <a href="ModelessDialogs.html">Modeless Dialogs</a></h4>
+    <pre class="syntax">
+    'GDLG'  <i>resID</i>  Modeless [| <i>frameFlag</i> | <i>growFlag</i> | <i>captionFlag</i> | <i>closeFlag</i> | <i>minimizeFlag</i> | <i>maximizeFlag</i>]  <i>x  y  dx  dy  "dlgTitle"</i> {
+      <i>dialogItem<b>1</b></i>
+          ...
+      <i>dialogItem<b>i</b></i>
+          ...
+      <i>dialogItem<b>n</b></i>
+    }
+</pre>
+
+    <p>where <em>resID</em> is the resource ID of the modeless dialog. The <em>Modeless</em> keyword can be combined with the optional <i>frameFlag</i>, <i>growFlag</i>, <i>captionFlag</i>, <i>closeFlag</i>, <i>minimizeFlag</i> and <i>maximizeFlag</i> using the <tt>OR</tt> <tt>(|)</tt> operator. If these flags are omitted, a non-growable dialog is created with top caption and normal frame having no close box, no minimize and maximize button. <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the dialog, <em>dx</em> and <em>dy</em> are the width and height of the dialog in pixels. <em>dlgTitle</em> defines the title of the dialog. <em>dialogItem<b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) specify <em>n</em> pieces of dialog items. For the GRC specifications of the various dialog items see the <a href="DlgItemTypes_id.html">DG dialog items</a> page.</p>
+
+    <p>Possible values of the <i>frameFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>normalFrame</tt></td>
+
+                    <td>The dialog has normal dialog frame.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>thickFrame</tt></td>
+
+                    <td>The dialog has thick frame.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>noFrame</tt></td>
+
+                    <td>The dialog has no frame.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>growFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>noGrow</tt></td>
+
+                    <td>The dialog cannot be sized.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>hGrow</tt></td>
+
+                    <td>The dialog can be sized horizontally.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>vGrow</tt></td>
+
+                    <td>The dialog can be sized vertically.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>grow</tt></td>
+
+                    <td>The dialog can be sized in both directions.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>captionFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>noCaption</tt></td>
+
+                    <td>The dialog has no caption.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>closeFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>noClose</tt></td>
+
+                    <td>The dialog has no close box in the caption.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>close</tt></td>
+
+                    <td>The dialog has close box in the caption.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>minimizeFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>noMinimize</tt></td>
+
+                    <td>The dialog has no minimize button in the caption.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>minimize</tt></td>
+
+                    <td>The dialog has minimize button in the caption.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>maximizeFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>noMaximize</tt></td>
+
+                    <td>The dialog has no maximize button in the caption.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>maximize</tt></td>
+
+                    <td>The dialog has maximize button in the caption.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><a name="PaletteDialogs" id="PaletteDialogs"></a>
+
+    <h4>GRC Specification of the <a href="PaletteDialogs.html">Palette Dialogs</a></h4>
+    <pre class="syntax">
+    'GDLG'  <i>resID</i>  Palette [| <i>frameFlag</i> | <i>growFlag</i> | <i>captionFlag</i> | <i>closeFlag</i>]  <i>x  y  dx  dy  "dlgTitle"</i> {
+      <i>dialogItem<b>1</b></i>
+          ...
+      <i>dialogItem<b>i</b></i>
+          ...
+      <i>dialogItem<b>n</b></i>
+    }
+</pre>
+
+    <p>where <em>resID</em> is the resource ID of the palette dialog. The <em>Palette</em> keyword can be combined with the optional <i>growFlag</i>, <i>captionFlag</i> and <i>closeFlag</i> using the <tt>OR</tt> <tt>(|)</tt> operator. If these flags are omitted, a non-growable dialog is created with top caption and normal frame without close box. <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the dialog, <em>dx</em> and <em>dy</em> are the width and height of the dialog in pixels. <em>dlgTitle</em> defines the title of the dialog. <em>dialogItem<b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) specify <em>n</em> pieces of dialog items. For the GRC specifications of the various dialog items see the <a href="DlgItemTypes_id.html">DG dialog items</a> page.</p>
+
+    <p>Possible values of the <i>frameFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>normalFrame</tt></td>
+
+                    <td>The dialog has normal dialog frame.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>thickFrame</tt></td>
+
+                    <td>The dialog has thick frame.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>noFrame</tt></td>
+
+                    <td>The dialog has no frame.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>growFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>noGrow</tt></td>
+
+                    <td>The dialog cannot be sized.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>hGrow</tt></td>
+
+                    <td>The dialog can be sized horizontally.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>vGrow</tt></td>
+
+                    <td>The dialog can be sized vertically.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>grow</tt></td>
+
+                    <td>The dialog can be sized in both directions.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>captionFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>topCaption</tt></td>
+
+                    <td>The caption is on the top of the dialog.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>leftCaption</tt></td>
+
+                    <td>The caption is on the left side of the dialog.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>noCaption</tt></td>
+
+                    <td>The dialog has no caption.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>closeFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr>
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr>
+                    <td><tt>noClose</tt></td>
+
+                    <td>The dialog has no close box in the caption.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>close</tt></td>
+
+                    <td>The dialog has close box in the caption.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>Dialogs can provide context-sensitive help for their dialog items, for details see: <a href="GRC_DialogHelps.html">GRC Specification of the Dialog Helps</a>.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+<div id="wrapper">
+<h4 class="also">See Also</h4>
+<div id="first">
+	<dl>
+		<dd class="also"> <a href="Alerts.html">Alerts</a> </dd>
+		<dd class="also"> <a href="ModalDialogs.html">ModalDialogs</a> </dd>
+		<dd class="also"> <a href="ModelessDialogs.html">ModelessDialogs</a> </dd>
+		<dd class="also"> <a href="PaletteDialogs.html">PaletteDialogs</a><br> </dd>
+		<dd class="also"> <a href="GRC_DialogItemTypes.html">GRC specification of the Dialog Item Types</a> </dd>
+	</dl>
+</div>
+<div id="second">
+	<dl>
+		<dd class="also"> <a href="GRC_DialogHelps.html">GRC specification of the Dialog Helps</a> </dd>
+		<dd class="also"> <a href="GRC_ImageTypes.html">GRC specification of the Image Types</a><br> </dd>
+		<dd class="also"> <a href="DlgItemTypes_id.html">DlgItemTypes</a> </dd>
+		<dd class="also"> <a href="DGInit.html">DGInit</a> </dd>
+	</dl>
+</div>
+</div>
+
+    <footer> <p class="footer"> Graphisoft August 6, 2014 </p> </footer>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>GetType</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/Folder/GetType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="Folder.html">Folder</a>::GetType</h1><br>
+    Returns type of the entry in the folder specified with its name.<br>
+    <br>
+    <pre class="syntax">
+<b>virtual GSErrCode  GetType (
+    const <a href="../Name/Name.html">Name</a>&amp; name,
+    <a href="EntryType.html">EntryType</a>*  result
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>name</em></dt>
+
+        <dd>Name of the entry in the folder which type should be determined.</dd>
+
+        <dt><em>result</em></dt>
+
+        <dd>On return: type of the entry. Possible values are:</dd>
+
+        <dd>
+            <blockquote>
+                <table class="enumeration" width="193">
+                    <tr>
+                        <th width="74">Value</th>
+
+                        <th width="77">Meaning</th>
+                    </tr>
+
+                    <tr>
+                        <td width="74">FileEntry</td>
+
+                        <td width="77">file</td>
+                    </tr>
+
+                    <tr>
+                        <td width="74">FolderEntry</td>
+
+                        <td width="77">folder</td>
+                    </tr>
+
+                    <tr>
+                        <td width="74">LinkEntry</td>
+
+                        <td width="77">link</td>
+                    </tr>
+                </table>
+            </blockquote>
+        </dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="370">
+        <tr>
+            <th width="103">Value</th>
+
+            <th width="225">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="103">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="225">OK</td>
+        </tr>
+
+        <tr>
+            <td width="103">TargetNotFound<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="225">entry is not found</td>
+        </tr>
+
+        <tr>
+            <td width="103">AccessDenied<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="225">operation is not allowed on this folder</td>
+        </tr>
+
+        <tr>
+            <td width="103">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="225">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Folder class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method returns type of the file system entry (file, folder, link) in the folder identified with its name.</p>
+
+    <p>If links themselves are not important and only type of their target is needed, then <a href="../FileSystem/GetResolvedType.html">GetResolvedType</a> method should be used.<br>
+    <br></p><img src="../../IOImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>If link extensions are restricted (see the <a href="../ModuleFunctions/RestrictLinkExtensions.html">RestrictLinkExtensions</a> function) then this method will examine file system entries only with extension "<font face="Courier New">.lnk</font>" for potential link type.</li>
+        </ul>
+    </blockquote><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

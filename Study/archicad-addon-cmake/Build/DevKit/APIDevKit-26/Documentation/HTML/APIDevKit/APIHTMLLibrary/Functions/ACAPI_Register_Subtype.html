@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Register_Subtype</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Register_Subtype.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Register_Subtype</h1>
+
+    <p>Registers a new library part subtype.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Register_Subtype</strong> (
+        <strong>GSType</strong>              <em>signature</em>,
+        <strong>short</strong>               <em>templateFileResID</em>,
+        <strong>bool</strong>                <em>transparentNode</em>,
+        <strong>short</strong>               <em>stringResID</em>,
+        <strong>short</strong>               <em>smallIconResID</em>,
+        <strong>short</strong>               <em>largeIconResID</em>,
+        <strong><a href="#API_TBoxGroup">API_TBoxGroup</a></strong>       <em>toolGroupId</em>,
+        <strong><a href="#API_TBoxEnabled">API_TBoxEnabled</a></strong>     <em>enableFlags</em>,
+        <strong>short</strong>               <em>defaultsResID</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>signature</em></dt>
+
+        <dd>[in] A four-character identifier of this library part subtype</dd>
+
+        <dt><em>templateFileResID</em></dt>
+
+        <dd>[in] 'FILE' resource ID of the subtype template library part compiled into the add-on</dd>
+
+        <dt><em>transparentNode</em></dt>
+
+        <dd>[in] Objects of this subtype can be shown on higher ancestry levels as well</dd>
+
+        <dt><em>stringResID</em></dt>
+
+        <dd>[in] Resource ID of the library part subtype description string</dd>
+
+        <dt><em>smallIconResID</em>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>[in] Resource ID of the small-sized toolbox (toolbar) item icon</dd>
+
+        <dt><em>largeIconResID</em>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>[in] Resource ID of the large-sized toolbox item icon</dd>
+
+        <dt><em>toolGroupId</em></dt>
+
+        <dd>[in] Toolbox item position</dd>
+
+        <dt><em>enableFlags</em>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>[in] Enable or disable the subtype tool depending on the active window</dd>
+
+        <dt><em>defaultsResID</em></dt>
+
+        <dd>[in] ID of the 'ACP0' resource that contains the element default values for this subtype</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>templateFileResID</code> refers to an invalid 'FILE' resource or the built-in library part cannot be accepted as subtype template.</dd>
+
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function registers a new library part subtype.</p>
+
+    <p>In order to have an own element subtype the add-on must contain a built-in library part in its reource module. This library part will be loaded into the active libraries, and become a new node in the ancestry tree.</p>
+
+    <p>The new element type will be identified with the <code>signature</code> identifier chosen by the add-on's writer. The <code>signature</code> should be unique in order to avoid collisions. You may pass 0 in the <code>signature</code> parameter if you do not need a new element type but a single subtype node.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12">&nbsp; The subtype can appear in the toolbox as an external tool, and also on the Windows toolbar. In this case you must pass two valid icon resource IDs in the <code>smallIconResID</code> and the <code>largeIconResID</code> parameters. The size of the icons should be 16x16 and 30x21 pixels respectively.</p>
+
+    <p>You can specify the position of the subtype item inserted into the toolbox with the <code>toolGroupId</code> parameter as follows:</p><a name="API_TBoxGroup" id="API_TBoxGroup"></a>
+
+    <blockquote>
+        <table border="1">
+            <tr>
+                <th bgcolor="#C0C0C0">API_TBoxGroup</th>
+
+                <th bgcolor="#C0C0C0">Meaning</th>
+            </tr>
+
+            <tr>
+                <td><code>TBoxGroup_Root</code></td>
+
+                <td>The subtype tool item will be appended to the group of model element tools</td>
+            </tr>
+
+            <tr>
+                <td><code>TBoxGroup_Objects</code></td>
+
+                <td>The subtype tool item will be added to the object tools</td>
+            </tr>
+
+            <tr>
+                <td><code>TBoxGroup_Openings</code></td>
+
+                <td>The subtype tool item will be added to the window/door tools</td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p><img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12">&nbsp; You can control the availability of the subtype tool in the toolbox by setting the <code>enableFlags</code> bits:</p><a name="API_TBoxEnabled" id="API_TBoxEnabled"></a>
+
+    <blockquote>
+        <table border="1">
+            <tr>
+                <th bgcolor="#C0C0C0">API_TBoxEnabled</th>
+
+                <th bgcolor="#C0C0C0">The subtype tool is enabled</th>
+            </tr>
+
+            <tr>
+                <td><code>API_TBoxEnabled_FloorPlan</code></td>
+
+                <td>on floor plan window</td>
+            </tr>
+
+            <tr>
+                <td><code>API_TBoxEnabled_ModelSection</code>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></td>
+
+                <td>on model type section and elevation windows</td>
+            </tr>
+
+            <tr>
+                <td><code>API_TBoxEnabled_DrawingSection</code>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></td>
+
+                <td>on drawing type section and elevation windows</td>
+            </tr>
+
+            <tr>
+                <td><code>API_TBoxEnabled_3D</code></td>
+
+                <td>on 3D model window</td>
+            </tr>
+
+            <tr>
+                <td><code>API_TBoxEnabled_Detail</code></td>
+
+                <td>on detail window</td>
+            </tr>
+
+            <tr>
+                <td><code>API_TBoxEnabled_Layout</code></td>
+
+                <td>on layout and master layout windows</td>
+            </tr>
+
+            <tr>
+                <td><code>API_TBoxEnabled_Worksheet</code>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></td>
+
+                <td>on worksheet window</td>
+            </tr>
+
+            <tr>
+                <td><code>API_TBoxEnabled_ModelInteriorElevation</code>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></td>
+
+                <td>on model type interior elevation windows</td>
+            </tr>
+
+            <tr>
+                <td><code>API_TBoxEnabled_DrawingInteriorElevation</code>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></td>
+
+                <td>on drawing type interior elevation windows</td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>If you want to register your subtype tool without appearing in the toolbox, pass 0 for both the <code>smallIconResID</code> and the <code>largeIconResID</code> parameters.</p>
+
+    <p>If you register a subtype tool you should define the factory default values for this element type in an 'ACP0' resource. The element default will be initialized with these parameters when no preferences data is stored. The structure of this resource is shown at the example below. The resource ID should be passed in the <code>defaultsResID</code> parameter.</p>
+
+    <p>&nbsp;</p>
+
+    <p>Learn more about this topic at the general description of <a href="../Level3/Library_Part_Subtype.html">Library Part Subtypes</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>Resources in the .GRC file:</p>
+
+    <blockquote>
+        <pre><code>
+'FILE' <font color="#00A000">132</font>    "Roof Opening.gsm" {
+    "Roof Opening.gsm"
+}
+
+'STR#' <font color="#A00000">32611</font>  "Skylight subtype" {
+/* [  1] */     "Skylight"                          /* Subtype name */
+/* [  2] */     "Skylight Selection Settings..."    /* Selection settings dialog title */
+/* [  3] */     "Select All Skylights"              /* Select All menuitem string in Edit menu */
+/* [  4] */     "Skylight Tool"                     /* Toolbox item name */
+/* [  5] */     "The Skylight tool is used for placing skylight library items into roofs by clicking on the roof."
+                                                    /* Toolbox item popup help text */
+/* [  6] */     "Skylight Default Settings..."      /* Default settings dialog title */
+/* [  7] */     "Enter First Point of Skylight."    /* Default prompt text */
+}
+
+'GICN' <font color="#0000A0">32602</font>  "Small toolbar icon for Skylight" {
+}
+
+'GICN' <font color="#0000A0">32603</font>  "Large toolbox icon for Skylight" {
+}
+
+'ACP0' <font color="#00A0A0">132</font>    "Metric Defaults" {
+/* [  1] VarName  */ "001_defObjName"
+/* [  1] Value    */ "Skylight Pivot Hung"
+
+/* [  2] VarName  */ "002_Symb_layer"
+/* [  2] Value    */ "7"
+
+/* [  3] VarName  */ "003_Symb_material"
+/* [  3] Value    */ "47"
+
+/* [  4] VarName  */ "004_Symb_info"
+/* [  4] Value    */ "Sky-001"
+
+/* [  5] VarName  */ "005_Symb_level"
+/* [  5] Value    */ "0"
+
+/* [  6] VarName  */ "006_Symb_pen"
+/* [  6] Value    */ "2"
+
+/* [  7] VarName  */ "007_Symb_onePen(0/1)"
+/* [  7] Value    */ "0"
+
+/* [  8] VarName  */ "008_Symb_showAlways"
+/* [  8] Value    */ "0"
+
+/* [  9] VarName  */ "009_Symb_showAbove"
+/* [  9] Value    */ "0"
+
+/* [ 10] VarName  */ "010_Symb_showBelow"
+/* [ 10] Value    */ "0"
+
+/* [ 11] VarName  */ "011_Symb_gravityPar"
+/* [ 11] Value    */ "0"
+
+/* [ 12] VarName  */ "012_Symb_contourPen"
+/* [ 12] Value    */ "72"
+
+/* [ 13] VarName  */ "013_Symb_fillPen"
+/* [ 13] Value    */ "73"
+
+/* [ 14] VarName  */ "014_Symb_bkgPen"
+/* [ 14] Value    */ "80"
+
+/* [ 15] VarName  */ "015_Symb_fill"
+/* [ 15] Value    */ "65"
+
+/* [ 16] VarName  */ "016_Symb_lineType"
+/* [ 16] Value    */ "1"
+
+/* [ 17] VarName  */ "017_Symb_useLineType"
+/* [ 17] Value    */ "0"
+
+/* [ 18] VarName  */ "018_Symb_useMaterial"
+/* [ 18] Value    */ "1"
+
+/* [ 19] VarName  */ "019_Symb_useSectAttrs"
+/* [ 19] Value    */ "1"
+
+/* [ 20] VarName  */ "020_Symb_LightIsOn"
+/* [ 20] Value    */ "0"
+
+/* [ 21] VarName  */ "021_Symb_IsAutoOnStoryVisibility"
+/* [ 21] Value    */ "0"
+}
+</code></pre>
+    </blockquote>
+
+    <p>In the <code>RegisterInterface</code> function:</p>
+
+    <blockquote>
+        <pre><code>
+//------------------------------------------------------
+// Interface definitions
+//------------------------------------------------------
+GSErrCode __ACENV_CALL    RegisterInterface (void)
+
+{
+    GSErrCode   err = <font color="#FF0066">ACAPI_Register_Subtype</font> ('SKLT', <font color="#00A000">132</font>, true, <font color="#A00000">32611</font>, <font color="#0000A0">32602</font>, <font color="#0000A0">32603</font>, TBoxGroup_Openings,
+                                              API_TBoxEnabled_FloorPlan + API_TBoxEnabled_ModelSection + API_TBoxEnabled_3D, <font color="#00A0A0">132</font>);
+    return err;
+}   // RegisterInterface
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Level3/Library_Part_Subtype.html">Library Part Subtypes</a><br>
+    <a href="../Level2/LibPart_Overview.html">Library Part Overview</a><br>
+    <a href="../Level3/Library_Part_Manager_id.html">Library Part Manager</a><br>
+    <a href="../Functions/ACAPI_Register_BuiltInLibrary.html">ACAPI_Register_BuiltInLibrary</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 13, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

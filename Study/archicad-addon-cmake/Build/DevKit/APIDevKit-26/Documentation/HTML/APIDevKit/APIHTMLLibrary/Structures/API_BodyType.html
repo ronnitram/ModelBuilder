@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_BodyType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_BodyType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_BodyType</h1>
+
+    <p>Representation of a 3D body.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_3D_Head.html">API_3D_Head</a></strong>        <em>head</em>;
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>      <em>parent</em>;
+        <strong>Int32</strong>              <em>status</em>;
+        <strong>short</strong>              <em>color</em>;
+        <strong>short</strong>              <em>filler_0[3]</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong> <em>iumat</em>;
+        <strong>float</strong>              <em>xmin</em>;
+        <strong>float</strong>              <em>ymin</em>;
+        <strong>float</strong>              <em>zmin</em>;
+        <strong>float</strong>              <em>xmax</em>;
+        <strong>float</strong>              <em>ymax</em>;
+        <strong>float</strong>              <em>zmax</em>;
+        <strong>Int32</strong>              <em>nPgon</em>;
+        <strong>Int32</strong>              <em>nPedg</em>;
+        <strong>Int32</strong>              <em>nEdge</em>;
+        <strong>Int32</strong>              <em>nVert</em>;
+        <strong>Int32</strong>              <em>nVect</em>;
+        <strong>Int32</strong>              <em>filler_1</em>;
+        <strong><a href="API_Tranmat.html">API_Tranmat</a></strong>        <em>tranmat</em>;
+    <strong>}</strong> <em>API_BodyType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>Header information of this component. This specifies the type and database index.</dd>
+
+        <dt><b>parent</b></dt>
+
+        <dd>The floorplan element the body has been converted from.</dd>
+
+        <dt><b>status</b></dt>
+
+        <dd>The properties of the body.</dd>
+
+        <dt><b>color</b></dt>
+
+        <dd>Refers to the default color of the body edges.</dd>
+
+        <dt><b>iumat</b></dt>
+
+        <dd>Refers to the default material of the body polygons.</dd>
+
+        <dt><b>xmin, ymin, zmin, xmax, ymax, zmax</b></dt>
+
+        <dd>The six coordinate data of the body's bounding box.</dd>
+
+        <dt><b>nPgon</b></dt>
+
+        <dd>Number of polygons in the body.</dd>
+
+        <dt><b>nPedg</b></dt>
+
+        <dd>Number of edge references in the body.</dd>
+
+        <dt><b>nEdge</b></dt>
+
+        <dd>Number of edges in the body.</dd>
+
+        <dt><b>nVert</b></dt>
+
+        <dd>Number of vertices in the body.</dd>
+
+        <dt><b>nVect</b></dt>
+
+        <dd>Number of normal vectors in the body.</dd>
+
+        <dt><b>tranmat</b></dt>
+
+        <dd>The base transformation matrix.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The 3D representation of a particular element is based on <code>API_BodyType</code> structure. One element may hold one or more bodies to describe the 3D geometry. Generally a body is built up from a number of vertices, edges, polygons and normal vectors. This data structure gives you the number of the internal components as well as some status bits, surface properties and a global transformation matrix. You also get a reference to the parent element through an <a href="API_Elem_Head.html">API_Elem_Head</a> structure.</p>
+
+    <p>You can get a component of a body, just after you call <a href="../Functions/ACAPI_3D_GetComponent.html">ACAPI_3D_GetComponent</a> with the appropriate <b>body</b> component. Then you can obtain edges, pgons, vertices etc. of that body. Use indices from 1 to <code>nPgon</code>, <code>nPedg</code>, <code>nEdge</code>, <code>nVert</code> or <code>nVect</code> in parameter of <a href="../Functions/ACAPI_3D_GetComponent.html">ACAPI_3D_GetComponent</a> function to get a subcomponent.</p>
+
+    <p>The <code>status</code> field specifies some properties of the body. You can use the bitwise-OR operator (<code>|</code>) to combine any of the following constants:</p>
+
+    <ul>
+        <li><code>APIBody_MulRtxt</code>: more textures are referenced by its materials.</li>
+
+        <li><code>APIBody_MulColor</code>: more than one colors referenced by its edges.</li>
+
+        <li><code>APIBody_MulMater</code>: more than one materials referenced by its polygons.</li>
+
+        <li><code>APIBody_Closed</code>:&nbsp;its geometry is closed.</li>
+
+        <li><code>APIBody_Curved</code>: it has smooth polygons.</li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_3D.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_3D_Head.html">API_3D_Head</a>, <a href="API_PgonType.html">API_PgonType</a>, <a href="API_PedgType.html">API_PedgType</a>, <a href="API_EdgeType.html">API_EdgeType</a>, <a href="API_VertType.html">API_VertType</a>, <a href="API_VectType.html">API_VectType</a>, <a href="API_Component3D.html">API_Component3D</a>,<br>
+    <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_Tranmat.html">API_Tranmat</a>, <a href="API_AttributeIndex.html">API_AttributeIndex</a>,<br>
+    <a href="../Level3/3D_Manager_id.html">3D Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

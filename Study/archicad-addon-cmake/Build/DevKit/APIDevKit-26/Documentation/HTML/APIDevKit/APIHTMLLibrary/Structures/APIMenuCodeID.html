@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIMenuCodeID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/APIMenuCodeID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIMenuCodeID</h1>
+
+    <p>Defines the menu where the add-on's menu command will appear.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>MenuCode_UserDef</em>,
+        <em>MenuCode_File</em>,
+        <em>MenuCode_Edit1</em>,
+        <em>MenuCode_Edit2</em>,
+        <em>MenuCode_Edit3</em>,
+        <em>MenuCode_Tools</em>,
+        <em>MenuCode_Options1</em>,
+        <em>MenuCode_Options2</em>,
+        <em>MenuCode_Image</em>,
+        <em>MenuCode_Calculate</em>,
+        <em>MenuCode_TeamWork</em>,
+        <em>MenuCode_Display</em>,
+        <em>MenuCode_Palettes</em>,
+        <em>MenuCode_Extras</em>,
+        <em>MenuCode_Hotlink</em>,
+        <em>MenuCode_GDLObjects</em>,
+        <em>MenuCode_3DView</em>,
+        <em>MenuCode_DocExtras</em>,
+        <em>MenuCode_Interoperability</em>
+        <em>MenuCode_ModelCheck</em>
+    <strong>}</strong> <em>APIMenuCodeID</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>MenuCode_UserDef</b></dt>
+
+        <dd>configurable by the user</dd>
+
+        <dt><b>MenuCode_File</b></dt>
+
+        <dd>into the <tt>File</tt> menu after <tt>Info</tt></dd>
+
+        <dt><b>MenuCode_Edit1</b></dt>
+
+        <dd>into the <tt>Edit</tt> menu after <tt>Find &amp; Select</tt></dd>
+
+        <dt><b>MenuCode_Edit2</b></dt>
+
+        <dd>into the <tt>Edit/Reshape</tt> submenu</dd>
+
+        <dt><b>MenuCode_Edit3</b></dt>
+
+        <dd>into the <tt>Edit/Move</tt> submenu</dd>
+
+        <dt><b>MenuCode_Tools</b></dt>
+
+        <dd>into the <tt>Options</tt> menu, after the separator below the layers</dd>
+
+        <dt><b>MenuCode_Options1</b></dt>
+
+        <dd>into the <tt>Options</tt> menu, after <tt>Show All Layers</tt></dd>
+
+        <dt><b>MenuCode_Options2</b></dt>
+
+        <dd>into the bottom of <tt>Options/Attributes</tt> submenu</dd>
+
+        <dt><b>MenuCode_Image</b></dt>
+
+        <dd>to the end of <tt>Document/Creative Imaging</tt> submenu</dd>
+
+        <dt><b>MenuCode_Calculate</b></dt>
+
+        <dd>to the end of <tt>Document/Schedules</tt> and Lists submenu</dd>
+
+        <dt><b>MenuCode_TeamWork</b></dt>
+
+        <dd>to the end of <tt>TeamWork</tt> menu</dd>
+
+        <dt><b>MenuCode_Display</b></dt>
+
+        <dd>to the end of <tt>View/Zoom</tt> submenu</dd>
+
+        <dt><b>MenuCode_Palettes</b></dt>
+
+        <dd>to the end of <tt>Window/Palettes</tt> submenu</dd>
+
+        <dt><b>MenuCode_Extras</b></dt>
+
+        <dd>to the end of <tt>Design/Design Extras</tt> submenu</dd>
+
+        <dt><b>MenuCode_Hotlink</b></dt>
+
+        <dd>into the <tt>File/External Content</tt> submenu</dd>
+
+        <dt><b>MenuCode_GDLObjects</b></dt>
+
+        <dd>into the <tt>File/Libraries and Objects</tt> submenu</dd>
+
+        <dt><b>MenuCode_3DView</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>into the <tt>Document/Set 3D View</tt> submenu</dd>
+
+        <dt><b>MenuCode_DocExtras</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>into the <tt>Document/Document Extras</tt> menu</dd>
+
+        <dt><b>MenuCode_Interoperability</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>into the <tt>File/Interoperability</tt> submenu</dd>
+
+        <dt><b>MenuCode_ModelCheck</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="21" width="19" height="12"></dt>
+
+        <dd>into the <tt>Design/Model Check</tt> submenu</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is used in the <a href="../Functions/ACAPI_Register_Menu.html">ACAPI_Register_Menu</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Registration.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/ACAPI_Register_Menu.html">ACAPI_Register_Menu</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on Feb 01, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

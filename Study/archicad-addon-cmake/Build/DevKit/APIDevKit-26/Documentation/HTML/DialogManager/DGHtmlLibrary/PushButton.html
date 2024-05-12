@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Push Button</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/PushButton.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Push Button</h1>
+
+	<p>A push button is a small rectangular dialog item that is used to perform an action. There are two basic types of push buttons in DG: text- and icon-style ones and there is one special type of the push button named as split button, where a button is combined with a popup menu.</p>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_BUTTON</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_ICONTEXT</tt></td>
+
+                    <td>Push button with text and/or icon.<br>
+                    <br>
+                    <img src="../DGImageLibrary/ButtonIconText_Mac.png" width="274" height="34" alt="ButtonIconText_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/ButtonIconText_Win.png" alt="ButtonIconText_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_ICON</tt></td>
+
+                    <td>Simple icon button.<br>
+                    <br>
+                    <img src="../DGImageLibrary/ButtonIcon_Mac.png" width="120" height="56" alt="ButtonIcon_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/ButtonIcon_Win.png" alt="ButtonIcon_Win"><br>
+                    <br></td>
+                </tr>
+
+				<tr valign="top">
+					<td><tt>DG_BT_SPLIT</tt></td>
+
+					<td>Text and/or icon button with a popup on the side<br>
+					<br>
+					<img src="../DGImageLibrary/ButtonSplit_Mac.png" width="195" height="75" alt="ButtonSplit_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/ButtonSplit_Win.png" alt="ButtonSplit_Win"><br>
+					<br></td>
+				</tr>
+            </table>
+            <dl>
+                <dt><b>Remark:</b></dt>
+                <dd><font color="#FF0000">Please note that the <tt>DG_BT_TEXT</tt> subtype for push buttons is no longer supported. The <tt>DG_BT_ICONTEXT</tt> should be used instead.</font></dd>
+            </dl>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    Button        <i>x  y  dx  dy  fontSpec  [frameType]    [appearanceType]  "text"</i>
+    IconButton    <i>x  y  dx  dy  iconID    [frameType]    [appearanceType]</i>
+    SplitButton   <i>x  y  dx  dy  fontSpec  [appearanceType]  iconID  "text"</i>
+    </pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the push button, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the button <em>text</em>. <em>iconID</em> defines the icon resource ID of the icon-style push button. If the optional <em>frameType</em> flag is omitted, the push button is drawn with a three-dimensional raised border. If you want a frameless push button set this flag to <tt>noFrame</tt>.</p>
+
+
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <em>appearanceType</em>: (only affects the push button on Macintosh)</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Normal</tt></td>
+
+                    <td>This is the default. The push button has normal edge (<tt>DG_BA_NORMAL</tt>).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>BevelEdge</tt></td>
+
+                    <td>The push button has bevel edge (<tt>DG_BA_BEVEL</tt>).</td>
+                </tr>
+				<tr valign="top">
+					<td><tt>RoundedBevelEdge</tt></td>
+
+					<td>The push button has round bevel edge (<tt>DG_BA_ROUNDEDBEVEL</tt>).</td>
+				</tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>frameType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="250">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noFrame</tt></td>
+
+                    <td>The push button will be frameless.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>frame</tt></td>
+
+                    <td>The push button will have three-dimensional raised border.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Suggested sizes</h4>
+
+	<p>For simple text push buttons the suggested item height is 20 pixels. Notice that on Windows, DG automatically increases the height of simple text push buttons by 4 pixels in order to make enough room for the focus rectangle.</p>
+
+    <p>In case of icon buttons the button size should be greater than the icon size at least by 8 pixels in both direction. It is advisable to use these values in GRC or when push buttons are created from program code.</p>
+
+	<p>For split buttons the button size should be greater than the icon size at least by 8 pixels in height. In that case if the button does not contain an image only text, than the suggested button height is 20 pixels. It's advisable to resize the icon to the text size. The arrow size at the right side is based on the button height. (On Mac this can only be three buttons height)</p>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a></td>
+
+                    <td>The push button is clicked. The message data parameter is always zero.</td>
+                </tr>
+				<tr valign="top">
+					<td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+					<td>The selection is changed in the arrow pop up. The message data parameter is always zero.</td>
+				</tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+	<p>The modification flag of the push button is set when the user clicks on the button and DG generates a <tt>DG_MSG_CLICK</tt> message. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+	<p>The flag can also be set by user actions that change the selected element in the arrow pop up and generate <tt>DG_MSG_CHANGE</tt> messages.</p>
+
+    <h4>Remarks</h4>
+
+	<p>When a push button is clicked by the user, the <a href="CallbackFunctions.html">dialog callback function</a> receives a <tt>DG_MSG_CLICK</tt> message. If the application returns a non-zero value from the callback function, the dialog will be closed. The zero return value means that the application wants to stay in the dialog. It can be noted that the user can not close a dialog by clicking a push button on a tab control page.</p>
+
+    <p>The text of a push button with the subtype (<tt>DG_BT_ICONTEXT</tt>) can be set in GRC. It can also be set, modified and retrieved by <a href="DGSetItemText.html">DGSetItemText</a>, <a href="DGCatItemText.html">DGCatItemText</a> and <a href="DGGetItemText.html">DGGetItemText</a>, respectively. The text can be displayed with any type of DG fonts. The font can be specified not only in GRC, but by the <a href="DGSetItemFont.html">DGSetItemFont</a> function as well. Use <a href="DGGetItemFont.html">DGGetItemFont</a> to retrieve the font currently assigned to a push button. The icon can be assigned either by the resource ID or by the handle of the icon. To set and retrieve the icon use <a href="DGSetItemImageId.html">DGSetItemImageId</a> or <a href="DGSetItemImage.html">DGSetItemImage</a> and <a href="DGGetItemImageId.html">DGGetItemImageId</a> or <a href="DGGetItemImage.html">DGGetItemImage</a>, respectively. Note that the icon resource ID can not be defined in GRC for this kind of button.</p>
+
+	<p>The icon of an icon push button (<tt>DG_BT_ICON</tt>) can be assigned either by the resource ID or by the handle of the icon. To set and retrieve the icon of a push button use <a href="DGSetItemImageId.html">DGSetItemImageId</a> or <a href="DGSetItemImage.html">DGSetItemImage</a> and <a href="DGGetItemImageId.html">DGGetItemImageId</a> or <a href="DGGetItemImage.html">DGGetItemImage</a>, respectively. Note that the icon resource ID can be defined in GRC, too.</p>
+
+	<p>The text of a split button (<tt>DG_BT_SPLIT</tt>) can be set, modified and retrieved by <a href="DGSplitButtonSetItemText.html">DGSplitButtonSetItemText</a> and <a href="DGSplitButtonGetItemText.html">DGSplitButtonGetItemText</a>, respectively.	The text can be displayed with any type of DG fonts. The font and the size of the text can be specified not only in GRC, but by the <a href="DGSplitButtonSetItemFont.html">DGSplitButtonSetItemFont</a> function as well.	Use <a href="DGSplitButtonGetItemFont.html">DGSplitButtonGetItemFont</a> to retrieve the font or the size currently assigned to a split button.	The icon of the split button can be assigned either by the resource ID or by the handle of the icon. To set and retrieve the icon of a split button use <a href="DGSplitButtonSetItemIcon.html">DGSplitButtonSetItemIcon</a> and <a href="DGSplitButtonGetItemIcon.html">DGSplitButtonGetItemIcon</a> respectively. Notice that icon resource ID can be defined in GRC, too.	It is possible to set the alignment of a split button. For setting the type of the alignment use <a href="DGSplitButtonSetAlignment.html">DGSplitButtonSetAlignment</a> function, for getting the alignment value use <a href="DGSplitButtonGetAlignment.html">DGSplitButtonGetAlignment</a> function. The icon set to the split button will be shown on the left side of the text. If the split button is <i>RightAligned</i> the icon will appear on the right side of the text.	The pop up menu can be managed by appending an item with <a href="DGSplitButtonAppendItem.html">DGSplitButtonAppendItem</a> or a separator with <a href="DGSplitButtonAppendSeparator.html">DGSplitButtonAppendSeparator</a>, by inserting an item with <a href="DGSplitButtonInsertItem.html">DGSplitButtonInsertItem</a> or a separator with <a href="DGSplitButtonInsertSeparator.html">DGSplitButtonInsertSeparator</a>, or by erasing an item with <a href="DGSplitButtonDeleteItem.html">DGSplitButtonDeleteItem</a>. The data of a menu item can be set or retrieved by <a href="DGSplitButtonSetItemData.html">DGSplitButtonSetItemData</a> or <a href="DGSplitButtonGetItemData.html">DGSplitButtonGetItemData</a>. Each menu item can be enabled, disabled with <a href="DGSplitButtonEnableItem.html">DGSplitButtonEnableItem</a>, <a href="DGSplitButtonDisableItem.html">DGSplitButtonDisableItem</a> or <a href="DGSplitButtonSetItemStatus.html">DGSplitButtonSetItemStatus</a>, you can retrieve information about the item satus with <a href="DGSplitButtonIsItemEnabled.html">DGSplitButtonIsItemEnabled</a>. The pop up menu can contain not only items but separators too. To decide if a menu item is a separator or not, use <a href="DGSplitButtonIsSeparatorItem.html">DGSplitButtonIsSeparatorItem</a> function. The number of the items contained in the splitbutton can be retrieved with <a href="DGSplitButtonGetItemCount.html">DGSplitButtonGetItemCount</a>. Flashing may be avoid during refilling the popup in the split button by disabling and enabling the drawing of the button while the menu is filled up with the corresponding popupitems with the folllowing functions: <a href="DGSplitButtonEnableDraw.html">DGSplitButtonEnableDraw</a> and <a href="DGSplitButtonDisableDraw.html">DGSplitButtonDisableDraw</a>.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+		<dd><b>Version:</b> DG 18.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+	<p>
+	<a href="DlgItemTypes_id.html">Dialog item types</a><br>
+	<a href="DGCatItemText.html">DGCatItemText</a>,
+	<a href="DGGetItemFont.html">DGGetItemFont</a>,
+	<a href="DGGetItemImage.html">DGGetItemImage</a>,
+	<a href="DGGetItemImageId.html">DGGetItemImageId</a>,
+	<a href="DGGetItemText.html">DGGetItemText</a>,
+	<a href="DGModified.html">DGModified</a>,
+	<a href="DGResetModified.html">DGResetModified</a>,
+	<a href="DGSetItemFont.html">DGSetItemFont</a>,
+	<a href="DGSetItemImage.html">DGSetItemImage</a>,
+	<a href="DGSetItemImageId.html">DGSetItemImageId</a>,
+	<a href="DGSetItemText.html">DGSetItemText</a>,
+	<a href="DGSplitButtonSetItemText.html">DGSplitButtonSetItemText</a>,
+	<a href="DGSplitButtonGetItemText.html">DGSplitButtonGetItemText</a>,
+	<a href="DGSplitButtonSetItemFont.html">DGSplitButtonSetItemFont</a>,
+	<a href="DGSplitButtonGetItemFont.html">DGSplitButtonGetItemFont</a>,
+	<a href="DGSplitButtonSetItemIcon.html">DGSplitButtonSetItemIcon</a>,
+	<a href="DGSplitButtonGetItemIcon.html">DGSplitButtonGetItemIcon</a>,
+	<a href="DGSplitButtonSetAlignment.html">DGSplitButtonSetAlignment</a>,
+	<a href="DGSplitButtonGetAlignment.html">DGSplitButtonGetAlignment</a>,
+	<a href="DGSplitButtonAppendItem.html">DGSplitButtonAppendItem</a>,
+	<a href="DGSplitButtonAppendSeparator.html">DGSplitButtonAppendSeparator</a>,
+	<a href="DGSplitButtonInsertItem.html">DGSplitButtonInsertItem</a>,
+	<a href="DGSplitButtonInsertSeparator.html">DGSplitButtonInsertSeparator</a>,
+	<a href="DGSplitButtonDeleteItem.html">DGSplitButtonDeleteItem</a>,
+	<a href="DGSplitButtonSetItemData.html">DGSplitButtonSetItemData</a>,
+	<a href="DGSplitButtonGetItemData.html">DGSplitButtonGetItemData</a>,
+	<a href="DGSplitButtonEnableItem.html">DGSplitButtonEnableItem</a>,
+	<a href="DGSplitButtonDisableItem.html">DGSplitButtonDisableItem</a>,
+	<a href="DGSplitButtonSetItemStatus.html">DGSplitButtonSetItemStatus</a>,
+	<a href="DGSplitButtonIsItemEnabled.html">DGSplitButtonIsItemEnabled</a>,
+	<a href="DGSplitButtonIsSeparatorItem.html">DGSplitButtonIsSeparatorItem</a>,
+	<a href="DGSplitButtonGetItemCount.html">DGSplitButtonGetItemCount</a>,
+	<a href="DGSplitButtonEnableDraw.html">DGSplitButtonEnableDraw</a>,
+	<a href="DGSplitButtonDisableDraw.html">DGSplitButtonDisableDraw</a>,
+	<a href="CallbackFunctions.html">Callback functions</a><br>
+	<a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a>,
+	<a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>
+	</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on November 30, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

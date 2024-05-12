@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_FTypeID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_FTypeID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_FTypeID</h1>
+
+    <p>Available file format identifiers for automate functions.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>APIFType_None</em>,<br>
+        <em>APIFType_PlanFile</em>,
+        <em>APIFType_A_PlanFile</em>,
+        <em>APIFType_Bak_PlanFile</em>,
+        <em>APIFType_WGClientFile</em>,
+        <em>APIFType_A_WGClientFile</em>,
+        <em>APIFType_Bak_WGClientFile</em>,<br>
+        <em>APIFType_PlanFile600</em>,
+        <em>APIFType_A_PlanFile600</em>,
+        <em>APIFType_PlanFile650</em>,
+        <em>APIFType_A_PlanFile650</em>,
+        <em>APIFType_PlanFile700</em>,
+        <em>APIFType_A_PlanFile700</em>,<br>
+        <em>APIFType_WGProjFile</em>,
+        <em>APIFType_A_WGProjFile</em>,
+        <em>APIFType_Bak_WGProjFile</em>,
+        <em>APIFType_TabListFile</em>,
+        <em>APIFType_ObjectFile</em>,
+        <em>APIFType_DoorFile</em>,
+        <em>APIFType_WindowFile</em>,
+        <em>APIFType_GDLFile</em>,
+        <em>APIFType_2DLinesFile</em>,<br>
+        <em>APIFType_PNGFile</em>,
+        <em>APIFType_BMPFile</em>,
+        <em>APIFType_TIFFFile</em>,
+        <em>APIFType_JPEGFile</em>,
+        <em>APIFType_GIFFile</em>,<br>
+        <em>APIFType_EMFFile</em>,
+        <em>APIFType_WMFFile</em>,<br>
+        <em>APIFType_PlanFile800</em>,
+        <em>APIFType_A_PlanFile800</em>,
+        <em>APIFType_PlanFile810</em>,
+        <em>APIFType_A_PlanFile810</em>,
+        <em>APIFType_PlanFile900</em>,
+        <em>APIFType_A_PlanFile900</em>,
+        <em>APIFType_PlanFile1000</em>,
+        <em>APIFType_A_PlanFile1000</em>,
+        <em>APIFType_PlanFile1100</em>,
+        <em>APIFType_A_PlanFile1100</em>,
+        <em>APIFType_PlanFile1200</em>,
+        <em>APIFType_A_PlanFile1200</em>,<br>
+        <em>APIFType_IfcFile</em>,<br>
+        <em>APIFType_PlanFile1300</em>,
+        <em>APIFType_A_PlanFile1300</em>,
+        <em>APIFType_PlanFile1400</em>,
+        <em>APIFType_A_PlanFile1400</em>,
+        <em>APIFType_PlanFile1500</em>,
+        <em>APIFType_A_PlanFile1500</em>,
+        <em>APIFType_PlanFile1600</em>,
+        <em>APIFType_A_PlanFile1600</em>,
+        <em>APIFType_PlanFile1700</em>,
+        <em>APIFType_A_PlanFile1700</em>,<br>
+        <em>APIFType_PlanFile1800</em>,
+        <em>APIFType_A_PlanFile1800</em>,<br>
+        <em>APIFType_PdfFile</em>,<br>
+        <em>APIFType_PlanFile1900</em>,
+        <em>APIFType_A_PlanFile1900</em>,
+        <em>APIFType_PlanFile2000</em>,
+        <em>APIFType_A_PlanFile2000</em>,
+        <em>APIFType_PlanFile2100</em>,
+        <em>APIFType_A_PlanFile2100</em>,
+        <em>APIFType_SafFile</em>,
+        <em>APIFType_PlanFile2200</em>,
+        <em>APIFType_A_PlanFile2200</em>,
+        <em>APIFType_PlanFile2300</em>,
+        <em>APIFType_A_PlanFile2300</em>,
+        <em>APIFType_PlanFile2400</em>,
+        <em>APIFType_A_PlanFile2400</em>,
+        <em>APIFType_PlanFile2500</em>,
+        <em>APIFType_A_PlanFile2500</em>,
+        <em>APIFType_SafFile</em>
+    <strong>}</strong> <em>API_FTypeID</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>APIFType_None</b></dt>
+
+        <dd>unknown file type</dd>
+
+        <dt><b>APIFType_PlanFile</b></dt>
+
+        <dd>Archicad Solo Project File</dd>
+
+        <dt><b>APIFType_A_PlanFile</b></dt>
+
+        <dd>Archicad Archive File</dd>
+
+        <dt><b>APIFType_Bak_PlanFile</b></dt>
+
+        <dd>Archicad Backup File</dd>
+
+        <dt><b>APIFType_WGClientFile</b></dt>
+
+        <dd>Archicad TeamWork Draft File</dd>
+
+        <dt><b>APIFType_A_WGClientFile</b></dt>
+
+        <dd>AC TeamWork Draft Archive File</dd>
+
+        <dt><b>APIFType_Bak_WGClientFile</b></dt>
+
+        <dd>AC TeamWork Draft Backup File</dd>
+
+        <dt><b>APIFType_PlanFile600</b></dt>
+
+        <dd>Archicad 6.0 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile600</b></dt>
+
+        <dd>Archicad 6.0 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile650</b></dt>
+
+        <dd>Archicad 6.5 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile650</b></dt>
+
+        <dd>Archicad 6.5 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile700</b></dt>
+
+        <dd>Archicad 7.0 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile700</b></dt>
+
+        <dd>Archicad 7.0 Archive File</dd>
+
+        <dt><b>APIFType_WGProjFile</b></dt>
+
+        <dd>Archicad TeamWork Project File</dd>
+
+        <dt><b>APIFType_A_WGProjFile</b></dt>
+
+        <dd>AC TeamWork Project Archive</dd>
+
+        <dt><b>APIFType_Bak_WGProjFile</b></dt>
+
+        <dd>AC TeamWork Project Backup File</dd>
+
+        <dt><b>APIFType_TabListFile</b></dt>
+
+        <dd>Archicad List File with Tabs</dd>
+
+        <dt><b>APIFType_ObjectFile</b></dt>
+
+        <dd>Archicad Object File</dd>
+
+        <dt><b>APIFType_DoorFile</b></dt>
+
+        <dd>Archicad Door File</dd>
+
+        <dt><b>APIFType_WindowFile</b></dt>
+
+        <dd>Archicad Window File</dd>
+
+        <dt><b>APIFType_GDLFile</b></dt>
+
+        <dd>Archicad GDL File</dd>
+
+        <dt><b>APIFType_2DLinesFile</b></dt>
+
+        <dd>2D Lines File</dd>
+
+        <dt><b>APIFType_PNGFile</b>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API version 18" width="19" height="12"></dt>
+
+        <dd>PNG File</dd>
+
+        <dt><b>APIFType_BMPFile</b></dt>
+
+        <dd>Bitmap File</dd>
+
+        <dt><b>APIFType_TIFFFile</b></dt>
+
+        <dd>TIFF File</dd>
+
+        <dt><b>APIFType_JPEGFile</b></dt>
+
+        <dd>JPEG File</dd>
+
+        <dt><b>APIFType_GIFFile</b></dt>
+
+        <dd>GIF File</dd>
+
+        <dt><b>APIFType_EMFFile</b></dt>
+
+        <dd>Windows Enhanced Metafile</dd>
+
+        <dt><b>APIFType_WMFFile</b></dt>
+
+        <dd>Windows Metafile</dd>
+
+        <dt><b>APIFType_PlanFile800</b>&nbsp;<img border="0" src="../../APIImageLibrary/51.png" alt="5.1" width="19" height="12"></dt>
+
+        <dd>Archicad 8 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile800</b>&nbsp;<img border="0" src="../../APIImageLibrary/51.png" alt="5.1" width="19" height="12"></dt>
+
+        <dd>Archicad 8 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile810</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Archicad 8.1 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile810</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Archicad 8.1 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile900</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Archicad 9.0 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile900</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Archicad 9.0 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile1000</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd>Archicad 10.0 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile1000</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd>Archicad 10.0 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile1100</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>Archicad 11.0 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile1100</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>Archicad 11.0 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile1200</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>Archicad 12.0 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile1200</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>Archicad 12.0 Archive File</dd>
+
+        <dt><b>APIFType_IfcFile</b> (save only)&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd>IFC File</dd>
+
+        <dt><b>APIFType_PlanFile1300</b>&nbsp;<img border="0" src="../../APIImageLibrary/14.png" alt="14" width="19" height="12"></dt>
+
+        <dd>Archicad 13 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile1300</b>&nbsp;<img border="0" src="../../APIImageLibrary/14.png" alt="14" width="19" height="12"></dt>
+
+        <dd>Archicad 13 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile1400</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></dt>
+
+        <dd>Archicad 14 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile1400</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></dt>
+
+        <dd>Archicad 14 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile1500</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="16" width="19" height="12"></dt>
+
+        <dd>Archicad 15 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile1500</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="16" width="19" height="12"></dt>
+
+        <dd>Archicad 15 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile1600</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Archicad 16 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile1600</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Archicad 16 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile1700</b>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="18" width="19" height="12"></dt>
+
+        <dd>Archicad 17 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile1700</b>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="18" width="19" height="12"></dt>
+
+        <dd>Archicad 17 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile1800</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Archicad 18 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile1800</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Archicad 18 Archive File</dd>
+
+        <dt><b>APIFType_PdfFile</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>PDF File</dd>
+
+        <dt><b>APIFType_PlanFile1900</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></dt>
+
+        <dd>Archicad 19 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile1900</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></dt>
+
+        <dd>Archicad 19 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile2000</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Archicad 20 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile2000</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Archicad 20 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile2100</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="22" width="19" height="12"></dt>
+
+        <dd>Archicad 21 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile2100</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="22" width="19" height="12"></dt>
+
+        <dd>Archicad 21 Archive File</dd>
+
+        <dt><b>APIFType_SafFile</b>&nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="New in API 25" width="19" height="12"></dt>
+
+        <dd>SAF File</dd>
+
+        <dt><b>APIFType_PlanFile2200</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="23" width="19" height="12"></dt>
+
+        <dd>Archicad 22 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile2200</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="23" width="19" height="12"></dt>
+
+        <dd>Archicad 22 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile2300</b>&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="24" width="19" height="12"></dt>
+
+        <dd>Archicad 23 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile2300</b>&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="24" width="19" height="12"></dt>
+
+        <dd>Archicad 23 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile2400</b>&nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="25" width="19" height="12"></dt>
+
+        <dd>Archicad 24 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile2400</b>&nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="25" width="19" height="12"></dt>
+
+        <dd>Archicad 24 Archive File</dd>
+
+        <dt><b>APIFType_PlanFile2500</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"></dt>
+
+        <dd>Archicad 25 Plan File</dd>
+
+        <dt><b>APIFType_A_PlanFile2500</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"></dt>
+
+        <dd>Archicad 25 Archive File</dd>
+
+        <dt><b>APIFType_SafFile</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"></dt>
+
+        <dd>SAF File</dd>
+
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For the utilization of this structure see the <a href="../Functions/APIDo_OpenID.html">APIDo_OpenID</a> and <a href="../Functions/APIDo_SaveID.html">APIDo_SaveID</a> automation functions.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Automate.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIDo_OpenID.html">APIDo_OpenID</a><br>
+    <a href="../Functions/APIDo_SaveID.html">APIDo_SaveID</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

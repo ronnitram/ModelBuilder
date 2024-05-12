@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\FREELANCE\Archicad\Study\archicad-addon-cmake\Build\ExampleAddOn\27\INT\x64\RelWithDebInfo\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\FREELANCE\Archicad\Study\archicad-addon-cmake\Build\ExampleAddOn\27\INT\RelWithDebInfo\ExampleAddOn.apx</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\FREELANCE\Archicad\Study\archicad-addon-cmake\Build\ExampleAddOn\27\INT\x64\RelWithDebInfo\ALL_BUILD</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

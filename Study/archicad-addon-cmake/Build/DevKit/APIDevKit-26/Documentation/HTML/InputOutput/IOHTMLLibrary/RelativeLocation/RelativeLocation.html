@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>RelativeLocation</title><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/RelativeLocation/RelativeLocation.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>RelativeLocation class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>Relative address of entries (file, folder, link) in the file system. <!-- Not Index --><a href="#Description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td><!-- Not Index --><a href="../../InputOutput.html">InputOutput</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td><!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Object/Object.html">GS::Object</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>RelativeLocation.hpp</td>
+        </tr>
+    </table>
+
+    <p><br>
+    <br></p>
+
+    <h3>Public methods</h3><br>
+    &nbsp;&nbsp;&nbsp; <a href="Constructors.html">Constructors</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; Copy constructor<br>
+    &nbsp;&nbsp;&nbsp; operator=<br>
+    <br>
+    <b>State query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetStatus.html">GetStatus</a><br>
+    <br>
+    <b>Setting</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Set.html">Set</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Clear.html">Clear</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsRelativeURL.html">IsRelativeURL</a><br>
+    <br>
+    <b>Basic address operations</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetName.html">GetName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetName.html">SetName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetLastName.html">GetLastName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetLastName.html">SetLastName</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Append.html">Append</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="DeleteName.html">DeleteName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="DeleteLastName.html">DeleteLastName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="MoveLastName.html">MoveLastName</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetLength.html">GetLength</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsEmpty.html">IsEmpty</a><br>
+    <b><br>
+    Comparing</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="operatorEqu.html">operator==</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="operatorNotEqu.html">operator!=</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsAncestorOf.html">IsAncestorOf</a><br>
+    <br>
+    <b>Conversions</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="ToURL.html">ToURL</a><br>
+    <br>
+    <b>Platform dependency support</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsLegal.html">IsLegal</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsMultiplatform.html">IsMultiplatform</a><br>
+    <br>
+    <b>I/O</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; Read<font face="Courier New">&nbsp; -&gt;</font> <!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Object/Object.html">GS::Object</a><br>
+    &nbsp;&nbsp;&nbsp; Write<font face="Courier New">&nbsp; -&gt;</font> <!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Object/Object.html">GS::Object</a><br>
+    <br>
+    <b>Debug</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; Print<font face="Courier New">&nbsp; -&gt;</font> <!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Object/Object.html">GS::Object<br></a><br>
+    <br>
+
+    <h3><a name="Description">Description</a></h3>RelativeLocation is relative address or relative path of entries (file, folder, link) in the file system. RelativeLocation is an arbitrary long sequence of names (see class <!-- Not Index --><a href="../Name/Name.html">Name</a>), yielding a relative hierarchy (tree), which can be freely manipulated with several methods. Each name consists of arbitrary long sequence of characters.
+
+    <p>RelativeLocation is not useable in isolation, at some point of use it must be appended to an absolute location represented by the class <!-- Not Index --><a href="../Location/Location.html">Location</a>. RelativeLocation is relative to the <b>local</b> address of the Location (there is no support for relative network addresses). So a relative location can be manipulated, saved, restored and finally appended to the local address of an absolute location.</p>
+
+    <p>Although generally there is no any restriction related to the content of a relative location, there can be some at the point of use on the particular platform. For example when creating a file, it is not allowed on Windows for its location to contain some special characters like '|' or '*'. User can check whether is a relative location syntactically legal on the current platform (with <!-- Not Index --><a href="IsLegal.html">IsLegal</a> method) or on every platform supported by InputOutput module (with <!-- Not Index --><a href="IsMultiplatform.html">IsMultiplatform</a> method). Syntactically legal means simply that a file system entry with such relative location <b>may</b> exist.</p>
+
+    <p>When appending a relative location to an absolute location, some special names like <font face="Courier">"."</font> and <font face="Courier">".."</font> have special meaning and special processing. For example <font face="Courier">"/A/B/C" + "../../D" = "/A/D"</font>. For more information see the corresponding <!-- Not Index --><a href="../Location/AppendToLocal.html">Location::AppendToLocal</a> method.</p>
+
+    <p>Implementation of the RelativeLocation class is highly optimized both to space and speed. Copy constructor and assignment operator are fast and do not require additional heap space. Internally, relative locations are stored in a common shared tree. Similar relative locations require additional space only for different segments.</p>
+
+    <p><b><br>
+    Note:</b> in every method where <font face="Courier New">const Name&amp;</font> is expected, C string can be also passed, because there is implicit conversion from <font face="Courier New">char*</font> to <font face="Courier New">Name</font>.</p>
+
+    <p><br>
+    <br></p>
+
+    <h3>See Also</h3>
+
+    <p><a href="../Location/Location.html">Location</a>, <a href="../Name/Name.html">Name</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

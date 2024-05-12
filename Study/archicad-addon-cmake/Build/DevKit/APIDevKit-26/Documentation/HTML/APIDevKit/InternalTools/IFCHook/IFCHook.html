@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API Hooks in the IFC process</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="InternalTools/IFCHook/IFCHook.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API Hooks in the IFC process</h1>
+
+    <p>From Archicad 19 it is possible to influence element IFC data runtime.</p>
+    <p>Using an Archicad add on, you can register hooks in the IFC processes, where IFC data can be manipulated, to provide a runtime sync with user data.</p>
+
+    <ul>
+        <li><a href="#theAddOn">The add-on</a></li>
+        <li><a href="#theRegisterUnregisterCommandIDs">The register/unregister command IDs</a></li>
+        <li><a href="#theHooks">The hooks</a>
+            <ul>
+                <li><a href="#ifcExportRuntime">IFC export/runtime</a></li>
+                <li><a href="#ifcImport">IFC import</a></li>
+                <li><a href="#ifcSchema">IFC schema</a></li>
+                <li><a href="#ifcGrouping">IFC grouping</a></li>
+           </ul>
+        </li>
+        <li><a href="#generalNotes">General notes</a></li>
+   </ul>
+
+    <h2><a name="theAddOn" id="theAddOn">The add-on</a></h2>
+    <p>The add-on has to meet the following requirements:</p>
+    <ul>
+        <li style="margin-bottom: 8px;">In the <code>CheckEvironment</code> function <code>APIAddon_Preload</code> must be returned, so that the addon is loaded at least once, and the <code>Initialize</code> function can register for the hooks.</li>
+        <li style="margin-bottom: 8px;"> Hook registration:
+            <ul>
+                <li style="margin-bottom: 8px;">Make the necessary registrations in the <code>Initialize</code> function and don't unregister at all,</li>
+                <li style="margin-bottom: 8px;">Or if the hook can be turned on/off on UI, register and unregister based on the UI command handler.</li>
+            </ul>
+        </li>
+        <li style="margin-bottom: 8px;">The <code>RegisterInterface</code> function has to register the necessary services for the IFC add-on to call back to, and the <code>Initialize</code> function must install the command handler funtions for them.</li>
+        <li style="margin-bottom: 8px;">
+            You must make sure the add-on is NOT unloaded automatically! One method is to call <code>ACAPI_KeepInMemory(true);</code> at the end of each service. For other options see the API documentation.<br>
+        </li>
+    </ul>
+
+    <h2><a name="theRegisterUnregisterCommandIDs" id="theRegisterUnregisterCommandIDs">The register/unregister command IDs</a></h2>
+    <table border="1">
+        <tr>
+            <td>
+                <code>'IHRI'</code>
+            </td>
+            <td>
+                Register for the IFC import process
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>'IHUI'</code>
+            </td>
+            <td>
+                Unregister from the IFC import process
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>'IHRE'</code>
+            </td>
+            <td>
+                Register for the IFC export/runtime process
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>'IHUE'</code>
+            </td>
+            <td>
+                Unregister from the IFC export/runtime process
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>'IHRS'</code>
+            </td>
+            <td>
+                Register for the IFC schema process
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>'IHUS'</code>
+            </td>
+            <td>
+                Unregister from the IFC schema process
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>'IHRG'</code>
+            </td>
+            <td>
+                Register for the IFC grouping process
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>'IHUG'</code>
+            </td>
+            <td>
+                Unregister from the IFC grouping process
+            </td>
+        </tr>
+    </table>
+    <p>
+        For the register/unregister commands the add-on's own API_ModulID has to be passed as parameter:<br>
+        <code>
+            API_ModulID ownMDID = { ..., ... };<br>
+            ... reinterpret_cast&lt;GS::GSHandle&gt;(&amp;ownMDID), ...</code>
+    </p>
+    <p>
+    The modul ID of the IFC add-on:<br>
+        <code>
+            developerID = 1198731108<br>
+            localID&nbsp;&nbsp;&nbsp;&nbsp; = 138575850
+        </code>
+    </p>
+
+    <h2><a name="theHooks" id="theHooks">The hooks</a></h2>
+
+    <h3><a name="ifcExportRuntime" id="ifcExportRuntime">IFC export/runtime</a></h3>
+    <p>There are 3 services, the add-on can provide to add it's own derived IFC data to an element. Registering for the eport/runtime process enables them all:</p>
+    <table border="1">
+        <tr>
+            <td>
+                <code>'IHEA'</code>
+            </td>
+            <td>
+                IFC Attributes are queried
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>'IHEP'</code>
+            </td>
+            <td>
+                IFC Properties are queried
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>'IHEC'</code>
+            </td>
+            <td>
+                IFC ClassificationReferences are queried
+            </td>
+        </tr>
+    </table>
+    <p>The input parameter contains the element identification data, use the API Goodies functions for Inter-addon communications to extract them from the passed parameter handle:</p>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Class
+            </th>
+            <th>
+                Usage
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <code>elementGuid</code>
+            </td>
+            <td>
+                pointer
+            </td>
+            <td>
+                <code>API_Guid*</code>
+            </td>
+            <td>
+                The guid of the element the properties are queried for.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>forTypeObject</code>
+            </td>
+            <td>
+                integer
+            </td>
+            <td>
+                bool
+            </td>
+            <td>
+                Whether the IfcTypeObject of the element is queried.<br>
+                <font size="2">
+                    (In Archicad the IfcTypeObjects are always based on an element. The ones resulting in similar content are merged on the interface or export-time.<br>
+                    Providing similar of different values for elements a custom IfcTypeObject separation can be accomplished.)
+                </font>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>apiToolBoxUIData</code>
+            </td>
+            <td>
+                pointer
+            </td>
+            <td>
+                <code>TBUI::IAPIToolUIData*</code>
+            </td>
+            <td>
+                Exclusive for the two other parameters, represents the state of the settings dialog.<br>
+                Provides access to basically the same data as an element. (<code>API_Element</code>, <code>API_ElementMemo</code>, <code>API_UserData</code>)<br>
+                <font size="2">(In this case the selected element shall never be used in any way, as only this object will show the yet unapplied changes of the settings dialog!)</font>
+            </td>
+        </tr>
+    </table>
+    <p>
+    Using the input you can build your own <code>API_IFCAttribute</code>, <code>API_IFCProperty</code>, <code>API_IFCClassificationReference</code> objects.<br>
+    The <code>resultData</code> parameter is a <code>GS::Array&lt;&gt;*</code> of the relevant API structure, you can <code>Push()</code> the API objects to it.
+    The IFC add-on will parse the array and show your derived IFC data on the IFC Manager interface with the same grey chain icon, that is used by other internally derived values.
+    </p>
+    <p>
+    Notes:</p><br>
+        <ul>
+            <li style="margin-bottom: 8px;">
+            Attributes shall be given an <code>attributeName</code>, <code>attributeType</code> (according to the IFC4 schema), <code>attributeValue</code> and <code>hasValue</code> flag filled for a successful derivation.<br>
+            <font size="2">(Even the type must be given for proper identification, because there are some similarly named attributes in the IFC4 schema)</font>
+            </li>
+            <li style="margin-bottom: 8px;">Properties must have a head, and the relevant ...<code>Value</code> member filled.<br></li>
+            <li style="margin-bottom: 8px;">ClassificationReferences require the referenceName for identification, the other members can be set as required.</li>
+            <li style="margin-bottom: 8px;">See <a href="#generalNotes">general notes</a>.</li>
+        </ul>
+
+    <h3><a name="ifcImport" id="ifcImport">IFC import</a></h3>
+    <p>There is a service, the add-on can provide to parse the incoming IFC data of an element. Registering for the import process enable it:</p>
+    <table border="1">
+        <tr>
+            <td>
+                <code>'IHIM'</code>
+            </td>
+            <td>
+                Getting the stored(!) IFC data through the API, you can set your own core data, and remove the relevant stored(!) IFC data using the API functions again.
+            </td>
+        </tr>
+    </table>
+
+    <p>The input parameter contains imported element GUIDs:</p>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Class
+            </th>
+            <th>
+                Usage
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <code>elementGuids</code>
+            </td>
+            <td>
+                pointer
+            </td>
+            <td>
+                <code>GS::Array&lt;API_Guid&gt;*</code>
+            </td>
+            <td>
+                Manage elements IFC data.
+            </td>
+        </tr>
+    </table>
+
+    <p>This way a manual synchronization can be performed moving the IFC input data to
+        the necessary core data. The export/runtime mechanism can do the runtime derivation of the IFC data.<br>
+    With these there is a way to to avoid data duplication, while having always synchronized IFC data as well.</p>
+    <p>
+    Notes:</p><br>
+        <ul>
+            <li style="margin-bottom: 8px;">Make sure the imported layers are NOT locked in the IFC translator, otherwise layer-locked elements won't be able to be modified in the import callback function.</li>
+            <li style="margin-bottom: 8px;">See <a href="#generalNotes">general notes</a>.</li>
+        </ul>
+
+    <h3><a name="ifcSchema" id="ifcSchema">IFC schema</a></h3>
+    <p>There are 2 services, the add-on can provide to add it's own IFC schema data to an element. Registering for the schema process enables them all:</p>
+    <table border="1">
+        <tr>
+            <td>
+                <code>'IHSP'</code>
+            </td>
+            <td>
+                IFC Schema Properties are queried
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>'IHSC'</code>
+            </td>
+            <td>
+                IFC Schema ClassificationReferences are queried
+            </td>
+        </tr>
+    </table>
+    <p>The input parameter contains the element identification data, the same as in case of the export/runtime hook.</p>
+    <p>
+        Using the input you can build your own <code>API_IFCProperty</code>, <code>API_IFCClassificationReference</code> objects.<br>
+        The <code>resultData</code> parameter is a <code>GS::Array&lt;&gt;*</code> of the relevant API structure, you can <code>Push()</code> the API objects to it.
+        The IFC add-on will parse the array and extend the schema for the specific element, thus a criteria-based schema can be provided.
+    </p>
+    <p>
+        Notes:</p><br>
+        <ul>
+            <li style="margin-bottom: 8px;">The export/runtime hook can fill the IFC Properties and ClassificationReferences defined in the schema hooks as well.</li>
+            <li style="margin-bottom: 8px;">See <a href="#generalNotes">general notes</a>.</li>
+        </ul>
+
+    <h3><a name="ifcGrouping" id="ifcGrouing">IFC grouping</a></h3>
+    <p>There is a service, the add-on can provide to add elements to the desired IFCGroup subtype. Registering for the grouping process enables it:</p>
+    <table border="1">
+        <tr>
+            <td>
+                <code>'IHGR'</code>
+            </td>
+            <td>
+                IFC group child elements are queried
+            </td>
+        </tr>
+    </table>
+    <p>The input parameter contains the group identification data, use the API Goodies functions for Inter-addon communications to extract them from the passed parameter handle:</p>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>
+                Guid
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Type
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <code>objectIFCGuid</code>
+            </td>
+            <td>
+                pointer
+            </td>
+            <td>
+                <code>API_Guid*</code>
+            </td>
+            <td>
+                The IFC guid of the IFCGroup the elements are queried for.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>objectIFCName</code>
+            </td>
+            <td>
+                pointer
+            </td>
+            <td>
+                <code>GS::UniString*</code>
+            </td>
+            <td>
+                The IFC name of the IFCGroup the elements are queried for.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <code>objectIFCType</code>
+            </td>
+            <td>
+                pointer
+            </td>
+            <td>
+                <code>GS::UniString*</code>
+            </td>
+            <td>
+                The IFC type of the IFCGroup the elements are queried for.
+            </td>
+        </tr>
+    </table>
+    <p>
+        Using the input you can collect the element guids to add to the IFCGroup. The <code>resultData</code> parameter is a <code>GS::Array&lt;API_Guid&gt;*</code>, you can <code>Push()</code> the element guids to it.<br/>
+        The IFC add-on will parse the array and show the collected elements under the group, thus a criteria-based dynamic grouping can be achieved.
+    </p>
+    <p>
+        Notes:
+    </p><br>
+    <ul>
+        <li style="margin-bottom: 8px;">The grouping hook works for IFCGroup subtypes as well: IFCZone and IFCSystem.</li>
+        <li style="margin-bottom: 8px;">See <a href="#generalNotes">general notes</a>.</li>
+    </ul>
+
+    <h2><a name="generalNotes" id="generalNotes">General notes</a></h2>
+
+    <ul>
+        <li style="margin-bottom: 8px;">When accessing IFC data of an element in a hook callback, make sure to use the new <code>storedOnly</code> flag of the API IFC getter functions, so that IFC data derivation, especially export hook callback is not called stacked.<br>
+        Without the flag the functions would return all derived content as well, including the derivations of hook addons.
+            <ul>
+                <li style="margin-bottom: 8px;">It is strictly forbidden to make IFC data self-dependent, export/runtime and schema hooks cannot be based upon other IFC property data.</li>
+            </ul>
+        </li>
+        <li style="margin-bottom: 8px;">Do NOT open an undostep from inside a callback function. The import process has it's own, if necessary. In export direction it is strictly forbidden to modify anything.</li>
+        <li style="margin-bottom: 8px;">
+            As for units, the proper IFC value types have to be used, e.g. IfcLengthMeasure, IfcAreaMeasure, IfcVolumeMeasure or IfcPlaneAngleMesure. The IFC values are always stored in m, m<sup>2</sup>, m<sup>3</sup> and radian!<br>
+            The IFC Manager interface cannot use units yet to show the values as set in the Project Preferences Working Units, it always shows the data as is. The IFC export however will do the proper conversion as set in the IFC Translator Settings.
+        </li>
+    </ul>
+
+    <hr>
+    <p>Product availability information, technical details, upgrades etc. provided at <!--NoIdx--><a href="http://www.graphisoft.com/support/developer/">http://www.graphisoft.com/support/developer/</a>.</p>
+
+    <p>Version 21 Copyright &copy; Graphisoft 2017</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on Apr 12, 2021
+<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

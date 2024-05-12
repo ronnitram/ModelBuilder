@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ObjectType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ObjectType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ObjectType, API_LampType</h1>
+
+    <p>Represents an object or a lamp, or a symbol label.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>           <em>head</em>;
+        <strong>short</strong>                   <em>pen</em>;
+        <strong>short</strong>                   <em>filler_0</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>      <em>ltypeInd</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>      <em>mat</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>      <em>sectFill</em>;
+        <strong>short</strong>                   <em>sectFillPen</em>;
+        <strong>short</strong>                   <em>sectBGPen</em>;
+        <strong>short</strong>                   <em>sectContPen</em>;
+        <strong>short</strong>                   <em>filler_1</em>;
+        <strong>bool</strong>                    <em>useObjPens</em>;
+        <strong>bool</strong>                    <em>useObjLtypes</em>;
+        <strong>bool</strong>                    <em>useObjMaterials</em>;
+        <strong>bool</strong>                    <em>reflected</em>;
+        <strong>bool</strong>                    <em>useXYFixSize</em>;
+        <strong>bool</strong>                    <em>useObjSectAttrs</em>;
+        <strong>short</strong>                   <em>fixPoint</em>;
+        <strong>double</strong>                  <em>angle</em>;
+        <strong>double</strong>                  <em>level</em>;
+        <strong>double</strong>                  <em>xRatio</em>;
+        <strong>double</strong>                  <em>yRatio</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>               <em>offset</em>;
+        <strong>Int32</strong>                   <em>fixedAngle</em>;
+        <strong>char</strong>                    <em>filler_2[12]</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>            <em>lightColor</em>;
+        <strong><a href="API_StoryVisibility.html">API_StoryVisibility</a></strong>     <em>visibility</em>;
+        <strong><a href="API_LinkToSettings.html">API_LinkToSettings</a></strong>      <em>linkToSettings</em>;
+        <strong>bool</strong>                    <em>lightIsOn</em>;
+        <strong>bool</strong>                    <em>isAutoOnStoryVisibility</em>;
+        <strong>bool</strong>                    <em>filler_3[6]</em>;
+        <strong>Int32</strong>                   <em>filler_4</em>;
+        <strong><a href="API_ElemType.html">API_ElemType</a></strong>            <em>ownerType</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                <em>owner</em>;
+        <strong>Int32</strong>                   <em>libInd</em>;
+        <strong>Int32</strong>                   <em>filler_5</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>               <em>pos</em>;
+        <strong>bool</strong>                    <em>filler_6[4]</em>;
+        <strong>GS::Int64</strong>               <em>lookId</em>;
+        <strong>Int32</strong>                   <em>filler_7[3]</em>;
+    <strong>}</strong> <em>API_ObjectType, API_LampType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>pen</b></dt>
+
+        <dd>Pen attribute index.</dd>
+
+        <dt><b>ltypeInd</b></dt>
+
+        <dd>Line type attribute index.</dd>
+
+        <dt><b>mat</b></dt>
+
+        <dd>Material attribute index.</dd>
+
+        <dt><b>sectFill</b></dt>
+
+        <dd>Section fill attribute index.</dd>
+
+        <dt><b>sectFillPen</b></dt>
+
+        <dd>Section fill pen attribute index.</dd>
+
+        <dt><b>sectBGPen</b></dt>
+
+        <dd>Section fill background pen attribute index.</dd>
+
+        <dt><b>sectContPen</b></dt>
+
+        <dd>Section fill contour pen attribute index.</dd>
+
+        <dt><b>useObjPens</b></dt>
+
+        <dd>Use the pens defined in the library part?</dd>
+
+        <dt><b>useObjLtypes</b></dt>
+
+        <dd>Use the line types defined in the library part?</dd>
+
+        <dt><b>useObjMaterials</b></dt>
+
+        <dd>Use the materials defined in the library part?</dd>
+
+        <dt><b>reflected</b></dt>
+
+        <dd>Is the symbol reflected?</dd>
+
+        <dt><b>useXYFixSize</b></dt>
+
+        <dd>Use the A and B values as fixed sizes?</dd>
+
+        <dt><b>useObjSectAttrs</b></dt>
+
+        <dd>Use the section attributes defined in the library part?</dd>
+
+        <dt><b>fixPoint</b></dt>
+
+        <dd>The index-1 of hotspot to keep fixed.</dd>
+
+        <dt><b>angle</b></dt>
+
+        <dd>The rotation angle (radian).</dd>
+
+        <dt><b>level</b></dt>
+
+        <dd>The base height from the floor level.</dd>
+
+        <dt><b>xRatio</b></dt>
+
+        <dd>The ratio of the size of the placed object/lamp in the X direction and the A value defined in the library part (multiplication factor in X direction).</dd>
+
+        <dt><b>yRatio</b></dt>
+
+        <dd>The ratio of the size of the placed object/lamp in the Y direction and the B value defined in the library part (multiplication factor in Y direction).</dd>
+
+        <dt><b>offset</b></dt>
+
+        <dd>Offset of the symbol's origin from insertion point.</dd>
+
+        <dt><b>fixedAngle</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Use fix angle.</dd>
+
+        <dt><b>lightColor</b></dt>
+
+        <dd>Color of the light (for lamps only).</dd>
+
+        <dt><b>visibility</b></dt>
+
+        <dd>Visibility information of the object/lamp.&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dd>
+
+        <dt><b>linkToSettings</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Mode of linking to home story.</dd>
+
+        <dt><b>lightIsOn</b></dt>
+
+        <dd>The light is on/off.</dd>
+
+        <dt><b>isAutoOnStoryVisibility</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="Featuring API 19" width="19" height="12"></dt>
+
+        <dd>Recalculate the story visibility automatically according to the actual vertical extent of the object ("All Relevant Stories").</dd>
+
+        <dt><b>ownerType</b></dt>
+
+        <dd>Type of the owner (external object).</dd>
+
+        <dt><b>owner</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Index of the owner element of the object.</dd>
+
+        <dt><b>libInd</b></dt>
+
+        <dd>Index to the symbol in the library.</dd>
+
+        <dt><b>pos</b></dt>
+
+        <dd>Position of the origin of the object.</dd>
+
+        <dt><b>lookId</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="Changed in API 16" width="19" height="12"></dt>
+
+        <dd>Same number for similar-looking objects/lamps 2D draw.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For beam related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"> From version 26 the type of the <tt>ownerID</tt> member was changed into <a href="../Structures/API_ElemType.html">API_ElemType</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_Coord.html">API_Coord</a>, <a href="API_RGBColor.html">API_RGBColor</a>, <a href="API_Element.html">API_Element</a>,<br>
+    <a href="API_Gable.html">API_Gable</a>, <a href="API_AddParType.html">API_AddParType</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="API_StoryVisibility.html">API_StoryVisibility</a>, <a href="API_LinkToSettings.html">API_LinkToSettings</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 03, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

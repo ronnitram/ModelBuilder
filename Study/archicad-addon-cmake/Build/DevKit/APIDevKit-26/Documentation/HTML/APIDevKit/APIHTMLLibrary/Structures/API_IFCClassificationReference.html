@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_IFCClassificationReference</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_IFCClassificationReference.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_IFCClassificationReference</h1>
+
+    <p>IFC classificationreference structure.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>                 <em>referenceName</em>;
+        <strong>bool</strong>                          <em>readOnly</em>;
+        <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a><<a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>></strong>   <em>location</em>;
+        <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a><<a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>></strong>   <em>name</em>;
+        <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a><<a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>></strong>   <em>identification</em>;
+        <strong><a href="API_IFCClassification.html">API_IFCClassification</a></strong>         <em>referencedSource</em>;
+    <strong>}</strong> <em>API_IFCClassificationReference</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>referenceName</b></dt>
+
+        <dd>name of the IfcRelAssociatesClassification</dd>
+
+        <dt><b>readOnly</b>&nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="25" width="19" height="12"></dt>
+
+        <dd>whether the classificationreference is read-only on user interface</dd>
+
+        <dt><b>location</b></dt>
+
+        <dd>location of the classificationreference</dd>
+
+        <dt><b>name</b></dt>
+
+        <dd>name of the classificationreference</dd>
+
+        <dt><b>identification</b></dt>
+
+        <dd>identification of the classificationreference</dd>
+
+        <dt><b>referencedSource</b></dt>
+
+        <dd>referencedsource of the classificationreference</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure contains the data of an IfcClassificationReference.<br>
+    <code>referenceName</code> is unique for classificationreferences of an element.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 16 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 6, 2012<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

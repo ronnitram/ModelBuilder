@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Command_Test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Command_Test.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Command_Test</h1>
+
+    <p>Test the availability of a command.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Command_Test</strong> (
+        <strong>const <a href="../Structures/API_ModulID.html">API_ModulID</a>*</strong>     <em>mdid</em>,
+        <strong>GSType</strong>                 <em>cmdID</em>,
+        <strong>Int32</strong>                  <em>cmdVersion</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>mdid</em></dt>
+
+        <dd>[in] the identifier of the target add-on. It is defined by the <a href="../Resources/MDID.html">'MDID'</a> resource.</dd>
+
+        <dt><em>cmdID</em></dt>
+
+        <dd>[in] the identifier of the command to be tested.</dd>
+
+        <dt><em>cmdVersion</em></dt>
+
+        <dd>[in] the required command version</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>the command is installed, it may be called</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>the <code>mdid</code> parameter is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_MODULNOTINSTALLED</code></dt>
+
+        <dd>the referenced add-on is not installed</dd>
+
+        <dt><code>APIERR_MODULCMDNOTSUPPORTED</code></dt>
+
+        <dd>the referenced command is not supported by the target add-on</dd>
+
+        <dt><code>APIERR_MODULCMDVERSNOTSUPPORTED</code></dt>
+
+        <dd>the requested command version is too new; not supported by the target add-on</dd>
+    </dl>
+
+    <p>For other common errors see the <a href="../Level2/Error_Codes.html">list of error codes</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to check the availability of an add-on's command.</p>
+
+    <p>Call this function to check whether the requested command of another add-on is available. Depending on the result, for example you can modify your add-on's interface. The following cases may happen:</p>
+
+    <ul>
+        <li>the command is installed,</li>
+
+        <li>the target add-on is not installed</li>
+
+        <li>the target add-on is installed, but the command is not supported,</li>
+
+        <li>the target add-on is installed, the command is supported, but the command version is incorrect.</li>
+    </ul>
+
+    <p>Refer to the <a href="ACAPI_Command_Call.html">ACAPI_Command_Call</a> function to see the details of calling another add-on.</p>
+
+    <p>Refer to the paper of the <a href="../Level3/Communication_Manager_id.html">Communication Manager</a> for more details.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>The following sample checks whether the services of the standard DWF In-Out add-on are currently available:</p>
+
+    <blockquote>
+        <pre><code>
+API_ModulID mdid = { 1198731108, 3847165392 };  // MDID of the DWF In-Out add-on
+
+GSErrCode err = <font color="#FF0066">ACAPI_Command_Test</font> (&amp;mdid, 'DWFO', 4);
+if (err != NoError) {
+    if (err == APIERR_MODULNOTINSTALLED) {
+        // DWF In-Out add-on is not loaded
+    } else {
+        // incompatible version of DWF In-Out add-on
+    }
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_ModulID.html">API_ModulID</a>, <a href="../Resources/MDID.html">'MDID'</a><br>
+    <a href="ACAPI_Command_Call.html">ACAPI_Command_Call</a><br>
+    <a href="../Level3/Communication_Manager_id.html">Communication Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

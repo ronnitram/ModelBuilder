@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_EditPars</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_EditPars.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_EditPars</h1>
+
+    <p>Transformation parameters for elements.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_EditCmdID.html">API_EditCmdID</a></strong>     <em>typeID</em>;
+        <strong>bool</strong>              <em>withDelete</em>;
+        <strong>bool</strong>              <em>topNodeStretched</em>;
+        <strong>bool</strong>              <em>filler_1[2]</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>         <em>origC</em>;
+        <strong><a href="API_Coord3D.html">API_Coord3D</a></strong>       <em>begC</em>;
+        <strong><a href="API_Coord3D.html">API_Coord3D</a></strong>       <em>endC</em>;
+        <strong><a href="API_Coord3D.html">API_Coord3D</a></strong>       <em>endC2</em>;
+        <strong>double</strong>            <em>filler_2[8]</em>;
+    <strong>}</strong> <em>API_EditPars</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>typeID</b></dt>
+
+        <dd>the operation code</dd>
+
+        <dt><b>withDelete</b></dt>
+
+        <dd>delete the target element after the operation (drag or drag a copy)</dd>
+
+        <dt><b>topNodeStretched</b></dt>
+
+        <dd>the upper node must be edited in case of vertical stretching</dd>
+
+        <dt><b>origC</b></dt>
+
+        <dd>the origo; used for mirror and rotate</dd>
+
+        <dt><b>begC</b></dt>
+
+        <dd>the start point of the edit vector; this is the reference point</dd>
+
+        <dt><b>endC</b></dt>
+
+        <dd>the end point of the edit vector; generally this is the second click in Archicad</dd>
+
+        <dt><b>endC2</b></dt>
+
+        <dd>additional vector end point; used for mirror</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Generally you have to think about the coordinates in the same way you should click in Archicad to perform the same operation. For example in case of rotation you have to set the <code>origC</code> field to the origo, the <code>begC</code> and <code>endC</code> fields to the start and end points of the rotation angle.</p>
+
+    <p>The origo does not have vertical information, it just specifies the center of rotation. Other coordinates have a z component; its difference will specify the elevation factor; additive to the original operation.</p>
+
+    <p>This structure is used by the <a href="../Functions/ACAPI_Element_Edit.html">ACAPI_Element_Edit</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/ACAPI_Element_Edit.html">ACAPI_Element_Edit</a>, <a href="API_EditCmdID.html">API_EditCmdID</a>, <a href="API_Coord.html">API_Coord</a>, <a href="API_Coord3D.html">API_Coord3D</a>, <a href="API_Coord3D.html">API_Coord3D</a>, <a href="API_Coord3D.html">API_Coord3D</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 1, 1999<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

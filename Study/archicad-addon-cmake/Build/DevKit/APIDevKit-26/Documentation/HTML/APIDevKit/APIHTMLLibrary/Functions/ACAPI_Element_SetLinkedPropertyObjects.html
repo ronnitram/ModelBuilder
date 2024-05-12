@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_SetLinkedPropertyObjects</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_SetLinkedPropertyObjects.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_SetLinkedPropertyObjects</h1>
+
+    <p>Link property objects to an element or the element default.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_SetLinkedPropertyObjects</strong> (
+        <strong><a href="../Structures/API_Elem_Head.html">API_Elem_Head</a>*</strong>     <em>head</em>,
+        <strong>bool</strong>               <em>criteria</em>,
+        <strong>Int32</strong>              <em>inviduallyLibInd</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>head</em></dt>
+
+        <dd>[in] Header of the element (only fields <code>type</code> and <code>guid</code> are used). The setting is applied to element defaults if <code>guid</code> is <code>APINULLGuid</code>.</dd>
+
+        <dt><em>criteria</em></dt>
+
+        <dd>[in] Determines whether the matching properties by criteria need to be linked to the element</dd>
+
+        <dt><em>inviduallyLibInd</em></dt>
+
+        <dd>[in] Library index of individually selected property to be linked to the element (value zero means no individual property is to be assigned)</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>head</code> is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>Incorrect <code>type</code> was specified, or an element with the specified <code>guid</code> was not found.</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>Not enough memory to set the properties</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to link property objects to an element. Properties can be associated with construction elements by criteria and/or by individual direct assignment (at most one individual assignment can be applied to an element). This applies to all types of construction elements. If no element is specified (ie. <code>guid</code> is <code>APINULLGuid</code>), the setting is applied to the defaults of the given element type.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_Element     element;
+bool            byCrit;
+Int32           indivLibInd;
+
+BNZeroMemory (&amp;element, sizeof (API_Element));
+element.header.type = API_ColumnID;
+ACAPI_Element_GetDefaults (&amp;element, nullptr);
+element.column.origoPos.x = x;
+element.column.origoPos.y = y;
+...
+
+ACAPI_CallUndoableCommand ("Create column with properties linked",
+    [&amp;] () -&gt; GSErrCode {
+        GSErrCode err = ACAPI_Element_Create (&amp;element, nullptr);
+        if (err == NoError) {
+            API_Elem_Head   defHead;
+            BNZeroMemory (&amp;defHead, sizeof (API_Elem_Head));
+            defHead.type = API_ColumnID;      // guid remains APINULLGuid
+            err = <font color="#FF0066">ACAPI_Element_GetLinkedPropertyObjects</font> (&amp;defHead, &amp;byCrit, &amp;indivLibInd, nullptr, nullptr);  // retrieve defaults
+            if (err == NoError)
+                err = <font color="#FF0066">ACAPI_Element_SetLinkedPropertyObjects</font> (&amp;element.header, true, 0);  // link properties
+        }
+
+        return err;
+    });
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 6.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Elem_Head.html">API_Elem_Head</a><br>
+    <a href="ACAPI_Element_GetLinkedPropertyObjects.html">ACAPI_Element_GetLinkedPropertyObjects</a><br>
+    <a href="ACAPI_Element_GetPropertyObjects.html">ACAPI_Element_GetPropertyObjects</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on July 29, 2015<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

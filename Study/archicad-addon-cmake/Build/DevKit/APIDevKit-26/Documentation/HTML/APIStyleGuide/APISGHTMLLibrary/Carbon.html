@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Akos Somorjai">
+
+    <title>Preparing for MacOS X</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APISGHTMLLibrary/Carbon.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Style&nbsp;Guide</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Preparing for MacOS X</h1>
+
+    <p>If you would like to use your add-on with Archicad 7.0, you should prepare it to run on MacOS X. This process is called 'Carbonization'. Carbon is a subset of MacOS interface calls (approximately 80% of the original MacOS Toolbox calls are there), which are also available on MacOS X in native mode. If you have any Mac-specific code in your add-on (e.g. a file dialog), you have to modify your code to use only function calls available in Carbon.</p>
+
+    <p>The development environment to use is CodeWarrior Pro 6, which contains the necessary headers and libraries for Carbon. You can also use a slightly newer Universal Headers (version 3.5) and CarbonLib (1.2.5 at the time of writing), which are available to ADC members.</p>
+
+    <p>More information on Carbonization can be found at <!--NoIdx--><a href="http://www.apple.com/developer">Apple's development web site</a>.</p>
+
+    
+
+     <p style="display: none;">
+          <img src="../StyleLibrary/Images/requirements.png" />
+          <img src="../StyleLibrary/Images/seealso.png" />
+          <img src="../StyleLibrary/Images/Treeview/empty1.gif" />
+          <img src="../StyleLibrary/Images/Treeview/empty.gif" />
+          <img src="../StyleLibrary/Images/Treeview/join.gif" />
+          <img src="../StyleLibrary/Images/Treeview/joinbottom.gif" />
+          <img src="../StyleLibrary/Images/Treeview/leftarrow.png" />
+          <img src="../StyleLibrary/Images/Treeview/line.gif" />
+          <img src="../StyleLibrary/Images/Treeview/minus.gif" />
+          <img src="../StyleLibrary/Images/Treeview/minusbottom.gif" />
+          <img src="../StyleLibrary/Images/Treeview/plus.gif" />
+          <img src="../StyleLibrary/Images/Treeview/plusbottom.gif" />
+          <img src="../StyleLibrary/Images/Treeview/rightarrow.png" />
+     </p>
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on Jan 5, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

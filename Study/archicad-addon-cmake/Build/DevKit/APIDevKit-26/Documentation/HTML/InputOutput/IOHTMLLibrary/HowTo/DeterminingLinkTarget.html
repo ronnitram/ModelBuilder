@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Determining target of a link</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/HowTo/DeterminingLinkTarget.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Determining target of a link</h1><br>
+    <br>
+
+    <p>There is no separate Link class in the <a href="../../InputOutput.html">InputOutput</a> module, because of its little practical role.</p>
+
+    <p>New link (as a <a href="../Name/Name.html">Name</a>) with the given target (as a <a href="../Location/Location.html">Location</a>) can be created in a folder, using <a href="../Folder/CreateLink.html">CreateLink</a> method of the class <a href="../Folder/Folder.html">Folder</a> (it is a practical shortcut to creating an empty link in the folder, creating a Link instance and setting its target). There is also a Folder method (<a href="../Folder/GetType.html">GetType</a>) to determine whether is the given file system entry (as a Name) a link.</p>
+
+    <p>Determining target of a link is responsibility of the class <a href="../FileSystem/FileSystem.html">FileSystem</a>. It can be done by invoking <a href="../FileSystem/ResolveLocation.html">ResolveLocation</a> method on the single FileSystem instance named <font face="Courier New">fileSystem</font>. Input of this method is location of the link, output is target of the link as a location. If input location is not a link, then output will be set to the input (that is no effective resolvation will be performed). For example:</p><br>
+    <br>
+    <pre>
+#include "FileSystem.hpp"    <font color="#FF0000">// brings everything needed to use class FileSystem (e.g. Location)</font>
+</pre>
+    <pre>
+IO::Location link = GetALink ();    // obtaining a (link) location somehow
+IO::Location target;                // it will hold target of the link
+GSErrCode errorCode = IO::fileSystem.ResolveLocation (link, &amp;target);    // resolves the link
+</pre>
+
+    <p>&nbsp;</p>
+
+    <p>To this sample work, InputOutput module must be initialized (<a href="IOInitialization.html">=&gt; more information</a>).<br></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_IClassificationItemEventHandler</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_IClassificationItemEventHandler.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_IClassificationItemEventHandler</h1>
+
+    <p>The base class you need to inherit from in case you want to handle <a href="../Structures/API_ClassificationItem.html">API_ClassificationItem</a> events.</p>
+    <pre class="syntax">
+    class API_IClassificationItemEventHandler : public API_IEventHandler {
+    public:
+        <em>virtual void OnCreated (const <a href="ddid://GSRoot.HashSet Class">GS::HashSet</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;&amp; ids) const;</em>
+        <em>virtual void OnModified (const <a href="ddid://GSRoot.HashSet Class">GS::HashSet</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;&amp; ids) const;</em>
+        <em>virtual void OnDeleted (const <a href="ddid://GSRoot.HashSet Class">GS::HashSet</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;&amp; ids) const;</em>
+    };
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Functions</h4>
+
+    <dl>
+        <dt><b>OnCreated</b></dt>
+
+        <dd>Override this function to be notified of newly created Classification Items.</dd>
+
+        <dt><b>OnModified</b></dt>
+
+        <dd>Override this function to be notified of modified Classification Items.</dd>
+		
+		<dt><b>OnDeleted</b></dt>
+
+        <dd>Override this function to be notified of deleted Classification Items.</dd>
+    </dl>
+
+    <p>&nbsp;&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 26 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Callback.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/ACAPI_Notify_RegisterEventHandler.html">ACAPI_Notify_RegisterEventHandler</a><br>
+    <a href="API_ClassificationItem.html">API_ClassificationItem</a>,<br>
+	<a href="API_Types.html">API Types</a><br></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on July 20, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

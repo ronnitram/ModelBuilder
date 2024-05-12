@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Transform</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/Transform.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>Transform</H2><!--exp="Transform Enum"-->
+<P><topic id="$GS.$Transform.BriefDescription">
+		Applies a specified predicate to each element in a source range or to a 
+		pair of elements from two source ranges and copies the return values of the 
+		predicate into a destination range.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>In1</I>, <B>class</B> <I>In2</I>, <B>class</B> <I>Out</I>, <B>class</B> <I>BinOp</I><B>&gt;
+</B>Out Transform (</B>
+    <B>In1                 </B><I>first1</I>,
+    <B>In1                 </B><I>last1</I>,
+    <B>In2                 </B><I>first2</I>,
+    <B>Out                 </B><I>result</I>,
+    <B>BinOp               </B><I>op</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>In</I>, <B>class</B> <I>Out</I>, <B>class</B> <I>UnOp</I><B>&gt;
+</B>Out Transform (</B>
+    <B>In                  </B><I>first</I>,
+    <B>In                  </B><I>last</I>,
+    <B>Out                 </B><I>result</I>,
+    <B>UnOp                </B><I>op</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>In1</I></DT><DD><topic id="$GS.$Transform.$In1.TemplateParamDescription">
+		Input iterator.
+	</topic></DD><DT><I>In2</I></DT><DD><topic id="$GS.$Transform.$In2.TemplateParamDescription">
+		Input iterator.
+	</topic></DD><DT><I>Out</I></DT><DD><topic id="$GS.$Transform.$Out.TemplateParamDescription">
+		Output iterator.
+	</topic></DD><DT><I>BinOp</I></DT><DD><topic id="$GS.$Transform.$BinOp.TemplateParamDescription">
+		Binary operator.
+	</topic></DD><DT><I>In</I></DT><DD><topic id="$GS.$Transform.$In.TemplateParamDescription">
+		Input iterator.
+	</topic></DD><DT><I>UnOp</I></DT><DD><topic id="$GS.$Transform.$UnOp.TemplateParamDescription">
+		Unary operator.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first1</I></DT><DD><topic id="$GS.$Transform.$first1.ParamDescription">
+		An input iterator addressing the position of the first element in the first 
+		source range to be operated on.
+	</topic></DD><DT><I>last1</I></DT><DD><topic id="$GS.$Transform.$last1.ParamDescription">
+		An input iterator addressing the position one past the final element in the 
+		first source range operated on.
+	</topic></DD><DT><I>first2</I></DT><DD><topic id="$GS.$Transform.$first2.ParamDescription">
+		An input iterator addressing the position of the first element in the second 
+		source range to be operated on.
+	</topic></DD><DT><I>result</I></DT><DD><topic id="$GS.$Transform.$result.ParamDescription">
+		An output iterator addressing the position of the first element in the 
+		destination range.
+	</topic></DD><DT><I>op</I></DT><DD><topic id="$GS.$Transform.$op.ParamDescription">
+		User-defined unary predicate used in the first version of the algorithm 
+		that is applied to each element in the first source range or A user-defined (UD) 
+		binary predicate used in the first version of the algorithm that is 
+		applied pairwise, in a forward order, to the two source ranges.
+	</topic></DD><DT><I>first</I></DT><DD><topic id="$GS.$Transform.$first.ParamDescription">
+		An input iterator addressing the position of the first element in the first 
+		source range to be operated on.
+	</topic></DD><DT><I>last</I></DT><DD><topic id="$GS.$Transform.$last.ParamDescription">
+		An input iterator addressing the position one past the final element in the 
+		first source range operated on.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$Transform.ReturnDescription">
+		An output iterator addressing the position one past the final element in the 
+		destination range that is receiving the output elements transformed by the 
+		predicate.
+	</topic></P><P><topic id="$GS.$Transform.1.ReturnDescription"></topic></P><P><topic id="$GS.$Transform.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$Transform.LongDescription">
+		<B>Transform</B> performs an operation on objects; there are two versions of 
+		<B>Transform</B>, one of which uses a single range of input iterators 
+		and one of which uses two ranges of input iterators. 
+		The first version of <B>Transform</B> performs the operation 
+		<TT>op(*i)</TT> for each iterator <TT>i</TT> in the range <TT>[first, 
+		last)</TT>, and assigns the result of that operation to <TT>*o</TT>, where 
+		<TT>o</TT> is the corresponding output iterator. That is, for each <TT>n</TT> 
+		such that <TT>0 &lt;= n &lt; last - first</TT>, it performs the assignment 
+		<TT>*(result + n) = op(*(first + n))</TT>. The return value is <TT>result + 
+		(last - first)</TT>. 
+		The first version of <B>Transform</B> is very similar, except that it uses 
+		a Binary Function instead of a Unary Function: it performs the operation 
+		<TT>op(*i1, *i2)</TT> for each iterator <TT>i1</TT> in the range <TT>[first1, 
+		last1)</TT> and assigns the result to <TT>*o</TT>, where <TT>i2</TT> is the 
+		corresponding iterator in the second input range and where <TT>o</TT> is the 
+		corresponding output iterator. That is, for each <TT>n</TT> such that <TT>0 
+		&lt;= n &lt; last1 - first1</TT>, it performs the assignment <TT>*(result + n) = 
+		op(*(first1 + n), *(first2 + n)</TT>. The return value is <TT>result + (last1 - 
+		first1)</TT>. 
+		Note that <B>Transform</B> may be used to modify a sequence "in place": it 
+		is permissible for the iterators <TT>first</TT> and <TT>result</TT> to be the 
+		same.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$Transform.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

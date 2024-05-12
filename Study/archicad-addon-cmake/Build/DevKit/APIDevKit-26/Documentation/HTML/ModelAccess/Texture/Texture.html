@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>Texture</title><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Texture/Texture.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1>Texture class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>Reference to a texture attribute. <!-- Not Index --><a href="#Detailed%20description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td><!-- Not Index --><a href="../ModelAccessAPI.html">Model Access API</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>Texture.hpp</td>
+        </tr>
+    </table><br>
+    <br>
+
+    <h3>Public methods</h3>
+
+    <p>&nbsp;&nbsp;&nbsp; <a href="Constructors.html">Constructors</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Constructors.html">Copy constructor</a><br>
+    &nbsp;&nbsp;&nbsp; operator=<br>
+    <br>
+    <b>Comparing</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Compare.html">Compare</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorEqu.html">operator==</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorNotEqu.html">operator!=</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorLe.html">operator&lt;</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorGr.html">operator&gt;</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorLeEqu.html">operator&lt;=</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorGrEqu.html">operator&gt;=</a><br>
+    <br>
+    <b>Name query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetName.html">GetName</a><br>
+    <br>
+    <b>Alpha chanel usage query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="HasAlphaChannel.html">HasAlphaChannel</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsTransparentPattern.html">IsTransparentPattern</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsBumpMapPattern.html">IsBumpMapPattern</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsDiffusePattern.html">IsDiffusePattern</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsSpecularPattern.html">IsSpecularPattern</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsAmbientPattern.html">IsAmbientPattern</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsSurfacePattern.html">IsSurfacePattern</a><br>
+    <br>
+    <b>Mapping query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsShiftedRandomly.html">IsShiftedRandomly</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsMirroredInX.html">IsMirroredInX</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsMirroredInY.html">IsMirroredInY</a><br>
+    <br>
+    <b>Texture sizes query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetXSize.html">GetXSize</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetYSize.html">GetYSize</a><br>
+    <br>
+    <b>Pixel map sizes query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetPixelMapXSize.html">GetPixelMapXSize</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetPixelMapYSize.html">GetPixelMapYSize</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetPixelMapSize.html">GetPixelMapSize</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetPixelMapBufferSize.html">GetPixelMapBufferSize</a><br>
+    <br>
+    <b>Pixel data query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsAvailable.html">IsAvailable</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetPixel.html">GetPixel</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetPixelColor.html">GetPixelColor</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetPixelMap.html">GetPixelMap</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetPixelType.html">GetPixelType</a><br>
+	&nbsp;&nbsp;&nbsp; <a href="GetPixelMapCheckSum.html">GetPixelMapCheckSum</a><br>
+    <br>
+    <b>GDL status and external reference query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetGDLStatus.html">GetGDLStatus</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetExternalReference.html">GetExternalReference</a><br></p>
+
+    <h3>Public Types</h3>
+
+    <p>&nbsp;&nbsp;&nbsp; <a href="PixelType.html">PixelType</a><br></p>
+
+    <p>&nbsp;&nbsp;&nbsp; <a href="ARGBPixel.html">ARGBPixel</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Grayscale8Pixel.html">Grayscale8Pixel</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="BlackAndWhitePixel.html">BlackAndWhitePixel</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="BlackAndWhitePixel8.html">BlackAndWhitePixel8</a><br></p>
+
+    <h3><a name="#Detailed description"></a>Detailed description</h3>
+
+    <p>This object is reference to a texture attibute. The texture has two size parameters. One of them is the size of the texture pixel map, the other is the drawing size in the model space. The pixels of the pixel map can be read using two kind of methods. The first method is, that the whole texture pixel map can be read to a buffer. The second one is, that an individual pixel can be read using pixel map or texture coordinates. The texture coordinates show, how to draw the texture to a surface.</p>
+
+    <p><br>
+    <br>
+    <br></p>
+
+    <h3>See Also</h3>
+
+    <p><!-- Not Index --> <a href="../Model/Model.html">Model</a> , <!-- Not Index --> <a href="../Polygon/Polygon.html">Polygon</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

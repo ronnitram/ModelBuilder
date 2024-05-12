@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_PrimTypeID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_PrimTypeID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_PrimTypeID</h1>
+
+    <p>Various primitive element types and control codes.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>API_ZombiePrimID = 0</em>,
+        <em>API_PrimPointID</em>,
+        <em>API_PrimLineID</em>,
+        <em>API_PrimArcID</em>,
+        <em>API_PrimTextID</em>,
+        <em>API_PrimPLineID</em>,
+        <em>API_PrimTriID</em>,
+        <em>API_PrimPolyID</em>,
+        <em>API_PrimPictID</em>,
+        <em>API_PrimCtrl_BegID</em>,
+        <em>API_PrimCtrl_HatchBorderBegID</em>,
+        <em>API_PrimCtrl_HatchBorderEndID</em>,
+        <em>API_PrimCtrl_HatchLinesBegID</em>,
+        <em>API_PrimCtrl_HatchLinesEndID</em>,
+        <em>API_PrimCtrl_HoledimLinesBegID</em>,
+        <em>API_PrimCtrl_HoledimLinesEndID</em>,
+        <em>API_PrimCtrl_ArrowBegID</em>,
+        <em>API_PrimCtrl_ArrowEndID</em>,
+        <em>API_PrimCtrl_ElementRefID</em>,
+        <em>API_PrimCtrl_EndID</em>,
+        <em>API_PrimCtrl_PlacedBorderBegID</em>,
+        <em>API_PrimCtrl_PlacedBorderEndID</em>,
+        <em>API_PrimCtrl_TextBegID</em>,
+        <em>API_PrimCtrl_TextEndID</em>,
+        <em>API_PrimCtrl_CWallPanelBegID</em>,
+        <em>API_PrimCtrl_CWallPanelEndID</em>
+    <strong>}</strong> <em>API_PrimTypeID</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>API_ZombiePrimID = 0</b></dt>
+
+        <dd>Dummy primitive.</dd>
+
+        <dt><b>API_PrimPointID</b></dt>
+
+        <dd>Primitive point.</dd>
+
+        <dt><b>API_PrimLineID</b></dt>
+
+        <dd>Primitive line.</dd>
+
+        <dt><b>API_PrimArcID</b></dt>
+
+        <dd>Primitive arc.</dd>
+
+        <dt><b>API_PrimTextID</b></dt>
+
+        <dd>Primitive text.</dd>
+
+        <dt><b>API_PrimPLineID</b></dt>
+
+        <dd>Primitive polyline.</dd>
+
+        <dt><b>API_PrimTriID</b></dt>
+
+        <dd>Primitive triangle.</dd>
+
+        <dt><b>API_PrimPolyID</b></dt>
+
+        <dd>Primitive polygon.</dd>
+
+        <dt><b>API_PrimPolyID</b></dt>
+
+        <dd>Picture on placed drawing in PlotMaker.</dd>
+
+        <dt><b>API_PrimCtrl_BegID</b></dt>
+
+        <dd>Begin drawing the element.</dd>
+
+        <dt><b>API_PrimCtrl_HatchBorderBegID</b></dt>
+
+        <dd>Begin exporting hatch border (<code>par1</code>: <a href="API_PrimHatchBorder.html">API_PrimHatchBorder</a>).</dd>
+
+        <dt><b>API_PrimCtrl_HatchBorderEndID</b></dt>
+
+        <dd>Finished exporting hatch border.</dd>
+
+        <dt><b>API_PrimCtrl_HatchLinesBegID</b></dt>
+
+        <dd>Begin exporting hatch lines.</dd>
+
+        <dt><b>API_PrimCtrl_HatchLinesEndID</b></dt>
+
+        <dd>Finished exporting hatch lines.</dd>
+
+        <dt><b>API_PrimCtrl_HoledimLinesBegID</b></dt>
+
+        <dd>Begin exporting window/door dimension lines (obsolete, not used from Archicad 8).</dd>
+
+        <dt><b>API_PrimCtrl_HoledimLinesEndID</b></dt>
+
+        <dd>Finished exporting window/door dimension lines (obsolete, not used from Archicad 8).</dd>
+
+        <dt><b>API_PrimCtrl_ArrowBegID</b></dt>
+
+        <dd>Begin exporting arrow primitives.</dd>
+
+        <dt><b>API_PrimCtrl_ArrowEndID</b></dt>
+
+        <dd>Finished exporting arrow primitives.</dd>
+
+        <dt><b>API_PrimCtrl_ElementRefID</b></dt>
+
+        <dd>Reference to another element (<code>par1</code>: <a href="API_PrimElemRef.html">API_PrimElemRef</a>).</dd>
+
+        <dt><b>API_PrimCtrl_EndID</b></dt>
+
+        <dd>Finished element drawing.</dd>
+
+        <dt><b>API_PrimCtrl_PlacedBorderBegID</b></dt>
+
+        <dd>Begin exporting placed drawing border.</dd>
+
+        <dt><b>API_PrimCtrl_PlacedBorderEndID</b></dt>
+
+        <dd>Finished exporting placed drawing border.</dd>
+
+        <dt><b>API_PrimCtrl_TextBegID</b></dt>
+
+        <dd>Begin exporting text block.&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dd>
+
+        <dt><b>API_PrimCtrl_TextEndID</b></dt>
+
+        <dd>Finished exporting text block.&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dd>
+
+        <dt><b>API_PrimCtrl_CWallPanelBegID</b></dt>
+
+        <dd>Begin exporting a Curtain Wall panel.&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dd>
+
+        <dt><b>API_PrimCtrl_CWallPanelEndID</b></dt>
+
+        <dd>Finished exporting a Curtain Wall panel.&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Prim_Head.html">API_Prim_Head</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 12, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

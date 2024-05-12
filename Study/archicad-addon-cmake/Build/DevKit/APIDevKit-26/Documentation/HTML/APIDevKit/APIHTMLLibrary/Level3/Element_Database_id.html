@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Element Database</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Element_Database_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Element Database</h1>
+
+    <p><br>
+    To have an overview what the elements are, and how they fit into the entire database please refer to the <!--NoCHM--><a href="../Level2/Element_Overview.html">Element Overview</a> chapter.</p>
+
+    <p>On these pages only the used structures are explained in full detail.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Structures</h4>
+
+    <p>There is a container data structure, which is a union that can hold the data of any element type. Also there is another structure which has many data arrays to provide non-fixed size parameters of an element; called additional (memo) information.</p>
+
+    <blockquote>
+        <a href="../Structures/API_Element.html">API_Element</a><br>
+        <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a><br>
+    </blockquote>
+
+    <p>The structures below correspond to a specific element; each of them represent one element type.</p>
+
+    <blockquote>
+        <a href="../Structures/API_WallType.html">API_WallType</a><br>
+        <a href="../Structures/API_ColumnType.html">API_ColumnType</a><br>
+        <a href="../Structures/API_ColumnSegmentType.html">API_ColumnSegmentType</a><br>
+        <a href="../Structures/API_BeamType.html">API_BeamType</a><br>
+        <a href="../Structures/API_BeamSegmentType.html">API_BeamSegmentType</a><br>
+        <a href="../Structures/API_WindowType.html">API_WindowType</a><br>
+        <!--NoCHM--><a href="../Structures/API_WindowType.html">API_DoorType</a><br>
+        <a href="../Structures/API_SkylightType.html">API_SkylightType</a><br>
+        <a href="../Structures/API_ObjectType.html">API_ObjectType</a><br>
+        <!--NoCHM--><a href="../Structures/API_ObjectType.html">API_LampType</a><br>
+        <a href="../Structures/API_SlabType.html">API_SlabType</a><br>
+        <a href="../Structures/API_RoofType.html">API_RoofType</a><br>
+        <a href="../Structures/API_ShellType.html">API_ShellType</a><br>
+        <a href="../Structures/API_MorphType.html">API_MorphType</a><br>
+        <a href="../Structures/API_MeshType.html">API_MeshType</a><br>
+
+        <p><a href="../Structures/API_DimensionType.html">API_DimensionType</a><br>
+        <a href="../Structures/API_RadialDimensionType.html">API_RadialDimensionType</a><br>
+        <a href="../Structures/API_LevelDimensionType.html">API_LevelDimensionType</a><br>
+        <a href="../Structures/API_AngleDimensionType.html">API_AngleDimensionType</a><br></p>
+
+        <p><a href="../Structures/API_TextType.html">API_TextType</a><br>
+        <a href="../Structures/API_LabelType.html">API_LabelType</a><br>
+        <a href="../Structures/API_ZoneType.html">API_ZoneType</a><br></p>
+
+        <p><a href="../Structures/API_HatchType.html">API_HatchType</a><br>
+        <a href="../Structures/API_LineType.html">API_LineType</a><br>
+        <a href="../Structures/API_PolyLineType.html">API_PolyLineType</a><br>
+        <a href="../Structures/API_ArcType.html">API_ArcType</a><br>
+        <a href="../Structures/API_CircleType.html">API_CircleType</a><br>
+        <a href="../Structures/API_SplineType.html">API_SplineType</a><br>
+        <a href="../Structures/API_HotspotType.html">API_HotspotType</a><br>
+        <a href="../Structures/API_ChangeMarkerType.html">API_ChangeMarkerType</a><br>
+        <a href="../Structures/API_DetailType.html">API_DetailType</a><br>
+        <a href="../Structures/API_DetailType.html">API_WorksheetType</a><br>
+        <a href="../Structures/API_DrawingType.html">API_DrawingType</a><br>
+        <a href="../Structures/API_PictureType.html">API_PictureType</a><br></p>
+
+        <p><a href="../Structures/API_CutPlaneType.html">API_CutPlaneType</a><br>
+        <a href="../Structures/API_CameraType.html">API_CameraType</a><br>
+        <a href="../Structures/API_CamSetType.html">API_CamSetType</a><br></p>
+
+        <p><a href="../Structures/API_CurtainWallType.html">API_CurtainWallType</a><br>
+        <a href="../Structures/API_CWSegmentType.html">API_CWSegmentType</a><br>
+        <a href="../Structures/API_CWFrameType.html">API_CWFrameType</a><br>
+        <a href="../Structures/API_CWPanelType.html">API_CWPanelType</a><br>
+        <a href="../Structures/API_CWJunctionType.html">API_CWJunctionType</a><br>
+        <a href="../Structures/API_CWAccessoryType.html">API_CWAccessoryType</a><br></p>
+
+        <p><a href="../Structures/API_StairType.html">API_StairType</a><br>
+        <a href="../Structures/API_StairRiserType.html">API_StairRiserType</a><br>
+        <a href="../Structures/API_StairTreadType.html">API_StairTreadType</a><br>
+        <a href="../Structures/API_StairStructureType.html">API_StairStructureType</a><br></p>
+
+        <p><a href="../Structures/API_SectElemType.html">API_SectElemType</a></p>
+
+        <p>
+        <a href="../Structures/API_RailingType.html">API_RailingType</a><br>
+        <a href="../Structures/API_RailingSegmentType.html">API_RailingSegmentType</a><br>
+        <a href="../Structures/API_RailingPatternType.html">API_RailingPatternType</a><br>
+        <a href="../Structures/API_RailingPanelType.html">API_RailingPanelType</a><br>
+        <a href="../Structures/API_RailingInnerPostType.html">API_RailingInnerPostType</a><br>
+        <a href="../Structures/API_RailingRailType.html">API_RailingRailType</a><br>
+        <a href="../Structures/API_RailingHandrailType.html">API_RailingHandrailType</a><br>
+        <a href="../Structures/API_RailingToprailType.html">API_RailingToprailType</a><br>
+        <a href="../Structures/API_RailingNodeType.html">API_RailingNodeType</a><br>
+        <a href="../Structures/API_RailingRailConnectionType.html">API_RailingRailConnectionType</a><br>
+        <a href="../Structures/API_RailingRailEndType.html">API_RailingRailEndType</a><br>
+        <a href="../Structures/API_RailingBalusterSetType.html">API_RailingBalusterSetType</a><br>
+        <a href="../Structures/API_RailingBalusterType.html">API_RailingBalusterType</a><br>
+        <a href="../Structures/API_RailingPostType.html">API_RailingPostType</a><br>
+        </p>
+    </blockquote>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

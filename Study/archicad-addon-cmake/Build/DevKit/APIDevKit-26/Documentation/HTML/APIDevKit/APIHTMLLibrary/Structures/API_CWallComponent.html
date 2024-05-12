@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_CWallComponent</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_CWallComponent.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_CWallComponent</h1>
+
+    <p>Describes the simple fills contained in composite structures.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong> <em>buildingMaterial</em>;
+        <strong>short</strong>              <em>framePen</em>;
+        <strong>short</strong>              <em>flagBits</em>;
+        <strong>double</strong>             <em>fillThick</em>;
+    <strong>}</strong> <em>API_CWallComponent</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>buildingMaterial</b></dt>
+
+        <dd>The index of the building material attribute.</dd>
+
+        <dt><b>fillPen</b></dt>
+
+        <dd>The index of the frame pen <code>[0..255]</code>. A negative index means the end face line is hidden.</dd>
+
+        <dt><b>flagBits</b></dt>
+
+        <dd>The component flags of the building material (see Remarks).</dd>
+
+        <dt><b>fillThick</b></dt>
+
+        <dd>The absolute thickness of the component in meters.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The meaning of the flags in the <code>flagBits</code> field:</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><b>Value</b></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APICWallComp_Core</code></p>
+                </td>
+
+                <td>
+                    <p>the composite skin is part of the core.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APICWallComp_Finish</code></p>
+                </td>
+
+                <td>
+                    <p>The composite skin is part of the finish.</p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="API 17" width="19" height="12">&nbsp;In Archicad 17 composite skins contain a building material index and skin priority is inside the building material.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Attributes.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4><a href="API_CompWallType.html">API_CompWallType</a>, <a href="API_AttributeDef.html">API_AttributeDef</a>, <a href="API_AttributeIndex.html">API_AttributeIndex</a>,<br>
+    <a href="API_Types.html">API Types</a>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

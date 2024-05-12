@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Modal dialogs</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/ModalDialogs.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Modal dialogs</h1>
+
+    <p>A modal dialog is a temporary window an application creates to retrieve user input. A modal dialog contains dialog items with which the user can enter text, choose options, or direct actions. A modal dialog requires the user to supply information or cancel the dialog before allowing the application to continue. A modal dialog is created, perform its task, and is destroyed by calling a single function.</p>
+
+    <p>When a modal dialog is created, it becomes the topmost, active window. While the modal dialog is opened, other windows or dialogs of the application can not be activated. The modal dialog remains active until it is closed or the user activates a window or dialog in another application.</p>
+
+    <p>There are two methods of creating modal dialogs. To create a modal dialog, which is defined in resource script, the application must supply a <tt>GDLG</tt> resource in a GRC file to describe the dimensions, style and content of the dialog. The application must also supply a <a href="CallbackFunctions.html">dialog callback function</a> to carry out the dialog related tasks. The application can create the dialog by using the <a href="DGModalDialog.html">DGModalDialog</a> function. The function loads the <tt>GDLG</tt> resource of the dialog and creates the dialog window and the <a href="DlgItemTypes_id.html">dialog items</a> that matches the resource specifications. The application can use the <a href="DGBlankModalDialog.html">DGBlankModalDialog</a> function also. This function does not use resource. It creates a blank modal dialog from program code. The application can append dialog items on dialogs with the <a href="DGAppendDialogItem.html">DGAppendDialogItem</a> function independently of the creation method. Then <b>DGModalDialog</b> or <b>DGBlankModalDialog</b> processes every modal dialog events and calls the dialog callback function with <a href="Messages_id.html">DG messages</a> to handle the user actions. Finally it destroys the dialog and returns a value that refers to the way the dialog was closed.</p>
+
+    <p>Modal dialogs can provide context-sensitive help for their dialog items. A dialog item can have two types of help information: a tooltip and an anchor to a separate detailed information. On Macintosh, the short one is displayed in a balloon help if this feature is enabled through the Macintosh system Help menu. On Windows, the usual tooltips serve to show the short item help. Tooltips are displayed only if they are enabled. When DG is initialized, tooltips are automatically enabled. Use <a href="DGDisableToolTips.html">DGDisableToolTips</a> to disable displaying tooltips and <a href="DGEnableToolTips.html">DGEnableToolTips</a> to enable them again. The detailed version of the item help can be invoked by setting the keyboard focus to a focusable dialog item then pressing the [F1] key on Windows or [Help] key on Macintosh; or by clicking the right mouse button on the item; or by clicking the help [?] button in the dialog caption then clicking on the item itself.</p>
+
+    <p>The tooltips and the help anchor strings are defined in <tt>DLGH</tt> resources. The resource ID of the <tt>DLGH</tt> resource should be the same as the resource ID of the dialog's <tt>GDLG</tt> resource. On Windows, if a modal dialog has a <tt>DLGH</tt> resource, a small [?] button appears in the dialog caption indicating that context-sensitive help is available for its items.</p>
+
+    <p>Modal dialogs have a so called default button which appears with a bold outline. The default button always should be the first dialog item in the dialog's item list (its item ID is <tt>DG_OK</tt>). Most modal dialogs also have a Cancel button which should be the second in the item list (its item ID is <tt>DG_CANCEL</tt>). Except for some special cases, pressing the <tt>ENTER</tt> or the <tt>ESC</tt> key has the same effect as clicking the default or the cancel button, respectively. For details see the <a href="DialogKBInterface.html">dialog keyboard interface</a> page.</p>
+
+    <p>Modal dialogs always have a thick top caption with the title of the dialog. On Windows, the caption also contains a system menu with the application's icon on the left side; a close box and optionally a help button on the right side. Clicking the close box has the same effect as clicking the Cancel button (or the OK, if there is no Cancel button in the dialog). If the dialog is growable, a small size box appears in the lower right corner of the dialog on Macintosh. On Windows, a thick frame indicates that the user can resize the dialog.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/ModalDlg_Mac.png" width="332" height="294" alt="ModalDlg_Mac">&nbsp;&nbsp;&nbsp;&nbsp;<img src="../DGImageLibrary/ModalDlg_Win.png" alt="ModalDlg_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Dialog GRC Specification</h4>
+    <pre class="syntax">
+    'GDLG'  <i>resID</i>  Modal [| <i>frameFlag</i> | <i>growFlag</i> | <i>captionFlag</i>]  <i>x  y  dx  dy  "dlgTitle"</i> {
+      <i>dialogItem<b>1</b></i>
+          ...
+      <i>dialogItem<b>i</b></i>
+          ...
+      <i>dialogItem<b>n</b></i>
+    }
+</pre>
+
+    <p>where <em>resID</em> is the resource ID of the modal dialog. The <em>Modal</em> keyword can be combined with the optional <i>frameFlag</i>, <i>growFlag</i> and <i>captionFlag</i> using the <tt>OR</tt> <tt>(|)</tt> operator. If the <i>frameFlag</i> is omitted, the dialog has a normal frame. If <i>growFlag</i> is omitted, the dialog is not growable. If the <i>captionFlag</i> is not specified, the dialog has a top caption by default. <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the dialog, <em>dx</em> and <em>dy</em> are the width and height of the dialog in pixels. <em>dlgTitle</em> defines the title of the dialog. <em>dialogItem<b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) specify <em>n</em> pieces of dialog items. For the GRC specifications of the various dialog items see the <a href="DlgItemTypes_id.html">DG dialog items</a> page.</p>
+
+    <p>Possible values of the <i>frameFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr valign="top">
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>normalFrame</tt></td>
+
+                    <td>The dialog has normal dialog frame.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>thickFrame</tt></td>
+
+                    <td>The dialog has thick frame.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noFrame</tt></td>
+
+                    <td>The dialog has no frame.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>growFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr valign="top">
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noGrow</tt></td>
+
+                    <td>The dialog cannot be sized.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>hGrow</tt></td>
+
+                    <td>The dialog can be sized horizontally.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>vGrow</tt></td>
+
+                    <td>The dialog can be sized vertically.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>grow</tt></td>
+
+                    <td>The dialog can be sized in both directions.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the <i>captionFlag</i>:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr valign="top">
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noCaption</tt></td>
+
+                    <td>The dialog has no caption.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Help GRC Specification</h4>
+
+    <p><a href="GRC_DialogHelps.html">GRC Specification of the Dialog Helps</a>.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The dimensions, title and content of modal dialogs can be specified not only in <tt>GDLG</tt> resources; this can be done in runtime, too. If you call the <b>DGModalDialog</b> function with zero <em>resId</em> parameter, DG creates an empty, non-growable dialog. When handling the <tt>DG_MSG_INIT</tt> message in the dialog callback function, you can size the dialog to the desired dimensions, can set its title and other properties by calling <a href="DialogRelated_id.html">dialog related functions</a>. Then the dialog can be filled with items by using the <a href="DGAppendDialogItem.html">DGAppendDialogItem</a> function.</p>
+
+    <p>The pointer to the dialog callback function should be passed in the <em>dCallBack</em> parameter of the <b>DGModalDialog</b> function. For the simplest modal dialogs that have only buttons and static items (static text, picture, icon, etc.) there is no need to implement a callback function. In this case <b>DGModalDialog</b> returns only if a button is clicked.</p>
+
+    <p>After a modal dialog is created by <b>DGModalDialog</b>, DG starts its own message loop, taking temporary control of the message queue for the entire application. DG converts the system-specific messages into DG messages and sends them to the dialog callback function. While a modal dialog is opened, other dialogs can receive <tt>DG_MSG_UPDATE</tt> messages only.</p>
+
+    <p><b>DGModalDialog</b> returns only if the modal dialog is closed. The user usually closes a modal dialog by clicking the OK or the Cancel button. The dialog callback function receives a <tt>DG_MSG_CLICK</tt> message with <tt>DG_OK</tt> or <tt>DG_CANCEL</tt> as the <em>item</em> parameter. On Windows, if the user clicks the close box in the caption the <em>item</em> parameter is <tt>DG_CANCEL</tt> (or <tt>DG_OK</tt> if there is no Cancel button in the dialog). The dialog is closed only if the callback function returns a non-zero value (typically <tt>DG_OK</tt> or <tt>DG_CANCEL</tt>) for the <tt>DG_MSG_CLICK</tt> message. The application can use this return value to determine whether the modal dialog completed its task successfully or was canceled by the user.</p>
+
+    <p>Note that a modal dialog can also be exited by calling the <b>DGAbortModalDialog</b> function. In this case the dialog callback function receives a <tt>DG_MSG_CLOSE</tt> message with <tt>DG_ABORT</tt> as the <em>item</em> parameter and <b>DGModalDialog</b> returns <tt>DG_ABORT</tt>.</p>
+
+<h4 class="also">See Also:</h4>
+<dl>
+    <dd class="also"><a href="DialogTypes_id.html">Dialog types</a></dd>
+    <dd class="also"><a href="CallbackFunctions.html">Callback functions</a></dd>
+    <dd class="also"><a href="Messages_id.html">DG Messages</a></dd>
+    <dd class="also"><a href="DlgItemTypes_id.html">Dialog item types</a></dd>
+    <dd class="also"><a href="DialogKBInterface.html">Dialog keyboard interface</a><br></dd>
+    <dd class="also"><a href="DialogRelated_id.html">Dialog related functions</a></dd>
+    <dd class="also"><a href="DGAppendDialogItem.html">DGAppendDialogItem</a></dd>
+    <dd class="also"><a href="DGBlankModalDialog.html">DGBlankModalDialog</a></dd>
+    <dd class="also"><a href="DGModalDialog.html">DGModalDialog</a></dd>
+    <dd class="also"><a href="DGSetItemHelpIndex.html">DGSetItemHelpIndex</a><br></dd>
+    <dd class="also"><a href="GRC_DialogHelps.html">GRC Specification of the Dialog Helps</a></dd>
+</dl>
+
+
+    <footer> <p class="footer"> Graphisoft August 6, 2014 </p> </footer>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

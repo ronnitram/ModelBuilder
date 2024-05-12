@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Modeless Palettes</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Modeless_Palettes.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Modeless Palettes</h1>
+
+    <p><br>
+    This paragraph describes the way an add-on can create modeless windows. The main usage of modeless windows is to create user-defined toolbars which can be used to interact between Archicad and the add-on.</p>
+
+    <p>The main points of developing an add-on that uses modeless windows are:</p>
+
+    <ul>
+        <li>The window type must be <code>Palette</code> declared in the 'GDLG' resource. The resource ID of the palette should be between 32400 and 32499. This is a convention for avoiding collision with the dialog ID of the other modal and modeless windows. Resource IDs for modal dialogs can be between 32500 and 32767.<br></li>
+
+        <li>For initializing a modeless palette from your add-on's code, always use the <code>DGModelessInit</code> function of the DG module.<br></li>
+
+        <li>Note that the <b>dialog ID</b> may differ from the <b>resource ID</b> of a DG dialog. Generally the two values are equal, if there were no palettes with the same resource ID already initialized in the server application. Since the dialog IDs must be unique, the DG module will renumber your palette's dialog ID in the initialization phase if there the resource ID already was used for example from another add-on. This is why you should save dialog ID (which is the return value of <code>DGModelessInit</code>), and use as a reference to your palette instead of the constant resource ID.<br></li>
+
+        <li>Once initialized a palette the add-on <b>is kept in memory</b> and its palette callback function will be called to handle DG messages. After closing all the palettes belonging to the add-on, it ceases to be memory resident (unless it is kept in memory for some other reason).<br></li>
+
+        <li>In some cases (e.g. during user input) the server application blocks user action type messages towards the palette. It is the add-on's responsibility to disable its interface elements during this period to let the user know that the palette's functionality cannot be accessible. The server application notifies your code on the beginning and the termination of this situation by sending the <code>DG_MSG_API_ENABLEPALETTE</code> message.<br>
+        In case of getting user input initiated from your add-on, your dialog callbacks will not be blocked and will get the <code>DG_MSG_API_ININPUTPALETTE</code> message instead of <code>DG_MSG_API_ENABLEPALETTE</code> in order to let you keep enabled necessary dialog items (e.g. input modifiers).</li>
+
+        <li>Once your add-on has a modeless palette already initialized, it also can react to the Show/Hide All Palettes command called by the user from the Windows/Floating Palettes menu of Archicad. The palette callback gets a <code>DG_MSG_API_SHOWHIDEPALETTE</code> message every time when all the palettes should be hidden or shown. You are asked to handle this message by hiding or showing your palettes, and changing the appropriate menu texts, if your add-on has a "Show/Hide My Palette"-like menu command inserted into the menu structure.</li>
+
+        <li>The window cannot get any keyboard messages, only mouse events.<br></li>
+
+        <li>If you want some input in Archicad such as <a href="../Functions/APIIo_GetPointID.html">APIIo_GetPointID</a>, remember to close all modal windows.<br></li>
+    </ul>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 11, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>AddText</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/VectorImage/AddText.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><!-- Not Index --><a href="VectorImage.html">VectorImage</a>::AddText</h1><br>
+    Adds a text to the VectorImage.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>GSErrCode  AddText (
+    short               pen,
+    short               layer,
+    short               drwIndex,
+    bool                nonBreaking,
+    long                styleind,
+    double              x,
+    double              y,
+    double              width,
+    double              angle,
+    unsigned char       paramInd,
+    long                ind1,
+    long                ind2,
+    double              dScale,
+    bool                useDScale,
+    char*               text
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>pen</em></dt>
+
+        <dd>The drawing pen of the text.</dd>
+
+        <dt><em>layer</em></dt>
+
+        <dd>The containing layer of the text It should range from 1 to 16.</dd>
+
+        <dt><em>drwIndex</em></dt>
+
+        <dd>The drawing index of the text. It influences the drawing order of the item.</dd>
+
+        <dt><em>nonBreaking</em></dt>
+
+        <dd>True, if the text should be break at CR only. False if the text should break at the boundary of the enclosing rectangle.</dd>
+
+        <dt><em>styleind</em></dt>
+
+        <dd>The index of the font style.</dd>
+
+        <dt><em>x</em></dt>
+
+        <dd>The x co-ordinate of the anchor point.</dd>
+
+        <dt><em>y</em></dt>
+
+        <dd>The y co-ordinate of the anchor point.</dd>
+
+        <dt><em>width</em></dt>
+
+        <dd>The width of the enclosing box.</dd>
+
+        <dt><em>angle</em></dt>
+
+        <dd>The deflection of the baseline.</dd>
+
+        <dt><em>paramInd</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>ind1</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>ind2</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>dScale</em></dt>
+
+        <dd>The default scale. 100 for the 1:100 scaling.</dd>
+
+        <dt><em>useDScale</em></dt>
+
+        <dd>Should we take into account the above dScale parameter.</dd>
+
+        <dt><em>text</em></dt>
+
+        <dd>The text contents.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>If the function succeeds, the return value is NoError. If the function fails, the return value is the error code.</p>
+
+    <h3>Description</h3>
+
+    <p>Addition always merges the new item to the end of the primitives list but drawing order can differ from placing order.</p>
+
+    <h3>Requirements</h3>
+
+    <dl>
+        <dd><b>Version:</b>API 10.0 or later, ModelerGraphics 8 or later</dd>
+
+        <dd><b>Library:</b>ModelerGraphicsImp.lib (Win) or ModelerGraphics.framework (Mac)</dd>
+
+        <dd><b>Header:</b>VectorImage.hpp</dd>
+    </dl><!-- FOOTER  FOOTEREND -->
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

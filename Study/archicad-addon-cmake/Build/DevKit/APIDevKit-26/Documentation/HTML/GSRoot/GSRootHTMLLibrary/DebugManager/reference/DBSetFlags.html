@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>DBSetFlags</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/DebugManager/reference/DBSetFlags.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DBSetFlags</h1>
+
+    <p>The <strong>DBSetFlags</strong> function sets the flags of the Debug Manager in the copy the specified flag category.</p>
+    <pre class="syntax">
+<strong>void DBSetFlags(
+  unsigned long </strong><em>flagCategory,      </em>// flag category
+  <strong>GSFlags               </strong><em>flags              </em>// flags to set
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4><strong>Parameters</strong></h4>
+
+    <dl>
+        <dt><em>flagCategory</em></dt>
+
+        <dd>Specifies what kind of flags are subject to change. The flag category must be one of the following values:</dd>
+
+        <dd>
+            <dl align="left">
+                <dd>
+                    <table border="0" width="100%">
+                        <tr>
+                            <th width="18%">Value</th>
+
+                            <th width="82%">Meaning</th>
+                        </tr>
+
+                        <tr>
+                            <td width="18%"><strong>DBGeneral</strong></td>
+
+                            <td width="82%">General purpose debug flags.</td>
+                        </tr>
+                    </table>
+                </dd>
+            </dl>
+        </dd>
+
+        <dt><em>flags</em></dt>
+
+        <dd>Specifies the flags to set. This parameter can be any combination of the following values:</dd>
+
+        <dd>
+            <dl align="left">
+                <dd>
+                    <table border="0" width="100%">
+                        <tr>
+                            <th width="24%">Value</th>
+
+                            <th width="76%">Meaning</th>
+                        </tr>
+
+                        <tr>
+                            <td width="24%"><strong>DBEnableCallTrace</strong></td>
+
+                            <td width="76%">Enables the tracing of function calls.</td>
+                        </tr>
+
+                        <tr>
+                            <td width="24%"><strong>DBEnableBMTrace</strong></td>
+
+                            <td width="76%">Enables the tracing of Basic Memory Manager operations.</td>
+                        </tr>
+
+                        <tr>
+                            <td width="24%"><strong>DBEnableLogFile</strong></td>
+
+                            <td width="76%">Enables logging into file.</td>
+                        </tr>
+
+                        <tr>
+                            <td width="24%"><strong>DBEnableTrace</strong></td>
+
+                            <td width="76%">Enables the tracing.</td>
+                        </tr>
+                    </table>
+                </dd>
+            </dl>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>If the <em>flagCategory</em> parameter specifies an invalid flag category, the function does nothing.</p>
+
+    <h4>Requirements</h4>
+
+    <p><strong>&nbsp;&nbsp;&nbsp; Header:</strong> Declared in GSDebug.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong>Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../../../GSRootHTMLLibrary/DebugManager/reference/macros_id.html">Debug Manager Macros</a>, <a href="../../../GSRootHTMLLibrary/DebugManager/reference/functions_id.html">Debug Manager Functions</a>, <a href="DBGetFlags.html">DBGetFlags</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

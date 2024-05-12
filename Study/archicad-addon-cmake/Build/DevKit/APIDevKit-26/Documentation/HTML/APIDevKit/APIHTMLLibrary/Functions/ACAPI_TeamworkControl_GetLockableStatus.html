@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_TeamworkControl_GetLockableStatus</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_TeamworkControl_GetLockableStatus.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_TeamworkControl_GetLockableStatus</h1>
+
+    <p>Retrieves the reservation status of a lockable object set.</p>
+    <pre class="syntax">
+    <strong><a href="../Structures/API_LockableStatus.html">API_LockableStatus</a>  ACAPI_TeamworkControl_GetLockableStatus</strong> (
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>                    <em>objectId</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/PagedArray/PagedArray.html">GS::PagedArray</a>&lt;short&gt;*</strong>     <em>conflicts = nullptr</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>objectId</em></dt>
+
+        <dd>[in] Unique identifier of the lockable object set</dd>
+
+        <dt><em>conflicts</em></dt>
+
+        <dd>[out] List of conflicting users (optional, can be <code>nullptr</code> or omitted)</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>APILockableStatus_NotExist</code></dt>
+
+        <dd>No Teamwork connection, or the passed <code>objectId</code> parameter does not identifies a valid lockable object set</dd>
+
+        <dt><code>APILockableStatus_Free</code></dt>
+
+        <dd>The given lockable object set is available for reservation, not locked</dd>
+
+        <dt><code>APILockableStatus_Editable</code></dt>
+
+        <dd>The given lockable object set is editable, already reserved by the current user</dd>
+
+        <dt><code>APILockableStatus_Locked</code></dt>
+
+        <dd>The given lockable object set is reserved by someone else</dd>
+
+        <dt><code>APILockableStatus_NotAvailable</code></dt>
+
+        <dd>Server is offline or not available</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to retrieve the current reservation status of a lockable object set.</p>
+
+    <p>In a Teamwork project object sets (like attributes, favorites, project info, etc.) can be locked by any project members having sufficient access rights, using the reservation panel on the settings dialogs. Once the user gains the lock, the object set is syncronized from the server project, that is the user practically works with exactly the same data the server has. When releasing it, the modifications to the object set are sent back to the server.</p>
+
+    <p>Note that a reserved lockable object set is still editable in offline mode, though you cannot release the object set until the connection status becomes online.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>See the Example section of the <a href="ACAPI_TeamworkControl_ReserveLockable.html">ACAPI_TeamworkControl_ReserveLockable</a> and <a href="ACAPI_TeamworkControl_ReleaseLockable.html">ACAPI_TeamworkControl_ReleaseLockable</a> functions.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 13 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_TeamworkControl_IsOnline.html">ACAPI_TeamworkControl_IsOnline</a><br>
+    <a href="ACAPI_TeamworkControl_GetLockableStatus.html">ACAPI_TeamworkControl_GetLockableStatus</a><br>
+    <a href="ACAPI_TeamworkControl_FindLockableObjectSet.html">ACAPI_TeamworkControl_FindLockableObjectSet</a><br>
+    <a href="ACAPI_TeamworkControl_ReserveLockable.html">ACAPI_TeamworkControl_ReserveLockable</a><br>
+    <a href="ACAPI_TeamworkControl_ReleaseLockable.html">ACAPI_TeamworkControl_ReleaseLockable</a><br>
+    <a href="ACAPI_Notify_CatchLockableReservationChange.html">ACAPI_Notify_CatchLockableReservationChange</a><br>
+    <a href="../Level3/Teamwork_Control_id.html">Teamwork Control</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 15, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

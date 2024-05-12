@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_DocumentFrom3DDefaults</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_DocumentFrom3DDefaults.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_DocumentFrom3DDefaults</h1>
+
+    <p>Default settings of 3D document.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_UniformAttributeOptions.html">API_UniformAttributeOptions</a></strong>     <em>attributeOptions</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>                     <em>name[API_UniLongNameLen]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>                     <em>refId[API_UniLongNameLen]</em>;
+        <strong>bool</strong>                            <em>vect3DHatching</em>;
+        <strong>bool</strong>                            <em>vectSunShadow</em>;
+        <strong>bool</strong>                            <em>mustBeTransparent</em>;
+        <strong>bool</strong>                            <em>filler_1</em>;
+        <strong><a href="API_CutPlanePlanConn.html">API_CutPlanePlanConn</a></strong>            <em>intPlanConn</em>;
+        <strong>bool</strong>                            <em>materialFrom3D</em>;
+        <strong>bool</strong>                            <em>contureOff</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>              <em>cMater</em>;
+        <strong><a href="API_SkeletonOptions.html">API_SkeletonOptions</a></strong>             <em>skeletonOptions</em>;
+        <strong><a href="API_BoundaryDisplay.html">API_BoundaryDisplay</a></strong>             <em>boundaryDisplay</em>;
+        <strong>short</strong>                           <em>boundaryPen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>              <em>boundaryLineType</em>;
+        <strong>short</strong>                           <em>filler_2[3]</em>;
+    <strong>}</strong> <em>API_DocumentFrom3DDefaults</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>attributeOptions</b></dt>
+
+        <dd>General representation of a Model Dispaly.</dd>
+
+        <dt><b>name[API_UniLongNameLen]</b></dt>
+
+        <dd>Name of the 3D document database (Unicode string, UTF-8 encoding).</dd>
+
+        <dt><b>refId[API_UniLongNameLen]</b></dt>
+
+        <dd>Reference ID of the 3D document database (Unicode string, UTF-8 encoding).</dd>
+
+        <dt><b>vect3DHatching</b></dt>
+
+        <dd>Vectorial 3D hatching option</dd>
+
+        <dt><b>vectSunShadow</b></dt>
+
+        <dd>Vectorial sun shadow generation options.</dd>
+
+        <dt><b>mustBeTransparent</b></dt>
+
+        <dd>Transparent effect (see-through Materials e.g. glass).</dd>
+
+        <dt><b>intPlanConn</b></dt>
+
+        <dd>Intended plan connectivity. It could be different from the state of its window.</dd>
+
+        <dt><b>materialFrom3D</b></dt>
+
+        <dd>Use Material Defined in 3D Cutting Planes.</dd>
+
+        <dt><b>contureOff</b></dt>
+
+        <dd>Vectorial sun shadow contour on(off).</dd>
+
+        <dt><b>cMater</b></dt>
+
+        <dd>Cut surface material.</dd>
+
+        <dt><b>skeletonOptions</b></dt>
+
+        <dd>Skeleton drawing options.</dd>
+
+        <dt><b>boundaryDisplay</b></dt>
+
+        <dd>Boundary display options</dd>
+
+        <dt><b>boundaryPen</b></dt>
+
+        <dd>Boundary pen (in case of overridden contours)</dd>
+
+        <dt><b>boundaryLineType</b></dt>
+
+        <dd>Boundary line type (in case of overridden contours)</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You are able to get and change the default settings of 3D document via <a href="../Functions/APIEnv_GetDocumentFrom3DDefaultsID.html">APIEnv_GetDocumentFrom3DDefaultsID</a> and <a href="../Functions/APIEnv_ChangeDocumentFrom3DDefaultsID.html">APIEnv_ChangeDocumentFrom3DDefaultsID</a> functions.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 12 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_UniformAttributeOptions.html">API_UniformAttributeOptions</a><br>
+	<a href="API_AttributeIndex.html">API_AttributeIndex</a><br>
+    <a href="API_CutPlanePlanConn.html">API_CutPlanePlanConn</a><br>
+    <a href="API_Types.html">API Types</a><br>
+    <a href="API_SkeletonOptions.html">API_SkeletonOptions</a><br>
+    <a href="API_BoundaryDisplay.html">API_BoundaryDisplay</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 16, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

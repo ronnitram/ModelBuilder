@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>File constructor</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/File/Constructors.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="File.html">File</a>::File&nbsp;&nbsp; <font size="2">(3)</font></h1><br>
+    File constructors.<br>
+    <br>
+    <pre class="syntax">
+<b>explicit File (
+    const <a href="../Location/Location.html">Location</a>&amp; <em>loc</em>,
+    <a href="OnNotFound.html">OnNotFound</a>      <i>action</i> = Fail
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>loc</em></dt>
+
+        <dd>Location of the file in the file system.</dd>
+
+        <dt><em>action</em></dt>
+
+        <dd>Action to be performed if the file is not found.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor creates connection to the file identified with the <a href="../Location/Location.html">Location</a> <i>loc</i>. If <i>loc</i> refers to a link, then it is automatically resolved. If the file is not found, then the <i>action</i> parameter is examined. On the default value Fail status of the File instance becomes invalid. On the value Create it will try to create the file in the file system if its parent folder (obtained from <i>loc</i>) exists.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances should not be created before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>File (
+    const <a href="../Folder/Folder.html">Folder</a>&amp; <i>parent</i>,
+    const <a href="../Name/Name.html">Name</a>&amp;   <i>fileName</i>
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>parent</em></dt>
+
+        <dd>Parent folder of the file.</dd>
+
+        <dt><em>fileName</em></dt>
+
+        <dd>Name of the file.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor creates connection to the file identified with its parent folder <i>parent</i> and name <i>fileName</i>. If a link was specified, then it is automatically resolved. If the file is not found, then status of the File instance becomes invalid.</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances should not be created before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>File (
+    <a href="../Folder/Folder.html">Folder</a>&amp;     <i>parent</i>,
+    const <a href="../Name/Name.html">Name</a>&amp; <i>fileName</i>,
+    <a href="OnNotFound.html">OnNotFound</a>  <i>action</i>
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>parent</em></dt>
+
+        <dd>Parent folder of the file.</dd>
+
+        <dt><em>fileName</em></dt>
+
+        <dd>Name of the file.</dd>
+
+        <dt><em>action</em></dt>
+
+        <dd>Action to be performed if the file is not found.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This constructor creates connection to the file identified with its parent folder <i>parent</i> and name <i>fileName</i>. If a link was specified, then it is automatically resolved. If the file is not found, then the <i>action</i> parameter is examined. On the default value Fail status of the File instance becomes invalid. On the value Create it will try to create the file in the file system (in its parent folder <i>parent</i>).</p>
+
+    <p>Result of the construction can be examined by a subsequent invocation of the <a href="GetStatus.html">GetStatus</a> method, where return value NoError indicates successful construction.</p>
+
+    <p>Instances should not be created before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

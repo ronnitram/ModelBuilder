@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_PropertyDefinition</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_PropertyDefinition.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_PropertyDefinition</h1>
+
+    <p>A structure representing a property definition.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="#API_PropertyDefinitionType">API_PropertyDefinitionType</a></strong>                <em>definitionType</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                                  <em>guid</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                                  <em>groupGuid</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>                             <em>name</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>                             <em>description</em>;
+        <strong><a href="#API_PropertyCollectionType">API_PropertyCollectionType</a></strong>                <em>collectionType</em>;
+        <strong><a href="#API_VariantType">API_VariantType</a></strong>                           <em>valueType</em>;
+        <strong><a href="#API_PropertyMeasureType">API_PropertyMeasureType</a></strong>                   <em>measureType</em>;
+        <strong><a href="API_PropertyDefaultValue.html">API_PropertyDefaultValue</a></strong>                  <em>defaultValue</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="API_Guid.html">API_Guid</a>&gt;</strong>                       <em>availability</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="API_SingleEnumerationVariant.html">API_SingleEnumerationVariant</a>&gt;</strong>   <em>possibleEnumValues</em>;
+        <strong>bool</strong>                                      <em>canValueBeEditable</em>;
+    <strong>}</strong> <em>API_PropertyDefinition</em>;
+    </pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>definitionType</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21" width="19" height="12"></dt>
+
+        <dd>The type of this property definition
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th>
+                        <p><b><code><a name="API_PropertyDefinitionType" id="API_PropertyDefinitionType">API_PropertyDefinitionType</a></code></b></p>
+                    </th>
+
+                    <th>
+                        <p><b>Meaning</b></p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyStaticBuiltInDefinitionType</code></p>
+                    </td>
+
+                    <td>
+                        <p>It is a built-in property (the definition itself is read only). The set of static built-in properties do not change.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyDynamicBuiltInDefinitionType</code></p>
+                    </td>
+
+                    <td>
+                        <p>It is a built-in property (the definition itself is read only). The set of dynamic built-in properties may change as a result of Archicad operations.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyCustomDefinitionType</code></p>
+                    </td>
+
+                    <td>
+                        <p>It is a user-defined property definition (can be modified).</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>guid</b></dt>
+
+        <dd>The unique identifier of the property definition</dd>
+
+        <dt><b>groupGuid</b></dt>
+
+        <dd>The unique identifier of the property group that contains this definition</dd>
+
+        <dt><b>name</b></dt>
+
+        <dd>The name of the property definition</dd>
+
+        <dt><b>description</b></dt>
+
+        <dd>The description of the property definition</dd>
+
+        <dt><b>collectionType</b></dt>
+
+        <dd>The collection type of the property definition
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th>
+                        <p><b><code><a name="API_PropertyCollectionType" id="API_PropertyCollectionType">API_PropertyCollectionType</a></code></b></p>
+                    </th>
+
+                    <th>
+                        <p><b>Meaning</b></p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertySingleCollectionType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property stores a single value</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyListCollectionType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property stores a list of values</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertySingleChoiceEnumerationCollectionType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property stores a single value from a list of allowed values</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyMultipleChoiceEnumerationCollectionType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property stores a subset of values from a list of allowed values</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>valueType</b></dt>
+
+        <dd>Type of the data that the property stores
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th>
+                        <p><b><code><a name="API_VariantType" id="API_VariantType">API_VariantType</a></code></b></p>
+                    </th>
+
+                    <th>
+                        <p><b>Meaning</b></p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyIntegerValueType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property has integer value(s)</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyRealValueType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property has real (double) value(s)</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyBooleanValueType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property has boolean value(s)</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyStringValueType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property has string value(s)</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>measureType</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22" width="19" height="12"></dt>
+
+        <dd>
+			<p>
+				Measure type of the data that the property stores.
+			</p>
+			<p>
+				Measure types other than API_PropertyDefaultMeasureType (and API_PropertyUndefinedMeasureType) are only valid for properties which are of a single real type (<em>collectionType</em> is API_PropertySingleCollectionType and <em>valueType</em> is API_PropertyRealValueType).
+			</p>
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th>
+                        <p><b><code><a name="API_PropertyMeasureType" id="API_PropertyMeasureType">API_PropertyMeasureType</a></code></b></p>
+                    </th>
+
+                    <th>
+                        <p><b>Meaning</b></p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyUndefinedMeasureType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property is in invalid state.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyDefaultMeasureType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property doesn't have special measure.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyLengthMeasureType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property has length value.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyAreaMeasureType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property has area value.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyVolumeMeasureType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property has volume value.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_PropertyAngleMeasureType</code></p>
+                    </td>
+
+                    <td>
+                        <p>The property has angle value.</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>defaultValue</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22" width="19" height="12"></dt>
+
+        <dd>The default value of this property definition.</dd>
+
+        <dt><b>availability</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21" width="19" height="12"></dt>
+
+        <dd>The list of classification GUIDs this property definition is available for.</dd>
+
+        <dt><b>possibleEnumValues</b></dt>
+
+        <dd>The list of available values in case of an enumeration value type.</dd>
+
+        <dt><b>canValueBeEditable</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21" width="19" height="12"></dt>
+
+        <dd>Specifies if the property values of this definition can possibly be edited. For custom properties it is always <tt>true</tt>, for built-ins, it might be <tt>false</tt>.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+ 	<h4>Remarks</h4>
+
+    <p><img border="0" src="../../APIImageLibrary/22.png" alt="Changed in API 22" width="19" height="12">&nbsp; In Archicad v2018 the <code>defaultValue</code>'s type has been changed to <a href="API_PropertyDefaultValue.html"><code>API_PropertyDefaultValue</code></a> from <a href="API_PropertyValue.html"><code>API_PropertyValue</code></a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 20 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Properties.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Property.html">API_Property</a><br>
+    <a href="../Level3/Properties_id.html#PropertyDefinitionManipulation">Properties</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on July 17, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>GetVertexIndex</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="ConvexPolygon/GetVertexIndex.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="ConvexPolygon.html">ConvexPolygon</a>::GetVertexIndex</h1><br>
+    Calculate body relative vertex index.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>Int32  GetVertexIndex (
+    Int32   vertexIndex
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>vertexIndex</em></dt>
+
+        <dd>Index of the vertex. The index range is [1..n] where n = <a href="GetVertexNum.html">GetVertexNum</a> ().</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>The body relative index.</p>
+
+    <h3>Description</h3>
+
+    <p>The convex polygon stores the reference of a vertex instead of vertex data. This method calculates the body relative vertex index from polygon relative vertex index. This index can be used to get the vertex from the body which contains <b>this</b> polygon. If <i>vertexIndex</i> is out of range, then it throws an exception.<br>
+    Here is an example how to enumerate convex polygons and their vertexes:</p>
+    <pre class="syntax">
+<b>
+// body: The body, which is enumerated.
+
+for (Int32 polygonIndex = 1; polygonIndex &lt;= body.<a href="Invalid link: ../Body/GetPolygonNum.html">GetPolygonNum</a> (); polygonIndex++) {
+    ModelerAPI::<a href="../Polygon/Polygon.html">Polygon</a> polygon;
+    body.<a href="../Body/GetPolygon.html">GetPolygon</a> (polygonIndex, &amp;polygon);
+    // Begin of polygon.
+    Int32 vertexIndex = 1;
+    for (Int32 convexPolygonIndex = 1 ; convexPolygonIndex &lt;= polygon.<a href="../Polygon/GetConvexPolygonNum.html">GetConvexPolygonNum</a> (); convexPolygonIndex++) {
+        ModelerAPI::<a href="../ConvexPolygon/ConvexPolygon.html">ConvexPolygon</a> convexPolygon;
+        polygon.<a href="../Polygon/GetConvexPolygon.html">GetConvexPolygon</a> (convexPolygonIndex, &amp;convexPolygon);
+        // Begin of convex polygon.
+        for (Int32 vertexIndex = 1 ; vertexIndex &lt;= convexPolygon.<a href="../ConvexPolygon/GetVertexNum.html">GetVertexNum</a> (); vertexIndex++) {
+            Int32 bodyVertexIndex = convexPolygon.GetVertexIndex (vertexIndex);
+            ModelerAPI::<a href="../Vertex/Vertex.html">Vertex</a> vertex;
+            body.<a href="../Body/GetVertex.html">GetVertex</a> (bodyVertexIndex, &amp;vertex);
+            // vertex processing
+        }
+        // End of convex polygon.
+    }
+    // End of polygon.
+}
+</b>
+</pre>
+
+    <p><b>Available from version: 8</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

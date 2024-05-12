@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIAny_TriangulatePolyID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIAny_TriangulatePolyID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIAny_TriangulatePolyID</h1>
+
+    <p>Decomposes a polygon into triangles.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a></strong> (
+        <strong>APIAny_TriangulatePolyID</strong>,
+        <strong><a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>*</strong>     <em>memo</em>,
+        <strong><a href="../Structures/API_Coord.html">API_Coord</a>***</strong>         <em>coords</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>memo</em></dt>
+
+        <dd>[in] Parameters of an polygon. The coordinates of the polygon and the subpolygon endpoints must be <em>coords</em> handle and <em>pends</em> handle in the memo.</dd>
+
+        <dt><em>coords</em></dt>
+
+        <dd>[out] Coordinates of the triangles</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>any of the parameters are <code>nullptr</code></dd>
+
+        <dt><code>APIERR_REFUSEDPAR</code></dt>
+
+        <dd>Arc in the polygon</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>Not enough memory to complete the operation</dd>
+
+        <dt><code>APIERR_IRREGULARPOLY</code></dt>
+
+        <dd>Input polygon is irregular.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to decompose a polygon into triangles. The <code>coords</code> handle will be allocated by the server application and filled with coordinates. The number of generated triangles should be determined based on the returned handle size.</p>
+
+    <p>The function accept only polygons which has no arc segments.</p>
+
+    <p>Do not forget to dispose the <code>coords</code> handle if it is not needed any more.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+#include  "GSBase.h"      /* BMhKill */
+
+GSErrCode TriangulateSlab (const API_Guid&amp; slabGuid)
+{
+    API_Element       element;
+    API_ElementMemo   memo;
+    API_Coord         **coords;
+    Int32             nTriangles;
+    GSErrCode         err;
+
+    BNZeroMemory (&amp;memo, sizeof (API_ElementMemo));
+    BNZeroMemory (&amp;element, sizeof (API_Element));
+    element.header.guid = slabGuid;
+
+    err = ACAPI_Element_Get (&amp;element);
+    if (!err) {
+        if (element.slab.poly.nArcs &gt; 0)
+            return APIERR_REFUSEDPAR;
+            err = ACAPI_Element_GetMemo (element.header.guid, &amp;memo);
+            if (!err) {
+            err = ACAPI_Goodies (APIAny_TriangulatePolyID, &amp;memo, &amp;coords);
+            if (!err) {
+                nTriangles = BMGetHandleSize ((GSHandle) coords) / (3 * sizeof (API_Coord));
+                /* ... */
+                BMKillHandle ((GSHandle *) &amp;coords);
+            }
+            ACAPI_DisposeElemMemoHdls (&amp;memo);
+        }
+    }
+
+    return err;
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Goodies.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>, <a href="../Structures/API_Coord.html">API_Coord</a>,<br>
+    <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2012<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

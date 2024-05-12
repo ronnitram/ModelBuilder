@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <title>GSAPI::IAPIOutputAdapterFactory interface</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Framework/IAPIOutputAdapterFactory.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GSAPI::IAPIOutputAdapterFactory interface</h1>
+
+    <p>This interface provides the necessary abstract methods to create an output adapter for any kind of structure or enum found in an <!-- Don't index --><a href="../Structures/API_Element.html">API_Element</a>, <!-- Don't index --><a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>, <!-- Don't index --><a href="../Structures/API_PrimElement.html">API_PrimElement</a>, <!-- Don't index --><a href="../Structures/API_Attribute.html">API_Attribute</a>, <!-- Don't index --><a href="../Structures/API_AttributeDefExt.html">API_AttributeDefExt</a> or <!-- Don't index --><a href="../Structures/API_LayoutInfo.html">API_LayoutInfo</a>. Since these API types do not have a common ancestor type it is necessary to create a different overload for each type. If the user doesn't need to create every type of adapter it is advised to derive the OutputAdapterFactory from the <b>NullTypeOutputAdapterFactory</b> in the <b>DefaultImplementation</b> folder, and overload only the necessary virtual methods. The interface also holds a reference to the <!-- Don't index --><a href="IAPIOutputManager.html">IAPIOutputManager</a> object provided by the user, which it sets for each adapter it returns. There's also a <i>managedAdapters</i> flag which tells whether the factory is responsible for destroying the adapters (true) or not (false). This flag was added to support flyweight factories.</p>
+
+    <h2 class="SectionHeading">Requirements</h2>
+
+    <p><span class="RequirementsSection">Namespace:</span> GSAPI</p>
+
+    <p><span class="RequirementsSection">Header:</span> IAPIOutputAdapterFactory.hpp</p>
+
+    <p><span class="RequirementsSection">Version:</span> API 10.21 or later</p>
+
+    <h2 class="SectionHeading">See Also</h2>
+
+    <p><!-- Don't index --><a href="IAPIOutputManager.html">IAPIOutputManager interface</a> | <!-- Don't index --><a href="IAPIOutputAdapter.html">IAPIOutputAdapter interface</a></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Urban Eszter">
+
+    <title>DGGetItemImageId</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGGetItemImageId.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGGetItemImageId</h1>
+
+    <p>Retrieves the resource ID of the image of a dialog item.</p>
+    <pre class="syntax">
+    <strong>short DGGetItemImageId</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The resource ID of the image depending on the type of the item. <tt>DG_NO_IMAGE</tt> is returned if the image of the specified dialog item was set by <a href="DGSetItemImage.html">DGSetItemImage</a>, or if the function parameters are incorrect.</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="180">Item type</th>
+
+                    <th align="left"><img src="../DGImageLibrary/MacLogo.png" alt="Mac logo"> <strong>&nbsp;Macintosh only:</strong>&nbsp;</th>
+
+                    <th align="left"><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"> <strong>&nbsp;Windows only:</strong>&nbsp;</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ITM_BUTTON</tt></td>
+
+                    <td>Resource ID of the icon.</td>
+
+                    <td>Resource ID of the icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ITM_CHECKBOX</tt></td>
+
+                    <td>Resource ID of the icon.</td>
+
+                    <td>Resource ID of the icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ITM_RADIOBUTTON</tt></td>
+
+                    <td>Resource ID of the icon.</td>
+
+                    <td>Resource ID of the icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ITM_ICONITEM</tt></td>
+
+                    <td>Resource ID of the icon.</td>
+
+                    <td>Resource ID of the icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ITM_PICTITEM</tt></td>
+
+                    <td>Resource ID of the picture.</td>
+
+                    <td>Resource ID of the bitmap.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>For specifying an image to a dialog item with the resource ID of the image: see <a href="DGSetItemImageId.html">DGSetItemImageId</a>, <a href="DGSetItemImageResource.html">DGSetItemImageResource</a>. The image of a dialog item can also be set by its image handle with the <strong>DGSetItemImage</strong> function.</p>
+
+    <p>For icon-style dialog items the returned value can be one of the following predefined constants:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="180">Value</th>
+
+                    <th align="left" width="180">Meaning</th>
+
+                    <th width="80">Macintosh</th>
+
+                    <th width="80">Windows</th>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_NO_ICON</tt></td>
+
+                    <td>No icon, empty space.</td>
+
+                    <td></td>
+
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_ERROR_ICON</tt></td>
+
+                    <td>Error icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconError_Mac.png" width="32" height="32" alt="IconError_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconError_Win.png" alt="IconError_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_WARNING_ICON</tt></td>
+
+                    <td>Information icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconInfo_Mac.png" width="32" height="32" alt="IconInfo_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconInfo_Win.png" alt="IconInfo_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_INFORMATION_ICON</tt></td>
+
+                    <td>Warning icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconWarning_Mac.png" width="32" height="32" alt="IconWarning_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/IconWarning_Win.png" alt="IconWarning_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FILE_ICON</tt></td>
+
+                    <td>File icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGFileIcon_Mac.png" width="32" height="32" alt="DGFileIcon_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGFileIcon_Win.png" alt="DGFileIcon_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_TEXTFILE_ICON</tt></td>
+
+                    <td>Text file icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGTextFileIcon_Mac.png" width="32" height="32" alt="DGTextFileIcon_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGTextFileIcon_Win.png" alt="DGTextFileIcon_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FOLDER_ICON</tt></td>
+
+                    <td>Folder icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGFolderIcon_Mac.png" width="32" height="32" alt="DGFolderIcon_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGFolderIcon_Win.png" alt="DGFolderIcon_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FOLDEROPEN_ICON</tt></td>
+
+                    <td>Folder open icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGFolderOpenIcon_Mac.png" width="32" height="32" alt="DGFolderOpenIcon_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGFolderOpenIcon_Win.png" alt="DGFolderOpenIcon_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_MYDOCFOLDER_ICON</tt></td>
+
+                    <td>My documents folder icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGMyDocFolderIcon_Mac.png" width="32" height="32" alt="DGMyDocFolderIcon_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGMyDocFolderIcon_Win.png" alt="DGMyDocFolderIcon_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FAVORITES_ICON</tt></td>
+
+                    <td>Favorites icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGFavoritesIcon_Mac.png" width="32" height="32" alt="DGFavoritesIcon_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGFavoritesIcon_Win.png" alt="DGFavoritesIcon_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FLOPPY_ICON</tt></td>
+
+                    <td>Floppy icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGFloppyIcon_Mac.png" width="32" height="32" alt="DGFloppyIcon_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGFloppyIcon_Win.png" alt="DGFloppyIcon_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_CDDRIVE_ICON</tt></td>
+
+                    <td>CD drive icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGCDDriveIcon_Mac.png" width="32" height="32" alt="DGCDDriveIcon_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGCDDriveIcon_Win.png" alt="DGCDDriveIcon_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_HDD_ICON</tt></td>
+
+                    <td>HDD icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGHDDriveIcon_Mac.png" width="32" height="32" alt="DGHDDriveIcon_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGHDDriveIcon_Win.png" alt="DGHDDriveIcon_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_NETDRIVE_ICON</tt></td>
+
+                    <td>Net drive icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGNetDriveIcon_Mac.png" width="32" height="32" alt="DGNetDriveIcon_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGNetDriveIcon_Win.png" alt="DGNetDriveIcon_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_DESKTOP_ICON</tt></td>
+
+                    <td>Desktop icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGDesktopIcon_Mac.png" width="32" height="32" alt="DGDesktopIcon_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGDesktopIcon_Win.png" alt="DGDesktopIcon_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_RECYCLEBIN_ICON</tt></td>
+
+                    <td>Recycle bin icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGRecycleBinIcon_Mac.png" width="32" height="32" alt="DGRecycleBinIcon_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGRecycleBinIcon_Win.png" alt="DGRecycleBinIcon_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_ENTIRENETWORK_ICON</tt></td>
+
+                    <td>Entire network icon.</td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGEntireNetworkIcon_Mac.png" width="32" height="32" alt="DGEntireNetworkIcon_Mac"></td>
+
+                    <td align="center"><img src="../DGImageLibrary/DGEntireNetworkIcon_Win.png" alt="DGEntireNetworkIcon_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="DlgItemRelated_id.html">Dialog item related functions</a>, <a href="DGSetItemImageId.html">DGSetItemImageId</a><br>
+    <a href="DGGetItemImage.html">DGGetItemImage</a>, <a href="DGGetItemImageResource.html">DGGetItemImageResource</a><br>
+    <a href="DGSetItemImage.html">DGSetItemImage</a>, <a href="DGSetItemImageResource.html">DGSetItemImageResource</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 7, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

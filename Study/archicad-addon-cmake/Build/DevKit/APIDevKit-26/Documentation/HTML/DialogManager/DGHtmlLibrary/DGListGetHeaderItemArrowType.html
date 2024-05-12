@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Vegh Miklos, Urban Eszter">
+
+    <title>DGListGetHeaderItemArrowType</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListGetHeaderItemArrowType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListGetHeaderItemArrowType</h1>
+
+    <p>Retrieves the arrow type of a header item of a <a href="ListBox.html">list box</a> item.</p>
+    <pre class="syntax">
+    <strong>short DGListGetHeaderItemArrowType</strong> (
+      <strong>short</strong>        <em>dialId</em>,
+      <strong>short</strong>        <em>item</em>,
+      <strong>short</strong>        <em>headerItem</em>
+   );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>headerItem</em></dt>
+
+        <dd>1-based index of the header item.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The arrow type of the header item:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left" width="160">Arrow type</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LHA_NONE</tt></td>
+
+                    <td>No symbol.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LHA_UP</tt></td>
+
+                    <td>Simple triangle pointing upwards.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LHA_DOWN</tt></td>
+
+                    <td>Simple triangle pointing downwards.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LHA_DOUBLEUP</tt></td>
+
+                    <td>Double triangle pointing upwards.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LHA_DOUBLEDOWN</tt></td>
+
+                    <td>Double triangle pointing downwards.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The list box header is displayed at the top of the list box. The header can be divided into more header items. The header is used to display information about the list box columns and can be configured to enable the user to dynamically adjust the size and the order of the list box columns. The number of the header items can be retrieved by <a href="DGListGetHeaderItemCount.html">DGListGetHeaderItemCount</a>. The arrow type of a header item can be set by <a href="DGListSetHeaderItemArrowType.html">DGListSetHeaderItemArrowType</a>.</p>
+
+    <p>It is possible to indicate the sorting order of a list box coloumn in a header item. Primary and secondary sorting order are shown with simple and double triangles, pointing up or downwards. To show or hide the sorting arrow the <strong>DGListSetHeaderItemArrowType</strong> function is used. For using the sorting order the header item need to be used as a pushbutton. This means that the <em>isPushable</em> header flag need to be set by the <a href="DGListSetHeaderFlags.html">DGListSetHeaderFlags</a> function.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ListBox.html">List Box</a>, <a href="DGListSetHeaderItemArrowType.html">DGListSetHeaderItemArrowType</a><br>
+    <a href="DGListGetHeaderItemCount.html">DGListGetHeaderItemCount</a>, <a href="DGListSetHeaderFlags.html">DGListSetHeaderFlags</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on March 21, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

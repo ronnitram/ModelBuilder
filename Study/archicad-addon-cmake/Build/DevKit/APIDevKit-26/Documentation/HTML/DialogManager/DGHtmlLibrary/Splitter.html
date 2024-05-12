@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Vegh Miklos, Urban Eszter">
+
+    <title>Splitter Control</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/Splitter.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Splitter Control</h1>
+
+    <p>Splitter control is a special user control which enables the user to change the interior dialog layout easily without increasing or decreasing the whole dialog size. With this control the user can dynamically modify the dialog view, so the required information can be quickly available.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/Splitter_Mac.png" alt="Splitter_Mac">&nbsp;&nbsp;&nbsp; &nbsp;<img src="../DGImageLibrary/Splitter_Win.png" alt="Splitter_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_SPLITTER</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SPLT_HORIZONTAL</tt></td>
+
+                    <td>The splitter is diplayed horizontally and might be dragged vertically.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SPLT_VERTICAL</tt></td>
+
+                    <td>The splitter is diplayed vertically and might be dragged horizontally.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SPLT_TRANSPARENT</tt></td>
+
+                    <td>The splitter is transparent and it might be seen only from the cursor feedback that there is a dragable splitter.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    Splitter    <i>x  y  dx  dy</i>  [Transparent]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the splitter, <em>dx</em> and <em>dy</em> are the item width and height in pixels. Set the optional <em>Transparent</em> flag to draw a transparent splitter. If the optional <em>Transparent</em> flag is omitted, a normal splitter control is drawn. The horizontal and the vertical subtype depend on the item width and the item height of the control.</p>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_SPLITTERDRAG.html"><tt>DG_MSG_SPLITTERDRAG</tt></a></td>
+
+                    <td>The splitter control is being dragged. The message data parameter is a pointer to a <a href="DGSplitterMsgData.html">DGSplitterMsgData</a> structure cast to <strong><tt>DGMessageData</tt></strong>. This structure contains information about the user action.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a></td>
+
+                    <td>The splitter control is clicked. The message data parameter is a pointer to a <b>DGSplitterMsgData</b> structure cast to <strong><tt>DGMessageData</tt></strong>. This structure contains information about the user action.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a></td>
+
+                    <td>The splitter control is double clicked. The message data parameter is a pointer to a <b>DGSplitterMsgData</b> structure cast to <strong><tt>DGMessageData</tt></strong>. This structure contains information about the user action.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Transparent Flag</h4>
+
+    <p>The splitter control can be transparent or normal. The color of the transparent splitter control is the background color of the dialog, in this case the user cannot notice the control only by the change of the cursor above the splitter. The color of the normal splitter control is the color of the rolldown control, ie. it is theme-dependent.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The splitter control might be oriented horizontally or vertically. The horizontal splitter might be dragged vertically, the vertical splitter might be dragged horizontally. Cursor feedback above the splitter control shows the possible interaction. During the dragging of the splitter there is a realtime dialog update.</p>
+
+    <p>On both platforms the splitter control is a thin area without any frame, its thickness is defined in the resource - the suggested minimum thickness is 7 pixels. On Macintosh there is a small 5x5 pixel-size round button in the middle of the splitter control. The splitter cannot change the dialog size. The valid positions of the splitter control are given by the application. The control cannot be dragged out of the dialog area.</p>
+
+    <p>The drag status of the splitter control can be set by the <a href="DGSplitterEnableDrag.html">DGSplitterEnableDrag</a>, <a href="DGSplitterDisableDrag.html">DGSplitterDisableDrag</a> and <a href="DGSplitterSetDragStatus.html">DGSplitterSetDragStatus</a> functions. The drag status can be retrieved by the <a href="DGSplitterIsDragEnabled.html">DGSplitterIsDragEnabled</a> function.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a><br>
+    <a href="SplitterSpecific_id.html">Splitter control specific functions</a>, <a href="DGSplitterEnableDrag.html">DGSplitterEnableDrag</a>, <a href="DGSplitterDisableDrag.html">DGSplitterDisableDrag</a>, <a href="DGSplitterSetDragStatus.html">DGSplitterSetDragStatus</a>, <a href="DGSplitterIsDragEnabled.html">DGSplitterIsDragEnabled</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_SPLITTERDRAG.html"><tt>DG_MSG_SPLITTERDRAG</tt></a>, <a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a>, <a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 21, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

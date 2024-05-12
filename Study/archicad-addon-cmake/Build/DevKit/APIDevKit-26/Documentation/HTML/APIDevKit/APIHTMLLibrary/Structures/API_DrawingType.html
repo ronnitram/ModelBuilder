@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_DrawingType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_DrawingType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_DrawingType</h1>
+
+    <p>Represents a drawing element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                   <em>head</em>;
+        <strong>char</strong>                            <em>name[256]</em>;
+        <strong><a href="API_NameTypeValues.html">API_NameTypeValues</a></strong>              <em>nameType</em>;
+        <strong><a href="API_NumberingTypeValues.html">API_NumberingTypeValues</a></strong>         <em>numberingType</em>;
+        <strong>char</strong>                            <em>customNumber[256]</em>;
+        <strong>bool</strong>                            <em>isInNumbering</em>;
+        <strong>bool</strong>                            <em>manualUpdate</em>;
+        <strong>bool</strong>                            <em>storedInProject</em>;
+        <strong>bool</strong>                            <em>isScheduleAdjusted</em>;
+        <strong>bool</strong>                            <em>isMultiPageDrawing</em>;
+        <strong>bool</strong>                            <em>includeInAutoTextsAndIES</em>;
+        <strong>bool</strong>                            <em>filler_1[2]</em>;
+        <strong>double</strong>                          <em>angle</em>;
+        <strong>double</strong>                          <em>ratio</em>;
+        <strong>double</strong>                          <em>rasterizeDPI</em>;
+        <strong>double</strong>                          <em>drawingScale</em>;
+        <strong>double</strong>                          <em>parentOriginalScale</em>;
+        <strong><a href="API_AnchorID.html">API_AnchorID</a></strong>                    <em>anchorPoint</em>;
+        <strong><a href="API_ColorModeValues.html">API_ColorModeValues</a></strong>             <em>colorMode</em>;
+        <strong><a href="API_PenTableUsageModeValues.html">API_PenTableUsageModeValues</a></strong>     <em>penTableUsageMode</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>              <em>penTableIndex</em>;
+        <strong>bool</strong>                            <em>useOwnOrigoAsAnchor</em>;
+        <strong>bool</strong>                            <em>isTransparentBk</em>;
+        <strong>bool</strong>                            <em>isCutWithFrame</em>;
+        <strong>bool</strong>                            <em>hasBorderLine</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>              <em>borderLineType</em>;
+        <strong>short</strong>                           <em>borderPen</em>;
+        <strong>bool</strong>                            <em>filler_2[2]</em>;
+        <strong>double</strong>                          <em>borderSize</em>;
+        <strong><a href="API_DrawingTitle.html">API_DrawingTitle</a></strong>                <em>title</em>;
+        <strong><a href="API_Box.html">API_Box</a></strong>                         <em>bounds</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                       <em>pos</em>;
+        <strong><a href="API_Polygon.html">API_Polygon</a></strong>                     <em>poly</em>;
+        <strong>UInt32</strong>                          <em>sortIndex</em>;
+        <strong>Int32</strong>                           <em>linkUId</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                        <em>drawingGuid</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                       <em>modelOffset</em>;
+        <strong><a href="API_Coord.html">API_Vector</a></strong>                      <em>offset</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                       <em>pageOffset</em>;
+        <strong>UInt32</strong>                          <em>pageNumberX</em>;
+        <strong>UInt32</strong>                          <em>pageNumberY</em>;
+    <strong>}</strong> <em>API_DrawingType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>name</b></dt>
+
+        <dd>Custom drawing name if <code>nameType</code> is set to <code>APIName_CustomName</code>.</dd>
+
+        <dt><b>nameType</b></dt>
+
+        <dd>Type of the drawing name (see <a href="API_NameTypeValues.html">API_NameTypeValues</a>).</dd>
+
+        <dt><b>numberingType</b></dt>
+
+        <dd>Numbering options (see <a href="API_NumberingTypeValues.html">API_NumberingTypeValues</a>).</dd>
+
+        <dt><b>customNumber</b></dt>
+
+        <dd>Custom drawing number if <code>numberingType</code> is set to <code>APINumbering_CustomNum</code>.</dd>
+
+        <dt><b>isInNumbering</b></dt>
+
+        <dd>The drawing is included in the numbering sequence.</dd>
+
+        <dt><b>manualUpdate</b></dt>
+
+        <dd>Updating method: manual or automatic.</dd>
+
+        <dt><b>storedInProject</b></dt>
+
+        <dd>Drawing is stored in the project file - output only.</dd>
+
+        <dt><b>isScheduleAdjusted</b></dt>
+
+        <dd>Internal parameter used by the Interactive Element Schedule add-on - output only.</dd>
+
+        <dt><b>isMultiPageDrawing</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></dt>
+
+        <dd>Drawing is splitted to more layout (page). It can be true when the source is an Interactive Shedule view.</dd>
+
+        <dt><b>includeInAutoTextsAndIES</b>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="Featuring API 18" width="19" height="12"></dt>
+
+        <dd>When <code>true</code>, the Scale of this Drawing will be included
+            <ul>
+                <li>in "Drawing Scale" and "Original Scale" AutoTexts,</li>
+                <li>in "Drawing Scales" field of Layout type Project Indexes,</li>
+                <li>in "Drawing Scale" field of Drawing type Project Indexes.</li>
+            </ul>Include this Drawing in "Drawing Scale", "Magnification" and "Original Scale" AutoTexts.
+        </dd>
+
+        <dt><b>angle</b></dt>
+
+        <dd>Angle of the placed drawing in radian.</dd>
+
+        <dt><b>ratio</b></dt>
+
+        <dd>Ratio of drawing size and original size.</dd>
+
+        <dt><b>rasterizeDPI</b></dt>
+
+        <dd>Rasterize PDF at this dpi.</dd>
+
+        <dt><b>drawingScale</b></dt>
+
+        <dd>Scale of the view (e.g. 0.002 for 1:500) - output only.</dd>
+
+        <dt><b>parentOriginalScale</b></dt>
+
+        <dd>Parent scale while drawing creation (used in updating image and pdf type drawings) - output only.</dd>
+
+        <dt><b>anchorPoint</b></dt>
+
+        <dd>Placement reference by bounding box node (relevant only if not <code>useOwnOrigoAsAnchor</code>).</dd>
+
+        <dt><b>colorMode</b></dt>
+
+        <dd>Produce B&amp;W or grayscale output (see <a href="API_ColorModeValues.html">API_ColorModeValues</a>).</dd>
+
+        <dt><b>penTableUsageMode</b></dt>
+
+        <dd>Determines which pen table will be used by the drawing (see <a href="API_PenTableUsageModeValues.html">API_PenTableUsageModeValues</a>)</dd>
+
+        <dt><b>penTableIndex</b></dt>
+
+        <dd>Index of the pen table to use (if <code>penTableUsageMode</code> is set to <code>APIPenTableUsageMode_UsePenTableIndex</code>.</dd>
+
+        <dt><b>useOwnOrigoAsAnchor</b></dt>
+
+        <dd>Use drawing's own origo as placement reference point.</dd>
+
+        <dt><b>isTransparentBk</b></dt>
+
+        <dd>The background of the drawing should be transparent.</dd>
+
+        <dt><b>isCutWithFrame</b></dt>
+
+        <dd>Drawing is clipped with frame polygon.</dd>
+
+        <dt><b>hasBorderLine</b></dt>
+
+        <dd>Show drawing border?</dd>
+
+        <dt><b>borderLineType</b></dt>
+
+        <dd>Line type of the border.</dd>
+
+        <dt><b>borderPen</b></dt>
+
+        <dd>Pen attribute index of the border.</dd>
+
+        <dt><b>borderSize</b></dt>
+
+        <dd>Thickness of the border in 'm'.</dd>
+
+        <dt><b>title</b></dt>
+
+        <dd>Drawing title.</dd>
+
+        <dt><b>bounds</b></dt>
+
+        <dd>Boundary box.</dd>
+
+        <dt><b>pos</b></dt>
+
+        <dd>Coordinate of the placed drawing's origin on the layout.</dd>
+
+        <dt><b>poly</b></dt>
+
+        <dd>Polygon on the layout: the clip polygon if <code>isCutWithFrame</code> is <code>true</code> else the bounding box in polygon format</dd>
+
+        <dt><b>sortIndex</b></dt>
+
+        <dd>Sort index.</dd>
+
+        <dt><b>linkUId</b></dt>
+
+        <dd>Not used yet.</dd>
+
+        <dt><b>drawingGuid</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>GUID of the drawing for identification by autotext.</dd>
+
+        <dt><b>modelOffset</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></dt>
+
+        <dd>If <code>isCutWithFrame</code> is <code>true</code> than it is the offset of the model. It will modify also the <code>pos</code> of the drawing.</dd>
+
+        <dt><b>offset</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></dt>
+
+        <dd>If the drawing is clipped with frame polygon <code>offset</code> is equal to <code>pos</code> else the subvector of <code>pos</code> and the coordinate of anchor. Output only parameter.</dd>
+
+        <dt><b>pageOffset</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></dt>
+
+        <dd>Offset of the next page's position, when isMultiPageDrawing set.</dd>
+
+        <dt><b>pageNumberX</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></dt>
+
+        <dd>Number of pages in x direction, when isMultiPageDrawing set.</dd>
+
+        <dt><b>pageNumberY</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></dt>
+
+        <dd>Number of pages in y direction, when isMultiPageDrawing set.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Drawing elements can be placed both in the model space (except which come from an internal view) and onto layouts.</p>
+
+    <p>The 2D elements which appear in the drawing are stored in the <code>drawingData</code> field in the <a href="API_ElementMemo.html">API_ElementMemo</a>.</p>
+
+    <p>This data structure has been rewritten from scratch; it has very little resemblance to the original data structure in PlotMaker.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a><br>
+	<a href="API_Elem_Head.html">API_Elem_Head</a><br>
+    <a href="API_NameTypeValues.html">API_NameTypeValues</a><br>
+    <a href="API_NumberingTypeValues.html">API_NumberingTypeValues</a><br>
+    <a href="API_AnchorID.html">API_AnchorID</a><br>
+    <a href="API_PenTableUsageModeValues.html">API_PenTableUsageModeValues</a><br>
+    <a href="API_ColorModeValues.html">API_ColorModeValues</a><br>
+    <a href="API_Coord.html">API_Coord</a><br>
+    <a href="API_Polygon.html">API_Polygon</a><br>
+    <a href="API_Element.html">API_Element</a><br>
+    <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 13, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

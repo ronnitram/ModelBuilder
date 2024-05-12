@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>TIReset</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/TimeManagers/GlobalTimerManager/reference/TIReset.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TIReset</h1>
+
+    <p><font color="#FF0000">Obsolete, for compatibility only, use the Timer Manager instead!</font></p>
+
+    <p>The <strong>TIReset</strong> function resets the specified timer.</p>
+    <pre class="syntax">
+<strong>void TIReset(
+  long          </strong><em>timerID,   </em>   // ID of timer
+  <strong>char          </strong><em>*timerName </em>// new name of timer
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4><strong>Parameters</strong></h4>
+
+    <dl>
+        <dt><em>timerID</em></dt>
+
+        <dd>Specifies the timer to reset. It must be nonnegative. If this parameter is 0, the Global Timer Manager calls the <a href="TIInit.html"><strong>TIInit</strong></a> function to initialize the manager and all the timers belonging to it.</dd>
+
+        <dt><em>timerName</em></dt>
+
+        <dd>Specifies the new name of the timer to reset. If this parameter is NULL, the old name of the specified timer will not change.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>Global Timer Manager is able to work only with limited number of timers, so if you pass too great number in <em>timerID</em> parameter, <strong>TIReset</strong> does nothing.</p>
+
+    <h4>Requirements</h4>
+
+    <p><strong>&nbsp;&nbsp;&nbsp; Header:</strong> Declared in GSTime.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="functions_id.html">Global Timer Manager Functions</a>, <a href="TIInit.html">TIInit</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

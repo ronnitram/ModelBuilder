@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>GSRoot and STL analogies</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/GSRoot_STL_Comparison.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+
+<h1>GSRoot and STL analogies</h1>
+<p>This document contains the analogies between Graphisoft's GSRoot and STL entities.</p>
+
+<h4>GS::Array ~ std::vector</h4>
+
+<table cellpadding="15">
+<tr>
+<td><pre><code>GS::Array&lt;int&gt; arr;
+arr.Push (5);
+arr.Push (6);
+int sum = 0;
+for (UIndex i = 0; i &lt; arr.GetSize (); ++i) {
+    sum += arr[i];
+}
+assert (sum == 11);
+</code></pre></td>
+<td><pre><code>std::vector&lt;int&gt; arr;
+arr.push_back (5);
+arr.push_back (6);
+int sum = 0;
+for (UIndex i = 0; i &lt; arr.size (); ++i) {
+    sum += arr[i];
+}
+assert (sum == 11);
+</code></pre></td>
+</tr>
+</table>
+
+<h4>GS::Array ~ std::stack</h4>
+
+<table cellpadding="15">
+<tr>
+<td><pre><code>GS::Array&lt;int&gt; stack;
+stack.Push (5);
+stack.Push (6);
+int sum = 0;
+while (!stack.IsEmpty ()) {
+    sum += stack.GetLast ();
+    stack.Pop ();
+}
+assert (sum == 11);
+</code></pre></td>
+<td><pre><code>std::stack&lt;int&gt; stack;
+stack.push (5);
+stack.push (6);
+int sum = 0;
+while (!stack.empty ()) {
+    sum += stack.top ();
+    stack.pop ();
+}
+assert (sum == 11);
+</code></pre></td>
+</tr>
+</table>
+
+<h4>GS::Queue ~ std::queue</h4>
+
+<table cellpadding="15">
+<tr>
+<td><pre><code>GS::Queue&lt;Int32&gt; queue;
+queue.Push (5);
+queue.Push (6);
+Int32 sum = 0;
+while (!queue.IsEmpty ()) {
+    sum += queue.Peek ();
+    queue.Pop ();
+}
+assert (sum == 11);
+</code></pre></td>
+<td><pre><code>std::queue&lt;int&gt; queue;
+queue.push (5);
+queue.push (6);
+int sum = 0;
+while (!queue.empty ()) {
+    sum += queue.front ();
+    queue.pop ();
+}
+assert (sum == 11);
+</code></pre></td>
+</tr>
+</table>
+
+<h4>GS::FixArray ~ std::array</h4>
+
+<table cellpadding="15">
+<tr>
+<td><pre><code>GS::FixArray&lt;int, 2&gt; arr;
+arr[0] = 5;
+arr[1] = 6;
+assert (arr.GetSize () == 2);
+</code></pre></td>
+<td><pre><code>std::array&lt;int, 2&gt; arr;
+arr[0] = 5;
+arr[0] = 6;
+assert (arr.size () == 2);
+</code></pre></td>
+</tr>
+</table>
+
+<h4>GS::Ref ~ std::shared_ptr</h4>
+
+<table cellpadding="15">
+<tr>
+<td><pre><code>GS::Ref&lt;A&gt; ptr (new A ());
+GS::Ref&lt;A&gt; ptr2 = ptr;
+assert (ptr == ptr2);
+assert (*ptr == *ptr2);
+assert (ptr->Func () == 5);
+</code></pre></td>
+<td><pre><code>std::shared_ptr&lt;A&gt; ptr (new A ());
+std::shared_ptr&lt;A&gt; ptr2 = ptr;
+assert (ptr == ptr2);
+assert (*ptr == *ptr2);
+assert (ptr->Func () == 5);
+</code></pre></td>
+</tr>
+</table>
+
+<h4>GS::Pair ~ std::pair</h4>
+
+<table cellpadding="15">
+<tr>
+<td><pre><code>GS::Pair&lt;int, int&gt; pair (5, 6);
+assert (pair.first == 5);
+assert (pair.second == 6);
+</code></pre></td>
+<td><pre><code>std::pair&lt;int, int&gt; pair (5, 6);
+assert (pair.first == 5);
+assert (pair.second == 6);
+</code></pre></td>
+</tr>
+</table>
+
+<h4>GS::HashTable ~ std::unordered_map</h4>
+
+<table cellpadding="15">
+<tr>
+<td><pre><code>GS::HashTable&lt;int, int&gt; hashTable;
+hashTable.Add (5, 6);
+assert (hashTable.ContainsKey (5));
+assert (hashTable[5] == 6);
+</code></pre></td>
+<td><pre><code>std::unordered_map&lt;int, int&gt; hashTable;
+hashTable.insert (std::pair&lt;int, int&gt; (5, 6));
+assert (hashTable.find (5) != hashTable.end ());
+assert (hashTable[5] == 6);
+</code></pre></td>
+</tr>
+</table>
+
+<h4>GS::HashSet ~ std::unordered_set</h4>
+
+<table cellpadding="15">
+<tr>
+<td><pre><code>GS::HashSet&lt;int&gt; hashSet;
+hashSet.Add (5);
+assert (hashSet.Contains (5));
+</code></pre></td>
+<td><pre><code>std::unordered_set&lt;int&gt; hashSet;
+hashSet.insert (5);
+assert (hashSet.find (5) != hashSet.end ());
+</code></pre></td>
+</tr>
+</table>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

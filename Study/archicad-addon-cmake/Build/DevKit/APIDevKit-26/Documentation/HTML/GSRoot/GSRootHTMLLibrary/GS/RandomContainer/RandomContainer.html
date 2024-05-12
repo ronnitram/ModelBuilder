@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>RandomContainer Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/RandomContainer/RandomContainer.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="Begin.html">Begin</A><A href="ConstIterator.html">ConstIterator</A><A href="Count.html">Count</A><A href="Delete.html">Delete</A><A href="DeleteAll.html">DeleteAll</A><A href="DeleteFirst.html">DeleteFirst</A><A href="DeleteLast.html">DeleteLast</A><A href="End.html">End</A><A href="Enumerate.html">Enumerate</A><A href="Fill.html">Fill</A><A href="FindFirst.html">FindFirst</A><A href="FindLast.html">FindLast</A><A href="Get.html">Get</A><A href="GetFirst.html">GetFirst</A><A href="GetLast.html">GetLast</A><A href="Insert.html">Insert</A><A href="Iterator.html">Iterator</A><A href="operator!=.html">operator!=</A><A href="operator[].html">operator[]</A><A href="operator==.html">operator==</A><A href="Pop.html">Pop</A><A href="Push.html">Push</A><A href="Replace.html">Replace</A><A href="Set.html">Set</A><A href="SetSize.html">SetSize</A>--><H2>RandomContainer Class</H2><!--exp="RandomContainer Class"-->
+<P><topic id="$GS.$RandomContainer.BriefDescription">
+		Base class of random accessible containers.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>Type</I><B>&gt;
+</B>class RandomContainer : public <!----><a class="nodecorate" href="../Container/Container.html">Container&lt; Type &gt;</A></B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>Type</I></DT><DD><topic id="$GS.$RandomContainer.$Type.TemplateParamDescription">
+		Type of items the random container stores.
+	</topic></DD>
+</DL>
+<H4>Members</H4>
+<P><B><A name="ItemAccess"></A>Item access</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator[].html">operator[]</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$operator[].BriefDescription">
+		Item access by index.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Get.html">Get</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$Get.BriefDescription">
+		Item access by index.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetFirst.html">GetFirst</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$GetFirst.BriefDescription">
+		Access of the first item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetLast.html">GetLast</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$GetLast.BriefDescription">
+		Access of the last item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Set.html">Set</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$Set.BriefDescription">
+		Item setting by index.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ContentManagement"></A>Content management</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Fill.html">Fill</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$Fill.BriefDescription">
+		Fills (part of) the random container with a specified item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Replace.html">Replace</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$Replace.BriefDescription">
+		Replaces items with another one.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Insert.html">Insert</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$Insert.BriefDescription">
+		Inserts item(s) at the specified position.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Delete.html">Delete</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$Delete.BriefDescription">
+		Deletes item(s) at the specified position.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DeleteAll.html">DeleteAll</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$DeleteAll.BriefDescription">
+		Deletes all items equal with a specified item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DeleteFirst.html">DeleteFirst</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$DeleteFirst.BriefDescription">
+		Deletes the first item equal with a specified item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DeleteLast.html">DeleteLast</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$DeleteLast.BriefDescription">
+		Deletes the last item equal with a specified item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Push.html">Push</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$Push.BriefDescription">
+		Inserts an item at the end of the random container.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Pop.html">Pop</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$Pop.BriefDescription">
+		Retreives and deletes the last item from the random container.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetSize.html">SetSize</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$SetSize.BriefDescription">
+		Sets size of the random container.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ContentQuery"></A>Content query</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Enumerate.html">Enumerate</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$Enumerate.BriefDescription">
+		Allows enumeration of the random container's content.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Begin.html">Begin</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$Begin.BriefDescription">
+		Returns an iterator referring to the first item in the random container.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="End.html">End</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$End.BriefDescription">
+		Returns an iterator referring to the one past last item in the random container.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FindFirst.html">FindFirst</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$FindFirst.BriefDescription">
+		Searches for the first occurence of a specified item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FindLast.html">FindLast</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$FindLast.BriefDescription">
+		Searches for the last occurence of a specified item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Count.html">Count</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$Count.BriefDescription">
+		Counts number of occurences of a specified item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator!=.html">operator!=</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$operator!=.BriefDescription">
+		Compares two random containers.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator==.html">operator==</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$operator==.BriefDescription">
+		Compares two random containers.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicTypes"></A>Public Types</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ConstIterator.html">ConstIterator</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$ConstIterator.BriefDescription">
+		Type of the RandomContainer's constant random iterator.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Iterator.html">Iterator</A></TD>
+<TD width="70%"><topic id="$GS.$RandomContainer.$Iterator.BriefDescription">
+		Type of the RandomContainer's random iterator.
+	</topic></TD>
+</TR>
+</table>
+<H4>Description</H4>
+<P><topic id="$GS.$RandomContainer.LongDescription">
+		Random containers are containers where an <b>unique integer</b> index (position) is associated with
+		every item storage cell in the container beginning from 0 and continuously increasing by 1. Storage
+		cells are created and used one by one from the beginning when items are put into the random container.
+		Consequently the last index is the size of the random container minus 1 (if it is not empty).
+		Items are directly accessible (referrable) with these indices. Due to these integer indices random
+		containers have ordering (they have unambigous first, next to, previous to and last items).<br>
+		Note that indices are associated with storage cells and not with the items themselves. So when an item
+		is inserted into (or deleted from) the middle of the random container, indices of items above it will
+		increase (decrease) by one.
+	</topic></P>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../GS.html">GS</A></P>
+<P><B>Header: </B>RandomContainer.hpp</P>
+<H4>See Also</H4>
+<P><topic id="$GS.$RandomContainer.SeeAlso">
+		<!----><a href="../AssociativeContainer/AssociativeContainer.html">AssociativeContainer</a>
+	</topic> | <a href="../Array/Array.html">Array&lt; Type &gt;</A> | <a href="../PagedArray/PagedArray.html">PagedArray&lt; Type &gt;</A> | <a href="../StableArray/StableArray.html">StableArray&lt; Type &gt;</A></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

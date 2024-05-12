@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_LibraryInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_LibraryInfo.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_LibraryInfo</h1>
+
+    <p>Describes the data of an active library of an Archicad project.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a></strong>          <em>location</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>         <em>name</em>;
+        <strong><a href="API_LibraryTypeID.html">API_LibraryTypeID</a></strong>     <em>libraryType</em>;
+        <strong>bool</strong>                  <em>available</em>;
+        <strong>bool</strong>                  <em>readOnly</em>;
+        <strong>bool</strong>                  <em>filler[2]</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>         <em>twServerUrl</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>         <em>urlWebLibrary</em>;
+    <strong>}</strong> <em>API_LibraryInfo</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><em>location</em></dt>
+
+        <dd>the folder specification of the library</dd>
+
+        <dt><em>name</em></dt>
+
+        <dd>the name of the library</dd>
+
+        <dt><em>libraryType</em>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20" width="19" height="12"></dt>
+
+        <dd>the type of the library (Built-In, Local, Embedded, BIM Server, Web Object, Other; see <a href="API_LibraryTypeID.html">API_LibraryTypeID</a>)</dd>
+
+        <dt><em>available</em>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20" width="19" height="12"></dt>
+
+        <dd>the library is available (e.g. not missing)</dd>
+
+        <dt><em>readOnly</em>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20" width="19" height="12"></dt>
+
+        <dd>the library is not writable</dd>
+
+        <dt><em>twServerUrl</em>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20" width="19" height="12"></dt>
+
+        <dd>URL address of the TeamWork server hosting the library (API_ServerLibrary only)</dd>
+
+        <dt><em>urlWebLibrary</em>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20" width="19" height="12"></dt>
+
+        <dd>URL of the downloaded Internet library (API_UrlLibrary and API_UrlOtherObject only)</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This data structure describes one active library from the library list of Archicad. All the libraries that can be seen in the "Library Manager" dialog of Archicad are passed to you with <a href="../Functions/APIEnv_GetLibrariesID.html">APIEnv_GetLibrariesID</a>.</p>
+
+    <p>Call the <a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a> function with the <a href="../Functions/APIEnv_GetLibrariesID.html">APIEnv_GetLibrariesID</a> and <a href="../Functions/APIEnv_SetLibrariesID.html">APIEnv_SetLibrariesID</a> function codes to operate on this data.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12">&nbsp; From 6.1 those library locations which refer to built-in libraries (e.g. library parts coming from an add-on) have an "<code>rfs</code>" component at the end. This is necessary if you want to convert the location to a folder, but you can safely remove this component for display purposes with <code>IO::Location::<a href="../../../InputOutput/IOHTMLLibrary/Location/DeleteLastLocalName.html">DeleteLastLocalName</a></code> or <code>IO::Location::<a href="../../../InputOutput/IOHTMLLibrary/Location/MoveLastLocalName.html">MoveLastLocalName</a></code>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+GS::Array&lt;<font color="#FF0066">API_LibraryInfo</font>&gt;    libInfo;
+
+if (ACAPI_Environment (APIEnv_GetLibrariesID, &amp;libInfo) == NoError) {
+    DBPrintf ("Environment Control :: The number of loaded libraries is %u\n", libInfo.GetSize ());
+    for (UInt32 ii = 0; ii &lt; libInfo.nLib; ii++) {
+        IO::Path    libPath;
+
+        libInfo[ii].location.ToPath (&amp;libPath);
+        DBPrintf ("Environment Control :: Library #%-2d is %s\n", ii, (const char *) libPath);
+    }
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 18 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIEnv_GetLibrariesID.html">APIEnv_GetLibrariesID</a>, <a href="../Functions/APIEnv_SetLibrariesID.html">APIEnv_SetLibrariesID</a>, <a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on June 10, 2015<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

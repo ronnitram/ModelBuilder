@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>PagedArray Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/PagedArray/PagedArray.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="AllocationStrategy.html">AllocationStrategy</A><A href="Begin.html">Begin</A><A href="ConstIterator.html">ConstIterator</A><A href="End.html">End</A><A href="Enumerate.html">Enumerate</A><A href="GetAllocationStrategy.html">GetAllocationStrategy</A><A href="GetPageSize.html">GetPageSize</A><A href="Iterator.html">Iterator</A><A href="Constructors.html">PagedArray</A><A href="Swap.html">Swap</A>--><H2>PagedArray Class</H2><!--exp="PagedArray Class"-->
+<P><topic id="$GS.$PagedArray.BriefDescription">
+		Random container using separate memory pages without reallocation.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>Type</I><B>&gt;
+</B>class PagedArray : public <!----><a class="nodecorate" href="../RandomContainer/RandomContainer.html">RandomContainer&lt; Type &gt;</A></B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>Type</I></DT><DD><topic id="$GS.$PagedArray.$Type.TemplateParamDescription">
+		Type of items the array stores.
+	</topic></DD>
+</DL>
+<H4>Members</H4>
+<P><B><A name="Constructors"></A>Constructors</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">PagedArray</A></TD>
+<TD width="70%"><topic id="$GS.$PagedArray.$PagedArray.BriefDescription">
+		PagedArray constructor.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ContentManagement"></A>Content management</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Swap.html">Swap</A></TD>
+<TD width="70%"><topic id="$GS.$PagedArray.$Swap.BriefDescription">
+		Swaps content of two arrays.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ContentQuery"></A>Content query</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Enumerate.html">Enumerate</A></TD>
+<TD width="70%"><topic id="$GS.$PagedArray.$Enumerate.BriefDescription">
+		Allows enumeration of the array's content.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Begin.html">Begin</A></TD>
+<TD width="70%"><topic id="$GS.$PagedArray.$Begin.BriefDescription">
+		Returns an iterator referring to the first item in the array.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="End.html">End</A></TD>
+<TD width="70%"><topic id="$GS.$PagedArray.$End.BriefDescription">
+		Returns an iterator referring to the one past last item in the array.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PerformanceTuning"></A>Performance tuning</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetPageSize.html">GetPageSize</A></TD>
+<TD width="70%"><topic id="$GS.$PagedArray.$GetPageSize.BriefDescription">
+		Returns size of a storage page.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetAllocationStrategy.html">GetAllocationStrategy</A></TD>
+<TD width="70%"><topic id="$GS.$PagedArray.$GetAllocationStrategy.BriefDescription">
+		Returns the allocation strategy.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicTypes"></A>Public Types</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="AllocationStrategy.html">AllocationStrategy</A></TD>
+<TD width="70%"><topic id="$GS.$PagedArray.$AllocationStrategy.BriefDescription">
+		Possible allocation strategies.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ConstIterator.html">ConstIterator</A></TD>
+<TD width="70%"><topic id="$GS.$PagedArray.$ConstIterator.BriefDescription">
+		Type of the PagedArray's constant random iterator.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Iterator.html">Iterator</A></TD>
+<TD width="70%"><topic id="$GS.$PagedArray.$Iterator.BriefDescription">
+		Type of the PagedArray's random iterator.
+	</topic></TD>
+</TR>
+</table>
+<H4>Description</H4>
+<P><topic id="$GS.$PagedArray.LongDescription">
+		PagedArray is a RandomContainer implementation that stores items in separate memory pages
+		without reallocation. It allocates memory in allocation units which contain one or more
+		pages depending on the allocation strategy.<br>
+		It's public methods are non-virtual and are inline if appropriate.<br>
+		<br>
+		Among random container implementations PagedArray has the following <b>advantages</b>:
+		<ul>
+			<li>It is not reallocating so inserting new items at the end (pushing) and deleting items
+				from the end (poping) is fast. When a new item does not fit into the last page then a new
+				one (ore new ones, depending on the allocation strategy) is allocated. When at least
+				two pages (or more precisely two allocation units) are empty then they are freed.</li>
+			<li>Memory utilization is very good. With constant allocation strategy it wastes at most
+				two pages. With linear allocation strategy it wastes at most
+				<TT>sqrt (8 * page_count + 1) - 2</TT> pages.
+				However memory utilization of the exponential allocation strategy is bad and its
+				characteristics are similar	to that of <!----><a href="../Array/Array.html">Array's</a>.</li>
+			<li>Imposes little storage overhead on items: total cost of an item storage cell is somewhat
+				more then the physical size of an item because in addition to pages that contain the items
+				it has a page table that contains pointers to pages.</li>
+			<li>It rarely allocates memory and holds little allocation units with linear (in 4 Gb at most
+				approximately 10000) and exponential (in 4 Gb at most 32) allocation strategies.
+				However with constant allocation strategy and large number of items it allocates often
+				and holds relatively large number of allocation units (in this cases single pages).</li>
+			<li>It has medium own size: currently 28 bytes.</li>
+			<li>If insertions and deletions always take place at the end then references to items
+				can be stored in long term.</li>
+		</ul>
+		Among random container implementations PagedArray has the following <b>disadvantages</b>:
+		<ul>
+			<li>Insertion and deletion can be relatively slow because all items above the insertion or
+				deletion point are moved up or down by invoking assigment operators on items.</li>
+			<li>If insertions and deletions can take place at arbitrary indices then references to items
+				can be stored only until the next modifying operation on the array is invoked.</li>
+		</ul>		
+		<br>
+		Items are required to have default and copy constructors and assigment operator. 
+		In addition if they have comparison operators (== and !=) then value dependent 
+		operations (eg. Find, Count, Contains etc.) will be also useable.<br>
+		<br>
+		The following figure shows the internal layout of the PagedArray using constant allocation strategy:<br>
+		<br>
+		<p align="center">
+		<img src="../../../GSRootImageLibrary/paged_array1.JPG">
+		</p>
+		<br>
+		The following figure shows the internal layout of the PagedArray using linear allocation strategy:<br>
+		<br>
+		<p align="center">
+		<img src="../../../GSRootImageLibrary/paged_array2.JPG">
+		</p>
+		<br>
+		The following figure shows the internal layout of the PagedArray using exponential allocation strategy:<br>
+		<br>
+		<p align="center">
+		<img src="../../../GSRootImageLibrary/paged_array3.JPG">
+		</p>
+		<br>
+	</topic></P>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../GS.html">GS</A></P>
+<P><B>Header: </B>PagedArray.hpp</P>
+<H4>See Also</H4>
+<P><topic id="$GS.$PagedArray.SeeAlso">
+		<!----><a href="../Array/Array.html">Array</a> | <!----><a href="../StableArray/StableArray.html">StableArray</a>
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

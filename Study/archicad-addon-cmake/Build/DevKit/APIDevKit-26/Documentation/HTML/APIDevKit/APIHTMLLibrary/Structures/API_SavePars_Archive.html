@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_SavePars_Archive</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_SavePars_Archive.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_SavePars_Archive</h1>
+
+    <p>Parameters to save the current project as archive file.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>bool</strong>      <em>picturesInTIFF</em>;
+        <strong>bool</strong>      <em>texturesOn</em>;
+        <strong>bool</strong>      <em>backgroundPictOn</em>;
+        <strong>bool</strong>      <em>propertiesOn</em>;
+        <strong>bool</strong>      <em>libraryPartsOn</em>;
+        <strong>bool</strong>      <em>filler_1</em>;
+        <strong>bool</strong>      <em>filler_2</em>;
+        <strong>bool</strong>      <em>filler_3</em>;
+        <strong>Int32</strong>     <em>filler_4[8]</em>;
+    <strong>}</strong> <em>API_SavePars_Archive</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>picturesInTIFF</b></dt>
+
+        <dd>Save pict/bmp files for readable on both (Mac/Win) platforms</dd>
+
+        <dt><b>texturesOn</b></dt>
+
+        <dd>Include linked Textures while saving archive</dd>
+
+        <dt><b>backgroundPictOn</b></dt>
+
+        <dd>Include Background Picture while saving archive</dd>
+
+        <dt><b>propertiesOn</b></dt>
+
+        <dd>Include All Properties Library Parts while saving archive</dd>
+
+        <dt><b>libraryPartsOn</b></dt>
+
+        <dd>Include Full Library while saving archive</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For the utilization of this structure see the <a href="../Functions/APIDo_SaveID.html">APIDo_SaveID</a> automation function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Automate.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIDo_SaveID.html">APIDo_SaveID</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

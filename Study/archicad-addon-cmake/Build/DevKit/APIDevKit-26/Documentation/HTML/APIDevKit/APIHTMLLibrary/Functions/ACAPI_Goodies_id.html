@@ -1,0 +1,1263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Goodies</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Goodies_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Goodies</h1>
+
+    <p>Functions for various purposes.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Goodies</strong> (
+        <strong><a href="#API_GoodiesID">API_GoodiesID</a></strong>     <em>code</em>,
+        <strong>void*</strong>             <em>par1</em> = nullptr,
+        <strong>void*</strong>             <em>par2</em> = nullptr,
+        <strong>void*</strong>             <em>par3</em> = nullptr,
+        <strong>void*</strong>             <em>par4</em> = nullptr
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>code</em></dt>
+
+        <dd>[in] Goodie function identifier.</dd>
+
+        <dt><em>par1</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par2</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par3</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par4</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The goodie function completed with success.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>Invalid <code>code</code> parameter was passed.</dd>
+    </dl>
+
+    <p>More return values can be found at the description of each goodie functions.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function collects several kind of functions.</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><!-- comment --><a name="API_GoodiesID" id="API_GoodiesID"></a><b><code>API_GoodiesID</code></b></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td width="270">
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>General functions</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_UsableGDLStringID.html">APIAny_UsableGDLStringID</a></p>
+                </td>
+
+                <td>
+                    <p>Determines whether the string is a GDL keyword or reserved symbol.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_CalcSunOnPlaceID.html">APIAny_CalcSunOnPlaceID</a></p>
+                </td>
+
+                <td>
+                    <p>Calculates the sun position in a given place.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_SearchElementByCoordID.html">APIAny_SearchElementByCoordID</a></p>
+                </td>
+
+                <td>
+                    <p>Searches an element by a coordinate.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_ConvertPictureID.html">APIAny_ConvertPictureID</a></p>
+                </td>
+
+                <td>
+                    <p>Converts a picture into another image format.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_ConvertMimePictureID.html">APIAny_ConvertMimePictureID</a> &nbsp;<img border="0" src="../../APIImageLibrary/51.png" alt="5.1" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Converts a picture into another image format using MIME types.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetTextSizeFactorID.html">APIAny_GetTextSizeFactorID</a> &nbsp;<img border="0" src="../../APIImageLibrary/51.png" alt="5.1" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the ratio of the font capital size and typography size.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetMainGroupGuidID.html">APIAny_GetMainGroupGuidID</a> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the Guid of the top level group of a nested group element.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetContainingHotlinkGuidID.html">APIAny_GetContainingHotlinkGuidID</a> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the hotlink element which contains the given element.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_RunGDLParScriptID.html">APIAny_RunGDLParScriptID</a> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Run the element's GDL parameter script.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetCWAbsoluteBottomID.html">APIAny_GetCWAbsoluteBottomID</a> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the the base height of a curtain wall or its subelem.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetCWHeightID.html">APIAny_GetCWHeightID</a> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the height of a curtain wall element.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetCWSubElemParamsID.html">APIAny_GetCWSubElemParamsID</a> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the calculated additional parameters of a curtain wall subelem.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td nowrap>
+                    <p><a href="APIAny_GetSkylightHolePolygonID.html">APIAny_GetSkylightHolePolygonID</a> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the polygon data of a Skylight hole contour.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_Elem2UIPriorityID.html">APIAny_Elem2UIPriorityID</a> &nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns user interface priority for a building material connection priority.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_UI2ElemPriorityID.html">APIAny_UI2ElemPriorityID</a> &nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the building material connection priority for a priority set on the user interface.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_CalcSideOffsetToCoreOffsetID.html">APIAny_CalcSideOffsetToCoreOffsetID</a> &nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Converts the reveal depth offset from wall side to core skin for wall openings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_CalcCoreOffsetToSideOffsetID.html">APIAny_CalcCoreOffsetToSideOffsetID</a> &nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Converts the reveal depth offset from core skin to wall side for wall openings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetHierarchicalElementOwnerID.html">APIAny_GetHierarchicalElementOwnerID</a>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="23" width="19" height="12"></p>
+                </td>
+                <td>
+                    <p>Returns the owner of the child elem in hierarchical elem.</p>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>
+                    <p><a href="APIAny_GetHttpConnectionPortID.html">APIAny_GetHttpConnectionPortID</a>&nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="25" width="19" height="12"></p>
+                </td>
+                <td>
+                    <p>Returns the HTTP port number, on which Archicad is expecting requests.</p>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>
+                    <p><a href="APIAny_ActivateSessionReportID.html">APIAny_ActivateSessionReportID</a>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="26" width="19" height="12"></p>
+                </td>
+                <td>
+                    <p>Activates the session report window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Work on Parameter Lists</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_OpenParametersID.html">APIAny_OpenParametersID</a></p>
+                </td>
+
+                <td>
+                    <p>Opens a Library Part parameter list to edit.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetParamValuesID.html">APIAny_GetParamValuesID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the possible values defined for a Library Part parameter.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_ChangeAParameterID.html">APIAny_ChangeAParameterID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes a value in an opened Library Part parameter list.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetActParametersID.html">APIAny_GetActParametersID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the actual (edited) values of a Library Part parameter list opened to edit.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_CloseParametersID.html">APIAny_CloseParametersID</a></p>
+                </td>
+
+                <td>
+                    <p>Closes the Library Part parameter list opened to edit.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Work on Polygons</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_InsertPolyNodeID.html">APIAny_InsertPolyNodeID</a></p>
+                </td>
+
+                <td>
+                    <p>Inserts a node into a polygon.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_DeletePolyNodeID.html">APIAny_DeletePolyNodeID</a></p>
+                </td>
+
+                <td>
+                    <p>Deletes a node from a polygon.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_InsertSubPolyID.html">APIAny_InsertSubPolyID</a></p>
+                </td>
+
+                <td>
+                    <p>Inserts a whole subpolygon (hole) into a polygon.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_DeleteSubPolyID.html">APIAny_DeleteSubPolyID</a></p>
+                </td>
+
+                <td>
+                    <p>Deletes a whole subpolygon (hole) from a polygon.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_RegularizePolygonID.html">APIAny_RegularizePolygonID</a></p>
+                </td>
+
+                <td>
+                    <p>Regularizes a polygon.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_RegularizePolylineID.html">APIAny_RegularizePolylineID</a></p>
+                </td>
+
+                <td>
+                    <p>Regularizes a polyline.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_DisposeRegularizedPolyID.html">APIAny_DisposeRegularizedPolyID</a></p>
+                </td>
+
+                <td>
+                    <p>Deallocates an API_RegularizedPoly structure.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_TriangulatePolyID.html">APIAny_TriangulatePolyID</a></p>
+                </td>
+
+                <td>
+                    <p>Decomposes a polygon into triangles.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Work on Neigs</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetSelectedElementID.html">APIAny_GetSelectedElementID</a>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Return the element's GUID from the neig information, taking sub-elements into account.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_SetSelectedElementNeigID.html">APIAny_SetSelectedElementNeigID</a>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Converts an element GUID to the appropriate neig, taking sub-elements into account.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="Invalid link: APIAny_NeigIDToElemTypeID.html">APIAny_NeigIDToElemTypeID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the element type assigned to a neig.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Spline calculation</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetSplineMaxDistID.html">APIAny_GetSplineMaxDistID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the distance of a point and a bezier (available from 6.5 R2/v2).</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>PolygonId Conversion</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_PolygonId2SurfaceTypeID.html">APIAny_PolygonId2SurfaceTypeID</a>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the surfaceType for the given polygonId.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Inter-addon communication</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_InitMDCLParameterListID.html">APIAny_InitMDCLParameterListID</a></p>
+                </td>
+
+                <td>
+                    <p>Initializes a parameter list to pass to an other add-on.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetMDCLParameterNumID.html">APIAny_GetMDCLParameterNumID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the number of the parameters on the parameter list.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetMDCLParameterID.html">APIAny_GetMDCLParameterID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves a parameter from the parameter list.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_AddMDCLParameterID.html">APIAny_AddMDCLParameterID</a></p>
+                </td>
+
+                <td>
+                    <p>Appends a parameter to the parameter list.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_ChangeMDCLParameterID.html">APIAny_ChangeMDCLParameterID</a></p>
+                </td>
+
+                <td>
+                    <p>Modifies a parameter on the parameter list.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_FreeMDCLParameterListID.html">APIAny_FreeMDCLParameterListID</a></p>
+                </td>
+
+                <td>
+                    <p>Frees the parameter list handle.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Text line length measurement</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetTextLineLengthID.html">APIAny_GetTextLineLengthID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the length of a given text line.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Texture coordinates</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetTextureCoordID.html">APIAny_GetTextureCoordID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the texture coordinate system of a given point of a given polygon on a given body.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Library part unique ID functions</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!--@4.1--><a href="APIAny_GetBuiltInLibpartUnIdID.html">APIAny_GetBuiltInLibpartUnIdID</a></p>
+                </td>
+
+                <td>
+                    <p>Gets the GUID of a built in library part.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!--@4.1--><a href="APIAny_CheckLibPartSubtypeOfID.html">APIAny_CheckLibPartSubtypeOfID</a></p>
+                </td>
+
+                <td>
+                    <p>Checks whether a library part unique ID refers to a subtype of another.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!--@4.1--><a href="APIAny_CompareLibPartUnIdsID.html">APIAny_CompareLibPartUniqueIdsID</a></p>
+                </td>
+
+                <td>
+                    <p>Compares two library part unique IDs.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!--@4.1--><a href="APIAny_GetElemCreatorToolUnIdID.html">APIAny_GetElemCreatorToolUnIdID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the unique ID of the creator tool of the specified object.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><!--@4.1--><a href="APIAny_SetEmptyHoleUnIdID.html">APIAny_SetEmptyHoleUnIdID</a></p>
+                </td>
+
+                <td>
+                    <p>Sets the unique ID of the empty hole.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetElemLibPartUnIdID.html">APIAny_GetElemLibPartUnIdID</a>&nbsp; <img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the library part unique identifier of the GDL based element.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetLibPartToolVariationID.html">APIAny_GetLibPartToolVariationID</a>&nbsp; <img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the library part's creator element type and variation ID.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td nowrap>
+                    <p><a href="APIAny_CheckLibPartSubtypeOfbyMainID.html">APIAny_CheckLibPartSubtypeOfbyMainID</a> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Checks whether a library part unique ID refers to a subtype of another.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Text element manipulation</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_ChangeContentID.html">APIAny_ChangeContentID</a> &nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Changes the content of a text or a textual label element.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Autotext manipulation</b> &nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetAutoTextFlagID.html">APIAny_GetAutoTextFlagID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the mode flag currently set for autotext replacing in retrieved texts.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_ChangeAutoTextFlagID.html">APIAny_ChangeAutoTextFlagID</a></p>
+                </td>
+
+                <td>
+                    <p>Switches autotexts to be replaced with their current values or kept as autotext keys in retrieved texts.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetPropertyAutoTextKeyTableID.html">APIAny_GetPropertyAutoTextKeyTableID</a>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Retrieves all possible context dependent autotext names and their corresponding keys.</p>
+                </td>
+            </tr>
+
+			<tr>
+                <td>
+                    <p><a href="APIAny_InterpretAutoTextID.html">APIAny_InterpretAutoTextID</a>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the autotext value for a context dependent autotext key.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetAutoTextKeysID.html">APIAny_GetAutoTextKeysID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves all autotext keys and their values.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetAutoTextsID.html">APIAny_GetAutoTextsID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the key, description and value of the currently available autotexts.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_SetAnAutoTextID.html">APIAny_SetAnAutoTextID</a></p>
+                </td>
+
+                <td>
+                    <p>Sets the value of an autotext.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_CreateAnAutoTextID.html">APIAny_CreateAnAutoTextID</a> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Creates a new entry in the Project Info.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_DeleteAnAutoTextID.html">APIAny_DeleteAnAutoTextID</a> &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Deletes a custom entry in the Project Info.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Visual Override helpers</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_EnableVisualOverrideID.html">APIAny_EnableVisualOverrideID</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Enables graphical overrides during <code><!--NoIndex--><a href="../Functions/ACAPI_Element_ShapePrims.html">ACAPI_Element_ShapePrims</a></code>.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Renovation helpers</b> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_EnableRenovationOverrideID.html">APIAny_EnableRenovationOverrideID</a></p>
+                </td>
+
+                <td>
+                    <p>Enables renovation graphical overrides during <code><!--NoIndex--><a href="../Functions/ACAPI_Element_ShapePrims.html">ACAPI_Element_ShapePrims</a></code>.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetRenovationFilterNameID.html">APIAny_GetRenovationFilterNameID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the name of the given renovation filter.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetRenovationStatusNameID.html">APIAny_GetRenovationStatusNameID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the name of the given renovation status.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>IFC helpers</b> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="18" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_ElemHasVisibleSkinID.html">APIAny_ElemHasVisibleSkinID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="18" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns if elem has visible skin depending on partial structure display.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_SetMasterLayoutOnLayoutID.html">APIAny_SetMasterLayoutOnLayoutID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="18" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetOpeningTransformationID.html">APIAny_GetOpeningTransformationID</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns an opening's position and normal vector.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Stair element helpers</b> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="11" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_SolveStairID.html">APIAny_SolveStairID</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Checks and corrects a Stair's baseline, if it's invalid.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Property helpers</b> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="22" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_CheckPropertyExpressionStringID.html">APIAny_CheckPropertyExpressionStringID</a>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="22" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Checks if the given property expression is a syntactically valid one.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_GetPropertyExprReferenceStringID.html">APIAny_GetPropertyExprReferenceStringID</a>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="22" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the string that can be used in expressions to refer to a specific property.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>GDL helpers</b> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="24" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIAny_InterpretGDLScript3DID.html">APIAny_InterpretGDLScript3DID</a>&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="24" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Interprets a 3D GDL script with the same settings as GDL Editor.</p>
+                </td>
+            </tr>
+
+        </table>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"> From version 26 the <tt>GetElemTypeNameID</tt> goodie was moved to a separate <a href="ACAPI_Goodies_GetElemTypeName.html">ACAPI_Goodies_GetElemTypeName</a> function.</p>
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"> From version 26 the <tt>ElemTypeToNeigID</tt> goodie was moved to a separate <a href="ACAPI_Goodies_ElemTypeToNeigID.html">ACAPI_Goodies_ElemTypeToNeigID</a> function.</p>
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"> From version 26 the <tt>NeigIDToElemTypeID</tt> goodie was moved to a separate <a href="ACAPI_Goodies_NeigIDToElemType.html">ACAPI_Goodies_NeigIDToElemType</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><!--X--><a href="../Level3/General_Functions_id.html">General Functions</a>, <!--X--><a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 03, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_NoteType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_NoteType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_NoteType</h1>
+
+    <p>Describes a general note, used in dimensioning and hatch text.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>short</strong>                     <em>notePen</em>;
+        <strong>short</strong>                     <em>noteFont</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>        <em>noteLayer</em>;
+        <strong>double</strong>                    <em>noteSize</em>;
+        <strong>double</strong>                    <em>noteAngle</em>;
+        <strong>Int32</strong>                     <em>filler_2[8]</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                 <em>pos</em>;
+        <strong>char</strong>                      <em>content[64]</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>             <em>*contentUStr</em>;
+        <strong><a href="API_NoteContentType.html">API_NoteContentType</a></strong>       <em>contentType</em>;
+        <strong>bool</strong>                      <em>fixPos</em>;
+        <strong>bool</strong>                      <em>filler_3</em>;
+        <strong>unsigned short</strong>            <em>faceBits</em>;
+        <strong>bool</strong>                      <em>opaque</em>;
+        <strong>bool</strong>                      <em>frame</em>;
+        <strong>short</strong>                     <em>backgroundPen</em>;
+        <strong>short</strong>                     <em>framePen</em>;
+        <strong>short</strong>                     <em>filler_4</em>;
+        <strong>Int32</strong>                     <em>filler_5[4]</em>;
+        <strong>bool</strong>                      <em>useLeaderLine</em>;
+        <strong>bool</strong>                      <em>anchorAtTextEnd</em>;
+        <strong>short</strong>                     <em>filler_6[3]</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                 <em>begC</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                 <em>midC</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                 <em>endC</em>;
+        <strong>Int32</strong>                     <em>filler_7</em>;
+        <strong>short</strong>                     <em>filler_8</em>;
+        <strong>short</strong>                     <em>leaderPen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>        <em>leaderLineType</em>;
+        <strong><a href="API_LeaderLineShapeID.html">API_LeaderLineShapeID</a></strong>     <em>leaderShape</em>;
+        <strong><a href="API_ArrowData.html">API_ArrowData</a></strong>             <em>arrowData</em>;
+        <strong><a href="API_LblAnchorID.html">API_LblAnchorID</a></strong>           <em>anchorPoint</em>;
+        <strong><a href="API_JustID.html">API_JustID</a></strong>                <em>just</em>;
+        <strong>double</strong>                    <em>widthFactor</em>;
+        <strong>double</strong>                    <em>spacingFactor</em>;
+        <strong>short</strong>                     <em>rowAnchor</em>;
+        <strong>unsigned short</strong>            <em>effectBits</em>;
+    <strong>}</strong> <em>API_NoteType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>notePen</b></dt>
+
+        <dd>Pen attribute index.</dd>
+
+        <dt><b>noteLayer</b></dt>
+
+        <dd>Layer attribute index.</dd>
+
+        <dt><b>noteFont</b></dt>
+
+        <dd>Font attribute index.</dd>
+
+        <dt><b>noteSize</b></dt>
+
+        <dd>The character height in mm.</dd>
+
+        <dt><b>noteAngle</b></dt>
+
+        <dd>Rotation angle in radian.</dd>
+
+        <dt><b>pos</b></dt>
+
+        <dd>Coordinates of left bottom.</dd>
+
+        <dt><b>content[64]</b>&nbsp;<img border="0" src="../../APIImageLibrary/14.png" alt="Modified in 14" width="19" height="12"></dt>
+
+        <dd>The text or the autotext of the note.</dd>
+
+        <dt><b>contentUStr</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Modified in 17" width="19" height="12"></dt>
+
+        <dd>Optional parameter for accessing the text or the autotext of the note in UniString format.</dd>
+
+        <dt><b>contentType</b>&nbsp;<img border="0" src="../../APIImageLibrary/14.png" alt="Modified in 14" width="19" height="12"></dt>
+
+        <dd><!--@4.1-->0: measured value 1: custom text</dd>
+
+        <dt><b>fixPos</b></dt>
+
+        <dd>Is the position of the note manually fixed?</dd>
+
+        <dt><b>faceBits</b></dt>
+
+        <dd>The style of the note:</dd>
+
+        <dd>
+            <table>
+                <tr>
+                    <td>
+                        <p><code>APIFace_Plain</code></p>
+                    </td>
+
+                    <td>
+                        <p>Plain text</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIFace_Bold</code></p>
+                    </td>
+
+                    <td>
+                        <p>Bold</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIFace_Italic</code></p>
+                    </td>
+
+                    <td>
+                        <p>Italic</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIFace_Underline</code></p>
+                    </td>
+
+                    <td>
+                        <p>Underline</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>subContent[8]</b></dt>
+
+        <dd>Extra text (required in certain markets), e.g.: Small 5, Small 25, Small 75.</dd>
+
+        <dt><b>opaque</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>The note has background.</dd>
+
+        <dt><b>frame</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>The note has frame.</dd>
+
+        <dt><b>backgroundPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>The background color index if opaque.</dd>
+
+        <dt><b>framePen</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>Frame color index if framed.</dd>
+
+		<dt><b>useLeaderLine</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Whether the note has leader line.</dd>
+
+		<dt><b>anchorAtTextEnd</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Whether the leader line attached to the end of the note text.</dd>
+
+		<dt><b>begC</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Beginning coordinate of the leader line.</dd>
+
+        <dt><b>midC</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Middle coordinate of the leader line.</dd>
+
+        <dt><b>endC</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>End coordinate of the leader line.</dd>
+
+		<dt><b>leaderPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Leader line pen attribute index.</dd>
+
+		<dt><b>leaderLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Line type attribute index of the leader line.</dd>
+
+		<dt><b>leaderShape</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Shape of the leader line.</dd>
+
+		<dt><b>arrowData</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>The arrow type. See <a href="API_ArrowData.html">API_ArrowData</a></dd>
+
+        <dt><b>anchorPoint</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Anchor point the pointer line is connected to. See <a href="API_LblAnchorID.html">API_LblAnchorID</a>.</dd>
+
+        <dt><b>just</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Multiline Text alignment (Left, Center, Right).</dd>
+
+        <dt><b>widthFactor</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Width scale of the note's text.</dd>
+
+        <dt><b>spacingFactor</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Spacing scale of the note's text.</dd>
+
+        <dt><b>rowAnchor</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Text anchor row (First = 0, or Last Row = 1).</dd>
+
+        <dt><b>effectBits</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Special text effects:</dd>
+
+        <dd>
+            <table>
+                <tr>
+                    <td><code>APIEffect_StrikeOut</code></td>
+
+                    <td>Strikethrough text</td>
+                </tr>
+
+                <tr>
+                    <td><code>APIEffect_SuperScript</code></td>
+
+                    <td>Superscript</td>
+                </tr>
+
+                <tr>
+                    <td><code>APIEffect_SubScript</code></td>
+
+                    <td>Subscript</td>
+                </tr>
+
+                <tr>
+                    <td><code>APIEffect_Protected</code></td>
+
+                    <td>Protected text (autotext reference)</td>
+                </tr>
+            </table>
+        </dd>
+	</dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This type is used in many as text blocks of any kind of dimensions.</p>
+
+	<p>You can only create notes with leader line on angle dimensions, floor plan dimensions and hatches. If you want to create a note with leaderline you will have to set fixpos to true, but you do not have to calculate pos and noteAngle because leaderline will determine these automatically.</p>
+
+    <p><code>subContent</code> is removed in API 14.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Coord.html">API_Coord</a><br>
+    <a href="API_HatchType.html">API_HatchType</a><br>
+    <a href="API_WindowType.html">API_WindowType</a><br>
+    <!--NoCHM--><a href="API_WindowType.html">API_DoorType</a><br>
+    <a href="API_DimensionType.html">API_DimensionType</a><br>
+    <a href="API_RadialDimensionType.html">API_RadialDimensionType</a><br>
+    <a href="API_LevelDimensionType.html">API_LevelDimensionType</a><br>
+    <a href="API_AngleDimensionType.html">API_AngleDimensionType</a><br>
+    <a href="API_DimElem.html">API_DimElem</a><br>
+	<a href="API_AttributeIndex.html">API_AttributeIndex</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

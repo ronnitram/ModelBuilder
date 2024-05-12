@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>BMAbortProc</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/BMManagers/BM/reference/BMAbortProc.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>BMAbortProc</h1>
+
+    <p>The <strong>BMAbortProc</strong> is a user defined abort procedure called by the Basic Memory Manager. The <strong>BMAbortProc</strong> is a function type.</p>
+    <pre class="syntax">
+<strong>short BMAbortProc(
+  short</strong>           <em>c,</em>     // code of the BM function
+  <strong>long</strong>            <em>n,</em>     // number of bytes requested
+  <strong>short</strong>           <em>e,</em>     // operating system error code returned
+  <strong>short</strong>           <em>action      </em>// action code
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>c</em></dt>
+
+        <dd>
+            Specifies the Basic Memory Manager function where the error occurs. The possible values are:<br>
+
+            <dl align="left">
+                <dd>
+                    <table border="0" width="76%">
+                        <tr>
+                            <th width="23%"><strong>Value</strong></th>
+
+                            <th width="77%"><strong>Meaning</strong></th>
+                        </tr>
+
+                        <tr>
+                            <td width="23%">1</td>
+
+                            <td width="77%">BMAllocatePtr</td>
+                        </tr>
+
+                        <tr>
+                            <td width="23%">2</td>
+
+                            <td width="77%">BMAllocateHandle</td>
+                        </tr>
+
+                        <tr>
+                            <td width="23%">4</td>
+
+                            <td width="77%">BMReallocHandle</td>
+                        </tr>
+
+                        <tr>
+                            <td width="23%">5</td>
+
+                            <td width="77%">BMKillPtr</td>
+                        </tr>
+
+                        <tr>
+                            <td width="23%">6</td>
+
+                            <td width="77%">BMKillHandle</td>
+                        </tr>
+
+                        <tr>
+                            <td width="23%">10</td>
+
+                            <td width="77%">BMModifyHandleState</td>
+                        </tr>
+
+                        <tr>
+                            <td width="23%">17</td>
+
+                            <td width="77%">BMGetHandleSize</td>
+                        </tr>
+
+                        <tr>
+                            <td width="23%">18</td>
+
+                            <td width="77%">BMGetPtrSize</td>
+                        </tr>
+
+                        <tr>
+                            <td width="23%">19</td>
+
+                            <td width="77%">BMReallocPtr</td>
+                        </tr>
+                    </table>
+                </dd>
+            </dl>
+        </dd>
+
+        <dt><em>n</em></dt>
+
+        <dd>Specifies the number of bytes requested by the caller Basic Memory Manager function.</dd>
+
+        <dt><em>e</em></dt>
+
+        <dd>Specifies the operating system error code of the failed memory action.</dd>
+
+        <dt><em>action</em></dt>
+
+        <dd>Specifies the action code that is passed to caller BM Manager (BM) function. If an error occurs in a BM function that has no action parameter BM passes 0 on this parameter.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The returned value determines whether the Basic Memory Manager exits or continues the execution of the function where the error occurred. The return value must be <strong>true</strong> to allow Basic Memory Manager to exit, or <strong>false</strong> to continue.</p>
+
+    <h4>Remarks</h4>
+
+    <p>You can set the <strong>BMAbortProc</strong> for the Basic Memory Manager in the<strong><a href="BMInit.html">BMInit</a></strong> function.</p>
+
+    <h4><strong>Requirements</strong></h4>
+
+    <p><strong>&nbsp;&nbsp; Header:</strong> Declared in BM.hpp<br>
+    &nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="functions_id.html">BM Manager Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

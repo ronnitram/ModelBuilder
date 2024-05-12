@@ -1,0 +1,55 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Manifest created 2013.01.23. 16:25:02</title>
+</head>
+<body class="vendor-book">
+  <div class="details">
+    <span class="vendor">Graphisoft</span>
+    <span class="locale">en-us</span>
+    <span class="product">Archicad API</span>
+    <span class="name">General API Development Kit 26</span> <!--SUA_UpdAPIVers_PrevToNextVersionNumber_DONOTDELETETHISCOMMENT-->
+  </div>
+  <div class="package-list">
+    <div class="package">
+      <span class="name">APIStyleGuide</span>
+      <a class="current-link" href="MSDN\APIStyleGuide\APIStyleGuide.mshc">APIStyleGuide.mshc</a>
+    </div>
+    <div class="package">
+      <span class="name">CPPStyleGuide</span>
+      <a class="current-link" href="MSDN\CPPStyleGuide\CPPStyleGuide.mshc">CPPStyleGuide.mshc</a>
+    </div>
+    <div class="package">
+      <span class="name">APIDevKit</span>
+      <a class="current-link" href="MSDN\APIDevKit\APIDevKit.mshc">APIDevKit.mshc</a>
+    </div>
+    <div class="package">
+      <span class="name">GSRoot</span>
+      <a class="current-link" href="MSDN\GSRoot\GSRoot.mshc">GSRoot.mshc</a>
+    </div>
+    <div class="package">
+      <span class="name">Geometry</span>
+      <a class="current-link" href="MSDN\Geometry\Geometry.mshc">Geometry.mshc</a>
+    </div>
+    <div class="package">
+      <span class="name">InputOutput</span>
+      <a class="current-link" href="MSDN\InputOutput\InputOutput.mshc">InputOutput.mshc</a>
+    </div>
+    <div class="package">
+      <span class="name">FileTypeManager</span>
+      <a class="current-link" href="MSDN\FileTypeManager\FileTypeManager.mshc">FileTypeManager.mshc</a>
+    </div>
+    <div class="package">
+      <span class="name">DialogManager</span>
+      <a class="current-link" href="MSDN\DialogManager\DialogManager.mshc">DialogManager.mshc</a>
+    </div>
+    <div class="package">
+      <span class="name">GXIndex</span>
+      <a class="current-link" href="MSDN\Graphics2D\GXIndex.mshc">GXIndex.mshc</a>
+    </div>
+<!--     <div class="package">
+      <span class="name">TextEngine</span>
+      <a class="current-link" href="MSDN\TextEngine\TextEngine.mshc">TextEngine.mshc</a>
+    </div> -->
+  </div>
+</body>
+</html>

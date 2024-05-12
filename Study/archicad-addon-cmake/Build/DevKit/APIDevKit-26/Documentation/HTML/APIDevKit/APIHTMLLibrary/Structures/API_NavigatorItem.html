@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_NavigatorItem</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_NavigatorItem.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_NavigatorItem</h1>
+
+    <p>Represents a Project Navigator item.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>                 <em>uName[API_UniLongNameLen]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>                 <em>uAutoTextedName[API_UniLongNameLen]</em>;
+        <strong>char</strong>                        <em>uiId[128]</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                    <em>guid</em>;
+        <strong><a href="API_WindowInfo.html">API_DatabaseInfo</a></strong>            <em>db</em>;
+        <strong>short</strong>                       <em>floorNum</em>;
+        <strong>short</strong>                       <em>vType</em>;
+        <strong><a href="API_CutPlanePlanConn.html">API_CutPlanePlanConn</a></strong>        <em>intendedPlanConn</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                    <em>camId</em>;
+        <strong><a href="API_NavigatorMapID.html">API_NavigatorMapID</a></strong>          <em>mapId</em>;
+        <strong><a href="API_NavigatorItemTypeID.html">API_NavigatorItemTypeID</a></strong>     <em>itemType</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                    <em>sourceGuid</em>;
+        <strong>Int32</strong>                       <em>owner</em>;
+        <strong>bool</strong>                        <em>customName</em>;
+        <strong>bool</strong>                        <em>customUiId</em>;
+        <strong>bool</strong>                        <em>filler_2</em>;
+        <strong>bool</strong>                        <em>isIndependent</em>;
+        <strong>Int32</strong>                       <em>filler_3[6]</em>;
+    <strong>}</strong> <em>API_NavigatorItem</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>name</b></dt>
+
+        <dd>The name of the navigator item.</dd>
+
+        <dt><b>autoTextedName</b>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="Featuring API 18" width="19" height="12"></dt>
+
+        <dd>The name of the navigator item, in its original form (containing autotexts).</dd>
+
+        <dt><b>uiId</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>The ID of the navigator item.</dd>
+
+        <dt><b>guid</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>The own GUID of the navigator item</dd>
+
+        <dt><b>db</b></dt>
+
+        <dd>The database reference of the the navigator item.</dd>
+
+        <dt><b>floorNum</b></dt>
+
+        <dd>Floor index the navigator item refers to. Valid only if the type of the database is floorplan [<code>itemType</code> is <em>API_StoryNavItem</em>].</dd>
+
+        <dt><b>vType</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>For internal use.</dd>
+
+        <dt><b>intendedPlanConn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></dt>
+
+        <dd>The status of the link between the navigator item and the Floor Plan</dd>
+
+        <dt><b>camId</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>GUID of a single camera [<code>itemType</code> is <em>API_CameraNavItem</em>] or a camera set [<code>itemType</code> is <em>API_CameraNavItem</em>].</dd>
+
+        <dt><b>mapId</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>The Project Navigator map wich contains this item.</dd>
+
+        <dt><b>itemType</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Type of the item.</dd>
+
+        <dt><b>sourceGuid</b>&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="Changed in API 24" width="19" height="12"></dt>
+
+        <dd>The guid of the source navigator item. For example a View item can be the source of a Drawing or a PublisherSet item.</dd>
+
+        <dt><b>owner</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>The member ID of the item's owner in TeamWork mode (relevant only in View Map).</dd>
+
+        <dt><b>customName</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Custom name of the item (relevant only in the View Map and Layout Map).</dd>
+
+        <dt><b>customUiId</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Custom ID of the item (relevant only in the View Map and Layout Map).</dd>
+
+        <dt><b>isIndependent</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"></dt>
+
+        <dd>True when the navigator item is independent.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure holds the data of an item of the Project Navigator.</p>
+
+    <p>The structure is used with the <a href="../Functions/APINavigator_GetNavigatorItemID.html">APINavigator_GetNavigatorItemID</a>, <a href="../Functions/APINavigator_GetNavigatorParentItemID.html">APINavigator_GetNavigatorParentItemID</a>, <a href="../Functions/APINavigator_GetNavigatorChildrenItemsID.html">APINavigator_GetNavigatorChildrenItemsID</a>, <a href="../Functions/APINavigator_SearchNavigatorItemID.html">APINavigator_SearchNavigatorItemID</a> and <a href="../Functions/APINavigator_ChangeNavigatorItemID.html">APINavigator_ChangeNavigatorItemID</a> environment functions.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Navigator.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_WindowInfo.html">API_DatabaseInfo</a>, <a href="API_NavigatorMapID.html">API_NavigatorMapID</a>, <a href="API_NavigatorItemTypeID.html">API_NavigatorItemTypeID</a><br>
+    <a href="API_NavigatorSet.html">API_NavigatorSet</a>, <a href="API_NavigatorView.html">API_NavigatorView</a><br>
+    <a href="../Functions/APINavigator_GetNavigatorItemID.html">APINavigator_GetNavigatorItemID</a>, <a href="../Functions/APINavigator_SearchNavigatorItemID.html">APINavigator_SearchNavigatorItemID</a>, <a href="../Functions/APINavigator_ChangeNavigatorItemID.html">APINavigator_ChangeNavigatorItemID</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 28, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

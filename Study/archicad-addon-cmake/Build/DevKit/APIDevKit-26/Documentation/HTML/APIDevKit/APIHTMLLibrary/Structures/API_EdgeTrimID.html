@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_EdgeTrimID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_EdgeTrimID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_EdgeTrimID</h1>
+
+    <p>Determines the type of the roof or slab edge trim.<br>
+    <em>In previous API versions this enum type used to be called <strong><code>API_RsideID</code></strong>.</em></p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>APIEdgeTrim_Vertical</em>,
+        <em>APIEdgeTrim_Perpendicular</em>,
+        <em>APIEdgeTrim_Horizontal</em>,
+        <em>APIEdgeTrim_CustomAngle</em>,
+        <em>APIEdgeTrim_AlignWithCut</em>
+    <strong>}</strong> <em>API_EdgeTrimID</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>APIEdgeTrim_Vertical</b></dt>
+
+        <dd>Vertical edge. <img src="../../APIImageLibrary/vert_roofside.png" class="size2x" width="29" height="26" align="middle" alt="Vertical roof side"></dd>
+
+        <dt><b>APIEdgeTrim_Perpendicular</b></dt>
+
+        <dd>Perpendicular edge. <img src="../../APIImageLibrary/perp_roofside.png" class="size2x" width="29" height="26" align="middle" alt="Perpendicular roof side"></dd>
+
+        <dt><b>APIEdgeTrim_Horizontal</b></dt>
+
+        <dd>Horizontal edge.</dd>
+
+        <dt><b>APIEdgeTrim_CustomAngle</b></dt>
+
+        <dd>Custom angled edge trim.  <img src="../../APIImageLibrary/cust_roofside.png" class="size2x" width="29" height="26" align="middle" alt="Custom roof side"><br>
+        The angle is defined in the <a href="API_EdgeTrim.html">API_EdgeTrim</a> structure, which should be passed on or is returned in the <code>edgeTrims</code> field of <a href="API_ElementMemo.html">API_ElementMemo</a> structure.</dd>
+
+        <dt><b>APIEdgeTrim_AlignWithCut</b></dt>
+
+        <dd>Trim type of shell contour and hole contour edges (see <a href="API_ContourEdgeData.html">API_ContourEdgeData</a>). The trim is aligned along the extrusion of the cutting body.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 15 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_EdgeTrim.html">API_EdgeTrim</a>, <a href="API_ShellBaseType.html">API_ShellBaseType</a>, <a href="API_ContourEdgeData.html">API_ContourEdgeData</a><br>
+    <a href="API_ElementMemo.html">API_ElementMemo</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 25, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

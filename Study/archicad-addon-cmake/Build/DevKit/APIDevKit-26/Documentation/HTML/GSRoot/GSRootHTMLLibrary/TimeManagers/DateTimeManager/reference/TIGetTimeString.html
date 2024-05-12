@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>TIGetTimeString</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/TimeManagers/DateTimeManager/reference/TIGetTimeString.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TIGetTimeString</h1>
+
+    <p>The <strong>TIGetTimeString</strong> function prints the specified <strong>GSTime</strong> into a string according to the specified format flags. <strong>TIGetTimeString</strong>&nbsp; is recommended for debug purposes.&nbsp;</p>
+    <pre class="syntax">
+<strong>long TIGetTimeString(
+  GSTime                </strong><em>gsTime,            </em>// time to convert
+  <strong>char          </strong><em>*pTimeString,      </em>// buffer receiving printed string
+  <strong>GSFlags               </strong><em>formatFlags        </em>// conversion attributes
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4><strong>Parameters</strong></h4>
+
+    <dl>
+        <dt><em>gsTime</em></dt>
+
+        <dd>Specifies the time variable to print.</dd>
+
+        <dt><em>pTimeString</em></dt>
+
+        <dd>Specifies the buffer receiving the result of printing. Note that the buffer must be large enough for accommodating the time-string.</dd>
+
+        <dt><em>formatFlags</em></dt>
+
+        <dd>Specifies how to convert. This parameter must be one of the following values:</dd>
+
+        <dd>
+            <dl align="left">
+                <dd>
+                    <table border="0" width="100%">
+                        <tr>
+                            <th width="39%"><strong>Value</strong></th>
+
+                            <th width="61%"><strong>Meaning</strong></th>
+                        </tr>
+
+                        <tr>
+                            <td width="39%">TI_LOCAL_TIME</td>
+
+                            <td width="61%">Local time</td>
+                        </tr>
+
+                        <tr>
+                            <td width="39%">TI_UTC_TIME</td>
+
+                            <td width="61%">UTC time</td>
+                        </tr>
+
+                        <tr>
+                            <td width="39%">TI_CURRENT_TIME</td>
+
+                            <td width="61%">Current time (UTC or local)</td>
+                        </tr>
+
+                        <tr>
+                            <td width="39%">TI_DEFAULT_DATE_FORMAT</td>
+
+                            <td width="61%">System default date format</td>
+                        </tr>
+
+                        <tr>
+                            <td width="39%">TI_SHORT_DATE_FORMAT</td>
+
+                            <td width="61%">Short date format</td>
+                        </tr>
+
+                        <tr>
+                            <td width="39%">TI_LONG_DATE_FORMAT</td>
+
+                            <td width="61%">Long date format</td>
+                        </tr>
+
+                        <tr>
+                            <td width="39%">TI_NO_DATE</td>
+
+                            <td width="61%">Date is suppressed</td>
+                        </tr>
+
+                        <tr>
+                            <td width="39%">TI_DEFAULT_TIME_FORMAT</td>
+
+                            <td width="61%">System default time format</td>
+                        </tr>
+
+                        <tr>
+                            <td width="39%">TI_SHORT_TIME_FORMAT</td>
+
+                            <td width="61%">Short time format</td>
+                        </tr>
+
+                        <tr>
+                            <td width="39%">TI_LONG_TIME_FORMAT</td>
+
+                            <td width="61%">Long time format</td>
+                        </tr>
+
+                        <tr>
+                            <td width="39%">TI_NO_TIME</td>
+
+                            <td width="61%">Time is suppressed</td>
+                        </tr>
+                    </table>
+                </dd>
+            </dl>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The return values is the number of characters in the result string.</p>
+
+    <h4>Requirements</h4>
+
+    <p>&nbsp;&nbsp;&nbsp; <strong>Header:</strong> Declared in GSTime.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="types_id.html">Date &amp; Time Manager Simple Types</a>, <a href="structures_id.html">Date &amp; Time Manager Structures</a>, <a href="functions_id.html">Date &amp; Time Manager Functions</a></p>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

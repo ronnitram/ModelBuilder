@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIDb_InitCreationOrderTableID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIDb_InitCreationOrderTableID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIDb_InitCreationOrderTableID</h1>
+
+    <p>Initializes an internal table for fast access of the next element in creation order.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Database_id.html">ACAPI_Database</a></strong> (
+        <strong>APIDb_InitCreationOrderTableID</strong>,
+        <strong><a href="../Structures/API_ElemFilter.html">API_ElemFilter</a>*</strong>     <em>elemFilter</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>elemFilter</em></dt>
+
+        <dd>[in] Optional parameter, can be <code>nullptr</code>. Use this filter to leave out element types from the access table.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>The internal creation order table cannot be allocated.</dd>
+
+        <dt><code>APIERR_NESTING</code></dt>
+
+        <dd>Internal access table initializations cannot be nested, i.e. you should dispose the previously allocated table before initializing a new one.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to set up an internal table which allows fast access to the next element in creation order (an ordering more or less equal to the unique ID ordering in previous versions).</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+    <pre>
+static void  PrintGuidsInCreationOrder (void)
+{
+    if (ACAPI_Database (APIDb_InitCreationOrderTableID, nullptr, nullptr) == NoError) {
+        API_Guid guid = APINULLGuid;
+        while ((ACAPI_Database (APIDb_CreationOrderGetNextID, &amp;guid, nullptr) == NoError) &amp;&amp;
+               (guid != GS::NULLGuid))
+        {
+            ACAPI_WriteReport (APIGuid2GSGuid (guid).ToUniString ().ToCStr (), false);
+        }
+        ACAPI_Database (APIDb_DisposeCreationOrderTableID, nullptr, nullptr);
+    }
+
+    return;
+}
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 11.01 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/ACAPI_Database_id.html">ACAPI_Database</a>, <a href="APIDb_CreationOrderGetNextID.html">APIDb_CreationOrderGetNextID</a>, <a href="APIDb_DisposeCreationOrderTableID.html">APIDb_DisposeCreationOrderTableID</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on August 10, 2006<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

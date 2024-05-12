@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Misley Mikl&oacute;s">
+
+    <title>About Resource Manager</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/ResourceManager/About.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>About the Resource Manager</h1>
+
+    <p>The Resource Manager provides basic resource management functionality.</p>
+
+    <p>The resources are identified by resource type and resource identifier. The resource type is a GSResType variable, the resource identifier must be a GSResID value.</p>
+
+    <dl>
+        <dt><img src="../../GSRootImageLibrary/WinLogo.png" width="32" height="32"><b>&nbsp;Windows only:</b></dt>
+
+        <dd>The resource type can be given by a character string, too.</dd>
+    </dl>
+
+    <p>A resource files can be opened by <a href="RSOpenResourceFile.html">RSOpenResourceFile</a>, which returns a resource module id (GSResModule), which can be used in the other resource manager functions to identify the resource module. The resource modules are put onto the resource module list. You can determine the active resource module by <a href="RSGetActiveModule.html">RSGetActiveModule</a>, and modify it by <a href="RSSetActiveModule.html">RSSetActiveModule</a>. The <a href="RSSearchResource.html">RSSearchResource</a> function can be used to determine the module id of the resource module, which contains a resource given by its type and identifier. The resource data can be loaded by <a href="RSLoadResource.html">RSLoadResource</a> into memory. When a resource file is not needed any more, it can be closed by <a href="RSCloseResourceFile.html">RSCloseResourceFile</a>.</p>
+
+    <h4>Remarks:</h4>
+
+    <p>The Resource Manager has only C++ interface, it can not be used from C code.</p>
+
+    <p>The types used in the Resource Manager are the following:</p>
+    <pre class="syntax">
+        typedef long            GSResModule;
+        typedef unsigned long   GSResType;
+        typedef long            GSResID;
+
+        enum RSFlags {
+                RSF_MissingResourceAlert        = 0x00000001
+        };
+
+        enum ResStringType {
+                RST_Localised   = 0,
+                RST_Fixed       = 1,
+                RST_StatusBar   = 2
+        };
+
+        const GSResModule       AllResModule = -1;
+        const GSResModule       AppResModule = -2;
+        const GSResModule       SysResModule = -3;
+
+</pre>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on April 26, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_Favorite</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_Favorite.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_Favorite</h1>
+
+    <p>A container for Favorite entry settings.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>                                            <em>name</em>;
+        <strong><a href="API_Element.html">API_Element</a></strong>                                              <em>element</em>;
+        <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt;<a href="API_ElementMemo.html">API_ElementMemo</a>&gt;</strong>                            <em>memo</em>;
+        <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt;<a href="API_Element.html">API_Element</a>&gt;</strong>                                <em>elementMarker</em>;
+        <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt;<a href="API_ElementMemo.html">API_ElementMemo</a>&gt;</strong>                            <em>memoMarker</em>;
+        <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt;<a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="API_Property.html">API_Property</a>&gt;&gt;</strong>                    <em>properties</em>;
+        <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt;<a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../../../GSRoot/GSRootHTMLLibrary/GS/Pair/Pair.html">GS::Pair</a>&lt;<a href="API_Guid.html">API_Guid</a>, <a href="API_Guid.html">API_Guid</a>&gt;&gt;&gt;</strong>    <em>classifications</em>;
+        <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt;<a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="API_ElemCategoryValue.html">API_ElemCategoryValue</a>&gt;&gt;</strong>           <em>elemCategoryValues</em>;
+        <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt;<a href="#API_FavoriteFolderHierarchy">API_FavoriteFolderHierarchy</a>&gt;</strong>                <em>folder</em>;
+        <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt;<a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="API_SubElement.html">API_SubElement</a>&gt;&gt;</strong>         	 <em>subElements</em>;
+    <strong>}</strong> <em>API_Favorite</em>;
+    </pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>name</b></dt>
+
+        <dd>Unique name identifier of the Favorite.</dd>
+
+        <dt><b>element</b></dt>
+
+        <dd>The element settings of the Favorite.</dd>
+
+        <dt><b>memo</b></dt>
+
+        <dd>(Optional) The element memo settings of the Favorite.</dd>
+
+        <dt><b>elementMarker</b></dt>
+
+        <dd>(Optional) The marker element settings of the Favorite.</dd>
+
+        <dt><b>memoMarker</b></dt>
+
+        <dd>(Optional) The marker element's memo settings of the Favorite.</dd>
+
+        <dt><b>properties</b></dt>
+
+        <dd>(Optional) The properties of the Favorite.</dd>
+
+        <dt><b>classifications</b></dt>
+
+        <dd>(Optional) The classification system and classification item pairs of the Favorite.</dd>
+
+        <dt><b>elemCategoryValues</b></dt>
+
+        <dd>(Optional) The element categories of the Favorite.</dd>
+
+        <dt><b>folder</b></dt>
+
+        <dd>(Optional) The folder of the Favorite.</dd>
+		
+		<dt><b>subElements</b></dt>
+
+        <dd>(Optional) The subelements of the Favorite (<img border="0" src="../../APIImageLibrary/25.png" alt="API version 25" width="19" height="12">).<br></p></dd>
+
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is used by the Favorite API functions.</p>
+    <p>In case of <a href="../Functions/ACAPI_Favorite_Get.html">ACAPI_Favorite_Get</a> and <a href="../Functions/ACAPI_Favorite_Change.html">ACAPI_Favorite_Change</a> functions you just have to set the <code>name</code> field for identifying the Favorite and set which optional fields do you want to retrieve/change.</p>
+    <p>Do not forget to call <a href="../Functions/ACAPI_DisposeElemMemoHdls.html">ACAPI_DisposeElemMemoHdls</a> for the <code>memo</code> and <code>memoMarker</code> fields if you set them and they are not needed any more.</p>
+    <p>The <a name="API_FavoriteFolderHierarchy" id="API_FavoriteFolderHierarchy"></a><code>API_FavoriteFolderHierarchy</code></a> type is a typedef of <a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&gt;.</p>
+	<p><img border="0" src="../../APIImageLibrary/25.png" alt="API version 25" width="19" height="12"> In Archicad 25 the <code>subElements</code> member was introduced.</p>
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+// -----------------------------------------------------------------------------
+// Change favorite named "Favorite_Test"
+//  - set it's ID string to "[Changed]"
+// -----------------------------------------------------------------------------
+
+static void     Do_ChangeFavorite (void)
+{
+    GSErrCode           err;
+    API_Favorite        favorite ("Favorite_Test");
+
+    favorite.memo.New ();
+    BNZeroMemory (&favorite.memo.Get (), sizeof (API_ElementMemo));
+    favorite.memo-&gt;elemInfoString = new GS::UniString ("[Changed]");
+
+    ACAPI_WriteReport ("### Favorite_Test Do_ChangeFavorite ###", false);
+
+    err = <font color="#FF0066">ACAPI_Favorite_Change</font> (favorite, nullptr, APIMemoMask_ElemInfoString);
+    if (err != NoError) {
+        if (err == APIERR_BADNAME)
+            ACAPI_WriteReport ("ACAPI_Favorite_Change failed because bad name was given", false);
+        else if (err == APIERR_NOTMINE)
+            ACAPI_WriteReport ("ACAPI_Favorite_Change failed because the given favorite does not belong to the client", false);
+        else
+            ACAPI_WriteReport ("ACAPI_Favorite_Change failed", false);
+    } else {
+        ACAPI_WriteReport ("ACAPI_Favorite_Change successfully changed favorite named \"%T\"", false, favorite.name.ToPrintf ());
+    }
+
+    ACAPI_DisposeElemMemoHdls (&amp;favorite.memo.Get ());
+
+    return;
+}       /* Do_ChangeFavorite */
+</code></pre>
+    </blockquote>
+
+    For further informations and examples, please see the documentation of the related Favorite API functions or the Favorite_Test example Add-On.
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 23 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Favorite.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+    <p>
+        <a href="../Functions/ACAPI_Favorite_Get.html">ACAPI_Favorite_Get</a>,<br>
+        <a href="../Functions/ACAPI_Favorite_Create.html">ACAPI_Favorite_Create</a>,<br>
+        <a href="../Functions/ACAPI_Favorite_Change.html">ACAPI_Favorite_Change</a>,<br>
+        <a href="../Functions/ACAPI_Favorite_Read.html">ACAPI_Favorite_Read</a>,<br>
+        <a href="API_Types.html">API Types</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on August 20, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

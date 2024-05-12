@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>AssociativeContainer Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/AssociativeContainer/AssociativeContainer.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="Add.html">Add</A><A href="Begin.html">Begin</A><A href="BeginPairs.html">BeginPairs</A><A href="ConstIterator.html">ConstIterator</A><A href="ConstPairIterator.html">ConstPairIterator</A><A href="ContainsKey.html">ContainsKey</A><A href="ContainsValue.html">ContainsValue</A><A href="Delete.html">Delete</A><A href="End.html">End</A><A href="EndPairs.html">EndPairs</A><A href="Enumerate.html">Enumerate</A><A href="EnumeratePairs.html">EnumeratePairs</A><A href="Get.html">Get</A><A href="Iterator.html">Iterator</A><A href="KeyType.html">KeyType</A><A href="operator[].html">operator[]</A><A href="PairIterator.html">PairIterator</A><A href="Put.html">Put</A><A href="Set.html">Set</A>--><H2>AssociativeContainer Class</H2><!--exp="AssociativeContainer Class"-->
+<P><topic id="$GS.$AssociativeContainer.BriefDescription">
+		Base class of associative containers.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>IndexType</I>, <B>class</B> <I>ItemType</I><B>&gt;
+</B>class AssociativeContainer : public <!----><a class="nodecorate" href="../Container/Container.html">Container&lt; ItemType &gt;</A></B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>IndexType</I></DT><DD><topic id="$GS.$AssociativeContainer.$IndexType.TemplateParamDescription">
+		Type of indices (keys) the items in the associative container are accessible with.
+	</topic></DD><DT><I>ItemType</I></DT><DD><topic id="$GS.$AssociativeContainer.$ItemType.TemplateParamDescription">
+		Type of items (values) the associative container stores.
+	</topic></DD>
+</DL>
+<H4>Members</H4>
+<P><B><A name="ItemAccess"></A>Item access</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator[].html">operator[]</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$operator[].BriefDescription">
+		Item access by index.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Get.html">Get</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$Get.BriefDescription">
+		Item access by index.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Set.html">Set</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$Set.BriefDescription">
+		Item setting by index.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ContentManagement"></A>Content management</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Add.html">Add</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$Add.BriefDescription">
+		Adds a new item with its associated index.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Put.html">Put</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$Put.BriefDescription">
+		Adds a new item with its associated index or sets value of an exisiting one.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Delete.html">Delete</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$Delete.BriefDescription">
+		Deletes a specified item.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ContentQuery"></A>Content query</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ContainsKey.html">ContainsKey</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$ContainsKey.BriefDescription">
+		Examines whether the associative container contains an item with the specified index.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ContainsValue.html">ContainsValue</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$ContainsValue.BriefDescription">
+		Examines whether the associative container contains a specified item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Enumerate.html">Enumerate</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$Enumerate.BriefDescription">
+		Allows enumeration of the associative container's items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Begin.html">Begin</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$Begin.BriefDescription">
+		Returns an iterator referring to the first item in the associative container.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="End.html">End</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$End.BriefDescription">
+		Returns an iterator referring to the one past last item in the associative container.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnumeratePairs.html">EnumeratePairs</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$EnumeratePairs.BriefDescription">
+		Allows enumeration of the associative container's content.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="BeginPairs.html">BeginPairs</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$BeginPairs.BriefDescription">
+		Returns an iterator referring to the first index-item pair in the associative container.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EndPairs.html">EndPairs</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$EndPairs.BriefDescription">
+		Returns an iterator referring to the one past last index-item pair in the associative container.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicTypes"></A>Public Types</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ConstIterator.html">ConstIterator</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$ConstIterator.BriefDescription">
+		Type of the AssociativeContainer's constant forward iterator.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ConstPairIterator.html">ConstPairIterator</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$ConstPairIterator.BriefDescription">
+		Type of the AssociativeContainer's constant forward pair iterator.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Iterator.html">Iterator</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$Iterator.BriefDescription">
+		Type of the AssociativeContainer's forward iterator.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="KeyType.html">KeyType</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$KeyType.BriefDescription">
+		Type of indices (keys) the items in the associative container are accessible with.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="PairIterator.html">PairIterator</A></TD>
+<TD width="70%"><topic id="$GS.$AssociativeContainer.$PairIterator.BriefDescription">
+		Type of the AssociativeContainer's forward pair iterator.
+	</topic></TD>
+</TR>
+</table>
+<H4>Description</H4>
+<P><topic id="$GS.$AssociativeContainer.LongDescription">
+		Associative containers are containers where an <b>unique</b> index (key) must be associated with
+		every item (value) stored in the associative container. Items are directly accessible (referrable)
+		with these indices. At most one item can be associated with every index.<br>
+		Indices are required to have default and copy constructors, assigment operator and
+		comparison (==, !=) operators.
+	</topic></P>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../GS.html">GS</A></P>
+<P><B>Header: </B>AssociativeContainer.hpp</P>
+<H4>See Also</H4>
+<P><topic id="$GS.$AssociativeContainer.SeeAlso">
+		<!----><a href="../RandomContainer/RandomContainer.html">RandomContainer</a>
+	</topic> | <a href="../HashTable/HashTable.html">HashTable&lt; IndexType, ItemType &gt;</A></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

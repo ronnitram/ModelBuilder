@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Guidelines</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/UIGuideLines/UIGuideLines.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>User Interface Guidelines</h1>
+
+    <p>&nbsp;</p>
+
+    <p>The goal of this paper is to help Archicad Add-On developers in the making of easy-to-use software that follows similar design principles as Archicad and fits well in the visual environment and interaction logic of Archicad.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3>Introduction</h3>
+
+    <p>Computer-human interactions (CHI) is a relatively new field of research and practice. It deals with all techniques and methods that let humans "use" their computers, in the following sense: - they can figure out easily what a system can and cannot do for them, - they can find the steps to reach their goals with little effort, - they can follow all phases of the process and understand what happens and why. This is a really interdisciplinary and very broad field, including elements of cognitive psychology, applied graphics, ergonomics, and industrial design. It also requires very good common sense and empathy with a variety of users. The result of the design process is called the User Interface (UI); in the case of computers that use graphic images to convey information it is called Graphic User Interface (GUI). But design does not end with good graphics; add the appropriate interaction techniques to get what's called Look and Feel. Whether the design enables users or not is measured by the software's Usability. The full work environment including the explicitly displayed and hidden concepts, usability, visuals, sounds, the time factor etc. has an impact on the user which is called User Experience. Always keep in mind that the ultimate goal is to give users a good experience when working with your software. This can only be reached if you think wide and cover all areas outlined above with the design of your software. The good impact of well crafted visual imagery can be ruined by sluggish response, a good overall concept can be undermined by bad wording. Ideally, all components of the User Experience should be on an even level.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3>Typical steps of developing an Archicad Add-On</h3>
+
+    <p>&nbsp;</p>
+
+    <h4>Conceptual design</h4>
+
+    <p>1/ Know your users, their practices and their needs.<br>
+    Even if you develop an in-house diagnostic tool, you still need to respect your colleagues and follow the most important rules of thumb of interface design.</p>
+
+    <p>2/ Decide which needs you want to satisfy.</p>
+
+    <p>3/ Set up the basic concepts and the appropriate metaphors to present them.</p>
+
+    <p>4/ Create quick and cheap mock-ups and...</p>
+
+    <p>5/ ...get very early feedback from practitioners.</p>
+
+    <p>6/ Allow several rounds of iterative redesign.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Design development</h4>
+
+    <p>7/ When the basic conceptual and computational model is right, develop the UI and the code parallel. Always keep the UI design ahead of UI coding.</p>
+
+    <p>8/ Make sure that the design remains focused on the basic concept. Don't let a layer of afterthoughts hide the clarity of the concept.</p>
+
+    <p>9/ When designing the details, keep the visual images, and the terminology consistent.<br>
+    If you use a drill icon to create holes, use the appropriate verbs and terms across the entire UI. An alert should say "Cannot drill hole" instead of "Boolean subtraction canceled". (However keep in mind that a virtual drill can be smarter than a real one and make an elliptical hole or a rectangular, something you cannot expect from a physical drill.)</p>
+
+    <p>10/ Always think about the worst possible user scenarios. Users do click at the most unexpected time and place. It is your task to handle this.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Document and test</h4>
+
+    <p>11/ Write brief but accurate specifications of the usage and behavior of interface components.<br>
+    This will not only help coding, but can be a good basis for testers and authors of help, manuals and tutorials.</p>
+
+    <p>12/ Before freezing the design, allow another round of testing for any usability errors.<br>
+    Few subjects. Do not help them. Speaking out loud. Encourage doing the unexpected.</p>
+
+    <p>13/ Know when to stop.<br>
+    There is no perfect design. Trust the good concept and spend more time on debugging than adding a few more tricky features. Reliability is the #1 usability factor.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3>Archicad UI Basics</h3>
+
+    <p>Archicad utilizes two dominant software concepts:</p>
+
+    <p>&nbsp;</p>
+
+    <h4>WIMP GUI:</h4>
+
+    <p>Windows, icons, menus, pointers. Common in current OS platforms. Taken as granted for several years to come, even if the mouse and CRT tube are replaced by pens and flat screen boards.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Direct Manipulation</h4>
+
+    <p>An industry term for interfaces which let users manipulate on-screen graphics as real world objects with immediate effect and instant feedback. Lets users be in control; an antonym for systems which act out of your control based on their own decision making algorithms. Also an antonym for command based systems where the interaction is based on your issuing of commands which tell the software what to do, and thus, the real action is perceived as being performed by the system and not by the user.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3>Terminology</h3>
+
+    <p>&nbsp;</p>
+
+    <h4>Avoid computer language, use customer's field terminology</h4>
+
+    <p>Archicad users are typically no computer experts. They are experts in their own domain. These guidelines need no explanation. Use computer language to be consistent with the user experience of the OS in general. Beyond that, make sure that your software does not break the mental process of design with interface elements of a different, and potentially complex, domain.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Be consistent in using terms</h4>
+
+    <p>It is an imperative that the terms and the way they are used is consistent across the entire system, including Add-On, Archicad host, OS, and their components like menus, dialogs, on-line help and manuals. With the same thing named differently in these components, users, manual writers and technical support staff will be equally confused.</p>
+
+    <p>As Add-Ons typically share some of their wording with Archicad, make sure that these match the Archicad terminology as much as possible. Before settling with a naming convention, check Archicad for names of similar or related things.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Use guidelines only as far as they help</h4>
+
+    <p>You can always go for something better...</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3>Use GS interface widgets in Add-Ons as widely as possible</h3>
+
+    <p>&nbsp;</p>
+
+    <h4>Icons and pictures</h4>
+
+    <ul>
+        <li>Use realistic images only where realism adds information</li>
+
+        <li>Prefer schematic illustrations with the lowest possible graphic details</li>
+
+        <li>When illustrating actions with icons:</li>
+
+        <li>prefer "tool" metaphor (printer, saw, hammer)</li>
+
+        <li>avoid putting before-action, after-action states plus the action itself into 32*32 pixels</li>
+
+        <li>Best results: icon PLUS word; constant reinforcement of the links between visible and speakable terminology</li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <h4>Interaction</h4>
+
+    <ul>
+        <li>Be forgiving and tolerate many ways to complete an action.</li>
+
+        <li>"Hey you, do that" is the preferred order of doing things.</li>
+
+        <li>Clicking an element is ambiguous in case of overlapping elements, the feedback of selection dots and Info Box make it clear what's selected.</li>
+
+        <li>Use informative animated feedback when possible.</li>
+
+        <li>Start giving visual feedback on pressing the mouse button. Don't wait until the button is released.</li>
+    </ul>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3>Processes</h3>
+
+    <p>Even if all the metaphors, wording, visual elements and interaction techniques are fully developed, you may still end up with a very confusing piece of software, if the user feels that he/she lost control of it. Users get this feeling sooner than you may think.</p>
+
+    <p>Researchers say that:</p>
+
+    <ul>
+        <li>if nothings happens for 0.3 seconds after a click, interaction gets staggered or broken; the user will feel that the machine is sluggish and does not follow his actions,</li>
+
+        <li>if nothing happens for 3 seconds after a user action, a crash will be assumed by the user.</li>
+    </ul>
+
+    <p>This makes it clear that if your software starts "thinking" which may take some time while the user is waiting, proper timing of proper feedback is crucial.</p>
+
+    <p>After any user action, always give instant feedback. If nothing happens in a third of a second, the user is likely to click again nervously.</p>
+
+    <p>In the beginning of a long calculation, start spinning the animated "busy" pointer within 3 seconds.</p>
+
+    <p>In addition, if a calculation takes really long, users need additional feedback about the length of the process and its progress. In Archicad, if a calculation goes on for 10 seconds without being complete, the Progress Indicator palette is opened. This palette provides information about the number of phases of the process, the estimated length of it and the current state.</p>
+
+    <p>In case of long calculations, users want the power to break them as they want. Make sure that your software can be stopped in such cases. If stopped, give users a clear indication whether the system returned to its previous state completely, or the broken process resulted in half done but effective results.</p>
+
+    <p>In a progress indicator palette, there is a Stop button to break these processes. On the Macintosh, in addition to this, make sure that pressing Command-Period breaks the process.</p>
+
+    <p>Also, make sure that mouse clicks made in an irresponsive state of the system are not cached and have a - most likely undesirable - effect a bit later. If a click is not effective immediately, forget it.</p>
+
+    <p>Visibility of processes is sometimes good, sometimes bad. Definitely avoid flashing of the entire window or switching of windows; also avoid showing things which are temporary and get reversed when the task is completed, like making a hidden layer temporarily visible in order to change some elements. In these cases stop the refreshing of graphics.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3>Localization</h3>
+
+    <ul>
+        <li>Do not use wired in text or settings.</li>
+
+        <li>Non-English text is typically 1.5x longer. Allow space for this in dialog boxes.</li>
+
+        <li>Plan dialog boxes to accommodate this (button sizes, titles etc.)</li>
+
+        <li>In Palettes or other non-modal windows, you may optimize for size.</li>
+
+        <li>Keep UI items that require localization separately.</li>
+
+        <li>Allow user preferences to be set for different markets.</li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 8, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

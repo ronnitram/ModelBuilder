@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API White Paper</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level1/API_White_Paper.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><b>API White Paper</b></h1>
+
+    <p>&nbsp;</p>
+
+    <ol>
+        <li>
+            <a href="#Basic_questions">Basic questions</a>
+
+            <ol>
+                <li><a href="#What_is">What is API Development Kit?</a></li>
+
+                <li><a href="#Why_need">Why do we need add-ons?</a></li>
+
+                <li><a href="#What_sort">What sort of add-ons are needed?</a></li>
+
+                <li><a href="#Is_only">Is API the only way?</a></li>
+
+                <li><a href="#Who_can">Who can do API development?</a></li>
+            </ol>
+        </li>
+
+        <li>
+            <a href="#Technical">Technical description</a>
+
+            <ol>
+                <li><a href="#Database_tools">Database tools</a></li>
+
+                <li><a href="#Interface_tools">Interface tools</a></li>
+
+                <li><a href="#Integration_tools">Integration tools</a></li>
+
+                <li><a href="#Development_tools">Development tools</a></li>
+            </ol>
+        </li>
+
+        <li><a href="#Examples">Examples</a></li>
+
+        <li><a href="#Summary">Summary</a></li>
+    </ol>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h2><b><a name="Basic_questions" id="Basic_questions"></a>Basic questions</b></h2>
+
+    <p>&nbsp;</p>
+
+    <h3><a name="What_is" id="What_is"></a>What is the API Development Kit?</h3>
+
+    <p>API means "Application Programming Interface"; a software environment that programmers can use to create tools (or "add-ons") enhancing the functionality of Archicad.</p>
+
+    <p>&nbsp;</p>
+
+    <h3><a name="Why_need" id="Why_need"></a>Why do we need add-ons?</h3>
+
+    <p>While Archicad's functionality grows rapidly version by version, it cannot and should not satisfy all the various needs of the A/E/C market in one shrink-wrapped solution. It cannot because the needs of some local or specialized markets are widespread (and sometimes contradictory) and should not because even if we manage to do so, the result would be a confusing and thus mostly unusable software-giant.</p>
+
+    <p>Graphisoft's development policy is to keep Archicad relatively "lean and mean"; that is to provide in the core Archicad only what can be regarded as universally (= worldwide) needed. That is the core A/E/C functionality. The API Development Kit provides the possibility to create necessary custom functionality in the form of add-ons. It is important to note that having add-ons does not necessarily mean that users have to "assemble" their solutions from bits and pieces. These add-ons can be a part of the Archicad installer and can be totally indistinguishable for users from the "hard-wired" core functionality. In fact, there are already several functions in Archicad which were created using the API (e.g. the DXF/DWG I/O or the construction grid function) and part of the standard installation (see more at "<a href="#Examples">Examples</a>").</p>
+
+    <p>&nbsp;</p>
+
+    <h3><a name="What_sort" id="What_sort"></a>What sort of add-ons are needed?</h3>
+
+    <p>There are three main areas where additional functionality is needed.</p>
+
+    <p><b>Creating local functionality</b></p>
+
+    <blockquote>
+        Besides the obvious universal aspects of the architectural and construction industry, practically every country or region has its own distinct features in design, structure, local regulations, etc. These needs ought to be satisfied, but without burdening users who do not need it. We at Graphisoft want to work closely with our local partners to create this "local" functionality and - if certain conditions are met - localized versions can include this in the Archicad installer.
+    </blockquote>
+
+    <p><b>Creating special functionality</b></p>
+
+    <blockquote>
+        There is an increasing need for "vertical" solutions based on Archicad for special areas such as log house design, 2X4 housing etc. These are not necessarily local, e.g. log house design has very similar requirements in Scandinavia and USA. Typically, such solutions are best received by the market if contained in a shrink-wrapped "special solution" (e.g. Archicad for Log House Design). It is a strategic goal for Graphisoft to develop such Archicad-based vertical solutions. Our developer partners can also initiate and create such solutions independently or in cooperation with us.
+    </blockquote>
+
+    <p><b>Customization</b></p>
+
+    <blockquote>
+        As a growing number of large companies use Archicad, the need for customization is increasing. With the help of Graphisoft's API technology now these requests can be satisfied quickly and locally by our developer partners. It also creates an additional, potentially lucrative revenue source for local distributors and resellers.
+
+        <p>&nbsp;</p>
+    </blockquote>
+
+    <h3><a name="Is_only" id="Is_only"></a>Is API the only way?</h3>
+
+    <p>API development is not the only way to provide extra functionality or to customize Archicad. From the very early days Archicad offered customization possibilities through GDL programming and GDL has still remained a very important tool for customization. GDL objects can naturally be reached by API add-ons and in fact - as explained in the <a href="#Examples">Examples</a> - the combined use of GDL objects and API add-ons is one of the most powerful ways to enhance Archicad's functionality. Besides the listing functions can be customized as well. These three programming environments provide a wide range of tools with the help of which one can successfully tackle the various problems in the A/E/C market. GDL and listing programming, however, are not part of the current discussion, to learn about them please refer to the appropriate manual (part of the Archicad package).</p>
+
+    <p>&nbsp;</p>
+
+    <h3><a name="Who_can" id="Who_can"></a>Who can do API development?</h3>
+
+    <p>API developers have to be experienced in C or C++ programming language. Naturally, it is not enough to know how, but what to develop. Therefore, it is a prerequisite to have a thorough knowledge of Archicad's functionality.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h2><b><a name="Technical" id="Technical"></a>Technical Description</b></h2>
+
+    <p>&nbsp;</p>
+
+    <p>The aim of the API Development Kit is to provide our development partners a way to develop add-ons that can access and modify the Virtual Building's database. The API software tools can be divided into four major groups according to their functionality:</p>
+
+    <p><b>Database tools</b></p>
+
+    <blockquote>
+        These functions allow to access the Virtual Building's database, and perform changes in it. You can find good example for this in the Element Test example add-on.
+    </blockquote>
+
+    <p><b>Interface tools</b></p>
+
+    <blockquote>
+        These functions allow to create graphical user interface (GUI) to the API add-ons. A good example is the Profiler, which allows the user to create revolved and tubular objects. It relies on both the platform-indepent Dialog Manager, and the input services of API.
+    </blockquote>
+
+    <p><b>Integration tools</b></p>
+
+    <blockquote>
+        These functions provide various possibilities to tightly integrate the API add-ons to the Archicad environment by catching Archicad "events". A simple example is the Selections add-on, which can store and restore favorite selections of the user. It catches all changes of the selection (select, deselect), and modifies the status of its interface elements accordingly.
+    </blockquote>
+
+    <p><b>Development tools</b></p>
+
+    <blockquote>
+        These are various software tools which make the development easier. You can find good example for this in the LibPart Test example add-on.
+    </blockquote>
+
+    <p>&nbsp;&nbsp;</p>
+
+    <h3><a name="Database_tools" id="Database_tools"></a>Database tools</h3>
+
+    <p>In most of the cases the main reason behind creating an add-on is to perform changes in the Virtual Building's database. These functions provide practically unlimited access to the Virtual Building database elements, notably to:</p>
+
+    <ul>
+        <li>all elements on the Floor Plan, Section/Elevations and Detail Drawings (including the selection and 3D information),</li>
+
+        <li>relations among these elements (e.g. wall intersections),</li>
+
+        <li>element's attributes,</li>
+
+        <li>library items (in the active libraries but not necessarily placed in the project),</li>
+
+        <li>listing database</li>
+    </ul>
+
+    <p>Developers can also access other information related to the Virtual Building database, e.g.:</p>
+
+    <ul>
+        <li>project preferences,</li>
+
+        <li>project settings,</li>
+
+        <li>3D window settings</li>
+    </ul>
+
+    <p>Using these tools, one can receive information, change, create and delete any elements in the Archicad database. That is, using API one can write a tool that e.g. after the user selects a wall and activates the API command, checks the wall's geometric parameters and - by calculating and assigning the necessary parameters to a previously written GDL object - replaces it with a library item containing the detailed geometric data of a curtain wall.</p>
+
+    <p>&nbsp;</p>
+
+    <h3><a name="Interface_tools" id="Interface_tools"></a>Interface tools</h3>
+
+    <p>To perform changes in the Virtual Building database the user must first be able to communicate his intentions to the add-on, that is, a graphical user interface is necessary. The API offers a greatly enhanced array of tools to let developers select the most suitable interface solution for a given problem. The following possibilities are at the disposal of developers:</p>
+
+    <p><b>Creating new menu items</b></p>
+
+    <blockquote>
+        Developers using the API can create new menu items within the standard Archicad menu structure (more than 15 possible insertion points). Moreover, developers can create completely new menus also. Standard menu-enhancement methods are also possible such as:
+
+        <ul>
+            <li>cascading menus (submenus),</li>
+
+            <li>creation of custom menu icons,</li>
+
+            <li>addition and removal of check marks,</li>
+
+            <li>graying out unused menus (depending on the context),</li>
+
+            <li>context-dependent, interactive modification of menu items.</li>
+        </ul>
+    </blockquote>
+
+    <p><b>Dialog boxes</b></p>
+
+    <blockquote>
+        API commands can open dialog boxes (modal dialogs and palettes). Here all the standard Archicad interface elements are at the developers' disposal. This feature allows developers to access the standard Archicad Interface Toolbox (called DG library) and provide an "Archicad look and feel" interface using the standard interface components (pen palettes, layer popup etc.).
+    </blockquote>
+
+    <p><b>Palettes</b></p>
+
+    <blockquote>
+        API commands can also open palettes which can stay open during the entire length of operation if necessary. Similarly, developers can access and use the DG Library for modal dialog boxes as well.
+
+        <p>Note: using this feature, new toolboxes can be created for API tools as well.</p>
+    </blockquote>
+
+    <p><b>Graphical input from Archicad</b></p>
+
+    <blockquote>
+        A rich set of methods support graphical input from an Archicad project during the course of an API command. It is possible to force the user to give geometric information of a point, line, arc or polygon. You can also create your own pet palette.
+    </blockquote>
+
+    <p><b>Cursor control</b></p>
+
+    <blockquote>
+        Developers are also allowed to control various cursor attributes (shapes, sensitivity, plane), while the graphical input services are running.
+    </blockquote>
+
+    <p><b>New windows</b></p>
+
+    <blockquote>
+        Developers can freely open new text and drawing windows and use Archicad's all 2D drafting engine for creating any sort of drawing or diagram.
+    </blockquote>
+
+    <p>Note: It is not possible to alter or hide parts of the standard Archicad interface, only additions can be created to accommodate the new API add-ons.</p>
+
+    <p>&nbsp;</p>
+
+    <h3><a name="Integration_tools" id="Integration_tools"></a>Integration tools</h3>
+
+    <p>While some API add-ons are entirely controlled by user actions through the GUI, in some cases developers may wish to start an event automatically, without any user interaction. Naturally, the two methods can be combined. Thus the API add-ons can be tightly integrated into Archicad's working environment by linking standard Archicad events with API add-on actions.</p>
+
+    <p>With these functions various user actions can be monitored and used as a "trigger" for other add-on actions. Developers are capable to get information about the following events:</p>
+
+    <p><b>Database changes</b></p>
+
+    <blockquote>
+        A change in the project is the event that triggers an action from the API add-on. E.g. if a roof window is moved, an add-on - catching the event - automatically adjusts the hole on the roof (just like in the case of windows linked to walls).
+    </blockquote>
+
+    <p><b>Creation of a new element</b></p>
+
+    <blockquote>
+        A new element added to the Virtual Building database may start an API add-on action as well. E.g. if a certain type of wall is created, an API add-on automatically creates footing for the wall.
+    </blockquote>
+
+    <p><b>Parameter setting change</b></p>
+
+    <blockquote>
+        While there is no change in the project database, a change in a parameter setting occurs. E.g. if the user selects a certain wall parameter setting in the Wall tool, it may trigger a warning message, saying "Using this width is against the office standards".
+    </blockquote>
+
+    <p><b>Project change</b></p>
+
+    <blockquote>
+        Something happens to the whole project that triggers the add-on's action. E.g. activating "Save as…" or "Send and receive…" may trigger an API add-on that automatically creates a backup or sends a notification about the action.
+    </blockquote>
+
+    <p><b>Library change</b></p>
+
+    <blockquote>
+        The state of the loaded libraries may change. E.g. the user unloads a library which contains elements necessary to use the add-on. In this case the add-on may post a warning to the user saying "Please reload the xxx library.".
+    </blockquote>
+
+    <p><b>Selection change</b></p>
+
+    <blockquote>
+        The element selection changed. E.g. the user selects a different element on the floor plan. Then an add-on may update an information palette (see the Element Information add-on).
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h3><a name="Development_tools" id="Development_tools"></a>Development tools</h3>
+
+    <p>The sole purpose of these tools is to make the development easier, faster, less prone to errors.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h2><b><a name="Examples" id="Examples"></a>Examples</b></h2>
+
+    <p>In the following we would like to present three API add-on examples that were developed by Graphisoft. These tools are very different in their functionality (I/O extension, architectural detailing, general modeling respectively), in their packaging (universally bundled add-on, mostly bundled with locally different content and free "goodie" downloadable from Graphisoft's websites) and naturally in their appearance. They represent the versatility that Archicad's API offers and we hope it will inspire our developer partners in their work.<br></p>
+
+    <h3><b>DWG/DXF I/O add-on</b></h3>
+
+    <blockquote>
+        This add-on is responsible for Archicad's DWG and DXF read and write functionality. It is a standard part of all Archicad packages. Therefore it may sound illogical to implement it as an add-on. However, DWG and DXF formats often change and usually these changes do not coincide with our usual upgrade cycle. Despite of this, we must be able to keep up with these changes as quickly as possible for the convenience of our users. The DWG/DXF I/O add-on offers us a chance to make adjustments in the DWG or DXF output without changing Archicad's source code (which would be a lot more time-consuming process).
+
+        <p>The add-on's interface is fairly simple, but the technology behind it is rather complex.</p>
+
+        <p>Similarly, if the necessary information is available, API developers can create I/O add-ons to practically any CAD or CG software.</p>
+    </blockquote>
+
+    <h3><b>RoofMaker</b></h3>
+
+    <blockquote>
+        RoofMaker - as its name suggests - creates roofs for Archicad projects. The architect first designs the roof with Archicad's Roof tool, then, using RoofMaker's parametric features, with a few clicks he or she is able to create a complex roof structure with beams, rafters etc. The new roof objects (placed by the API) are parametric GDL library parts and therefore can be easily modified later.
+
+        <p>However, the problem is that roof structures are different in Europe and US (not to speak about complex Japanese roofs !) and it would be very difficult to accommodate all in one tool (and keeping the interface simple…). For this reason we decided that - instead of hard-coding a roof-creation tool into Archicad - RoofMaker should be an add-on, customized to the major local markets. Thus - thanks to the API's plug-in architecture - we could satisfy local demands without compromising the unity of the core application.</p>
+
+        <p>It is important to note that besides the API add-on that places the GDL objects, there is a fair amount of GDL programming involved in the development of RoofMaker. Actually, this pattern - an API add-on placing and defining previously loaded GDL objects - is one of the most typical and powerful add-on solutions, combining the strength of GDL and API.</p>
+    </blockquote>
+
+    <h3><b>Profiler</b></h3>
+
+    <blockquote>
+        Archicad is often criticized that while GDL is indeed a very versatile tool for complex geometry, the average user has difficulties to learn GDL scripting. Profiler is an add-on tool that combines GDL's flexible geometry with the ease of use of the Archicad interface. With Profiler users can utilize the power of GDL's "Rotate" and "Sweep" commands without even opening the GDL editor. In this case, however, the API does not simply give parameters to previously loaded GDL objects, but creates them on the fly (users have to name them, of course). This way Profiler can maintain higher flexibility in creating free-form elements.
+
+        <p>On longer term we feel that it may become necessary for Archicad to accommodate such functionality in the core application as well. However, at the moment we decided not to make Profiler part of the package but keep it as a "goodie"; an add-on tool that can be freely downloaded from Graphisoft's websites.</p>
+
+        <p>&nbsp;</p>
+    </blockquote>
+    <hr>
+
+    <h2><b><a name="Summary" id="Summary"></a>Summary</b></h2>
+
+    <p>API v21 is a mature, modern development environment that allows Graphisoft and its partners to create a wide range of add-ons for the benefit of users. We at Graphisoft - being not only the developer but at the same time the user of the API technology - are committed to continuously upgrading the API Development Kit along with the subsequent releases of Archicad.</p>
+
+    <p>We welcome any report of possible bugs or suggestions how to improve the functionality of API. Graphisoft will do its best to incorporate these requests to the future releases of the API Development Kit.</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on Jan 24, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

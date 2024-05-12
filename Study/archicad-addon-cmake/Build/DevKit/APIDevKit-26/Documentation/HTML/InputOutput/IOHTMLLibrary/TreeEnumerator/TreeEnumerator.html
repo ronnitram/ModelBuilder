@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>TreeEnumerator</title><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/TreeEnumerator/TreeEnumerator.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TreeEnumerator class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>Recursive enumeration of folder trees. <!-- Not Index --><a href="#Description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td><!-- Not Index --><a href="../../InputOutput.html">InputOutput</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>TreeEnumerator.hpp</td>
+        </tr>
+    </table><br>
+    <br>
+
+    <h3>Public methods</h3>
+
+    <p><br>
+    &nbsp;&nbsp;&nbsp; <a href="Constructors.html">Constructors</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; Copy constructor<br>
+    &nbsp;&nbsp;&nbsp; operator=<br>
+    <br>
+    <b>Starting the enumeration</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Do.html">Do</a><br>
+    <br>
+    <br></p>
+
+    <h3>Protected methods</h3>
+
+    <p><br>
+    <b>Overridables</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="EntryFound.html">EntryFound</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="FileFound.html">FileFound</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="FolderFound.html">FolderFound<br></a>&nbsp;&nbsp;&nbsp; <a href="LinkFound.html">LinkFound</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="FolderEntered.html">FolderEntered</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="FolderExited.html">FolderExited</a><br>
+    <br>
+    <b>Additional methods for derived classes</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetParent.html">GetParent</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Stop.html">Stop</a><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp; <a href="GetStatus.html">GetStatus</a><br>
+    <br>
+    <br></p>
+
+    <h3><a name="Description"></a>Description</h3>
+
+    <p>This class supports recursive enumeration of folder trees. Class <!-- Not Index --><a href="../Folder/Folder.html">Folder</a> is responsible for the enumeration of its <b>direct</b> content (direct children) through an enumeration callback function supplied by the user. Recursive enumeration is somewhat more complicated, and to make it easier and flexible, this class encapsulates a set of callback functions with default implementations which can be overridden by the user. Separate methods are invoked when a new file, folder or link is found and when a subfolder is entered or exited.</p>
+
+    <p>User should create a TreeEnumerator instance with the root folder of the enumeration as parameter, start the enumeration (with the <!-- Not Index --><a href="Do.html">Do</a> method) and the appropriate methods will be invoked in the following order:</p>
+
+    <blockquote>
+        <p><img border="0" src="../../IOImageLibrary/TreeEnumerator.gif" width="464" height="437" alt="Tree enumerator"></p>
+
+        <p>&nbsp;</p>
+    </blockquote>
+
+    <p><!-- Not Index --><a href="EntryFound.html">EntryFound</a> method is invoked for each file system entry (file, folder, link) in the particular folder. On the return value true (which is the default implementation) either <!-- Not Index --><a href="FileFound.html">FileFound</a>, <!-- Not Index --><a href="FolderFound.html">FolderFound</a> or <!-- Not Index --><a href="LinkFound.html">LinkFound</a> method is invoked depending on the type of the entry (otherwise next entry will be processed). If the return value from the FolderFound method is true (which is the default implementation), then content of the particular (sub)folder will be also enumerated: call to <!-- Not Index --><a href="FolderEntered.html">FolderEntered</a> opens the (sub)enumeration, then EntryFound is invoked appropriate times and finally <!-- Not Index --><a href="FolderExited.html">FolderExited</a> closes the (sub)enumeration. If the return value from the LinkFound method is true (which is the default implementation), then type of the link's final target is determined and either FileFound or FolderFound method is invoked depending on this type (passing to these methods name of the link and not name of the link's target, that is link is presented as file or folder).</p>
+
+    <p>To do something more useful then running through the folder tree (this is the default implementation in TreeEnumerator), user should derive own class from TreeEnumerator and override appropriate methods. Inside the body of every "callback" method user can invoke few additional methods like query of the parent folder of the current entry or stopping the enumeration.</p>
+
+    <p>Enumeration will continue even if an error is encountered (for example access to a folder was denied). In this case code of the first error is stored and will be returned as result of the enumeration (as return value of the <!-- Not Index --><a href="Do.html">Do</a> method). Inside of callback methods current status of the enumeration can be queried with the <!-- Not Index --><a href="GetStatus.html">GetStatus</a> method.</p>
+
+    <p>Enumeration works properly even if the <b>current</b> entry is deleted. However this is not true for deleting of other entries and for other operations that modify content of the folder tree under enumeration.<br>
+    <br></p><img src="../../IOImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>Determining whether is a file system entry link or not is very slow and can significantly slow down the whole recursive enumeration process. If it is unacceptable then consider the <!-- Not Index --><a href="../ModuleFunctions/RestrictLinkExtensions.html">RestrictLinkExtensions</a> function which can radically speed up the link processing.</li>
+        </ul>
+    </blockquote><br>
+
+    <h3>See Also</h3>
+
+    <p><a href="../Folder/Folder.html">Folder</a>, <a href="../Name/Name.html">Name</a></p>
+
+    <p><a href="../HowTo/RecursiveEnumeration.html">Recursive enumeration of a folder tree</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

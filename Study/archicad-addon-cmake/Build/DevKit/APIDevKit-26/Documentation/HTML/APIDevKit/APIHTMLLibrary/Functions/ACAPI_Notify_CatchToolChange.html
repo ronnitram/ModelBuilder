@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Notify_CatchToolChange</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Notify_CatchToolChange.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Notify_CatchToolChange</h1>
+
+    <p>Turns the monitoring of toolbox item changes on/off.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Notify_CatchToolChange</strong> (
+        <strong><a href="APIToolChangeHandlerProc.html">APIToolChangeHandlerProc</a>*</strong>     <em>handlerProc</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>handlerProc</em></dt>
+
+        <dd>[in] The callback procedure to call when notifications are sent out on changes in the selection. Specifying <code>nullptr</code> here means you don't need the notifications any more.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function completed successfully.</dd>
+    </dl>
+
+    <p>For other common errors see the <a href="../Level2/Error_Codes.html">list of error codes</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to register/unregister an addon which wants to monitor the changes in the toolbox, i.e. when the user switches to an other toolbox item. You do not have to call <a href="ACAPI_KeepInMemory.html"><code>ACAPI_KeepInMemory</code></a> afterwards, as the API ensures that add-ons with installed notification handlers won't be unloaded.<br>
+    After registration your add-on's <code>handlerProc</code> you will be called when the selected toolbox item changes.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+// -----------------------------------------------------------------------------
+// Toolbox item change handler function
+// -----------------------------------------------------------------------------
+static GSErrCode __ACENV_CALL   ToolChangeHandler (const API_ToolBoxItem *newToolMode)
+
+{
+        char    msgStr[256];
+        char    elemStr[32];
+
+        if (newToolMode-&gt;typeID == API_ZombieElemID)
+                CHCopyC ("Arrow or Marquee", elemStr);
+        else if (!GetElementTypeString (newToolMode-&gt;typeID, elemStr))
+                CHCopyC ("Unknown", elemStr);
+
+        sprintf (msgStr, "%s toolbox mode selected", elemStr);
+        ACAPI_WriteReport (msgStr, false);
+
+        return NoError;
+}   // ToolChangeHandler
+
+
+// -----------------------------------------------------------------------------
+// Called after the Add-On has been loaded into memory
+// -----------------------------------------------------------------------------
+GSErrCode    __ACENV_CALL    Initialize (void)
+
+{
+    // catch changes in the toolbox
+    GSErrCode err = <font color="#FF0066">ACAPI_Notify_CatchToolChange</font> (ToolChangeHandler);
+
+    return err;
+}   // Initialize
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_KeepInMemory.html">ACAPI_KeepInMemory</a><br>
+    <a href="APIEnv_GetToolBoxModeID.html">APIEnv_GetToolBoxModeID</a><br>
+    <a href="APIEnv_SetToolBoxModeID.html">APIEnv_SetToolBoxModeID</a><br>
+    <a href="../Level3/notification_manager_id.html">Notification Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 1, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

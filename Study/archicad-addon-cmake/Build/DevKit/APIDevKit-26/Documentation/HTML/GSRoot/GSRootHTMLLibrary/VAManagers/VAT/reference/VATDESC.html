@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>VATDESC</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/VAManagers/VAT/reference/VATDESC.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>VATDESC</h1>
+
+    <p>The <strong>VATDESC</strong> structure defines a VAT.</p>
+    <pre class="syntax">
+typedef struct VATDESC{
+  long             freeind;
+  long             lastind;
+  long             maxind;
+  long             npage;
+  long             size;
+  GSHandle arrhdl;
+} VATDESC;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><strong>freeind</strong></dt>
+
+        <dd>Specifies the first free index of the VAT.</dd>
+
+        <dt><strong>lastind</strong></dt>
+
+        <dd>Specifies the last used index of the VAT. This is the internal length of the VAT.</dd>
+
+        <dt><strong>maxind</strong></dt>
+
+        <dd>Specifies the highest index of the VAT, of which a cell is allocated.</dd>
+
+        <dt><strong>npage</strong></dt>
+
+        <dd>Specifies the number of elements by which the VAT is increased or decreased.</dd>
+
+        <dt><strong>size</strong></dt>
+
+        <dd>Specifies the size of the elements stored in the VAT.</dd>
+
+        <dt><strong>arrhdl</strong></dt>
+
+        <dd>Specifies the handle of the buffer where the elements of the VAT are stored.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The VAT has an allocated buffer (<strong>arrhdl</strong>) which stores the elements of the VAT. The allocated buffer can store <strong>maxind</strong> elements. If you add elements to the VAT, first call the <a href="VATFind.html"><strong>VATFind</strong></a> function which tries to locate a free cell. If <strong>VATFind</strong> can not find any free cell, it increases the size of the allocated buffer continuously by the size of <strong>npage</strong> elements and updates the <strong>lastind</strong>, <strong>maxind</strong> and <strong>freeind</strong> members of the <strong>VATDESC</strong> structure.</p>
+
+    <p>Note that the <strong>maxind</strong> pointer always must be greater than or equal to the <strong>lastind</strong> pointer.</p>
+
+    <p>Note that you must call <strong>VATFind</strong> before inserting into or adding to a VAT to get the index of the first free cell in the VAT. After it you can complete the add or insert operation at the previously obtained index.</p>
+
+    <h4>Requirements</h4>
+
+    <p>&nbsp;&nbsp; <strong>Header:</strong> Declared in VA.hpp</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="functions_id.html">VAT Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

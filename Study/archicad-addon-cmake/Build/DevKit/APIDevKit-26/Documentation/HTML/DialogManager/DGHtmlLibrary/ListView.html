@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>List View</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/ListView.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>List View</h1>
+
+    <p>A list view control is a window that displays a collection of items from which the user can choose one or more items. Each item consists of an image and an item text (label). List view controls provide several view modes, i.e. ways to arrange items and to display individual items.</p>
+
+    <p>List views can be single-selection (allowing only one item to be selected at a time) or multiple-selection (allowing one or more items to be selected at a time). By default a list view has no horizontal scrollbar, but it always has a vertical scrollbar. If the list view is not large enough to display all the list view items at once, the scroll bar becomes active, otherwise it is disabled. Using the <em>NoScroll</em> flag from resource it is possible to display the list view control without the default vertical scrollbar. The user scrolls the list when necessary, and selects or removes the selection from items. Selecting a list view item changes its visual appearance, usually by blending the image and changing the text and background colors to the colors specified by the operating system for selected items.</p>
+
+    <p><font color="#FF0000">The multiple-selection list view control is not implemented yet.</font></p>
+
+    <h4>Item types</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_LISTVIEW</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LVT_SINGLESELECT</tt></td>
+
+                    <td>Only one selection is possible.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LVT_MULTISELECT</tt></td>
+
+                    <td>Multiple-selection is possible.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>View Modes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LVVM_BOTTOMTEXT</tt></td>
+
+                    <td>The item text is displayed below the image.<br>
+                    <br>
+                    <img src="../DGImageLibrary/ListViewBottomText_Mac.png" width="488" height="268" alt="ListViewBottomText_Mac"><br>
+                    <br>
+                    <img src="../DGImageLibrary/ListViewBottomText_Win.png" alt="ListViewBottomText_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LVVM_RIGHTTEXT</tt></td>
+
+                    <td>The item text is displayed at the right side of the image.<br>
+                    <br>
+                    <img src="../DGImageLibrary/ListViewRightText_Mac.png" width="488" height="268" alt="ListViewRightText_Mac"><br>
+                    <br>
+                    <img src="../DGImageLibrary/ListViewRightText_Win.png" alt="ListViewRightText_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_LVVM_SINGLECOLUMN</tt></td>
+
+                    <td>The list is single-column: the image is aligned to the left, the item text area extends to the end of the row.<br>
+                    <br>
+                    <img src="../DGImageLibrary/ListViewSingleColumn_Mac.png" width="488" height="268" alt="ListViewSingleColumn_Mac"><br>
+                    <br>
+                    <img src="../DGImageLibrary/ListViewSingleColumn_Win.png" alt="ListViewSingleColumn_Win"><br>
+                    <br></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    SingleSelListView    <i>x  y  dx  dy  fontSpec  imWidth  imHeight  cellWidth  cellHeight  lvModeFlag</i>  [<i>NoScroll</i>]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the list view, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the item labels. <em>cellWidth</em>, <em>cellHeight</em> and <em>imWidth</em>, <em>imHeight</em> are the width and height of the list view items and item images in pixels, respectively. <em>lvModeFlag</em> defines the view mode of the list view control. By the optional <em>NoScroll</em> flag the list view control is created without the default vertical scrollbar.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>lvModeFlag</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>bottomText</tt></td>
+
+                    <td>The <tt>DG_LVVM_BOTTOMTEXT</tt> view mode is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>rightText</tt></td>
+
+                    <td>The <tt>DG_LVVM_RIGHTTEXT</tt> view mode is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>singleColumn</tt></td>
+
+                    <td>The <tt>DG_LVVM_SINGLECOLUMN</tt> view mode is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>The selection is changed in the list view. The message data parameter is always zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a></td>
+
+                    <td>A list view item is double clicked. The message data contains the 1-based index of the list view item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_FOCUS.html"><tt>DG_MSG_FOCUS</tt></a></td>
+
+                    <td>The list view gains or loses the keyboard focus. The message data is 1 or zero, respectively.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a></td>
+
+                    <td>The image of a list view item should be redrawn. DG sends this message to the dialog callback function only if the image type of the list view item is <tt>DG_LVIT_OWNERDRAW</tt>. The message data parameter of the message is a pointer to a <a href="DGListViewUpdateData.html">DGListViewUpdateData</a> structure that contains all the necessary information to draw the image by the application.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DRAGDROP.html"><tt>DG_MSG_DRAGDROP</tt></a></td>
+
+                    <td>Drag and drop related event occured. This message can come only after it is enabled with <a href="DGEnableMessage.html">DGEnableMessage</a>. List views can be both drag source and target.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p>The <a href="DGListViewSelectItem.html">DGListViewSelectItem</a> and <a href="DGListViewDeselectItem.html">DGListViewDeselectItem</a> functions set the list view's modification flag except if they are called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. The flag can also be set by user actions that change the selection in the list view and generate <tt>DG_MSG_CHANGE</tt> messages. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>Call <a href="DGListViewInsertItem.html">DGListViewInsertItem</a> to insert items into a list view control and <a href="DGListViewDeleteItem.html">DGListViewDeleteItem</a> to delete them. The number of items currently in a list view can be retrieved by <a href="DGListViewGetItemCount.html">DGListViewGetItemCount</a>.</p>
+
+    <p>The width and height of a list view item can be set and retrieved by <a href="DGListViewSetItemSize.html">DGListViewSetItemSize</a> and <a href="DGListViewGetItemSize.html">DGListViewGetItemSize</a>, respectively. The image rectangle cannot exceed this item rectangle. If the image is greater than the list view item, the image is clipped to fit in. To set and retrieve the image rectangle use <a href="DGListViewSetImageSize.html">DGListViewSetImageSize</a> and <a href="DGListViewGetImageSize.html">DGListViewGetImageSize</a>. A list view control can have up to three different view modes. The view mode can be set not only from the GRC, but also from the program code by the <a href="DGListViewSetViewMode.html">DGListViewSetViewMode</a> function call. Use <a href="DGListViewGetViewMode.html">DGListViewGetViewMode</a> to retrieve the current view mode.</p>
+
+    <p>There are two ways to define a list view item image:</p>
+
+    <ul>
+        <li>Assign images to the items individually by <a href="DGListViewSetItemImage.html">DGListViewSetItemImage</a>, <a href="DGListViewSetItemImageId.html">DGListViewSetItemImageId</a> or <a href="DGListViewSetItemImageResource.html">DGListViewSetItemImageResource</a>. These images can be of different types and sizes for each list view item. Use <a href="DGListViewGetItemImage.html">DGListViewGetItemImage</a>, <a href="DGListViewGetItemImageId.html">DGListViewGetItemImageId</a> and <a href="DGListViewGetItemImageResource.html">DGListViewGetItemImageResource</a> to retrieve this item specific image data, image ID and image resource module.</li>
+
+        <li>Associate one image with the list view itself by <a href="DGListViewSetImage.html">DGListViewSetImage</a>, <a href="DGListViewSetImageId.html">DGListViewSetImageId</a> or <a href="DGListViewSetImageResource.html">DGListViewSetImageResource</a>, divide it into smaller sub-images of the same size by giving the number of rows and the total number of sub-images. Assign a sub-image to the list view item by <a href="DGListViewSetItemImageIndex.html">DGListViewSetItemImageIndex</a>. The image index parameter of the function is the simple 1-based row-by-row index of a sub-image. In this case the type of the item's image will be <tt>DG_LVIT_IMAGEINDEX</tt>. The image data, image ID and image resource module associated with the list view control can be retrieved by <a href="DGListViewGetImage.html">DGListViewGetImage</a>, <a href="DGListViewGetImageId.html">DGListViewGetImageId</a> and <a href="DGListViewGetImageResource.html">DGListViewGetImageResource</a>.</li>
+    </ul>
+
+    <p>One possibility to specify the list view item image is to set it with its image handle by <strong>DGListViewSetItemImage</strong> or <strong>DGListViewSetImage</strong>, the other possibility is to set it with its resource ID by <strong>DGListViewSetItemImageId</strong> or <strong>DGListViewSetImageId</strong>. The image handle can be retrieved by <strong>DGListViewGetItemImage</strong> or <strong>DGListViewGetImage</strong>, the image resource ID can be retrieved by <strong>DGListViewGetItemImageId</strong> or <strong>DGListViewGetImageId</strong> and the resource module ID of the image can be retrieved by <strong>DGListViewGetItemImageResource</strong> or <strong>DGListViewGetImageResource</strong>.</p>
+
+    <p><a href="DGListViewSetItemText.html">DGListViewSetItemText</a> and <a href="DGListViewGetItemText.html">DGListViewGetItemText</a> serve to set and retrieve the text of list view items. The text rectangle cannot be set, DG calculates its sizes from the item and image rectangles. With appropriate parameters multi-line item text can be achieved, too. The item text cannot contain end-of-line characters but DG can break the lines. If the text does not fit in the item rectangle, DG automatically truncates it with an ellipse ("...").</p>
+
+    <p>The text style, status and color of each list view item can be changed separately by <a href="DGListViewSetItemStyle.html">DGListViewSetItemStyle</a>, <a href="DGListViewSetItemStatus.html">DGListViewSetItemStatus</a> and <a href="DGListViewSetItemColor.html">DGListViewSetItemColor</a>. To retrieve these list view item properties use <a href="DGListViewGetItemStyle.html">DGListViewGetItemStyle</a>, <a href="DGListViewGetItemStatus.html">DGListViewGetItemStatus</a> and <a href="DGListViewGetItemColor.html">DGListViewGetItemColor</a>, respectively. Each list view item can have a user-defined value that can be used to store any item specific user data. <a href="DGListViewSetItemUserData.html">DGListViewSetItemUserData</a> and <a href="DGListViewGetItemUserData.html">DGListViewGetItemUserData</a> give an access to this value.</p>
+
+    <p>A list view control can be single-selection or multiple-selection. The user can select list view items by the mouse or by keypresses through the usual ways. To select or deselect one or more list view items from the program code call <b>DGListViewSelectItem</b> and <b>DGListViewDeselectItem</b>, respectively. Use <a href="DGListViewGetSelCount.html">DGListViewGetSelCount</a> to retrieve the number of selected list view items and <a href="DGListViewGetSelected.html">DGListViewGetSelected</a> or <a href="DGListViewGetSelItems.html">DGListViewGetSelItems</a> to get their indices. A mouse click on the empty client area of a list view (where there is no list view item) removes all the previous selections. In this case a <tt>DG_MSG_CHANGE</tt> message is sent to notify the application.</p>
+
+    <p>The parameters of a list view item can be set by calling <a href="ListViewSpecific_id.html">list view specific functions</a>. To avoid order-dependence of these function calls, DG checks consistency of the parameters only when drawing the list view item. This is why it is advised to enclose list view function calls by <a href="DGListViewDisableDraw.html">DGListViewDisableDraw</a> and <a href="DGListViewEnableDraw.html">DGListViewEnableDraw</a> if more items or parameters are modified. As <b>DGListViewEnableDraw</b> itself does not update the list view control, it is the application's responsibility to redraw the invalid areas by calling <a href="DGInvalidateItem.html">DGInvalidateItem</a> or <a href="DGRedrawItem.html">DGRedrawItem</a>.</p>
+
+    <p>If the image type of a list view item is <tt>DG_LVIT_OWNERDRAW</tt> and this item should be redrawn, DG sends a <tt>DG_MSG_UPDATE</tt> message to the dialog callback function. The message data parameter of this message is a pointer to a <b>DGListViewUpdateData</b> structure that contains all the necessary information to draw the image by the application. The application should just draw the image; graying and blending are handled by DG after the dialog callback function returns. To set the owner draw flag of a list view item use the <a href="DGListViewSetItemOwnerDrawFlag.html">DGListViewSetItemOwnerDrawFlag</a> function.</p>
+
+    <p>The list view is one of the focusable controls of DG. When a list view gains or loses the keyboard focus as a result of user actions, the dialog callback function receives a <tt>DG_MSG_FOCUS</tt> message. The keyboard focus can be set to a list view from program code, too, by <a href="DGSetFocus.html">DGSetFocus</a>. To retrieve the control that currently has the keyboard focus use <a href="DGGetFocus.html">DGGetFocus</a>.</p>
+
+    <p>The keyboard focus and the focusable control categories in DG essentially have the same meaning as in the Macintosh operating system (i.e. the same type of controls are focusable in DG and on Macintosh). On Windows, however, more controls can have keyboard focus. Focusable controls of DG form a subset of focusable controls of Windows. The <b>DGSetFocus</b> and <b>DGGetFocus</b> functions work on focusable controls of DG only.</p>
+
+    <p>The detailed help information of the item can be invoked by setting the keyboard focus to a focusable dialog item then pressing the [F1] key on Windows or [Help] key on Macintosh; or by clicking the right mouse button on the item; or by clicking the help [?] button in the dialog caption then clicking on the item itself. If tooltips are enabled, the short help information is displayed as usual. There are two ways to display help text for a list view. Help text can be displayed for each item of the list view or only one help text can be displayed for the list view. The help style of the list view can be set and retrieved by the <a href="DGListViewSetHelpStyle.html">DGListViewSetHelpStyle</a> and <a href="DGListViewGetHelpStyle.html">DGListViewGetHelpStyle</a> functions, respectively.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="ListViewSpecific_id.html">List view specific functions</a>, <a href="DGGetFocus.html">DGGetFocus</a>, <a href="DGInvalidateItem.html">DGInvalidateItem</a>, <a href="DGModified.html">DGModified</a>, <a href="DGRedrawItem.html">DGRedrawItem</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetFocus.html">DGSetFocus</a>, <a href="DGSetItemFont.html">DGSetItemFont</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a>, <a href="DG_MSG_FOCUS.html"><tt>DG_MSG_FOCUS</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a>, <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a><br>
+    <a href="DGListViewUpdateData.html">DGListViewUpdateData</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 2, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

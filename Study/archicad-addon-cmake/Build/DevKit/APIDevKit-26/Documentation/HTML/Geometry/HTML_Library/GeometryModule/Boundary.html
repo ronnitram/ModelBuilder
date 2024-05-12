@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title></title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/GeometryModule/Boundary.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <a href="../GeometryModule/Boundary.html">Boundary</a>
+
+    <h1>Geometry::Boundary</h1>
+
+    <p>All boundaries of set of points can be open or closed. You can use this enum to sign the appropriate case.</p>
+    <pre class="syntax">
+    <strong>enum</strong> Boundary {
+        Boundary_Opened,
+        Boundary_Closed,
+        Boundary_Mixed,
+        Boundary_Unknown
+    };
+</pre>
+
+    <table border="1">
+        <tr>
+            <th align="left" width="200">Enumerator Value</th>
+
+            <th align="left">Meaning</th>
+        </tr>
+
+        <tr>
+            <td>Boundary_Opened</td>
+
+            <td>Sign an open set of points.</td>
+        </tr>
+
+        <tr>
+            <td>Boundary_Closed</td>
+
+            <td>Sign a closed set of points.</td>
+        </tr>
+
+        <tr>
+            <td>Boundary_Mixed</td>
+
+            <td>Sign a mixed boundary set of points.</td>
+        </tr>
+
+        <tr>
+            <td>Boundary_Unknown</td>
+
+            <td>Sign an unknown boundary set of points.</td>
+        </tr>
+    </table>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> GeometryMain.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="GeometryModule_id.html">Module-level functions and enums</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 23, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

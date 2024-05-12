@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_NavigatorViewSettingsFlags</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_NavigatorViewSettingsFlags.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_NavigatorViewSettingsFlags</h1>
+
+    <p>Determines which view settings to enable in an <a href="API_NavigatorAddOnViewPointData.html">API_NavigatorAddOnViewPointData</a>.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>API_NavgatorViewSettingsNoAttributeID</em>                    = <em>0b000000000</em>,
+        <em>API_NavgatorViewSettingsLayerAttributeID</em>                 = <em>0b000000001</em>,
+        <em>API_NavgatorViewSettingsScaleAttributeID</em>                 = <em>0b000000010</em>,
+        <em>API_NavgatorViewSettingsStructureDisplayAttributeID</em>      = <em>0b000000100</em>,
+        <em>API_NavgatorViewSettingsPenTableAttributeID</em>              = <em>0b000001000</em>,
+        <em>API_NavgatorViewSettingsDisplayOptionAttributeID</em>         = <em>0b000010000</em>,
+        <em>API_NavgatorViewSettingsOverrideCombinationAttributeID</em>   = <em>0b000100000</em>,
+        <em>API_NavgatorViewSettingsPlanTypeAttributeID</em>              = <em>0b001000000</em>,
+        <em>API_NavgatorViewSettingsDimensionAttributeID</em>             = <em>0b010000000</em>,
+        <em>API_NavgatorViewSettingsZoomAttributeID</em>                  = <em>0b100000000</em>
+    <strong>}</strong> <em>API_NavigatorViewSettingsFlags</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>API_NavgatorViewSettingsNoAttributeID</b></dt>
+
+        <dd>Disable all view settings types.</dd>
+
+        <dt><b>API_NavgatorViewSettingsLayerAttributeID</b></dt>
+
+        <dd>Enable Layer Combination.</dd>
+
+        <dt><b>API_NavgatorViewSettingsScaleAttributeID</b></dt>
+
+        <dd>Enable Scale.</dd>
+
+        <dt><b>API_NavgatorViewSettingsStructureDisplayAttributeID</b></dt>
+
+        <dd>Enable Partial Structure Display.</dd>
+
+        <dt><b>API_NavgatorViewSettingsPenTableAttributeID</b></dt>
+
+        <dd>Enable Pen Set.</dd>
+
+        <dt><b>API_NavgatorViewSettingsDisplayOptionAttributeID</b></dt>
+
+        <dd>Enable Model View Options.</dd>
+
+        <dt><b>API_NavgatorViewSettingsOverrideCombinationAttributeID</b></dt>
+
+        <dd>Enable Graphic Override Combinations.</dd>
+
+        <dt><b>API_NavgatorViewSettingsPlanTypeAttributeID</b></dt>
+
+        <dd>Enable Renovation Filter.</dd>
+
+        <dt><b>API_NavgatorViewSettingsDimensionAttributeID</b></dt>
+
+        <dd>Enable Dimensions.</dd>
+
+        <dt><b>API_NavgatorViewSettingsZoomAttributeID</b></dt>
+
+        <dd>Enable Zoom.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 22 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Navigator.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_NavigatorAddOnViewPointData.html">API_NavigatorAddOnViewPointData</a>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on August 17, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

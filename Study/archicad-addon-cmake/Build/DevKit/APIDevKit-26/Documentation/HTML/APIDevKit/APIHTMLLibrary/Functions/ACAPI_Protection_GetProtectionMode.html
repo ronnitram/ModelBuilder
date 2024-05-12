@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Protection_GetProtectionMode</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Protection_GetProtectionMode.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Protection_GetProtectionMode</h1>
+
+    <p>Retrieves information about the protection mode.</p>
+    <pre class="syntax">
+    <strong>UInt32 ACAPI_Protection_GetProtectionMode</strong> ();
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Value</h4>
+
+    <p>Bit field representing different states of the current protection environment.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You can use the following predefined masks to retrieve information about the protection type. </p>
+
+    <ul>
+        <li>APIPROT_SITE_MASK: More license (full version)</li>
+
+        <li>APIPROT_NFR_MASK: Not For Resale version (full version)</li>
+
+        <li>APIPROT_SCHOOL_MASK: School version (full version)</li>
+
+        <li>APIPROT_PPU_MASK:&nbsp;PPU version (full version)</li>
+
+        <li>APIPROT_NET_MASK: Network licensing</li>
+
+        <li>APIPROT_TW_MASK: TeamWork functionality is on</li>
+
+        <li>APIPROT_PROTEDU_MASK: Education version</li>
+
+        <li>APIPROT_START_MASK&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12">: Start edition</li>
+    </ul>
+
+    <p>Usable masks in case of no hardware or software key:</p>
+
+    <ul>
+        <li>APIPROT_EDU_MASK: Education version</li>
+
+        <li>APIPROT_DEMO_MASK: Demo version</li>
+
+        <li>APIPROT_TRIAL_MASK: Trial version</li>
+
+        <li>APIPROT_BTC_MASK&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="18" width="19" height="12">: BIM Cloud Team Client version</li>
+    </ul>
+
+    <p>This information can be used to restrict the functionality of your Add-On for certain Archicad editions and license types (use the bitwise-AND operator to find out your license parameters).</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>bool IsInDemoMode ()
+{
+    return ACAPI_Protection_GetProtectionMode () & APIPROT_DEMO_MASK;
+}
+</code></pre>
+    </blockquote>
+
+    For more detailed examples, please see the Protection_Test add-on.
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 26 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

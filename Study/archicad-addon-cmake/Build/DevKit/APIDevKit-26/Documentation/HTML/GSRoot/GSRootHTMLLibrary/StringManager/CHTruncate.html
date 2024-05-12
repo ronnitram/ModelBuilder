@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+
+    <title>CHTruncate</title>
+    <meta name="GENERATOR" content="OpenOffice.org 1.0.1 (Win32)">
+    <meta name="AUTHOR" content="Domotor Akos">
+    <meta name="CREATED" content="20021210;9345727">
+    <meta name="CHANGEDBY" content="Miklós Fazekas">
+    <meta name="CHANGED" content="20021210;9364865">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/StringManager/CHTruncate.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>CHTruncate</h1>
+
+    <p>Truncate C string. [<tt>strncpy</tt>]</p>
+    <pre class="syntax">
+    <strong>long CHTruncate</strong> (
+      <strong>const char</strong>*  <em>sourceCString</em>,
+      <strong>char</strong>*        <em>targetCString</em>,
+      <strong>long</strong>         <em>targetSize</em>,
+      <strong><a href="GSCharCode.html">GSCharCode</a></strong>   <em>charCode</em> = CC_Default
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>sourceCString</em></dt>
+
+        <dd>Source C string.</dd>
+
+        <dt><em>targetCString</em></dt>
+
+        <dd>Destination C string.</dd>
+
+        <dt><em>targetSize</em></dt>
+
+        <dd>Length of the destination buffer. <b>This length is in bytes, and it includes the null terminator character!</b></dd>
+
+        <dt><em>charCode</em></dt>
+
+        <dd style="margin-bottom: 0.5cm">Character code.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The number of bytes in the <i>targetCString</i> not including the null terminator.</p>
+
+    <h4>Remarks</h4>
+
+    <p><i>targetCString</i> and <i>sourceCString</i> might be the same, but they cannot overlap!</p>
+
+    <p><i>targetCString</i> should be at least <em>targetSize</em> bytes long!</p>
+
+    <p><em><i>targetSize</i></em> is the length of destination buffer, and the destination string will be null terminated!</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> GSRoot 2.0 or later</dd>
+
+        <dd><b>Header:</b> CH.hpp</dd>
+
+        <dd><b>Import Library:</b> GSRootImp.lib.lib</dd>
+
+        <dd style="margin-bottom: 0.5cm"><b>Module:</b> GSRoot</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="CHCopyC.html">CHCopyC</a>, <a href="CHCopyPascal.html">CHCopyPascal</a></p>
+
+    <p align="center" style="margin-bottom: 0cm"><br>
+    
+</p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on October 10, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

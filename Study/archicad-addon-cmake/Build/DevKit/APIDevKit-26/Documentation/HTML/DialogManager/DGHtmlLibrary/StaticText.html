@@ -1,0 +1,490 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Static Text</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/StaticText.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Static Text</h1>
+
+    <p>Static text controls provide a convenient way to display text on dialogs. They often serve as labels for other controls.</p>
+
+    <p>There are three basic types of static text controls: left text, center text and right text controls. The text of a static text control can be aligned not only horizontally but vertically as well. Moreover if the text does not fit into the controls rectangle, DG can truncate it using an ellipse character in the middle or at the end.</p>
+
+    <p>By default a static text control is drawn without frame, however it can have three types of frames: static edge, client edge and modal frame.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/StaticText_Mac.png" width="250" height="112" alt="StaticText_Mac">&nbsp;&nbsp;&nbsp;&nbsp;<img src="../DGImageLibrary/StaticText_Win.png" alt="StaticText_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_STATICTEXT</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_LEFT</tt></td>
+
+                    <td>Text is aligned to the left.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_CENTER</tt></td>
+
+                    <td>Text is centered horizontally.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_RIGHT</tt></td>
+
+                    <td>Text is aligned to the right.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Flags</h4>
+
+    <dl>
+        <dd>The static text control's flag can be any combination of the following vertical alignment and truncation flags:</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_VTOP</tt></td>
+
+                    <td>Text is aligned to the top.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_VCENTER</tt></td>
+
+                    <td>Text is centered vertically.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_VBOTTOM</tt></td>
+
+                    <td>Text is aligned to the bottom.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_NOTRUNC</tt></td>
+
+                    <td>No truncation.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_TRUNCEND</tt></td>
+
+                    <td>Truncates at the end.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_TRUNCMIDDLE</tt></td>
+
+                    <td>Truncates in the middle. (Leaves the same number of characters from both ends of the text.)</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Frame types</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Frame type</th>
+
+                    <th align="left" width="360">Meaning</th>
+
+                    <th align="left"></th>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FT_NONE</tt></td>
+
+                    <td>It will be drawn without frame.</td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FT_STATIC</tt></td>
+
+                    <td>Thin three-dimensional border with a sunken edge.</td>
+
+                    <td><img src="../DGImageLibrary/FrameStatic_Mac.png" width="40" height="40" alt="FrameStatic_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/FrameStatic_Win.png" alt="FrameStatic_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FT_CLIENT</tt></td>
+
+                    <td>Thick three-dimensional border with a sunken edge.</td>
+
+                    <td><img src="../DGImageLibrary/FrameClient_Mac.png" width="40" height="40" alt="FrameClient_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/FrameClient_Win.png" alt="FrameClient_Win"></td>
+                </tr>
+
+                <tr>
+                    <td><tt>DG_FT_MODAL</tt></td>
+
+                    <td>Thick three-dimensional border with a raised edge.</td>
+
+                    <td><img src="../DGImageLibrary/FrameModal_Mac.png" width="40" height="40" alt="FrameModal_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/FrameModal_Win.png" alt="FrameModal_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    LeftText      <i>x  y  dx  dy  fontSpec</i>  [textFlag]  [frameType]  <i>"text"</i>
+    CenterText    <i>x  y  dx  dy  fontSpec</i>  [textFlag]  [frameType]  <i>"text"</i>
+    RightText     <i>x  y  dx  dy  fontSpec</i>  [textFlag]  [frameType]  <i>"text"</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the static text control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the control <em>text</em>. The optional <em>textFlag</em> parameter is the <tt>OR(|)</tt> combination of the vertical alignment and truncation flags. If this parameter is omitted the text is aligned to the top and no truncation is applied. If the optional <em>frameType</em> flag is omitted, the static text control is drawn without frame.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the vertical alignment flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>vTop</tt></td>
+
+                    <td>The <tt>DG_IS_VTOP</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>vCenter</tt></td>
+
+                    <td>The <tt>DG_IS_VCENTER</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>vBottom</tt></td>
+
+                    <td>The <tt>DG_IS_VBOTTOM</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the truncation flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noTrunc</tt></td>
+
+                    <td>The <tt>DG_IS_NOTRUNC</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>truncEnd</tt></td>
+
+                    <td>The <tt>DG_IS_TRUNCEND</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>truncMiddle</tt></td>
+
+                    <td>The <tt>DG_IS_TRUNCMIDDLE</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>frameType</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Default</tt></td>
+
+                    <td>The <tt>DG_FT_NONE</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>StaticEdge</tt></td>
+
+                    <td>The <tt>DG_FT_STATIC</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ClientEdge</tt></td>
+
+                    <td>The <tt>DG_FT_CLIENT</tt> frame type is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ModalFrame</tt></td>
+
+                    <td>The <tt>DG_FT_MODAL</tt> frame type is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Suggested sizes</h4>
+
+    <dl>
+        <dd>The following item height values can be suggested for static text controls:</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Font size</th>
+
+                    <th align="left">Item height in pixels</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+
+                    <td>12</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_SMALL</tt></td>
+
+                    <td>14</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_LARGE</tt></td>
+
+                    <td>16</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dd>If the static text control has a frame, increase the above values by 4 pixels in order to make enough room for the frame rectangle.</dd>
+    </dl>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a></td>
+
+                    <td>The static text control is clicked. The message data parameter is always zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a></td>
+
+                    <td>The static text control is double clicked. The message data parameter is always zero.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_MOUSEMOVE.html"><tt>DG_MSG_MOUSEMOVE</tt></a></td>
+
+                    <td>The user moves the mouse over a static text control. The message data parameter is a pointer to a <a href="DGStaticItemMsgData.html">DGStaticItemMsgData</a> structure cast to <tt><strong>DGMessageData</strong></tt>. This structure contains information about the item itself, the keyboard state, and the mouse.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The text of a static text control can be set, modified and retrieved by <a href="DGSetItemText.html">DGSetItemText</a>, <a href="DGCatItemText.html">DGCatItemText</a> and <a href="DGGetItemText.html">DGGetItemText</a>, respectively. The control can display its text with any of the DG fonts. The font can be specified not only in GRC, but by the <a href="DGSetItemFont.html">DGSetItemFont</a> function as well. Use <a href="DGGetItemFont.html">DGGetItemFont</a> to retrieve the font currently assigned to a static text control.</p>
+
+    <p>A static text control can contain multiple lines of text. If no truncation is specified and the text doesn't fit horizontally in the control rectangle, DG automatically breaks it into multiple lines on word boundaries. Vertically partial lines are not displayed so the second and further lines can be seen only if the control is high enough to display them fully. Texts can be explicitly break into more lines by inserting new line (<tt>\n</tt>) characters into them.</p>
+
+    <p>When any truncation is specified the situation is a little different. First DG calculates how many full height lines can be displayed in the control's rectangle. Then it truncates the text with an ellipse character in the middle or at the end. Finally the gained text is justified according to the specified horizontal and vertical alignments.</p>
+
+    <p>Sometimes when labeling a control with a static text, it is advisable to set the height of both controls to the same value and assign the <em>vCenter</em> alignment flag to the static text in GRC. This way the static text will be vertically centered to the labeled control.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a><br>
+    <a href="DGCatItemText.html">DGCatItemText</a>, <a href="DGGetItemFont.html">DGGetItemFont</a>, <a href="DGGetItemText.html">DGGetItemText</a>, <a href="DGSetItemFont.html">DGSetItemFont</a>, <a href="DGSetItemText.html">DGSetItemText</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

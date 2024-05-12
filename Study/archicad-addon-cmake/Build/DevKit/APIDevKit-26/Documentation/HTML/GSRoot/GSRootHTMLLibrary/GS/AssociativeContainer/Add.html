@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Add (AssociativeContainer)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/AssociativeContainer/Add.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="AssociativeContainer.html">AssociativeContainer</A>&lt;IndexType, ItemType&gt;::Add</H2><!--exp="AssociativeContainer<IndexType, ItemType>::Add-->
+<P><topic id="$GS.$AssociativeContainer.$Add.BriefDescription">
+		Adds a new item with its associated index.
+	</topic></P>
+<PRE class="syntax"><B>bool Add (</B>
+    <B>const IndexType &amp;   </B><I>idx</I>,
+    <B>const ItemType &amp;    </B><I>item</I>
+<B>);</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>idx</I></DT><DD><topic id="$GS.$AssociativeContainer.$Add.$idx.ParamDescription">
+		Index of the item. Item will be accessible with this index. Index should be unique in
+		the associative container otherwise the operation will fail.
+	</topic></DD><DT><I>item</I></DT><DD><topic id="$GS.$AssociativeContainer.$Add.$item.ParamDescription">
+		Item to be added.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$AssociativeContainer.$Add.ReturnDescription">
+		<table class="enumeration">
+		  <tr>
+			<th>Value</th>
+			<th>Meaning</th>
+		  </tr>
+		  <tr>
+			<td>true</td>
+			<td>item was successfully added</td>
+		  </tr>
+		  <tr>
+			<td>false</td>
+			<td>item was not added because another item with the same index already exists</td>
+		  </tr>
+		</table>
+	</topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$AssociativeContainer.$Add.LongDescription">
+		This method adds a new item with its associated index to the associative container.
+		It will fail if another item with the same index already exists in the container.<br>
+		On memory overflow OutOfMemoryException exception will be thrown.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$AssociativeContainer.$Add.SeeAlso">
+		<!----><A href="Put.html">Put</A>
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

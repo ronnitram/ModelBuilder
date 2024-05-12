@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Bende Laszlo">
+
+    <title>DGSetOnlyUpdateFlag</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGSetOnlyUpdateFlag.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGSetOnlyUpdateFlag</h1>
+
+    <p>Enable or disable receiving only update messages for <a href="ModelessDialogs.html">modeless dialogs</a>.</p>
+    <pre class="syntax">
+    <strong>void DGSetOnlyUpdateFlag</strong> (
+      <strong>bool</strong>  <em>onlyUpdate</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>onlyUpdate</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>true</tt></td>
+
+                    <td>Only update messages will be delivered to modeless and palette dialogs that have normal (<tt>DG_DS_NORMAL</tt>) status.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>false</tt></td>
+
+                    <td>All dialog related messages are handled.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>There is a global flag in DG called <tt>onlyUpdate</tt>. This function sets the value of this flag. If <tt>onlyUpdate</tt> is <tt>true</tt>, the <a href="ModelessDialogs.html">modeless</a> and <a href="PaletteDialogs.html">palette</a> dialogs, which have the status <tt>DG_DS_NORMAL</tt>, will receive only the update messages. If this flag is <tt>false</tt>, all messages will be received by these dialogs.</p>
+
+    <p>Every time, when <a href="DGModelessHandler.html">DGModelessHandler</a> is called, it sets this internal DG flag to the value if its <em>onlyUpdate</em> parameter. So in most cases it is enough to call <b>DGModelessHandler</b> in the event-loop with the required onlyUpdate value. However rarely this flag may be needed to set before or instead of calling <b>DGModelessHandler</b>.</p>
+
+    <p>Examples, when you are suggested to use the <strong>DGSetOnlyUpdateFlag</strong> function:</p>
+
+    <ul>
+        <li>You use a special, own message loop that does not call <b>DGModelessHandler</b>, but you need to disable your modeless and palette dialogs with <tt>DG_DS_NORMAL</tt> state for a while.</li>
+
+        <li>You need to disable your modeless and palette dialogs with <tt>DG_DS_NORMAL</tt> state, but you are going to call <b>DGModelessHandler</b> later.</li>
+    </ul>
+
+    <p>The usage of this DG flag can be explained by the following example. Suppose that an application begins a long process such as a time-consuming calculation. In this case, it is advisable to show a process indicator dialog with a Stop button until the calculation is finished. When handling system-specific messages during this period, <b>DGModelessHandler</b> should be called with <em>onlyUpdate</em> of value <tt>true</tt>. This ensures that modeless dialogs of <tt>DG_DS_NORMAL</tt> state do not handle any messages except the update messages (this way they do not respond to any user actions). The status of the process indicator dialog should be set to <tt>DG_DS_ENABLED</tt> in order to enable the user to press the Stop button and cancel the process.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ModelessDialogs.html">Modeless Dialogs</a>, <a href="PaletteDialogs.html">Palette Dialogs</a><br>
+    <a href="DGSetModelessDialogStatus.html">DGSetModelessDialogStatus</a>, <a href="DGGetModelessDialogStatus.html">DGGetModelessDialogStatus</a>, <a href="DGModelessHandler.html">DGModelessHandler</a><br>
+    <a href="Messages_id.html">DG messages</a>, <a href="DG_MSG_UPDATE.html">DG_MSG_UPDATE</a>, <a href="CallbackFunctions.html">Callback functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 4, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

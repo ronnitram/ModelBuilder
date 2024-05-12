@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIDb_NewWindowID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIDb_NewWindowID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIDb_NewWindowID</h1>
+
+    <p>Opens a new window.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Database_id.html">ACAPI_Database</a></strong> (
+        <strong>APIDb_NewWindowID</strong>,
+        <strong><a href="../Structures/API_NewWindowPars.html">API_NewWindowPars</a>*</strong>              <em>newWindowPars</em>,
+        <strong><a href="APICustomWindowHandlerProc.html">APICustomWindowHandlerProc</a>*</strong>     <em>handlerProc</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>newWindowPars</em></dt>
+
+        <dd>[in] parameters of the window to be created (type and reference index)</dd>
+
+        <dt><em>handlerProc</em></dt>
+
+        <dd>[in] Callback function to handle special (e.g. activate) events. Specify <code>nullptr</code> if you are not interested in these events.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>windowPars</code> is <code>nullptr.</code></dd>
+
+        <dt><code>APIERR_REFUSEDCMD</code></dt>
+
+        <dd>the function is called from notification level.</dd>
+
+        <dt><code>APIERR_REFUSEDPAR</code></dt>
+
+        <dd>not APIWind_MyTextID or APIWind_MyDrawID is requested.</dd>
+
+        <dt><code>APIERR_WINDEXIST</code></dt>
+
+        <dd>a window with the same type and reference index already opened.</dd>
+
+        <dt><code>APIERR_NOPLAN</code></dt>
+
+        <dd>no open project</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to open a new window.</p>
+
+    <p>It is limited to opening simple text or drawing windows. The drawing window will have limited functionality and database beyond, compared to a normal 2D model window. It can have real 2D elements only (lines, arcs, etc.), construction elements like walls or beams cannot appear in this database. The database cannot be modified by the user, the input and edit functionality on these windows are disabled for the user.</p>
+
+    <p>These type of windows are excellent to visualize the output of your algorithms, for example in case of listings. An add-on can open any number of drawing and text windows at the same time.</p>
+
+    <p>Once an add-on opens such a window, it will be responsible for rebuilding its content when it is necessary. Archicad will post notifications for such an event. Upon receiving a notification Archicad will pass the <code>windowPars-&gt;userRefCon</code> parameter to the add-on to identify which window it should work on. Refer to the <a href="../Level3/notification_manager_id.html">Notification Manager</a> to get further details.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_NewWindowPars   windowPars;
+GSErrCode           err;
+
+BNZeroMemory (&amp;windowPars, sizeof (API_NewWindowPars));
+windowPars.typeID = APIWind_MyDrawID;  // create a drawing window
+windowPars.userRefCon = 1;
+GS::snuprintf (windowPars.wTitle, sizeof (windowPars.wTitle) / sizeof (GS::uchar_t), L("API window: %ld"), userRefCon);
+
+err = ACAPI_Database (APIDb_NewWindowID, &amp;windowPars, nullptr);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_NewWindowPars.html">API_NewWindowPars</a>, <a href="APICustomWindowHandlerProc.html">APICustomWindowHandlerProc</a>,<br>
+    <a href="APIDb_NewDatabaseID.html">APIDb_NewDatabaseID</a>, <a href="APIDb_CloseWindowID.html">APIDb_CloseWindowID</a>,<br>
+    <a href="ACAPI_Database_id.html">ACAPI_Database</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 16, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

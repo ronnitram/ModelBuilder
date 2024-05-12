@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>AddLine</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/VectorImage/AddLine.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><!-- Not Index --><a href="VectorImage.html">VectorImage</a>::AddLine</h1><br>
+    Adds a straight line to the VectorImage.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>GSErrCode  AddLine (
+    short               pen,
+    short               pattern,
+    short               layer,
+    short               drwIndex,
+    double              x1,
+    double              y1,
+    double              x2,
+    double              y2
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>pen</em></dt>
+
+        <dd>The drawing pen of the line.</dd>
+
+        <dt><em>pattern</em></dt>
+
+        <dd>The index of the used line type attribute.</dd>
+
+        <dt><em>layer</em></dt>
+
+        <dd>The containing layer of the line It should range from 1 to 16.</dd>
+
+        <dt><em>drwIndex</em></dt>
+
+        <dd>The drawing index of the line. It influences the drawing order of the item.</dd>
+
+        <dt><em>x1</em></dt>
+
+        <dd>The x co-ordinate of the start of the line in the model in meters.</dd>
+
+        <dt><em>y1</em></dt>
+
+        <dd>The y co-ordinate of the start of the line in the model in meters.</dd>
+
+        <dt><em>x2</em></dt>
+
+        <dd>The x co-ordinate of the end of the line in the model in meters.</dd>
+
+        <dt><em>y2</em></dt>
+
+        <dd>The y co-ordinate of the end of the line in the model in meters.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>If the function succeeds, the return value is NoError. If the function fails, the return value is the error code.</p>
+
+    <h3>Description</h3>
+
+    <p>Addition always merges the new item to the end of the primitives list but drawing order can differ from placing order.</p>
+
+    <h3>Requirements</h3>
+
+    <dl>
+        <dd><b>Version:</b>API 10.0 or later, ModelerGraphics 8 or later</dd>
+
+        <dd><b>Library:</b>ModelerGraphicsImp.lib (Win) or ModelerGraphics.framework (Mac)</dd>
+
+        <dd><b>Header:</b>VectorImage.hpp</dd>
+    </dl><!-- FOOTER  FOOTEREND -->
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

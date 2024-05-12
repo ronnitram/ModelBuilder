@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_SunInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_SunInfo.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_SunInfo</h1>
+
+    <p>Parameters of the sunlight.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>     <em>sunRGB</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>     <em>ambientRGB</em>;
+        <strong>short</strong>            <em>sunIntensity</em>;
+        <strong>short</strong>            <em>ambientIntensity</em>;
+        <strong>short</strong>            <em>sunToAmbient</em>;
+        <strong>short</strong>            <em>filler_1</em>;
+    <strong>}</strong> <em>API_SunInfo</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>sunRGB</b></dt>
+
+        <dd>Color of the directional light</dd>
+
+        <dt><b>ambientRGB</b></dt>
+
+        <dd>Color of the ambient light</dd>
+
+        <dt><b>sunIntensity</b></dt>
+
+        <dd>Intensity of the directional light [0..100]</dd>
+
+        <dt><b>ambientIntensity</b></dt>
+
+        <dd>Intensity of the ambient light [0..100]</dd>
+
+        <dt><b>sunToAmbient</b></dt>
+
+        <dd>Contribution to ambient [0..100]</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is used when you get information about the sun. See the <a href="../Functions/APIEnv_GetSunSetsID.html">APIEnv_GetSunSetsID</a> environment function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIEnv_GetSunSetsID.html">APIEnv_GetSunSetsID</a>, <a href="API_RGBColor.html">API_RGBColor</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 12, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

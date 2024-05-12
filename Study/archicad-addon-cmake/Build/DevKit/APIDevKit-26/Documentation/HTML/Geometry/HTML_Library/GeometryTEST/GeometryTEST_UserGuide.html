@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+    <title>GeometryTEST</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/GeometryTEST/GeometryTEST_UserGuide.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Test application for the Geometry module</h1>
+
+    <p><strong>GeometryTEST</strong> is an automatic testing tool for the Geometry module. Its testing facilities try to ensure the correct behavior of the functions in Geometry module.</p>
+
+    <ul>
+        <li>GeometryTEST is a command line tool on Windows and an MPW tool on the MacOS, so you can run it from a batch or make script.</li>
+
+        <li>You can run GeometryTEST with randomly generated input, and it will verify if any error returns or exception occurs. In this case GeometryTEST will record the erroneous input into the test cases file to make error reproduction easy. It is a way to generate interesting test cases.</li>
+
+        <li>If you know tricky input cases you can enter them into the test case files, and try them. If GeometryTEST finds a test case where only the input is given, then - if no error occured with its input - will record the output of the function to the test cases file.</li>
+
+        <li>And last, if you know the input and the expected output, you can enter them and GeometryTEST will signal if the expected and produced output is different. If you change the algorithm of a function you can check the change - or uniformity - of the results with this feature.</li>
+    </ul>
+
+    <h3>Using GeometryTEST</h3>
+
+    <p><code><strong>GeometryTEST</strong> functionListFile [-a] [-r<em>dd</em>] [-p <em>basepath</em>] [-s | -t]</code></p>
+
+    <p>You can usually simply call the GeometryTEST with the function list file, and without any parameters.</p>
+
+    <p>The parameters in detail:</p>
+
+    <dl>
+        <dt><strong>functionListFile</strong></dt>
+
+        <dd>This simple text file contains the names of the functions to be tested. All entry is a row ended with a new line and all entry consists of a name and a path to the file with the test cases for that function.</dd>
+    </dl>
+
+    <dl>
+        <dt><strong>-a</strong></dt>
+
+        <dd>This switch causes the program to ignore the written test cases and making all tests with random parameters.</dd>
+    </dl>
+
+    <dl>
+        <dt><strong>-r<em>dd</em></strong></dt>
+
+        <dd>If -a is set, the number after this switch determine the number of repeats of tests of each functions, else has no effect.</dd>
+    </dl>
+
+    <dl>
+        <dt><strong>-p <em>basepath</em></strong></dt>
+
+        <dd>If you give here a base path, all relative paths given in the parameters and in the list files will be relative to this base path.</dd>
+    </dl>
+
+    <dl>
+        <dt><strong>-s</strong></dt>
+
+        <dd>Silent mode. GeometryTEST will show only a summary.</dd>
+    </dl>
+
+    <dl>
+        <dt><strong>-t</strong></dt>
+
+        <dd>Talkative mode. GeometryTEST will show all messages to help debugging.</dd>
+    </dl>
+
+    <h3>Description of the functions list file</h3>
+
+    <p>This file consists of two columns with whitespaces between then as separators.</p>
+
+    <ul>
+        <li>the first column contains the name of the functions</li>
+
+        <li>the second one contains the name of the file which contain the test cases and optionally the results</li>
+    </ul>
+
+    <p>After the <strong>!</strong> character the program ignores the rest of the line so you can put some comments here.<br>
+    The functions list file can include other functions list files with the <strong>#include</strong> command. It gives you the possibity to arrange the functions to be testing into different groups, and make collection files with <strong>#include</strong>-s for different test runs.</p>
+
+    <table width="100%" bgcolor="#C0C0C0">
+        <tr>
+            <td><code><br>
+            <font color="blue">! Beginning<br>
+            <br>
+            !<br>
+            ! This is a comment line<br>
+            !<br></font><br>
+            #include "SomeOtherFunction.txt" <font color="blue">! An include file<br></font><br>
+            <br>
+            <font color="blue">!__Column 1_________Column 2______<br>
+            <br></font> FunctionName1 "FunctionDataFile1.txt" <font color="blue">! Here is possible comment, too.<br></font> FunctionName2 "FunctionDataFile2.txt"<br>
+            &nbsp;<br></code></td>
+        </tr>
+    </table>
+
+    <h3>Description of the test cases file</h3>
+
+    <p>Every tested function must have an own test case file. This file always begins with a header of the following three lines:</p>
+
+    <table width="100%" bgcolor="#C0C0C0">
+        <tr>
+            <td><code>Best time = 1.0000000000e+300 ;<br>
+            Worst time = 0.0000000000e-000 ;<br>
+            Last time = 0.0000000000e-000 ;<br></code></td>
+        </tr>
+    </table>
+
+    <p>It records performace information of the function, respectively the the best, worst, and last execution time.</p>
+
+    <p>After this header the test cases follow:</p>
+
+    <p>All test case must be followed by a <strong>semicolon</strong>. A test case is divided into two parts with a <strong>colon</strong>. The first part is the input, the second is the expected output.</p>
+
+    <p>Both the input and output parts consist of a list of parameters. The list elements must be separated with <strong>comma</strong>.</p>
+
+    <table width="100%" bgcolor="#C0C0C0">
+        <tr>
+            <td><code><font color="blue">#1. example with static data members without rnd:</font><br>
+            Best time = 1.0000000000e+300 ;<br>
+            Worst time = 0.0000000000e-000 ;<br>
+            Last time = 0.0000000000e-000 ;<br>
+            <br>
+            <font color="blue">!<br>
+            ! Circle_3Pt (&lt;&lt;<a href="../Vector2D/Coord.html">Coord</a>, &lt;&lt;<a href="../Vector2D/Coord.html">Coord</a>, &lt;&lt;<a href="../Vector2D/Coord.html">Coord</a>, &gt;&gt;<a href="../Vector2D/Coord.html">Coord</a>, &gt;&gt;bool);<br>
+            !<br></font><br>
+            (0.0, 0.0), (10.0, 0.0), (0.0, 10.0):<br>
+            <br>
+            (none, none), true; <font color="blue">! fill the origo and check if is it OK (true)<br></font><br></code></td>
+        </tr>
+    </table>
+
+    <h3>Possible extensions</h3>
+
+    <h3>Missing features</h3>
+
+    <ul>
+        <li>Mac version</li>
+
+        <li>Graphical test-case editor</li>
+    </ul>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

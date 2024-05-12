@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APINavigator_NewNavigatorViewID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APINavigator_NewNavigatorViewID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APINavigator_NewNavigatorViewID</h1>
+
+    <p>Creates a new Navigator View.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Navigator_id.html">ACAPI_Navigator</a></strong> (
+        <strong>APINavigator_NewNavigatorViewID</strong>,
+        <strong><a href="../Structures/API_NavigatorItem.html">API_NavigatorItem</a>*</strong>     <em>navigatorItem</em>,
+        <strong><a href="../Structures/API_NavigatorView.html">API_NavigatorView</a>*</strong>     <em>navigatorView</em>,
+        <strong>const <a href="ddid://GSRoot.Guid Class">GS::Guid</a>*</strong>        <em>parent</em>,
+	<strong>const <a href="ddid://GSRoot.Guid Class">GS::Guid</a>*</strong>        <em>previousSibling</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>navigatorItem</em></dt>
+
+        <dd>[in/out] The item used for creating the view; its <code>guid</code> member will be filled on output.</dd>
+
+        <dt><em>navigatorView</em></dt>
+
+        <dd>[out] The created view (unless the navigator item's type is <code>API_FolderNavItem</code>).</dd>
+
+        <dt><em>parent</em></dt>
+		<dt><em>previousSibling</em></dt>
+
+        <dd>These parameters are used, when one wants to create a new folder item on the view map, and in this case the
+            <code>navigatorView</code> parameter can be <code>nullptr</code>. If you create an other type of element,
+            then this parameter can be <code>nullptr</code>. <br>
+            The first guid is the guid of the node whereunder the new navitem will be placed (the "parent"). 
+			The second (the "previous sibling") is whereafter the new item will be placed.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>You will encounter with this return value, if something was wrong with the parameters, for example the <code>item</code>
+            was <code>nullptr</code>, orin the <code>parentAndChild</code> array, the first guid is not the guid of the second's father.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>This is an example for folder item creation, based on the Navigator_Test test addon.</p>
+
+    <blockquote>
+        <pre><code>
+API_NavigatorItem navItem = {};
+navItem.mapId = API_PublicViewMap;
+navItem.itemType = API_FolderNavItem;
+GS::UCopy (L("This test folder is created through API."), navItem.uName);
+
+Int32 selected = DGTreeViewGetSelected (dialogID, NavTreeView, DG_TVI_ROOT);
+Int32 selParent = DGTreeViewGetItem (dialogID, NavTreeView, selected, DG_TVG_PARENT);
+GS::Guid parent = APIGuid2GSGuid (NavigatorTestGlobals::Instance ().GetNavigatorItem (TruncateTo32Bit (DGTreeViewGetItemUserData (dialogID, NavTreeView, selParent))));
+GS::Guid prevSibling = APIGuid2GSGuid (NavigatorTestGlobals::Instance ().GetNavigatorItem (TruncateTo32Bit (DGTreeViewGetItemUserData (dialogID, NavTreeView, selected))));
+
+ACAPI_Navigator (APINavigator_NewNavigatorViewID, &amp;navItem, nullptr, &amp;parent, &amp;prevSibling);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is a non-undoable data structure modifier function. See more details on this topic at <a href="../Level2/Command_Overview.html">Command Overview</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 13 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Navigator.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_Navigator_id.html">ACAPI_Navigator</a>,<br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 13, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

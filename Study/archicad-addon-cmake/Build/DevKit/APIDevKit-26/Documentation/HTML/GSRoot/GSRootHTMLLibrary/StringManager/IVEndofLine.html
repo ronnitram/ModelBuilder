@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>IVEndofLine</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/StringManager/IVEndofLine.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>IVEndofLine</h1>
+
+    <p>Converts the line end character to the given end-of line type.</p>
+    <pre class="syntax">
+    <strong>long IVEndofLine</strong> (
+      <strong>const char</strong>*  <em>pChars</em>,
+      <strong>long</strong>         <em>nChars</em>,
+      <strong>char</strong>*        <em>pNewChars</em>,
+      <strong>long</strong>         <em>maxNewChars</em>,
+      <strong><a href="EOLType.html">EOLType</a></strong>      <em>targetEOL</em> = Platform_EOLType
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>pChars</em></dt>
+
+        <dd>[in] Input string.</dd>
+
+        <dt><em>nChars</em></dt>
+
+        <dd>
+            <p>[in] Specifies the size in bytes of the string pointed to by <i>pChars</i> parameter, or it can be <tt>CStringLen</tt> if the string is null terminated.</p>
+
+            <p>If this string is null terminated, the resulting character string has a null terminator, and the returned length includes the null terminator.</p>
+
+            <p>If this parameter is a positive integer, the function processes exactly the specified number of bytes. If the given length does not include a null terminator then the resulting wide character string will not be null terminated, and the returned length does not include a null terminator.</p>
+        </dd>
+
+        <dt><em>pNewChars</em></dt>
+
+        <dd>[out] The buffer for the output string.</dd>
+
+        <dt><em>maxNewChars</em></dt>
+
+        <dd>
+            <p>[in] Specifies the size, in bytes, of the buffer pointed to by the <i>pNewChars</i> parameter. If this value is zero, the function returns the required buffer size, in bytes, and makes no use of the <i>pNewChars</i> buffer.</p>
+        </dd>
+
+        <dt><em>targetEOL=Platform_EOLType</em></dt>
+
+        <dd>The target <a href="EOLType.html">line end format</a>.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>If the function succeeds, and <i>maxNewChars</i> is nonzero, the return value is the number of bytes written to the buffer pointed to by <i>pNewChars</i>.</p>
+
+    <p>If the function succeeds, and <i>maxNewChars</i> is zero, the return value is the required size, in bytes, for a buffer that can receive the translated string.</p>
+
+    <p>If the function fails, the return value is zero. This function fails if the parameters are incorrect or the provided buffer is too small to perform the conversion.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <i>pChars</i> and <i>pNewChars</i> pointers must not be the same, or overlap. If they do the result of this function is undefined!</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> GSRoot 1.3 or later</dd>
+
+        <dd><b>Header:</b> CH.hpp</dd>
+
+        <dd><b>Import Library:</b> GSRootImp.lib.lib</dd>
+
+        <dd><b>Module:</b> GSRoot</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="IVChars.html">IVChars</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on October 10, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

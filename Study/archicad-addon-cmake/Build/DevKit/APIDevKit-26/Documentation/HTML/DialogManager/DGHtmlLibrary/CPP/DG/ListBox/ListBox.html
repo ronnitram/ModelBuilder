@@ -1,0 +1,835 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ListBox Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/ListBox/ListBox.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--	<A href="AppendItem.html">AppendItem</A><A href="ArrowType.html">ArrowType</A><A href="Attach.html">Attach</A>
+			<A href="DeleteItem.html">DeleteItem</A><A href="DeselectItem.html">DeselectItem</A><A href="Detach.html">Detach</A><A href="DisableDraw.html">DisableDraw</A><A href="DisableHeaderButton.html">DisableHeaderButton</A><A href="DisableItem.html">DisableItem</A>
+			<A href="EnableDraw.html">EnableDraw</A><A href="EnableHeaderButton.html">EnableHeaderButton</A><A href="EnableItem.html">EnableItem</A><A href="EnableMouseMoveEvent.html">EnableMouseMoveEvent</A><A href="EnableSeparatorLines.html">EnableSeparatorLines</A>
+			<A href="GetHeaderButtonIcon.html">GetHeaderButtonIcon</A><A href="GetHeaderHeight.html">GetHeaderHeight</A>
+				<A href="GetHeaderItemArrowType.html">GetHeaderItemArrowType</A><A href="GetHeaderItemCount.html">GetHeaderItemCount</A><A href="GetHeaderItemFontSize.html">GetHeaderItemFontSize</A><A href="GetHeaderItemFontStyle.html">GetHeaderItemFontStyle</A><A href="GetHeaderItemIcon.html">GetHeaderItemIcon</A><A href="GetHeaderItemJustification.html">GetHeaderItemJustification</A><A href="GetHeaderItemMinSize.html">GetHeaderItemMinSize</A><A href="GetHeaderItemSize.html">GetHeaderItemSize</A><A href="GetHeaderItemText.html">GetHeaderItemText</A><A href="GetHeaderItemTruncation.html">GetHeaderItemTruncation</A>
+				<A href="GetHScrollPosition.html">GetHScrollPosition</A>
+				<A href="GetItemBackgroundColor.html">GetItemBackgroundColor</A><A href="GetItemColor.html">GetItemColor</A><A href="GetItemCount.html">GetItemCount</A><A href="GetItemFontStyle.html">GetItemFontStyle</A><A href="GetItemHeight.html">GetItemHeight</A><A href="GetItemRect.html">GetItemRect</A><A href="GetItemStatus.html">GetItemStatus</A><A href="GetItemValue.html">GetItemValue</A><A href="GetItemWidth.html">GetItemWidth</A><A href="GetOnTabItem.html">GetOnTabItem</A></TD><A href="GetScrollPosition.html">GetScrollPosition</A>
+				<A href="GetSelectedCount.html">GetSelectedCount</A><A href="GetSelectedItem.html">GetSelectedItem</A><A href="GetSelectedItems.html">GetSelectedItems</A><A href="GetSeparatorLineColor.html">GetSeparatorLineColor</A>
+				<A href="GetTabFieldBeginPosition.html">GetTabFieldBeginPosition</A><A href="GetTabFieldCount.html">GetTabFieldCount</A><A href="GetTabFieldEndPosition.html">GetTabFieldEndPosition</A><A href="GetTabFieldJustification.html">GetTabFieldJustification</A><A href="GetTabFieldOwnerDrawFlag.html">GetTabFieldOwnerDrawFlag</A><A href="GetTabFieldToSearch.html">GetTabFieldToSearch</A><A href="GetTabFieldTruncation.html">GetTabFieldTruncation</A>
+				<A href="GetTabItemIcon.html">GetTabItemIcon</A><A href="GetTabItemText.html">GetTabItemText</A><A href="GrayItem.html">GrayItem</A>
+			<A href="HasHeader.html">HasHeader</A><A href="HasHeaderDragableButtons.html">HasHeaderDragableButtons</A><A href="HasHeaderPushableButtons.html">HasHeaderPushableButtons</A><A href="HasSeparatorLines.html">HasSeparatorLines</A><A href="HasTabFieldSeparator.html">HasTabFieldSeparator</A><A href="HeaderFlag.html">HeaderFlag</A>
+			<A href="InsertItem.html">InsertItem</A><A href="InsertSeparator.html">InsertSeparator</A><A href="IsHeaderButtonEnabled.html">IsHeaderButtonEnabled</A><A href="IsHeaderInSynchronState.html">IsHeaderInSynchronState</A><A href="IsHeaderItemSizeable.html">IsHeaderItemSizeable</A><A href="IsItemDisabled.html">IsItemDisabled</A><A href="IsItemEnabled.html">IsItemEnabled</A><A href="IsItemGrayed.html">IsItemGrayed</A><A href="IsSeparator.html">IsSeparator</A><A href="ItemStatus.html">ItemStatus</A><A href="ItemType.html">ItemType</A>
+			<A href="Justification.html">Justification</A>
+			<A href="Destructor.html">~ListBox</A><A href="Constructors.html">ListBox</A>
+			<A href="PartialItemType.html">PartialItemType</A>
+			<A href="RedrawItem.html">RedrawItem</A><A href="RedrawTabItem.html">RedrawTabItem</A><A href="RemoveOnTabItem.html">RemoveOnTabItem</A>
+			<A href="ScrollDown.html">ScrollDown</A><A href="ScrollType.html">ScrollType</A><A href="ScrollUp.html">ScrollUp</A><A href="SelectItem.html">SelectItem</A>
+			<A href="SetHeaderButtonIcon.html">SetHeaderButtonIcon</A><A href="SetHeaderDragableButtons.html">SetHeaderDragableButtons</A>
+				<A href="SetHeaderItemArrowType.html">SetHeaderItemArrowType</A><A href="SetHeaderItemCount.html">SetHeaderItemCount</A><A href="SetHeaderItemFont.html">SetHeaderItemFont</A><A href="SetHeaderItemIcon.html">SetHeaderItemIcon</A><A href="SetHeaderItemMinSize.html">SetHeaderItemMinSize</A><A href="SetHeaderItemSize.html">SetHeaderItemSize</A><A href="SetHeaderItemSizeableFlag.html">SetHeaderItemSizeableFlag</A><A href="SetHeaderItemStyle.html">SetHeaderItemStyle</A><A href="SetHeaderItemText.html">SetHeaderItemText</A>
+				<A href="SetHeaderPushableButtons.html">SetHeaderPushableButtons</A><A href="SetHeaderSynchronState.html">SetHeaderSynchronState</A><A href="SetHScrollPosition.html">SetHScrollPosition</A>
+				<A href="SetItemBackgroundColor.html">SetItemBackgroundColor</A><A href="SetItemColor.html">SetItemColor</A><A href="SetItemFontStyle.html">SetItemFontStyle</A><A href="SetItemHeight.html">SetItemHeight</A><A href="SetItemStatus.html">SetItemStatus</A><A href="SetItemValue.html">SetItemValue</A><A href="SetNoPartialItem.html">SetNoPartialItem</A><A href="SetOnTabItem.html">SetOnTabItem</A><A href="SetScrollPosition.html">SetScrollPosition</A><A href="SetSeparatorLineColor.html">SetSeparatorLineColor</A>
+				<A href="SetTabFieldBeginPosition.html">SetTabFieldBeginPosition</A><A href="SetTabFieldCount.html">SetTabFieldCount</A><A href="SetTabFieldEndPosition.html">SetTabFieldEndPosition</A><A href="SetTabFieldJustification.html">SetTabFieldJustification</A><A href="SetTabFieldOwnerDrawFlag.html">SetTabFieldOwnerDrawFlag</A><A href="SetTabFieldProperties.html">SetTabFieldProperties</A><A href="SetTabFieldSeparator.html">SetTabFieldSeparator</A><A href="SetTabFieldToSearch.html">SetTabFieldToSearch</A><A href="SetTabFieldTruncation.html">SetTabFieldTruncation</A>
+				<A href="SetTabItemIcon.html">SetTabItemIcon</A><A href="SetTabItemText.html">SetTabItemText</A>
+				<A href="SpecialIcons.html">SpecialIcons</A>
+			<A href="Truncation.html">Truncation</A>--><H2>ListBox Class</H2><!--exp="ListBox Class"-->
+<P><topic id="$DG.$ListBox.BriefDescription">
+		Dialog item class for list box controls.
+	</topic></P>
+<PRE class="syntax"><B>class ListBox : public <!----><a class="nodecorate" href="../Item/Item.html">Item</A>, public <!----><A class="nodecorate" href="../ItemFontProperty/ItemFontProperty.html">ItemFontProperty</A>, public <!----><A class="nodecorate" href="../FocusableProperty/FocusableProperty.html">FocusableProperty</A></B></PRE>
+<H4>Members</H4>
+<P><B><A name="PublicMethods"></A>Public Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="AppendItem.html">AppendItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$AppendItem.BriefDescription">
+		Appends an item to the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Attach.html">Attach</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$Attach.BriefDescription">
+		Attaches an observer object to this event source.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DeleteItem.html">DeleteItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$DeleteItem.BriefDescription">
+		Deletes an item from the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DeselectItem.html">DeselectItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$DeselectItem.BriefDescription">
+		Deselects an item in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Detach.html">Detach</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$Detach.BriefDescription">
+		Detaches an observer object from this event source.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DisableDraw.html">DisableDraw</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$DisableDraw.BriefDescription">
+		Disables screen update of the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DisableHeaderButton.html">DisableHeaderButton</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$DisableHeaderButton.BriefDescription">
+		Disables the header button above the vertical scrollbar of the listbox control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DisableItem.html">DisableItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$DisableItem.BriefDescription">
+		Disables a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnableDraw.html">EnableDraw</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$EnableDraw.BriefDescription">
+		Enables screen update of the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnableHeaderButton.html">EnableHeaderButton</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$EnableHeaderButton.BriefDescription">
+		Enables the header button above the vertical scrollbar of the listbox control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnableItem.html">EnableItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$EnableItem.BriefDescription">
+		Enables a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnableMouseMoveEvent.html">EnableMouseMoveEvent</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$EnableMouseMoveEvent.BriefDescription">
+		Enables the mouse move event in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnableSeparatorLines.html">EnableSeparatorLines</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$EnableSeparatorLines.BriefDescription">
+		Sets or resets the separator line status of the lis box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeaderButtonIcon.html">GetHeaderButtonIcon</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetHeaderButtonIcon.BriefDescription">
+		Retrieves the icon of the header button in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeaderHeight.html">GetHeaderHeight</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetHeaderHeight.BriefDescription">
+		Retrieves the height of the list box header.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeaderItemArrowType.html">GetHeaderItemArrowType</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetHeaderItemArrowType.BriefDescription">
+		Retrieves the arrow type of a header item in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeaderItemCount.html">GetHeaderItemCount</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetHeaderItemCount.BriefDescription">
+		Retrieves the number of header items in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeaderItemFontSize.html">GetHeaderItemFontSize</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetHeaderItemFontSize.BriefDescription">
+		Retrieves the font size of a header item text in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeaderItemFontStyle.html">GetHeaderItemFontStyle</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetHeaderItemFontStyle.BriefDescription">
+		Retrieves the font style of a header item text in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeaderItemIcon.html">GetHeaderItemIcon</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetHeaderItemIcon.BriefDescription">
+		Retrieves the icon of a header item in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeaderItemJustification.html">GetHeaderItemJustification</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetHeaderItemJustification.BriefDescription">
+		Retrieves the justification of the content in a header item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeaderItemMinSize.html">GetHeaderItemMinSize</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetHeaderItemMinSize.BriefDescription">
+		Retrieves the minimal size of a header item in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeaderItemSize.html">GetHeaderItemSize</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetHeaderItemSize.BriefDescription">
+		Retrieves the size of a header item in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeaderItemText.html">GetHeaderItemText</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetHeaderItemText.BriefDescription">
+		Retrieves the text of a header item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHeaderItemTruncation.html">GetHeaderItemTruncation</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetHeaderItemTruncation.BriefDescription">
+		Retrieves the truncation of the content in a header item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetHScrollPosition.html">GetHScrollPosition</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetHScrollPosition.BriefDescription">
+		Retrieves the scroll box (thumb) position of the horizontal scroll bar in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemBackgroundColor.html">GetItemBackgroundColor</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetItemBackgroundColor.BriefDescription">
+		Retrieves the background color of a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemColor.html">GetItemColor</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetItemColor.BriefDescription">
+		Retrieves the foreground (text) color of a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemCount.html">GetItemCount</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetItemCount.BriefDescription">
+		Retrieves the number of items in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemFontStyle.html">GetItemFontStyle</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetItemFontStyle.BriefDescription">
+		Retrieves the font style of a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemHeight.html">GetItemHeight</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetItemHeight.BriefDescription">
+		Retrieves the height of the list box items.
+	</topic></TD>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemOwnerDrawFlag.html">GetItemOwnerDrawFlag</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetItemOwnerDrawFlag.BriefDescription">
+		Retrieves the owner draw flag of a list item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemRect.html">GetItemRect</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetItemRect.BriefDescription">
+		Retrieves the bounding rectangle of a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemStatus.html">GetItemStatus</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetItemStatus.BriefDescription">
+		Retrieves the status of a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemValue.html">GetItemValue</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetItemValue.BriefDescription">
+		Retrieves the user-defined value associated with a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemWidth.html">GetItemWidth</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetItemWidth.BriefDescription">
+		Retrieves the width of the list box items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetOnTabItem.html">GetOnTabItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetOnTabItem.BriefDescription">
+		Retrieves the index of a dialog item that will appear on a given
+		tabulator field of the currently selected item in a list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetScrollPosition.html">GetScrollPosition</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetScrollPosition.BriefDescription">
+		Retrieves the scroll box (thumb) position of the vertical scroll bar in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSelectedCount.html">GetSelectedCount</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetSelectedCount.BriefDescription">
+		Retrieves the number of the selected items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSelectedItem.html">GetSelectedItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetSelectedItem.BriefDescription">
+		For single-selection list box retrieves the index of the selected item.<br>
+		For multiple-selection list box retrieves the index of the next
+		selected list item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSelectedItems.html">GetSelectedItems</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetSelectedItems.BriefDescription">
+		Retrieves the indices of the selected list box items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSeparatorLineColor.html">GetSeparatorLineColor</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetSeparatorLineColor.BriefDescription">
+		Retrieves the color of the separator lines in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetTabFieldBeginPosition.html">GetTabFieldBeginPosition</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetTabFieldBeginPosition.BriefDescription">
+		Retrieves the begin position of a tabulator field.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetTabFieldCount.html">GetTabFieldCount</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetTabFieldCount.BriefDescription">
+		Retrieves the number of tabulator fields in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetTabFieldEndPosition.html">GetTabFieldEndPosition</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetTabFieldEndPosition.BriefDescription">
+		Retrieves the end position of a tabulator field.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetTabFieldJustification.html">GetTabFieldJustification</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetTabFieldJustification.BriefDescription">
+		Retrieves the justification of the content in a tabulator field.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetTabFieldOwnerDrawFlag.html">GetTabFieldOwnerDrawFlag</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetTabFieldOwnerDrawFlag.BriefDescription">
+		Retrieves the owner draw flag of a tabulator field.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetTabFieldToSearch.html">GetTabFieldToSearch</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetTabFieldToSearch.BriefDescription">
+		Retrieves the index of the tabulator field in which search is performed
+		in each list box item whenever the user presses keyboard keys.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetTabFieldTruncation.html">GetTabFieldTruncation</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetTabFieldTruncation.BriefDescription">
+		Retrieves the way how the text of a tabulator field is truncated.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetTabItemBackgroundColor.html">GetTabItemBackgroundColor</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetTabItemBackgroundColor.BriefDescription">
+		Retrieves the background color of a tabulator item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetTabItemColor.html">GetTabItemColor</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetTabItemColor.BriefDescription">
+		Retrieves the foreground (text) color of a tabulator item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetTabItemIcon.html">GetTabItemIcon</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetTabItemIcon.BriefDescription">
+		Retrieves the icon of a tabulator item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetTabItemText.html">GetTabItemText</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GetTabItemText.BriefDescription">
+		Retrieves the text of a tabulator item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GrayItem.html">GrayItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$GrayItem.BriefDescription">
+		Sets the status of a list box item grayed.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="HasHeader.html">HasHeader</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$HasHeader.BriefDescription">
+		Checks whether the list box has a header control above the list items or not.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="HasHeaderDragableButtons.html">HasHeaderDragableButtons</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$HasHeaderDragableButtons.BriefDescription">
+		Checks whether the header items can be reordered by mouse interaction
+		in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="HasHeaderPushableButtons.html">HasHeaderPushableButtons</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$HasHeaderPushableButtons.BriefDescription">
+		Checks whether the header items are used as pushbuttons in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="HasSeparatorLines.html">HasSeparatorLines</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$HasSeparatorLines.BriefDescription">
+		Retrieves the separator line status of the lis box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="HasTabFieldSeparator.html">HasTabFieldSeparator</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$HasTabFieldSeparator.BriefDescription">
+		Retrieves the separator line status of a tabulator field.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="InsertItem.html">InsertItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$InsertItem.BriefDescription">
+		Inserts an item into the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="InsertSeparator.html">InsertSeparator</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$InsertSeparator.BriefDescription">
+		Inserts a separtor item into the list box to the specified position.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsHeaderButtonEnabled.html">IsHeaderButtonEnabled</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$IsHeaderButtonEnabled.BriefDescription">
+		Checks whether the header button is enabled or not.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsHeaderInSynchronState.html">IsHeaderInSynchronState</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$IsHeaderInSynchronState.BriefDescription">
+		Checks the synchron state of the header control in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsHeaderItemSizeable.html">IsHeaderItemSizeable</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$IsHeaderItemSizeable.BriefDescription">
+		Checks whether a header item can be resized or not.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsItemDisabled.html">IsItemDisabled</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$IsItemDisabled.BriefDescription">
+		Checks if a list box item is disabled or not.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsItemEnabled.html">IsItemEnabled</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$IsItemEnabled.BriefDescription">
+		Checks whether a list box item is enabled or not.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsItemGrayed.html">IsItemGrayed</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$IsItemGrayed.BriefDescription">
+		Checks whether a list box item is grayed or not.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsSeparator.html">IsSeparator</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$IsSeparator.BriefDescription">
+		Checks whether a list item is a separator or not.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Destructor.html">~ListBox</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$~ListBox.BriefDescription">
+		Class destructor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="RedrawItem.html">RedrawItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$RedrawItem.BriefDescription">
+		Redraws a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="RedrawTabItem.html">RedrawTabItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$RedrawTabItem.BriefDescription">
+		Redraws a tabulator item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="RemoveOnTabItem.html">RemoveOnTabItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$RemoveOnTabItem.BriefDescription">
+		Removes the dialog item from a given tabulator field
+		of the currently selected item in a list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ScrollDown.html">ScrollDown</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$ScrollDown.BriefDescription">
+		Scrolls down the vertical scroll bar in the list box with 1 item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ScrollUp.html">ScrollUp</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$ScrollUp.BriefDescription">
+		Scrolls up the vertical scroll bar in the list box with 1 item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SelectItem.html">SelectItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SelectItem.BriefDescription">
+		Selects an item in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeaderButtonIcon.html">SetHeaderButtonIcon</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHeaderButtonIcon.BriefDescription">
+		Sets the icon of the header button in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeaderDragableButtons.html">SetHeaderDragableButtons</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHeaderDragableButtons.BriefDescription">
+		Enables the header items to be reordered by mouse interaction in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeaderItemArrowType.html">SetHeaderItemArrowType</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHeaderItemArrowType.BriefDescription">
+		Sets the arrow type of a header item in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeaderItemCount.html">SetHeaderItemCount</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHeaderItemCount.BriefDescription">
+		Sets the number of header items in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeaderItemFont.html">SetHeaderItemFont</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHeaderItemFont.BriefDescription">
+		Sets the font of a header item in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeaderItemIcon.html">SetHeaderItemIcon</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHeaderItemIcon.BriefDescription">
+		Sets the icon of a header item in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeaderItemMinSize.html">SetHeaderItemMinSize</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHeaderItemMinSize.BriefDescription">
+		Sets the minimal size of a header item in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeaderItemSize.html">SetHeaderItemSize</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHeaderItemSize.BriefDescription">
+		Sets the size of a header item in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeaderItemSizeableFlag.html">SetHeaderItemSizeableFlag</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHeaderItemSizeableFlag.BriefDescription">
+		Sets the resizeability flag of a header item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeaderItemStyle.html">SetHeaderItemStyle</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHeaderItemStyle.BriefDescription">
+		Sets the justification and truncation settings of the content of a header item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeaderItemText.html">SetHeaderItemText</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHeaderItemText.BriefDescription">
+		Sets the text of a header item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeaderPushableButtons.html">SetHeaderPushableButtons</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHeaderPushableButtons.BriefDescription">
+		Enables the header items to be used as pushbuttons in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHeaderSynchronState.html">SetHeaderSynchronState</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHeaderSynchronState.BriefDescription">
+		Sets the synchron state of the header control in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetHScrollPosition.html">SetHScrollPosition</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetHScrollPosition.BriefDescription">
+		Sets the scroll box (thumb) position of the horizontal scroll bar in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemBackgroundColor.html">SetItemBackgroundColor</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetItemBackgroundColor.BriefDescription">
+		Sets the background color of a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemColor.html">SetItemColor</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetItemColor.BriefDescription">
+		Sets the foreground (text) color of a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemFontStyle.html">SetItemFontStyle</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetItemFontStyle.BriefDescription">
+		Sets the font style of a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemHeight.html">SetItemHeight</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetItemHeight.BriefDescription">
+		Sets the height of the list box items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemOwnerDrawFlag.html">SetItemOwnerDrawFlag</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetItemOwnerDrawFlag.BriefDescription">
+		Sets the owner draw flag of a list item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemStatus.html">SetItemStatus</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetItemStatus.BriefDescription">
+		Sets the status of a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemValue.html">SetItemValue</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetItemValue.BriefDescription">
+		Sets the user-defined long value associated with a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetNoPartialItem.html">SetNoPartialItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetNoPartialItem.BriefDescription">
+		Sets the no partial item flag to the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetOnTabItem.html">SetOnTabItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetOnTabItem.BriefDescription">
+		Sets the index of a dialog item that will appear on a given tabulator
+		field of the currently selected item in a list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetScrollPosition.html">SetScrollPosition</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetScrollPosition.BriefDescription">
+		Sets the scroll box (thumb) position of the vertical scroll bar in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetSeparatorLineColor.html">SetSeparatorLineColor</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetSeparatorLineColor.BriefDescription">
+		Sets the color of the separator lines in the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTabFieldBeginPosition.html">SetTabFieldBeginPosition</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetTabFieldBeginPosition.BriefDescription">
+		Sets the begin position of a tabulator field.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTabFieldCount.html">SetTabFieldCount</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetTabFieldCount.BriefDescription">
+		Sets the number of tabulator fields in the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTabFieldEndPosition.html">SetTabFieldEndPosition</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetTabFieldEndPosition.BriefDescription">
+		Sets the end position of a tabulator field.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTabFieldJustification.html">SetTabFieldJustification</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetTabFieldJustification.BriefDescription">
+		Sets the justification of the content in a tabulator field.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTabFieldOwnerDrawFlag.html">SetTabFieldOwnerDrawFlag</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetTabFieldOwnerDrawFlag.BriefDescription">
+		Sets the owner draw flag of a tabulator field.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTabFieldProperties.html">SetTabFieldProperties</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetTabFieldProperties.BriefDescription">
+		Sets the properties of a tabulator field of the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTabFieldSeparator.html">SetTabFieldSeparator</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetTabFieldSeparator.BriefDescription">
+		Sets the separator line status of a tabulator field.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTabFieldToSearch.html">SetTabFieldToSearch</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetTabFieldToSearch.BriefDescription">
+		Sets the index of the tabulator field in which search is performed
+		in each list box item whenever the user presses keyboard keys.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTabFieldTruncation.html">SetTabFieldTruncation</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetTabFieldTruncation.BriefDescription">
+		Sets the way how the text of a tabulator field should be truncated if
+		it does not fit into the tabulator field.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTabItemBackgroundColor.html">SetTabItemBackgroundColor</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetTabItemBackgroundColor.BriefDescription">
+		Sets the background color of a tabulator item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTabItemColor.html">SetTabItemColor</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetTabItemColor.BriefDescription">
+		Sets the foreground (text) color of a tabulator item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTabItemIcon.html">SetTabItemIcon</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetTabItemIcon.BriefDescription">
+		Sets the icon of a tabulator item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTabItemText.html">SetTabItemText</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SetTabItemText.BriefDescription">
+		Sets the text of a tabulator item.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ProtectedMethods"></A>Protected Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">ListBox</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$ListBox.BriefDescription">
+		Class constructor.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicTypes"></A>Public Types</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ArrowType.html">ArrowType</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$ArrowType.BriefDescription">
+		The arrow types displayed on the header items of the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="HeaderFlag.html">HeaderFlag</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$HeaderFlag.BriefDescription">
+		The Header/NoHeader flag of the list box control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ItemStatus.html">ItemStatus</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$ItemStatus.BriefDescription">
+		The status of a list box item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ItemType.html">ItemType</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$ItemType.BriefDescription">
+		Special list box item, or collection of items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Justification.html">Justification</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$Justification.BriefDescription">
+		The justification of the list box items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="PartialItemType.html">PartialItemType</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$PartialItemType.BriefDescription">
+		The display of partial items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ScrollType.html">ScrollType</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$ScrollType.BriefDescription">
+		The type of the scrollbar(s) of the list box.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SpecialIcons.html">SpecialIcons</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$SpecialIcons.BriefDescription">
+		Special icon identifiers to set for an item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Truncation.html">Truncation</A></TD>
+<TD width="70%"><topic id="$DG.$ListBox.$Truncation.BriefDescription">
+		The text truncation, if it does not fit into the space.
+	</topic></TD>
+</TR>
+</table>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../DG.html">DG</A></P>
+<P><B>Header: </B>DGListBox.hpp</P>
+<H4>See Also</H4>
+<P><a href="../MultiSelListBox/MultiSelListBox.html">MultiSelListBox</A> | <a href="../SingleSelListBox/SingleSelListBox.html">SingleSelListBox</A></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

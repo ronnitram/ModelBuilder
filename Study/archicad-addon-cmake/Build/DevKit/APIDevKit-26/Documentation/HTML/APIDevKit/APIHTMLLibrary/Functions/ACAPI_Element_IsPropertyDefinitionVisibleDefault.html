@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>ACAPI_Element_IsPropertyDefinitionVisibleDefault</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_IsPropertyDefinitionVisibleDefault.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_IsPropertyDefinitionVisibleDefault</h1>
+    <p>Tells whether a property definition is visible for an element default.</p>
+    <pre class="syntax">
+    <strong>bool  ACAPI_Element_IsPropertyDefinitionVisibleDefault</strong> (
+        <strong>const <a href="../Structures/API_ElemType.html">API_ElemType</a></strong>&amp;     <em>type</em>,
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>         <em>propertyGuid</em>
+    );
+</pre>
+    <p>&nbsp;</p>
+    <h4>Parameters</h4>
+    <dl>
+        <dt><em>type</em></dt>
+        <dd>[in] Type of the default element.</dd>
+        <dt><em>propertyGuid</em></dt>
+        <dd>[in] The property definition GUID to search for.</dd>
+    </dl>
+    <p>&nbsp;</p>
+    <h4>Return Values</h4>
+    <dl>
+        <dt><code>true</code></dt>
+        <dd>The given property definition is visible for the element default.</dd>
+
+        <dt><code>false</code></dt>
+        <dd>The given property definition is not visible for the element default.</dd>
+    </dl>
+    <h4>Remarks</h4>
+
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"> From version 26 the <tt>typeID</tt> and <tt>variationID</tt> parameters were merged into a single <a href="../Structures/API_ElemType.html">API_ElemType</a> parameter.</p>
+
+    <p>&nbsp;</p>
+    <h4>Example</h4>
+    <blockquote>
+        <pre><code>
+GSErrCode GetVisiblePropertyDefinitions (const API_ElemType& type, GS::Array&lt;API_PropertyDefinition&gt;&amp; visibleProperties)
+{
+    GS::Array&lt;API_PropertyDefinition&gt; definitions;
+    GSErrCode error = ACAPI_Property_GetPropertyDefinitions (APINULLGuid, definitions);
+    if (error == NoError) {
+        for (UInt32 i = 0; i &lt; definitions.GetSize (); ++i) {
+            if (<font color="#FF0066">ACAPI_Element_IsPropertyDefinitionVisibleDefault</font> (type, definitions[i].guid)) {
+                visibleProperties.Push (definitions[i]);
+            }
+        }
+    }
+    return error;
+}
+        </code></pre>
+    </blockquote>
+    For more detailed examples, please see the Property_Test add-on.
+
+    <p>&nbsp;</p>
+    <h4>Requirements</h4>
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+    <p>&nbsp;</p>
+    <h4>See Also</h4>
+
+    <p>
+        <a href="../Level3/Properties_id.html#PropertyDefinitionManipulation">Properties</a>,
+        <a href="../Level3/Classification_and_Property_Visibility_id.html">Classification and Property Visibility</a>
+    </p>
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

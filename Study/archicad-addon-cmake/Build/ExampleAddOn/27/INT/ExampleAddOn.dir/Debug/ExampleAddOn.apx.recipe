@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\FREELANCE\Archicad\ModelBuilder\Study\archicad-addon-cmake\Build\ExampleAddOn\27\INT\x64\Debug\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\FREELANCE\Archicad\ModelBuilder\Study\archicad-addon-cmake\Build\ExampleAddOn\27\INT\Debug\ExampleAddOn.apx</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

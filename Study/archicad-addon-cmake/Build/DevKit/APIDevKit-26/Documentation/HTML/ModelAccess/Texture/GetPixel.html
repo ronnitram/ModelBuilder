@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>GetPixel</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Texture/GetPixel.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="Texture.html">Texture</a>::GetPixel</h1><br>
+    Get pixel data from a pixel map.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>void  GetPixel (
+    Int32     x,
+    Int32     y,
+    <a href="Pixel.html">ARGBPixel</a>*   pixel
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>x</em></dt>
+
+        <dd>The x coordinate of the pixel in texture map space. The value range is [0..n] where n = GetPixelMapXSize () - 1.</dd>
+
+        <dt><em>y</em></dt>
+
+        <dd>The y coordinate of the pixel in texture map space. The value range is [0..n] where n = GetPixelMapYSize () - 1.</dd>
+
+        <dt><em>pixel</em></dt>
+
+        <dd>Pointer to the resulting pixel.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This method reads a pixel value from pixel map using a pixel map coordinate.</p>
+
+    <p><b>Available from version: 9</b></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>void  GetPixel (
+    Int32     x,
+    Int32     y,
+    <a href="Pixel.html">Grayscale8Pixel</a>*   pixel
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>x</em></dt>
+
+        <dd>The x coordinate of the pixel in texture map space. The value range is [0..n] where n = GetPixelMapXSize () - 1.</dd>
+
+        <dt><em>y</em></dt>
+
+        <dd>The y coordinate of the pixel in texture map space. The value range is [0..n] where n = GetPixelMapYSize () - 1.</dd>
+
+        <dt><em>pixel</em></dt>
+
+        <dd>Pointer to the resulting pixel.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This method reads a pixel value from pixel map using a pixel map coordinate.</p>
+
+    <p><b>Available from version: 9</b></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>void  GetPixel (
+    Int32     x,
+    Int32     y,
+    <a href="Pixel.html">BlackAndWhitePixel</a>*   pixel
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>x</em></dt>
+
+        <dd>The x coordinate of the pixel in texture map space. The value range is [0..n] where n = GetPixelMapXSize () - 1.</dd>
+
+        <dt><em>y</em></dt>
+
+        <dd>The y coordinate of the pixel in texture map space. The value range is [0..n] where n = GetPixelMapYSize () - 1.</dd>
+
+        <dt><em>pixel</em></dt>
+
+        <dd>Pointer to the resulting pixel.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This method reads a pixel value from pixel map using a pixel map coordinate.</p>
+
+    <p><b>Available from version: 9</b></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>void  GetPixel (
+    const <a href="../TextureCoordinate/TextureCoordinate.html">TextureCoordinate</a>*  textureCoordinate,
+    <a href="Pixel.html">ARGBPixel</a>*   pixel
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>textureCoordinate</em></dt>
+
+        <dd>Normalized texture coordinate in texture space. The u and v coordinate range is [0.0..1.0).</dd>
+
+        <dt><em>pixel</em></dt>
+
+        <dd>Pointer to the resulting pixel.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This method reads a pixel value from a pixel map using normalized texture coordinates. The normalized texture coordinates can be calculated from the polygon point texture coordinate. The GetTextureCoordinate method of the polygon returns the polygon point texture coordinate. This coordinate transformation has to contain the mirroring, randomly shifting, rotating effect and the normalization.</p>
+
+    <p><b>Available from version: 9</b></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>void  GetPixel (
+    const <a href="../TextureCoordinate/TextureCoordinate.html">TextureCoordinate</a>*  textureCoordinate,
+    <a href="Pixel.html">Grayscale8Pixel</a>*   pixel
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>textureCoordinate</em></dt>
+
+        <dd>Normalized texture coordinate in texture space. The u and v coordinate range is [0.0..1.0).</dd>
+
+        <dt><em>pixel</em></dt>
+
+        <dd>Pointer to the resulting pixel.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This method reads a pixel value from a pixel map using normalized texture coordinates. The normalized texture coordinates can be calculated from the polygon point texture coordinate. The GetTextureCoordinate method of the polygon returns the polygon point texture coordinate. This coordinate transformation has to contain the mirroring, randomly shifting, rotating effect and the normalization.</p>
+
+    <p><b>Available from version: 9</b></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>void  GetPixel (
+    const <a href="../TextureCoordinate/TextureCoordinate.html">TextureCoordinate</a>*  textureCoordinate,
+    <a href="Pixel.html">BlackAndWhitePixel</a>*   pixel
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>textureCoordinate</em></dt>
+
+        <dd>Normalized texture coordinate in texture space. The u and v coordinate range is [0.0..1.0).</dd>
+
+        <dt><em>pixel</em></dt>
+
+        <dd>Pointer to the resulting pixel.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This method reads a pixel value from a pixel map using normalized texture coordinates. The normalized texture coordinates can be calculated from the polygon point texture coordinate. The GetTextureCoordinate method of the polygon returns the polygon point texture coordinate. This coordinate transformation has to contain the mirroring, randomly shifting, rotating effect and the normalization.</p>
+
+    <p><b>Available from version: 9</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

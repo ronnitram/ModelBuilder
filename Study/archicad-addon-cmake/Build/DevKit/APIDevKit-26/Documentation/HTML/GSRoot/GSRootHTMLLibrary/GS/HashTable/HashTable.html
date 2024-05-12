@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>HashTable Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/HashTable/HashTable.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="Begin.html">Begin</A><A href="BeginPairs.html">BeginPairs</A><A href="ConstIterator.html">ConstIterator</A><A href="ConstPairIterator.html">ConstPairIterator</A><A href="CountEmptyLists.html">CountEmptyLists</A><A href="End.html">End</A><A href="EndPairs.html">EndPairs</A><A href="Enumerate.html">Enumerate</A><A href="EnumeratePairs.html">EnumeratePairs</A><A href="FindMaxSeekFactor.html">FindMaxSeekFactor</A><A href="FixSeekOrder.html">FixSeekOrder</A><A href="GetAverageSeekFactor.html">GetAverageSeekFactor</A><A href="GetFillFactor.html">GetFillFactor</A><A href="Constructors.html">HashTable</A><A href="IsSeekOrderOptimized.html">IsSeekOrderOptimized</A><A href="Iterator.html">Iterator</A><A href="OptimizeSeekOrder.html">OptimizeSeekOrder</A><A href="PairIterator.html">PairIterator</A><A href="Swap.html">Swap</A>--><H2>HashTable Class</H2><!--exp="HashTable Class"-->
+<P><topic id="$GS.$HashTable.BriefDescription">
+		Associative container using hashing method.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>IndexType</I>, <B>class</B> <I>ItemType</I><B>&gt;
+</B>class HashTable : public <!----><a class="nodecorate" href="../AssociativeContainer/AssociativeContainer.html">AssociativeContainer&lt; IndexType, ItemType &gt;</A></B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>IndexType</I></DT><DD><topic id="$GS.$HashTable.$IndexType.TemplateParamDescription">
+		Type of indices (keys) the items in the hashtable are accessible with.
+	</topic></DD><DT><I>ItemType</I></DT><DD><topic id="$GS.$HashTable.$ItemType.TemplateParamDescription">
+		Type of items the hashtable stores.
+	</topic></DD>
+</DL>
+<H4>Members</H4>
+<P><B><A name="Constructors"></A>Constructors</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">HashTable</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$HashTable.BriefDescription">
+		HashTable constructor.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ContentManagement"></A>Content management</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Swap.html">Swap</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$Swap.BriefDescription">
+		Swaps content of two hashtables.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ContentQuery"></A>Content query</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Enumerate.html">Enumerate</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$Enumerate.BriefDescription">
+		Allows enumeration of the hashtable's items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Begin.html">Begin</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$Begin.BriefDescription">
+		Returns an iterator referring to the first item in the hashtable.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="End.html">End</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$End.BriefDescription">
+		Returns an iterator referring to the one past last item in the hashtable.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnumeratePairs.html">EnumeratePairs</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$EnumeratePairs.BriefDescription">
+		Allows enumeration of the hashtable's content.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="BeginPairs.html">BeginPairs</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$BeginPairs.BriefDescription">
+		Returns an iterator referring to the first index-item pair in the hashtable.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EndPairs.html">EndPairs</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$EndPairs.BriefDescription">
+		Returns an iterator referring to the one past last index-item pair in the hashtable.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PerformanceTuning"></A>Performance tuning</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetAverageSeekFactor.html">GetAverageSeekFactor</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$GetAverageSeekFactor.BriefDescription">
+		Returns the current average seek factor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FindMaxSeekFactor.html">FindMaxSeekFactor</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$FindMaxSeekFactor.BriefDescription">
+		Searches for the largest seek factor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetFillFactor.html">GetFillFactor</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$GetFillFactor.BriefDescription">
+		Returns the current fill factor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="CountEmptyLists.html">CountEmptyLists</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$CountEmptyLists.BriefDescription">
+		Counts number of empty hash lists.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="OptimizeSeekOrder.html">OptimizeSeekOrder</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$OptimizeSeekOrder.BriefDescription">
+		Enables the seek order optimization.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="FixSeekOrder.html">FixSeekOrder</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$FixSeekOrder.BriefDescription">
+		Disables the seek order optimization.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsSeekOrderOptimized.html">IsSeekOrderOptimized</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$IsSeekOrderOptimized.BriefDescription">
+		Returns whether is the seek order optimized.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicTypes"></A>Public Types</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ConstIterator.html">ConstIterator</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$ConstIterator.BriefDescription">
+		Type of the HashTable's constant forward iterator.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Iterator.html">Iterator</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$Iterator.BriefDescription">
+		Type of the HashTable's forward iterator.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ConstPairIterator.html">ConstPairIterator</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$ConstPairIterator.BriefDescription">
+		Type of the HashTable's constant forward pair iterator.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="PairIterator.html">PairIterator</A></TD>
+<TD width="70%"><topic id="$GS.$HashTable.$PairIterator.BriefDescription">
+		Type of the HashTable's forward pair iterator.
+	</topic></TD>
+</TR>
+</table>
+<H4>Description</H4>
+<P><topic id="$GS.$HashTable.LongDescription">
+		HashTable is an AssociativeContainer implementation that can access items very fast
+		using hashing method. Index (key) type should provide an external <B>hash value generator
+		function</B> in either of the following forms:<br>
+<PRE class="code">
+        ULong  GenerateHashValue (const IndexType&amp; from);
+        ULong  GenerateHashValue (IndexType from);
+</PRE>
+		This function should generate an integer from its parameter. It should be deterministic,
+		fast and should have good variance (different parameters should yield different hash values
+		as much is possible). There are predefined generator functions for built-in integer types
+		(char, short, int, long and their unsigned counterparts), C strings (const char*), pointers
+		and GS::UniString. There is also a helper function<br>
+<PRE class="code">
+        ULong  GenerateBinaryHashValue (const IndexType&amp; from);
+</PRE>
+		that can be used for the generation of hash values based on the binary layout of the given type.<br>
+		Moreover index (key) type should have <B>comparison (==, !=) operators</B> (either internal or external).<br>
+		<br>
+		Costs of item access, insertion and deletion are very close to constant. Index-item
+		pairs are stored in hash lists. Every index determines a hash list by taking modulo
+		of its generated hash value with current number of hash lists. Different indices may fall into
+		the same hash list. Inside a hash list linear searching is performed to find the desired
+		index by comparing indices by value using comparison operators.<br>
+		<br>
+		<a name="AverageSeekFactor"></a>
+		<b>Average seek factor</b> is defined as the average number of comparisons needed to find
+		an existing index in some configuration of the hashtable. At least one comparison in the
+		determined hash list is always performed so the minimum average seek factor is 1. 
+		Average seek factor depends on the distribution of indices in hash lists. Uniform
+		distribution will decrease the average seek	factor.	As new index-item pairs are put into
+		the hashtable the average seek factor will increase in long term and this will decrease the
+		performance.  User can specify limit for the average fill factor above which the hashtable will
+		increase (approximately double) the number of hash lists, which will very likely reduce the
+		average seek factor. This is called <b>rehashing</b>.<br>
+		<br>
+		<a name="FillFactor"></a>
+		<b>Fill factor</b> is defined as ratio of the hashtable's size (number of stored index-item pairs)
+		and current number of hash lists. It shows how much is the hashtable filled. It may happen in bad
+		circumstances that a rehashing does not reduce the average seek factor (see the
+		case study below). Then it would immediatelly trigger an another rehashing which would in bad
+		circumstances trigger an another one and so on until the whole memory is consumed. However after
+		rehashing the fill factor is certainly reduced (approximately to the half of the old one).
+		User can specify the minimum fill factor required the rehashing to be considered at all.
+		The minimum fill factor prevents the coninuous rehashing and controls the memory usage efficiency
+		that is especially useful when small average seek factor limits are specified. Rehashing will
+		happen only when both average fill factor limit and minimum fill factor are exceeded.<br>
+		<br>
+		<a name="OrderOfIndices"></a>
+		<b>Order of indices</b> inside hash lists can be also controlled. If seek order optimization is
+		enabled then the index that was accessed the last time will be put to the front of its list.
+		As a result, frequently used inidices will be close to the front of the list. This can be
+		useful when a subset of indices is accessed much more frequently than others. This optimization
+		has little overhead but the LRU (Last Recently Used) strategy may decrease the performance
+		when cyclically most of items are accessed and with similar frequency. Note that rehashing will
+		temporary disturb the ordering. By default this optimization is disabled.<br>
+		<br>
+		Addresses of index-item pairs are not stable, they can change due to rehashing and deleting
+		so references to items can be stored only until the next modifying operation on the hashtable
+		is invoked.<br>
+		Hashtable imposes medium overhead on index-item pairs: total cost of an index-item pair
+		storage cell involves the index and the item themselves, a pointer to the next cell and the overhead
+		due to the hash list table that contains pointers to hash lists.<br>
+		<br>
+		Items are required to have default and copy constructors and assigment operator. 
+		In addition if they have comparison operators (== and !=) then value dependent 
+		operations (eg. ContainsValue) will be also useable.
+		Indices are required to have default and copy constructors, assigment operator,
+		comparison (==, !=) operators and external GenerateHashValue function.<br>
+		<br>
+		The following figure shows the internal layout of the HashTable. It is implemented with
+		an Array and a PagedArray using Linear allocation strategy.<br>
+		<br>
+		<p align="center">
+		<img src="../../../GSRootImageLibrary/hash_table.JPG"><br>
+		</p>
+		<br>
+		The following diagram shows a case study: conformation of the average seek factor in function
+		of the  hashtable size (number of stored index-item pairs) with string indices.
+		It was tried both with random strings and generated strings ("000000", "000001", ...) and both
+		with and without rehashing. This yielded four cases. When rehashing was used the average
+		seek factor limit was 1.5 and the minimum fill factor was 0.5. Bullets indicate the
+		rehashing points.<br>
+		It is interesting, that with generated strings the first rehashing has increased the average
+		seek factor (bad case). However the fill factor was dropped below 0.5 so the next rehashing
+		could take place only somewhat later. In the meantime the average seek factor was decreased
+		because due to the bad distribution mainly empty hash lists were used for new indices,
+		introducing many seek factors of value 1. After the second rehashing the average seek
+		factor was increased slowly and smoothly. The third rehashing has happened after the
+		third rehashing of the random string case!<br>
+		It is also interesting that average seek factors of generated string cases are mainly better
+		then average seek factors of random string cases. This is because of the complex conjuction
+		of generated strings, hash value generator function and prime sizes of the hash list table.
+		<br>
+		<p align="center">
+		<img src="../../../GSRootImageLibrary/hash_stat1.JPG"><br>
+		</p>
+		<br>
+		The following diagram shows the conformation of the maximum seek factor in function
+		of the  hashtable size:
+		<br>
+		<p align="center">
+		<img src="../../../GSRootImageLibrary/hash_stat2.JPG"><br>
+		</p>
+		<br>
+		The following diagram shows the conformation of the fill factor in function
+		of the  hashtable size:
+		<br>
+		<p align="center">
+		<img src="../../../GSRootImageLibrary/hash_stat3.JPG"><br>
+		</p>
+		<br>
+	</topic></P>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../GS.html">GS</A></P>
+<P><B>Header: </B>HashTable.hpp</P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

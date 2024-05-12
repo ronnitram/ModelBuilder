@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_StairStructureType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_StairStructureType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_StairStructureType</h1>
+
+    <p>Represents a Stair Structure element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                      <em>head</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                           <em>owner</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                           <em>libId</em>;
+        <strong>GS::UInt32</strong>                         <em>sequenceNumber</em>;
+        <strong>GS::UInt32</strong>                         <em>subElemId</em>;
+        <strong>bool</strong>                               <em>visible</em>;
+        <strong>bool</strong>                               <em>isLanding</em>;
+        <strong>short</strong>                              <em>filler_1[3]</em>;
+        <strong><a href="#API_StairStructureTypeID">API_StairStructureTypeID</a></strong>           <em>structType</em>;
+        <strong><a href="#API_StairStructBottomTypeID">API_StairStructBottomTypeID</a></strong>        <em>bottomType</em>;
+        <strong>double</strong>                             <em>horizontalThickness</em>;
+        <strong>double</strong>                             <em>thickness</em>;
+        <strong>union</strong> {
+            <strong><a href="API_SideStairStructData.html">API_SideStairStructData</a></strong>        <em>sideStair</em>;
+            <strong><a href="API_MonolithStairStructData.html">API_MonolithStairStructData</a></strong>    <em>monolith</em>;
+        } <em>data</em>;
+        <strong><a href="API_StairPartRoleID.html">API_StairPartRoleID</a></strong>                <em>role</em>;
+        <strong><a href="#API_StairStructureSideID">API_StairStructureSideID</a></strong>           <em>side</em>;
+    <strong>}</strong> <em>API_StairStructureType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+        <dd>General element header.</dd>
+
+        <dt><b>owner</b></dt>
+        <dd>GUID of the owning stair.</dd>
+
+        <dt><b>libId</b></dt>
+        <dd>Library part GUID.</dd>
+
+        <dt><b>sequenceNumber</b></dt>
+        <dd>The number of the step that the structure element belongs to.</dd>
+
+        <dt><b>subElemId</b></dt>
+        <dd>The subelement identifier of the structure element.</dd>
+
+        <dt><b>visible</b></dt>
+        <dd>True, if the object is visible.</dd>
+
+        <dt><b>isLanding</b></dt>
+        <dd>True, if the structure is a landing.</dd>
+
+        <dt><a name="API_StairStructureTypeID"><b>structType</b></a></dt>
+        <dd>
+            The type of the stair structure:
+            <table>
+                <tr>
+                    <td><p><code>APIST_Side</code></p></td>
+                    <td><p>The Stair is supported at its sides.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIST_Monolith</code></p></td>
+                    <td><p>The Stair has a solid block under it.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIST_BeamSupport</code></p></td>
+                    <td><p>The Stair is supported by beams.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APIST_CantileveredSupport</code></p></td>
+                    <td><p>The Stair is supported at only one side.</p></td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><a name="API_StairStructBottomTypeID"><b>bottomType</b></a></dt>
+        <dd>
+            The type of the stair structure bottom:
+            <table>
+                <tr>
+                    <td><p><code>APISB_Stepped</code></p></td>
+                    <td><p>The stair structure is stepped along with the steps.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APISB_Flat</code></p></td>
+                    <td><p>The stair structure is flattened under the steps.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APISB_Smooth</code></p></td>
+                    <td><p>The stair structure is monolithic.</p></td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>horizontalThickness</b></dt>
+        <dd>The horizontal thickness of the stair structure.</dd>
+
+        <dt><b>thickness</b></dt>
+        <dd>The thickness of the stair structure.</dd>
+
+        <dt><b>sideStair</b></dt>
+        <dd>Data of the side supported structures.</dd>
+
+        <dt><b>monolith</b></dt>
+        <dd>Data of the monolithic structures.</dd>
+
+        <dt><b>role</b></dt>
+        <dd>Role of the Stair subelement.</dd>
+
+        <dt><a name="API_StairStructureSideID"><b>side</b></a></dt>
+        <dd>
+            Supported side of the Stair:
+            <table>
+                <tr>
+                    <td><p><code>APISS_LeftSide</code></p></td>
+                    <td><p>The stair structure supports the step from the left side.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APISS_RightSide</code></p></td>
+                    <td><p>The stair structure supports the step from the right side.</p></td>
+                </tr>
+                <tr>
+                    <td><p><code>APISS_UnderSide</code></p></td>
+                    <td><p>The stair structure supports the step from under.</p></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_LinkToSettings.html">API_LinkToSettings</a>, <a href="API_StoryVisibility.html">API_StoryVisibility</a>, <a href="API_PolyLineType.html">API_PolyLineType</a><br>
+    <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_Element.html">API_Element</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="API_StairType.html">API_StairType</a>, <a href="API_StairRiserType.html">API_StairRiserType</a>, <a href="API_StairTreadType.html">API_StairTreadType</a>, <a href="API_StairRulesData.html">API_StairRulesData</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 19, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

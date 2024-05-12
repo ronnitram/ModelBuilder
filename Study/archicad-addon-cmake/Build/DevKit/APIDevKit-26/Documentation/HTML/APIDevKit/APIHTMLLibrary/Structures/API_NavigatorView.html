@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_NavigatorView</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_NavigatorView.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_NavigatorView</h1>
+
+    <p>Representation of a Navigator view item.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Box.html">API_Box</a></strong>                  <em>zoom</em>;
+        <strong>char</strong>                     <em>modelViewOptName[API_LongNameLen]</em>;
+        <strong><a href="API_ModelViewOptions.html">API_ModelViewOptions</a></strong>     <em>*modelViewOpt</em>;
+        <strong><a href="API_StructureDisplay.html">API_StructureDisplay</a></strong>     <em>structureDisplay</em>;
+        <strong>char</strong>                     <em>layerCombination[API_AttrNameLen]</em>;
+        <strong><a href="API_LayerStat.html">API_LayerStat</a></strong>            <em>**layerStats</em>;
+        <strong>Int32</strong>                    <em>drawingScale</em>;
+        <strong>char</strong>                     <em>dimName[API_LongNameLen]</em>;
+        <strong><a href="API_DimensionPrefs.html">API_DimensionPrefs</a></strong>       <em>*dimPrefs</em>;
+        <strong>bool</strong>                     <em>saveZoom</em>;
+        <strong>bool</strong>                     <em>saveDispOpt</em>;
+        <strong>bool</strong>                     <em>saveLaySet</em>;
+        <strong>bool</strong>                     <em>saveDScale</em>;
+        <strong>bool</strong>                     <em>saveDim</em>;
+        <strong>bool</strong>                     <em>savePenSet</em>;
+        <strong>bool</strong>                     <em>saveStructureDisplay</em>;
+        <strong>bool</strong>                     <em>filler_2[5]</em>;
+        <strong>char</strong>                     <em>penSetName[API_AttrNameLen]</em>;
+        <strong><a href="API_PenType.html">API_PenType</a></strong>              <em>*pens</em>;
+        <strong>bool</strong>                     <em>ignoreSavedZoom</em>;
+        <strong>bool</strong>                     <em>filler_3[7]</em>;
+        <strong><a href="API_Tranmat.html">API_Tranmat</a></strong>              <em>tr</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                 <em>renovationFilterGuid</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>              <em>overrideCombination[API_UniLongNameLen]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>              <em>d3styleName[API_UniLongNameLen]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>              <em>renderingSceneName[API_UniLongNameLen]</em>;
+        <strong>bool</strong>                     <em>usePhotoRendering</em>;
+    <strong>}</strong> <em>API_NavigatorView</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>zoom</b></dt>
+
+        <dd>The associated zoom box defined in model coordinates. Valid only if the <code>saveZoom</code> field is <code>true</code>.</dd>
+
+        <dt><b>modelViewOptName</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>Name of the view's Model View option [display option in old terminology]. Valid only if the <code>saveDispOpt</code> field is <code>true</code>.</dd>
+
+        <dt><b>modelViewOpt</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Model View option stored for this view, if custom. Valid only if the <code>saveDispOpt</code> field is <code>true</code>. Do not forget to free this pointer if not needed any more.</dd>
+
+        <dt><b>structureDisplay</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>The Partial Structure Display state of the view. See <a href="API_StructureDisplay.html">API_StructureDisplay</a>.</dd>
+
+        <dt><b>layerCombination</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="API 11" width="19" height="12"></dt>
+
+        <dd>Layer combination name of the view. Valid only if the <code>saveLaySet</code> field is <code>true</code>.<br>
+        The length of this field has been raised up to 256 characters.</dd>
+
+        <dt><b>layerStats</b></dt>
+
+        <dd>Handle to a set of layer status stored for the view. Valid only if the <code>saveLaySet</code> field is <code>true</code> and <code>layerCombination</code> is empty, otherwise it should be set to <code>nullptr</code>.<br>
+        Do not forget to dispose this handle if not needed any more.</dd>
+
+        <dt><b>drawingScale</b></dt>
+
+        <dd>The drawing scale associated with the view. Valid only if the <code>saveDScale</code> field is <code>true</code>.</dd>
+
+        <dt><b>dimName</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Dimension style attribute name. Valid only if the <code>saveDim</code> field is <code>true</code>.</dd>
+
+        <dt><b>dimPrefs</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Dimensioning settings stored for this view (only if custom). Valid only if the <code>saveDim</code> field is <code>true</code>. Do not forget to free this pointer if not needed any more.</dd>
+
+        <dt><b>saveZoom</b></dt>
+
+        <dd>Zoom box is stored in the view. If <code>false</code>, the <code>zoom</code> field does not contain valid data.</dd>
+
+        <dt><b>saveDispOpt</b></dt>
+
+        <dd>Display options are stored in the view. If <code>false</code>, the <code>displayOpt</code> field does not contain valid data.</dd>
+
+        <dt><b>saveLaySet</b></dt>
+
+        <dd>Layer settings are stored in the view. If <code>false</code>, the <code>layerCombination</code> and the layerStats fields do not contain valid data.</dd>
+
+        <dt><b>saveDScale</b></dt>
+
+        <dd>Drawing scale is stored in the view. If <code>false</code>, the <code>drawingScale</code> field does not contain valid data.</dd>
+
+        <dt><b>saveDim</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Dimensioning is stored in this view. If <code>false</code>, the <code>dimName</code> and the dimPrefs fields do not contain valid data.</dd>
+
+        <dt><b>savePenSet</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd>Store the penset.</dd>
+
+        <dt><b>saveStructureDisplay</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>Partial Structure Display setting is stored in the view.</dd>
+
+        <dt><b>penSetName[API_AttrNameLen]</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd>Penset name (empty if custom).</dd>
+
+        <dt><b>pens</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd>Pens of the pen table (only if custom).</dd>
+
+        <dt><b>ignoreSavedZoom</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>If this value is true, the saved zoomBox for the view is not used when changing between views. (in View Organizer this can be set with the "Do not apply saved zooms when changing views" check)</dd>
+
+        <dt><b>renovationFilterGuid</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></dt>
+
+        <dd>Renovation filter used by this navigator view.</dd>
+
+        <dt><b>overrideCombination</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></dt>
+
+        <dd>The currently active override combination in this navigator view (or empty string if there is no active override combination).</dd>
+
+        <dt><b>d3styleName</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>3D style name (or empty string if this is not a 3D view).</dd>
+
+        <dt><b>renderingSceneName</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Rendering scene name (or empty string if this is not a rendered view).</dd>
+
+        <dt><b>usePhotoRendering</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Use photorendering in visualization (for rendered views).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You can retrieve information about a view via <a href="../Functions/APINavigator_GetNavigatorViewID.html">APINavigator_GetNavigatorViewID</a> and you are able to change it with <a href="../Functions/APINavigator_ChangeNavigatorViewID.html">APINavigator_ChangeNavigatorViewID</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Navigator.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_NavigatorItem.html">API_NavigatorItem</a><br>
+    <a href="../Structures/API_NavigatorSet.html">API_NavigatorSet</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 3, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

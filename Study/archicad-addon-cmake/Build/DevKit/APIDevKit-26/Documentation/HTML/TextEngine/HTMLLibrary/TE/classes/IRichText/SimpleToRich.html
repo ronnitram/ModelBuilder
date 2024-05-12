@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>TE::IRichText::SimpleToRich Method</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+  
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTMLLibrary/TE/classes/IRichText/SimpleToRich.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">TextEngine</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TE::IRichText::SimpleToRich Method</h1>
+    <!--exp="TE::IRichText::SimpleToRich Method"-->
+    <p>
+      <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Implemented method</b>. It has ANSI and Unicode version. Converts multiline text into paragraph.
+    Handling texts of Archicad 8.1 and before.
+  
+    </p>
+    <pre class="Syntax"><span class="SyntaxTypename">void</span> <span class="SyntaxIdentifier">SimpleToRich</span> <span class="SyntaxSymbol">(</span>
+    <span class="SyntaxTypename">const GS::UniString &amp;</span> <span class="SyntaxParameter">content</span><span class="SyntaxSymbol">,</span>
+    <span class="SyntaxTypename">const short *</span>       <span class="SyntaxParameter">lStarts</span> <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">nullptr</span><span class="SyntaxSymbol">,</span>
+    <span class="SyntaxTypename">Int32</span>               <span class="SyntaxParameter">lineNum</span> <span class="SyntaxSymbol">=</span> <span class="SyntaxInitializer">0</span>
+<span class="SyntaxSymbol">)</span><span class="SyntaxSymbol">;</span></pre>
+    <h2 class="SectionHeader">Parameters</h2>
+    <dl>
+      <dt><span class="Parameter">content</span></dt>
+      <dd>
+        <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[in]</i> In ANSI case <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">SimpleToRich</b> converts to Unicode used <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="GetGSCharCode.html" shape="rect">GetGSCharCode</a> .
+  
+      </dd>
+      <dt><span class="Parameter">lStarts</span></dt>
+      <dd>
+        <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[in]</i> This is a pointer to the first item of the array of line start positions. The first item is allways <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">0</b>.
+  The last item is equal the <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">nunmber of characters</b> in content. Therefore its dimension is allways the number of lines + 1.
+  Each item contains a (0 based) position as an offset from the first character in the paragraph.
+    <pre xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" class="code" space="preserve">// Example:
+  char  *txt = "012345"
+  short lStart [4] = {0, 3, 5, 6};
+  // txt is displayed in three lines:
+  // 012
+  // 34
+  // 5
+</pre>
+      </dd>
+      <dt><span class="Parameter">lineNum</span></dt>
+      <dd>
+        <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[in]</i><b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Dimension</b> of lStarts array.
+  
+      </dd>
+    </dl>
+    <h2 class="SectionHeader">Description</h2>
+    <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Implemented method</b>. It has ANSI and Unicode version. "Simple texts" are stored as a <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">string</b> and an array
+    is filled with the <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">line start positions</b>. The texts of Archicad 8.1 and previous versions are stored in this form. <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">SimpleToRich</b>
+    converts "simple texts" into a richtext paragraph keeping the original line break positions.
+     In the ANSI version the line start positions are adjusted if the ANSI-Unicode conversion changes the length of
+     characters. Array of line start positions can be NULL, in this case <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">SimpleToRich</b>
+    is equal with <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="CreateParagraphs.html" shape="rect">CreateParagraphs</a>
+    
+    <h2 class="SectionHeader">Example</h2>
+    <p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"><!-- Don't index --><a href="Invalid link: ../../Examples/IRichText.html" shape="rect">Example for using IRichText</a></p>
+    
+    <h2 class="SectionHeader">See Also</h2>
+    <p>
+      <!-- Don't index --><a href="IRichText.html">IRichText Overview</a> | 
+      <!-- Don't index --><a href="IRichText.html#members">Class Members</a> | 
+      <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="CreateParagraphs.html" shape="rect">IRichText::CreateParagraphs</a> | <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../IParagraph/IParagraph.html" shape="rect">TE::IParagraph</a> |
+    <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="CopyAsSimple.html" shape="rect">IRichText::CopyAsSimple</a>
+    </p>
+  
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

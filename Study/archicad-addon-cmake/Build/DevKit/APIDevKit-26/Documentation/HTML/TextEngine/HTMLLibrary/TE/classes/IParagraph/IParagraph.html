@@ -1,0 +1,381 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>TE::IParagraph Class</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <!-- Index -->
+  
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTMLLibrary/TE/classes/IParagraph/IParagraph.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">TextEngine</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TE::IParagraph Class</h1>
+    <!--exp="TE::IParagraph Class"-->
+    <p>
+      
+    Rich texts consists one or more piece of texts so called paragraph. <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">IParagraph</b> is an <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">interface class</b> through which textengine
+    can handle paragraphs. <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">IParagraph</b> has only pure virtual methods.
+  
+    </p>
+    <pre class="Syntax"><span class="SyntaxKeyword">class</span> <span class="SyntaxIdentifier">IParagraph</span></pre>
+    <h2 class="SectionHeading" id="members">Members</h2>
+    <p>
+      <!-- Don't index --><a href="#PublicMethods">Public Methods</a><br>
+      <!-- Don't index --><a href="#PublicEnums">Public Enums</a><br>
+    </p>
+    
+    <h2 class="SectionHeading" id="PublicMethods">Public Methods</h2>
+    <p>
+      
+    </p>
+    <table class="Summary">
+      <tr>
+        <th class="LinkColumn">Method</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td class="LinkColumn">
+          <a href="AddRun.html">AddRun</a>
+        </td>
+        <td>
+          
+    Appends a run to the run list of paragraph.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetEolPos.html">GetEolPos</a>
+        </td>
+        <td>
+          
+    Returns the given line end position.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetFirstIndent.html">GetFirstIndent</a>
+        </td>
+        <td>
+          
+    Returns the left indent of the first row in the paragraph in pixels.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetFirstPos.html">GetFirstPos</a>
+        </td>
+        <td>
+          
+    Returns the first position of the paragraph.<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetIndent.html">GetIndent</a>
+        </td>
+        <td>
+          
+    Returns the indent of the first, second... rows of the paragraph in pixels.<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetJustification.html">GetJustification</a>
+        </td>
+        <td>
+          
+    Returns the justification of the paragraph.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetLineSpacing.html">GetLineSpacing</a>
+        </td>
+        <td>
+          
+    Returns the factor used to set the height of a line.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetLineWidth.html">GetLineWidth</a>
+        </td>
+        <td>
+          
+    Retrieves the given line width of the paragraph in pixels.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetNumOfLines.html">GetNumOfLines</a>
+        </td>
+        <td>
+          
+    Returns the number of text lines in the paragraph.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetNumOfRuns.html">GetNumOfRuns</a>
+        </td>
+        <td>
+          
+    Returns the number of contained runs.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetRange.html">GetRange</a>
+        </td>
+        <td>
+          
+    Returns the range of the paragraph.<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetRightIndent.html">GetRightIndent</a>
+        </td>
+        <td>
+          
+    Returns the right indent of the paragraph in pixels.<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetRun.html">GetRun</a>
+        </td>
+        <td>
+          
+    Returns an interface pointer to the requested <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../IRun/IRun.html" shape="rect">run</a>.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetTab.html">GetTab</a>
+        </td>
+        <td>
+          
+    Returns an interface pointer to the requested <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../ITab/ITab.html" shape="rect">tab</a>.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetTabNum.html">GetTabNum</a>
+        </td>
+        <td>
+          
+    Returns the number of contained tabs.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="Destructor.html">~IParagraph</a>
+        </td>
+        <td>
+          
+    Destructor.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="IsIntegrate.html">IsIntegrate</a>
+        </td>
+        <td>
+          
+    Returns true if data of paragraph are integrated otherwise false.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="LineWidthsIsAvailable.html">LineWidthsIsAvailable</a>
+        </td>
+        <td>
+          
+  Returns true or false. <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">LineWidthsIsAvailable</b> shows to <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="GetLineWidth.html" shape="rect">IParagraph::GetLineWidth</a> is available or not.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="SetEolPos.html">SetEolPos</a>
+        </td>
+        <td>
+          
+    Sets the given line end position in the paragraph.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="SetFirstPos.html">SetFirstPos</a>
+        </td>
+        <td>
+          
+    Sets the first position of the paragraph.<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="SetNumOfLines.html">SetNumOfLines</a>
+        </td>
+        <td>
+          
+    Sets the number of lines in the paragraph.<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="SetNumOfRuns.html">SetNumOfRuns</a>
+        </td>
+        <td>
+          
+    Sets the number of contained runs.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="SetRange.html">SetRange</a>
+        </td>
+        <td>
+          
+    Sets the range of the paragraph.<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="SetRun.html">SetRun</a>
+        </td>
+        <td>
+          
+    Gets the index-th run of paragraph and copies the run in argument into it.
+  
+        </td>
+      </tr>
+    </table>
+    
+    <h2 class="SectionHeading" id="PublicEnums">Public Enums</h2>
+    <p>
+      
+    </p>
+    <table class="Summary">
+      <tr>
+        <th class="LinkColumn">Enum</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td class="LinkColumn">
+          <a href="Justification.html">Justification</a>
+        </td>
+        <td>
+          
+    Describes the various justification options.
+  
+        </td>
+      </tr>
+    </table>
+    <h2 class="SectionHeading">Description</h2>
+    <p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">What is a paragraph? A paragraph is a subdivision of a written composition. It can contain one or more letters or sentences but can be empty too.
+  Paragraphs are separetad in a rich text by separator character CR. The contained text can have one or more styles
+  (<!-- Don't index --><a href="../IRun/IRun.html" shape="rect">TE::IRun</a>, <!-- Don't index --><a href="../ICharStyle/ICharStyle.html" shape="rect">TE::ICharStyle</a>). A paragraph allways
+   begins on a new line. Therefore an <b>empty paragraph</b> (don't contains text) is an empty line. <b>Important</b>: an empty
+    paragraph has a default style that determines the height of an empty line.
+  </p><p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">
+  Beside the character level formatting styles the paragraph is formatted by the nexts: <!-- Don't index --><a href="GetFirstIndent.html" shape="rect">first left indent</a>,
+  <!-- Don't index --><a href="GetIndent.html" shape="rect">left indent</a>, <!-- Don't index --><a href="GetRightIndent.html" shape="rect">right indent</a>, <!-- Don't index --><a href="GetLineSpacing.html" shape="rect">line spacing</a>,
+  <!-- Don't index --><a href="GetTab.html" shape="rect">custom tabulators</a>.
+  </p><p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">
+  A non empty paragraph can break into more lines with filling of end of line positions. End of line position is an index to the last character of the line.
+  This position is relative to the paragraph begin position, base is 0.
+  </p>
+    <h2 class="SectionHeading">Example</h2>
+    <p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"><!-- Don't index --><a href="Invalid link: ../../Examples/IRichText.html" shape="rect">Example for using IRichText</a></p>
+    <h2 class="SectionHeading">Requirements</h2>
+    <p>
+      <span class="RequirementsSection">Namespace:</span> <!-- Don't index --><a href="../../TE.html">TE</a>
+    </p>
+    <p>
+      <span class="RequirementsSection">Header:</span> IParagraph.hpp
+    </p>
+    <p>
+      <span class="RequirementsSection">Platforms:</span> 
+    TextEngine Version 9.0.0 R1 (6306 / 1812)<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Windows 2000, Windows XP, OSX 10.2x, OSX 10.3x
+  
+    </p>
+    <h2 class="SectionHeading">See Also</h2>
+    <p>
+      <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../IRun/IRun.html" shape="rect">TE::IRun</a> | <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../ICharStyle/ICharStyle.html" shape="rect">TE::ICharStyle</a> | 
+        <!-- Don't index --><a href="../Paragraph/Paragraph.html">TE::Paragraph</a>
+    </p>
+  
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

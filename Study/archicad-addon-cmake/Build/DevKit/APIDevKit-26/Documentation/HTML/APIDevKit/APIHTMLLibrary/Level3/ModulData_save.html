@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Saving Custom Data as a Section</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/ModulData_save.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>The Modul Data - Saving Custom Data as a Section of the Archicad Project File</h1><br>
+
+    <p>Every add-on can save custom data into an Archicad single project, teamwork project, or hotlink module. This lets the add-on programmers have a custom - unlimited length - data section in the project. The benefit of this feature is that it spares the Archicad users from having to care about many separate files that belong to a project and are needed by add-ons, when the project file changes its location (by copy, paste, email, ftp, etc).</p>
+
+    <p>The custom section of the project file can be anything the add-on programmer desires to save for his/her add-on, but special attention is needed for the issues of maintaining this data when the add-on is active, and also, the correct byte order, if the add-on was developed for multiplatform usage.</p>
+
+    <p>More information on this topic can be found at the description of the <a href="ModulData_Manager_id.html">ModulData Manager</a>.</p>
+    <hr>
+
+    <p><b>Trick:</b> You can delete add-on data from a project file following these steps:</p>
+
+    <ol>
+        <li>Quit Archicad if it's running.</li>
+
+        <li>Delete or remove the add-on from its location.<br>
+        (Usually the Add-Ons folder of your Archicad installation directory.)</li>
+
+        <li>Start up Archicad, and open the Project file in Archicad that you want to erase the add-on data from.</li>
+
+        <li>Locate the "Archicad Temporary Folder"<br>
+        (It is on the Temporary Volume, which can be set through the Options/Preferences/Data Safety menu, Temporary Folder Location button (or the applying localized version of it.) Usually it's on the C: drive on Windows, or in the System Folder of the System Drive on the Macintosh.)</li>
+
+        <li>Switch into the @APIData subfolder.</li>
+
+        <li>Locate the tmp file that belongs to your add-on.<br>
+        (The corresponding file should contain the filename of your add-on at its 64th byte.)</li>
+
+        <li>Delete the located file.</li>
+
+        <li>Save the project in Archicad.</li>
+    </ol>At the next opening of the project, your add-on data will not be present. This way you can decrease the load time of Archicad, test the initialization of an add-on with no add-on data present, or get rid of add-on data for add-ons you don't use any more.<br>
+    <br>
+    <b>Warning: The data deleted following this method will be lost and cannot be recovered!</b>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 8, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

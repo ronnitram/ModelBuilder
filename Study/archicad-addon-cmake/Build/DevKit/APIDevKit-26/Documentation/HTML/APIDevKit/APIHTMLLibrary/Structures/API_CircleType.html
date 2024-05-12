@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_CircleType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_CircleType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_CircleType</h1>
+
+    <p>Represents a circle or an ellipse.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>           <em>head</em>;
+        <strong><a href="API_ExtendedPenType.html">API_ExtendedPenType</a></strong>     <em>linePen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>      <em>ltypeInd</em>;
+        <strong>bool</strong>                    <em>roomSeparator</em>;
+        <strong>bool</strong>                    <em>filler_1[5]</em>;
+        <strong>short</strong>                   <em>determination</em>;
+        <strong>double</strong>                  <em>penWeight</em>;
+        <strong>char</strong>                    <em>filler_2[16]</em>;
+        <strong>Int32</strong>                   <em>filler_3[8]</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>               <em>origC</em>;
+        <strong>double</strong>                  <em>r</em>;
+        <strong>double</strong>                  <em>angle</em>;
+        <strong>double</strong>                  <em>ratio</em>;
+        <strong>Int32</strong>                   <em>filler_4[8]</em>;
+    <strong>}</strong> <em>API_CircleType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>linePen</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></dt>
+
+        <dd>(Overridden) pen attribute index.</dd>
+
+        <dt><b>ltypeInd</b></dt>
+
+        <dd>Line type attribute index.</dd>
+
+        <dt><b>roomSeparator</b></dt>
+
+        <dd>Is this circle/ellipse a zone boundary?</dd>
+
+        <dt><b>determination&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></b></dt>
+
+        <dd>Line category:</dd>
+
+        <dd>
+            <table>
+                <tr>
+                    <td>
+                        <p><code>APILine_DetOrigin</code></p>
+                    </td>
+
+                    <td>
+                        <p>Default line category. Lines in the Drafting line category are not affected by the Line Weight and Section Fill settings chosen in Display Options.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APILine_DetInnerLine</code></p>
+                    </td>
+
+                    <td>
+                        <p>A skin separator line separates skins of composite structures. Lines in the Skin Separator category will be either hidden or shown depending on the Cut Fill type chosen in Display Options. Also, lines in the Skin Separator category can be optionally placed onto their own layer during DXF/DWG conversion functions.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APILine_DetContourLine</code></p>
+                    </td>
+
+                    <td>
+                        <p>Lines in the Cut line category will be affected if you have chosen the 'Bold Cut Line' setting in the Line Weight menu of Display Options.</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>penWeight</b></dt>
+
+        <dd>Pen weight for the circle/ellipse (can override the weight in <code>linePen</code>, otherwise set it to <code>API_DefPenWeigth</code>: use default weight of the pen).</dd>
+
+        <dt><b>origC</b></dt>
+
+        <dd>Coordinate of the center point.</dd>
+
+        <dt><b>r</b></dt>
+
+        <dd>Radius.</dd>
+
+        <dt><b>angle</b></dt>
+
+        <dd>0.0, or the angle of the 'a' axis.</dd>
+
+        <dt><b>ratio</b></dt>
+
+        <dd>1.0, or 'a/b' of the ellipse.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_Coord.html">API_Coord</a>,
+    <a href="API_ExtendedPenType.html">API_ExtendedPenType</a>, <a href="API_Element.html">API_Element</a>,<br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 13, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

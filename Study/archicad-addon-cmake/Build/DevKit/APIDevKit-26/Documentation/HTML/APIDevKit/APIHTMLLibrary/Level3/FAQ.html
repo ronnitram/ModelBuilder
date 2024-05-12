@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Frequently Asked Questions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/FAQ.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Frequently Asked Questions</h1>
+
+    <p>This collection answers to the most frequently asked API related questions.</p>
+
+    <ol>
+        <li><!----><a href="#FAQ_1">I receive this error message: "This add-on cannot be validated. Please contact the distributor." What is the problem?</a></li>
+
+        <li><!----><a href="#FAQ_2">How do I create a template library part to be used in my add-on?</a></li>
+
+        <li><!----><a href="#FAQ_3">How do I create an associative dimension in Archicad 8?</a></li>
+
+        <li><!----><a href="#FAQ_4">(Win only) My add-on runs perfectly on my development machine, but when I install it on a demo machine it refuses to load.</a></li>
+
+        <li><!----><a href="#FAQ_5">Can I compile a GDL add-on, which uses the services of the General API DevKit?</a></li>
+
+        <li><!----><a href="#FAQ_6">How can I catch notifications immediately?</a></li>
+
+        <li><!----><a href="#FAQ_7">We defined an icon in the GRC file in the 3.1 DevKit, but they doesn't seem to appear with 6.1, and I also receive a resource conversion error. Also, what do those three numbers mean in the resource?</a></li>
+
+        <li><!----><a href="#FAQ_8">I'm creating a library part from my add-on, and I also put in a preview picture, but it doesn't appear.</a></li>
+
+        <li><!----><a href="#FAQ_9">Is there a default callback for the simple popup menu-like custom control?</a></li>
+
+        <li><!----><a href="#FAQ_10">(Win only) When I link my add-on, I receive the following warning: "<code>LINK : warning LNK4098: defaultlib "MSVCRT" conflicts with use of other libs; use /NODEFAULTLIB:library</code>"</a></li>
+
+        <li><!----><a href="#FAQ_11">How can I open a progress window when I have a long process running?</a></li>
+
+        <li><!----><a href="#FAQ_12">I have a function which adjusts the additional parameter values of a placed object/window/door. It works fine in Archicad 7, but not in Archicad 8 or 9.</a></li>
+
+        <li><!----><a href="#FAQ_13">When I read 3D data for an element I don't get the correct 3D-vertex world-coordinates. They are local coordinates for that element. So how can I retrieve the correct vertex information in world coordinates of an element?</a></li>
+
+        <li><!----><a href="#FAQ_14">How can I make the standard DXF/DWG add-on export elements into DWG file?</a></li>
+
+        <li><!----><a href="#FAQ_15">What's the required format of User Controls in the .grc file?</a></li>
+    </ol>
+    <hr>
+
+    <ol>
+        <li>
+            <p><i><!----><a name="FAQ_1" id="FAQ_1"></a>I receive this error message: "This add-on cannot be validated. Please contact the distributor." What is the problem?</i></p>
+
+            <p>Several problems may lead to this message:<br></p>
+
+            <ul>
+                <li>The add-on cannot be loaded, because the dll / shared library cannot be loaded. This usually indicates a missing library, or some initialization failure. The first problem can be detected by the Depends.exe application on Windows (it's part of the MS tool suite). On Mactel, the '<tt>otool -L</tt>' Terminal command lists the frameworks referred by the add-on. The second problem is usually in the add-on's code :))</li>
+
+                <li>The add-on was not compiled with the DevKit required by the server application.</li>
+
+                <li>The add-on doesn't have an 'MDID' resource, or the 'MDID' resource doesn't contain valid information. This may be caused by:<br>
+
+                    <ul type="square">
+                        <li><i>Mac:</i> the add-on doesn't have a resource fork, because of an invalid transfer through internet or file system.</li>
+
+                        <li>the MDID resource was not compiled into the add-on.</li>
+
+                        <li>the MDID resource contains demo IDs (e.g. developer ID is 1 and the local ID is 1)</li>
+
+                        <li>the MDID clashes with another add-on's MDID; in this case Archicad refuses to load any of these add-ons.</li>
+
+                        <li>there's a typo in the developer ID, or in the authorization code. In this case the generated local ID looks valid, but Archicad still rejects to load the add-on. Try to double-check the ID and the code with Graphisoft.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p>&nbsp;</p>
+        </li>
+
+        <li>
+            <p><i><!----><a name="FAQ_2" id="FAQ_2"></a>How do I create a template library part to be used in my add-on?</i></p>
+
+            <p>You can find the answer <a href="FAQ/template_un.html">here</a>.</p>
+
+            <p>&nbsp;</p>
+        </li>
+
+        <li>
+            <p><i><a name="FAQ_3" id="FAQ_3"></a>How do I create an associative dimension in Archicad?</i></p>
+
+            <p>An example from the Automatic Dimensioning add-on shows how you can convert the old neig IDs to the new <code>bool</code> fields in <a href="../Structures/API_Base.html"><code>API_Base</code></a>:</p>
+            <pre>
+bool    NeigID2Line (API_NeigID neigID)
+{
+    return (neigID == APINeig_WallOn          ||
+            neigID == APINeig_WallPlOn        ||
+            neigID == APINeig_WallPlOnClOff   ||
+            neigID == APINeig_BeamOn          ||
+            neigID == APINeig_CeilOn          ||
+            neigID == APINeig_RoofOn          ||
+            neigID == APINeig_MeshOn          ||
+            neigID == APINeig_HatchOn         ||
+            neigID == APINeig_LineOn          ||
+            neigID == APINeig_ArcOn           ||
+            neigID == APINeig_SplineOn);
+}
+
+bool    NeigID2Special (API_NeigID neigID)
+{
+    return   (neigID == APINeig_WallPl    || neigID == APINeig_WallPlOn ||
+              neigID == APINeig_WallPlClOff || neigID == APINeig_WallPlOnClOff ||
+              neigID == APINeig_BeamHole  ||
+              neigID == APINeig_WindHole  ||
+              neigID == APINeig_DoorHole  ||
+              neigID == APINeig_MeshRidge || neigID == APINeig_MeshRidgeOn);
+}
+
+static void MakeDimelemForWD (API_DimElem* dimelem, const MyCoord&amp; mc)
+{
+    WallRef     wr;
+    Int32       i;
+
+    for (i = 1; i &lt;= mc.wrs.Count (); i++) {
+        wr = mc.wrs[i];
+
+        if (wr.openingpt != NOOPENINGPT) {
+            dimelem-&gt;base.base.type    = (wr.iswindow ? API_WindowID : API_DoorID);
+            dimelem-&gt;base.base.special = NeigID2Special (wr.neigID);
+            dimelem-&gt;base.base.line    = NeigID2Line (wr.neigID);
+            dimelem-&gt;base.base.guid    = wr.guid;
+            switch (wr.openingpt) {
+                case OPENINGPT0:
+                    dimelem-&gt;base.base.inIndex = wr.inIndex;
+                    break;
+                case OPENINGPT1:
+                    dimelem-&gt;base.base.inIndex = wr.inIndex;
+                    break;
+                default:
+                    dimelem-&gt;base.base.inIndex = 4;   // center
+                    break;
+            }
+            return;
+        }
+    }
+
+    // Error if it comes here...
+    return;
+}
+</pre>
+        </li>
+
+        <li>
+            <p><i><a name="FAQ_4" id="FAQ_4"></a>(Win only) My add-on runs perfectly on my development machine, but when I install it on a demo machine it refuses to load.</i></p>
+
+            <p>This usually happens from one of the following reasons:</p>
+
+            <ul>
+                <li>Visual Studio installs its own runtime libraries (MSVCxx.DLL and MSVCPxx.DLL) in the WINNT\System32 folder, and the APX is usually dynamically linked to those, i.e. it expects the DLLs to be there. On the systems you didn't install Visual Studio, the DLLs are simply not there. You can try to solve this by copying those files over to the appropriate place from the machines where you have Visual Studio installed.<br>
+                <i>Note:</i> Archicad installs the necessary runtime libraries if they are not there.</li>
+
+                <li>You are trying to install a debug version of your add-on onto the demo machine. This won't work, because it is linked to the debug libraries of Visual Studio, which are not present on the demo machine. Compile a release version instead.</li>
+            </ul>
+
+            <p>&nbsp;</p>
+        </li>
+
+        <li>
+            <p><i><a name="FAQ_5" id="FAQ_5"></a>Can I compile a GDL add-on, which uses the services of the General API DevKit?</i></p>
+
+            <p>No. GDL add-ons use their own API environment, and that mixes quite badly with the General API running environment.</p>
+
+            <p>&nbsp;</p>
+        </li>
+
+        <li>
+            <p><i><a name="FAQ_6" id="FAQ_6"></a>How can I catch notifications immediately?</i></p>
+
+            <p>Return <code>APIAddon_Preload</code> from your <code>CheckEnvironment&nbsp;()</code> function. This will ensure that your <code>Initialize&nbsp;()</code> function will be called immediately after the call to <code>Registerface&nbsp;()</code>, without requiring the user to perform any action. You can then safely install the notification callback function(s) from <code>Initialize&nbsp;()</code>.</p>
+
+            <p>&nbsp;</p>
+        </li>
+
+        <li>
+            <p><i><a name="FAQ_7" id="FAQ_7"></a>We defined an icon in the GRC file in the 3.1 DevKit, but they doesn't seem to appear with the newer devkits, and I also receive a resource conversion error. Also, what do those three numbers mean in the resource?</i></p>
+            <pre>
+'GICN' 32501 "General Settings" {
+   0  128  128
+}
+</pre>
+
+            <p>The '0 128 128' is the R/G/B color (respectively) of the transparent area in the icon; each component is in the range 0-255. The reason why is doesn't compile with DevKit 6.1 is because some of the colors (black and white) should be in fixed places within the icon's color table: black should be the first color, and white should be the last. Note that the icons are converted to 32-bit depth, so you cannot use arbitrary big sizes.</p>
+
+            <p>&nbsp;</p>
+        </li>
+
+        <li>
+            <p><i><a name="FAQ_8" id="FAQ_8"></a>I'm creating a library part from my add-on, and I also put in a preview picture, but it doesn't appear.</i></p>
+
+            <p>From Archicad 8 you should add the MIME type of the preview picture as a C string (with the terminating <code>0</code>) to the beginning of the data handle containing the preview picture. (e.g. "image/png\0" for a PNG image)</p>
+
+            <p>&nbsp;</p>
+        </li>
+
+        <li>
+            <p><i><a name="FAQ_9" id="FAQ_9"></a>Is there a default callback for the simple popup menu-like custom control?</i></p>
+
+            <p>No. You'll have to write your own callback to load the data from your resource file, and pass it to the user control with <code>UC257SetData</code>. You'll also have to call <code>UC257SetType</code>, and possibly <code>UC257SetStyle</code>. The DG_Test example now shows how you can work with these functions.</p>
+
+            <p>&nbsp;</p>
+        </li>
+
+        <li>
+            <p><i><a name="FAQ_10" id="FAQ_10"></a>(Win only) When I link my add-on, I receive the following warning:<br>
+            <code>LINK : warning LNK4098: defaultlib "MSVCRT" conflicts with use of other libs; use /NODEFAULTLIB:library</code></i></p>
+
+            <p>This only means that you are compiling the debug version of your add-on (thus linking to the debug version of the runtime DLLs), whereas the libraries shipped with the DevKit are release versions (which are linked to the release version of the runtime DLLs). This doesn't cause any problem.</p>
+
+            <p>&nbsp;</p>
+        </li>
+
+        <li>
+            <p><i><a name="FAQ_11" id="FAQ_11"></a>How can I open a progress window when I have a long process running?</i></p>
+
+            <p>In several ways:</p>
+
+            <ol>
+                <li>use the set of <a href="../Functions/acapi_interface_id.html">ACAPI_Interface</a> functions (<a href="../Functions/APIIo_InitProcessWindowID.html">APIIo_InitProcessWindowID</a>, etc.) provided by the API. This has a small problem: other processes within Archicad are using the same progress window, and they can interfere with the information displayed by your add-on.</li>
+
+                <li>use your own modeless palette as a process window.</li>
+
+                <li>open a modal dialog, and drive the process from there. Since DevKit v4.1 you can switch databases even if a modal dialog is visible on the screen. See the <code>Do_ProgressWindow</code> function in the <i>DG_Test</i> example. This is the recommended solution at the moment.</li>
+            </ol>
+        </li>
+
+        <li>
+            <p><i><a name="FAQ_12" id="FAQ_12"></a>I have a function which adjusts the additional parameter values of a placed object/window/door. It works fine in Archicad 7, but not in Archicad 8 or 9.</i></p>
+
+            <p>This problem usually occurs when you refer to the additional parameters by <i>indices:</i><br></p>
+            <pre>
+(*memo.params)[27].value.real = 7.25;
+</pre>
+
+            <p>The problem is coming from the subtype hierarchy: an object/window/door in the hierarchy <i>inherits</i> the parameters of all of its ancestors. So, you should refer to a parameter by <i>name</i> instead of its index. This also means you'll have to look up the parameter by name before modify its value:<br></p>
+            <pre>
+static void SetParValue (API_AddParType *** addPars, const char * name, const double &amp;val)
+
+{
+    if (addPars == nullptr || *addPars == nullptr)
+        return;
+
+    Int32 ii, addParNum = BMGetHandleSize (reinterpret_cast&lt;GSHandle&gt; (*addPars)) / sizeof (API_AddParType);
+    for (ii = 0; ii &lt; addParNum; ii++) {
+        if (CHCompareCStrings ((**addPars)[ii].name, name, CS_CaseInsensitive) == 0) {
+            (**addPars)[ii].value.real = val;
+            break;
+        }
+    }
+
+    return;
+}   // SetParValue
+</pre>
+
+            <p>&nbsp;</p>
+        </li>
+
+        <li>
+            <p><i><a name="FAQ_13" id="FAQ_13"></a>When I read 3D data for an element I don't get the correct 3D-vertex world-coordinates. They are local coordinates for that element. So how can I retrieve the correct vertex information in world coordinates of an element?</i></p>
+
+            <p>Each 3D body contains a transformation matrix (see <a href="../Structures/API_BodyType.html">API_BodyType</a>), which should be applied to the coordinates of the vertices. This allows us to store a body which has several instances very compactly (i.e. store the vertices just once, and have a different transformation matrix for every instance).</p>
+
+            <p>&nbsp;</p>
+        </li>
+
+        <li>
+            <p><i><a name="FAQ_14" id="FAQ_14"></a>How can I make the standard DXF/DWG add-on export elements into DWG file?</i></p>
+
+            <p>You can find a simple example at the description of the <a href="../Functions/ACAPI_Command_Call.html">ACAPI_Command_Call</a> function.</p>
+
+            <p>&nbsp;</p>
+        </li>
+
+        <li>
+            <p><i><a name="FAQ_15" id="FAQ_15"></a>What's the required format of User Controls in the .grc file?</i></p>
+
+            <p>The detailed description is <a href="FAQ/usercontrols.html">here</a>.</p>
+
+            <p>&nbsp;</p>
+        </li>
+    </ol>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2012<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

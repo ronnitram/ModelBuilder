@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_PrintPars</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_PrintPars.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_PrintPars</h1>
+
+    <p>Printing parameters.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>short</strong>                  <em>scale</em>;
+        <strong>bool</strong>                   <em>grid</em>;
+        <strong>bool</strong>                   <em>fixText</em>;
+        <strong>char</strong>                   <em>printArea</em>;
+        <strong>bool</strong>                   <em>printGhost</em>;
+        <strong>bool</strong>                   <em>scaleToPaper</em>;
+        <strong>bool</strong>                   <em>newSheet</em>;
+        <strong>bool</strong>                   <em>allColorsToBlack</em>;
+        <strong>bool</strong>                   <em>ditherOnPrinter</em>;
+        <strong>bool</strong>                   <em>usePrinterRes</em>;
+        <strong>bool</strong>                   <em>scaleFitToPage</em>;
+        <strong><a href="API_AnchorID.html">API_AnchorID</a></strong>           <em>printAlignment</em>;
+        <strong>bool</strong>                   <em>isStamp</em>;
+        <strong>bool</strong>                   <em>filler_1[31]</em>;
+        <strong><a href="API_PrintStampType.html">API_PrintStampType</a></strong>     <em>stamp</em>;
+        <strong>double</strong>                 <em>top</em>;
+        <strong>double</strong>                 <em>left</em>;
+        <strong>double</strong>                 <em>bottom</em>;
+        <strong>double</strong>                 <em>right</em>;
+    <strong>}</strong> <em>API_PrintPars</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>scale</b></dt>
+
+        <dd>Printing scale [1..30000]. Ignored if <code>printArea</code> or <code>scaleToPaper</code> is <code>true</code></dd>
+
+        <dt><b>grid</b></dt>
+
+        <dd>Print also the construction grid lines</dd>
+
+        <dt><b>fixText</b></dt>
+
+        <dd>Print text, arrowheads and scale-independent dashed lines and fills at the actual size defined in their settings dialogs, or proportionally enlarged or reduced to the printing scale</dd>
+
+        <dt><b>printArea</b></dt>
+
+        <dd>Print the whole drawing or 3D projection fitting onto a page or print the current zoom or the content of the current marquee area only</dd>
+
+        <dd>
+            <table>
+                <tr>
+                    <td>
+                        <p><code>PrintArea_CurrentView</code></p>
+                    </td>
+
+                    <td>
+                        <p>Print current zoom</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>PrintArea_EntireDrawing</code></p>
+                    </td>
+
+                    <td>
+                        <p>Print entire drawing</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>PrintArea_Marquee</code>&nbsp;<img border="0" src="../../APIImageLibrary/51.png" alt="5.1" width="19" height="12"></p>
+                    </td>
+
+                    <td>
+                        <p>Print current marquee area</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>printGhost</b></dt>
+
+        <dd>Print the floor plan elements with or without the ghost floor plan elements</dd>
+
+        <dt><b>scaleToPaper</b></dt>
+
+        <dd>Scale the content of the area window to the size that fills the paper width completely in the horizontal direction (for formatted lists only)</dd>
+
+        <dt><b>newSheet</b></dt>
+
+        <dd>Begin printing each zone description or List page on a new sheet of paper (for formatted lists only)</dd>
+
+        <dt><b>allColorsToBlack</b></dt>
+
+        <dd>Print all elements in black (Windows only)</dd>
+
+        <dt><b>ditherOnPrinter</b></dt>
+
+        <dd>Simulate photorealistic image colors on printers with lower bit depths by dithering the colors in the available palette (Windows only)</dd>
+
+        <dt><b>usePrinterRes</b></dt>
+
+        <dd>Use printer resolution for pictures (Windows only)</dd>
+
+        <dt><b>scaleFitToPage</b></dt>
+
+        <dd>Recalculate scale for fit to page</dd>
+
+        <dt><b>printAlignment</b>&nbsp;<img border="0" src="../../APIImageLibrary/51.png" alt="5.1" width="19" height="12"></dt>
+
+        <dd>Anchor point of the drawing</dd>
+
+        <dt><b>isStamp</b>&nbsp;<img border="0" src="../../APIImageLibrary/51.png" alt="5.1" width="19" height="12"></dt>
+
+        <dd>Printing header/footer is switched on</dd>
+
+        <dt><b>stamp</b>&nbsp;<img border="0" src="../../APIImageLibrary/51.png" alt="5.1" width="19" height="12"></dt>
+
+        <dd>Data of the header/footer stamp (valid only if <code>isStamp</code> is <code>true</code>)</dd>
+
+        <dt><b>top</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Position of the top edge of the printing area of the paper in meter (output only)</dd>
+
+        <dt><b>left</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Position of the left edge of the printing area of the paper in meter (output only)</dd>
+
+        <dt><b>bottom</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Position of the bottom edge of the printing area of the paper in meter (output only)</dd>
+
+        <dt><b>right</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Position of the right edge of the printing area of the paper in meter (output only)</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For the utilization of this structure see the <a href="../Functions/APIDo_PrintID.html">APIDo_PrintID</a> and the <a href="../Functions/APIDo_PhotoRenderID.html">APIDo_PhotoRenderID</a> automation functions.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12">&nbsp; You can retrieve the current printer settings with the <a href="../Functions/APIEnv_GetPrinterParsID.html">APIEnv_GetPrinterParsID</a> environment function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 5.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Automate.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AnchorID.html">API_AnchorID</a>, <a href="API_PrintStampType.html">API_PrintStampType</a><br>
+    <a href="../Functions/APIDo_PrintID.html">APIDo_PrintID</a>, <a href="../Functions/APIDo_PhotoRenderID.html">APIDo_PhotoRenderID</a><br>
+    <a href="../Functions/APIEnv_GetPrinterParsID.html">APIEnv_GetPrinterParsID</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 14, 2006<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

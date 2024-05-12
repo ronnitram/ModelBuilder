@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIEnv_GetLibrariesID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIEnv_GetLibrariesID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIEnv_GetLibrariesID</h1>
+
+    <p>Returns the list of loaded libraries.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_environment_id.html">ACAPI_Environment</a></strong> (
+        <strong>APIEnv_GetLibrariesID</strong>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../Structures/API_LibraryInfo.html">API_LibraryInfo</a>&gt;*</strong>     <em>activeLibs</em>,
+        <strong>Int32*</strong>                          <em>embeddedLibraryIndex</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>activeLibs</em></dt>
+
+        <dd>the active library list</dd>
+
+        <dt><em>embeddedLibraryIndex</em>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="Featuring API 18" width="19" height="12"></dt>
+
+        <dd>[out] optional; the 0-based index of the embedded library in this list</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>activeLibs</code> is <code>nullptr</code>.</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>Low memory condition.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to get the list of active libraries of Archicad. Refer to the <a href="../Structures/API_LibraryInfo.html">API_LibraryInfo</a> for further details.</p>
+
+    <p>For linked BIMcloud or BIM Server Libraries the location of local library cache will be returned.</p>
+
+    <p>To change the active libraries use the <a href="APIEnv_SetLibrariesID.html">APIEnv_SetLibrariesID</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+GS::Array&lt;API_LibraryInfo&gt;    activeLibs;
+UInt32               i;
+char                 buffer[1024];
+GS::UniString        path;
+GSErrCode            err;
+
+err = ACAPI_Environment (APIEnv_GetLibrariesID, &amp;activeLibs);
+if (err != NoError) {
+    GiveMessage_Err ("Error in APIEnv_GetLibrariesID", err);
+    return;
+}
+
+GiveMessage ("Active library folders", false);
+
+for (i = 0; i &lt; activeLibs.GetSize (); i++) {
+    activeLibs[i].location.ToPath (&amp;path);
+    sprintf (buffer, "[%u]  %s", i+1, path.ToCStr (0, MaxUSize, CC_UTF8).Get ());
+    GiveMessage (buffer, false);
+}
+</code></pre>
+    </blockquote>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_LibraryInfo.html">API_LibraryInfo</a>,<br>
+    <a href="APIEnv_AddLibrariesID.html">APIEnv_AddLibrariesID</a>, <a href="APIEnv_SetLibrariesID.html">APIEnv_SetLibrariesID</a>, <a href="APIEnv_ResetLibrariesID.html">APIEnv_ResetLibrariesID</a>,<br>
+    <a href="acapi_environment_id.html">ACAPI_Environment</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on June 10, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

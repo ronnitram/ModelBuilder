@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>GetFalloffAngle2</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Light/GetFalloffAngle2.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="Light.html">Light</a>::GetFalloffAngle2</h1><br>
+    Get the second angle parameter for angle dependent falloff.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>double  GetFalloffAngle2 (
+    void
+) const;</b>
+</pre>
+
+    <h3>Return value</h3>
+
+    <p>The second angle parameter for angle dependent falloff.</p>
+
+    <h3>Description</h3>
+
+    <p>This method returns the angle of the cone within which the light intensity falls to zero. This value is valid if the light type is <i>SpotLight</i>.<br>
+    Here is an example how to calculate the cone angle dependent light color:</p>
+    <pre class="syntax">
+<b>
+// light: The light object.
+// angle: The cone angle.
+// color: The light color.
+
+color.red   = 0.0;
+color.green = 0.0;
+color.blue  = 0.0;
+
+if (angle &lt;= light.GetFalloffAngle2 ()) {
+    double attenuation = 1.0;
+    if (light.<a href="GetAngleFalloff.html">GetAngleFalloff</a> () &gt; 0.0) {
+        attenuation = exp (light.<a href="GetAngleFalloff.html">GetAngleFalloff</a> () * log (cos (angle)));
+        if (angle &gt; light.<a href="GetFalloffAngle1.html">GetFalloffAngle1</a> ()) {
+            attenuation *= (light.GetFalloffAngle2 () - angle) / (light.GetFalloffAngle2 () - light.<a href="GetFalloffAngle1.html">GetFalloffAngle1</a> ());
+        }
+    }
+
+    color.red   = light.<a href="GetColor.html">GetColor</a> ().red   * attenuation;
+    color.green = light.<a href="GetColor.html">GetColor</a> ().green * attenuation;
+    color.blue  = light.<a href="GetColor.html">GetColor</a> ().blue  * attenuation;
+}
+</b>
+</pre>
+
+    <p><b>Available from version: 8</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

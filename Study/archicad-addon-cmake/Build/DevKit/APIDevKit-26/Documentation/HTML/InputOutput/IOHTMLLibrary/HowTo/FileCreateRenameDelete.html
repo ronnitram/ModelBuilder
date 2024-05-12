@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Creating renaming and deleting a file</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/HowTo/FileCreateRenameDelete.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Creating, renaming and deleting a file</h1><br>
+    <br>
+
+    <p>Tasks like creating a new file (folder or link), renaming it or deleting it are <a href="../Folder/Folder.html">Folder</a> operations (and <b>not</b> <a href="../File/File.html">File</a> operations), because Folder is responsible to keep track of its content (children), which are named files, folders and links in it, and these operations manipulate this content. So to perform such operations we have to obtain the parent folder which will be the context for them.&nbsp;</p>
+
+    <p>Note that there some "shortcut" operations for the most frequent tasks in the <a href="../FileSystem/FileSystem.html">FileSystem</a> class which work on the "location" (file system) level instead of "parent folder + entry name" level. These "shortcut" operations are implemented similarly to the following sample codes. However it is faster to invoke more operations on the same folder instance than invoking the corresponding "shortcut" operations on the file system instance because of the multiple Folder construction and destruction.</p>
+
+    <p>In sample codes below we have a <a href="../Location/Location.html">Location</a> instance which identifies a possibly non-existing file. We want to perform three kinds of operation: to create this (non-existing) file, rename it and delete it. If we obtain the necessary folder instance, then these tasks are reduced to a single method invocation. The corresponding shortcut operations are also given.</p>
+
+    <p>Note that error codes of operations in sample codes are not processed, only their possibility is shown.</p>
+
+    <p>To these samples work, <a href="../../InputOutput.html">InputOutput</a> module must be initialized (<a href="IOInitialization.html">=&gt; more information</a>).</p><br>
+    <br>
+
+    <ul>
+        <li>Let's see the deleting first:<br>
+            <br>
+            <b>1.</b> By creating the parent folder:
+            <pre>
+#include "Folder.hpp"    // brings everything needed to use the class Folder (e.g. Location and Name)
+</pre>
+            <pre>
+GSErrCode errorCode;    // holds error codes of operations 
+
+    // obtaining location of the desired file somehow
+
+IO::Location fileLoc = GetTheFileLocation ();
+
+    // moving last part of the location (that is name of the file) into fileName
+    // and leaving location of the file's parent folder in fileLoc
+
+IO::Name fileName;    // a Name instance can hold a part of a Location instance
+errorCode = fileLoc.MoveLastLocalName (&amp;fileName);
+
+    // creating parent folder of the file and deleting the file by its name
+
+IO::Folder parent (fileLoc);             // now we have the parent folder of the file
+errorCode = parent.Delete (fileName);    // deleting the file by its name
+</pre><b>2.</b> Using the corresponding "shortcut" operation:
+            <pre>
+#include "FileSystem.hpp"    // brings everything needed to use the class FileSystem (e.g. Location)
+</pre>
+            <pre>
+errorCode = IO::fileSystem.Delete (fileLoc);    // deleting the file by its location
+</pre>
+        </li>
+    </ul>
+
+    <p><br>
+    <br></p>
+
+    <ul>
+        <li>Renaming is quite similar:<br>
+            <br>
+            <b>1.</b> By creating the parent folder (only the last line differs):
+            <pre>
+errorCode = parent.Rename (fileName, "Backup.dat");    // renaming the file to the new name "Backup.dat"
+</pre><b>2.</b> Using the corresponding "shortcut" operation:
+            <pre>
+errorCode = IO::fileSystem.Rename (fileLoc, "Backup.dat");    // renaming the file to the new name "Backup.dat"
+</pre>
+        </li>
+    </ul>
+
+    <p><br>
+    <br></p>
+
+    <ul>
+        <li>Creating a new file is also similar:<br>
+            <br>
+            <b>1.</b> By creating the parent folder (again only the last line differs):
+            <pre>
+errorCode = parent.CreateFile (fileName);    // creating a new file in parent with name in fileName
+</pre><b>2.</b> Using the corresponding "shortcut" operation:
+            <pre>
+errorCode = IO::fileSystem.CreateFile (fileLoc);    // creating a new file by its location
+</pre>Because the task of creating a new file and using it immediately is very frequent, there is a constructor in the File class which can do this in one step. When we create a File instance from a Location instance we can make provision about what to happen if the given file doesn't exist, and we can choose to create it automatically. So given the Location <font face="Courier New">fileLoc</font> from the delete sample above, we can create the File instance in one step:
+            <pre>
+#include "File.hpp"    // we want to use the file
+</pre>
+            <pre>
+IO::File file (fileLoc, IO::File::Create);    // creates the file in the file system if it doesn't exist
+
+if (file.GetStatus () == NoError) {    // everything is OK ?
+    // use the file
+}
+</pre>Note that files need not be deleted in order to write an empty one with the same name. If the file is opened in WriteEmptyMode its content is cleared.
+        </li>
+    </ul>
+
+    <p><br></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

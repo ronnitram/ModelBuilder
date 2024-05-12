@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <title>IsRelativeURL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/RelativeLocation/IsRelativeURL.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="RelativeLocation.html">RelativeLocation</a>::IsRelativeURL&nbsp;&nbsp; <font size="2">(2)</font></h1><br>
+    Returns whether the URL is relative.<br>
+    <br>
+    <pre class="syntax">
+<b>static bool IsRelativeURL (
+    const char* targetPath
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetPath</em></dt>
+
+        <dd>Current platform's text representation (as C string) of the URL.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="299">
+        <tr>
+            <th width="96">Value</th>
+
+            <th width="161">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="96">true</td>
+
+            <td width="161">the URL is relative</td>
+        </tr>
+
+        <tr>
+            <td width="96">false</td>
+
+            <td width="161">the URL is not relative</td>
+        </tr>
+    </table>
+
+    <h3>Description</h3>
+
+    <p>This (static) method returns whether the URL is relative. It returns <b>true</b> if the URL specified by <i>targetPath</i> begins with <b>"url:rel:"</b> or <b>"rel:"</b>.</p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    <p><br></p>
+    <hr>
+
+    <p><br></p>
+    <pre class="syntax">
+<b>static bool IsRelativeURL (
+    const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&amp; targetPath
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>targetPath</em></dt>
+
+        <dd>Current platform's text representation (as Unicode UTF-16 string) of the URL.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="299" id="Table1">
+        <tr>
+            <th width="96">Value</th>
+
+            <th width="161">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="96">true</td>
+
+            <td width="161">the URL is relative</td>
+        </tr>
+
+        <tr>
+            <td width="96">false</td>
+
+            <td width="161">the URL is not relative</td>
+        </tr>
+    </table>
+
+    <h3>Description</h3>
+
+    <p>This (static) method returns whether the URL is relative. It returns <b>true</b> if the URL specified by <i>targetPath</i> begins with <b>"url:rel:"</b> or <b>"rel:"</b>.</p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

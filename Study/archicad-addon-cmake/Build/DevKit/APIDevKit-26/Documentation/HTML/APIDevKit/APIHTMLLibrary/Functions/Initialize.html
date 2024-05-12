@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Initialize</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/Initialize.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Initialize</h1>
+
+    <p>The main entry point of the add-on.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  Initialize</strong> (
+        <strong>void</strong>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The initialization procedure has completed with success.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You can use this function as the main entry point of your code. It is called by the library right after the DLL/code fragment has been loaded into the memory, and the communication channels are set up correctly.</p>
+
+    <p>This is the place where you can initialize your global variables, dynamic memory blocks etc.</p>
+
+    <p>In this function you will also have to install the callback functions for the different services you registered in the <a href="CheckEnvironment.html">CheckEnvironment</a> and <a href="RegisterInterface.html">RegisterInterface</a> routines. Also you can install the notification handlers here.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12">&nbsp; If your add-on has user interface, and you want to use a context sensitive help engine (you want to use not just tooltips, but help anchors too), then this is the place where you can register your own help engine's path with your add-on's MDID (see <code>DG::RegisterAdditionalHelpLocation</code> in the example code).</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+typedef struct {
+   double   len;
+   Int32     index;
+} NType;
+
+GSHandle  **handle;
+Int32     nAlloc;
+Int32     nElem;
+
+
+// -----------------------------------------------------------------------------
+// Called after the Add-On has been loaded into memory
+// -----------------------------------------------------------------------------
+GSErrCode    __ACDLL_CALL <font color="#FF0066">Initialize</font> (void)
+
+{
+    // If the add-on has user interface and wants to use context sensitive help engine
+    IO::Location helpLoc;
+    ACAPI_GetOwnLocation (&amp;helpLoc);
+    DG::RegisterAdditionalHelpLocation (MDID_DeveloperID, MDID_LocalID, helpLoc);
+
+    //
+    // Allocate globals
+    //
+    nAlloc = 8;
+    nElem  = 0;
+    handle = (NType **) BMhAll (nAlloc * sizeof (NType));
+    if (handle == nullptr)
+        return APIERR_MEMFULL;
+
+    //
+    // Install the menu handler procedure
+    //
+    GSErrCode err = ACAPI_Install_MenuHandler (32500, MenuCommandHandler);
+    if (err != NoError)
+        DBPrintf ("Initialize():: ACAPI_Install_MenuHandler failed\n");
+
+    //
+    // Install the change defaults notification handler procedure
+    //
+    API_ToolBoxItem toolBoxItem;
+    BNZeroMemory (&amp;toolBoxItem, sizeof (API_ToolBoxItem));
+    toolBoxItem.type = API_ZombieElemID;                // for all types
+    err = ACAPI_Notify_CatchChangeDefaults (&amp;toolBoxItem, APIDefaultsChangeHandler);
+    if (err == NoError) {
+        err = ACAPI_Notify_CatchProjectEvent (APINotify_Close, APIProjectEventHandler);
+    }
+
+    return err;
+}   // Initialize
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Level2/Required_Functions.html">Required Functions</a>, <a href="FreeData.html">FreeData</a><br>
+    <a href="CheckEnvironment.html">CheckEnvironment</a>, <a href="RegisterInterface.html">RegisterInterface</a><br>
+    <a href="../../../DialogManager/DGHtmlLibrary/DGRegisterAdditionalHelpLocation.html">DGRegisterAdditionalHelpLocation</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 15, 2006<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

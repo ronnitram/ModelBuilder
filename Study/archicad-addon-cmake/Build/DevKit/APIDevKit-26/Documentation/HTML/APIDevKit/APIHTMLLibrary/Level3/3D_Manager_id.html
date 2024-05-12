@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>3D Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/3D_Manager_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>3D Manager</h1>
+
+    <p><br>
+    To have an overview on the 3D model of Archicad, and how the 3D database fits into the entire database system please refer to the <!--NoCHM--><a href="../Level2/Element_Overview.html">Element Overview</a> chapter.</p>
+
+    <p>Only the handler functions are explained in full detail here.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Handler functions</h4>
+
+    <p>All of the 3D handler function begin with the <b>ACAPI_3D_</b> prefix. This function family gives support to query the 3D database. Modifications are not supported in this version of the API; you have no possibility to change the 3D model. Refer to the functions below to have details on these topics.</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_3D_GetNum.html">ACAPI_3D_GetNum</a><br>
+        <a href="../Functions/ACAPI_3D_GetComponent.html">ACAPI_3D_GetComponent</a><br>
+        <a href="../Functions/ACAPI_3D_DecomposePgon.html">ACAPI_3D_DecomposePgon</a><br>
+        <br>
+        <a href="../Functions/ACAPI_3D_CreateSight.html">ACAPI_3D_CreateSight</a><br>
+        <a href="../Functions/ACAPI_3D_DeleteSight.html">ACAPI_3D_DeleteSight</a><br>
+        <a href="../Functions/ACAPI_3D_SelectSight.html">ACAPI_3D_SelectSight</a><br>
+        <a href="../Functions/ACAPI_3D_GetCurrentWindowSight.html">ACAPI_3D_GetCurrentWindowSight</a><br>
+        <br>
+        <a href="../Functions/ACAPI_3D_GetCutPolygonInfo.html">ACAPI_3D_GetCutPolygonInfo</a><br>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>General Error Codes</h4>
+
+    <table>
+        <tr>
+            <td>
+                <p>APIERR_BADID</p>
+            </td>
+
+            <td>
+                <p>invalid reference;<br>
+                the component type is invalid</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p>APIERR_BADINDEX</p>
+            </td>
+
+            <td>
+                <p>invalid reference;<br>
+                the component index is out of range</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p>APIERR_DELETED</p>
+            </td>
+
+            <td>
+                <p>invalid reference;<br>
+                the body does not exist in the database (deleted)</p>
+            </td>
+        </tr>
+    </table>
+
+    <p>&nbsp;</p>
+
+    <p><img border="0" src="../../APIImageLibrary/10.png" width="19" height="12" alt="10">&nbsp;
+    <img border="0" src="../../APIImageLibrary/obsolete.png" class="size2x" width="54" alt="obsolete">&nbsp;
+    The recommended way of accessing the 3D Model is now illustrated in the ModelAccess example.</p>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 06, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

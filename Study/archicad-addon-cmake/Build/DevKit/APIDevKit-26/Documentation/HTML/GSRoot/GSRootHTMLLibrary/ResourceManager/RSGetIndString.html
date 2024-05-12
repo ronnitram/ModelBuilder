@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Misley Miklós">
+
+    <title>RSGetIndString</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/ResourceManager/RSGetIndString.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>RSGetIndString</h1>
+
+    <p>Copies a string from a string list resource to the memory.</p>
+    <pre class="syntax">
+    <strong>bool RSGetIndString</strong> (<br>      <strong>char</strong>*          <em>pText</em>,<br>      <strong>GSResID</strong>        <em>resID</em>,<br>      <strong>long</strong>           <em>index</em>,<br>      <strong>GSResModule</strong>    <em>resModule</em> = AllResModule,<br>      <strong>ResStringType</strong>  <em>rsType</em> = RST_Localised<br>    );<br>
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>pText</em></dt>
+
+        <dd>
+            <p>[out] A pointer to a character buffer for holding the string value.</p>
+
+            <p>The size of the buffer should be large enough to the string value.The maximum size of a such string is 256 on Macintosh, there's no such maximum value in Windows, therefore you should provide a large enough buffer..</p>
+        </dd>
+
+        <dt><em>resID</em></dt>
+
+        <dd>[in] A numeric resource identifier.</dd>
+
+        <dt><em>index</em></dt>
+
+        <dd>[in] The index of the string in the list. This is a value indexed from 0.</dd>
+
+        <dt><em>resModule=AllResModule</em></dt>
+
+        <dd>[in] The resource module to look for the string list in. A resource module to get the resource from. If this value is <tt>AllResModule</tt> then all resource modules opened with <a href="RSOpenResourceFile.html">RSOpenResourceFile</a> will be searched.</dd>
+
+        <dt><em>rsType=RST_Localised</em></dt>
+
+        <dd>[in] The type of the resource string. It can be: <tt>RST_Localised</tt>,<tt>RST_Fixed</tt> and <tt>RST_StatusBar</tt></dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>True if the load succeeded.</p>
+
+    <h4>Remarks</h4>
+
+    <p>You can use the GRC resource preprocessor to generate cross platform string lists.</p>
+
+    <p>If the requested string list resource is not found, the debug version of the library will break into the debugger. Use <a href="RSMissingResourceAlert.html">RSMissingResourceAlert</a> to change this behaviour.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.3 or later</dd>
+
+        <dd><b>Header:</b> RS.hpp</dd>
+
+        <dd><b>Import Library:</b> Link with GSRootImp.lib</dd>
+
+        <dd><b>Module:</b> GSRootLib [MAC], GSRoot.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="RSLoadResource.html">RSLoadResource</a>, <a href="RSMissingResourceAlert.html">RSMissingResourceAlert</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on April 26, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

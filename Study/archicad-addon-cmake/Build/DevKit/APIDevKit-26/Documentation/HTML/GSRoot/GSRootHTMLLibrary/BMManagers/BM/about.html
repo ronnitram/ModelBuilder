@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>About BM Manager</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/BMManagers/BM/about.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>About BM Manager</h1>
+
+    <p>The Basic Memory Manager defines a platform independent interface to manage memory under Windows and Macintosh. The BM Manager provides functions to allocate, release etc. memory blocks in platform independent manner.</p>
+
+    <p>You can use the BM manager to allocate two different types of memory blocks in your heap: non-relocatable blocks and relocatable blocks. A non-relocatable block is a block of memory of which location in the heap is fixed. In contrast, a relocatable block is a block of memory that can be moved within the heap. The Basic Memory Manager sometimes moves relocatable blocks during BM Manager operations so it can use the space in the heap optimally.</p>
+
+    <p>The BM Manager provides data types that refer both relocatable and non-relocatable blocks. To refer a non-relocatable block, you can use a pointer variable, defined by the <strong><a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/types_id.html#GSPtr">GSPtr</a></strong> data type. A pointer to a non-relocatable block of memory is simply the address of the first byte in the block. The Basic Memory Manager uses the double indirection scheme to refer relocatable blocks. The Basic Memory Manager keeps track of a relocatable block internally with a master pointer. When the manager moves the block, it updates the master pointer, so it always contains the address of the relocatable block. You can refer the block with a handle, defined by the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/types_id.html#GSHandle"><strong>GSHandle</strong></a> data type. A handle contains the address of a master pointer. (in C syntax: <strong>GSHandle =</strong> &amp;<strong>GSPtr</strong>)</p>
+
+    <p>Before using the Basic Memory Manager functions you must initialize the BM Manager by calling the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMInit.html"><strong>BMInit</strong></a> function. After initializing you can use the functions of the manager to allocate, release or reallocate memory blocks. When the BM Manager is no longer needed, you must call the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMExit.html"><strong>BMExit</strong></a> function to free the resources allocated by BM Manager. When you initialize the BM Manager by calling <strong>BMInit</strong> you can specify the minimal size of memory managed by BM Manager, a <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMAbortProc.html"><strong>BMAbortProc</strong></a> and a <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMOptProc.html"><strong>BMOptProc</strong></a>. These functions are user-defined functions to handle abort and optimize actions of the BM Manager. You can use the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMCheckHeap.html"><strong>BMCheckHeap</strong></a> function to check the memory structures of BM. The <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMModifyGZPar.html"><strong>BMModifyGZPar</strong></a> function is used to modify the Grow Zone parameter of the BM Manager.</p>
+
+    <p>The most functions of the BM Manager set the last error code value when it fails. You can get this error code if you call the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMError.html"><strong>BMError</strong></a> function immediately after a BM Manager function failed.</p>
+
+    <p>You can allocate memory blocks with the <strong><a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMAllocateHandle.html">BMAllocateHandle</a></strong> and the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMAllocatePtr.html"><strong>BMAllocatePtr</strong></a> functions. The <strong>BMAllocateHandle</strong> returns a handle to the allocated block while the <strong>BMAllocatePtr</strong> returns a pointer which refers to the allocated block. The difference between the block allocated by the <strong>BMAllocateHandle</strong> and the <strong>BMAllocatePtr</strong> is that the <strong>BMAllocateHandle</strong> allocates a relocatable memory block while the <strong>BMAllocatePtr</strong> allocates a non-relocatable block. If you want to modify the state of a handle you can do this by calling the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMModifyHandleState.html"><strong>BMModifyHandleState</strong></a> function, e.g. you can modify the state of a relocatable block to non-relocatable.</p>
+
+    <p>Note that you must use the <strong>BMModifyHandle</strong> function to lock a relocatable block before using, and unlock after using!</p>
+
+    <p>If you want to increase the size of a previously allocated memory block, you can use the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMReallocHandle.html"><strong>BMReallocHandle</strong></a> and the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMReallocPtr.html"><strong>BMReallocPtr</strong></a> functions. The actual size of a memory block can be obtained by calling the <strong><a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMGetHandleSize.html">BMGetHandleSize</a></strong> or the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMGetPtrSize.html"><strong>BMGetPtrSize</strong></a> function. When an allocated memory block is no longer needed, you can release it with the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMKillHandle.html"><strong>BMKillHandle</strong></a> or the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMKillPtr.html"><strong>BMKillPtr</strong></a> function. The <strong>BMKillHandle</strong> releases a memory block referred by a <strong>GSHandle</strong> while the <strong>BMKillPtr</strong> releases one referred by a <strong>GSPtr</strong>. You can get the actual amount of free memory by calling the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMFreeMem.html"><strong>BMFreeMem</strong></a> function. You can fill a memory block with zeros which is referred by a handle by calling the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMClearHandle.html"><strong>BMClearHandle</strong></a> function. If you want to know whether the BM Manager is currently allocating memory or not, you can check this with the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMIsAllocateing.html"><strong>BMIsAllocateing</strong></a> function.</p>
+
+    <p>The BM Manager provides functions to copy or concatenate memory blocks. You can concatenate two memory blocks referred by handles with the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMHandleAndHandle.html"><strong>BMHandleAndHandle</strong></a> function. The <strong><a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMPtrAndHandle.html">BMPtrAndHandle</a></strong> function also implements this function but it expects a pointer to identify the block to concatenate. If you want to copy the content of a memory block to an other, you can use the <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMHandleToHandle.html"><strong>BMHandleToHandle</strong></a> or the<strong><a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMPtrToHandle.html">BMPtrToHandle</a> functions.</strong></p>
+
+    <p>The <a href="../../../GSRootHTMLLibrary/BMManagers/BM/reference/BMMunger.html"><strong>BMMunger</strong></a> function searches a text&nbsp;pattern and replaces it with another string.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

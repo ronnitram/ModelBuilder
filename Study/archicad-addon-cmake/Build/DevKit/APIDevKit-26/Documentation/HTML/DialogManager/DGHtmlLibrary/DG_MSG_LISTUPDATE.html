@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DG_MSG_LISTUPDATE</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_LISTUPDATE.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_LISTUPDATE</h1>
+
+    <p>This message is obsolete, use the <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a> message instead.</p>
+
+    <p>A tabulator field of a <a href="ListBox.html">list box</a> or the image of a <a href="ListView.html">list view</a> item should be redrawn.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Item type</th>
+
+                    <th align="left"><em>msgData</em></th>
+                </tr>
+
+                <tr valign="top">
+                    <td>List box</td>
+
+                    <td>Pointer to a <a href="DGListUpdateData.html">DGListUpdateData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>List view</td>
+
+                    <td>Pointer to a <a href="DGListViewUpdateData.html">DGListViewUpdateData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Not used, should be set to zero.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <a href="CallbackFunctions.html">dialog callback function</a> receives <tt>DG_MSG_LISTUPDATE</tt> messages for a list box only if the update flag of one or more tabulator fields has been set to 1 by the <a href="DGListSetTabUpdateFlag.html">DGListSetTabUpdateFlag</a> function and these tabulator fields should be redrawn. The origin of the drawing context defined by the <b>drawContext</b> member of the <b>DGListUpdateData</b> structure is set to the upper left corner of the tabulator field. The application should just draw the desired content; graying and highlighting are handled by DG after the dialog callback function returns.</p>
+
+    <p>The dialog callback function receives <tt>DG_MSG_LISTUPDATE</tt> messages for a list view only if the image type of one or more list view items are <tt>DG_LVIT_OWNERDRAW</tt> and these items should be redrawn. The origin of the drawing context defined by the <b>drawContext</b> member of the <b>DGListViewUpdateData</b> structure is set to the upper left corner of the image rectangle of the list view item. Within this rectangle the application can draw the image anywhere and in arbitrary size. The application should just draw the image; graying and blending are handled by DG after the dialog callback function returns. From DG version 1.1.1, in order to blend the right area only, the application can set <b>left</b> and <b>top</b> and modify <b>width</b> and <b>height</b> members of the <b>DGListViewUpdateData</b> structure on return to refer the actual rectangle of the drawn image.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 (List boxes), DG 1.1.0 (List views) or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="ListBox.html">List Box</a>, <a href="ListView.html">List View</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGListSetTabUpdateFlag.html">DGListSetTabUpdateFlag</a>, <a href="DGListUpdateData.html">DGListUpdateData</a>, <a href="DGListViewUpdateData.html">DGListViewUpdateData</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 7, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

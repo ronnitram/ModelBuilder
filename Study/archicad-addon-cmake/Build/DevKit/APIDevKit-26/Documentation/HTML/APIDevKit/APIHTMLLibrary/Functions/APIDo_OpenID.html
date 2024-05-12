@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIDo_OpenID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIDo_OpenID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIDo_OpenID</h1>
+
+    <p>Opens a new project file.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_automate_id.html">ACAPI_Automate</a></strong> (
+        <strong>APIDo_OpenID</strong>,
+        <strong><a href="../Structures/API_FileOpenPars.html">API_FileOpenPars</a>*</strong>     <em>fileOpenPars</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>fileOpenPars</em></dt>
+
+        <dd>[in] Parameters for opening a project file.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>openPars</code> or <code>openPars-&gt;file</code> is <code>nullptr</code>, or <code>openPars-&gt;file</code> is not a valid location, or <code>openPars-&gt;archiveLib</code> is <code>nullptr</code> if <code>openPars-&gt;libGiven</code> is <code>true</code></dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd><code>openPars-&gt;fileTypeID</code> is unknown file type</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to open an existing project file.</p>
+
+    <p>It cannot be called from notification level; the command is refused if other addons are running. Calling this function may notify other addons on the event. The caller addon does not get any notification. See the <a href="../Level3/notification_manager_id.html">Notification Manager</a> for further details.</p>
+
+    <p>This function performs complete operations, so it cannot be called neither during undoable operations nor during non-undoable commands. See more details on this topic at <a href="../Level2/Command_Overview.html">Command Overview</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_FileOpenPars openPars;
+BNZeroMemory (&amp;openPars, sizeof (API_FileOpenPars));
+openPars.fileTypeID   = APIFType_PlanFile;
+openPars.useStoredLib = true;
+
+IO::Location folderLoc;
+API_SpecFolderID specID = API_ApplicationFolderID;
+ACAPI_Environment (APIEnv_GetSpecFolderID, &amp;specID, &amp;folderLoc);
+folderLoc.AppendToLocal ("Archicad Examples");
+folderLoc.AppendToLocal ("Residential House");
+openPars.file = new IO::Location (folderLoc, "Residential House.pla");
+
+GSErrCode err = ACAPI_Automate (APIDo_OpenID, &amp;openPars, nullptr);
+if (err != NoError)
+    ACAPI_WriteReport ("Cannot open the file", true);
+
+delete openPars.file;
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Automate.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_FileOpenPars.html">API_FileOpenPars</a>, <a href="acapi_automate_id.html">ACAPI_Automate</a><br>
+    <a href="../Level3/notification_manager_id.html">Notification Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 6, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

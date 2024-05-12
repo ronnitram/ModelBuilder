@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>operator() (UniString)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/UniString/operator().html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="UniString.html">UniString</A>::operator()</H2><!--exp="UniString::operator()-->
+<P><topic id="$GS.$UniString.$operator().BriefDescription">
+		Returns a substring of the string.
+	</topic></P>
+<PRE class="syntax"><B>Substring operator() (</B>
+    <B>UIndex              </B><I>from</I>,
+    <B>USize               </B><I>range</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>ConstSubstring operator() (</B>
+    <B>UIndex              </B><I>from</I>,
+    <B>USize               </B><I>range</I>
+<B>) const;</B></PRE>
+<PRE class="syntax"><B>Substring operator() (</B>
+    <B><a class="nodecorate" href="../../GS/UniChar/UniChar.html">UniChar</A>             </B><I>leftSeparator</I>,
+    <B><a class="nodecorate" href="../../GS/UniChar/UniChar.html">UniChar</A>             </B><I>rightSeparator</I>,
+    <B>UIndex              </B><I>from</I><B> = 0</B>,
+    <B>USize               </B><I>range</I><B> = MaxUIndex</B>
+<B>);</B></PRE>
+<PRE class="syntax"><B>ConstSubstring operator() (</B>
+    <B><a class="nodecorate" href="../../GS/UniChar/UniChar.html">UniChar</A>             </B><I>leftSeparator</I>,
+    <B><a class="nodecorate" href="../../GS/UniChar/UniChar.html">UniChar</A>             </B><I>rightSeparator</I>,
+    <B>UIndex              </B><I>from</I><B> = 0</B>,
+    <B>USize               </B><I>range</I><B> = MaxUIndex</B>
+<B>) const;</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>from</I></DT><DD><topic id="$GS.$UniString.$operator().$from.ParamDescription">
+		When substring is specified with its start position and length then:<br>
+		start position of the substring. Must be beetwen 0 and length of the string.<br>
+		<br>
+		When substring is specified with its enclosing charcters then:<br>
+		start position separator characters are searched from. Must be beetwen 0 and
+		length of the string.
+	</topic></DD><DT><I>range</I></DT><DD><topic id="$GS.$UniString.$operator().$range.ParamDescription">
+		When substring is specified with its start position and length then:<br>
+		length of the substring.
+		<i>from</i> + <i>range</i> must be beetwen 0 and length of the string.<br>
+		<br>
+		When substring is specified with its enclosing charcters then:<br>
+		range of characters separator characters are searched in.
+		<i>from</i> + <i>range</i> must be beetwen 0 and length of the string.
+		The default value MaxUSize indicates range that extends to end of the string.
+	</topic></DD><DT><I>leftSeparator</I></DT><DD><topic id="$GS.$UniString.$operator().$leftSeparator.ParamDescription">
+		Left separator character of the substring.
+	</topic></DD><DT><I>rightSeparator</I></DT><DD><topic id="$GS.$UniString.$operator().$rightSeparator.ParamDescription">
+		Right separator character of the substring.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$UniString.$operator().ReturnDescription">
+		The specified substring. It can be empty.
+	</topic></P><P><topic id="$GS.$UniString.$operator().1.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator().2.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator().3.ReturnDescription"></topic></P><P><topic id="$GS.$UniString.$operator().4.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$UniString.$operator().LongDescription">
+		This method returns a substring of the string. Substring can be specified with its
+		start position and length or with its enclosing characters. In the later case if no
+		appropriate substring is found then empty substring is returned. Enclosing (separator)
+		characters are not part of the substring.<br>
+		The substring refers to the specified part of the source string, so itself never
+		allocates memory. Substring is a private type so it can be used only inside of the
+		enclosing expression (statement) of the call.<br>
+		<br>
+		Substrings can be effectively compared with various types (string, substring, C string etc)
+		and can participate in various assigments and concatenations. These operations are
+		always performed on the corresponding parts of the source strings.
+	</topic></P>
+<H4>Example</H4><topic id="$GS.$UniString.$operator().Example">
+	<PRE class="code">
+GS::UniString us ("Example string");
+
+bool b1 = us (3, 2) == us (5, 2);          // substrings can be compared with each other
+bool b2 = us ('{', '}', 0) == "Data";      // substrings can be compared with other types
+us (0, 3) = "abcde";                       // substring can participate in assigments
+us = us (1, 2) + 'x' + "123" + us (4, 1);  // substring can participate in concatenations
+</PRE><P>This example illustrates the use of substring.</P>
+	</topic><H4>See Also</H4>
+<P><topic id="$GS.$UniString.$operator().SeeAlso">
+		<!----><a href="GetSubstring.html">GetSubstring</a> | <!----><a href="GetPrefix.html">GetPrefix</a> | <!----><a href="GetSuffix.html">GetSuffix</a> | <!----><a href="SetSubstring.html">SetSubstring</a>
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

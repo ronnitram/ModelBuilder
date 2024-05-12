@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_HoleDim</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_HoleDim.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><strike>API_HoleDim</strike></h1>
+
+    <p>Describes the dimensions of a window/door.</p>
+
+    <p><strong><em>This structure is obsolete. Use Window/Door Dimension Markers instead.</em></strong></p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>bool</strong>             <em>dimOn</em>;
+        <strong>bool</strong>             <em>sameSide</em>;
+        <strong>bool</strong>             <em>isCustom</em>;
+        <strong>bool</strong>             <em>showMarker</em>;
+        <strong>bool</strong>             <em>showWH</em>;
+        <strong>bool</strong>             <em>showSH</em>;
+        <strong>bool</strong>             <em>dispNH</em>;
+        <strong>bool</strong>             <em>filler_1</em>;
+        <strong>char</strong>             <em>idStr[4]</em>;
+        <strong>short</strong>            <em>pen</em>;
+        <strong>short</strong>            <em>filler_2</em>;
+        <strong>double</strong>           <em>headDist</em>;
+        <strong>double</strong>           <em>footLen</em>;
+        <strong>double</strong>           <em>textDist</em>;
+        <strong>double</strong>           <em>paraDist</em>;
+        <strong>double</strong>           <em>headSize</em>;
+        <strong>double</strong>           <em>ppCorr</em>;
+        <strong>char</strong>             <em>ppStr[8]</em>;
+        <strong>Int32</strong>            <em>filler_4[6]</em>;
+        <strong>API_NoteType</strong>     <em>note1</em>;
+        <strong>API_NoteType</strong>     <em>note2</em>;
+        <strong>API_NoteType</strong>     <em>note3</em>;
+        <strong>API_NoteType</strong>     <em>note4</em>;
+        <strong>Int32</strong>            <em>filler_5[8]</em>;
+    <strong>}</strong> <em>API_HoleDim</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>dimOn</b></dt>
+
+        <dd>True if the window/door has dimensions.</dd>
+
+        <dt><b>sameSide</b></dt>
+
+        <dd>Position on wall's left or right side.</dd>
+
+        <dt><b>isCustom</b></dt>
+
+        <dd>The dimensions marker is defined in GDL.</dd>
+
+        <dt><b>showMarker</b></dt>
+
+        <dd>Show marker?</dd>
+
+        <dt><b>showWH</b></dt>
+
+        <dd>Show width/height?</dd>
+
+        <dt><b>showSH</b></dt>
+
+        <dd>Show parapet height?</dd>
+
+        <dt><b>dispNH</b></dt>
+
+        <dd>Display nominal height?</dd>
+
+        <dt><b>idStr[4]</b></dt>
+
+        <dd>Identifier string.</dd>
+
+        <dt><b>pen</b></dt>
+
+        <dd>The pen index of the dimension.</dd>
+
+        <dt><b>headDist</b></dt>
+
+        <dd>The length of the centerline's extension out to the marker circle (in mm).</dd>
+
+        <dt><b>footLen</b></dt>
+
+        <dd>The length of the centerline's extension on the side opposite the marker (in mm).</dd>
+
+        <dt><b>textDist</b></dt>
+
+        <dd>The distance of the Width/Height Dimension Text's right justification point from the wall (in mm).</dd>
+
+        <dt><b>paraDist</b></dt>
+
+        <dd>The distance of the Sill/Threshold Height Dimension Text baseline from the wall (in mm).</dd>
+
+        <dt><b>headSize</b></dt>
+
+        <dd>The length of the Centerline's extension out to the Marker circle (in mm).</dd>
+
+        <dt><b>ppCorr</b></dt>
+
+        <dd>Parapet correction (subfloor thickness).</dd>
+
+        <dt><b>ppStr[8]</b></dt>
+
+        <dd>Parapet prefix string.</dd>
+
+        <dt><b>note1</b></dt>
+
+        <dd>Index note.</dd>
+
+        <dt><b>note2</b></dt>
+
+        <dd>Width note.</dd>
+
+        <dt><b>note3</b></dt>
+
+        <dd>Height note.</dd>
+
+        <dt><b>note4</b></dt>
+
+        <dd>Sill note.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 to 3.2</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p>API_NoteType, API_WindowType, API_DoorType, API Types</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 30, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

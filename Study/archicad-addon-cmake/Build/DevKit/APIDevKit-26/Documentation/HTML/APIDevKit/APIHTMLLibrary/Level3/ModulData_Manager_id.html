@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ModulData Manager</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/ModulData_Manager_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ModulData Manager</h1>
+
+    <p><br>
+    The ModulData Manager is a very powerful service introduced in API v3.1.</p>
+
+    <p>It allows each add-on to own custom data sections in Archicad project files. No limitation is imposed on the structure or content, not even on the amount of saved bytes. Archicad knows nothing about its internal format, it just preserves a number of bytes in the project file and returns them upon requests.</p>
+
+    <p>Data sections are identified uniquely by the add-on's modul ID (<!--NoCHM--><a href="../Resources/MDID.html">'MDID'</a>) and an optional modul name string. This means the one data per add-on limitation of previous versions has been dissolved. &nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="API 13 feature" width="19" height="12"></p>
+
+    <p>&nbsp;</p>
+
+    <h4>Functions</h4>
+
+    <p>All of the ModulData Manager functions begin with the <b>ACAPI_ModulData_</b> prefix. They are as follows:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_ModulData_Store.html">ACAPI_ModulData_Store</a><br>
+        <a href="../Functions/ACAPI_ModulData_GetInfo.html">ACAPI_ModulData_GetInfo</a><br>
+        <a href="../Functions/ACAPI_ModulData_Get.html">ACAPI_ModulData_Get</a><br>
+        <a href="../Functions/ACAPI_ModulData_GetList.html">ACAPI_ModulData_GetList</a> &nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="API 13 feature" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_ModulData_Delete.html">ACAPI_ModulData_Delete</a> &nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="API 13 feature" width="19" height="12">
+    </blockquote>
+
+    <p>Refer to the <b>ModulData Manager</b> example project to see detailed examples on using these functions.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Merging custom data sections</h4>
+
+    <p>In certain situations modules of the same add-on can conflict with each other. When merging another plan into the project, it might be necessary to keep both the original and the incoming modul data, and to combine them together. Since the host application does not know the content of the modules, the owner add-on is requested to resolve the conflict.</p>
+
+    <p>For this purpose the add-on needs to implement an <a href="../Functions/APIModulDataMergeHandlerProc.html">APIModulDataMergeHandlerProc</a> callback handler function, and pass the function pointer to Archicad with the <a href="../Functions/ACAPI_Install_ModulDataMergeHandler.html">ACAPI_Install_ModulDataMergeHandler</a> in the <a href="../Functions/Initialize.html">Initialize</a> routine. It is also necessary to inform Archicad that the add-on is prepared for merging module data: this can be done with the <a href="../Functions/ACAPI_Register_ModulDataHandler.html">ACAPI_Register_ModulDataHandler</a> function called from <a href="../Functions/RegisterInterface.html">RegisterInterface</a>.</p>
+
+    <p>In Teamwork mode it is also possible that the same module data is modified by the owner and by other team members. In this case the local and the server version of the data is conflicting at synchronization, and the add-on's <a href="../Functions/APIModulDataMergeHandlerProc.html">APIModulDataMergeHandlerProc</a> is called to adjust the proper data.</p>
+
+    <p>When Archicad calls the handler function, the <a href="../Structures/API_MDSetCmd.html">API_MDSetCmd</a> moduldata event codes inform you about the type of the actual operation:</p>
+
+    <blockquote>
+        <table cellpadding="5">
+            <tr>
+                <td>
+                    <p><code>APIMDSetMerge_TW</code></p>
+                </td>
+
+                <td>
+                    <p>The data sections should be merged because of a Teamwork operation (e.g. Receive changes).</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APIMDSetMerge_HLM</code></p>
+                </td>
+
+                <td>
+                    <p>The data section from a Hotlinked module should be merged into the main database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APIMDSetMerge_Merge</code></p>
+                </td>
+
+                <td>
+                    <p>The data section should be merged from a file which was merged into the main project, or from a paste or Drag&amp;Drop operation.</p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Moduldata versions</h4>
+
+    <p>The <code>API_ModulData</code> structure contains a version number. If your data structure has to be changed, increase the version number. Upon retrieving the data section, check the version information and provide backward compatibility if possible.</p>
+
+    <p>Refer to the <!--NoCHM--><a href="../Structures/API_ModulData.html">API_ModulData</a> structure for more details.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Moduldata platforms</h4>
+
+    <p>Since Archicad is a multi-platform application, all data written into the project file should be readable on the opposite platform too. As byte ordering is different on the Windows and on the Macintosh, for the correct interpretation the add-on needs to know on which platform the data was created. If the platform code differs from the actual platform, perform the necessary byte swapping operations using the <!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/IV/def_id.html">GSRoot</a> module, or use Memory Channel to read and write the custom data.</p>
+
+    <p>Refer to the <!--NoCHM--><a href="../Structures/API_ModulData.html">API_ModulData</a> structure for more details.</p>
+
+    <p>&nbsp;</p>
+
+    <h4><img border="0" src="../../APIImageLibrary/13.png" alt="API 13 feature" width="19" height="12"> &nbsp;Saving data into old format project</h4>
+
+    <p>If the structure of the custom data has changed since the previous version, you need to implement an <a href="../Functions/APIModulDataSaveOldFormatHandlerProc.html">APIModulDataSaveOldFormatHandlerProc</a> callback function to be able to convert your modules when saving into an older format project. In order to be called this handler, the function pointer must be passed with <a href="../Functions/ACAPI_Install_ModulDataSaveOldFormatHandler.html">ACAPI_Install_ModulDataMergeHandler</a>, and the modul data handling feature must be registered with <a href="../Functions/ACAPI_Register_ModulDataHandler.html">ACAPI_Register_ModulDataHandler</a>.</p>
+
+    <p>When Archicad calls this function, the add-on should create the converted data according to the given plan file format, and pass it back to the application. The old format data should not be stored with <a href="../Functions/ACAPI_ModulData_Store.html">ACAPI_ModulData_Store</a>, nor the current data needs to be deleted or modified during the project save operation.</p>
+
+    <p>If the add-on does not install this converter callback routine, the available current format module data is saved into the old version project as well.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Other comments</h4>
+
+    <p>Notice that it is not recommended to store unique ID-type references to Archicad elements in the module data; for this purpose try to use the <!--NoIndex--><a href="ElementSet_Manager_id.html">Element Set Manager</a> service instead.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 5, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

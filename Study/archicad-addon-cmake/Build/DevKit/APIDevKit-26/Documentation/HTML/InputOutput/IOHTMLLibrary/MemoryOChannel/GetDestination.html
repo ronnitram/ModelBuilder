@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>GetDescription</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/MemoryOChannel/GetDestination.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="MemoryOChannel.html">MemoryOChannel</a>::GetDestination</h1><br>
+    Returns pointer to the data destination buffer.<br>
+    <br>
+    <pre class="syntax">
+<b>char*  GetDestination (
+    </b><b><a href="OwnershipType.html">OwnershipType</a></b><b> ot = OriginalOwnership
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>ot</em></dt>
+
+        <dd>Determines the ownership of the returned destination buffer. Possible values are:</dd>
+
+        <dd>
+            <blockquote>
+                <table class="enumeration" width="531">
+                    <tr>
+                        <th width="104">Value</th>
+
+                        <th width="385">Meaning</th>
+                    </tr>
+
+                    <tr>
+                        <td width="104">OriginalOwnership</td>
+
+                        <td width="385">Ownership of the buffer is not changed. The original owner (either the MemoryOChannel instance or the user) is responsible for the deleting of the buffer.<br>
+                        (This is the default case.)</td>
+                    </tr>
+
+                    <tr>
+                        <td width="104">GrantOwnership</td>
+
+                        <td width="385">
+                            If the buffer was previously owned by the MemoryOChannel instance then ownership is passed to the user. User is responsible for the deleting of the buffer.
+
+                            <p><b><font color="#FF0000">Buffer should be deleted with the BMpFree function!</font></b></p>
+                        </td>
+                    </tr>
+                </table>
+            </blockquote>
+        </dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>Pointer to the data destination buffer, or NULL if state of the instance is invalid (for example due to memory exhaustion).</p>
+
+    <h3>Description</h3>
+
+    <p>This method returns pointer to the data destination buffer. If the buffer was previously owned by the particular instance then ownership can be granted with the GrantOwnership value of the <i>ot</i> parameter, so that user becomes responsible for the deleting of the buffer. In such cases user should assume that the buffer was allocated with the <b>BMpAll</b> function, so <b>it should be deleted with the BMpFree function!</b></p>
+
+    <p>This method also causes internal buffers to be flushed, so user will have all the data sent to this output channel in the destination buffer. However potential errors raised during flushing are not reported. If this causes a problem, then user can invoke the Flush method manually before invoking this method. See <a href="../OChannelAdapter/OChannelAdapter.html">OChannelAdapter</a> base class about buffering details.</p>
+
+    <p>Size of the data sent to this output channel can be queried with the <a href="GetDataSize.html">GetDataSize</a> method.<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

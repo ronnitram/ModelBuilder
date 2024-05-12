@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Vegh Miklos, Urban Eszter">
+
+    <title>DGListSetHeaderItemSize</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListSetHeaderItemSize.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListSetHeaderItemSize</h1>
+
+    <p>Sets the size of a header item of a <a href="ListBox.html">list box</a> item.</p>
+    <pre class="syntax">
+    <strong>short DGListSetHeaderItemSize</strong> (
+      <strong>short</strong>        <em>dialId</em>,
+      <strong>short</strong>        <em>item</em>,
+      <strong>short</strong>        <em>headerItem</em>,
+      <strong>short</strong>        <em>size</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>headerItem</em></dt>
+
+        <dd>1-based index of the header item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>size</em></dt>
+
+        <dd>The size of the header item.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The new size of the header item or zero if an error occurs.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The header can be configured so that the number and size of the header items are either synchronized with the corresponding tabulator fields by DG or independently handled by the application. The header flags can be set and retrieved by the <a href="DGListSetHeaderFlags.html">DGListSetHeaderFlags</a> and <a href="DGListGetHeaderFlags.html">DGListGetHeaderFlags</a> functions respectively.<br>
+    If the <em>isSynchron</em> flag is set on the list box header, the <strong>DGListSetHeaderItemSize</strong> function does not affect the header item properties.</p>
+
+    <p>Only those header items can be resized on which the <em>isSizeable</em> flag is set by the <a href="DGListSetHeaderItemFlags.html">DGListSetHeaderItemFlags</a> function.</p>
+
+    <p>The size of the header item cannot be set smaller by mouse interaction than the minimal size of the header item. The minimal size of a header item can be set and retrieved by the <a href="DGListSetHeaderItemMinSize.html">DGListSetHeaderItemMinSize</a> and the <a href="DGListGetHeaderItemMinSize.html">DGListGetHeaderItemMinSize</a> functions respectively.</p>
+
+    <p>The first header item starts always at 0 position. The right side of the right marginal header item overlaps always with the right side of the last tabulator field. If there is space between two adjacent tabulator fields and the <em>isSynchron</em> flag is set on the list box header, the margins of the header items coincide with the middle of the spaces between the tabulator fields.</p>
+
+    <p>If the list box has a horizontal scrollbar and a header item is being resized, all the items being to the right from this header item slips to the right or to the left and the width of the header item and the width of the list box rows are changing constantly.</p>
+
+    <p>If the list box does not have a horizontal scrollbar, the size of the header stays constant. In this case if the user wants to widen a header item, then to the right from the chosen item another sizeable header item has to be found of which size does not gained its minimal size yet. The found header item will be narrowed. If there is no such header item, the resize will be unsuccessful. At the same time if the user wants to narrow a header item, then to the right of the chosen item the first sizeable header item will be widened.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ListBox.html">List Box</a>, <a href="DGListGetHeaderItemSize.html">DGListGetHeaderItemSize</a><br>
+    <a href="DGListSetHeaderFlags.html">DGListSetHeaderFlags</a>, <a href="DGListGetHeaderFlags.html">DGListGetHeaderFlags</a>, <a href="DGListSetHeaderItemMinSize.html">DGListSetHeaderItemMinSize</a>, <a href="DGListGetHeaderItemMinSize.html">DGListGetHeaderItemMinSize</a>, <a href="DGListSetHeaderItemFlags.html">DGListSetHeaderItemFlags</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on March 21, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

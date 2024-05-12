@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Element Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level2/Element_Overview.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Element Overview</h1>
+
+    <p>&nbsp;</p>
+
+    <p>Applicable types of elements are enumerated in the <a href="../Structures/API_ElemTypeID.html">API_ElemTypeID</a> structure. The definition of an element is described in the <a href="../Structures/API_Element.html">API_Element</a> structure, which is a union of all element types. All of the definitions begin with a common header structure named <a href="../Structures/API_Elem_Head.html">API_Elem_Head</a>.</p>
+
+    <ul>
+        <li>The <code>type.typeID</code> field identifies the type of the element.</li>
+
+        <li>The <code>type.variationID</code> field is an extension of <code>type.typeID</code> in case of <code>API_ObjectID</code>, <code>API_LampID</code>, <code>API_WindowID</code>, <code>API_DoorID</code>. It identifies the subcategory (e.g. <em>Stair</em>) of the element.</li>
+
+        <li>The <code>guid</code> field gives a globally unique identifier of the element, which is constant through the whole life of the project. These values are automatically generated and there is no way to control which unique ID is assigned.</li>
+
+        <li>The <code>modiStamp</code> field gives you a stamp to check if the element was modified.</li>
+
+        <li>The <code>guid</code> and <code>groupGuid</code> fields contain the grouping information. The first one identifies the group which the given element belongs to. The second one identifies the root-parent group in case of nested groups.</li>
+
+        <li>The <code>floorInd</code> field identifies the story that the element belongs to (not applicable to all element types).</li>
+
+        <li>The <code>layer</code> field is the attribute index of the layer selected for the element (not applicable to all element types).</li>
+
+        <li>The <code>hasMemo</code> field is a flag, which shows that the given element has additional data, described in the structure <a href="../Structures/API_ElementMemo.html">API_Element_Memo</a>.</li>
+
+        <li>The <code>drwIndex</code> field determines the drawing order of elements, and can be adjusted by the user or from the API with the <i>Send to Back</i>/<i>Bring to Front</i> commands. Elements which have bigger <code>drwIndex</code> will be drawn later.</li>
+    </ul>
+
+    <p>Every structure which describes a particular type of element (like <a href="../Structures/API_WallType.html">API_WallType</a>, <a href="../Structures/API_LineType.html">API_LineType</a> etc.) are logically separated into different parts.</p>
+
+    <ul>
+        <li>The first part is the header. It contains common information which is element type independent.</li>
+
+        <li>The next part corresponds to the parameters which can be set in the tool setting dialog boxes or in the Info Box. They do not depend on the geometry, just describe general parameters like attributes, control flags and so on.</li>
+
+        <li>The last part corresponds to the user clicks done while the element was placed on the floor plan. This part is a pure geometrical description.</li>
+    </ul>
+
+    <p>Many element related functions use the <a href="../Structures/API_Element.html">API_Element</a> structure on the parameter list. As a general rule, you have to fill the required fields in the union. Archicad parses the request based on the values, and passes the return parameters in the same structure. This is why most of the functions do not have the <code>const</code> directive in their prototypes.</p>
+    <hr>
+
+    <h4>Retrieving an element from the database</h4>
+
+    <p>Please note that from API 11 we start to move away from the <code>typeID/index</code> identification towards a GUID-based identification. In API 12 the GUID way has precedence. From API 18 the GUID way is only available, <code>typeID/index</code> identification was removed.</p>
+
+    <p>Let's look at a simple example. Assume you are interested in getting the data of a given element of the database. In this case you should use a variable of type <a href="../Structures/API_Element.html">API_Element</a>.</p>
+
+    <blockquote>
+        <pre><code>
+API_Element  element;
+GSErrCode    err;
+
+BNZeroMemory (&amp;element, sizeof (API_Element));
+element.header.guid = GSGuid2APIGuid (GS::Guid ("EF7A21F7-F841-4030-B6DC-C1DC8DA2F1E6"));
+
+err = ACAPI_Element_Get (&amp;element);
+</code></pre>
+    </blockquote>
+
+    <p>The data of the wall is returned in the <code>element.wall</code> part of the union. You should check the <code>hasMemo</code> field in the returned header. If it is set you are informed that additional data is available for the element, such as gables and polygon nodes. Since producing this data may be a relatively a long conversion process, this information can be obtained with an additional function call.</p>
+
+    <blockquote>
+        <pre><code>
+GSErrCode       err;
+API_ElementMemo memo;
+
+err = ACAPI_Element_GetMemo (element.header.guid, &amp;memo, APIMemoMask_All);
+</code></pre>
+    </blockquote>
+
+    <p>In this case, you have got all of the additional data related to the particular element. The memo structure is a collection of several handles and pointer (dynamic memory). If any is allocated (i.e. its value is not <code>nullptr</code> it contains data. If you do not need the data any more you are required to free the allocated memory blocks. The suggested way is the following:</p>
+
+    <blockquote>
+        <pre><code>
+ACAPI_DisposeElemMemoHdls (&amp;memo);
+</code></pre>
+    </blockquote>
+
+    <p>If you use this function, it is ensured that all of the dynamic data will be freed, and also there will be no compatibility problems if your add-on is installed to a newer version of Archicad.</p>
+
+    <p>It is very important to examine the error codes returned by the API functions, and interpret the returned value.</p>
+
+    <p>It is usual that you want to go through the instances of a particular type of element in the database. The following example gives a good template to do that:&nbsp; <img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+
+    <blockquote>
+        <pre><code>
+GS::Array&lt;API_Guid&gt; elemList;
+GSErrCode err = ACAPI_Element_GetElemList (API_WallID, &amp;elemList);
+for (Int32 i = 0; i &lt; elemList.GetSize () &amp;&amp; err == NoError; ++i) {
+    API_Element element;
+    BNZeroMemory (&amp;element, sizeof (API_Element));
+    element.header.guid = elemList[i];
+    if (ACAPI_Element_Get (&amp;element) == NoError) {
+        /* do what you want */
+    }
+}
+</code></pre>
+    </blockquote>
+
+    <p>A better and suggested way to set up such a loop is to use the element filter service of the API. It is common that you are interested in elements being on the active story only or being on a visible layer, or just for editable elements, and so on. If you call the <a href="../Functions/ACAPI_Element_Get.html">ACAPI_Element_Get</a> function in a loop, Archicad is requested to convert all of the elements to API form, even if you do not need them. This algorithm can be very slow.</p>
+
+    <p>In the next example you see a very effective, fast way to get the elements only you are interested in:&nbsp; <img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></p>
+
+    <blockquote>
+        <pre><code>
+GS::Array&lt;API_Guid&gt; elemList;
+ACAPI_Element_GetElemList (API_WallID, &amp;elemList, APIFilt_OnActFloor);
+for (GS::Array&lt;API_Guid&gt;::ConstIterator it = elemList.Enumerate (); it != nullptr; ++it) {
+    API_Element element;
+    BNZeroMemory (&amp;element, sizeof (API_Element));
+    element.header.guid = *it;
+    if (ACAPI_Element_Get (&amp;element) == NoError) {
+        /* do what you want */
+    }
+}
+</code></pre>
+    </blockquote>
+
+    <p>You now see that the <code>APIERR_DELETED</code> return code is not checked, since all elements are filtered which do not meet your needs as well as the deleted ones.</p>
+
+    <p>You can also enumerate elements by drawing order and creation order with the <a href="../Functions/APIDb_DrawOrderGetNextID.html">APIDb_DrawOrderGetNextID</a> and <a href="../Functions/APIDb_CreationOrderGetNextID.html">APIDb_CreationOrderGetNextID</a> database functions respectively.</p>
+    <hr>
+
+    <h4>Creating an element</h4>
+
+    <p>The element creation procedure is also fairly simple. All you have to do is to fill the appropriate part of the <a href="../Structures/API_Element.html">API_Element</a> and optionally, the <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a> structure. The <a href="../Functions/ACAPI_Element_Create.html">ACAPI_Element_Create</a> function does the following:</p>
+
+    <ul>
+        <li>It checks the data for possible inconsistency. If some problem is encountered it may be corrected automatically (like an invalid attribute reference) or an error code is generated.</li>
+
+        <li>It ignores, for example, <code>guid</code> field in the header structure, because they are automatically generated. These values are returned to you in the appropriate field.</li>
+
+        <li>The generated element is placed in the data structure.</li>
+    </ul>
+
+    <p>It is very important that <b>Archicad does not free any dynamic data structure you have allocated</b> and passed to Archicad. They must be freed by your code.</p>
+
+    <p>An other important note is the following. Every data structure filled by you must be initialized to zero, because of forward compatibility. Fillers may be used in the later versions of the API, so if they are not initialized to zero the result may be unpredictable.</p>
+
+    <p>The template to create an element should be the following:</p>
+
+    <blockquote>
+        <pre><code>
+API_Element     element;
+API_ElementMemo memo;
+API_Guid        wallGuid;
+GSErrCode       err;
+
+BNZeroMemory (&amp;element, sizeof (API_Element));
+BNZeroMemory (&amp;memo, sizeof (API_ElementMemo));
+
+element.header.type = API_WallID;
+/* fill element.wall */
+/* fill memo for polygonal walls */
+
+err = ACAPI_Element_Create (&amp;element, &amp;memo);
+
+wallGuid = element.header.guid;
+
+ACAPI_DisposeElemMemoHdls (&amp;memo);
+</code></pre>
+    </blockquote>
+
+    <p>Many elements refer to each other and these cross-references can be set up very easily. You just have to follow the general logic of Archicad, which means that referred elements must exist. For example first you create a wall, then windows are placed in it, and also you can assign associated labels.</p>
+
+    <p>You also have to do the same using the API functions. The <a href="../Functions/ACAPI_Element_Create.html">ACAPI_Element_Create</a> function returns the <code>guid</code> of the created element, which can be used in references. If you want to place a window in the created wall, and assign a label do the following:</p>
+
+    <blockquote>
+        <pre><code>
+BNZeroMemory (&amp;element, sizeof (API_Element));
+element.header.type = API_WindowID;
+
+element.window.owner = wallGuid;
+/* set other parameters... */
+
+err = ACAPI_Element_Create (&amp;element, nullptr);
+
+BNZeroMemory (&amp;element, sizeof (API_Element));
+element.header.type = API_LabelID;
+
+element.label.parent = wallGuid;
+/* set other parameters... */
+
+err = ACAPI_Element_Create (&amp;element, nullptr);
+</code></pre>
+    </blockquote>
+    <hr>
+
+    <h4>Controlling the selection</h4>
+
+    <p>You can control the active selection also.</p>
+
+    <p>There are two basic type of selection methods in Archicad:</p>
+
+    <ul>
+        <li>The selection may be controlled by individually selected elements.</li>
+
+        <li>The other possibility is to rely on the marquee area.</li>
+    </ul>
+
+    <p>Both of them are supported by the API. The possible values of the active selection method are enumerated in the <a href="../Structures/API_SelTypeID.html">API_SelTypeID</a> structure. The <code>API_SelEmpty</code> identifier means that nothing is selected in the current database in Archicad. The <code>API_SelElems</code> identifier corresponds to the first method when elements are individually selected. Other values identify that the selection is done by some kind of marquee shape.</p>
+
+    <p>In case of individually selected elements, Archicad returns all the elements which are selected. In the case of marquee based selection, only those elements will be returned which have an intersection with, or are within the marquee area.</p>
+
+    <p>The element selection procedure is very easy. You just have to call the <a href="../Functions/ACAPI_Element_Select.html">ACAPI_Element_Select</a> function to select an individual element, or a group of elements. You have the possibility either to open a new selection, or append one more element to the actual selection.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h4>Internal parts of an element: the API_Neig structure</h4>
+
+    <p>Both the <a href="../Functions/ACAPI_Element_Select.html">ACAPI_Element_Select</a> and <a href="../Functions/ACAPI_Selection_Get.html">ACAPI_Selection_Get</a> functions use the <a href="../Structures/API_Neig.html">API_Neig</a> structure. This data structure makes possible to distinguish the internal parts of the elements.</p>
+
+    <p>You can see how smart the cursor is, when you touch one of the element's nodes or edges while moving it through the shape of a given element. All of these points or edges can be described by an <a href="../Structures/API_Neig.html">API_Neig</a> structure.</p>
+
+    <ul>
+        <li>The <code>neigID</code> field identifies the element type. Correspondence can be set up between the possible values of <a href="../Structures/API_NeigID.html">API_NeigID</a> and the <a href="../Structures/API_ElemTypeID.html">API_ElemTypeID</a> structures; the first one is a sub-kind of the second one. Use the <a href="../Functions/APIAny_NeigToCoordID.html">APIAny_NeigToCoordID</a> function for conversion purposes.</li>
+
+        <li>The <code>guid</code> field is the element guid.</li>
+
+        <li>The <code>inIndex</code> field identifies the internal index of special point or edge.</li>
+
+        <li>The <code>flags</code> field just gives information e.g. if the described point or edge belongs to a subcontour or the main contour of a polygonal element (<code>API_NeigFlg_HoleSel</code>).</li>
+    </ul>
+
+    <p>Let's see an example. According to the roofs the special interests are organized into three subclasses. They are:</p>
+
+    <blockquote>
+        &nbsp;
+
+        <table>
+            <tr>
+                <th>
+                    <p>neigID</p>
+                </th>
+
+                <th>
+                    <p>inIndex range</p>
+                </th>
+
+                <th>
+                    <p>Description</p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APINeig_Roof</code></p>
+                </td>
+
+                <td>
+                    <p>[1...n]</p>
+                </td>
+
+                <td>
+                    <p>Identifies one of the vertices of the roof polygon. The inIndex value corresponds to the position of the vertex in the vertex array. The holeSel bit in the <code>flags</code> is not set if the point belongs to the main contour of the roof polygon.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APINeig_RoofOn</code></p>
+                </td>
+
+                <td>
+                    <p>[1...n]</p>
+                </td>
+
+                <td>
+                    <p>Identifies one of the edges of the roof polygon. The inIndex value corresponds to the position of the starting vertex in the vertex array. The holeSel bit in the <code>flags</code> is set if the edge belongs to a subcontour of the roof polygon.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APINeig_RBL</code></p>
+                </td>
+
+                <td>
+                    <p>[1...2]</p>
+                </td>
+
+                <td>
+                    <p>Identifies the reference line of the roof. The inIndex value 1 and 2 means the start and end point of it, respectively.</p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>When you go through the selected elements, you get the information which point or edge was clicked by the mouse when the selection was made. The only useful information according to the selection is whether a whole polygonal element is selected or just one of its sub-contours.</p>
+
+    <p>If you search the <a href="../Structures/API_Neig.html">API_Neig</a> structure in the APIdefs_Elements.h file, you will see that it is used in many places.</p>
+
+    <p>It is used to give you information on which point was clicked in the input functions; see the <a href="../Functions/APIIo_GetPointID.html">APIIo_GetPointID</a> function.</p>
+    <hr>
+
+    <h4>The 3D model&nbsp;&nbsp;<img border="0" src="../../APIImageLibrary/obsolete.png" class="size2x" width="54" alt="obsolete"></h4>
+
+    <p><img border="0" src="../../APIImageLibrary/12.png" width="19" height="12" alt="12">&nbsp;The recommended way of accessing the 3D Model is now illustrated in the ModelAccess example.</p>
+
+    <p>The 3D representation of the actual database can be accessed through the <a href="../Structures/API_Component3D.html">API_Component3D</a> structure.</p>
+
+    <p>Applicable types of elements are enumerated in the <a href="../Structures/API_3DTypeID.html">API_3DTypeID</a> structure. The definition of a 3D component is described in the <a href="../Structures/API_Component3D.html">API_Component3D</a> structure, which is in fact a union of all component types. All of the definitions begins with a common header structure, <a href="../Structures/API_3D_Head.html">API_3D_Head</a>.</p>
+
+    <ul>
+        <li>The <code>typeID</code> field identifies the type of the component.</li>
+
+        <li>The <code>index</code> field gives the current database index of the given component. Note that this number is not constant for a particular element through the whole life of the project.</li>
+    </ul>
+
+    <p>Before you try to understand how the 3D model corresponds to the API structures, please read carefully the Primitive Elements chapter in the GDL Reference Manual.</p>
+
+    <p>The 3D representation of a particular element is based on the <a href="../Structures/API_BodyType.html">API_BodyType</a> structure. One element may hold one or more bodies to describe the 3D geometry. Generally a body is built up from a number of vertices, edges, polygons and normal vectors. This data structure gives you the number of the internal components as well as some status bits, surface properties and a global transformation matrix. You also get a reference to the parent element through an <a href="../Structures/API_Elem_Head.html">API_Elem_Head</a> structure.</p>
+
+    <p>The 3D geometry itself is described by the <a href="../Structures/API_PgonType.html">API_PgonType</a>, <a href="../Structures/API_PedgType.html">API_PedgType</a>, <a href="../Structures/API_EdgeType.html">API_EdgeType</a>, <a href="../Structures/API_VertType.html">API_VertType</a> and <a href="../Structures/API_VectType.html">API_VectType</a> structures. They are documented in the GDL Reference Manual.</p>
+
+    <p>The 3D representation also owns a common pool of the surface materials. The polygon instances of the geometry description refer to these materials by indices. One surface definition is described by the <a href="../Structures/API_UmatType.html">API_UmatType</a> structure. Surface materials may come from two sources. The list of materials contains all the global material attributes which are referenced by any polygon of the 3D geometry. Materials may be defined in GDL scripts also.</p>
+
+    <p>Elements placed with the light tool on the floor plan may contain light emissions, defined via GDL scripts. All of the light sources present in the 3D geometry are described with the <a href="../Structures/API_LghtType.html">API_LghtType</a> structure.</p>
+    <hr>
+
+    <h4>Getting the whole 3D model&nbsp;&nbsp;<img border="0" src="../../APIImageLibrary/obsolete.png" class="size2x" width="54" alt="obsolete"></h4>
+
+    <p><img border="0" src="../../APIImageLibrary/12.png" width="19" height="12" alt="12">&nbsp;The recommended way of accessing the 3D Model is now illustrated in the ModelAccess example.</p>
+
+    <p>If you are interested in the whole 3D model that actually exists, you should use the following template:</p>
+
+    <blockquote>
+        <pre><code>
+API_Component3D   comp3D;
+Int32             nBody, i;
+GSErrCode         err;
+
+err = ACAPI_3D_GetNum (API_BodyID, &amp;nBody);
+BNZeroMemory (&amp;comp3D, sizeof (API_Component3D));
+comp3D.header.typeID = API_BodyID;
+for (i = 1; i &lt;= nBody &amp;&amp; err == NoError; i++) {
+    comp3D.header.index = i;
+    err = ACAPI_3D_GetComponent (&amp;comp3D);
+    if (err == NoError) {
+        /* explode the body into pgon, vert etc... */
+    }
+    if (err == APIERR_DELETED)
+        err = NoError;
+}
+</code></pre>
+    </blockquote>
+
+    <p>It is very important to organize your algorithm on a loop based on the component <a href="../Structures/API_BodyType.html">API_BodyType</a> for the following reasons:</p>
+
+    <ul>
+        <li>Body indices are continuous in all cases, others are not.</li>
+
+        <li>The 3D model also can have data from deleted floor plan elements. They can be identified only through the deleted bodies.</li>
+
+        <li>Floor plan elements which have the same geometry may share the primitives of the 3D representation data, but not the bodies. All the bodies contain a transformation matrix which transforms the referenced shared vertices and normal vectors to the right places and directions.</li>
+    </ul>
+
+    <p>Once you have the definition of a body, you can set up inner loops to go through the primitives you are interested in. In the <a href="../Structures/API_BodyType.html">API_BodyType</a> record you get the number of all internal components. Indices should start from 1.</p>
+
+    <p>The light and material components can be obtained in their own loops, because they are global (not body relative) components of the 3D model.</p>
+
+    <p><b>It is very important</b>, that you get the data of the 3D model of Archicad that actually exists. This data is often not consistent with the floor plan elements. The update mechanism of the 3D window depends on many things, such as the switches in the preferences dialogs. As a general rule, you get the model which can be seen in the 3D window, if you use the above template.</p>
+    <hr>
+
+    <h4>Getting the 3D representation of a particular element</h4>
+
+    <p>You also have the possibility to get the 3D representation of any particular floor plan element you are interested for. The basic mechanism is the same as in the previous example. The only difference is that you need the information which bodies belong to the given element.</p>
+
+    <p>Bodies assigned to a specific floor plan element can be obtained with the function <a href="../Functions/ACAPI_Element_Get3DInfo.html">ACAPI_Element_Get3DInfo</a>. This function fills an <a href="../Structures/API_ElemInfo3D.html">API_ElemInfo3D</a> structure to pass the index range of the main 3D data containers.</p>
+
+    <ul>
+        <li>The <code>fbody</code> and <code>lbody</code> field defines the first and last body indices. This range of indices should be used to get the body definitions.</li>
+
+        <li>The <code>flight</code> and <code>llight</code> fields defines the first and last light indices. The 3D GDL script of objects may contain the LIGHT commands which determines that the given element has light emission. This data can be obtained through the <a href="../Structures/API_LghtType.html">API_LghtType</a>, based on these indices.</li>
+    </ul>
+
+    <p><b>Important note:</b> in this way the data you get is independent from the actually existing 3D model of Archicad. If the existing data is not consistent, Archicad converts the given element to 3D again to ensure the right result. As a general rule, you get the model which is fully synchronized to the actual floor plan data.</p>
+
+    <p>You should choose between the above mentioned ways to get the 3D model very carefully.</p>
+
+    <p>If you need consistent data you should choose the second way, setting up a loop which goes through the floor plan elements you are interested for. In this case you can get the 3D model element by element.</p>
+
+    <p>You often have to choose the first method. For example, if your add-on is called from the "Save As 3D" dialog, the data user wants to save is the data actually can be seen in the 3D window.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 18, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

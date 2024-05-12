@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Mach-O and Cocoa</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level2/Mach-O.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Mach-O and Cocoa</h1>
+
+    <p>Mach-O is the native runtime model on macOS. This is the file format of the executable, object code, shared and dynamically loaded libraries.
+    This format can contain binaries compiled for different architectures at the same time and in the same file.
+    Unlike the Windows' DLL or Linux' ELF shared object format, the macOS' shared (dylib) and dynamically-loaded (bundle) libraries are distinguished. Please note that the Archicad add-ons are always dynamically-loaded (bundle-format) libraries.
+    </p> 
+
+    <p>Cocoa is the only API supported on 64-bit systems. On Archicad uses this API since version 14.</p>
+    <p>What does this mean to you?</p>
+
+    <ul>
+        <li>Archicad makes it easy to call Cocoa system functionality. An example for that is the Spell Checker add-on, which calls the spell checker built into the system directly, without a need for any wrapper bundle.</li>
+
+        <li>You can easily call Objective-C functions.</li>
+
+        <li>The main event loop uses <code>[NSApp run]</code>.</li>
+
+        <li>All windows and controls are Cocoa elements. The macOS part of the DG Library (dialog manager) is written in Objective-C.</li>
+    </ul>
+
+    <p>For more information, please visit Apple's <!--NoIdx--><a href="http://developer.apple.com">developer site</a>. You can also read the related Wikipedia articles about <a href="Invalid link: https://en.wikipedia.org/wiki/Mach-O">Mach-O</a> and <a href="Invalid link: https://en.wikipedia.org/wiki/Cocoa_(API)">Cocoa API</a>.</p>
+
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 1, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

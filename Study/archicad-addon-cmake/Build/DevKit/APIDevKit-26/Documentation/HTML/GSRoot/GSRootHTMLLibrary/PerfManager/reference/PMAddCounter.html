@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>PMAddCounter</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/PerfManager/reference/PMAddCounter.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>PMAddCounter</h1>
+
+    <p><font color="#FF0000">Windows NT only!</font></p>
+
+    <p>The <strong>PMAddCounter</strong> function adds the specified counter to the counter set of the last added object.</p>
+    <pre class="syntax">
+<strong>long PMAddCounter(
+  long          </strong><em>type,      </em>   // type of counter
+  <strong>const char    </strong><em>*name,             </em>// counter name
+  <strong>const char    </strong><em>*help              </em>// additional information
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>type</em></dt>
+
+        <dd>
+            Specifies the type of the counter to add. This parameter must be one of the following values:<br>
+
+            <dl align="left">
+                <dd>
+                    <table border="0" width="100%">
+                        <tr>
+                            <th width="26%"><strong>Value</strong></th>
+
+                            <th width="74%"><strong>Meaning</strong></th>
+                        </tr>
+
+                        <tr>
+                            <td width="26%"><strong>CT_RAW_COUNTER</strong></td>
+
+                            <td width="74%">The counter value is valid without additional calculation; that is, it should be displayed as it is.</td>
+                        </tr>
+
+                        <tr>
+                            <td width="26%"><strong>CT_RATE_COUNTER</strong></td>
+
+                            <td width="74%">The counter value should be divided by the elapsed time to get the specified performance measure.</td>
+                        </tr>
+
+                        <tr>
+                            <td width="26%"><strong>CT_DELTA_COUNTER</strong></td>
+
+                            <td width="74%">The difference between the previous counter value and the current counter value is computed before proceeding.</td>
+                        </tr>
+                    </table>
+                </dd>
+            </dl>
+        </dd>
+    </dl>
+
+    <dl>
+        <dt><em>name</em></dt>
+
+        <dd>Specifies the name of the counter.</dd>
+
+        <dt><em>help</em></dt>
+
+        <dd>Gives additional information displayed in explain section of the Performance Monitor.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>If the function succeeds, the return value is a zero-based index of the counter in the counter list containing performance counters that are previously added by <strong>PMAddCounter</strong>. You can refer to the added counter with the returned index.</p>
+
+    <p>If the function fails, return value is -1.</p>
+
+    <h4>Remarks</h4>
+
+    <p>Use this function only in the case when no counter is in use.</p>
+
+    <p>Calling <strong>PMAddCounter</strong> must be always preceded by at least one call of <a href="PMAddObject.html"><strong>PMAddObject</strong></a>.</p>
+
+    <p>If you finish adding counters to the actual object, you can add new object with <a href="PMAddObject.html"><strong><u>PMAddObject</u></strong></a>. If you want to use your counters (make them recognized by Performance Monitor), call <a href="PMUseCounters.html"><strong>PMUseCounters</strong></a>.</p>
+
+    <h4>Requirements</h4>
+
+    <p><strong>&nbsp;&nbsp;&nbsp; Header:</strong> Declared in GSRoot.h<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="functions_id.html">Performance Monitor Manager Functions</a>, <a href="PMAddObject.html">PMAddObject</a>, <a href="PMUseCounters.html">PMUseCounters</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

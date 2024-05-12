@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGTreeViewInsertItem</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGTreeViewInsertItem.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGTreeViewInsertItem</h1>
+
+    <p>Inserts a new tree item into a <a href="TreeView.html">tree view</a>.</p>
+    <pre class="syntax">
+    <strong>Int32 DGTreeViewInsertItem</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>Int32</strong>  <em>parentItem</em>,
+      <strong>Int32</strong>  <em>treeItem</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>parentItem</em></dt>
+
+        <dd>ID of the parent item under which the new item should be placed as a child item. <tt>DG_TVI_ROOT</tt> specifies the root of the tree view. If <em>treeItem</em> is <tt>DG_TVI_ROOT</tt>, this parameter is ignored.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>treeItem</em></dt>
+
+        <dd>The tree view item after which the new item should appear on the same hierarchy level. You can use the following predefined values, too.</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVI_ROOT</tt></td>
+
+                    <td>The new item will be the root of the tree view.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVI_TOP</tt></td>
+
+                    <td>Insert the new item at the top of the level below <em>parentItem</em>.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TVI_BOTTOM</tt></td>
+
+                    <td>Insert the new item at the bottom of the level below <em>parentItem</em>.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>ID of the new tree view item, or <tt>DG_TVI_NONE</tt> if the function failed.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The new item will have the following default properties:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Property</th>
+
+                    <th align="left">Value</th>
+                </tr>
+
+                <tr valign="top">
+                    <td>Color</td>
+
+                    <td>The system default foreground (text) color.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Icon (normal)</td>
+
+                    <td><tt>DG_NO_ICON</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Icon (state)</td>
+
+                    <td><tt>DG_NO_ICON</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Long</td>
+
+                    <td>0</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Status</td>
+
+                    <td><tt>DG_IS_ENABLE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Style</td>
+
+                    <td>The style of the font of the tree view.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Text</td>
+
+                    <td>empty</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>These default item properties can be modified by the <a href="TreeViewSpecific_id.html">tree view specific functions</a>.</p>
+
+    <p>Use the <a href="DGTreeViewDisableDraw.html">DGTreeViewDisableDraw</a> and <a href="DGTreeViewEnableDraw.html">DGTreeViewEnableDraw</a> functions if you insert more items to avoid unwanted screen updates.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.1.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="TreeView.html">Tree View</a>, <a href="DGTreeViewDeleteItem.html">DGTreeViewDeleteItem</a>, <a href="DGTreeViewGetItemCount.html">DGTreeViewGetItemCount</a>, <a href="DGTreeViewDisableDraw.html">DGTreeViewDisableDraw</a>, <a href="DGTreeViewEnableDraw.html">DGTreeViewEnableDraw</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>File</title><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/File/File.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>File class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>File handling: content manipulation (read / write), attributes query / set. <!-- Not Index --><a href="#Description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td><!-- Not Index --><a href="../../InputOutput.html">InputOutput</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td><!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/IChannel/IChannel.html">GS::IChannel</a>, <!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/OChannel/OChannel.html">GS::OChannel</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>File.hpp</td>
+        </tr>
+    </table><br>
+    <br>
+
+    <h3>Public methods</h3>
+
+    <p><br>
+    &nbsp;&nbsp;&nbsp; <a href="Constructors.html">Constructors<br></a>&nbsp;&nbsp;&nbsp; <a href="Destructor.html">Destructor<br>
+    <br></a> &nbsp;&nbsp;&nbsp; <b>static</b> <a href="New.html">New</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <font color="#FF0000"><b>Note:</b></font> copy constructor and assignment operator are disabled<br>
+    <br>
+    <b>State query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetStatus.html">GetStatus</a><br>
+    <br>
+    <b>File content manipulation (=&gt; see also base classes!)</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Open.html">Open</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsOpen.html">IsOpen</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Close.html">Close</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetAvailable.html">GetAvailable</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="SetPosition.html">SetPosition</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetPosition.html">GetPosition</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Seek.html">Seek</a><br>
+    <br>
+    <b>File attributes setting / query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="SetDataLength.html">SetDataLength</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetDataLength.html">GetDataLength</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="SetCreationTime.html">SetCreationTime</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetCreationTime.html">GetCreationTime</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetModificationTime.html">SetModificationTime</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetModificationTime.html">GetModificationTime</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="SetTypeInfo.html">SetTypeInfo</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetTypeInfo.html">GetTypeInfo</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsReadable.html">IsReadable</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsWriteable.html">IsWriteable</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsWriteProtected.html">IsWriteProtected</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetWriteProtection.html">SetWriteProtection</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="ClearWriteProtection.html">ClearWriteProtection</a><br>
+    <br>
+    <b>Location query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetLocation.html">GetLocation</a><br>
+    <br>
+    <br></p>
+
+    <h3>Public types</h3>
+
+    <p><a href="OpenMode.html">OpenMode</a><br>
+    <a href="OnNotFound.html">OnNotFound</a><br>
+    <a href="SeekOrigin.html">SeekOrigin</a><br>
+    <br>
+    <br></p>
+
+    <h3><a name="Description"></a>Description</h3>
+
+    <p>File is a channel (both input and output) which has file system of the particular OS behind as data source and data destination. In order to create a File instance, location (address, path) of the desired file in the file system must be supplied (see class <!-- Not Index --><a href="../Location/Location.html">Location</a>). On the other hand, File is a permanent storage class which has few attributes to query (read) and set (write) including its content.</p>
+
+    <p>Most importantly File contains an arbitrary long raw data section referred to as content of the file. Before we can access this content, it must be opened in some mode with the <!-- Not Index --><a href="Open.html">Open</a> method. After that, the particular File instance can be used as a proper input channel (<!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/IChannel/IChannel.html">GS::IChannel</a>), output channel (<!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/OChannel/OChannel.html">GS::OChannel</a>) or both, depending on the open mode. Finally, after the use file must be closed. This can be done explicitly by the user (preferred style) with the <!-- Not Index --><a href="Close.html">Close</a> method, or can be left to the destructor (which will invoke the Close method if the file is left opened).</p>
+
+    <p>Other file attributes include length of the content, creation time, modification time and type information. These attributes can be queried and set directly without surrounding open / close operations.</p>
+
+    <p>Every opened file has a associated position referred to as "file content position". Read and write operations on the file content will be performed at the point indicated by this position. After a successful operation this position is incremented appropriately, so the next operation (if there was no seeking meanwhile) will be performed after the content segment operated on by the previous operation. File has random access property because file content position can be explicitly adjusted with the <!-- Not Index --><a href="Seek.html">Seek</a> method (except in appending mode).</p>
+
+    <p>Default input protocol is <!-- Not Index --><a href="../BinIProtocol/BinIProtocol.html">BinIProtocol</a>, default output protocol is <!-- Not Index --><a href="../BinOProtocol/BinOProtocol.html">BinOProtocol</a>.<br>
+    <br></p><img src="../../IOImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>File content means data fork, resource fork can not be accessed.</li>
+        </ul>
+    </blockquote><br>
+
+    <h3>See Also</h3>
+
+    <p><a href="../Folder/Folder.html">Folder</a>, <a href="../Location/Location.html">Location</a></p>
+
+    <p><a href="../HowTo/OpeningReadingClosingFile.html">Opening, reading and closing a file</a></p>
+
+    <p><a href="../HowTo/FileCreateRenameDelete.html">Creating, renaming and deleting a file</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

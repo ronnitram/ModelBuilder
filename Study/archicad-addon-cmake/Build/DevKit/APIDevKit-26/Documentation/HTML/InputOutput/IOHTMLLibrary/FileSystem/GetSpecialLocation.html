@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>GetSpecialLocation</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/FileSystem/GetSpecialLocation.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="FileSystem.html">FileSystem</a>::GetSpecialLocation</h1><br>
+    Returns special locations in the file system.<br>
+    <br>
+    <pre class="syntax">
+<b>GSErrCode  GetSpecialLocation (
+    <a href="SpecLocId.html">SpecLocId</a> locId,
+    <a href="../Location/Location.html">Location</a>* result
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>locId</em></dt>
+
+        <dd>Special location identifier. Possible values are:</dd>
+
+        <dd>
+            <blockquote>
+                <table class="enumeration" width="466" height="200">
+                    <tr>
+                        <th width="138" height="21">Identifier</th>
+
+                        <th width="286" height="21">Description</th>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">ApplicationFile</td>
+
+                        <td width="286" height="21">the running application</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">ApplicationFolder</td>
+
+                        <td width="286" height="21">parent folder of the running application</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">CommonDocuments</td>
+
+                        <td width="286" height="21">common documents of all users</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">CommonLocalSettings</td>
+
+                        <td width="286" height="21">common local settings of all users</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">CurrentFolder</td>
+
+                        <td width="286" height="21">current folder</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">Desktop</td>
+
+                        <td width="286" height="21">desktop folder</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">SharedComponents</td>
+
+                        <td width="286" height="21">shared components</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">System</td>
+
+                        <td width="286" height="21">system folder</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">TemporaryFolder</td>
+
+                        <td width="286" height="21">folder for the temporary data</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">UserDocuments</td>
+
+                        <td width="286" height="21">documents of the current user</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">UserHome</td>
+
+                        <td width="286" height="21">home folder of the current user</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">UserLocalCache</td>
+
+                        <td width="286" height="21">local application cache of the current user</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">UserLocalData</td>
+
+                        <td width="286" height="21">local application data of the current user</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">UserLocalSettings</td>
+
+                        <td width="286" height="21">local application settings of the current user</td>
+                    </tr>
+
+                    <tr>
+                        <td width="138" height="21">UserRoamingSettings</td>
+
+                        <td width="286" height="21">roaming settings of the current user</td>
+                    </tr>
+                </table>
+            </blockquote>
+        </dd>
+
+        <dt>&nbsp;</dt>
+
+        <dt><em>result</em></dt>
+
+        <dd>On return: the requested location.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="203">
+        <tr>
+            <th width="56">Value</th>
+
+            <th width="105">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="56">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="105">OK</td>
+        </tr>
+
+        <tr>
+            <td width="56">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="105">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>There are some important special locations in the file system (e.g. location of the desktop folder on the particular OS). This method returns the special location identified by <i>locId</i> in <i>result</i>. It can be assumed that appropriate entry corresponding to the location returned by this method does exist in the file system. Furthermore, folder corresponding to the TemporaryFolder special location is writeable.</p>
+
+    <p>Note that some of these locations are platform and/or user dependent, while others can vary between executions, so it is generally bad idea to write these locations to a permanent output and use them later in subsequent executions, especially in multiplatform environments.</p>
+
+    <p>Note that different special locations may refer to the same place on the actual platform.<br>
+    <br></p><img src="../../IOImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>Location corresponding to the ApplicationFolder is returned when CurrentFolder is queried.</li>
+
+            <li>If entry corresponding to the particular special location doesn't exist in the file system, then it will be automatically created.</li>
+        </ul>
+    </blockquote><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

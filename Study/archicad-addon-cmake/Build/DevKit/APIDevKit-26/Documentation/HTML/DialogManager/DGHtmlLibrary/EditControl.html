@@ -1,0 +1,872 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Edit Control</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/EditControl.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Edit Control</h1>
+
+    <p>An edit control is a window in which the user can enter and edit text. When the user clicks the mouse in an edit control it displays an I-beam cursor signaling that the control is focused. While an edit control has the keyboard focus, the user can use the keyboard to enter text or edit the existing content. Editing keys include the <tt>BACKSPACE</tt>, <tt>DELETE</tt> and arrow keys. The user can also use the mouse to select characters to be deleted or to select the place to insert new characters.</p>
+
+    <p>Edit controls can be classified into three main groups:</p>
+
+    <ul>
+        <li>text-type edit controls such as single-line, multi-line and password edit controls,</li>
+
+        <li>double-type edit controls with general double, angle, polar angle, length or scale independent length values,</li>
+
+        <li>integer-type edit controls with (unsigned) 32-bit integer values.</li>
+    </ul>
+
+    <p>Integer-type and double-type edit controls are also known as numeric-type edit controls. There is an additional edit control in DG, the so called rich edit control. The rich edit control is similar to the multi-line edit control but it has some other features. This is why there is a set of handling functions for rich edit controls in DG. For details see <a href="RichEditControl.html">rich edit controls</a> and <a href="RichEditSpecific_id.html">rich edit control specific functions</a>.</p>
+
+    <p>Numeric-type edit controls have a range and a current value. The range is the set of continuous values that the control can represent. These values are expressed as 32-bit integers and double precision floating point numbers for integer- and double-type edit controls, respectively. Numeric-type edit controls can process not only absolute but relative numerical input as well. The user can enter a relative input by pressing '+' or '-' sign at the end of numbers. In this case the old numeric value of the edit control is increased or decreased by the currently typed value.</p>
+
+    <p>By default edit controls have thick three-dimensional sunken frame, however, they can be drawn without frame as well. Frameless edit controls are very useful for example when they are placed onto <a href="ListBox.html">list boxes</a> as ontab dialog items.</p>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_EDITTEXT</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_TEXT</tt></td>
+
+                    <td>Single-line text edit control.<br>
+                    <br>
+                    <img src="../DGImageLibrary/EditControlText_Mac.png" width="176" height="32" alt="EditControlText_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/EditControlText_Win.png" alt="EditControlText_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_MULTILINETEXT</tt></td>
+
+                    <td>Multi-line text edit control, with or without scroll bar(s).<br>
+                    <br>
+                    <img src="../DGImageLibrary/EditControlMultiLineText_Mac.png" width="174" height="87" alt="EditControlMultiLineText_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/EditControlMultiLineText_Win.png" alt="EditControlMultiLineText_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_PASSWORD</tt></td>
+
+                    <td>Password edit control. Dots (Macintosh) or asterisks (Windows) appear instead of typed characters.<br>
+                    <br>
+                    <img src="../DGImageLibrary/EditControlPassword_Mac.png" width="148" height="25" alt="EditControlPassword_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/EditControlPassword_Win.png" alt="EditControlPassword_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_REAL</tt></td>
+
+                    <td>Edit control with double value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_ANGLE</tt></td>
+
+                    <td>Edit control with angle value (display unit type: decimal degree).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_POLARANGLE</tt></td>
+
+                    <td>Edit control with polar angle value (display unit types: decimal degree; degree, minute, second; grad; radian; surveyor unit).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_LENGTH</tt></td>
+
+                    <td>Edit control with length value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_AREA</tt></td>
+
+                    <td>Edit control with area value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_VOLUME</tt></td>
+
+                    <td>Edit control with volume value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_MM_OR_PT</tt></td>
+
+                    <td>Edit control with scale independent length value given in mm, shown in mm or point.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_INT</tt></td>
+
+                    <td>Edit control with 32-bit integer value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_POSINT</tt></td>
+
+                    <td>Edit control with positive 32-bit integer value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td></td>
+
+                    <td><br>
+                    <img src="../DGImageLibrary/EditControlLots_Mac.png" width="334" height="204" alt="EditControlLots_Mac"><br>
+                    <br>
+                    <img src="../DGImageLibrary/EditControlLots_Win.png" alt="EditControlLots_Win"><br>
+                    <br></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Frame flags</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_FRAME</tt></td>
+
+                    <td>Edit control with three-dimensional sunken frame.<br>
+                    <br>
+                    <img src="../DGImageLibrary/EditControlText_Mac.png" width="176" height="32" alt="EditControlText_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/EditControlText_Win.png" alt="EditControlText_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_NOFRAME</tt></td>
+
+                    <td>Edit control without frame.<br>
+                    <br>
+                    <img src="../DGImageLibrary/EditControlNoFrame_Mac.png" width="184" height="32" alt="EditControlNoFrame_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/EditControlNoFrame_Win.png" alt="EditControlNoFrame_Win"><br>
+                    <br></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Absolute/relative input flags</h4>
+
+    <dl>
+        <dd>This flag is applicable for numeric-type edit controls only.</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_ABSOLUTE</tt></td>
+
+                    <td>Edit control can process absolute numerical input only.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_RELATIVE</tt></td>
+
+                    <td>Edit control can process both absolute and relative numerical input.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Font change flags</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_CHANGEFONT</tt></td>
+
+                    <td>The font size of a length-type edit control is changed when the unit of length is changed from metric to imperial or vice versa. This flag has no effect on other type of edit controls.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_NOCHANGEFONT</tt></td>
+
+                    <td>The font size of a length-type edit control is not changed when the unit of length is changed from metric to imperial or vice versa. This flag has no effect on other type of edit controls.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Update flags</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_UPDATE</tt></td>
+
+                    <td>Content of the edit control is validated automatically in a short time (update delay time) after the last keypress.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_NOUPDATE</tt></td>
+
+                    <td>Content of the edit control is validated only if it loses the keyboard focus.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_NODELAY</tt></td>
+
+                    <td>Content of the edit control is updated immediately.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Scroll flags</h4>
+
+    <dl>
+        <dd>This flag is applicable for multi-line edit controls only.</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_HSCROLL</tt></td>
+
+                    <td>Edit control with horizontal scrollbar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_VSCROLL</tt></td>
+
+                    <td>Edit control with vertical scrollbar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_NOSCROLL</tt></td>
+
+                    <td>Edit control without any scrollbars.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dd><tt>DG_ET_HSCROLL</tt> and <tt>DG_ET_VSCROLL</tt> flags can be combined to get both horizontal and vertical scrollbars.</dd>
+    </dl>
+
+    <h4>Read-only flags</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_EDITABLE</tt></td>
+
+                    <td>Edit control can be edited.<br>
+                    <br>
+                    <img src="../DGImageLibrary/EditControlMultiLineText_Mac.png" width="174" height="87" alt="EditControlMultiLineText_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/EditControlMultiLineText_Win.png" alt="EditControlMultiLineText_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_READONLY</tt></td>
+
+                    <td>Edit control is read-only.<br>
+                    <br>
+                    <img src="../DGImageLibrary/EditControlReadOnly_Mac.png" width="178" height="90" alt="EditControlReadOnly_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/EditControlReadOnly_Win.png" alt="EditControlReadOnly_Win"><br>
+                    <br></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    TextEdit          <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>maxCount</i>
+    MultiLineEdit     <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>scrollMode</i>
+    PasswordEdit      <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>maxCount</i>
+
+    RealEdit          <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    AngleEdit         <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    PolarAngleEdit    <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    LengthEdit        <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    AreaEdit          <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    VolumeEdit        <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    MMPointEdit       <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+
+    IntEdit           <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+    PosIntEdit        <i>x  y  dx  dy  fontSpec</i>  [editFlag]  <i>"minVal"  "maxVal"</i>
+
+    SAMQuantityEdit   <i>x  y  dx  dy  fontSpec</i>  subType  [editFlag]  <i>"minVal"  "maxVal"</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the edit control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the size and style of the control's font. The optional <em>editFlag</em> parameter can be any <tt>OR(|)</tt> combination of the frame, absolute/relative input, font change, update and read-only flags. If you need the default value of each flags, <em>editFlag</em> can be omitted. <em>maxCount</em> specifies the maximum number of characters that can be typed into single-line text and password edit controls. <em>scrollMode</em> defines whether the multi-line edit control should have horizontal and/or vertical scrollbars. <em>"minVal"</em> and <em>"maxVal"</em> strings initialize the range of numeric-type edit controls. Double values must be written in their usual string representation here.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the frame flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>frame</tt></td>
+
+                    <td>The <tt>DG_ET_FRAME</tt> flag is set. This is the default value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noFrame</tt></td>
+
+                    <td>The <tt>DG_ET_NOFRAME</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the absolute/relative input flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>absolute</tt></td>
+
+                    <td>The <tt>DG_ET_ABSOLUTE</tt> flag is set. This is the default value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>relative</tt></td>
+
+                    <td>The <tt>DG_ET_RELATIVE</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the font change flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>changeFont</tt></td>
+
+                    <td>The <tt>DG_ET_CHANGEFONT</tt> flag is set. This is the default value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noChangeFont</tt></td>
+
+                    <td>The <tt>DG_ET_NOCHANGEFONT</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the update flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>update</tt></td>
+
+                    <td>The <tt>DG_ET_UPDATE</tt> flag is set. This is the default value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noUpdate</tt></td>
+
+                    <td>The <tt>DG_ET_NOUPDATE</tt> flag is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>noDelay</tt></td>
+
+                    <td>The <tt>DG_ET_NODELAY</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of the read-only flag:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>editable</tt></td>
+
+                    <td>The <tt>DG_ET_EDITABLE</tt> flag is set. This is the default value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>readOnly</tt></td>
+
+                    <td>The <tt>DG_ET_READONLY</tt> flag is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>scrollMode</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HScroll</tt></td>
+
+                    <td>Edit control with horizontal scrollbar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>VScroll</tt></td>
+
+                    <td>Edit control with vertical scrollbar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HVScroll</tt></td>
+
+                    <td>Edit control with both horizontal and vertical scrollbars.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoScroll</tt></td>
+
+                    <td>Edit control without any scrollbars.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Suggested sizes</h4>
+
+    <p>The following item height values can be suggested for single-line edit controls:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Font size</th>
+
+                    <th align="left">Frame type</th>
+
+                    <th align="left">Item height in pixels</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+
+                    <td><tt>DG_ET_FRAME</tt></td>
+
+                    <td>16</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+
+                    <td><tt>DG_ET_NOFRAME</tt></td>
+
+                    <td>12</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_SMALL</tt></td>
+
+                    <td><tt>DG_ET_FRAME</tt></td>
+
+                    <td>21</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_SMALL</tt></td>
+
+                    <td><tt>DG_ET_NOFRAME</tt></td>
+
+                    <td>17</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_LARGE</tt></td>
+
+                    <td><tt>DG_ET_FRAME</tt></td>
+
+                    <td>24</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_LARGE</tt></td>
+
+                    <td><tt>DG_ET_NOFRAME</tt></td>
+
+                    <td>20</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>When a single-line edit control is created either from GRC or from program code by <a href="DGAppendDialogItem.html">DGAppendDialogItem</a>, DG automatically adjusts its height to the above values so that the center of the control does not move. The same happens if the size of the edit control's font is altered by <b>DGSetItemFont</b>.</p>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>The text of a text-type edit control or the value of a numeric-type edit control is changed. The message data parameter is always zero for text-type edit controls. For integer- or double-type edit controls this parameter contains the control's previous value or a pointer to a double precision variable holding the previous double value.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_FILTERCHAR.html"><tt>DG_MSG_FILTERCHAR</tt></a></td>
+
+                    <td>A key is pressed while the edit control has the keyboard focus. The message data parameter contains the character code of the key pressed. If the application returns 1 in the dialog callback function the character is filtered out.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_FOCUS.html"><tt>DG_MSG_FOCUS</tt></a></td>
+
+                    <td>The edit control gains or loses the keyboard focus. The message data is 1 or zero, respectively.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DRAGDROP.html"><tt>DG_MSG_DRAGDROP</tt></a></td>
+
+                    <td>Drag and drop related event occured. This message is enabled by default for edit controls. Edit controls can be both drag source and target.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p>The modification flag of edit controls is set by user actions that generate <tt>DG_MSG_CHANGE</tt> messages. Functions modifying texts or numeric values of edit controls can also set the modification flag except if they are called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. The following table summarizes these functions for different type of edit controls:</p>
+
+    <dl>
+        <dd>
+            <table border="0" cellpadding="3">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left">Functions</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_TEXT</tt></td>
+
+                    <td><a href="DGSetItemText.html">DGSetItemText</a>, <a href="DGCatItemText.html">DGCatItemText</a></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_MULTILINETEXT</tt></td>
+
+                    <td><a href="DGSetItemText.html">DGSetItemText</a>, <a href="DGCatItemText.html">DGCatItemText</a></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_PASSWORD</tt></td>
+
+                    <td><a href="DGSetItemText.html">DGSetItemText</a>, <a href="DGCatItemText.html">DGCatItemText</a></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_REAL</tt></td>
+
+                    <td><a href="DGSetItemValDouble.html">DGSetItemValDouble</a>, <a href="DGSetItemMinDouble.html">DGSetItemMinDouble</a>, <a href="DGSetItemMaxDouble.html">DGSetItemMaxDouble</a></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_ANGLE</tt></td>
+
+                    <td><a href="DGSetItemValDouble.html">DGSetItemValDouble</a>, <a href="DGSetItemMinDouble.html">DGSetItemMinDouble</a>, <a href="DGSetItemMaxDouble.html">DGSetItemMaxDouble</a></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_POLARANGLE</tt></td>
+
+                    <td><a href="DGSetItemValDouble.html">DGSetItemValDouble</a>, <a href="DGSetItemMinDouble.html">DGSetItemMinDouble</a>, <a href="DGSetItemMaxDouble.html">DGSetItemMaxDouble</a></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_LENGTH</tt></td>
+
+                    <td><a href="DGSetItemValDouble.html">DGSetItemValDouble</a>, <a href="DGSetItemMinDouble.html">DGSetItemMinDouble</a>, <a href="DGSetItemMaxDouble.html">DGSetItemMaxDouble</a></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_AREA</tt></td>
+
+                    <td><a href="DGSetItemValDouble.html">DGSetItemValDouble</a>, <a href="DGSetItemMinDouble.html">DGSetItemMinDouble</a>, <a href="DGSetItemMaxDouble.html">DGSetItemMaxDouble</a></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_VOLUME</tt></td>
+
+                    <td><a href="DGSetItemValDouble.html">DGSetItemValDouble</a>, <a href="DGSetItemMinDouble.html">DGSetItemMinDouble</a>, <a href="DGSetItemMaxDouble.html">DGSetItemMaxDouble</a></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_MM_OR_PT</tt></td>
+
+                    <td><a href="DGSetItemValDouble.html">DGSetItemValDouble</a>, <a href="DGSetItemMinDouble.html">DGSetItemMinDouble</a>, <a href="DGSetItemMaxDouble.html">DGSetItemMaxDouble</a></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_INT</tt></td>
+
+                    <td><a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a>, <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_ET_POSINT</tt></td>
+
+                    <td><a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a>, <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The text of a text-type edit control can be set, modified and retrieved by <b>DGSetItemText</b>, <b>DGCatItemText</b>, and <a href="DGGetItemText.html">DGGetItemText</a>, respectively. If you set the text of a multi-line edit control and the end-of-line markers are not the platform specific ones (CR on Macintosh, CRLF on Windows), DG automatically converts end-of-line markers in the text before sets it to the control. To retrieve the text of a multi-line edit control, use <a href="DGGetMultiLineText.html">DGGetMultiLineText</a>. This function converts end-of-line markers in the text to a given type.</p>
+
+    <p>The range of a numeric-type edit control can be specified not only in GRC. You can dynamically alter the range by using the <b>DGSetItemMinLong</b> and <b>DGSetItemMaxLong</b> functions for integer-type edit controls or <b>DGSetItemMinDouble</b> and <b>DGSetItemMaxDouble</b> functions for double-type edit controls. Use <a href="DGGetItemMinLong.html">DGGetItemMinLong</a> and <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a> or <a href="DGGetItemMinDouble.html">DGGetItemMinDouble</a> and <a href="DGGetItemMaxDouble.html">DGGetItemMaxDouble</a> to retrieve the range of a numeric-type edit control. The current integer or double value can be set and retrieved by <b>DGSetItemValLong</b> or <b>DGSetItemValDouble</b> and <a href="DGGetItemValLong.html">DGGetItemValLong</a> or <a href="DGGetItemValDouble.html">DGGetItemValDouble</a>, respectively.</p>
+
+    <p>Angles are always treated as degree values for angle-type edit controls (<tt>DG_ET_ANGLE</tt>, <tt>DG_ET_POLARANGLE</tt>).</p>
+
+    <p>If either of the range or value setting functions is called, DG checks the consistency of data (i.e. whether the <em>minimum &lt;= value &lt;= maximum</em> condition is true or not). If data are inconsistent, DG automatically adjusts them. For the details of this adjustment see the description of <b>DGSetItemValLong</b>, <b>DGSetItemMinLong</b>, <b>DGSetItemMaxLong</b>, <b>DGSetItemValDouble</b>, <b>DGSetItemMinDouble</b> and <b>DGSetItemMaxDouble</b>.</p>
+
+    <p>An integer-type edit control can be associated with an edit <a href="SpinControl.html">spin control</a> when they are created from GRC or program code. The edit spin control must be just after its companion edit control in the dialog item list and it must be positioned next to the right of the edit control. On Windows DG closes up these controls so that they look like a single control. Clicking the up or down arrows of the spin control increments or decrements the values of both controls. On Windows when the companion edit control has the keyboard focus, the value of the controls can be modified not only by mouse clicks but by pressing the up or down arrow keys as well. The range and the value of an edit spin control and its companion edit control are synchronized automatically by DG every time when you call one of the <b>DGSetItemValLong</b>, <b>DGSetItemMinLong</b> or <b>DGSetItemMaxLong</b> functions on either of the controls. An edit spin control can represent short integer values only so the range of the integer-type edit control must also be restricted to short values. Note that an edit spin control does not receive <tt>DG_MSG_CHANGE</tt> messages, they are sent to the companion edit control instead.</p>
+
+    <p>The format in which double-type edit controls display their content is determined by the current unit settings of DG. These settings contains information about how many decimal digits are shown in different type of edit controls and which unit of angle or unit of length is used for displaying angle or length values. The unit settings are collected in the <a href="DGUnitData.html">DGUnitData</a> structure and can be set or retrieved by <a href="DGSetUnit.html">DGSetUnit</a> or <a href="DGGetUnit.html">DGGetUnit</a>, respectively. When an application alters the unit settings by using <b>DGSetUnit</b>, all of its edit controls are automatically updated to reflect the new settings. If the current value of an integer-type edit control is exactly <tt>LONG_MIN</tt> or <tt>LONG_MAX</tt>, five asterisks ("*****") are displayed instead of the number. Similarly, five asterisks are displayed in a double-type edit control if its value less than -<tt>DG_DBL_MAX</tt> or greater than <tt>DG_DBL_MAX</tt>.</p>
+
+    <p>The font of an edit control can be specified not only in GRC but by the <b>DGSetItemFont</b> function as well. Use <a href="DGGetItemFont.html">DGGetItemFont</a> to retrieve the font currently assigned to an edit control. When the unit of length is changed from metric to imperial using the <b>DGSetUnit</b> function, DG automatically sets the font size of length-type edit controls to <tt>DG_IS_SMALL</tt>. In the opposite case the font size is changed to <tt>DG_IS_LARGE</tt>. Use the <tt>DG_ET_NOCHANGEFONT</tt> flag, if you want to prevent a length-type edit control from changing the size of its font.</p>
+
+    <p>Of course, the standard clipboard operations (cut, copy, paste) work on all types of edit controls in DG. After the user selects any part of the content of an edit control, the selected data can be copied or cut to the clipboard or replaced from the clipboard. Clipboard operations are initiated by the user when she/he presses one of the usual keyboard shortcuts or chooses the appropriate command from the application's edit menu. On Windows the user can click the right mouse button on the edit control and choose the command from the appearing context menu as well. The application should execute the chosen clipboard command by calling the <a href="DGEditTextCut.html">DGEditTextCut</a>, <a href="DGEditTextCopy.html">DGEditTextCopy</a> or <a href="DGEditTextPaste.html">DGEditTextPaste</a> function. The selection can also be cleared without copying it to the clipboard by <a href="DGEditTextClear.html">DGEditTextClear</a>. Use <a href="DGEditTextUndo.html">DGEditTextUndo</a> to undo the last operation (clear, copy, cut, paste or typing) in the focused edit control.</p>
+
+    <p>When the user enters text into an edit control, the typed characters are automatically filtered by DG according to the type of the control. For example an 'a' character can not be entered into an integer-type edit control (DG beeps instead). If a character passes through this automatic filtering DG sends a <tt>DG_MSG_FILTERCHAR</tt> message to the dialog callback function giving the application a chance to filter out the character. If the application wants to do so for some reason, it should respond 1 to this message.</p>
+
+    <p>If the update flag of an edit control equals to <tt>DG_ET_NODELAY</tt>, DG immediately validate the control's content and sends a <tt>DG_MSG_CHANGE</tt> message to the dialog callback function when the content of the control is changed by the user. If the update flag has the value of <tt>DG_ET_UPDATE</tt>, the <tt>DG_MSG_CHANGE</tt> message is sent only after the so called edit update delay time expires. When DG is initialized, this delay time is set to 1 second but later it can be modified by <a href="DGSetEditUpdateDelay.html">DGSetEditUpdateDelay</a> (use <a href="DGGetEditUpdateDelay.html">DGGetEditUpdateDelay</a> to retrieve its current value). If the update delay time is set to large enough, edit controls are practically validated only if they lose the keyboard focus. You can reach the same behavior by setting the update flag of an edit control to the value of <tt>DG_ET_UPDATE</tt>. Note that the update flag can be specified in the GRC only.</p>
+
+    <p>If an edit control has the <tt>DG_ET_READONLY</tt> flag, its content can not be edited by the user. A read-only edit control looks like a static text with client frame. In certain circumstances it is advisable to apply read-only edit controls instead of static texts because the usual copy command works on them and their content can be scrolled even in both direction (of course only if multi-line edit control is used).</p>
+
+    <p>The edit control is one of the focusable controls of DG. When an edit control gains or loses the keyboard focus as a result of user actions, the dialog callback function receives a <tt>DG_MSG_FOCUS</tt> message. The keyboard focus can be set to an edit control from program code, too, by <a href="DGSetFocus.html">DGSetFocus</a>. To retrieve the control that currently has the keyboard focus use <a href="DGGetFocus.html">DGGetFocus</a>.</p>
+
+    <p>The keyboard focus and the focusable control categories in DG essentially have the same meaning as in the Macintosh operating system (i.e. the same type of controls are focusable in DG and on Macintosh). On Windows, however, more controls can have keyboard focus. Focusable controls of DG form a subset of focusable controls of Windows. The <b>DGSetFocus</b> and <b>DGGetFocus</b> functions work on focusable controls of DG only.</p>
+
+    <p>The size of the content in a multi-line edit control is limited to 32K. If you need to handle larger amount of text use a rich edit control instead.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="ListBox.html">List Box</a>, <a href="RichEditControl.html">Rich Edit Control</a>, <a href="SpinControl.html">Spin Control</a><br>
+    <a href="ClipboardSpecific_id.html">Clipboard specific functions</a>, <a href="DGAppendDialogItem.html">DGAppendDialogItem</a>, <a href="DGCatItemText.html">DGCatItemText</a>, <a href="DGGetEditUpdateDelay.html">DGGetEditUpdateDelay</a>, <a href="DGGetFocus.html">DGGetFocus</a>, <a href="DGGetItemFont.html">DGGetItemFont</a>, <a href="DGGetItemMaxDouble.html">DGGetItemMaxDouble</a>, <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a> <a href="DGGetItemMinDouble.html">DGGetItemMinDouble</a>, <a href="DGGetItemMinLong.html">DGGetItemMinLong</a>, <a href="DGGetItemText.html">DGGetItemText</a>, <a href="DGGetItemValDouble.html">DGGetItemValDouble</a>, <a href="DGGetItemValLong.html">DGGetItemValLong</a>, <a href="DGGetMultiLineText.html">DGGetMultiLineText</a>, <a href="DGGetUnit.html">DGGetUnit</a>, <a href="DGModified.html">DGModified</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetEditUpdateDelay.html">DGSetEditUpdateDelay</a>, <a href="DGSetFocus.html">DGSetFocus</a>, <a href="DGSetItemFont.html">DGSetItemFont</a>, <a href="DGSetItemMaxDouble.html">DGSetItemMaxDouble</a>, <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a>, <a href="DGSetItemMinDouble.html">DGSetItemMinDouble</a>, <a href="DGSetItemMinLong.html">DGSetItemMinLong</a>, <a href="DGSetItemText.html">DGSetItemText</a>, <a href="DGSetItemValDouble.html">DGSetItemValDouble</a>, <a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="DGSetUnit.html">DGSetUnit</a>, <a href="RichEditSpecific_id.html">Rich edit control specific functions</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_FILTERCHAR.html"><tt>DG_MSG_FILTERCHAR</tt></a>, <a href="DG_MSG_FOCUS.html"><tt>DG_MSG_FOCUS</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a><br>
+    <a href="DGUnitData.html">DGUnitData</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 2, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

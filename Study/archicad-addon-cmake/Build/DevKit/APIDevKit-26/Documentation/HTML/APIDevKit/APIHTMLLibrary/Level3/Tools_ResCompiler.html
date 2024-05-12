@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Graphisoft Resource Compiler</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Tools_ResCompiler.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Graphisoft Resource Compiler</h1>
+
+    <p>&nbsp;<br>
+    To help developers use Archicad's standard features, Graphisoft makes available its cross-platform technology for resource description, compilation and dialog management.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/20.png" alt="API version 20" width="19" height="12">&nbsp;The possible source image formats of an icon resource are PNG and SVG now. For further information, read <a href="../Level4/How_to_Compile_Icon_Resources.html">how to compile icon resources</a>.</p>
+    <p><img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12">&nbsp;UTF-8 encoded grc files are now supported. The files should contain the byte-order-mark (BOM); Visual Studio calls these files 'UTF-8 with encoding'. All the example grc files were converted to UTF-8; to make them work with the resource compiler an additional flag has to be specified:<br></p>
+
+    <blockquote>
+        <code>-q <i>fromEncoding</i> <i>toEncoding</i></code>
+    </blockquote>
+    where <i>fromEncoding</i> is <code>utf8</code>, and <i>toEncoding</i> is platform-dependent (see below). Note that you can still use your non-UTF8 files.
+
+    <p>On <b>Windows</b> the following tool should be used:</p>
+
+    <ul>
+        <li>The <b>ResConv.exe</b> utility is the resource compiler for Windows. It compiles the .grc files into .rc2 windows resource files. You can find example on its use in the example projects. From DevKit 4.1 most of the resources compiled with this resource compiler will be native Windows resources (the only exceptions at the moment are those <code>'FILE'</code> resources which contain built-in library parts). To achieve this you'll have to specify the <code>'-t W'</code> option.<br></li>
+
+        <li>You can find detailed information on parametrization of Resource Compiler on Windows <a href="../Level4/Tools_ResConv_Win_Params.html" title="Windows parameters">here</a>.<br></li>
+
+        <li>For better understanding, see a <a href="../Level4/Tools_ResConv_Win_Example.html" title="Windows example">Windows example here</a>.<br></li>
+
+        <li><img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12">&nbsp;the <i>toEncoding</i> parameter is the Windows code page (e.g. <code>1252</code>)</li>
+
+        <li><img src="../../APIImageLibrary/18.png" alt="10" width="19" height="12">&nbsp;the <i>toEncoding</i> parameter should be set to <code>utf8</code></li>
+    </ul>
+
+    <p>On <b>Macintosh</b> the following tool should be used:</p>
+
+    <ul>
+        <li><img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12">&nbsp;Each example project contains a <b>compileGRCs.pl</b> Perl script, which calls the command-line version of the ResConv tool. This script also shows how to specify the usual options for the compiler.<br></li>
+
+        <li>You can find detailed information on parametrization of Resource Compiler on Macintosh <a href="../Level4/Tools_ResConv_Mac_Params.html" title="Macintosh parameters">here</a>.<br></li>
+
+        <li>For better understanding, see a <a href="../Level4/Tools_ResConv_Mac_Example.html" title="Macintosh example">Macintosh example here</a>.<br></li>
+
+        <li><img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12">&nbsp;the <i>toEncoding</i> parameter is the Script Manager script code (e.g. <code>0</code> for Roman scripts)</li>
+
+        <li><img src="../../APIImageLibrary/18.png" alt="10" width="19" height="12">&nbsp;the <i>toEncoding</i> parameter should be set to <code>utf16</code></li>
+    </ul>
+
+    <p>Please refer to the GRC format and Graphisoft Dialog Manager documents to get further details.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 26, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

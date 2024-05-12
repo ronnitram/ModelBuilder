@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>About Global Timer Manager</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/TimeManagers/GlobalTimerManager/about.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>About Global Timer Manager</h1>
+
+    <p><font color="#FF0000">Obsolete, for compatibility only, use the Timer Manager instead!</font></p>
+
+    <p>The Global Timer Manager is used to manage timers in a platform independent manner.</p>
+
+    <p>Before using timers you must initialize the Global Timer Manager by calling the <a href="../../../GSRootHTMLLibrary/TimeManagers/GlobalTimerManager/reference/TIInit.html"><strong>TIInit</strong></a> function. After initializing you can create and use timers for timing purposes. If timers managed by the Global Timer Manager are no longer needed, you must call the <a href="../../../GSRootHTMLLibrary/TimeManagers/GlobalTimerManager/reference/TIExit.html"><strong>TIExit</strong></a> function to release the resources allocated by the manager.</p>
+
+    <p>The timers are identified by a one based integer value. The number of timers is&nbsp; limited so the timer identifier must not be bigger than this limit. If the timer ID is too great, the Global Timer Manager functions do nothing with the corresponding timer. You must specify the identifier of the target timer in most Global Timer Manager function calls.</p>
+
+    <p>Before using a specified timer you must initialize an reset it with the <a href="../../../GSRootHTMLLibrary/TimeManagers/GlobalTimerManager/reference/TIReset.html"><strong>TIReset</strong></a> function. This function resets the value of the timer to 0. The value of a timer is the elapsed time in seconds since the timer was started. You can start a timer at initializing by <strong>TIReset</strong> or later by calling the <a href="../../../GSRootHTMLLibrary/TimeManagers/GlobalTimerManager/reference/TIStart.html"><strong>TIStart</strong></a> function. Once the timer was started then you can obtain its value with the <a href="../../../GSRootHTMLLibrary/TimeManagers/GlobalTimerManager/reference/TIGetValue.html"><strong>TIGetValue</strong></a> function. If you want to stop the timer, call the <a href="../../../GSRootHTMLLibrary/TimeManagers/GlobalTimerManager/reference/TIStop.html"><strong>TIStop</strong></a> function.</p>
+
+    <p>The <a href="../../../GSRootHTMLLibrary/TimeManagers/GlobalTimerManager/reference/TIPrintTimers.html"><strong>TIPrintTimers</strong></a> function are for debug purposes. This functions prints the value of all the timer actually managed by the Global Timer Manager.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

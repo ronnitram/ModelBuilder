@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIAny_FreeMDCLParameterListID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIAny_FreeMDCLParameterListID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIAny_FreeMDCLParameterListID</h1>
+
+    <p>Frees the parameter list handle.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a></strong> (
+        <strong>APIAny_FreeMDCLParameterListID</strong>,
+        <strong>GSHandle*</strong>     <em>params</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>params</em></dt>
+
+        <dd>[in] Handle of the parameter list</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>params</code> is <code>nullptr</code></dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to dispose a parameter list handle used in inter-addon communications.<br>
+    For the utilization details of <strong>APIAny_FreeMDCLParameterListID</strong> refer to the <a href="../Level3/Communication_Manager_id.html#Parameter_Passing">Parameter Passing</a> section of the <a href="../Level3/Communication_Manager_id.html">Communication Manager</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>See the <strong>Communication_Manager</strong> example.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Goodies.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4><a href="../Level3/Communication_Manager_id.html">Communication Manager</a><br>
+    <a href="../Functions/APIAny_AddMDCLParameterID.html">APIAny_AddMDCLParameterID</a><br>
+    <a href="../Functions/APIAny_ChangeMDCLParameterID.html">APIAny_ChangeMDCLParameterID</a><br>
+    <a href="../Functions/APIAny_GetMDCLParameterID.html">APIAny_GetMDCLParameterID</a><br>
+    <a href="../Functions/APIAny_GetMDCLParameterNumID.html">APIAny_GetMDCLParameterNumID</a><br>
+    <a href="../Functions/APIAny_InitMDCLParameterListID.html">APIAny_InitMDCLParameterListID</a><br>
+    <a href="../Functions/ACAPI_Command_Call.html">ACAPI_Command_Call</a><br>
+    <a href="../Functions/ACAPI_Command_Test.html">ACAPI_Command_Test</a><br>
+    <a href="../Functions/ACAPI_Goodies_id.html">ACAPI_Goodies</a><br>
+    <a href="API_Functions.html">API Functions</a>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 26, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

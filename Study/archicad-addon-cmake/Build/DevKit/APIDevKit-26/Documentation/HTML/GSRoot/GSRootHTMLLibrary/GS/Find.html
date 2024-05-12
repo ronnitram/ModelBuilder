@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Find</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/Find.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>Find</H2><!--exp="Find Enum"-->
+<P><topic id="$GS.$Find.BriefDescription">
+		Locates the position of the first occurrence of an element in a range that has a specified value.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>In</I>, <B>class</B> <I>T</I><B>&gt;
+</B>In Find (</B>
+    <B>In                  </B><I>first</I>,
+    <B>In                  </B><I>last</I>,
+    <B>const T &amp;           </B><I>value</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>In</I></DT><DD><topic id="$GS.$Find.$In.TemplateParamDescription">
+		Input iterator.
+	</topic></DD><DT><I>T</I></DT><DD><topic id="$GS.$Find.$T.TemplateParamDescription">
+		T type template parameter.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first</I></DT><DD><topic id="$GS.$Find.$first.ParamDescription">
+		An input iterator addressing the position of the first element in the range to 
+		be searched for the specified value.
+	</topic></DD><DT><I>last</I></DT><DD><topic id="$GS.$Find.$last.ParamDescription">
+		An input iterator addressing the position one past the final element in the 
+		range to be searched for the specified value.
+	</topic></DD><DT><I>value</I></DT><DD><topic id="$GS.$Find.$value.ParamDescription">
+		The value to be searched for.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$Find.ReturnDescription">
+		An input iterator addressing the first occurrence of the specified value in 
+		the range being searched. If no such value exists in the range, the iterator 
+		returned addresses the last position of the range, one past the final 
+		element.
+	</topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$Find.LongDescription">
+		Returns the first iterator <TT>i</TT> in the range <TT>[first, last)</TT> such 
+		that <TT>*i == value</TT>. Returns <TT>last</TT> if no such iterator exists.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$Find.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

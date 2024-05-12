@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Enumerate (PagedArray)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/PagedArray/Enumerate.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="PagedArray.html">PagedArray</A>&lt;Type&gt;::Enumerate</H2><!--exp="PagedArray<Type>::Enumerate-->
+<P><topic id="$GS.$PagedArray.$Enumerate.BriefDescription">
+		Allows enumeration of the array's content.
+	</topic></P>
+<PRE class="syntax"><B><a class="nodecorate" href="../../GS/PagedArray/Iterator.html">Iterator</A> Enumerate (</B><B>void</B><I></I><B>);</B></PRE>
+<PRE class="syntax"><B><a class="nodecorate" href="../../GS/PagedArray/ConstIterator.html">ConstIterator</A> Enumerate (</B><B>void</B><I></I><B>) const;</B></PRE>
+<H4>Return Value</H4>
+<P><topic id="$GS.$PagedArray.$Enumerate.ReturnDescription">
+		A <!----><a href="../RandomIterator/RandomIterator.html">random iterator</a> or
+		a <!----><a href="../ConstRandomIterator/ConstRandomIterator.html">constant random iterator</a>
+		referring to the first item in the array.
+	</topic></P><P><topic id="$GS.$PagedArray.$Enumerate.1.ReturnDescription"></topic></P><P><topic id="$GS.$PagedArray.$Enumerate.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$PagedArray.$Enumerate.LongDescription">
+		This method allows random enumeration of the array's content. It returns a
+		<!----><a href="../RandomIterator/RandomIterator.html">random iterator</a> or a
+		<!----><a href="../ConstRandomIterator/ConstRandomIterator.html">constant random iterator</a>
+		referring to the first item in the array. Enumeration ordering is index based.<br>
+		References to items obtained by iterator dereferencing can be used only until the next
+		modifying method on the parent array is invoked.<br>
+		This method is equivalent with the <!----><a href="Begin.html">Begin</a> method.
+	</topic></P>
+<H4>Example</H4><topic id="$GS.$PagedArray.$Enumerate.Example">
+	<PRE class="code">
+GS::PagedArray&lt;GS::String&gt; array;  // array of strings
+
+GS::PagedArray&lt;GS::String&gt;::Iterator it = array.Enumerate ();  // obtaining an iterator (or array.Begin ())
+while (it != NULL) {                  // until the end of the sequence (array)
+    GS::String s = *it;               // dereferencing the iterator (returns reference)
+    *it = s;                          // dereferencing the iterator (returns reference)
+    USize length = it-&gt;GetLength ();  // dereferencing the iterator (returns pointer)
+    ++it;                             // advance to the next item
+}
+
+</PRE><P>This example illustrates the use of iterators obtained from an array.</P>
+	</topic><H4>See Also</H4>
+<P><topic id="$GS.$PagedArray.$Enumerate.SeeAlso">
+		<!----><A href="Begin.html">Begin</A> | <!----><A href="End.html">End</A>
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

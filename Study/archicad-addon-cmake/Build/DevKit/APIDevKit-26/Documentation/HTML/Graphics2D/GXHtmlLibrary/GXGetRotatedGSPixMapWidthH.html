@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Author" content="Faller Gyula" />
+
+    <title>GXGetRotatedGSPixMapWidthHeight</title>
+
+    <meta http-equiv="Content-Language" content="en-US" />
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css" />
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GXHtmlLibrary/GXGetRotatedGSPixMapWidthH.html" />
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GX&nbsp;Module</span><span class="TitleVersion">Version: 16</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GXGetRotatedGSPixMapWidthHeight</h1>
+
+    <p>Gives the width and height of the bounding box large enough to accomodate the pixmap after rotation.</p>
+    <pre class="syntax">
+    <strong>void</strong> GXGetRotatedGSPixMapWidthHeight (
+      <strong>Int32</strong>*         <em>dWidth</em>,
+      <strong>Int32</strong>*         <em>dHeight</em>,
+      <strong>double</strong>         <em>angle</em>,
+      <strong>const GSRect</strong>*  <em>sClip</em>,
+      <strong>const GSRect</strong>*  <em>dClip</em>,
+      <strong>Int32</strong>*         <em>f0h</em>,
+      <strong>Int32</strong>*         <em>f0v</em>
+    );
+</pre>
+
+    <h2>Parameters</h2>
+
+    <dl class="Parameters">
+        <dt>dWidth</dt>
+
+        <dd>In: the width of the original pixmap. Out: the width of the rotated pixmap.</dd>
+
+        <dt>dHeight</dt>
+
+        <dd>In: the height of the original pixmap. Out: the height of the rotated pixmap.</dd>
+
+        <dt>angle</dt>
+
+        <dd>The angle of the rotation.</dd>
+
+        <dt>sClip</dt>
+
+        <dd>A cliprect of the original pixmap.</dd>
+
+        <dt>dClip</dt>
+
+        <dd>The cliprect of the rotated pixmap.</dd>
+
+        <dt>f0h</dt>
+
+        <dd>The x coordinate of the bottom left vertex of the original pixmap on the rotated pixmap.</dd>
+
+        <dt>f0v</dt>
+
+        <dd>The y coordinate of the bottom left vertex of the original pixmap on the rotated pixmap.</dd>
+    </dl>
+
+    <h2>Remarks</h2>
+
+    <p>When you rotate a rectangle its bounding rectangle will be larger, this function helps to determine its new dimensions. The coordinates of the original pixmap in the rotated helps to align the new pixmap position such way its anchor point remain fixed.</p>
+
+    <h2>Requirements</h2>
+
+    <dl class="Requirements">
+        <dt>Version:</dt>
+
+        <dd>GX 10 or later</dd>
+
+        <dt>Header:</dt>
+
+        <dd>Graphics2D.h</dd>
+
+        <dt>Import Library:</dt>
+
+        <dd>GXImp.lib</dd>
+
+        <dt>Module:</dt>
+
+        <dd>GX.dll [WIN], GX.framework [MAC]</dd>
+    </dl>
+
+    <h2>See Also</h2>
+
+    <p><a href="Graphics2D.html">Graphics functions</a></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_MarkUp_AttachElements</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_MarkUp_AttachElements.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_MarkUp_AttachElements</h1>
+
+    <p>Attach elements to an existing Mark-Up as corrected or highlighted elements.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_MarkUp_AttachElements</strong> (
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>                    <em>markUpGuid</em>,
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;&amp;</strong>         <em>elemList</em>,
+        <strong><a href="../Structures/API_MarkUpComponentTypeID.html">API_MarkUpComponentTypeID</a></strong>          <em>type</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/HashTable/HashTable.html">GS::HashTable</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>, <a href="../Structures/API_Guid.html">API_Guid</a>&gt;*</strong> <em>modificationElemTable</em> = nullptr
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>markUpGuid</em></dt>
+
+        <dd>[in] GUID of the existing Mark-Up.</dd>
+
+        <dt><em>elemList</em></dt>
+
+        <dd>[in] The list of elements to attach.</dd>
+
+        <dt><em>type</em> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"></dt>
+
+        <dd>[in] Attach the elements with the given Component type.</dd>
+
+        <dt><em>modificationElemTable</em> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"></dt>
+
+        <dd>[in/out] Optional parameter, used only when <code>APIMarkUpComponent_Modification</code> is passed in <code>type</code> parameter. The table of the original and the modified element pairs.<br>If the given table does not contain the element as key, then a new element will be created as the modified pair. But if the table already contains the element, then the pair in the table will be set as the modified element.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_NEEDSUNDOSCOPE</code></dt>
+
+        <dd>The function must be undoable, it wasn't called from an <a href="ACAPI_CallUndoableCommand.html">undoable command scope</a>.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed <code>markUpGuid</code> parameter or at least one of the given element GUIDs was incorrect.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Using this function an existing element can be attached to an existing Mark-Up entry.<br>
+    Note that an element can be attached to only one Mark-Up as creation or deletion, but it can be attached to more Mark-Ups as highlighted and cannot be attached as highlighted and creation/deletion simultaneously. If the requested attachment would violate these rules than <code>APIERR_BADPARS</code> error code will be returned.<br>
+    Use <a href="ACAPI_MarkUp_GetAttachedElements.html">ACAPI_MarkUp_GetAttachedElements</a> function to return the already attached elements of the Mark-Up entry and <a href="ACAPI_MarkUp_DetachElements.html">ACAPI_MarkUp_DetachElements</a> function to detach previously added elements.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>Mark-Up related code samples can be found in the <strong><em>MarkUp_Manager</em></strong> example add-on.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_MarkUpType.html">API_MarkUpType</a>, <a href="../Structures/API_MarkUpComponentTypeID.html">API_MarkUpComponentTypeID</a><br>
+    <a href="ACAPI_MarkUp_GetList.html">ACAPI_MarkUp_GetList</a>, <a href="ACAPI_MarkUp_GetAttachedElements.html">ACAPI_MarkUp_GetAttachedElements</a>, <a href="ACAPI_MarkUp_DetachElements.html">ACAPI_MarkUp_DetachElements</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 22, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

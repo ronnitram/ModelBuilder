@@ -1,0 +1,551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ShapePrimsProc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ShapePrimsProc.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ShapePrimsProc</h1>
+
+    <p>Primitive drawing function for elements and library parts.</p>
+    <pre class="syntax">
+    <strong>typedef GSErrCode  ShapePrimsProc</strong> (
+        <strong>const <a href="../Structures/API_PrimElement.html">API_PrimElement</a>*</strong>     <em>primElem</em>,
+        <strong>const void*</strong>                <em>par1</em>,
+        <strong>const void*</strong>                <em>par2</em>,
+        <strong>const void*</strong>                <em>par3</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>primElem</em></dt>
+
+        <dd>The primitive element to draw; can also contain control codes.</dd>
+
+        <dt><em>par1</em></dt>
+
+        <dd>First parameter for drawing the element (can be <code>nullptr</code>).</dd>
+
+        <dt><em>par2</em></dt>
+
+        <dd>Second parameter for drawing the element (can be <code>nullptr</code>).</dd>
+
+        <dt><em>par3</em></dt>
+
+        <dd>Third parameter for drawing the element (can be <code>nullptr</code>).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The element was drawn successfully.</dd>
+
+        <dt><code>APINOTIFY_NODATA</code></dt>
+
+        <dd>Supress hierarchical decomposition.</dd>
+
+        <dt><code>APINOTIFY_OWN_MEMORY_HANDLER</code>&nbsp;<img border="0" src="../../APIImageLibrary/14.png" alt="Featuring API 14" width="19" height="12"></dt>
+
+        <dd>Tells the API that your add-on took over the ownership of the passed <code>coords</code>, <code>pends</code> and <code>parcs</code> array.<br>
+        For lines, polylines and polygons only.</dd>
+
+        <dt><code>APIERR_GENERAL</code></dt>
+
+        <dd>Any user-defined error can be returned.</dd>
+    </dl>
+
+    <p>For other common errors see the <a href="../Level2/Error_Codes.html">list of error codes</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to draw the primitive elements. As such, it plugs into the server application's drawing routines. It can also be used to save the contents of a plan into an external file.</p>
+
+    <blockquote>
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>
+                    <p><code>API_PrimTypeID</code></p>
+                </th>
+
+                <th>
+                    <p>par1</p>
+                </th>
+
+                <th>
+                    <p>par2</p>
+                </th>
+
+                <th>
+                    <p>par3</p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimPointID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimLineID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimArcID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimTextID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code><img border="0" src="../../APIImageLibrary/21.png" alt="API version 21" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p><code>(unsigned short*)</code> pointer to the text (UniCode string) or nullptr</p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimPLineID</code></p>
+                </td>
+
+                <td>
+                    <p><code>(API_Coord*)</code> coordinates</p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>(API_PolyArc*)</code> arcs</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimTriID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimPolyID</code></p>
+                </td>
+
+                <td>
+                    <p><code>(API_Coord*)</code> coordinates</p>
+                </td>
+
+                <td>
+                    <p><code>(Int32*)</code> subpolygon endpoints</p>
+                </td>
+
+                <td>
+                    <p><code>(API_PolyArc*)</code> arcs</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimCtrl_BegID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimCtrl_HatchBorderBegID</code></p>
+                </td>
+
+                <td>
+                    <p><code>(<a href="../Structures/API_PrimHatchBorder.html">API_PrimHatchBorder</a>*)</code> border</p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimCtrl_HatchBorderEndID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimCtrl_HatchLinesBegID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimCtrl_HatchLinesEndID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><font color="gray"><code>API_PrimCtrl_HoledimLinesBegID</code></font></p>
+                </td>
+
+                <td>
+                    <p><font color="gray"><code>nullptr</code></font></p>
+                </td>
+
+                <td>
+                    <p><font color="gray"><code>nullptr</code></font></p>
+                </td>
+
+                <td>
+                    <p><font color="gray"><code>nullptr</code></font></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><font color="gray"><code>API_PrimCtrl_HoledimLinesEndID</code></font></p>
+                </td>
+
+                <td>
+                    <p><font color="gray"><code>nullptr</code></font></p>
+                </td>
+
+                <td>
+                    <p><font color="gray"><code>nullptr</code></font></p>
+                </td>
+
+                <td>
+                    <p><font color="gray"><code>nullptr</code></font></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimCtrl_ArrowBegID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimCtrl_ArrowEndID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimCtrl_ElementRefID</code></p>
+                </td>
+
+                <td>
+                    <p><code>(<a href="../Structures/API_PrimElemRef.html">API_PrimElemRef</a>*)</code> reference</p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimCtrl_EndID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimCtrl_PlacedBorderBegID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimCtrl_PlacedBorderEndID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimCtrl_TextBegID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>API_PrimCtrl_TextEndID</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+
+                <td>
+                    <p><code>nullptr</code></p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Callback.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_PrimElement.html">API_PrimElement</a><br>
+    <a href="../Structures/API_PrimElemRef.html">API_PrimElemRef</a><br>
+    <a href="../Structures/API_PrimHatchBorder.html">API_PrimHatchBorder</a><br>
+    <a href="ACAPI_LibPart_ShapePrims.html">ACAPI_LibPart_ShapePrims</a><br>
+    <a href="ACAPI_Element_ShapePrims.html">ACAPI_Element_ShapePrims</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 1, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

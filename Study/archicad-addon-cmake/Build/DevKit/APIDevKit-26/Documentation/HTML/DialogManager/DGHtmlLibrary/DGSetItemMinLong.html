@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGSetItemMinLong</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGSetItemMinLong.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGSetItemMinLong</h1>
+
+    <p>Sets the minimum value of a dialog item.</p>
+    <pre class="syntax">
+    <strong>void DGSetItemMinLong</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>Int32</strong>  <em>value</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>value</em></dt>
+
+        <dd>The new minimum value.</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="250">Item type</th>
+
+                    <th align="left">Possible range</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DateTimeControl.html">Date &amp; Time Control</a></td>
+
+                    <td>0 <tt>- LONG_MAX</tt></td>
+
+                    <td>Minimal value of the date &amp; time control.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Integer-type <a href="EditControl.html">Edit Control</a></td>
+
+                    <td><tt>LONG_MIN - LONG_MAX</tt></td>
+
+                    <td>Minimal value of the edit control.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Positive integer-type <a href="EditControl.html">Edit Control</a></td>
+
+                    <td>0 <tt>- LONG_MAX</tt></td>
+
+                    <td>Minimal value of the edit control.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="ProgressBar.html">Progress Bar</a></td>
+
+                    <td>0 <tt>- SHRT_MAX</tt></td>
+
+                    <td>Minimal value of the progress bar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="ScrollBar.html">Scroll Bar</a></td>
+
+                    <td>0 <tt>- SHRT_MAX</tt></td>
+
+                    <td>Minimal value of the scroll bar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="SliderBar.html">Slider Bar</a></td>
+
+                    <td>0 <tt>- SHRT_MAX</tt></td>
+
+                    <td>Minimal value of the slider bar.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="SpinControl.html">Spin Control</a></td>
+
+                    <td><tt>SHRT_MIN - SHRT_MAX</tt></td>
+
+                    <td>Minimal value of the spin control.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="UserControl.html">User Control</a></td>
+
+                    <td><tt>SHRT_MIN - SHRT_MAX</tt></td>
+
+                    <td>Minimal value of the user control.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The edit control accepts values entered by the user according to the limits given in GRC or set by <b>DGSetItemMinLong</b> and <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a>. If a value outside this range is entered, it is automatically changed by DG to the maximum or minimum.</p>
+
+    <p>If either the current or the maximal value is less than the given minimum, it is/they are automatically set to the minimum by DG.</p>
+
+    <p>Position of a progress bar, of the scroll box or of a slider, respectively, is derived from the current item value based on the minimal and maximal value specified in GRC or set by DG functions later. The relative position is calculated using the following formula: <em>relative position</em> = (<em>value - minimum</em>) / (<em>maximum - minimum</em>). On Windows if maximal and minimal values are equal, the progress bar is empty, the scroll box or the slider is placed at the beginning of the control. However, on Macintosh these controls become disabled in the same situation.</p>
+
+    <p>If minimal and maximal values of a spin control are equal, the control becomes disabled.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="DGGetItemMaxLong.html">DGGetItemMaxLong</a>, <a href="DGGetItemMinLong.html">DGGetItemMinLong</a>, <a href="DGGetItemValLong.html">DGGetItemValLong</a>, <a href="DGSetItemMaxLong.html">DGSetItemMaxLong</a>, <a href="DGSetItemValLong.html">DGSetItemValLong</a><br>
+    <a href="DGSetItemMinDouble.html">DGSetItemMinDouble</a>, <a href="DlgItemTypes_id.html">Dialog item types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

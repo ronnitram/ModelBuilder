@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Graphic Input</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/UIGuideLines/GraphicInput.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Graphic Input</h1>
+
+    <p>&nbsp;</p>
+
+    <p>Add-Ons can start actions which require the user to provide graphic input within the document windows.</p>
+
+    <ul>
+        <li><a href="#CursorControl">Cursor Control</a></li>
+
+        <li><a href="#PlaneControl">Plane Control</a></li>
+
+        <li><a href="#FeedbackTypes">Feedback types</a></li>
+    </ul>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="CursorControl" id="CursorControl">Cursor Control</a></h3>
+
+    <p>&nbsp;</p>
+
+    <h4><a name="Smartcursor" id="Smartcursor">Smartcursor by default</a></h4>
+
+    <p>If the Add-On does not change the cursor type, Archicad's smartcursor management will remain effective, indicating element nodes and edges.</p>
+
+    <p>&nbsp;</p>
+
+    <h4><a name="CursorShape" id="CursorShape">Cursor shape override</a></h4>
+
+    <p>Add-Ons cannot specify new cursor shapes. However you can use a ny of the built in cursor types of Archicad.</p>
+
+    <p>Note that for one action, an Add-On can use one cursor shape which is persistent until the action is completed and cannot be changed on the fly.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="PlaneControl" id="PlaneControl">Plane Control</a></h3>
+
+    <p>In the process of getting graphic user input, Add-Ons can update Z elevation values during input in the floor plan window. In the 3D window, they have full control on updating all XYZ values</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="FeedbackTypes" id="FeedbackTypes">Feedback types</a></h3>
+
+    <p>&nbsp;</p>
+
+    <h4><a name="Rubberband" id="Rubberband">Rubberband</a></h4>
+
+    <p>During graphic input, the location of the last mouseclick or numeric entry point is always connected to the cursor with the standard straight, 2 pixel thick rubberband line of Archicad. This is always on, the Add-On cannot switch it off or change its behaviour.</p>
+
+    <p>&nbsp;</p>
+
+    <h4><a name="FeedbackGraphics" id="FeedbackGraphics">Feedback graphics</a></h4>
+
+    <p>In addition to the rubberband, Add-Ons can draw graphics dynamically, contantly updating as the cursor moves. Feedback is limited to thin solid lines. For curved shapes in feedback graphics, Add-Ons must do th esegmentation themselves.</p>
+
+    <p>&nbsp;</p>
+
+    <h4><a name="PromptLine" id="PromptLine">Prompt line content</a></h4>
+
+    <p>For each single step of the graphic input, the Add-On must have a prompt line entry that tells the user what is expected in the current step.&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 8, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_GhostRecord</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_GhostRecord.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_GhostRecord</h1>
+
+    <p>Describes a tracing (ghost) database.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Coord.html">API_Coord</a></strong>              <em>offset</em>;
+        <strong>double</strong>                 <em>rotation</em>;
+        <strong>double</strong>                 <em>scale</em>;
+        <strong>GSTime</strong>                 <em>time</em>;
+        <strong>Int32</strong>                  <em>filler_1</em>;
+        <strong><a href="API_DatabaseUnId.html">API_DatabaseUnId</a></strong>       <em>parentDatabase</em>;
+        <strong><a href="API_DatabaseUnId.html">API_DatabaseUnId</a></strong>       <em>ghostDatabase</em>;
+        <strong><a href="API_WindowTypeID.html">API_DatabaseTypeID</a></strong>     <em>ghostDBType</em>;
+        <strong><a href="API_ShowGhostType.html">API_ShowGhostType</a></strong>      <em>ghostType</em>;
+        <strong><a href="API_ElemFilter.html">API_ElemFilter</a></strong>         <em>filter</em>;
+        <strong>bool</strong>                   <em>filler_2[5]</em>;
+        <strong>short</strong>                  <em>floor</em>;
+        <strong>short</strong>                  <em>filler_3</em>;
+        <strong>bool</strong>                   <em>activated</em>;
+        <strong>bool</strong>                   <em>show</em>;
+        <strong>short</strong>                  <em>filler_4</em>;
+        <strong><a href="API_RGBAColor.html">API_RGBAColor</a></strong>          <em>ghostColor</em>;
+        <strong>bool</strong>                   <em>ghostOriginalColor</em>;
+        <strong>bool</strong>                   <em>ghostOriginalTone</em>;
+        <strong>bool</strong>                   <em>ghostBackgroundFill</em>;
+        <strong>bool</strong>                   <em>filler_5[5]</em>;
+        <strong><a href="API_RGBAColor.html">API_RGBAColor</a></strong>          <em>viewColor</em>;
+        <strong>bool</strong>                   <em>viewOriginalColor</em>;
+        <strong>bool</strong>                   <em>viewOriginalTone</em>;
+        <strong>bool</strong>                   <em>viewBackgroundFill</em>;
+        <strong>bool</strong>                   <em>filler_6</em>;
+        <strong>bool</strong>                   <em>ghostOnTop</em>;
+        <strong>bool</strong>                   <em>filler_7[3]</em>;
+    <strong>}</strong> <em>API_GhostRecord</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>offset</b></dt>
+
+        <dd>Position of the reference database.</dd>
+
+        <dt><b>rotation</b></dt>
+
+        <dd>Rotation angle of the reference database.</dd>
+
+        <dt><b>scale</b></dt>
+
+        <dd>Scale factor of the reference database.</dd>
+
+        <dt><b>time</b></dt>
+
+        <dd>Last modification time of the reference database.</dd>
+
+        <dt><b>color</b></dt>
+
+        <dd>Reference database color with transparency.</dd>
+
+        <dt><b>parentDatabase</b></dt>
+
+        <dd>Identifier of the parent database (i.e. out of which the reference database was created from).</dd>
+
+        <dt><b>ghostDatabase</b></dt>
+
+        <dd>Own identifier.</dd>
+
+        <dt><b>ghostDBType</b></dt>
+
+        <dd>Type of the reference database.</dd>
+
+        <dt><b>ghostType</b></dt>
+
+        <dd>Reference previous/above current/below current story.</dd>
+
+        <dt><b>filter</b></dt>
+
+        <dd>Tells which element types are visible.</dd>
+
+        <dt><b>floor</b></dt>
+
+        <dd>Original floor of the reference database.</dd>
+
+        <dt><b>activated</b></dt>
+
+        <dd>Is it activated?</dd>
+
+        <dt><b>show</b></dt>
+
+        <dd>Is it shown?</dd>
+
+        <dt><b>ghostColor</b></dt>
+
+        <dd>Reference database color with transparency.</dd>
+
+        <dt><b>ghostOriginalColor</b></dt>
+
+        <dd>The color of the ghost view.</dd>
+
+        <dt><b>ghostOriginalTone</b></dt>
+
+        <dd>The tone of the ghost view.</dd>
+
+        <dt><b>ghostBackgroundFill</b></dt>
+
+        <dd>The background fill of the ghost view.</dd>
+
+        <dt><b>viewColor</b></dt>
+
+        <dd>Parent database color with transparency.</dd>
+
+        <dt><b>viewOriginalColor</b></dt>
+
+        <dd>The color of the originating view.</dd>
+
+        <dt><b>viewOriginalTone</b></dt>
+
+        <dd>The tone of the originating view.</dd>
+
+        <dt><b>viewBackgroundFill</b></dt>
+
+        <dd>The background fill of the originating view.</dd>
+
+        <dt><b>ghostOnTop</b></dt>
+
+        <dd>Is Ghost on the top?</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure describes the Trace feature related information.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 11 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Coord.html">API_Coord</a>, <a href="API_RGBAColor.html">API_RGBAColor</a>, <a href="API_DatabaseUnId.html">API_DatabaseUnId</a>,<br>
+    <a href="API_Types.html">API Types</a><br>
+    <a href="../Functions/APIEnv_CreateGhostRecordID.html">APIEnv_CreateGhostRecordID</a>, <a href="../Functions/APIEnv_GetGhostRecordID.html">APIEnv_GetGhostRecordID</a>, <a href="../Functions/APIEnv_DeleteGhostRecordID.html">APIEnv_DeleteGhostRecordID</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on June 25, 2009<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>SwapRanges</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/SwapRanges.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>SwapRanges</H2><!--exp="SwapRanges Enum"-->
+<P><topic id="$GS.$SwapRanges.BriefDescription">
+		Exchanges the elements of one range with the elements of another, equal sized range.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For1</I>, <B>class</B> <I>For2</I><B>&gt;
+</B>For2 SwapRanges (</B>
+    <B>For1                </B><I>first1</I>,
+    <B>For1                </B><I>last1</I>,
+    <B>For2                </B><I>first2</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>For1</I></DT><DD><topic id="$GS.$SwapRanges.$For1.TemplateParamDescription">
+		Forward iterator.
+	</topic></DD><DT><I>For2</I></DT><DD><topic id="$GS.$SwapRanges.$For2.TemplateParamDescription">
+		Forward iterator.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first1</I></DT><DD><topic id="$GS.$SwapRanges.$first1.ParamDescription">
+		A forward iterator pointing to the first position of the first range whose 
+		elements are to be exchanged.
+	</topic></DD><DT><I>last1</I></DT><DD><topic id="$GS.$SwapRanges.$last1.ParamDescription">
+		A forward iterator pointing to one past the final position of the first range 
+		whose elements are to be exchanged.
+	</topic></DD><DT><I>first2</I></DT><DD><topic id="$GS.$SwapRanges.$first2.ParamDescription">
+		A forward iterator pointing to the first position of the second range whose 
+		elements are to be exchanged.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$SwapRanges.ReturnDescription">
+		A forward iterator pointing to one past the final position of the second range 
+		whose elements are to be exchanged.
+	</topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$SwapRanges.LongDescription">
+		<B>SwapRanges</B> swaps each of the elements in the range <TT>[first1, 
+		last1)</TT> with the corresponding element in the range <TT>[first2, first2 + 
+		(last1 - first1))</TT>. That is, for each integer <TT>n</TT> such that <TT>0 
+		&lt;= n &lt; (last1 - first1)</TT>, it swaps <TT>*(first1 + n)</TT> and 
+		<TT>*(first2 + n)</TT>. The return value is <TT>first2 + (last1 - first1)</TT>.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$SwapRanges.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

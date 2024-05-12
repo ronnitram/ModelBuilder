@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Notify_CatchLockableReservationChange</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Notify_CatchLockableReservationChange.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Notify_CatchLockableReservationChange</h1>
+
+    <p>Sets notification handler for reservation changes of lockable objects.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Notify_CatchLockableReservationChange</strong> (
+        <strong><a href="APILockChangeHandlerProc.html">APILockChangeHandlerProc</a>*</strong>        <em>handlerProc</em>,
+        <strong>const <a href="ddid://GSRoot.HashSet Class">GS::HashSet</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;*</strong>     <em>filterLockablesInterestedOnly</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>handlerProc</em></dt>
+
+        <dd>[in] Notification handler function to be called on the specified event. Pass <code>nullptr</code> to unsubscribe from this notification.</dd>
+
+        <dt><em>filterLockablesInterestedOnly</em></dt>
+
+        <dd>[in] List of guids of lockable objects; optional parameter for controlling the range of objects of interest. If passed, the lock change notifications will be sent for only these objects, otherwise every lock changes will be reported.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function completed successfully.</dd>
+    </dl>
+
+    <p>For other common errors see the <a href="../Level2/Error_Codes.html">list of error codes</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to subscribe an add-on to be notified when reservations of lockable objects (e.g. attributes, favorites, model view options) have been changed in Teamwork. Once a <a href="APILockChangeHandlerProc.html">APILockChangeHandlerProc</a> function pointer is passed, the add-on remains loaded in the memory, and receives the notifications. When the add-on does not need these notifications any more, you can stop receiving them by calling this function with <code>nullptr</code> in the first argument.</p>
+
+    <p>In case the add-on is interested only in specified objects, you can set the focus on those objects by passing the list of the guids in the <code>filterLockablesInterestedOnly</code> parameter (see the list of <a href="../Level3/Teamwork_Control_id.html#Lockable_Object_Sets">currently available lockable object sets</a>). Note that there can be only one handler function set for this notification at the same time, that is you cannot set multiple handlers for different lists of lockable objects.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>See the Examples section of <a href="APILockChangeHandlerProc.html">APILockChangeHandlerProc</a>.<br>
+    See also the <strong><em>Teamwork Control</em></strong> and <strong><em>Notification Manager</em></strong> example projects of the API Development Kit.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 15 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="APILockChangeHandlerProc.html">APILockChangeHandlerProc</a><br>
+    <a href="ACAPI_Notify_CatchElementReservationChange.html">ACAPI_Notify_CatchElementReservationChange</a><br>
+    <a href="../Level3/Teamwork_Control_id.html">Teamwork Control</a><br>
+    <a href="../Level3/notification_manager_id.html">Notification Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 11, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

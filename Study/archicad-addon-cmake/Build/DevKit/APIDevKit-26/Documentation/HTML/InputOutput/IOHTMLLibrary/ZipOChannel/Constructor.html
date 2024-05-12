@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <title>ZipOChannel constructor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="Marosi Balazs" name="Author">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/ZipOChannel/Constructor.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="ZipOChannel.html">ZipOChannel</a>::ZipOChannel</h1><br>
+    ZipOChannel constructor.<br>
+    <br>
+    <pre class="syntax">
+<b>ZipOChannel (<br>   <a href="../../../GSRoot/GSRootHTMLLibrary/GS/OChannel/OChannel.html">OChannel&amp;</a> output, <br>   <a href="CompressionLevel.html">CompressionLevel</a> compressionLevel = DefaultCompression<br>);
+                </b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>output</em></dt>
+
+        <dd>Determines the output channel, into where the compressed data is written.</dd>
+
+        <dt><em>compressionLevel</em></dt>
+
+        <dd>Compression level determines the kind of compression, between the quickest compression and the best compression. Default value 6 specifies average compression.</dd>
+    </dl>
+
+    <blockquote>
+        <table class="enumeration" id="Table1" width="531">
+            <tr>
+                <th width="129">Value</th>
+
+                <th width="385">Meaning</th>
+            </tr>
+
+            <tr>
+                <td width="129">NoCompression</td>
+
+                <td width="385">There's no compression (the input data is simply copied a block at a time).</td>
+            </tr>
+
+            <tr>
+                <td width="129">BestSpeed</td>
+
+                <td width="385">It's the quickest compression</td>
+            </tr>
+
+            <tr>
+                <td width="129">BestCompression</td>
+
+                <td width="385">It's the best compression</td>
+            </tr>
+
+            <tr>
+                <td width="129">DefaultCompression</td>
+
+                <td width="385">It's average compression<br>
+                (This is the default case.)</td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This constructor initializes the given instance to use the&nbsp;target output channel supplied in <i>output</i> . Until using the&nbsp;ZipOChannel&nbsp;the output channel is not allowed to be used. <em>CompressionLevel</em> determines the goodness of compression. Its default value is the average compression (DefaultCompression = 6), and the value must be between 0 and 9.</p>
+
+    <p>Instances should not be created before the module initialization!<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

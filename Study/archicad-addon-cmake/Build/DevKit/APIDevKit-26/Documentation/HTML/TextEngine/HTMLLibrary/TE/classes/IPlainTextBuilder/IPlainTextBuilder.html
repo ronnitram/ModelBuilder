@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>TE::IPlainTextBuilder Class</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <!-- Index -->
+  
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTMLLibrary/TE/classes/IPlainTextBuilder/IPlainTextBuilder.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">TextEngine</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TE::IPlainTextBuilder Class</h1>
+    <!--exp="TE::IPlainTextBuilder Class"-->
+    <p>
+      <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">IPlainTextBuilder</b> is an interface for a class that handles the plaintext output of a richtext.
+  
+    </p>
+    <pre class="Syntax"><span class="SyntaxKeyword">class</span> <span class="SyntaxIdentifier">IPlainTextBuilder</span></pre>
+    <h2 class="SectionHeading" id="members">Members</h2>
+    <p>
+      <!-- Don't index --><a href="#PublicMethods">Public Methods</a><br>
+    </p>
+    
+    <h2 class="SectionHeading" id="PublicMethods">Public Methods</h2>
+    <p>
+      
+    </p>
+    <table class="Summary">
+      <tr>
+        <th class="LinkColumn">Method</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td class="LinkColumn">
+          <a href="BeginRun.html">BeginRun</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Called at every change in style.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="BeginText.html">BeginText</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Called in the begining of decomposing the text.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="EndText.html">EndText</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Called at the end of decomposing the text.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="Destructor.html">~IPlainTextBuilder</a>
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="OneRun.html">OneRun</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Contains the text and position of each run.
+  
+        </td>
+      </tr>
+    </table>
+    <h2 class="SectionHeading">Description</h2>
+    
+  TextEngine can decompose richtexts to parts that that have the same style and surely fit the same line
+  previously telling their sytles and position for writing so it is easy to just put them down on a screen or any other device.
+  <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">IPlainTextBuilder</b> is an iterface for a class hangling the calls from the textengine with the sytle, position and text of
+  each such piece of thext mentioned above.
+    Calling any methods for decomposing texts (e.g. DecomposeRichText) requires the implementation of a class that
+    evaluates this <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">IPlainTextBuilder</b> interface.
+    During a whole text decomposing process one after the other all the following methods will be called by textengine in this given order:
+    <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">BeginText</b> with the information of the angle of the output,
+    then for every change in the style <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">BeginRun</b> with the style,
+    and for each piece of text with the same style <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">OneRun</b> is called having the text, the baseline position and the measured
+    width of this piece of text in its argument. Note that for the same style calls for many text runs may come as texts broke at the
+    end of the lines are given separately and even in the same line may be numerous runs of texts split apart due to the
+    attributes of their characters.
+    At the end of the whole text the <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">EndText</b> is called.
+  
+    <h2 class="SectionHeading">Example</h2>
+    <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="Invalid link: ../../Examples/IPlainTextBuilder.html" shape="rect">Example for using IPlainTextBuilder</a>
+    <h2 class="SectionHeading">Requirements</h2>
+    <p>
+      <span class="RequirementsSection">Namespace:</span> <!-- Don't index --><a href="../../TE.html">TE</a>
+    </p>
+    <p>
+      <span class="RequirementsSection">Header:</span> IPlainTextBuilder.hpp
+    </p>
+    <p>
+      <span class="RequirementsSection">Platforms:</span> 
+    TextEngine Version 9.0.0 R1 (6306 / 1812)<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Windows 2000, Windows XP, OSX 10.2x, OSX 10.3x
+  
+    </p>
+    <h2 class="SectionHeading">See Also</h2>
+    <p>
+      <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../TextEngine/DecomposeRichText.html" shape="rect">Textengine::DecomposeRichText</a>
+    </p>
+  
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

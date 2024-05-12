@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_MarkUp_AddComment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_MarkUp_AddComment.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_MarkUp_AddComment</h1>
+
+    <p>Adds a new comment to the given Mark-Up.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_MarkUp_AddComment</strong> (
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>            <em>markUpGuid</em>,
+        <strong><a href="../Structures/API_MarkUpCommentType.html">API_MarkUpCommentType</a>&amp;</strong>     <em>comment</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>markUpGuid</em></dt>
+
+        <dd>[in] GUID of the existing Mark-Up.</dd>
+
+        <dt><em>comment</em></dt>
+
+        <dd>[in/out] The parameters of the new comment. The <code>guid</code> and <code>creaTime</code> will be filled by this function.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_NEEDSUNDOSCOPE</code></dt>
+
+        <dd>The function must be undoable, it wasn't called from an <a href="ACAPI_CallUndoableCommand.html">undoable command scope</a>.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed <code>markUpGuid</code> parameter was incorrect.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>A new comment can be added to an existing Mark-Up entry using this function.<br>
+    Use <a href="ACAPI_MarkUp_GetList.html">ACAPI_MarkUp_GetList</a> function to return the list of all Mark-Up entries and <a href="ACAPI_MarkUp_GetComments.html">ACAPI_MarkUp_GetComments</a> function to get the previously added comments.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>Mark-Up related code samples can be found in the <strong><em>MarkUp_Manager</em></strong> example add-on.</p>
+
+    <blockquote>
+        <pre><code>
+API_MarkUpCommentType comment (/*author:*/ "API", /*text:*/ "ACAPI_MarkUp_AddComment", /*status:*/ APIComment_Warning);
+GSErrCode err = <font color="#FF0066">ACAPI_MarkUp_AddComment</font> (markUp.guid, comment);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_MarkUpCommentType.html">API_MarkUpCommentType</a>, <a href="../Structures/API_MarkUpType.html">API_MarkUpType</a><br>
+    <a href="ACAPI_MarkUp_GetComments.html">ACAPI_MarkUp_GetComments</a>, <a href="ACAPI_MarkUp_Create.html">ACAPI_MarkUp_Create</a>, <a href="ACAPI_MarkUp_GetList.html">ACAPI_MarkUp_GetList</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 02, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

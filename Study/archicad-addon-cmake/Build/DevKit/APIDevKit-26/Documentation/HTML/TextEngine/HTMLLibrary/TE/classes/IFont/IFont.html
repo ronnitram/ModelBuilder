@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>TE::IFont Class</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <!-- Index -->
+  
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTMLLibrary/TE/classes/IFont/IFont.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">TextEngine</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TE::IFont Class</h1>
+    <!--exp="TE::IFont Class"-->
+    <p>
+      <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">IFont</b> is an interface for access a font and <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../../classes/IFont/FontStyle.html" shape="rect">styles</a> handled
+     by the Win32 API or Macintosh Font Manager.
+  
+    </p>
+    <pre class="Syntax"><span class="SyntaxKeyword">class</span> <span class="SyntaxIdentifier">IFont</span></pre>
+    <h2 class="SectionHeading" id="members">Members</h2>
+    <p>
+      <!-- Don't index --><a href="#PublicMethods">Public Methods</a><br>
+      <!-- Don't index --><a href="#PublicEnums">Public Enums</a><br>
+    </p>
+    
+    <h2 class="SectionHeading" id="PublicMethods">Public Methods</h2>
+    <p>
+      
+    </p>
+    <table class="Summary">
+      <tr>
+        <th class="LinkColumn">Method</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetFontFamily.html">GetFontFamily</a>
+        </td>
+        <td>
+          
+    Returns a pointer to the <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../FontFamily/FontFamily.html" shape="rect">TE::FontFamily</a> object.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetSize.html">GetSize</a>
+        </td>
+        <td>
+          
+    Returns the <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">typographic size</b> of the font.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetStyle.html">GetStyle</a>
+        </td>
+        <td>
+          
+    Returns the defined <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="FontStyle.html" shape="rect">styles</a> for the font.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="Destructor.html">~IFont</a>
+        </td>
+        <td>
+          
+    Destructor.
+  
+        </td>
+      </tr>
+    </table>
+    
+    <h2 class="SectionHeading" id="PublicEnums">Public Enums</h2>
+    <p>
+      
+    </p>
+    <table class="Summary">
+      <tr>
+        <th class="LinkColumn">Enum</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td class="LinkColumn">
+          <a href="FontStyle.html">FontStyle</a>
+        </td>
+        <td>
+          
+    An enum for the constants for style definition.
+  
+        </td>
+      </tr>
+    </table>
+    <h2 class="SectionHeading">Description</h2>
+    <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">IFont</b> is an interface for access a font and <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="FontStyle.html" shape="rect">styles</a> handled
+     by the Win32 API or Macintosh Font Manager. The font is determined by TextEngine
+     <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../FontFamily/FontFamily.html" shape="rect">TE::FontFamily</a>. <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">IFont</b> needs typographic size as font size.
+  
+    <h2 class="SectionHeading">Example</h2>
+    <p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"><!-- Don't index --><a href="Invalid link: ../../Examples/IRichText.html" shape="rect">Example for using IRichText</a></p>
+    <h2 class="SectionHeading">Requirements</h2>
+    <p>
+      <span class="RequirementsSection">Namespace:</span> <!-- Don't index --><a href="../../TE.html">TE</a>
+    </p>
+    <p>
+      <span class="RequirementsSection">Header:</span> IFont.hpp
+    </p>
+    <p>
+      <span class="RequirementsSection">Platforms:</span> 
+    TextEngine Version 9.0.0 R1 (6306 / 1812)<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Windows 2000, Windows XP, OSX 10.2x, OSX 10.3x
+  
+    </p>
+    <h2 class="SectionHeading">See Also</h2>
+    <p>
+      <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../FontFamily/FontFamily.html" shape="rect">TE::FontFamily</a> | <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../ICharStyle/ICharStyle.html" shape="rect">TE::ICharStyle</a> | 
+        <!-- Don't index --><a href="../Font/Font.html">TE::Font</a>
+    </p>
+  
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

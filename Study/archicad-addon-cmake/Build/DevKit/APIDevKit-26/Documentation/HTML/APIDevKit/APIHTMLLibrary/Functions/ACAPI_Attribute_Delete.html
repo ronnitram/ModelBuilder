@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Attribute_Delete</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Attribute_Delete.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Attribute_Delete</h1>
+
+    <p>Deletes an attribute.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Attribute_Delete</strong> (
+        <strong>const <a href="../Structures/API_Attr_Head.html">API_Attr_Head</a>&amp;</strong>     <em>attrHead</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>attrHead</em></dt>
+
+        <dd>[in] The <code>typeID</code> and <code>index</code> fields in the header identifies the attribute to delete.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed parameter <code>(attrHead)</code> is invalid.</dd>
+
+        <dt><code>APIERR_REFUSEDPAR</code></dt>
+
+        <dd>You tried to delete pens, fonts, a solid or an empty fill, or an attribute with index 1.</dd>
+
+        <dt><code>APIERR_NOTMINE</code></dt>
+
+        <dd>The attribute is out of the users workspace.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to delete an attribute, defined by the <code>typeID</code> and <code>index</code> field of the attribute header. Certain attributes in the database can not be deleted; see the return values.</p>
+
+    <p>Note, that deleting an attribute do not effect any changes in the element database; they will refer to an attribute which is missing. That is not a problem, the server applications work in the same way when an attribute is deleted from the menus. The only exception is the layer attribute. Once a layer is deleted all the elements will be deleted; no matter in which database they are. The floor plan and all the section/elevations will be scanned to delete the elements which are on the given layer.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/11.png" alt="API 11" width="19" height="12">&nbsp; You can delete more than one attribute of the same type with the <a href="ACAPI_Attribute_DeleteMore.html">ACAPI_Attribute_DeleteMore</a> function.</p>
+
+    <p>This function is a non-undoable data structure modifier function. See more details on this topic at <a href="../Level2/Command_Overview.html">Command Overview</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_Attribute attrib = {};
+attrib.header.typeID = API_LinetypeID;
+attrib.header.index = 5;
+
+GSErrCode err = ACAPI_Attribute_Delete (attrib.header);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Attr_Head.html">API_Attr_Head</a><br>
+    <a href="ACAPI_Attribute_DeleteMore.html">ACAPI_Attribute_DeleteMore</a><br>
+    <a href="../Level3/Attribute_Manager_id.html">Attribute Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on August 30, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

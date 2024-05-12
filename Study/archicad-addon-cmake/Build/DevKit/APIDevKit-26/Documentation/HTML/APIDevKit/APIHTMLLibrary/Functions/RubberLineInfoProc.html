@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>RubberLineInfoProc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/RubberLineInfoProc.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>RubberLineInfoProc</h1>
+
+    <p>Callback function for custom feedback drawing.</p>
+    <pre class="syntax">
+    <strong>typedef void  RubberLineInfoProc</strong> (
+        <strong>const <a href="../Structures/API_RubberLineInfo.html">API_RubberLineInfo</a>*</strong>     <em>info</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>info</em></dt>
+
+        <dd>Information on the actual input state.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You should implement this function if you have to give graphical feedback for the input operation invoked from your API tool add-on. This callback routine should be passed as a parameter when calling the <a href="APIIo_GetPointID.html">APIIo_GetPointID</a>, <a href="APIIo_GetLineID.html">APIIo_GetLineID</a> and <a href="APIIo_GetArcID.html">APIIo_GetArcID</a> interface functions. During the input process your procedure is called repeatedly as the mouse moves. In the <code>info</code> parameter you get the actual mouse coordinate and the current drawing phase. Call the <a href="APIIo_DrawRubberLineID.html">APIIo_DrawRubberLineID</a> interface function to draw your rubber lines. The lines are drawn in XOR mode, therefore you can use the same code for both the drawing and erasing phases when calling back.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12">&nbsp; From Archicad 9 the z coordinates are retrieved even when the input plane has not been defined. The height value can be non-zero if the cursor is on one of the neigs of a three-dimensional element, or gravity method is switched on for the element type the cursor is currently cruising above.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>See <a href="APIIo_DrawRubberLineID.html">APIIo_DrawRubberLineID</a> for example of using the rubber line drawing callback function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Callback.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_RubberLineType.html">API_RubberLineType</a><br>
+    <a href="../Structures/API_RubberLineInfo.html">API_RubberLineInfo</a><br>
+    <a href="APIIo_DrawRubberLineID.html">APIIo_DrawRubberLineID</a><br>
+    <a href="acapi_interface_id.html">ACAPI_Interface</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on June 24, 2004<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

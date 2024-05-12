@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_GetElemListByIFCIdentifier</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_GetElemListByIFCIdentifier.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_GetElemListByIFCIdentifier</h1>
+
+    <p>Get elements having a certain IFC identifier</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_GetElemListByIFCIdentifier</strong> (
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>*</strong>          <em>archicadIFCID</em>,
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>*</strong>          <em>externalIFCID</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;&amp;</strong>     <em>elements</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>archicadIFCID</em>&nbsp;</dt>
+
+        <dd>[in] Archicad IFC ID - it can be nullptr</dd>
+
+        <dt><em>externalIFCID</em>&nbsp;</dt>
+
+        <dd>[in] External IFC ID - it can be nullptr</dd>
+
+        <dt><em>elements</em>&nbsp;</dt>
+
+        <dd>[out] GUID of the elements</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>Both <code>archicadIFCID</code> and <code>externalIFCID</code> are nullptr or <code>elements</code> parameter is nullptr.</dd>
+
+        <dt><code>APIERR_MODULNOTINSTALLED</code></dt>
+
+        <dd>IFC add-on is not present.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function searches for elements having the indicated IFC Guid.</p>
+    <ul>
+        <li>only <em>archicadIFCID</em> contains value - it searches for an element having the indicated Archicad IFC ID. The <em>elements</em> can have maximum 1 element.</li>
+        <li>only <em>externalIFCID</em> contains value - it searches for elements having the indicated External IFC ID. The <em>elements</em> can have more then one element.</li>
+        <li>both <em>archicadIFCID</em> and <em>externalIFCID</em> contains value - it searches for an element having the indicated Archicad IFC ID and External IFC ID. The <em>elements</em> can have maximum 1 element.</li>
+        <li>both input parameters are nullptr - it returns <code>APIERR_BADPARS</code>.</li>
+    </ul>
+    <p>Conversion from IFC Guid string (IfcGloballyUniqueId) to <a href="../Structures/API_Guid.html">API_Guid</a> can be done with <a href="ACAPI_IFC_IFCGuidToAPIGuid.html">ACAPI_IFC_IFCGuidToAPIGuid</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 18 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_Element_GetIFCIdentifier.html">ACAPI_Element_GetIFCIdentifier</a><br>
+    <a href="ACAPI_IFC_IFCGuidToAPIGuid.html">ACAPI_IFC_IFCGuidToAPIGuid</a><br>
+    <a href="ACAPI_IFC_APIGuidToIFCGuid.html">ACAPI_IFC_APIGuidToIFCGuid</a><br></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 16, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+
+body {
+	background-color: #F9FCFF;
+
+}
+
+/* ### hyperlinks ####################################################################################################*/
+
+a {
+	font-family: times;
+	font-size: 1em;
+	text-decoration: none;
+	color: blue;
+}
+
+a:visited {
+	font-family: times;
+	font-size: 1em;
+	text-decoration: none;
+	color: blue;
+}
+
+a:hover {
+	font-family: times;
+	font-size: 1em;
+	text-decoration: none;
+	color: blue;
+}
+
+a:active {
+	font-family: times;
+	font-size: 1em;
+	text-decoration: none;
+	color: blue;
+}
+
+
+/* ### text ##########################################################################################################*/
+
+h1 {
+	font-family: times;
+	font-size: 2em;
+}
+
+h4.also {
+	font-family: times;
+	margin: 8px;
+}
+
+p {
+	font-family: times;
+	font-size: 1em;
+}
+
+p.bold {
+	font-weight: bold;
+}
+
+p.footer {
+	text-align: center;
+	color: black;
+	background-color: #EFF0F1; /* light blue */
+	font-weight: bold;
+	font-size: 0.9em;
+	padding: 1.5em;
+	margin: 0em;
+}
+
+
+/* ### table #########################################################################################################*/
+
+table.members {
+	width: 90%;
+	margin-bottom: 1em;
+	border: 1px solid black;
+	margin-bottom: 1em;
+}
+
+td {
+	text-align: left;
+	font-family: times;
+	font-size: 1em;
+	padding: 5px;
+}
+
+th {
+	background-color: #AAAAAA;
+	color: white;
+	padding:5px;
+}
+
+
+/* ### list ##########################################################################################################*/
+
+dd {
+	margin-left: 30px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+
+/* ### div ###########################################################################################################*/
+
+#wrapper {
+	width: 604px;
+	border: 0px solid black;
+	overflow: auto;
+}
+#first {
+	float: left;
+	width: 300px;
+	border: 0px solid red;
+}
+#second {
+	float: right;
+	width: 300px;
+	border: 0px solid green;
+}
+
+

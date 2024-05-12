@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_GetRelations</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_GetRelations.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_GetRelations</h1>
+
+    <p>Returns information on objects connected to walls, beams, beam segments, rooms, shells, roofs, curtain wall panels, skylights, windows and doors.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_GetRelations</strong> (
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>      <em>guid</em>,
+        <strong>const <a href="../Structures/API_ElemType.html">API_ElemType</a></strong>&amp;  <em>otherType</em>,
+        <strong>void*</strong>                <em>relData</em>,
+        <strong>UInt32</strong>               <em>mask</em> = 0
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>guid</em>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>[in] Guid of the element.</dd>
+
+        <dt><em>otherType</em></dt>
+
+        <dd>[in] Type of the requested element.</dd>
+
+        <dt><em>relData</em></dt>
+
+        <dd>[out] The relation data returned by the function. This pointer must refer to an <a href="../Structures/API_WallRelation.html">API_WallRelation</a>, <a href="../Structures/API_BeamRelation.html">API_BeamRelation</a>, <a href="../Structures/API_BeamSegmentRelation.html">API_BeamSegmentRelation</a>, <a href="../Structures/API_RoomRelation.html">API_RoomRelation</a>, <a href="../Structures/API_RoofRelation.html">API_RoofRelation</a>, <a href="../Structures/API_RoofRelation.html">API_ShellRelation</a>, <a href="../Structures/API_CWPanelRelation.html">API_CWPanelRelation</a>, <a href="../Structures/API_CWPanelRelation.html">API_SkylightRelation</a>, <a href="../Structures/API_CWPanelRelation.html">API_WindowRelation</a>, or an <a href="../Structures/API_CWPanelRelation.html">API_DoorRelation</a> structure according to the type of the requested element given be the <code>guid</code> parameter.</dd>
+
+        <dt><em>mask</em>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>[in] Optional mask. Currently valid values are <code>0</code> and <code>APIElemMask_FromFloorplan</code>. In the latter case, the element referred by <code>guid</code> is searched in the floor plan database.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The operation was successful.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The <code>relData</code> parameter was <code>nullptr</code> or <code>otherID</code> parameter is incorrect.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>Incorrect <code>guid</code> was specified.</dd>
+
+        <dt><code>APIERR_DELETED</code></dt>
+
+        <dd>The element does not exist in the database</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function returns information on elements connected to the element identified by the given <code>guid</code>. The requested object type is given in <code>otherType</code>.</p>
+    <table>
+        <tr>
+            <th>
+                <p><b>Type of the given element</b></p>
+            </th>
+
+            <th>
+                <p><b>otherID</b></p>
+            </th>
+
+            <th>
+                <p><b>Comment</b></p>
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                <p><b>walls</b></p>
+            </td>
+
+            <td>
+                <p><code>API_ZombieElemID</code>, <code>API_WallID</code></p>
+            </td>
+
+            <td>
+                <p>For walls the connected elements and the modified polygon is put into <code>relData</code>. Positive indices mean that the begin point of the other object is connected to the wall; while negative indices mean the end point. Five types of connections are returned: walls which are connected to the begin point, to the end point and to the reference line of the wall, walls to the reference line of whose the wall you requested information on is connected, and cross connections.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><b>rooms</b></p>
+            </td>
+
+            <td>
+                <p><code>API_ZombieElemID</code>, <code>API_WallID</code>, <code>API_ColumnID</code>, <code>API_ObjectID</code>, <code>API_LampID</code>, <code>API_WindowID</code> <code>API_DoorID</code>, <code>API_BeamID</code>, <code>API_CurtainWallID</code>, <code>API_CurtainWallFrameID</code>, <code>API_CurtainWallPanelID</code>, <code>API_CurtainWallJunctionID</code>, <code>API_CurtainWallAccessoryID</code>, <code>API_CurtainWallSegmentID</code>, <code>API_SkylightID</code>, <code>API_RoofID</code>, <code>API_ShellID</code>, <code>API_MorphID</code>, <code>API_StairID</code>, <code>API_RiserID</code>, <code>API_TreadID</code>, <code>API_StairStructureID</code>, <code>API_RailingID</code>, <code>API_RailingToprailID</code>, <code>API_RailingHandrailID</code>, <code>API_RailingRailID</code>, <code>API_RailingPostID</code>, <code>API_RailingInnerPostID</code>, <code>API_RailingBalusterID</code>, <code>API_RailingPanelID</code>, <code>API_RailingSegmentID</code>, <code>API_RailingToprailEndID</code>, <code>API_RailingHandrailEndID</code>, <code>API_RailingRailEndID</code>, <code>API_RailingToprailConnectionID</code>, <code>API_RailingHandrailConnectionID</code>, <code>API_RailingRailConnectionID</code>, <code>API_RailingNodeID</code> or <code>API_SlabID</code></p>
+            </td>
+            <td>
+                <p>For rooms, the walls, columns, objects, lamps, windows, doors, beams, curtain walls, skylights, roofs, shells, morphs, stairs, risers, treads, railings and slabs are returned. For walls, beams and curtain wall segments the returned information contains that segment of the wall which is inside the room (see <a href="../Structures/API_WallPart.html">API_WallPart/API_CWSegmentPart</a> and <a href="../Structures/API_BeamPart.html">API_BeamPart</a>). <img border="0" src="../../APIImageLibrary/24.png" alt="24" width="19" height="12"></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><b>beams</b></p>
+            </td>
+
+            <td>
+                <p><code>API_ZombieElemID</code> or <code>API_BeamID</code></p>
+            </td>
+            <td>
+                <p>For beams the connected elements and the modified polygon is put into <code>relData</code>. Positive indices mean that the begin point of the other object is connected to the beam; while negative indices mean the end point. Five types of connections are returned: beams which are connected to the begin point, to the end point and to the reference line of the beam, beams to the reference line of whose the beam you requested information on is connected, and cross connections.</p>
+            </td>
+        </tr>
+    
+        <tr>
+            <td>
+                <p><b>beam segments</b></p>
+            </td>
+
+            <td>
+                <p><code>API_ZombieElemID</code> or <code>API_BeamSegmentID</code></p>
+            </td>
+            <td>
+                <p>For beam segments the connected elements and the modified polygon is put into <code>relData</code>. Positive indices mean that the begin point of the other object is connected to the beam segment; while negative indices mean the end point. Five types of connections are returned: beam segments which are connected to the begin point, to the end point and to the reference line of the beam segment, beam segments to the reference line of whose the beam segment you requested information on is connected, and cross connections.</p>
+            </td>
+        </tr>
+    
+        <tr>
+            <td>
+                <p><b>curtain wall panels and skylights</b></p>
+            </td>
+
+            <td>
+                <p><code>API_ZombieElemID</code> or <code>API_ZoneID</code></p>
+            </td>
+            <td>
+                <p>For curtain wall panels and skylights the connected rooms are put into <code>relData</code>. &nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><b>windows and doors</b></p>
+            </td>
+
+            <td>
+                <p><code>API_ZombieElemID</code> or <code>API_ZoneID</code></p>
+            </td>
+            <td>
+                    <p>For windows and doors the connected rooms are put into <code>relData</code>. &nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="Featuring API 19" width="19" height="12"></p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><b>roof and shell</b></p>
+            </td>
+
+            <td>
+                <p><code>API_ZombieElemID</code> or <code>API_ZoneID</code></p>
+            </td>
+            <td>
+                    <p>For roof and shell the connected rooms are put into <code>rooms</code>. &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></p>
+            </td>
+        </tr>
+    </table>
+
+    <p>Don't forget to call the appropriate <a href="ACAPI_DisposeRoomRelationHdls.html">ACAPI_DisposeRoomRelationHdls</a>, <a href="ACAPI_DisposeWallRelationHdls.html">ACAPI_DisposeWallRelationHdls</a>, <a href="ACAPI_DisposeBeamRelationHdls.html">ACAPI_DisposeBeamRelationHdls</a>, or <a href="ACAPI_DisposeBeamSegmentRelationHdls.html">ACAPI_DisposeBeamSegmentRelationHdls</a> function to dispose the handles.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"> From version 26 the <tt>otherTypeID</tt> parameter was changed into an <a href="../Structures/API_ElemType.html">API_ElemType</a> parameter.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+            <pre><code>
+// API_WallRelation example
+API_WallRelation            relData;
+GS::Array&lt;API_Guid&gt;	    elemList;
+
+ACAPI_Element_GetElemList (API_WallID, &amp;elemList);
+for (const API_Guid&amp; wallGuid : elemList) {
+    if (ACAPI_Element_GetRelations (wallGuid, API_WallID, (void*)&amp; relData) != NoError)
+        continue;
+
+    ACAPI_WriteReport ("Connected walls to the wall %s", false, APIGuidToString (wallGuid).ToCStr ().Get ());
+
+    if (relData.conBeg != nullptr) {
+        ACAPI_WriteReport ("\tat the begin point:", false);
+        for (Int32 ind = 0; ind &lt; relData.nConBeg; ind++) {
+            ACAPI_WriteReport ("\t\t#%ld ", false, (*(relData.conBeg))[ind]);
+        }
+    }
+
+    if (relData.conEnd != nullptr) {
+        ACAPI_WriteReport ("\tat the end point:", false);
+        for (Int32 ind = 0; ind &lt; relData.nConEnd; ind++) {
+            ACAPI_WriteReport ("\t\t#%d", false, (*(relData.conEnd))[ind]);
+        }
+    }
+
+    if (relData.conRef != nullptr) {
+        ACAPI_WriteReport ("\ton the reference line not at the end points:", false);
+        for (Int32 ind = 0; ind &lt; relData.nConRef; ind++) {
+            ACAPI_WriteReport ("\t\t#%d", false, (*(relData.conRef))[ind]);
+        }
+    }
+
+    if (relData.con != nullptr) {
+        ACAPI_WriteReport ("\ton the reference line:", false);
+        for (Int32 ind = 0; ind &lt; relData.nCon; ind++) {
+            ACAPI_WriteReport ("\t\t#%d", false, (*(relData.con))[ind]);
+        }
+    }
+
+    if (relData.conX != nullptr) {
+        ACAPI_WriteReport ("\thaving intersection with:", false);
+        for (Int32 ind = 0; ind &lt; relData.nConX; ind++) {
+            ACAPI_WriteReport ("\t\t#%d", false, (*(relData.conX))[ind]);
+        }
+    }
+
+    ACAPI_DisposeWallRelationHdls (&amp;relData);
+}
+
+// API_RoomRelation example
+API_RoomRelation            roomData;
+
+elemList = {};
+ACAPI_Element_GetElemList (API_ZoneID, &amp;elemList);
+for (const API_Guid&amp; roomGuid : elemList) {
+    if (ACAPI_Element_GetRelations (roomGuid, API_ZombieElemID, (void*)&amp; roomData) != NoError)
+        continue;
+    ACAPI_WriteReport ("Connected elems to the room %s", false, APIGuidToString (roomGuid).ToCStr ().Get ());
+
+    ACAPI_WriteReport ("\tWalls:", false);
+    if (roomData.relatedElementsGroupedByType.ContainsKey (API_WallID)) {
+        for (const API_Guid&amp; wallGuid : roomData.relatedElementsGroupedByType[API_WallID]) {
+            ACAPI_WriteReport ("\t\t%s", false, APIGuidToString (wallGuid).ToCStr ().Get ());
+        }
+    }
+
+    ACAPI_WriteReport ("\tSlabs:", false);
+    if (roomData.relatedElementsGroupedByType.ContainsKey (API_SlabID)) {
+        for (const API_Guid&amp; slabGuid : roomData.relatedElementsGroupedByType[API_SlabID]) {
+            ACAPI_WriteReport ("\t\t%s", false, APIGuidToString (slabGuid).ToCStr ().Get ());
+        }
+    }
+
+    ACAPI_DisposeRoomRelationHdls (&amp;roomData);
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Guid.html">API_Guid</a>, <a href="../Structures/API_ElemTypeID.html">API_ElemTypeID</a>, <a href="../Structures/API_WallRelation.html">API_WallRelation</a>, <a href="../Structures/API_BeamRelation.html">API_BeamRelation</a>, <a href="../Structures/API_BeamSegmentRelation.html">API_BeamSegmentRelation</a>, <a href="../Structures/API_RoomRelation.html">API_RoomRelation</a>, <a href="../Structures/API_CWPanelRelation.html">API_CWPanelRelation</a>, <a href="../Structures/API_CWPanelRelation.html">API_SkylightRelation</a>, <a href="../Structures/API_RoofRelation.html">API_ShellRelation</a>, <a href="../Structures/API_RoofRelation.html">API_RoofRelation</a>, <a href="../Structures/API_WallPart.html">API_WallPart</a>, <a href="../Structures/API_BeamPart.html">API_BeamPart</a>, <a href="../Structures/API_Niche.html">API_Niche</a>,<br>
+    <a href="ACAPI_DisposeRoomRelationHdls.html">ACAPI_DisposeRoomRelationHdls</a>, <a href="ACAPI_DisposeWallRelationHdls.html">ACAPI_DisposeWallRelationHdls</a>, <a href="ACAPI_DisposeBeamRelationHdls.html">ACAPI_DisposeBeamRelationHdls</a>, <a href="ACAPI_DisposeBeamSegmentRelationHdls.html">ACAPI_DisposeBeamSegmentRelationHdls</a>,<br>
+    <a href="../Level3/Element_Relations_id.html">Element Relations</a>, <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on Sept 03, 2021<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

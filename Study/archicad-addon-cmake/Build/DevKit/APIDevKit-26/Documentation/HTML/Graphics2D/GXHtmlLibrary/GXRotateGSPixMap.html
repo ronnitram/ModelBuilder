@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>GXRotateGSPixMap</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GXHtmlLibrary/GXRotateGSPixMap.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GX&nbsp;Module</span><span class="TitleVersion">Version: 16</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GXRotateGSPixMap</h1>
+
+    <p>Copies the rotatated look of the source pixmap into the destination pixmap.</p>
+    <pre class="syntax">
+    <strong>GSErr</strong> GXRotateGSPixMap (
+      <strong>GSPixMapHandle</strong>  <em>srcPixMap</em>,
+      <strong>GSPixMapHandle</strong>  <em>dstPixMap</em>,
+      <strong>double</strong>          <em>angle</em>,
+      <strong>bool</strong>            <em>mirr</em>,
+      <strong>const GSRect</strong>*   <em>sClip</em>,
+      <strong>Int32</strong>           <em>f0h</em>,
+      <strong>Int32</strong>           <em>f0v</em>
+    );
+</pre>
+
+    <h2>Parameters</h2>
+
+    <dl class="Parameters">
+        <dt>srcPixMap</dt>
+
+        <dd>The source pixmap.</dd>
+
+        <dt>dstPixMap</dt>
+
+        <dd>The destination pixmap.</dd>
+
+        <dt>angle</dt>
+
+        <dd>The angle of the rotation.</dd>
+
+        <dt>mirr</dt>
+
+        <dd>Should mirror the pixmap to the y-axis before rotation.</dd>
+
+        <dt>sClip</dt>
+
+        <dd>Cliprect on the source pixmap (only this part's look will be rotated and copied).</dd>
+
+        <dt>f0h</dt>
+
+        <dd>The x position of the bottom-left corner of the source pixmap on the destination pixmap.</dd>
+
+        <dt>f0v</dt>
+
+        <dd>The y position of the bottom-left corner of the source pixmap on the destination pixmap.</dd>
+    </dl>
+
+    <h2>Return Values</h2>
+
+    <p>If the function succeeds, the return value is NoError. If the function fails, the return value is the error code.</p>
+
+    <h2>Remarks</h2>
+
+    <p>The destination pixmap should be large enough to accomodate the rotated view of the source pixmap. You should use the <a href="GXGetRotatedGSPixMapWidthH.html">GXGetRotatedGSPixMapWidthHeight</a> to determine it and the new position of the bottom left corner of the source pixmap.</p>
+
+    <h2>Requirements</h2>
+
+    <dl class="Requirements">
+        <dt>Version:</dt>
+
+        <dd>GX 10 or later</dd>
+
+        <dt>Header:</dt>
+
+        <dd>Graphics2D.h</dd>
+
+        <dt>Import Library:</dt>
+
+        <dd>GXImp.lib</dd>
+
+        <dt>Module:</dt>
+
+        <dd>GX.dll [WIN], GX.framework [MAC]</dd>
+    </dl>
+
+    <h2>See Also</h2>
+
+    <p><a href="Graphics2D.html">Graphics functions</a></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

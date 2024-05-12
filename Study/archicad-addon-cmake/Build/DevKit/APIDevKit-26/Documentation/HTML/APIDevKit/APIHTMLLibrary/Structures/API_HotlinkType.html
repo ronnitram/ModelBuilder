@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_HotlinkType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_HotlinkType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_HotlinkType</h1>
+
+    <p>Represents a Hotlink Module type or XRef type hotlink instance element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>         <em>head</em>;
+        <strong><a href="API_HotlinkTypeID.html">API_HotlinkTypeID</a></strong>     <em>type</em>;
+        <strong>Int32</strong>                 <em>filler_1</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>              <em>hotlinkNodeGuid</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>              <em>hotlinkGroupGuid</em>;
+        <strong><a href="API_Tranmat.html">API_Tranmat</a></strong>           <em>transformation</em>;
+        <strong>short</strong>                 <em>floorDifference</em>;
+        <strong>bool</strong>                  <em>suspendFixAngle</em>;
+        <strong>bool</strong>                  <em>skipNested</em>;
+        <strong>bool</strong>                  <em>ignoreTopFloorLinks</em>;
+        <strong>bool</strong>                  <em>relinkWallOpenings</em>;
+        <strong>bool</strong>                  <em>adjustLevelDiffs</em>;
+        <strong>char</strong>                  <em>filler_2[2]</em>;
+        <strong>char</strong>                  <em>filler_3[16]</em>;
+        <strong>Int32</strong>                 <em>filler_4[2]</em>;
+    <strong>}</strong> <em>API_HotlinkType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>type</b></dt>
+
+        <dd>Type of the hotlink.</dd>
+
+        <dt><b>filler_1</b></dt>
+
+        <dd>Reserved for further use.</dd>
+
+        <dt><b>hotlinkNodeGuid</b></dt>
+
+        <dd>Reference to the associated hotlink node (see <a href="API_HotlinkNode.html">API_HotlinkNode</a>).</dd>
+
+        <dt><b>hotlinkGroupGuid</b></dt>
+
+        <dd>Reference to the associated element group.</dd>
+
+        <dt><b>transformation</b></dt>
+
+        <dd>Placement transformation of the hotlink instance.</dd>
+
+        <dt><b>floorDifference</b></dt>
+
+        <dd>Floor difference in case of hotlink module.</dd>
+
+        <dt><b>suspendFixAngle</b></dt>
+
+        <dd>Adjust angle of fixed-angle elements to reflect module rotation.</dd>
+
+        <dt><b>skipNested</b></dt>
+
+        <dd>Skip nested hotlinks.</dd>
+
+        <dt><b>ignoreTopFloorLinks</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="Changed in API 19" width="19" height="12"></dt>
+
+        <dd>Top linked building elements will not keep their top floor links (homeFloorLinksOnly before 19).</dd>
+
+        <dt><b>relinkWallOpenings</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="Changed in API 19" width="19" height="12"></dt>
+
+        <dd>Wall openings linked to stories will be relinked to walls to follow their elevation if the story structures differ.</dd>
+
+        <dt><b>adjustLevelDiffs</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="Changed in API 21" width="19" height="12"></dt>
+
+        <dd>If this parameter is true, then all Hotlink elements will retain their original vertical position relative to the Hotlink insertion point. Otherwise elevation of elements will follow the shift in Story Levels in the Host Project. Therefore, Hotlink element may shift vertically. </dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 12 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Elem_Head.html">API_Elem_Head</a><br>
+    <a href="API_Element.html">API_Element</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a><br>
+    <a href="../Functions/APIDb_GetHotlinkInstancesID.html">APIDb_GetHotlinkInstancesID</a><br>
+    <a href="../Functions/APIDb_GetHotlinkNodeID.html">APIDb_GetHotlinkNodeID</a><br>
+    <a href="../Functions/APIDb_GetCompoundInfoStringID.html">APIDb_GetCompoundInfoStringID</a><br>
+    <a href="API_HotlinkNode.html">API_HotlinkNode</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on June 16, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

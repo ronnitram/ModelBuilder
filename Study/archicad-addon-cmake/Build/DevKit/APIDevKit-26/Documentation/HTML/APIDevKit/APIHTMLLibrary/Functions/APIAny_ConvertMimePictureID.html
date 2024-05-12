@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIAny_ConvertMimePictureID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIAny_ConvertMimePictureID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIAny_ConvertMimePictureID</h1>
+
+    <p>Converts a picture into another image format using MIME types.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a></strong> (
+        <strong>APIAny_ConvertMimePictureID</strong>,
+        <strong><a href="../Structures/API_MimePicture.html">API_MimePicture</a>*</strong>     <em>mimePicture</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>mimePicture</em></dt>
+
+        <dd>[in/out] Parameters of the source and the destination picture.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The input parameters are not given correctly (see <a href="../Structures/API_MimePicture.html">API_MimePicture</a>)</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>Not enough memory to create the new <code>pictHdl</code></dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to convert a picture from one standard image format to an other. The image formats are specified with MIME (Multi-purpose Internet Mail Extensions) types.</p>
+
+    <p>MIME types of the most commonly used image formats:</p>
+
+    <blockquote>
+        <table cellspacing="5">
+            <tr>
+                <td><strong>Windows Bitmap</strong></td>
+
+                <td><code>image/x-bmp</code></td>
+            </tr>
+
+            <tr>
+                <td><strong>GIF</strong></td>
+
+                <td><code>image/gif</code></td>
+            </tr>
+
+            <tr>
+                <td><strong>TIFF</strong></td>
+
+                <td><code>image/tiff</code></td>
+            </tr>
+
+            <tr>
+                <td><strong>JPEG</strong></td>
+
+                <td><code>image/jpeg</code></td>
+            </tr>
+
+            <tr>
+                <td><strong>Pict</strong></td>
+
+                <td><code>image/pict</code></td>
+            </tr>
+
+            <tr>
+                <td><strong>SGI</strong></td>
+
+                <td><code>image/x-sgi</code></td>
+            </tr>
+
+            <tr>
+                <td><strong>Photoshop Image</strong></td>
+
+                <td><code>image/x-photoshop</code></td>
+            </tr>
+
+            <tr>
+                <td><strong>PNG</strong></td>
+
+                <td><code>image/png</code></td>
+            </tr>
+
+            <tr>
+                <td><strong>MacPaint Image</strong></td>
+
+                <td><code>image/x-macpaint</code></td>
+            </tr>
+
+            <tr>
+                <td><strong>Truevision TGA</strong></td>
+
+                <td><code>image/x-targa</code></td>
+            </tr>
+
+            <tr>
+                <td><strong>QuickTime Image</strong></td>
+
+                <td><code>image/x-quicktime</code></td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>You can pass a special output type <code>"vnd/DIB"</code> to create a device independent bitmap on Windows, and <code>"vnd/PICH"</code> to create a PicHandle on Macintosh.</p>
+
+    <p>Conversion from one pixel depth to another is not supported at the moment.</p>
+
+    <p>You can use the <a href="../Functions/APIAny_ConvertPictureID.html">APIAny_ConvertPictureID</a> goody function for converting images with <a href="../Structures/API_PictureFormat.html">API_PictureFormat</a> identifiers rather than MIME types.</p>
+
+    <p>Remember to dispose the returned <code>outputHdl</code> when it is not needed any more.</p>
+
+    <p>See more options at the description of the <a href="../Structures/API_MimePicture.html">API_MimePicture</a> structure.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>Converting a TIFF figure placed on the floorplan into a PNG format image:</p>
+
+    <blockquote>
+        <pre><code>
+GSErrCode ConvertPicture (const API_Guid&amp; pictureGuid)
+{
+    API_Element element;
+    BNZeroMemory (&amp;element, sizeof (API_Element));
+    element.header.guid = pictureGuid;
+
+    GSErrCode   err = ACAPI_Element_Get (&amp;element);
+    if (err == NoError &amp;&amp; element.picture.storageFormat == APIPictForm_TIFF) {
+        API_ElementMemo memo;
+        BNZeroMemory (&amp;memo, sizeof (API_ElementMemo));
+        err = ACAPI_Element_GetMemo (pictureGuid, &amp;memo);
+        if (err == NoError) {
+            API_MimePicture mime;
+            BNZeroMemory (&amp;mime, sizeof (API_MimePicture));
+            mime.mimeIn = "image/tiff";
+            mime.inputHdl = memo.pictHdl;
+            mime.mimeOut = "image/png";
+            mime.inContainsMime = false;
+            mime.outDepth = (API_ColorDepthID) -1;
+
+            err = ACAPI_Goodies (APIAny_ConvertMimePictureID, &amp;mime, nullptr);
+            if (err == NoError) {
+                /* mime.outputHdl contains the image in PNG format */
+
+                /* change the figure, save into an image file, or anything else... */
+
+                /* to avoid memory leak */
+                BMKillHandle (&amp;mime.outputHdl);
+            }
+
+            ACAPI_DisposeElemMemoHdls (&amp;memo);
+        }
+    }
+
+    return err;
+}
+</code></pre>
+    </blockquote>
+
+    <p>See another sample for using MIME type image conversions in the <strong><em>DG_Test</em></strong> example project of the API DevKit.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 5.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Goodies.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_MimePicture.html">API_MimePicture</a><br>
+    <a href="../Structures/API_PictureFormat.html">API_PictureFormat</a><br>
+    <a href="../Functions/APIAny_ConvertPictureID.html">APIAny_ConvertPictureID</a><br>
+    <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on June 16, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

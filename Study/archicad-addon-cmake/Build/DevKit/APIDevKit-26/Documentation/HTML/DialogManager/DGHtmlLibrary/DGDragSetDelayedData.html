@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Lipcsei Peter">
+
+    <title>DGDragSetDelayedData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGDragSetDelayedData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGDragSetDelayedData</h1>
+
+    <p>Sets up a delayed drag and drop data transfer format and the scope.</p>
+    <pre class="syntax">
+    <strong>bool DGDragSetDelayedData</strong> (
+      <strong>DGDragFormat</strong>  <em>format</em>,
+      <strong>short</strong>         <em>scope</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>format</em></dt>
+
+        <dd><strong>Int32</strong> value, usualy used in it's character representation (<tt>'FILE'</tt>, <tt>'TEXT'</tt>). Used to identify the format of the data being drag dropped.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>scope</em></dt>
+
+        <dd>The scope of the drag and drop operation. Outside of the given scope this data is explicitly rejected. The scope can take the following values: <tt>DG_DRAG_SCOPE_ITEM</tt>, <tt>DG_DRAG_SCOPE_DIALOG</tt>, <tt>DG_DRAG_SCOPE_MODULE</tt>, <tt>DG_DRAG_SCOPE_APP</tt>, <tt>DG_DRAG_SCOPE_SYSTEM</tt>.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p><tt>true</tt> if the delayed data format was successfully set, <tt>false</tt> otherwise.</p>
+
+    <h4>Remarks</h4>
+
+    <p>There is the possibility to set up user-defined data blocks for a drag and drop operation with <a href="DGDragSetData.html">DGDragSetData</a> function. A data block has a format, which is an <strong>Int32</strong> value, and describes the data-format of this block. This format must be unique among the added data blocks' formats, so you cannot set up a data block with an already existing format. Usually this block contains the dragged items, entities (or references to them) in the specified format.</p>
+
+    <p>The setting of data block can be delayed, if necessary: the <b>DGDragSetDelayedData</b> function should be called, instead of <b>DGDragSetData</b>, and after <a href="DG_DRAG_SETDELAYEDDATA.html"><tt>DG_DRAG_SETDELAYEDDATA</tt></a> submessage comes, the data block must be set with <b>DGDragSetData</b>.</p>
+
+    <p>Call this function to set a drag and drop data which is allocated only when it is absolutely neccessary. This can be useful when large amount of data is transferred in a drag and drop operation.</p>
+
+    <p>When the target calls the <a href="DGDragGetData.html">DGDragGetData</a> with a delayed drag format, the drag manager sends a <b><tt>DG_DRAG_SETDELAYEDDATA</tt></b> message to the drag source, that must set the drag and drop data with the <a href="DGDragSetData.html">DGDragSetData</a> function.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DG_MSG_DRAGDROP.html"><tt>DG_MSG_DRAGDROP</tt></a>, <a href="DGDragGetData.html">DGDragGetData</a>, <a href="DGDragHasFormat.html">DGDragHasFormat</a><br>
+    <a href="BuiltInDragFormats.html">BuiltInDragFormats</a>, <a href="DGDragSetData.html">DGDragSetData</a>, <a href="DGDragModifyBaseFormat.html">DGDragModifyBaseFormat</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 4, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Dialog Boxes</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/UIGuideLines/DialogBoxes.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Dialog Boxes</h1>
+
+    <p>&nbsp;</p>
+
+    <p>Dialog boxes are used in</p>
+
+    <ul>
+        <li><a href="#ModalDialogs">Modal Dialogs</a></li>
+
+        <li><a href="#ModelessDialogs">Modeless Dialogs</a></li>
+
+        <li><a href="#PaletteDialogs">Palette Dialogs</a></li>
+
+        <li><a href="#TabPages">Tab Pages</a></li>
+
+        <li><a href="#AlertBoxes">Alert Boxes</a></li>
+    </ul>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="ModalDialogs" id="ModalDialogs">Modal Dialogs</a></h3>
+
+    <p>A modal dialog box breaks the editing process of the document and forces the user work in the context of a dialog box. While the modal dialog is open, the user is expected to change settings of either document elements or the of the state of the application.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Contents</h4>
+
+    <p>Modal dialog boxes contain a variety of interface components.</p>
+
+    <p>Two buttons are always needed. Cancel should close the dialog box with zero effect on the document or the application, returning the the previous state. OK should accept all changes and close the modal dialog box. Typically, OK should be the default button.</p>
+
+    <p>The typical dialog layout follows an information flow from the top left to the bottom right.</p>
+
+    <p>The OK button should be at the bottom right, and the Cancel button next to it on its left side.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Overlapping dialog boxes vs. Tab Pages in a single dialog box</h4>
+
+    <p>In many cases, a modal dialog lets users open an additional modal dialog box from within.</p>
+
+    <p>In general, this is not recommended. It leads to a cluttered screen. However, you may do so to hide special settings of secondary importance and there are many cases in Archicad for this behaviour.</p>
+
+    <p>Make sure that the any subdialogs are opened in a default position so that the subdialog is neither fully within the mother dialog box nor fully outside of it. This makes the logical relation of the two very apparent. Plus, the subdialog must overlap the OK and Cancel buttons of the mother dialog. Otherwise, the user would see two OK and Cancel buttons at a time on the screen, which is a very ambiguous situation.</p>
+
+    <p>We recommend that you consider using tabbed dialog boxes instead of opening subdialogs. Tab pages with appropriate tab titles and proper structuring will work fine in most situations which otherwise would require subdialogs.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Resizing of dialog boxes</h4>
+
+    <p>If a dialog box has items which display a changing number of user defined elements, like a scrolling list of layers, the dialog must be resizable. The growth of the dialog box should be applied to these items.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Selection indicator</h4>
+
+    <p>Dialog boxes which apply changes on selected elements should have an indicator that informs users about the number of all selected elements and the number of elements within the selection which can actually be changed through this dialog box.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="ModelessDialogs" id="ModelessDialogs">Modeless Dialogs</a></h3>
+
+    <p>Modeless dialogs let users interact with the documents while being open. API-based Add-Ons CANNOT handle modeless dialog boxes. Use Palettes instead.</p>
+
+    <p>This service of the Dialog Manager is only accessible for separate applications developed with it.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="PaletteDialogs" id="PaletteDialogs">Palette Dialogs</a></h3>
+
+    <p>Palettes are modeless types of dialogs which can be open for an extended period of time. They do not break user interaction with the documents.</p>
+
+    <p>They can do good service when similar changes are made to or information is displayed about various groups of selected elements.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Accepting changes</h4>
+
+    <p>Palettes can work in two ways. First, any setting you change within the palette can be immediately effective. An example of this is the Info Box in Archicad. Select a wall, change the fill, and the new fill is immediately visible in the document window. (In case of text fields, like a wall elevation value, Archicad waits until you continue working in the document window or press the Enter key, but this is perceived by users as "instant" change.)</p>
+
+    <p>Second, a palette can provide an Apply button to execute any changes you have made. An example of this is the Camera Settings palette of Archicad. In this case, changes you made in the dialog box are lost if you proceed without clicking Apply. This is a safer method against accidental changes, though the need for this extra step can be annoying for very conscious users who have a low error rate anyway.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Palette size</h4>
+
+    <p>Keep in mind that as palettes give the user access to the document windows, they should not be as large as to hide lots of useful document content.</p>
+
+    <p>If a palette is to stay always on-screen, like a specialized toolbox, make it narrow or flat, so that it fits the standard Archicad palettes well and can be positioned alongside the document windows.</p>
+
+    <p>Palettes which are user for a task then closed, are not so sensitive to shape. The Spell Checker palette of Archicad, for example, is not narrow or flat, but leaves enough space for viewing the document while being open.</p>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="TabPages" id="TabPages">Tab Pages</a></h3>
+
+    <p>&nbsp;</p>
+    <hr>
+
+    <h3><a name="AlertBoxes" id="AlertBoxes">Alert Boxes</a></h3>
+
+    <p>Alerts are a special case of modal dialog boxes which are used whenever an application needs the user's attention and response.</p>
+
+    <p>Alerts are a bad necessity, as they break the normal flow of user actions, and most likely, their flow of ideas. Users tend to spend a minimal amount of time reading alerts, so straightforward and consistent wording is essential.</p>
+
+    <p>Make sure that alerts do not ask indirect or ambiguous questions.</p>
+
+    <p>Even though alert may be annoying sometimes, it is always better to inform the user about problematic situations than not. With good phrasing, they educate users how to avoid the problem the next time.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>When no alert is needed</h4>
+
+    <p>Keep in mind that alerts are not welcome by users. In case of very "light" problems use a simple beep, especially if the user has other clues of the reason of the problem.</p>
+
+    <p>For example, a command that modifies selected elements can find elements which are locked (either by layer or individually). These elements are marked by gray selection dots anyway, indicating that they are ineditable. So, let the command change just the editable ones with no sign of error.</p>
+
+    <p>In the above example, if all selected elements are locked, it is fine just to use the error sound without opening an alert.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Types of alert boxes</h4>
+
+    <p><b>Note/Information</b></p>
+
+    <blockquote>
+        <p>This is the lowest level of alerts. It displays non-threatening information. Typically has a single OK button to acknowledge the information.</p>
+    </blockquote>
+
+    <p><b>Caution/Warning</b></p>
+
+    <blockquote>
+        <p>This alert requires a user decision. This can be either to cancel an action or continue, or choose from various ways of going on. It typically has two or three buttons.</p>
+
+        <p>A Cancel button is required to close the alert with no change or loss of data.</p>
+    </blockquote>
+
+    <p><b>Stop/Error</b></p>
+
+    <blockquote>
+        <p>Use this alert to tell the user that an action could not be completed.</p>
+
+        <p>Use wording that makes clear what went wrong, why, and what to do next to avoid this happening again.</p>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Do It-Cancel or Yes-No?</h4>
+
+    <p>Though a question with Yes and No buttons may seem to be a good universal solution, it is actually not. It requires very careful reading, which users tend to skip, and gives no clue which button does what.</p>
+
+    <p>We recommend that the button used to actually complete the action is phrased as a verb. Use the same verb as you used in the question. So, just reading the text of a single button will give the user a clue what would happen if clicked.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Content</h4>
+
+    <p><b>Texts</b></p>
+
+    <blockquote>
+        <p>An alert has up to two text fields to inform the user about the situation, and up to three buttons to choose from various resolutions.</p>
+
+        <p>Use the Large Text field for a short statement or simple question. This text alone should give sufficient info for the experienced user to be fully aware of the problem.</p>
+
+        <p>Use the Small Text field to provide further explanation of the context or to give advice for using the different buttons.</p>
+    </blockquote>
+
+    <p><b>Buttons</b></p>
+
+    <blockquote>
+        <p>Button 1 is on the right. This is the default button that is operated by pressing Enter on the keyboard.</p>
+
+        <p>If it has no text, it will be not displayed and Button 2 will take its place. In this case, the alert will have no default button.</p>
+
+        <p>This might be useful in very dangerous situations when you want to avoid even the chance to close the alert with an accidental hit of the Enter key.</p>
+
+        <p>Use Button 2 as the Cancel button to close the alert and return to the previous state of the document.</p>
+
+        <p>Use Button 3 to give an optional third way to close the alert.</p>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Undoability</h4>
+
+    <p>As users have a tendency to close alerts without too much thinking, avoid making changes which are not undoable. Then, even if choosing the wrong way, users can have a remedy.</p>
+
+    <p>If an alert leads to changes which are not undoable, use very explicit phrasing like "This action is not undoable."</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Special cases of alert messages</h4>
+
+    <p>The alert box types work fine in most cases. If used, all layouting etc. will be done by the API automatically. If for any reason an Add-On needs a complex error message with more than three buttons or additional dialog items like a pop-up menu, create a modal dialog instead.</p>
+
+    <p>Remember that for the user, it will still be an alert by function, so the above guidelines should be applied. In this case the Add-On developer is responsible for making the dialog box look and feel similar to the standard alert boxes.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 8, 2001<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

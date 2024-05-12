@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_HatchType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_HatchType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_HatchType</h1>
+
+    <p>Represents a hatch element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>            <em>head</em>;
+        <strong><a href="API_ExtendedPenType.html">API_ExtendedPenType</a></strong>      <em>contPen</em>;
+        <strong><a href="API_HatchSubType.html">API_HatchSubType</a></strong>         <em>hatchType</em>;
+        <strong>UInt32</strong>                   <em>hatchFlags</em>;
+        <strong><a href="API_ExtendedPenType.html">API_ExtendedPenType</a></strong>      <em>fillPen</em>;
+        <strong>short</strong>                    <em>filler_0</em>;
+        <strong>short</strong>                    <em>fillBGPen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>       <em>fillInd</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>       <em>buildingMaterial</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>       <em>ltypeInd</em>;
+        <strong>char</strong>                     <em>roomSpecial</em>;
+        <strong>char</strong>                     <em>filler_1[4]</em>;
+        <strong>bool</strong>                     <em>showArea</em>;
+        <strong>short</strong>                    <em>determination</em>;
+        <strong>Int32</strong>                    <em>filler_2[2]</em>;
+        <strong>char</strong>                     <em>filler_3[16]</em>;
+        <strong>double</strong>                   <em>penWeight</em>;
+        <strong>Int32</strong>                    <em>filler_3[2]</em>;
+        <strong><a href="API_NoteType.html">API_NoteType</a></strong>             <em>note</em>;
+        <strong><a href="API_Polygon.html">API_Polygon</a></strong>              <em>poly</em>;
+        <strong>bool</strong>                     <em>filler_5[8]</em>;
+        <strong>Int32</strong>                    <em>filler_6[10]</em>;
+        <strong><a href="API_HatchOrientation.html">API_HatchOrientation</a></strong>     <em>hatchOrientation</em>;
+        <strong>bool</strong>                     <em>filler_7</em>;
+        <strong>char</strong>                     <em>filler_8[3]</em>;
+        <strong>Int32</strong>                    <em>filler_9[5]</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>             <em>backgroundRGB</em>;
+        <strong>bool</strong>                     <em>filler_10</em>;
+        <strong>char</strong>                     <em>filler_11[3]</em>;
+        <strong>Int32</strong>                    <em>filler_12[5]</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>             <em>foregroundRGB</em>;
+    <strong>}</strong> <em>API_HatchType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>contPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="Changed in API 20" width="19" height="12"></dt>
+
+        <dd>Pen attribute index of the hatch contour (0 if contour is switched off).</dd>
+
+        <dt><b>hatchType</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Subtype of the hatch.</dd>
+
+        <dt><b>hatchFlags</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Flags to modify hatch display. See <a href="API_HatchFlags.html">API_HatchFlags</a> for possible values.</dd>
+
+        <dt><b>fillPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="Changed in API 20" width="19" height="12"></dt>
+
+        <dd>Pen attribute index of the hatch fill.</dd>
+
+        <dt><b>fillBGPen</b></dt>
+
+        <dd>Pen attribute index of hatch fill background.</dd>
+
+        <dt><b>fillInd</b></dt>
+
+        <dd>Fill attribute index of the hatch.<br>
+        Used only is case of <a href="API_HatchSubType.html">API_FillHatch</a>.</dd>
+
+        <dt><b>buildingMaterial</b></dt>
+
+        <dd>Building Material attribute index of the hatch.<br>
+        Used only is case of <a href="API_HatchSubType.html">API_BuildingMaterialHatch</a>.</dd>
+
+        <dt><b>ltypeInd</b></dt>
+
+        <dd>Line type attribute index.</dd>
+
+        <dt><b>roomSpecial</b></dt>
+
+        <dd>Special area percent in a room (negative means OFF).</dd>
+
+        <dt><b>showArea</b></dt>
+
+        <dd><code>True</code> if area text is shown (parameters in note).</dd>
+
+        <dt><b>determination&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></b></dt>
+
+        <dd>Fill category:</dd>
+
+        <dd>
+            <table>
+                <tr>
+                    <td>
+                        <p><code>APIHatch_DraftingFills</code></p>
+                    </td>
+
+                    <td>
+                        <p>Default fill category. Drafting fills adopt the Drafting Fill settings chosen in Display Options.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIHatch_CoverFills</code></p>
+                    </td>
+
+                    <td>
+                        <p>The Cover Fill category is assigned to the fills of Slabs, Roofs, Meshes and Zones on the floor plan. Cover fills adopt the Element Cover Fill settings chosen in Display Options.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIHatch_CutFills</code></p>
+                    </td>
+
+                    <td>
+                        <p>The Cut Fill category is assigned to the fills of Cut Elements. Cut fills adopt the Cut Fill settings chosen in Display Options.</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>Used only is case of <a href="API_HatchSubType.html">API_FillHatch</a>.</dd>
+
+        <dt><b>penWeight</b></dt>
+
+        <dd>Pen weight of the contour (overrides the weight defined in <code>contPen</code>).</dd>
+
+        <dt><b>note</b></dt>
+
+        <dd>Parameters of the area text.</dd>
+
+        <dt><b>poly</b></dt>
+
+        <dd>Polygon of the hatch element.</dd>
+
+        <dt><b>hatchOrientation</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Orientation and distortion parameters of the cover fill.</dd>
+
+        <dt><b>backgroundRGB</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>RGB color for background painting.</dd>
+
+        <dt><b>foregroundRGB</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>RGB color for foreground painting.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p><img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12">&nbsp; In Archicad 10 the <code>polyFill</code> field is removed from the structure, the <code>global</code>, <code>refPos</code> and <code>refAngle</code> parameters are placed into a separate structure (<a href="API_HatchOrientation.html">API_HatchOrientation</a>). Along this line, in Archicad 13 the gradient fill parameters were also moved to the same structure.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the <code>hasForegroundRGB</code> and <code>hasBackgroundRGB</code> parameters are placed into a separate structure (<a href="API_HatchFlags.html">API_HatchFlags</a>).</p>
+
+    <p><img border="0" src="../../APIImageLibrary/20.png" alt="Changed in API 20" width="19" height="12">&nbsp; In Archicad 20 the <code>contPen</code> and <code>fillPen</code> parameters are placed into a separate structure (<a href="API_ExtendedPenType.html">API_ExtendedPenType</a>).</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_HatchSubType.html">API_HatchSubType</a>, <a href="API_HatchFlags.html">API_HatchFlags</a>, <a href="API_ExtendedPenType.html">API_ExtendedPenType</a>,<br>
+    <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_Element.html">API_Element</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="API_NoteType.html">API_NoteType</a>, <a href="API_Coord.html">API_Coord</a>, <a href="API_Polygon.html">API_Polygon</a>, <a href="API_HatchOrientation.html">API_HatchOrientation</a><br>
+    <a href="API_FilltypeType.html">API_FilltypeType</a>, <a href="API_RGBColor.html">API_RGBColor</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 13, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

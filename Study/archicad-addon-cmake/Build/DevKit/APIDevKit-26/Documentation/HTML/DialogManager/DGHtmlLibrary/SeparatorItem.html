@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Separator Item</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/SeparatorItem.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Separator Item</h1>
+
+    <p>A separator item is a line that separates controls from each other or a frame that groups controls together in a dialog or tab page. There are three types of separator items: horizontal separator line, vertical separator line and separator rectangle.</p>
+
+    <p>If you want to group controls and label the group with a text, use a <a href="GroupBox.html">group box</a> instead of the combination of a separator rectangle and a static text.</p>
+
+    <p>Separator items are the simplest controls in DG. They can not have the input focus and do not accept any user input.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/SeparatorLines_Mac.png" alt="SeparatorLines_Mac">&nbsp;&nbsp;&nbsp;&nbsp;<img src="../DGImageLibrary/SeparatorLines_Win.png" alt="SeparatorLines_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_SEPARATOR</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SP_HORIZONTAL</tt></td>
+
+                    <td>Horizontal separator line.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SP_VERTICAL</tt></td>
+
+                    <td>Vertical separator line.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_SP_RECT</tt></td>
+
+                    <td>Separator rectangle.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    Separator    <i>x  y  dx  dy</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the separator item, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels.</p>
+
+    <h4>Remarks</h4>
+
+    <p>When a separator item is created from GRC or from program code, DG determines its type from the specified horizontal and vertical sizes. If both sizes are greater than 3 pixels DG creates a separator rectangle. If only the horizontal or the vertical size is greater than 3 pixels DG creates a horizontal or a vertical separator line, respectively.</p>
+
+    <p><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></p>
+
+    <dl>
+        <dd>If a lot of controls have to be moved by the same horizontal and vertical pixel values, it is advised to group them by a separator rectangle. If the controls are grouped this way they are moved more smoothly, especially when the full drag mode is set.</dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="GroupBox.html">Group Box</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

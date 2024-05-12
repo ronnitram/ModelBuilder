@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_LibPart_ShapePrims</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_LibPart_ShapePrims.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_LibPart_ShapePrims</h1>
+
+    <p>Virtually draws the shape of a registered Library Part.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_LibPart_ShapePrims</strong> (
+        <strong>Int32</strong>               <em>libInd</em>,
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>     <em>instanceElemGuid</em>,
+        <strong>short</strong>               <em>gdlContext</em>,
+        <strong><a href="ShapePrimsProc.html">ShapePrimsProc</a>*</strong>     <em>shapePrimsProc</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>libInd</em></dt>
+
+        <dd>[in] Index of the library part</dd>
+
+        <dt><em>instanceElemGuid</em>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>[in] Instance element GUID; if <tt>APINULLGuid</tt>, then the drawing parameters will be the default parameters of the library part (with no transformation, etc.), otherwise they are taken from the instance of the library part defined by this GUID.</dd>
+
+        <dt><em>gdlContext</em></dt>
+
+        <dd>
+            [in] The environment of the GDL object (sets <code>GLOB_CONTEXT</code> GDL Global parameter).
+
+            <div>
+                <table rules="all" border="1" frame="box">
+                    <colgroup>
+                        <col>
+                        <col>
+                    </colgroup>
+
+                    <tr valign="top">
+                        <td valign="top">
+                            <div align="center">
+                                Context<br>
+                            </div>
+                        </td>
+
+                        <td valign="top">
+                            <div align="center">
+                                Value<br>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <td valign="top">
+                            <div align="center">
+                                Default (depends on the current database)<br>
+                            </div>
+                        </td>
+
+                        <td valign="top">
+                            <div align="left">
+                                APIGdl_Default<br>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <td valign="top">
+                            <div align="center">
+                                Library Part Editing Dialog (all windows within it)<br>
+                            </div>
+                        </td>
+
+                        <td valign="top">
+                            <div align="left">
+                                APIGdl_FromEdit<br>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <td valign="top">
+                            <div align="center">
+                                Floor Plan Window<br>
+                            </div>
+                        </td>
+
+                        <td valign="top">
+                            <div align="left">
+                                APIGdl_FromFloor<br>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <td valign="top">
+                            <div align="center">
+                                3D Window<br>
+                            </div>
+                        </td>
+
+                        <td valign="top">
+                            <div align="left">
+                                APIGdl_From3DWin<br>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <td valign="top">
+                            <div align="center">
+                                Section/Elevation Windows<br>
+                            </div>
+                        </td>
+
+                        <td valign="top">
+                            <div align="left">
+                                APIGdl_FromSide<br>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <td valign="top">
+                            <div align="center">
+                                Library Part Settings Dialog<br>
+                            </div>
+                        </td>
+
+                        <td valign="top">
+                            <div align="left">
+                                APIGdl_FromDial<br>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <td valign="top">
+                            <div align="center">
+                                List generated about Library Part<br>
+                            </div>
+                        </td>
+
+                        <td valign="top">
+                            <div align="left">
+                                APIGdl_FromList<br>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <td valign="top">
+                            <div align="center">
+                                Detail Windows<br>
+                            </div>
+                        </td>
+
+                        <td valign="top">
+                            <div align="left">
+                                APIGdl_FromDetail<br>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <td valign="top">
+                            <div align="center">
+                                Layout Windows<br>
+                            </div>
+                        </td>
+
+                        <td valign="top">
+                            <div align="left">
+                                APIGdl_FromLayout<br>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                <br>
+            </div>
+        </dd>
+
+        <dt><em>shapePrimsProc</em></dt>
+
+        <dd>[in] Callback function for catching the drawing primitives of the Libpart Part shape.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>shapePrimsProc</code> is <code>nullptr</code>, or invalid <code>libInd</code> parameter has been passed</dd>
+
+        <dt><code>APIERR_BADINDEX</code></dt>
+
+        <dd>Invalid <code>instanceElemGuid</code> for the element type that <code>libInd</code> implies</dd>
+
+        <dt><code>APIERR_NESTING</code></dt>
+
+        <dd>The function was called from a <a href="ShapePrimsProc.html">ShapePrimsProc</a>; recursion is not allowed</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to draw the shape of the Libpart Part; as it would appear on the floor plan.</p>
+
+    <p>The key point is the parameter values to use, since it absolutely determines how a Library Part looks like when it is placed. That's why the <code>instanceElemGuid</code> parameter should be passed; if it is zero the default parameter set, otherwise the parameter set of an already placed instance will be used.</p>
+
+    <p>The shape will be passed to the callback function with the same drawing primitives would be drawn onto the display. Refer to he <a href="ShapePrimsProc.html">ShapePrimsProc</a> to get further details.</p>
+
+    <p>These drawing procedures cannot be nested. From the callback function it is not allowed to call the <code>ACAPI_LibPart_ShapePrims</code> function again.</p>
+
+    <p>The function works only on Library Parts can be placed onto the floor plan. Applicable type of Library Parts are:</p>
+
+    <ul class="syntax">
+        <li><a href="../Structures/API_LibTypeID.html">APILib_WindowID</a></li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_DoorID</a></li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_ObjectID</a></li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_LampID</a></li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_RoomID</a> (zone stamp)</li>
+
+        <li><a href="../Structures/API_LibTypeID.html">APILib_LabelID</a> (symbol label)</li>
+    </ul>
+
+    <p><img border="0" src="../../APIImageLibrary/52.png" alt="5.2" width="19" height="12">&nbsp; In order to get the hotspots of a library part or an object instance use the <a href="ACAPI_LibPart_GetHotspots.html">ACAPI_LibPart_GetHotspots</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_LibTypeID.html">API_LibTypeID</a><br>
+    <a href="ShapePrimsProc.html">ShapePrimsProc</a><br>
+    <a href="ACAPI_Element_ShapePrims.html">ACAPI_Element_ShapePrims</a><br>
+    <a href="ACAPI_LibPart_GetHotspots.html">ACAPI_LibPart_GetHotspots</a><br>
+    <a href="../Level3/Library_Part_Manager_id.html">LibPart Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 11, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

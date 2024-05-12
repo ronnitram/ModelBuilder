@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APILockChangeHandlerProc</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APILockChangeHandlerProc.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APILockChangeHandlerProc</h1>
+
+    <p>User supplied callback procedure for handling reservation changes of lockable objects.</p>
+    <pre class="syntax">
+    <strong>typedef GSErrCode  APILockChangeHandlerProc</strong> (
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>     <em>objectId</em>,
+        <strong>short</strong>               <em>ownerId</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>objectId</em></dt>
+
+        <dd>[in] Identifies the lockable object set that has been reserved or released. The available identifiers are listed at the description of <a href="../Level3/Teamwork_Control_id.html#Lockable_Object_Sets">lockable object sets</a>.</dd>
+
+        <dt><em>ownerId</em></dt>
+
+        <dd>[in] The identifier of the locker team member who obtained the reservation, or 0 if the lockable object got released.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This callback function should be implemented and set with <a href="ACAPI_Notify_CatchLockableReservationChange.html">ACAPI_Notify_CatchLockableReservationChange</a> in order to receive notifications of reservation changes of lockable objects.</p>
+
+    <p>You can retrieve information of the members with the <a href="APIEnv_ProjectSharingID.html">APIEnv_ProjectSharingID</a> environment function. Note that the handler receives reservation changes effected by the current team member as well.</p>
+
+    <p>In the reservation change handler try to avoid calling functions that would modify the database.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+// -----------------------------------------------------------------------------
+//
+// -----------------------------------------------------------------------------
+GSErrCode __ACENV_CALL  LockableReservationChangeHandler (const API_Guid&amp; objectId, short ownerId)
+{
+    GS::UniString reportString;
+
+    if (objectId == ACAPI_TeamworkControl_FindLockableObjectSet ("FillTypes"))
+        reportString.Append ("Fill Types");
+    else 
+        reportString.Append ("Layer Settings");
+
+    if (ownerId &gt; 0)
+        reportString.Append (" got reserved");
+    else 
+        reportString.Append (" got released");
+
+    ACAPI_WriteReport (reportString.ToCStr ().Get (), false);
+
+    return NoError;
+}
+
+
+// -----------------------------------------------------------------------------
+//
+// -----------------------------------------------------------------------------
+void    CatchReservationChangesOfFillTypesAndLayerSettings (bool enableNotifications)
+{
+    if (enableNotifications) {
+        GS::HashSet&lt;API_Guid&gt; filterLockablesInterestedOnly;
+        filterLockablesInterestedOnly.Add (ACAPI_TeamworkControl_FindLockableObjectSet ("FillTypes"));
+        filterLockablesInterestedOnly.Add (ACAPI_TeamworkControl_FindLockableObjectSet ("LayerSettingsDialog"));
+        ACAPI_Notify_CatchLockableReservationChange (ElementReservationChangeHandler, &amp;filterLockablesInterestedOnly);
+    } else {
+        ACAPI_Notify_CatchLockableReservationChange (nullptr);
+    }
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 15 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Callback.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_Notify_CatchLockableReservationChange.html">ACAPI_Notify_CatchLockableReservationChange</a><br>
+    <a href="../Level3/Teamwork_Control_id.html">Teamwork Control</a><br>
+    <a href="../Level3/notification_manager_id.html">Notification Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 27, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Favorite_Import</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Favorite_Import.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Favorite_Import&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"></h1>
+
+    <p>Imports the contents of a Favorites file or folder into the plan.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Favorite_Import</strong> (
+        <strong>const <a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a>&amp;</strong>                         <em>location</em>,
+        <strong>const <a href="#API_FavoriteFolderHierarchy">API_FavoriteFolderHierarchy</a>&amp;</strong>          <em>targetFolder</em>,
+        <strong>bool</strong>                                        <em>importFolders</em>,
+        <strong><a href="#API_FavoriteNameConflictResolutionPolicy">API_FavoriteNameConflictResolutionPolicy</a></strong>    <em>conflictPolicy</em>,
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>*</strong>                              <em>firstConflictName = nullptr</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+    <dl>
+        <dt><em>location</em></dt>
+        <dd>[in] The path to the Favorite file or folder to import.</dd>
+
+        <dt><em>targetFolder</em></dt>
+        <dd>[in] The folder to import the Favorites to.</dd>
+
+        <dt><em>importFolders</em></dt>
+        <dd>[in] Specifies if the imported folders should be kept (all Favorites will be imported into the <em>targetFolder</em> otherwise).</dd>
+
+        <dt><em>conflictPolicy</em></dt>
+        <dd>[in] Specifies what to do when an imported Favorite already exists in the plan.
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th>
+                        <p><b><code><a name="API_FavoriteNameConflictResolutionPolicy" id="API_FavoriteNameConflictResolutionPolicy">API_FavoriteNameConflictResolutionPolicy</a></code></b></p>
+                    </th>
+
+                    <th>
+                        <p><b>Meaning</b></p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_FavoriteError</code></p>
+                    </td>
+
+                    <td>
+                        <p>If one of the imported Favorites already exists in the plan, return with <code>APIERR_NAMEALREADYUSED</code> and set the <em>firstConflictName</em> parameter to the conflicting name</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_FavoriteSkip</code></p>
+                    </td>
+
+                    <td>
+                        <p>If an imported Favorite already exists in the plan, keep the old one in the plan, and ignore the imported one.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_FavoriteOverwrite</code></p>
+                    </td>
+
+                    <td>
+                        <p>If an imported Favorite already exists in the plan, keep the imported one and delete the old one in the plan.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_FavoriteAppend</code></p>
+                    </td>
+
+                    <td>
+                        <p>If an imported Favorite already exists in the plan, generate a new name for the imported one and keep both Favorites.</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><em>firstConflictName</em></dt>
+        <dd>[out] The name of the first Favorite that was imported and already existed in the plan. Only filled if the <em>conflictPolicy</em> parameter is <code>API_FavoriteError</code>.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+    <dl>
+        <dt><code>NoError</code></dt>
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_NOACCESSRIGHT</code></dt>
+        <dd>The Favorites list is not editable in a teamwork project.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+        <dd>The <em>location</em> isn't a valid Favorite file or folder path.</dd>
+
+        <dt><code>APIERR_NAMEALREADYUSED</code></dt>
+        <dd>The <em>conflictPolicy</em> parameter is <code>API_FavoriteError</code>, and there was a name conflict.</dd>
+    </dl>
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <a name="API_FavoriteFolderHierarchy" id="API_FavoriteFolderHierarchy"></a><code>API_FavoriteFolderHierarchy</code></a> type is a typedef of <a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&gt;.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    For detailed example, please see the Favorite_Test example Add-On.
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+    <dl>
+        <dd><b>Version:</b> API 20 or later</dd>
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p>
+        <a href="ACAPI_Favorite_Create.html">ACAPI_Favorite_Create</a>,<br>
+        <a href="ACAPI_Favorite_Delete.html">ACAPI_Favorite_Delete</a>,<br>
+        <a href="ACAPI_Favorite_Export.html">ACAPI_Favorite_Export</a>,<br>
+        <a href="ACAPI_Favorite_Get.html">ACAPI_Favorite_Get</a>,<br>
+        <a href="ACAPI_Favorite_GetNum.html">ACAPI_Favorite_GetNum</a>,<br>
+        <a href="ACAPI_Favorite_Read.html">ACAPI_Favorite_Read</a>,<br>
+        <br>
+        <a href="API_Functions.html">API Functions</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

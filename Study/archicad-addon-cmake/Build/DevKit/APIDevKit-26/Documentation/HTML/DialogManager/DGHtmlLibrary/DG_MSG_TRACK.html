@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DG_MSG_TRACK</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_TRACK.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_TRACK</h1>
+
+    <p>The position of the scroll box of a <a href="ScrollBar.html">scroll bar</a>, the position of the slider of a <a href="SliderBar.html">slider bar</a> or the value of a <a href="SpinControl.html">spin control</a> or a <a href="UserControl.html">user control</a> is changed during tracking.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150"><em>msgData</em></th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_TRACKENTER</tt></td>
+
+                    <td>The user has just begun to track an item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_TRACKING</tt></td>
+
+                    <td>The user is tracking an item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_TRACKEXIT</tt></td>
+
+                    <td>The user has finished to track an item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_LINEUP</tt></td>
+
+                    <td>Only at scroll bar. The user moved the scroll box up with one unit.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_LINELEFT</tt></td>
+
+                    <td>Only at scroll bar. The user moved the scroll box left with one unit.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_LINEDOWN</tt></td>
+
+                    <td>Only at scroll bar. The user moved the scroll box down with one unit.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_LINERIGHT</tt></td>
+
+                    <td>Only at scroll bar. The user moved the scroll box right with one unit.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_PAGEUP</tt></td>
+
+                    <td>Only at scroll bar. The user moved the scroll box up with one page.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_PAGELEFT</tt></td>
+
+                    <td>Only at scroll bar. The user moved the scroll box left with one page.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_PAGEDOWN</tt></td>
+
+                    <td>Only at scroll bar. The user moved the scroll box down with one page.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_PAGERIGHT</tt></td>
+
+                    <td>Only at scroll bar. The user moved the scroll box right with one page.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_TOP</tt></td>
+
+                    <td>Only at scroll bar. The user moved the scroll box to the top.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_LEFT</tt></td>
+
+                    <td>Only at scroll bar. The user moved the scroll box to the left side.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_BOTTOM</tt></td>
+
+                    <td>Only at scroll bar. The user moved the scroll box to the bottom.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_RIGHT</tt></td>
+
+                    <td>Only at scroll bar. The user moved the scroll box to the right side.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_THUMBTRACK</tt></td>
+
+                    <td>Only at scroll bar. The user is dragging the scroll box.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Not used, should be set to zero.</p>
+
+    <h4>Remarks</h4>The following table summarizes the user actions that result in sending <tt>DG_MSG_TRACK</tt> messages to the <a href="CallbackFunctions.html">dialog callback function</a>:
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Dialog item type</th>
+
+                    <th align="left">User actions</th>
+                </tr>
+
+                <tr valign="top">
+                    <td>Scroll Bar</td>
+
+                    <td>Clicking and tracking the scroll box of the scroll bar.<br>
+                    Clicking and holding down the (left) mouse button on one of the arrows or in the gray area of the control.<br>
+                    Pressing and holding down one of the direction keys when the scroll bar has the keyboard focus.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Slider Bar</td>
+
+                    <td>Clicking and tracking the slider of the slider bar.<br>
+                    Clicking and holding down the (left) mouse button in the control's bar area.<br>
+                    Pressing and holding down one of the direction keys when the slider bar has the keyboard focus.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Spin Control</td>
+
+                    <td>Clicking and holding down the (left) mouse button on one of the arrows.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>User Control</td>
+
+                    <td>Clicking and tracking the client area of the control.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Receiving <tt>DG_MSG_TRACK</tt> messages allows the application to modify other controls during tracking. When handling <tt>DG_MSG_TRACK</tt> messages call <a href="DGGetItemValLong.html">DGGetItemValLong</a> to retrieve the current value of the scroll bar, slider bar, spin control or user control.</p>
+
+    <p>At scroll bars, when <tt>DG_SB_NOAUTOSCROLL</tt> is set, the application (dialog callback function) should position the scroll box according to the sub-message, because DG does not do this automatically.</p>This table tells, which submessage will be delivered for an event.
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Dialog item type</th>
+
+                    <th align="left">Beginning tracking</th>
+
+                    <th align="left" width="250">During tracking</th>
+
+                    <th align="left">Finishing tracking</th>
+                </tr>
+
+                <tr valign="top">
+                    <td>Scroll Bar</td>
+
+                    <td valign="middle"><tt>DG_TSM_TRACKENTER</tt></td>
+
+                    <td valign="middle">If <tt>DG_SB_NOAUTOSCROLL</tt> is set, event-specific sub-message (<tt>DG_TSM_LINEUP</tt>, <tt>DG_TSM_LINELEFT</tt>, etc.), otherwise <tt>DG_TSM_TRACKING</tt>.</td>
+
+                    <td valign="middle"><tt>DG_TSM_TRACKEXIT</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Slider Bar,<br>
+                    Spin Control,<br>
+                    User Control</td>
+
+                    <td valign="middle"><tt>DG_TSM_TRACKENTER</tt></td>
+
+                    <td valign="middle"><tt>DG_TSM_TRACKING</tt></td>
+
+                    <td valign="middle"><tt>DG_TSM_TRACKEXIT</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>DG sends <tt>DG_MSG_TRACK</tt> messages to the dialog callback function until the user releases the (left) mouse button or the pressed key. As soon as tracking is finished the callback function receives a <tt>DG_MSG_CHANGE</tt> message; the message data parameter is the scroll box position, the slider position or the control value before tracking, respectively. Note that every <tt>DG_MSG_CHANGE</tt> message is preceded by at least one <tt>DG_MSG_TRACK</tt> message.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="ScrollBar.html">Scroll Bar</a>, <a href="SliderBar.html">Slider Bar</a>, <a href="SpinControl.html">Spin Control</a>, <a href="UserControl.html">User Control</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGGetItemValLong.html">DGGetItemValLong</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 4, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

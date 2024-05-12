@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_ChangeExt</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_ChangeExt.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_ChangeExt</h1>
+
+    <p>Modifies a Window, Door, Section, Elevation, Interior Elevation, ChangeMarker, Detail, Worksheet, or Stair element in the current database.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_ChangeExt</strong> (
+        <strong><a href="../Structures/API_Element.html">API_Element</a>*</strong>             <em>element</em>,
+        <strong>const <a href="../Structures/API_Element.html">API_Element</a>*</strong>       <em>mask</em>,
+        <strong><a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>*</strong>         <em>memo</em>,
+        <strong>UInt64</strong>                   <em>memoMask</em>,
+        <strong>UInt32</strong>                   <em>nSubElems</em>,
+        <strong><a href="../Structures/API_SubElement.html">API_SubElement</a>*</strong>     	 <em>subElems</em>,
+        <strong>bool</strong>                     <em>withdel</em>,
+        <strong>Int32</strong>                    <em>subIndex</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>element</em></dt>
+
+        <dd>[in/out] Reference to the element to be modified, filled with the appropriate new parameters</dd>
+
+        <dt><em>mask</em></dt>
+
+        <dd>[in] Optional parameter for masking the relevant fields of <code>element</code></dd>
+
+        <dt><em>memo</em></dt>
+
+        <dd>[in] The memo data to be changed. Optional parameter, can be <code>nullptr</code></dd>
+
+        <dt><em>memoMask</em>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>[in] Specifies the relevant parts of the <code>memo</code> parameter. You can use a special mask value (<code>ACAPI_ELEMENT_CHANGEEXT_ALLSEGMENTS</code>) to change all segment of an interior elevation element.</dd>
+
+        <dt><em>nSubElems</em>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Modified in API 12" width="19" height="12"></dt>
+
+        <dd>[in] The number of subelems (markers) passed (0-3).</dd>
+
+        <dt><em>subElems</em>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Modified in API 12" width="19" height="12"></dt>
+
+        <dd>[in] Contains the markers (default marker, story handle marker, interior elevation common marker) to be modified.</dd>
+
+        <dt><em>withdel</em></dt>
+
+        <dd>[in] Delete the original instance of the element, or keep it and create a new one</dd>
+
+        <dt><em>subIndex</em>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>[in] The index of the section segment to be modified (for interior elevations only). The value is between 0 and the (number of segments - 1).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADDATABASE</code></dt>
+
+        <dd>The current database should be floor plan, section/elevation, detail or worksheet.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed <code>element</code> parameter is <code>nullptr</code>,<br>
+        or the element is grouped and suspend group mode is OFF, or the element type is invalid or not supported by the server application. The <code>elementMarker-&gt;header.type</code> is not <code>API_ObjectID</code>.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>The element reference is invalid (<code>guid</code>). The element type should be <code>API_WindowID</code>, <code>API_DoorID</code>, <code>API_CutPlaneID</code>, <code>API_ElevationID</code>, <code>API_InteriorElevationID</code>, <code>API_ChangeMarkerID</code>, <code>API_DetailID</code>, <code>API_WorksheetID</code>, or <code>API_StairID</code>.</dd>
+
+        <dt><code>APIERR_DELETED</code></dt>
+
+        <dd>The element does not exist in the database.</dd>
+
+        <dt><code>APIERR_NOTMINE</code>,<br>
+        <code>APIERR_LOCKEDLAY</code>,<br>
+        <code>APIERR_HIDDENLAY</code>,<br>
+        <code>APIERR_NOTEDITABLE</code></dt>
+
+        <dd>The referenced <code>element</code> cannot be modified.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is an extension of <a href="ACAPI_Element_Change.html">ACAPI_Element_Change</a> to modify elements with their linked sub-elements.</p>
+
+    <p>With this function not only the setting type parameters of an element can be modified, but geometry data too. Unlike <a href="ACAPI_Element_ChangeParameters.html">ACAPI_Element_ChangeParameters</a> and <a href="ACAPI_Element_Edit.html">ACAPI_Element_Edit</a>, it works only on one element at a time. On return the <code>guid</code> field of the element and elementMarker header is filled in. Element connections and dimension chains are updated automatically.<br>
+    Do not forget to call <a href="ACAPI_DisposeElemMemoHdls.html">ACAPI_DisposeElemMemoHdls</a> to dispose the memo handles when they are not needed any more.</p>
+
+    <p>The following element types are supported:</p>
+
+    <table border="1" cellpadding="5">
+        <tr>
+            <th align="left"><code>element</code></th>
+
+            <th align="left"><code>memo</code></th>
+
+            <th align="left"><code>elementMarker</code></th>
+
+            <th align="left"><code>memoMarker</code></th>
+
+            <th align="left"><code>elementMarker2</code></th>
+
+            <th align="left"><code>memoMarker2</code></th>
+        </tr>
+
+        <tr>
+            <td><a href="../Structures/API_WindowType.html">API_WindowType</a><br>
+            <a href="../Structures/API_WindowType.html">API_DoorType</a></td>
+
+            <td>addpar</td>
+
+            <td>window/door marker object</td>
+
+            <td>marker object parameters</td>
+
+            <td>-</td>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <td><a href="../Structures/API_CutPlaneType.html">API_CutPlaneType</a></td>
+
+            <td>cutplane coordinates</td>
+
+            <td>section marker object on floorplan</td>
+
+            <td>section marker object parameters</td>
+
+            <td>story handle marker object on section</td>
+
+            <td>story handle marker object parameters</td>
+        </tr>
+
+        <tr>
+            <td><a href="../Structures/API_CutPlaneType.html">API_ElevationType</a></td>
+
+            <td>elevation coordinates</td>
+
+            <td>elevation marker object on floorplan</td>
+
+            <td>elevation marker object parameters</td>
+
+            <td>story handle marker object on section</td>
+
+            <td>story handle marker object parameters</td>
+        </tr>
+
+        <tr>
+            <td><a href="../Structures/API_ChangeMarkerType.html">API_ChangeMarkerType</a></td>
+
+            <td>polygon data (optional)</td>
+
+            <td>ChangeMarker marker object</td>
+
+            <td>marker object parameters</td>
+
+            <td>-</td>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <td><a href="../Structures/API_DetailType.html">API_DetailType</a><br>
+            <a href="../Structures/API_DetailType.html">API_WorksheetType</a></td>
+
+            <td>polygon data (optional)</td>
+
+            <td>detail drawing/worksheet marker object</td>
+
+            <td>marker object parameters</td>
+
+            <td>-</td>
+
+            <td>-</td>
+        </tr>
+    </table>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Element.html">API_Element</a>, <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>, <a href="../Structures/API_SubElement.html">API_SubElement</a><br>
+    <a href="ACAPI_Element_Change.html">ACAPI_Element_Change</a>, <a href="ACAPI_Element_ChangeMore.html">ACAPI_Element_ChangeMore</a><br>
+    <a href="ACAPI_Element_ChangeMemo.html">ACAPI_Element_ChangeMemo</a>, <a href="ACAPI_Element_ChangeParameters.html">ACAPI_Element_ChangeParameters</a><br>
+    <a href="ACAPI_Element_Edit.html">ACAPI_Element_Edit</a>, <a href="ACAPI_DisposeElemMemoHdls.html">ACAPI_DisposeElemMemoHdls</a><br>
+    <a href="ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a>, <a href="ACAPI_Element_GetDefaultsExt.html">ACAPI_Element_GetDefaultsExt</a>, <a href="ACAPI_Element_ChangeDefaultsExt.html">ACAPI_Element_ChangeDefaultsExt</a><br>
+    <a href="../Structures/API_WindowType.html">API_WindowType</a>, <a href="../Structures/API_CutPlaneType.html">API_CutPlaneType</a>, <a href="../Structures/API_CutPlaneType.html">API_ElevationType</a>, <a href="../Structures/API_InteriorElevationType.html">API_InteriorElevationType</a>, <a href="../Structures/API_ChangeMarkerType.html">API_ChangeMarkerType</a>, <a href="../Structures/API_DetailType.html">API_DetailType</a>, <a href="../Structures/API_DetailType.html">API_WorksheetType</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on August 20, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

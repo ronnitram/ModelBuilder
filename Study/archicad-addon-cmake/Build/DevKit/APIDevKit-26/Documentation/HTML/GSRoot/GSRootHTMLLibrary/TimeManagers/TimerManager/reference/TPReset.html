@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>TPReset</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/TimeManagers/TimerManager/reference/TPReset.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TPReset</h1>
+
+    <p>The <strong>TPReset</strong> function creates a timer with the specified name or reset an existing one.</p>
+    <pre class="syntax">
+<strong>void TPStart(
+  GSTimer               </strong><em>*pTimer,   </em>   // timer to reset
+  <strong>const char    </strong><em>*name              </em>// timer name
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>pTimer</em></dt>
+
+        <dd>Pointer to a timer to reset.</dd>
+
+        <dt><em>name</em></dt>
+
+        <dd>Specifies the name of the timer.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>Note that the the length of the timer name is limited, so the name passed as a parameter will be truncated, if its length exceeds the limit. The current limit is 32 character.</p>
+
+    <p>If you don't start the timer at creation, you can start it later by calling the <a href="TPStart.html"><strong>TPStart</strong></a> function.</p>
+
+    <h4>Requirements</h4>
+
+    <p>&nbsp;&nbsp;&nbsp; <strong>Header:</strong> Declared in GSTime.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="structures_id.html">Timer Manager Structures</a>, <a href="functions_id.html">Timer Manager Functions</a>, <a href="TPResetAndStart.html">TPResetAndStart</a>, <a href="TPStart.html">TPStart</a>, <a href="TPStop.html">TPStop</a>, <a href="TPRun.html">TPRun</a>, <a href="TPGetName.html">TPGetName</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

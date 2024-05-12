@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_SectionSegment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_SectionSegment.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_SectionSegment</h1>
+
+    <p>Represents one segment of a section/elevation/interior elevation.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>short</strong>                              <em>linePen</em>;
+        <strong>short</strong>                              <em>textPen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>ltypeInd</em>;
+        <strong>short</strong>                              <em>sectPen</em>;
+        <strong>short</strong>                              <em>sectFillPen</em>;
+        <strong>short</strong>                              <em>sectFillBGPen</em>;
+        <strong>short</strong>                              <em>verticalRangeStoryBaseNumber</em>;
+        <strong><a href="#API_SegmentHorizontalRange">API_SegmentHorizontalRange</a></strong>         <em>horizRange</em>;
+        <strong><a href="#API_SegmentVerticalRange">API_SegmentVerticalRange</a></strong>           <em>vertRange</em>;
+        <strong>double</strong>                             <em>markerSize</em>;
+        <strong>bool</strong>                               <em>begMark</em>;
+        <strong>bool</strong>                               <em>endMark</em>;
+        <strong>bool</strong>                               <em>relativeToStory</em>;
+        <strong>bool</strong>                               <em>filler_2</em>;
+        <strong>bool</strong>                               <em>useElemPens</em>;
+        <strong>bool</strong>                               <em>begLine</em>;
+        <strong>bool</strong>                               <em>middleLine</em>;
+        <strong>bool</strong>                               <em>endLine</em>;
+        <strong>double</strong>                             <em>lineLength</em>;
+        <strong>double</strong>                             <em>vertMin</em>;
+        <strong>double</strong>                             <em>vertMax</em>;
+        <strong>GS::uchar_t</strong>                        <em>cutPlName [API_UniLongNameLen]</em>;
+        <strong>GS::uchar_t</strong>                        <em>cutPlIdStr [API_UniLongNameLen]</em>;
+        <strong>double</strong>                             <em>textSize</em>;
+        <strong>short</strong>                              <em>font</em>;
+        <strong>short</strong>                              <em>effectBits</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>shadFill</em>;
+        <strong>short</strong>                              <em>shadFillPen</em>;
+        <strong>short</strong>                              <em>shadFillBGPen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>limitLtypeInd</em>;
+        <strong>short</strong>                              <em>limitLinePen</em>;
+        <strong>bool</strong>                               <em>continuous</em>;
+        <strong>bool</strong>                               <em>filler_3[5]</em>;
+        <strong>double</strong>                             <em>sunAngXY</em>;
+        <strong>double</strong>                             <em>sunAngZ</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                           <em>begMarkerId</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                           <em>midMarkerId</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                           <em>endMarkerId</em>;
+        <strong>short</strong>                              <em>filler_4</em>;
+        <strong>bool</strong>                               <em>modelUseElemPen</em>;
+        <strong>bool</strong>                               <em>distAreaUseElemPen</em>;
+        <strong>short</strong>                              <em>modelElemPen</em>;
+        <strong>short</strong>                              <em>distAreaElemPen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>distAreaShadFill</em>;
+        <strong>short</strong>                              <em>distAreaShadFillPen</em>;
+        <strong>short</strong>                              <em>distAreaShadFillBGPen</em>;
+        <strong><a href="#API_CutPlaneUncutSurfaceFillID">API_CutPlaneUncutSurfaceFillID</a></strong>     <em>distAreaUncutSurfFillType</em>;
+        <strong>short</strong>                              <em>distAreaUncutSurfBGPen</em>;
+        <strong>bool</strong>                               <em>distAreaUseUncutSurfFill</em>;
+        <strong>bool</strong>                               <em>markedDistArea</em>;
+        <strong><a href="#API_CutPlaneUncutSurfaceFillID">API_CutPlaneUncutSurfaceFillID</a></strong>     <em>modelUncutSurfFillType</em>;
+        <strong>short</strong>                              <em>modelUncutSurfBGPen</em>;
+        <strong>bool</strong>                               <em>modelUseUncutSurfFill</em>;
+        <strong>bool</strong>                               <em>transparency</em>;
+        <strong>short</strong>                              <em>nMainCoord</em>;
+        <strong>short</strong>                              <em>nDistCoord</em>;
+        <strong>short</strong>                              <em>nDepthCoord</em>;
+        <strong>bool</strong>                               <em>drawingModeON</em>;
+        <strong>bool</strong>                               <em>windOpened</em>;
+        <strong>bool</strong>                               <em>active</em>;
+        <strong>bool</strong>                               <em>sourceMarker</em>;
+        <strong>bool</strong>                               <em>filler_5[4]</em>;
+        <strong><a href="API_DatabaseUnId.html">API_DatabaseUnId</a></strong>                   <em>databaseID</em>;
+        <strong><a href="API_CutPlanePlanConn.html">API_CutPlanePlanConn</a></strong>               <em>currPlanConn</em>;
+        <strong><a href="API_CutPlanePlanConn.html">API_CutPlanePlanConn</a></strong>               <em>intPlanConn</em>;
+        <strong>bool</strong>                               <em>solidOperationsOnZones</em>;
+        <strong>bool</strong>                               <em>exclBlockWalls</em>;
+        <strong>bool</strong>                               <em>showCutElements</em>;
+        <strong>bool</strong>                               <em>byLimitLines</em>;
+        <strong>bool</strong>                               <em>filler_6[4]</em>;
+        <strong><a href="#API_StoryHandleAppearance">API_StoryHandleAppearance</a></strong>          <em>shAppearance</em>;
+        <strong>short</strong>                              <em>shLinePen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>shLineType</em>;
+        <strong>short</strong>                              <em>shMarkerPen</em>;
+        <strong>bool</strong>                               <em>shUseSymbolPens</em>;
+        <strong>bool</strong>                               <em>shLeftMarkerOn</em>;
+        <strong>bool</strong>                               <em>shRightMarkerOn</em>;
+        <strong>bool</strong>                               <em>shLineOn</em>;
+        <strong>bool</strong>                               <em>filler_6[2]</em>;
+        <strong>double</strong>                             <em>shLeftMarkerOffset</em>;
+        <strong>double</strong>                             <em>shRightMarkerOffset</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                           <em>shSymbolId</em>;
+        <strong>short</strong>                              <em>shMarkerFont</em>;
+        <strong>unsigned short</strong>                     <em>shMarkerFaceBits</em>;
+        <strong>double</strong>                             <em>shMarkerTextSize</em>;
+        <strong>double</strong>                             <em>shMarkerSize</em>;
+        <strong><a href="API_BoundaryDisplay.html">API_BoundaryDisplay</a></strong>                <em>boundaryDisplay</em>;
+        <strong>short</strong>                              <em>boundaryPen</em>;
+        <strong>short</strong>                              <em>filler_7[3]</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>boundaryLineType</em>;
+        <strong><a href="API_Sector.html">API_Sector</a></strong>                         <em>iePolygonEdge</em>;
+        <strong>double</strong>                             <em>ieCreationSegmentHorizontalOffset</em>;
+        <strong>double</strong>                             <em>ieCreationSegmentDepth</em>;
+    <strong>}</strong> <em>API_SectionSegment</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>linePen</b></dt>
+
+        <dd>Pen attribute index of the line.</dd>
+
+        <dt><b>textPen</b></dt>
+
+        <dd>Pen attribute index of the text.</dd>
+
+        <dt><b>ltypeInd</b></dt>
+
+        <dd>Line type attribute index.</dd>
+
+        <dt><b>sectPen</b></dt>
+
+        <dd>Pen attribute index to be used in sections for contours (when not overridden by <code>useElemPens</code>).</dd>
+
+        <dt><b>sectFillPen</b></dt>
+
+        <dd>Pen attribute index to be used in sections for fills (when not overridden by <code>useElemPens</code>)</dd>
+
+        <dt><b>sectFillBGPen</b></dt>
+
+        <dd>Pen attribute index of the background fill of the cut elements (when not overridden by <code>useElemPens</code>)</dd>
+
+        <dt><b>verticalRangeStoryBaseNumber</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>The story number to which <code>vertMin</code> and <code>vertMax</code> is relative to, when <code>relativeToStory</code> is <code>true</code>.</dd>
+
+        <dt><b>horizRange</b></dt>
+
+        <dd>
+            Horizontal range of the segment:
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th><b><code><a name="API_SegmentHorizontalRange" id="API_SegmentHorizontalRange">API_SegmentHorizontalRange</a></code></b></th>
+
+                    <th><b>Meaning</b></th>
+                </tr>
+
+                <tr>
+                    <td><code>APIHorRange_Infinite</code></td>
+
+                    <td>No limit on horizontal range.</td>
+                </tr>
+
+                <tr>
+                    <td><code>APIHorRange_Limited</code></td>
+
+                    <td>Limit the horizontal range.</td>
+                </tr>
+
+                <tr>
+                    <td><code>APIHorRange_ZeroDepth</code></td>
+
+                    <td>The depth of the section or elevation is 0.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>vertRange</b></dt>
+
+        <dd>
+            Vertical range of the segment:
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th><b><code><a name="API_SegmentVerticalRange" id="API_SegmentVerticalRange">API_SegmentVerticalRange</a></code></b></th>
+
+                    <th><b>Meaning</b></th>
+                </tr>
+
+                <tr>
+                    <td><code>APIVerRange_Infinite</code></td>
+
+                    <td>No limit on vertical range.</td>
+                </tr>
+
+                <tr>
+                    <td><code>APIVerRange_Limited</code></td>
+
+                    <td>Limit the vertical range; the limits are in <code>vertMin</code> and <code>vertMax</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>APIVerRange_FitToZoneRange</code></td>
+
+                    <td>If a zone is present, then use the top and bottom level of the zone as a limit (for interior elevations only).</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>markerSize</b></dt>
+
+        <dd>Marker size.</dd>
+
+        <dt><b>begMark</b></dt>
+
+        <dd>Put marker on the beginning point.</dd>
+
+        <dt><b>endMark</b></dt>
+
+        <dd>Put marker on the end point.</dd>
+
+        <dt><b>relativeToStory</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Vertical limited range is relative to the home story or absolute to project zero.</dd>
+
+        <dt><b>useElemPens</b></dt>
+
+        <dd>Use the pens defined in the elements.</dd>
+
+        <dt><b>begLine</b></dt>
+
+        <dd>Show line at beginning point.</dd>
+
+        <dt><b>middleLine</b></dt>
+
+        <dd>Show line at midlle point.</dd>
+
+        <dt><b>endLine</b></dt>
+
+        <dd>Show line at end point.</dd>
+
+        <dt><b>lineLength</b></dt>
+
+        <dd>Length of the line.</dd>
+
+        <dt><b>vertMin</b></dt>
+
+        <dd>Vertical limitation - minimum height.</dd>
+
+        <dt><b>vertMax</b></dt>
+
+        <dd>Vertical limitation - maximum height.</dd>
+
+        <dt><b>cutPlName</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Unicode name of the section.</dd>
+
+        <dt><b>cutPlIdStr</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Unicode reference ID of the section. If the text contains a '/' character, then the text is split between the beginning and end marks.</dd>
+
+        <dt><b>textSize</b></dt>
+
+        <dd>Text size [mm] of marker text.</dd>
+
+        <dt><b>font</b></dt>
+
+        <dd>Font attribute index for the marker text.</dd>
+
+        <dt><b>effectBits</b></dt>
+
+        <dd>The settings of the 3D view. It can take the following values:</dd>
+
+        <dd>
+            <table border="1" cellpadding="5">
+                <tr>
+                    <td><code>APICutPl_VectorHatch</code></td>
+
+                    <td>Create vectorial 3D hatching</td>
+                </tr>
+
+                <tr>
+                    <td><code>APICutPl_VectorShadow</code></td>
+
+                    <td>Create vectorial Sun shadows</td>
+                </tr>
+
+                <tr>
+                    <td><code>APICutPl_SunFrom3D</code></td>
+
+                    <td>The parameters of the Sun are the same as in the 3D window</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>shadFill</b></dt>
+
+        <dd>Fill attribute index of the shadow's fill.</dd>
+
+        <dt><b>shadFillPen</b></dt>
+
+        <dd>Pen attribute index of the shadow's fill.</dd>
+
+        <dt><b>shadFillBGPen</b></dt>
+
+        <dd>Background pen attribute index of the shadow's fill.</dd>
+
+        <dt><b>limitLinePen</b></dt>
+
+        <dd>Line pen of the horizontal limit line.</dd>
+
+        <dt><b>limitLtypeInd</b></dt>
+
+        <dd>Line type of the horizontal limit line.</dd>
+
+        <dt><b>continuous</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd>Continuous if true, otherwise is segmented.</dd>
+
+        <dt><b>sunAngXY</b></dt>
+
+        <dd>Custom sun azimuth relative to the cut plane.</dd>
+
+        <dt><b>sunAngZ</b></dt>
+
+        <dd>Custom sun altitude relative to the cut plane.</dd>
+
+        <dt><b>begMarkerId</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Guid of the Section Marker object at the starting point of the section line.</dd>
+
+        <dt><b>midMarkerId</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Guid of the Section Marker object at the center point of the section line.</dd>
+
+        <dt><b>endMarkerId</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Guid of the Section Marker object at the end point of the section line.</dd>
+
+        <dt><b>modelUseElemPen</b></dt>
+
+        <dd>Use one pen for all elements in the Section/Elevation view.</dd>
+
+        <dt><b>distAreaUseElemPen</b></dt>
+
+        <dd>Use one pen for all elements in distant area of the Section/Elevation view.</dd>
+
+        <dt><b>modelElemPen</b></dt>
+
+        <dd>Foreground pen of model uncut surface fill.</dd>
+
+        <dt><b>distAreaElemPen</b></dt>
+
+        <dd>Pen attribute index of elements in distant area of the Section/Elevation view.</dd>
+
+        <dt><b>distAreaShadFill</b></dt>
+
+        <dd>Fill attribute index for Shadow Polygons used in the Section/Elevation view.</dd>
+
+        <dt><b>distAreaShadFillPen</b></dt>
+
+        <dd>Fill pen index for Shadow Polygons used in the Section/Elevation view.</dd>
+
+        <dt><b>distAreaShadFillBGPen</b></dt>
+
+        <dd>Fill background pen index for Shadow Polygons used in the Section/Elevation view.</dd>
+
+        <dt><b>distAreaUncutSurfFillType</b></dt>
+
+        <dd>
+            The method for displaying fills of uncut surfaces in the distant area of the Section/Elevation (effective if <code>distAreaUseUncutSurfFill</code> is <code>true</code>)
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th><b><code><a name="API_CutPlaneUncutSurfaceFillID" id="API_CutPlaneUncutSurfaceFillID">API_CutPlaneUncutSurfaceFillID</a></code></b></th>
+
+                    <th><b>Meaning</b></th>
+                </tr>
+
+                <tr>
+                    <td><code>APICutPl_PenColor</code></td>
+
+                    <td>Apply uniform pencolor to the fills of all uncut surfaces</td>
+                </tr>
+
+                <tr>
+                    <td><code>APICutPl_MaterialColorShaded</code></td>
+
+                    <td>Display uncut fills using own material colors of the elements with shading</td>
+                </tr>
+
+                <tr>
+                    <td><code>APICutPl_MaterialColorNonShaded&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></code></td>
+
+                    <td>Display uncut fills using own material colors of the elements without shading</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>distAreaUncutSurfBGPen</b></dt>
+
+        <dd>Pencolor to apply to the fills of all uncut surfaces in the distant area of the Section/Elevation (if uniform pencolor is selected in the Distant Area Options).</dd>
+
+        <dt><b>distAreaUseUncutSurfFill</b></dt>
+
+        <dd>Apply fills to uncut surfaces displayed in the distant area of the Section/Elevation.</dd>
+
+        <dt><b>markedDistArea</b></dt>
+
+        <dd>Mark distant area.</dd>
+
+        <dt><b>modelUncutSurfFillType</b></dt>
+
+        <dd>The method for displaying fills of uncut surfaces (Model Effects) of the Section/Elevation (effective if <code>modelUseUncutSurfFill</code> is <code>true</code>).<br>
+        See the <code>API_CutPlaneUncutSurfaceFillID</code> values at the <code>distAreaUncutSurfFillType</code> parameter.</dd>
+
+        <dt><b>modelUncutSurfBGPen</b></dt>
+
+        <dd>Pencolor to apply to the fills of all uncut surfaces in the Section/Elevation (if uniform pencolor is selected in the Model Effects panel).</dd>
+
+        <dt><b>modelUseUncutSurfFill</b></dt>
+
+        <dd>Apply fills to uncut surfaces displayed in the Section/Elevation.</dd>
+
+        <dt><b>transparency&nbsp;</b><img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>This variable controls the transparency for Section, Elevation and Interior Elevation windows. Until now the <em>Transparency in Shading</em> option in 3D Window Settings Dialog achieved the same effect.</dd>
+
+        <dt><b>nMainCoord</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Number of main line coordinates in memo.</dd>
+
+        <dt><b>nDistCoord</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Number of marked distant area line coordinates in memo.</dd>
+
+        <dt><b>nDepthCoord</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Number of depth line coordinates in memo.</dd>
+
+        <dt><b>drawingModeON</b></dt>
+
+        <dd>Section is in drawing mode.</dd>
+
+        <dt><b>windOpened</b></dt>
+
+        <dd>The section/elevation/interior elevation window is opened.</dd>
+
+        <dt><b>active</b></dt>
+
+        <dd>Turned off or active.</dd>
+
+        <dt><b>sourceMarker</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></dt>
+
+        <dd>Is this segment a source marker? (output only/no default)</dd>
+
+        <dt><b>databaseID</b></dt>
+
+        <dd>Database ID to switch to (see <!--NoCHM--><a href="API_DatabaseUnId.html">API_DatabaseUnId</a>).</dd>
+
+        <dt><b>currPlanConn</b></dt>
+
+        <dd>Current plan connectivity (read only). Show the state of the Section/Elevation window. This member will pick up the value of <i>intPlanConn</i> when the Section/Elevation window was activated. The Section/Elevation will be regenerated from the model if it's necessary.</dd>
+
+        <dt><b>intPlanConn</b></dt>
+
+        <dd>Intended plan connectivity. Show the state of the element on the plan. It could be different from the state of its Section/Elevation window (<i>currPlanConn</i>).</dd>
+
+        <dt><b>solidOperationsOnZones</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Use the solid operations on zones (for interior elevations only).</dd>
+
+        <dt><b>exclBlockWalls</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Exclude view blocking walls (for interior elevations only).</dd>
+
+        <dt><b>showCutElements</b></dt>
+
+        <dd>Show cut elements (for interior elevations only).</dd>
+
+        <dt><b>byLimitLines</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></dt>
+
+        <dd>Relevant elems are detected only by limit lines (used only for Interior Elevation segments).</dd>
+
+        <dt><b>shAppearance</b></dt>
+
+        <dd>
+            Options for displaying story lines on the Section/Elevation
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th><b><code><a name="API_StoryHandleAppearance" id="API_StoryHandleAppearance">API_StoryHandleAppearance</a></code></b></th>
+
+                    <th><b>Meaning</b></th>
+                </tr>
+
+                <tr>
+                    <td><code>APICutPl_SHANone</code></td>
+
+                    <td>Story lines are not displayed on the Section/Elevation</td>
+                </tr>
+
+                <tr>
+                    <td><code>APICutPl_SHADisplayOnly</code></td>
+
+                    <td>Story lines appear only on-screen, but are not displayed on the printed output</td>
+                </tr>
+
+                <tr>
+                    <td><code>APICutPl_SHAAll</code></td>
+
+                    <td>Story lines appear both on screen and on the printed output</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>shLinePen</b></dt>
+
+        <dd>Pencolor index of the Story Level lines.</dd>
+
+        <dt><b>shLineType</b></dt>
+
+        <dd>Line type index of the Story Level lines.</dd>
+
+        <dt><b>shMarkerPen</b></dt>
+
+        <dd>Pencolor index of the Story Handle Markers (effective when not overridden by <code>shUseSymbolPens</code>).</dd>
+
+        <dt><b>shUseSymbolPens</b></dt>
+
+        <dd>Use own colors of the Story Handle Marker object.</dd>
+
+        <dt><b>shLeftMarkerOn</b></dt>
+
+        <dd>Display the Story Handle Markers on the left side.</dd>
+
+        <dt><b>shRightMarkerOn</b></dt>
+
+        <dd>Display the Story Handle Markers on the right side.</dd>
+
+        <dt><b>shLineOn</b></dt>
+
+        <dd>Story handle line is on or off.</dd>
+
+        <dt><b>shLeftMarkerOffset</b></dt>
+
+        <dd>The offset of the Story Level line beyond the limits of the Section/Elevation on the left side.</dd>
+
+        <dt><b>shRightMarkerOffset</b></dt>
+
+        <dd>The offset of the Story Level line beyond the limits of the Section/Elevation on the right side.</dd>
+
+        <dt><b>shSymbolId</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>The guid of the Story Handle Marker object element instance (<a href="API_ObjectType.html">API_ObjectType</a>).</dd>
+
+        <dt><b>shMarkerFont</b></dt>
+
+        <dd>The font index of the Story Handle Marker.</dd>
+
+        <dt><b>shMarkerFaceBits</b></dt>
+
+        <dd>The text style of the Story Handle Marker.</dd>
+
+        <dt><b>shMarkerTextSize</b></dt>
+
+        <dd>The text size of the Story Handle Marker in mm.</dd>
+
+        <dt><b>shMarkerSize</b></dt>
+
+        <dd>The size of the Story Handle Marker in mm.</dd>
+
+        <dt><b>boundaryDisplay</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>Boundary contour display mode. The possible values are: <code>APIBound_UncutContours</code>, <code>APIBound_NoContours</code>, and <code>APIBound_OverrideContours</code>.</dd>
+
+        <dt><b>boundaryPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>Boundary contour pen.</dd>
+
+        <dt><b>boundaryLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>Boundary contour line type.</dd>
+
+        <dt><b>iePolygonEdge</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Used for link the segment to an edge of the Interior Elevation.</dd>
+
+        <dt><b>ieCreationSegmentHorizontalOffset</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Used only for Interior Elevation creation.</dd>
+
+        <dt><b>ieCreationSegmentDepth</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Used only for Interior Elevation creation.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Refer to the <a href="../Functions/APIDb_ChangeCurrentDatabaseID.html">APIDb_ChangeCurrentDatabaseID</a> function to access and operate on the corresponding Section/Elevation/Interior Elevation database.</p>
+
+    <p>For cut plane element related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>You can retrieve the Section Marker and the Story Handle Marker objects with the <a href="../Functions/ACAPI_Element_Get.html">ACAPI_Element_Get</a> and <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> functions applying the corresponding marker indices stored in <code>API_CutPlaneType</code>, but you cannot create or modify them directly. You can define and change marker objects only together with the cut plane element using <a href="../Functions/ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a> and <a href="../Functions/ACAPI_Element_ChangeExt.html">ACAPI_Element_ChangeExt</a> respectively.<br>
+    You can access to the default settings of the markers with the <a href="../Functions/ACAPI_Element_GetDefaultsExt.html">ACAPI_Element_GetDefaultsExt</a> and <a href="../Functions/ACAPI_Element_ChangeDefaultsExt.html">ACAPI_Element_ChangeDefaultsExt</a> functions.</p>
+
+    <p>You can enumerate the drawing primitives of the Story Level lines of a given Section/Elevation database with the <a href="../Functions/APIDb_DrawStoryControlID.html">APIDb_DrawStoryControlID</a> database function.</p>
+
+    <p>From API 21 all 3 (main, depth, and marked distant) lines of a section segment can be "broken". The coordinates can be found in the element memo.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 11 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_Coord.html">API_Coord</a>, <a href="API_CutPlPlanConn.html">API_CutPlanePlanConn</a>, <a href="API_DatabaseUnId.html">API_DatabaseUnId</a><br>
+    <a href="API_ObjectType.html">API_ObjectType</a>, <a href="API_Element.html">API_Element</a><br>
+    <a href="../Functions/ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a>, <a href="../Functions/ACAPI_Element_ChangeExt.html">ACAPI_Element_ChangeExt</a><br>
+    <a href="../Functions/ACAPI_Element_GetDefaultsExt.html">ACAPI_Element_GetDefaultsExt</a>, <a href="../Functions/ACAPI_Element_ChangeDefaultsExt.html">ACAPI_Element_ChangeDefaultsExt</a><br>
+    <a href="../Functions/APIDb_ChangeCurrentDatabaseID.html">APIDb_ChangeCurrentDatabaseID</a>, <a href="../Functions/APIDb_DrawStoryControlID.html">APIDb_DrawStoryControlID</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 13, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

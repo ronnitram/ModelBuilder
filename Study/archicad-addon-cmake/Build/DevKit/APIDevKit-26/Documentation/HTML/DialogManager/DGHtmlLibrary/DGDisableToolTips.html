@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGDisableToolTips</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGDisableToolTips.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGDisableToolTips</h1>
+
+    <p>Disables showing tooltips on <a href="PaletteDialogs.html">palette dialog</a> items.</p>
+    <pre class="syntax">
+    <strong>void DGDisableToolTips</strong> (
+      <strong>void</strong>
+    );
+</pre>
+
+    <h4>Remarks</h4>
+
+    <p>Every dialog item (on a Palette, on a Modeless or Modal Dialog, or on a TabPage) can have two types of help information: a short one and an anchor to the detailed information in the separate help engine.</p>
+
+    <p>On Macintosh, help information is displayed in a balloon help if this feature is enabled through the Macintosh system Help menu. On Windows, tooltips serve to show the short item help. The detailed help information of the item can be invoked by setting the keyboard focus to a focusable dialog item then pressing the [F1] key on Windows or [Help] key on Macintosh; or by clicking the right mouse button on the item; or by clicking the help [?] button in the dialog caption then clicking on the item itself. If tooltips are enabled, the short help information is displayed as usual.</p>
+
+    <p>When the dialog manager is initialized, tooltips are automatically enabled. Use <b>DGDisableToolTips</b> to disable showing tooltips and <a href="DGEnableToolTips.html">DGEnableToolTips</a> to enable them again.</p>
+
+    <p>The detailed help information can only be displayed if the creator of the dialog registered it's help engine's path. This can be done in the AddOn initialisation phase. The AddOn should supply it's MDID and also give the path of it's help engine to the DG by the <a href="DGRegisterAdditionalHelpLocation.html">DGRegisterAdditionalHelpLocation</a> function.</p>
+
+    <p>Item tooltips and help anchors are defined in <tt>DLGH</tt> resources for every type of dialogs (<a href="GRC_DialogHelps.html">GRC Specification of the Dialog Helps</a>).</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="GRC_DialogHelps.html">GRC Specification of the Dialog Helps</a><br>
+    <a href="DGEnableToolTips.html">DGEnableToolTips</a>, <a href="DGSetItemHelpIndex.html">DGSetItemHelpIndex</a><br>
+    <a href="DGRegisterAdditionalHelpLocation.html">DGRegisterAdditionalHelpLocation</a>, <a href="DGUnregisterAdditionalHelpLocation.html">DGUnregisterAdditionalHelpLocation</a><br>
+    <a href="DGDisplayContextHelp.html">DGDisplayContextHelp</a>, <a href="DGShowContextHelpWithAnchor.html">DGShowContextHelpWithAnchor</a>, <a href="DGGetDynamicHelpStrings.html">DGGetDynamicHelpStrings</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on March 18, 2005<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

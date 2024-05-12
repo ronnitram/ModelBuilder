@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>BidirectionalIterator Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/BidirectionalIterator/BidirectionalIterator.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<H2>BidirectionalIterator Class</H2><!--exp="BidirectionalIterator Class"-->
+<P><topic id="$GS.$BidirectionalIterator.BriefDescription">
+		Iterator for bidirectional enumeration of sequence of items.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>Type</I><B>&gt;
+</B>class BidirectionalIterator : public <!----><a class="nodecorate" href="../ForwardIterator/ForwardIterator.html">ForwardIterator&lt; Type &gt;</A></B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>Type</I></DT><DD><topic id="$GS.$BidirectionalIterator.$Type.TemplateParamDescription">
+		Type of items the iterator iterates on.
+	</topic></DD>
+</DL>
+<H4>Members</H4>
+<P><B><A name="PublicOperators"></A>Public Operators</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator++.html">operator++</A></TD>
+<TD width="70%"><topic id="$GS.$BidirectionalIterator.$operator++.BriefDescription">
+		Moves forward to the next item of the sequence.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="operator--.html">operator--</A></TD>
+<TD width="70%"><topic id="$GS.$BidirectionalIterator.$operator--.BriefDescription">
+		Moves backward to the previous item of the sequence.
+	</topic></TD>
+</TR>
+</table>
+<H4>Description</H4>
+<P><topic id="$GS.$BidirectionalIterator.LongDescription">
+		A Bidirectional Iterator is an iterator that can be both incremented and 
+		decremented. The requirement that a Bidirectional Iterator can be decremented is 
+		the only thing that distinguishes Bidirectional Iterators from 
+		<!--NoIndex--><A href="../ForwardIterator/ForwardIterator.html">Forward Iterators</A>.
+		<P>Iterators are created and returned by containers and than used to go through the
+		elements of the container or they are passes as arguments to algorithm functions.</P>
+		<P>Most algorithms are expressed not in terms of a single iterator but in terms of 
+		a <I>range</I> of iterators the notation <TT>[first, 
+		last)</TT> refers to all of the iterators from <TT>first</TT> up to, but <B>not 
+		including</B>, <TT>last</TT>. Note that a range may be 
+		empty, <I>i.e.</I> <TT>first</TT> and <TT>last</TT> may be the same iterator. 
+		Note also that if there are <TT>n</TT> iterators in a range, then the notation 
+		<TT>[first, last)</TT> represents <TT>n+1</TT> positions. This is crucial: 
+		algorithms that operate on <TT>n</TT> things frequently require <TT>n + 1</TT> 
+		positions. Linear search, for example <TT><!----><A href="../Find.html">Find</A></TT>
+		must be able to return some value to indicate that the search was unsuccessful.</P>
+		<P>Iterators are the mechanism that makes it possible to decouple algorithms from 
+		containers: algorithms are templates, and are parameterized by the type of 
+		iterator, so they are not restricted to a single type of container.</P>
+	</topic></P>
+<H4>Example</H4><topic id="$GS.$BidirectionalIterator.Example">
+	<PRE class="code">
+GS::Array&lt;GS::String&gt; array;    // array of strings
+
+GS::Array&lt;GS::String&gt;::Iterator it = array.Enumerate ();    // obtaining an iterator (or array.Begin ())
+while (it != NULL) {                    // until the end of sequence (array)
+    GS::String s = *it;                 // dereferencing the iterator (returns reference)
+    USize length = it-&gt;GetLength ();    // dereferencing the iterator (returns pointer)
+    ++it;                               // advance to the next element
+}
+
+
+GS::Find (array.Begin (), array.End (), GS::String ("Test"));    // using iterators in algorithms
+
+</PRE><P>This example illustrates the use of iterators obtained from a container (array).</P>
+	</topic><H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../GS.html">GS</A></P>
+<P><B>Header: </B>BidirectionalIterator.hpp</P>
+<H4>See Also</H4>
+<P><topic id="$GS.$BidirectionalIterator.SeeAlso">
+		<!----><a href="../ConstBidirectionalIterator/ConstBidirectionalIterator.html">ConstBidirectionalIterator</a>
+	</topic> | <a href="../RandomIterator/RandomIterator.html">RandomIterator&lt; Type &gt;</A></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

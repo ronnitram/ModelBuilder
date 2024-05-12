@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_AttributePickerParams</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_AttributePickerParams.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_AttributePickerParams</h1>
+
+    <p>Describes the type and the push check for creating an attribute picker in <a href="../Functions/ACAPI_Interface_CreateAttributePicker.html">ACAPI_Interface_CreateAttributePicker</a>.</p>
+
+    <pre class="syntax">
+    <strong>enum class</strong> <em>PushCheckAppearance</em> <strong>{</strong>
+        ArrowIconAndText,
+        ArrowOnly
+    <strong>}</strong>;</pre>
+
+    <pre class="syntax">
+    <strong>enum class</strong> <em>EmptySelectionBehaviour</em> <strong>{</strong>
+        SelectFirst,
+        SelectNothing
+    <strong>}</strong>;</pre>
+
+    <pre class="syntax">
+    <strong>enum class</strong> <em>LockedLayersStatus</em> <strong>{</strong>
+        Disabled,
+        Enabled
+    <strong>}</strong>;</pre>
+ 
+    <pre class="syntax">
+    <strong>struct</strong> <em>API_AttributePickerParams</em> <strong>{</strong>
+        <strong><a href="API_UserControlType.html">API_UserControlType</a></strong>              <em>type</em>;
+        <strong>short</strong>                            <em>dialogID</em>;
+        <strong>short</strong>                            <em>itemID</em>;
+        <strong>PushCheckAppearance</strong>              <em>pushCheckAppearance</em>;
+        <strong>EmptySelectionBehaviour</strong>          <em>emptySelectionBehaviour</em>;
+        <strong>LockedLayersStatus</strong>               <em>lockedLayersStatus</em>;
+    <strong>}</strong>;</pre>
+
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>type</b></dt>
+
+        <dd>Requested type of the user control.</dd>
+
+        <dt><b>dialogID</b></dt>
+
+        <dd>Id of the dialog of picker</dd>
+
+        <dt><b>itemID</b></dt>
+
+        <dd>Id of the push check of picker</dd>
+
+        <dt><b>pushCheckAppearance</b></dt>
+
+        <dd>Defines whether the push check item should contain only an arrow icon pointing to right (<code>PushCheckAppearance::ArrowOnly</code>),
+            or an icon and a text part also (<code>PushCheckAppearance::ArrowIconAndText</code>).
+
+        <dt><b>emptySelectionBehaviour</b></dt>
+
+        <dd>Tells what should happen with the selection during opening the popup, when the selected attribute index is not in the usable attribute set.
+            Either the first attribute should be selected (<code>EmptySelectionBehaviour::SelectFirst</code>) or nothing should be selected
+            in the appearing popup (<code>EmptySelectionBehaviour::SelectNothing</code>).</dd>
+
+        <dt><b>lockedLayersStatus</b></dt>
+
+        <dd>Layer specific data that controls the appearance of locked layers in the Layer Picker. The value <code>LockedLayersStatus::Disabled</code> tells
+            that locked layers are gray and unselectable. The default value of this field is <code>LockedLayersStatus::Enabled</code>.
+        </ul></dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 26 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Types.html">API Types</a><br/>
+    <a href="API_AttributePicker.html">API_AttributePicker</a><br/>
+    <a href="../Functions/ACAPI_Interface_CreateAttributePicker.html">ACAPI_Interface_CreateAttributePicker</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on March 25, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

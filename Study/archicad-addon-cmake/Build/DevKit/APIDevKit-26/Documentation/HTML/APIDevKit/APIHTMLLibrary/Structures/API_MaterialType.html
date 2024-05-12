@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_MaterialType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_MaterialType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_MaterialType</h1>
+
+    <p>Description of a surface material attribute.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Attr_Head.html">API_Attr_Head</a></strong>       <em>head</em>;
+        <strong>Int32</strong>               <em>filler_1</em>;
+        <strong><a href="API_MaterTypeID.html">API_MaterTypeID</a></strong>     <em>mtype</em>;
+        <strong>short</strong>               <em>ambientPc</em>;
+        <strong>short</strong>               <em>diffusePc</em>;
+        <strong>short</strong>               <em>specularPc</em>;
+        <strong>short</strong>               <em>transpPc</em>;
+        <strong>short</strong>               <em>shine</em>;
+        <strong>short</strong>               <em>transpAtt</em>;
+        <strong>short</strong>               <em>emissionAtt</em>;
+        <strong>short</strong>               <em>filler_2</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>        <em>surfaceRGB</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>        <em>specularRGB</em>;
+        <strong><a href="API_RGBColor.html">API_RGBColor</a></strong>        <em>emissionRGB</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>  <em>ifill</em>;
+        <strong>short</strong>               <em>fillCol</em>;
+        <strong>short</strong>               <em>filler_3</em>;
+        <strong><a href="API_Texture.html">API_Texture</a></strong>         <em>texture</em>;
+    <strong>}</strong> <em>API_MaterialType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>Contains the header information, including type and database index.</dd>
+
+        <dt><b>mtype</b></dt>
+
+        <dd>The type of the material. Usable values are enumerated in <a href="API_MaterTypeID.html">API_MaterTypeID</a>.</dd>
+
+        <dt><b>ambientPc</b></dt>
+
+        <dd>The reflection of ambient light. [0..100]</dd>
+
+        <dt><b>diffusePc</b></dt>
+
+        <dd>The reflection of diffuse light. [0..100]</dd>
+
+        <dt><b>specularPc</b></dt>
+
+        <dd>The reflection of specular light. [0..100]</dd>
+
+        <dt><b>transpPc</b></dt>
+
+        <dd>Transparency factor. [0..100]</dd>
+
+        <dt><b>shine</b></dt>
+
+        <dd>The shininess factor multiply by 100. [0..10000]</dd>
+
+        <dt><b>transpAtt</b></dt>
+
+        <dd>The transparency attenuation multiply by 100. [0..400]</dd>
+
+        <dt><b>emissionAtt</b></dt>
+
+        <dd>The emission attenuation factor multiply by 100. [0..65535]</dd>
+
+        <dt><b>surfaceRGB</b></dt>
+
+        <dd>The color of the surface.</dd>
+
+        <dt><b>specularRGB</b></dt>
+
+        <dd>The specular color.</dd>
+
+        <dt><b>emissionRGB</b></dt>
+
+        <dd>The emission color.</dd>
+
+        <dt><b>ifill</b></dt>
+
+        <dd>Internal use</dd>
+
+        <dt><b>fillCol</b></dt>
+
+        <dd>Color number of defined 3D hatch (0 means: use BODY color)</dd>
+
+        <dt><b>texture</b></dt>
+
+        <dd>The texture of the material.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This attribute type is also used by the 3D components. The material of a 3D polygon can be accessed through the <a href="API_UmatType.html">API_UmatType</a> structure.</p>
+
+    <p>There is no additional data assigned to material attributes in the <a href="API_AttributeDef.html">API_AttributeDef</a> structure.</p>
+
+    <p>Pay attention to the <code>texture</code> member if its <code>fileLoc</code> pointer is dynamically allocadted.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Attributes.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_RGBColor.html">API_RGBColor</a>, <a href="API_Texture.html">API_Texture</a>, <a href="API_UmatType.html">API_UmatType</a>, <a href="API_Attr_Head.html">API_Attr_Head</a>, <a href="API_MaterTypeID.html">API_MaterTypeID</a>, <a href="API_Attribute.html">API_Attribute</a>, <a href="API_AttributeIndex.html">API_AttributeIndex</a>,<br>
+    <a href="../Level3/Attribute_Manager_id.html">Attribute Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

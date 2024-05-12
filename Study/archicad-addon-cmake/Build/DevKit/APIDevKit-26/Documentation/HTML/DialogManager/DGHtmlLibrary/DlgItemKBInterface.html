@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Dialog Item Keyboard Interface</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DlgItemKBInterface.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Dialog Item Keyboard Interface</h1>
+
+    <p>The following tables describe the keyboard interfaces of the focusable dialog items of DG.</p>
+
+    <h4>Keyboard interface for <a href="DateTimeControl.html">Date &amp; Time Controls</a></h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Key</th>
+
+                    <th align="left">Action</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>UP</tt></td>
+
+                    <td>Decreases the value of the highlighted item by one.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DOWN</tt></td>
+
+                    <td>Increases the value of the highlighted item by one.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>'0'..'9'</td>
+
+                    <td>Sets the value of the highlighted item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td colspan="2"><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td>'-'</td>
+
+                    <td>Decreases the value of the highlighted item by one.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>'+'</td>
+
+                    <td>Increases the value of the highlighted item by one.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HOME</tt></td>
+
+                    <td>Sets the value of the highlighted item to the minimum.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>END</tt></td>
+
+                    <td>Sets the value of the highlighted item to the maximum.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LEFT</tt></td>
+
+                    <td>Highlights the previous item in the control.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>RIGHT</tt></td>
+
+                    <td>Highlights the next item in the control.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><br>
+
+    <h4>Keyboard interface for <a href="EditControl.html">Edit Controls</a> and <a href="RichEditControl.html">Rich Edit Controls</a></h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Key</th>
+
+                    <th align="left">Action</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>UP</tt></td>
+
+                    <td>Moves the caret to the previous line (multi-line and rich edit controls only).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DOWN</tt></td>
+
+                    <td>Moves the caret to the next line (multi-line and rich edit controls only).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LEFT</tt></td>
+
+                    <td>Moves the caret one character left.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>RIGHT</tt></td>
+
+                    <td>Moves the caret one character right.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>BACKSPACE</tt></td>
+
+                    <td>Deletes the character left to the caret.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>RETURN</tt></td>
+
+                    <td>Breaks the line at the caret position and creates a new line (multi-line and rich edit controls only).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Any character</td>
+
+                    <td>Inserts the typed character into the control.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td colspan="2"><img src="../DGImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh only:</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>COMMAND + 'X'</tt></td>
+
+                    <td>Cut the selection into the clipboard.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>COMMAND + 'C'</tt></td>
+
+                    <td>Copy the selection into the clipboard.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>COMMAND + 'V'</tt></td>
+
+                    <td>Paste the content of the clipboard into the control.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td colspan="2"><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>CTRL + 'X'</tt></td>
+
+                    <td>Cut the selection into the clipboard.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>CTRL + 'C'</tt></td>
+
+                    <td>Copy the selection into the clipboard.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>CTRL + 'V'</tt></td>
+
+                    <td>Paste the content of the clipboard into the control.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SHIFT + DELETE</tt></td>
+
+                    <td>Cut the selection into the clipboard.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>CTRL + INSERT</tt></td>
+
+                    <td>Copy the selection into the clipboard.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SHIFT + INSERT</tt></td>
+
+                    <td>Paste the content of the clipboard into the control.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HOME</tt></td>
+
+                    <td>Moves the caret to the beginning of the current line.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>END</tt></td>
+
+                    <td>Moves the caret to the end of the current line.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>PGUP</tt></td>
+
+                    <td>Scrolls a page up (multi-line and rich edit controls only).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>PGDOWN</tt></td>
+
+                    <td>Scrolls a page down (multi-line and rich edit controls only).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>CTRL + LEFT</tt></td>
+
+                    <td>Moves the caret one word left.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>CTRL + RIGHT</tt></td>
+
+                    <td>Moves the caret one word right.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>CTRL + HOME</tt></td>
+
+                    <td>Moves the caret to the beginning of the content.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>CTRL + END</tt></td>
+
+                    <td>Moves the caret to the end of the content.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DELETE</tt></td>
+
+                    <td>Deletes the character right to the caret.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SHIFT +</tt> arrow keys</td>
+
+                    <td>Selection according to the caret move.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><br>
+
+    <h4>Keyboard interface for <a href="ListBox.html">List Boxes</a></h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Key</th>
+
+                    <th align="left">Action</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>UP</tt></td>
+
+                    <td>Selects the previous list item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DOWN</tt></td>
+
+                    <td>Selects the next list item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>PGUP</tt></td>
+
+                    <td>Scrolls a page up.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>PGDOWN</tt></td>
+
+                    <td>Scrolls a page down.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Any character</td>
+
+                    <td>Looks for the list item beginning with the pressed character.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td colspan="2"><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LEFT</tt></td>
+
+                    <td>Selects the previous list item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>RIGHT</tt></td>
+
+                    <td>Selects the next list item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HOME</tt></td>
+
+                    <td>Selects the first list item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>END</tt></td>
+
+                    <td>Selects the last list item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SHIFT +</tt> arrow keys</td>
+
+                    <td>Selects items in a multiple-selection list.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><br>
+
+    <h4>Keyboard interface for <a href="ListView.html">List Views</a></h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Key</th>
+
+                    <th align="left">Action</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>UP</tt></td>
+
+                    <td>Selects the list view item above the currently selected one.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DOWN</tt></td>
+
+                    <td>Selects the list view item below the currently selected one.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LEFT</tt></td>
+
+                    <td>Selects the list view item left to the currently selected one.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>RIGHT</tt></td>
+
+                    <td>Selects the list view item right to the currently selected one.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>PGUP</tt></td>
+
+                    <td>Scrolls a page up.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>PGDOWN</tt></td>
+
+                    <td>Scrolls a page down.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Any character</td>
+
+                    <td>Looks for the list view item beginning with the pressed character.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td colspan="2"><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HOME</tt></td>
+
+                    <td>Selects the first list view item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>END</tt></td>
+
+                    <td>Selects the last list view item.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><br>
+
+    <h4>Keyboard interface for <a href="TreeView.html">Tree Views</a></h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Key</th>
+
+                    <th align="left">Action</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>UP</tt></td>
+
+                    <td>Selects the previous tree view item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DOWN</tt></td>
+
+                    <td>Selects the next tree view item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>PGUP</tt></td>
+
+                    <td>Scrolls a page up.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>PGDOWN</tt></td>
+
+                    <td>Scrolls a page down.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Any character</td>
+
+                    <td>Looks for the tree view item beginning with the pressed character.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td colspan="2"><img src="../DGImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh only:</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HOME</tt></td>
+
+                    <td>Scrolls to the first tree view item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>END</tt></td>
+
+                    <td>Scrolls to the last tree view item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>COMMAND + LEFT</tt></td>
+
+                    <td>Collapses the selected parent tree view item(s).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>COMMAND + RIGHT</tt></td>
+
+                    <td>Expands the selected parent tree view item(s).</td>
+                </tr>
+
+                <tr valign="top">
+                    <td colspan="2"><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>HOME</tt></td>
+
+                    <td>Selects the first tree view item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>END</tt></td>
+
+                    <td>Selects the last tree view item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LEFT</tt></td>
+
+                    <td>Collapses the selected parent tree view item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>RIGHT</tt></td>
+
+                    <td>Expands the selected parent tree view item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>CTRL + UP</tt></td>
+
+                    <td>Scrolls a line up.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>CTRL + DOWN</tt></td>
+
+                    <td>Scrolls a line down.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>CTRL + HOME</tt></td>
+
+                    <td>Scrolls to the first tree view item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>CTRL + END</tt></td>
+
+                    <td>Scrolls to the last tree view item.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl><br>
+
+    <h4>See Also</h4>
+
+    <p><a href="DialogKBInterface.html">Dialog keyboard interface</a>, <a href="OSShortcuts.html">Operating System shortcuts</a><br>
+    <a href="DateTimeControl.html">Date &amp; Time Control</a>, <a href="EditControl.html">Edit Control</a>, <a href="ListBox.html">List Box</a>, <a href="ListView.html">List View</a>, <a href="RichEditControl.html">Rich Edit Control</a>, <a href="TreeView.html">Tree View</a><br>
+    <a href="DG_MSG_HOTKEY.html"><tt>DG_MSG_HOTKEY</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on March 17, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

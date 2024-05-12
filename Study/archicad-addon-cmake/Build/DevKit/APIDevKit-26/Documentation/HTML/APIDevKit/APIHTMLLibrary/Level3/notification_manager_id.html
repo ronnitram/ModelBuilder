@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Notification Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/notification_manager_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Notification Manager</h1>
+
+    <p><br>
+    The Notification Manager lets your add-on be integrated more into the Archicad environment.</p>
+
+    <p>It is very important to understand the underlying ideas and technologies in order to be able to use the services in the right way.<br>
+    It is very easy to block Archicad using the Notification Manager in a wrong way; so be very careful!</p>
+
+    <p>The key point that you have to keep in mind is that notifications are coming in the background, without any user interaction. Plan your system concentrating on this issue; <b>do not perform time consuming operations</b>, and also <b>do not make changes that have global effects</b>, although the Notification Manager tries to detect and refuse such operations, of course.</p>
+
+    <p>&nbsp;</p>
+
+    <h3>What kind of events can an add-on receive notification of?</h3>
+
+    <p>An add-on can catch events occured to the actual project such as opening, saving, closing the plan file; can be notified of teamwork events, and several changes in the program environment. Furthermore the add-ons can get notification of events happened to the elements of the project database such as creation, modification and deletion. Also there can be notified of undoing and redoing element database changes.</p>
+
+    <h4>Functions</h4>
+
+    <p>All of the notification manager functions begin with the <b>ACAPI_Notify_</b> prefix. This function family gives support to register your add-on to receive notifications when the requested event(s) occured. Once a notification is posted you get the control and you are allowed to call almost all of the API functions to handle the event.</p>
+
+    <p>In order to be notified of certain events you have to make a registration with the following functions:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_Notify_CatchProjectEvent.html">ACAPI_Notify_CatchProjectEvent</a><br>
+        <a href="../Functions/ACAPI_Notify_CatchViewEvent.html">ACAPI_Notify_CatchViewEvent</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_Notify_CatchToolChange.html">ACAPI_Notify_CatchToolChange</a><br>
+        <a href="../Functions/ACAPI_Notify_CatchSelectionChange.html">ACAPI_Notify_CatchSelectionChange</a><br>
+        <a href="../Functions/ACAPI_Notify_CatchChangeDefaults.html">ACAPI_Notify_CatchChangeDefaults</a><br>
+        <a href="../Functions/ACAPI_Notify_CatchNewElement.html">ACAPI_Notify_CatchNewElement</a><br>
+        <a href="../Functions/ACAPI_Notify_InstallElementObserver.html">ACAPI_Notify_InstallElementObserver</a><br>
+        <a href="../Functions/ACAPI_Notify_CatchElementReservationChange.html">ACAPI_Notify_CatchElementReservationChange</a> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_Notify_CatchLockableReservationChange.html">ACAPI_Notify_CatchLockableReservationChange</a> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"><br>
+		<a href="../Functions/ACAPI_Notify_RegisterEventHandler.html">ACAPI_Notify_RegisterEventHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="Featuring API 26" width="19" height="12"><br>
+		<a href="../Functions/ACAPI_Notify_UnregisterEventHandler.html">ACAPI_Notify_UnregisterEventHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="Featuring API 26" width="19" height="12"><br>
+
+    </blockquote>
+
+    <p>If you would like to receive notifications of certain events from the application start up on, you can claim your add-on to be pre-loaded by returning <code>APIAddon_Preload</code> from the <!--NoCHM--><a href="../Functions/CheckEnvironment.html">CheckEnvironment</a> function instead of APIAddon_Normal. This ensures that the <!--NoCHM--><a href="../Functions/Initialize.html">Initialize</a> function of your add-on will be called right after start up, and there you can register your callback functions. While you have any callback function installed into the API registration, your add-on keeps loaded in the memory, thus the function pointers remain valid.</p>
+
+    <p>The following functions are supported to provide access to additional information while handling a notification posted to you:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_Notify_GetParentElement.html">ACAPI_Notify_GetParentElement</a><br>
+        <a href="../Functions/ACAPI_Notify_GetTranParams.html">ACAPI_Notify_GetTranParams</a>
+
+        <p>&nbsp;</p>
+    </blockquote>
+
+    <h3><!-- comment --><a name="ElemNotifMan" id="ElemNotifMan"></a>Element related notifications</h3>
+
+    <h4>Monitoring elements</h4>
+
+    <p>In order to be notified of events that happen to a specified element in the database you have to attach an observer to the element with the <!--NoCHM--><a href="../Functions/ACAPI_Element_AttachObserver.html">ACAPI_Element_AttachObserver</a> function. This information then will be saved into the project file, so next time you use that plan the notification system will notify your add-on about changes of elements you have marked for monitoring before.</p>
+
+    <p>You can catch element creation events if your add-on installs an <!--NoCHM-->
+     <a href="../Functions/APIElementEventHandlerProc.html">APIElementEventHandlerProc</a> element event handler function with <!--NoCHM--><a href="../Functions/ACAPI_Notify_CatchNewElement.html">ACAPI_Notify_CatchNewElement</a>. You may specify a certain type of elements if you are interested in these new elements only. You can use the same callback function for more element types at the same time. If you want to follow up the modifications of the newly created element, you can attach an observer to it at once right from the new element callback.</p>
+
+    <h4>How does it work?</h4>
+
+    <p>The element related notification system is based on the undo list of Archicad, that is it processes the undo entries created by the last operation.</p>
+
+    <p>Assume that there are three add-ons monitoring some set of elements in the current project. Add-on "A" has linked objects to walls, and watches if something happens to those walls to keep the objects aligned to the walls. Add-on "B" has a sort of autotext functionality, it is to be notified of word element creation. Finally Add-on "C" controls the length of walls, it may delete some walls and replace them with a note.</p>
+
+    <p>The following figure shows what happens in this configuration if the user stretches two walls on the floor plan:</p>
+
+    <p><img border="0" src="../../APIImageLibrary/APINotif_Figure_8.png" width="591" height="660" alt="API notifications"></p>
+
+    <p>After editing the walls the notification mechanism searches the current undo entry for elements that the first add-on is supposed to do something with. Whenever it finds an element reference that the add-on has attached observer to, or the element was created and the add-on has required notification of new elements of that type, the notification manager calls the appropriate <!--NoCHM--><a href="../Functions/APIElementEventHandlerProc.html">callback function</a> of the add-on.</p>
+
+    <p>After reaching last entry the original operation created in the undo step, the whole searching method restarts from the beginning for the next add-on to be notified.<br>
+    On being notified an add-on probably adds new entries to the current undo step. However the add-on will not be notified of element changes made by itself.</p>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 11, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

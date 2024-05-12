@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_WindowQuantity</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_WindowQuantity.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_WindowQuantity, API_DoorQuantity</h1>
+
+    <p>Describes the different calculated values for windows/doors.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>double</strong>     <em>width1</em>;
+        <strong>double</strong>     <em>width2</em>;
+        <strong>double</strong>     <em>height1</em>;
+        <strong>double</strong>     <em>height2</em>;
+        <strong>double</strong>     <em>surface1</em>;
+        <strong>double</strong>     <em>surface2</em>;
+        <strong>double</strong>     <em>nWidth1</em>;
+        <strong>double</strong>     <em>nWidth2</em>;
+        <strong>double</strong>     <em>nHeight1</em>;
+        <strong>double</strong>     <em>nHeight2</em>;
+        <strong>double</strong>     <em>nSurface1</em>;
+        <strong>double</strong>     <em>nSurface2</em>;
+        <strong>double</strong>     <em>volume</em>;
+        <strong>double</strong>     <em>grossSurf</em>;
+        <strong>double</strong>     <em>grossVolume</em>;
+        <strong>double</strong>     <em>surface</em>;
+        <strong>double</strong>     <em>sillHeight</em>;
+        <strong>double</strong>     <em>sillHeight1</em>;
+        <strong>double</strong>     <em>sillHeight2</em>;
+        <strong>double</strong>     <em>headHeight</em>;
+        <strong>double</strong>     <em>headHeight1</em>;
+        <strong>double</strong>     <em>headHeight2</em>;
+        <strong>double</strong>     <em>sillHeight3</em>;
+        <strong>double</strong>     <em>headHeight3</em>;
+        <strong>double</strong>     <em>filler_1[7]</em>;
+    <strong>}</strong> <em>API_WindowQuantity, API_DoorQuantity</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>width1</b></dt>
+
+        <dd>Window/door opening width on the reveal side</dd>
+
+        <dt><b>width2</b></dt>
+
+        <dd>Window/door opening width on the side opposite to the reveal side</dd>
+
+        <dt><b>height1</b></dt>
+
+        <dd>Window/door opening height on the reveal side</dd>
+
+        <dt><b>height2</b></dt>
+
+        <dd>Window/door opening height on the side opposite to the reveal side</dd>
+
+        <dt><b>surface1</b></dt>
+
+        <dd>Window/door opening surface on the reveal side</dd>
+
+        <dt><b>surface2</b></dt>
+
+        <dd>Window/door opening surface on the side opposite to the reveal side</dd>
+
+        <dt><b>nWidth1</b></dt>
+
+        <dd>Nominal window/door opening width on the reveal side</dd>
+
+        <dt><b>nWidth2</b></dt>
+
+        <dd>Nominal window/door opening width on the side opposite to the reveal side</dd>
+
+        <dt><b>nHeight1</b></dt>
+
+        <dd>Nominal window/door opening height on the reveal side</dd>
+
+        <dt><b>nHeight2</b></dt>
+
+        <dd>Nominal window/door opening height on the side opposite to the reveal side</dd>
+
+        <dt><b>nSurface1</b></dt>
+
+        <dd>Nominal window/door opening surface on the side opposite to the reveal side</dd>
+
+        <dt><b>nSurface2</b></dt>
+
+        <dd>Nominal window/door opening surface on the side opposite to the reveal side</dd>
+
+        <dt><b>volume</b></dt>
+
+        <dd>Window/door opening volume</dd>
+
+        <dt><b>grossSurf</b></dt>
+
+        <dd>Window/door opening nominal surface</dd>
+
+        <dt><b>grossVolume</b></dt>
+
+        <dd>Window/door opening nominal volume</dd>
+
+        <dt><b>surface</b></dt>
+
+        <dd>surface of the window/door</dd>
+
+        <dt><b>sillHeight</b></dt>
+
+        <dd>Window/door nominal sill height</dd>
+
+        <dt><b>sillHeight1</b></dt>
+
+        <dd>Window/door sill height on the reveal side</dd>
+
+        <dt><b>sillHeight2</b></dt>
+
+        <dd>Window/door sill height on the side opposite to the reveal side</dd>
+
+        <dt><b>headHeight</b></dt>
+
+        <dd>Window/door nominal head height</dd>
+
+        <dt><b>headHeight1</b></dt>
+
+        <dd>Window/door head height on the reveal side</dd>
+
+        <dt><b>headHeight2</b></dt>
+
+        <dd>Window/door head height on the side opposite to the reveal side</dd>
+
+        <dt><b>sillHeight3</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Window/door sill height according to the vertical anchor.</dd>
+
+        <dt><b>headHeight3</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Window/door head height according to the vertical anchor.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>See also the window parameters in Appendix A of the GDL Reference manual.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 15.0 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/ACAPI_Element_GetQuantities.html">ACAPI_Element_GetQuantities</a>, <a href="../Functions/ACAPI_Element_GetMoreQuantities.html">ACAPI_Element_GetMoreQuantities</a>, <a href="API_QuantityPar.html">API_QuantityPar</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 23, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

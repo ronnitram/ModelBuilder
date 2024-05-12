@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_Attr_Head</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_Attr_Head.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_Attr_Head</h1>
+
+    <p>Contains common information related to all attribute types.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_AttrTypeID.html">API_AttrTypeID</a></strong>     <em>typeID</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong> <em>index</em>;
+        <strong>short</strong>              <em>flags</em>;
+        <strong>short</strong>              <em>filler_0[3]</em>;
+        <strong>char</strong>               <em>name[API_AttrNameLen]</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>           <em>guid</em>;
+        <strong>UInt64</strong>             <em>modiTime</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>      <em>*uniStringNamePtr</em>;
+    <strong>}</strong> <em>API_Attr_Head</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>typeID</b></dt>
+
+        <dd>Type of the attribute; this identifies the attribute along with the <code>index</code> field.<br>
+        Refer to the <a href="API_AttrTypeID.html">API_AttrTypeID</a> structure to see the possible attribute types.</dd>
+
+        <dt><b>index</b></dt>
+
+        <dd>The attribute index is the current database index of the given attribute. References to any attribute are done through these indices. It goes from 1 to the maximum available attribute index for each attribute type.</dd>
+
+        <dt><b>flags</b></dt>
+
+        <dd>The attribute flags. Attribute type specific values are described in the individual attribute sections (where applicable). The following values are common for all types of attributes:</dd>
+
+        <dd>
+            <blockquote>
+                <table border="1" cellpadding="5">
+                    <tr>
+                        <th>
+                            <p><strong><code>Value</code></strong></p>
+                        </th>
+
+                        <th>
+                            <p><strong>Description</strong></p>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <p><code>APIAttr_IsClientCreated&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></code></p>
+                        </td>
+
+                        <td>
+                            <p>In teamwork mode, indicates whether an attribute was created by the client and not sent with the changes yet. Such an attribute can still be modified or deleted in teamwork mode (output only)</p>
+                        </td>
+                    </tr>
+                </table>
+            </blockquote>
+        </dd>
+
+        <dt><b>name</b></dt>
+
+        <dd>The name of the attribute, which appears in the appropriate dialogs.<br>
+        <img border="0" src="../../APIImageLibrary/11.png" alt="Modified in API 11" width="19" height="12">&nbsp; The attribute names can be at most 256 character long.</dd>
+
+        <dt><b>guid</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Modified in API 11" width="19" height="12"></dt>
+
+        <dd>The globally unique identifier (GUID) of the attribute; can be used for identifying attributes with <a href="../Functions/ACAPI_Attribute_Get.html">ACAPI_Attribute_Get</a> and <a href="../Functions/ACAPI_Attribute_Search.html">ACAPI_Attribute_Search</a>.</dd>
+
+        <dt><b>modiTime</b></dt>
+
+        <dd>The modification time of the attribute in GSTime.</dd>
+
+        <dt><b>uniStringNamePtr</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="API 11" width="19" height="12"></dt>
+
+        <dd>Optional parameter for accessing the name of the attribute in UniString format.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure contains general information about an attribute. Not all the fields are applicable to all attributes; see the description of the individual attributes.</p>
+
+    <p>As a general rule, before calling any of the <a href="../Level3/Attribute_Manager_id.html">Attribute Manager</a> functions, clear the whole structure, fill the necessary fields, then call the function. Clearing all fields in the structure is important for future compatibility; in the next API releases the fillers may have meanings.</p>
+
+    <p>Pen attributes normally don't have names and their index must be between 1 and 255. There are special pen index values described at <a href="API_PenType.html">API_PenType</a>.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/11.png" alt="API 11" width="19" height="12">&nbsp; Note that the <code>generalPtr</code> pointer has been removed from the <code>API_Attr_Head</code> structure. You can access long attribute names in C string format (<code>name</code>) or in <code>GS::UniString</code> format (<code>uniStringNamePtr</code>). For deleting more attributes with one attribute function call use <a href="../Functions/ACAPI_Attribute_DeleteMore.html">ACAPI_Attribute_DeleteMore</a>.</p>
+
+    <p>From Archicad 11 attribute names are stored in <code>GS::UniString</code> format. You can use UniString format for attribute operations to avoid loss of information due to character conversion. To achieve this set the pointer of a <code>GS::UniString</code> variable in the <code>uniStringNamePtr</code> field of the <code>API_Attr_Head</code> structure. Otherwise always set this field to <code>nullptr</code>.</p>
+
+    <p>You can identify attributes by their GUID or name. If you want to refer to an attribute by name, set the <code>guid</code> member to <code>APINULLGuid</code>. Note that <a href="API_FontType.html">Fonts</a>, <a href="API_PenType.html">Pens</a> and <a href="API_ModelViewOptionsType.html">Model View Options</a> do not have own GUID, in their case the <code>guid</code> field always contains <code>APINULLGuid</code>. If you set <code>uniStringNamePtr</code> to point to a valid <code>GS::UniString</code> object, the content of the <code>name</code> character buffer is ignored.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Attributes.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttrTypeID.html">API_AttrTypeID</a><br>
+	<a href="API_AttributeIndex.html">API_AttributeIndex</a><br>
+    <a href="API_Guid.html">API_Guid</a><br>
+    <a href="../Level3/Attribute_Manager_id.html">Attribute Manager</a><br>
+    <a href="API_Types.html">API Types</a><br>
+    <a href="../Functions/ACAPI_Attribute_Get.html">ACAPI_Attribute_Get</a>, <a href="../Functions/ACAPI_Attribute_Search.html">ACAPI_Attribute_Search</a>, <a href="../Functions/ACAPI_Attribute_DeleteMore.html">ACAPI_Attribute_DeleteMore</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

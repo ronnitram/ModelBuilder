@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Delaunay triangulation, TD</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Delaunay2D/Delaunay2D_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Delaunay triangulation functions</h1>
+
+    <p>These functions make Delaunay triangulation. This triangulation originally applied on a set of points. But it is modified to be applied on polygons.<br>
+    In trinagulation can be constraints. One type of them is the edges of the polygon: they must be in the triangulation and outside them there can not be triangulating sector. The other type of them - to not counting the points - is forced edges (a chain of them is called a ridge) between the points. They must be the part of the triangulation. Although in the specifying of the input polygon there are z coordinates the triangulation is wholly two dimensional, the z coords are only data in this sense.<br>
+    The use of them is simple: <a href="../Delaunay2D/TDInit.html">TDInit</a>, TDTringulate and last TDExit.</p>
+
+    <p>The TDGetHeightAtPoint and TDGetPointsAtLine can make queries on the trinagulated structures. Here get role the z coordinates.</p>
+
+    <p><a href="TDOEDGE.html">Geometry::TDOEDGE</a><br>
+    <a href="TDOTRIANGLES.html">Geometry::TDOTRIANGLES</a><br>
+    <a href="TDInit.html">Geometry::TDInit</a><br>
+    <a href="TDTriangulate.html">Geometry::TDTriangulate</a><br>
+    <a href="TDExit.html">Geometry::TDExit</a><br>
+    <a href="TDGetHeightAtPoint.html">Geometry::TDGetHeightAtPoint</a><br>
+    <a href="TDGetPointsAtLine.html">Geometry::TDGetPointsAtLine</a><br></p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../../Geometry.html">Geometry</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 21, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

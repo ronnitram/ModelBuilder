@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_AttrTypeID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_AttrTypeID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_AttrTypeID</h1>
+
+    <p>The type of an attribute.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>API_ZombieAttrID = 0</em>,
+        <em>API_FirstAttributeID = 1</em>,
+        <em>API_PenID = API_FirstAttributeID</em>,
+        <em>API_LayerID = 2</em>,
+        <em>API_LinetypeID = 3</em>,
+        <em>API_FilltypeID = 4</em>,
+        <em>API_CompWallID = 5</em>,
+        <em>API_MaterialID = 6</em>,
+        <em>API_LayerCombID = 7</em>,
+        <em>API_ZoneCatID = 8</em>,
+        <em>API_FontID = 9</em>,
+        <em>API_ProfileID = 10</em>,
+        <em>API_PenTableID = 11</em>,
+        <em>API_DimStandID = 12</em>,
+        <em>API_ModelViewOptionsID = 13</em>,
+        <em>API_MEPSystemID = 14</em>
+        <em>API_OperationProfileID = 15</em>,
+        <em>API_BuildingMaterialID = 16</em>,
+        <em>API_LastAttributeID = API_BuildingMaterialID</em>,
+    <strong>}</strong> <em>API_AttrTypeID</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>API_ZombieAttrID</b></dt>
+
+        <dd>Dummy attribute type.</dd>
+
+        <dt><b>API_PenID</b></dt>
+
+        <dd>Denotes a pen attribute.</dd>
+
+        <dt><b>API_LayerID</b></dt>
+
+        <dd>Denotes a layer attribute.</dd>
+
+        <dt><b>API_LinetypeID</b></dt>
+
+        <dd>Denotes a line type attribute.</dd>
+
+        <dt><b>API_FilltypeID</b></dt>
+
+        <dd>Denotes a fill attribute.</dd>
+
+        <dt><b>API_CompWallID</b></dt>
+
+        <dd>Denotes a composite wall attribute.</dd>
+
+        <dt><b>API_MaterialID</b></dt>
+
+        <dd>Denotes a material attribute.</dd>
+
+        <dt><b>API_LayerCombID</b></dt>
+
+        <dd>Denotes a layer combination attribute.</dd>
+
+        <dt><b>API_ZoneCatID</b></dt>
+
+        <dd>Denotes a zone category attribute.</dd>
+
+        <dt><b>API_FontID</b></dt>
+
+        <dd>Denotes a font attribute.</dd>
+
+        <dt><b>API_ProfileID</b>&nbsp;<img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Denotes a custom profile attribute for walls, beams, and columns.</dd>
+
+        <dt><b>API_PenTableID</b>&nbsp;<img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Denotes a named pen table attribute (a collection of 255 pens).</dd>
+
+        <dt><b>API_DimStandID</b>&nbsp;<img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Denotes a dimension style attribute.</dd>
+
+        <dt><b>API_ModelViewOptionsID</b>&nbsp;<img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Denotes a collection of model view options attributes.</dd>
+
+        <dt><b>API_MEPSystemID</b>&nbsp;<img src="../../APIImageLibrary/13.png" alt="10" width="19" height="12"></dt>
+
+        <dd>Denotes a MEP System attribute.</dd>
+
+        <dt><b>API_OperationProfileID</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></dt>
+
+        <dd>Denotes an Energy Evaluation operation profile.</dd>
+
+        <dt><b>API_BuildingMaterialID</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Denotes a building material attribute.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This is a general constant which describes the different attributes types, and is used in most attribute-related operations.</p>
+
+    <p>Refer to the <a href="API_Attr_Head.html">API_Attr_Head</a> structure to get more details on it.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Attributes.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Attr_Head.html">API_Attr_Head</a>, <a href="API_Attribute.html">API_Attribute</a><br>
+    <a href="../Level3/Attribute_Manager_id.html">Attribute Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 2, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

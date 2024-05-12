@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_NotifyElementType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_NotifyElementType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_NotifyElementType</h1>
+
+    <p>Describes the element the notification is coming for, and the type of the notification.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_ElementDBEventID.html">API_ElementDBEventID</a></strong>     <em>notifID</em>;
+        <strong>Int32</strong>                    <em>filler_1</em>;
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>            <em>elemHead</em>;
+        <strong><a href="API_DatabaseUnId.html">API_DatabaseUnId</a></strong>         <em>databaseId</em>;
+        <strong>Int32</strong>                    <em>filler_2[8]</em>;
+    <strong>}</strong> <em>API_NotifyElementType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>notifID</b></dt>
+
+        <dd>The type of the notification.</dd>
+
+        <dt><b>filler_1</b></dt>
+
+        <dd>Reserved for later use.</dd>
+
+        <dt><b>elemHead</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></dt>
+
+        <dd>Element reference.</dd>
+
+        <dt><b>databaseId</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></dt>
+
+        <dd>Element database identifier.</dd>
+
+        <dt><b>filler_2</b></dt>
+
+        <dd>Reserved for later use.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This is the parameter of the <!--NoCHM--><a href="../Functions/APIElementEventHandlerProc.html">APIElementEventHandlerProc</a> callback function, identifying the element and the type of notification your add-on was called for.</p>
+
+    <p>In order to receive the notifications of created elements you should install an <!--NoCHM--><a href="../Functions/APIElementEventHandlerProc.html">APIElementEventHandlerProc</a> with the <!--NoCHM--><a href="../Functions/ACAPI_Notify_CatchNewElement.html">ACAPI_Notify_CatchNewElement</a> function.<br>
+    To be notified on deleting or modifying a specified element, attach an observer to the element you are interested in with <!--NoCHM--><a href="../Functions/ACAPI_Element_AttachObserver.html">ACAPI_Element_AttachObserver</a> with the appropriate flags.</p>
+
+    <p>You should definitely not modify the project database during <strong>APINotifyElement_Undo</strong> and <strong>APINotifyElement_Redo</strong> notifications.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/51.png" alt="5.1" width="19" height="12">&nbsp; The <a href="../Level3/notification_manager_id.html#ElemNotifMan">Notification Manager</a> section explains how the element related notifications are sent to the add-ons. Since each add-on can be notified twice during the same operation, the first call is marked with a <code>-1</code> index value in the <strong>APINotifyElement_BeginEvents</strong> notification. This helps you to distinguish the first and the second <strong>APINotifyElement_BeginEvents</strong> (for example if you have to keep the data synchronized with an external database).</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Callback.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIElementEventHandlerProc.html">APIElementEventHandlerProc</a><br>
+    <a href="API_ElementDBEventID.html">API_ElementDBEventID</a><br>
+    <a href="API_ElemTypeID.html">API_ElemTypeID</a><br>
+    <a href="../Functions/ACAPI_Notify_CatchNewElement.html">ACAPI_Notify_CatchNewElement</a><br>
+    <a href="../Functions/ACAPI_Element_AttachObserver.html">ACAPI_Element_AttachObserver</a><br>
+    <a href="../Functions/ACAPI_Notify_GetParentElement.html">ACAPI_Notify_GetParentElement</a><br>
+    <a href="../Level3/notification_manager_id.html#ElemNotifMan">Notification Manager</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 22, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

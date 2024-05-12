@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Bende Laszlo">
+
+    <title>DGContextMenuMsgData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGContextMenuMsgData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGContextMenuMsgData</h1>
+
+    <p>If the <a href="CallbackFunctions.html">dialog callback function</a> receives a <a href="DG_MSG_CONTEXTMENU.html"><tt>DG_MSG_CONTEXTMENU</tt></a> message, the <i>msgData</i> parameter is a pointer to a <b>DGContextMenuMsgData</b> structure which contains information about the context menu event.</p>
+    <pre class="syntax">
+    <strong>struct</strong> <em>DGContextMenuMsgData</em> {
+      <strong>short</strong>  <em>panelId;</em>
+      <strong>short</strong>  <em>itemId;</em>
+      <strong>short</strong>  <em>xPos;</em>
+      <strong>short</strong>  <em>yPos;</em>
+      <strong>Int32</strong>  <em>treeItem;</em>
+      <strong>short</strong>  <em>listItem;</em>
+      <strong>short</strong>  <em>listHeaderItem;</em>
+      <strong>bool</strong>   <em>inListHeaderButton;</em>
+      <strong>bool</strong>   <em>needHelp;</em>
+    };
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>panelId</b></dt>
+
+        <dd>Id of the panel whose context help is requested.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>itemId</b></dt>
+
+        <dd>1-based index of the dialog item which received the event. If the context menu event occured on the dialog, this value is zero.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>xPos</b></dt>
+
+        <dd>Horizontal mouse position in screen coordinates.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>yPos</b></dt>
+
+        <dd>Vertical mouse position in screen coordinates.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>treeItem</b></dt>
+
+        <dd>If the dialog item is a treeview, it is the tree view item which received the event, otherwise it is zero.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>listItem</b></dt>
+
+        <dd>If the dialog item is a list view or list box, it is the list item which received the event, otherwise it is zero.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>listHeaderItem</b></dt>
+
+        <dd>If the dialog item is a header item of a list box item, it is the header item which received the event, otherwise it is zero.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>inListHeaderButton</b></dt>
+
+        <dd>True if the dialog item is the header button of a list box item, otherwise it is false.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>needHelp</b></dt>
+
+        <dd>If the user selected the "What's this"/"Help" item in the context menu, the programmer can signal the DG module to bring up the context sensitive help information for the item/dialog. So if you want DG to launch the help system with the data related to the item/dialog (this is probably because user clicked help command in the context menu) you should set this variable true. Othervise leave it untouched.</dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Structures_id.html">DG Structures</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DG_MSG_CONTEXTMENU.html"><tt>DG_MSG_CONTEXTMENU</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 20, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

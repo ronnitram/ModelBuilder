@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_Change</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_Change.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_Change</h1>
+
+    <p>Modifies an element in the current database.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_Change</strong> (
+        <strong><a href="../Structures/API_Element.html">API_Element</a>*</strong>               <em>element</em>,
+        <strong>const <a href="../Structures/API_Element.html">API_Element</a>*</strong>         <em>mask</em>,
+        <strong>const <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>*</strong>     <em>memo</em>,
+        <strong>UInt64</strong>                     <em>memoMask</em>,
+        <strong>bool</strong>                       <em>withdel</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>element</em></dt>
+
+        <dd>[in/out] Reference to the element to be modified, filled with the appropriate new parameters</dd>
+
+        <dt><em>mask</em></dt>
+
+        <dd>[in] Optional parameter for masking the relevant fields of <code>element</code></dd>
+
+        <dt><em>memo</em></dt>
+
+        <dd>[in] The memo data to be changed. Optional parameter, can be <code>nullptr</code></dd>
+
+        <dt><em>memoMask</em></dt>
+
+        <dd>[in] Specifies the relevant parts of the <code>memo</code> parameter</dd>
+
+        <dt><em>withdel</em></dt>
+
+        <dd>[in] Delete the original instance of the element, or keep it and create a new one</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADDATABASE</code></dt>
+
+        <dd>The current database should be the floor plan, a section/elevation, a detail or a worksheet</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed <code>element</code> parameter is <code>nullptr</code>,<br>
+        or the element is grouped and suspend group mode is OFF</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>The element reference is invalid (<code>guid</code>)<br>
+        or the element type is not supported by the server application</dd>
+
+        <dt><code>APIERR_DELETED</code></dt>
+
+        <dd>The element does not exist in the database</dd>
+
+        <dt><code>APIERR_NOTMINE</code>,<br>
+        <code>APIERR_LOCKEDLAY</code>,<br>
+        <code>APIERR_HIDDENLAY</code>,<br>
+        <code>APIERR_NOTEDITABLE</code></dt>
+
+        <dd>The referenced <code>element</code> cannot be modified</dd>
+
+        <dt><code>APIERR_IRREGULARPOLY</code></dt>
+
+        <dd>Input polygon or polyline is irregular.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>With this function not only the setting type parameters of an element can be modified, but geometry data too. Unlike <a href="ACAPI_Element_ChangeParameters.html">ACAPI_Element_ChangeParameters</a> and <a href="ACAPI_Element_Edit.html">ACAPI_Element_Edit</a>, it works only on one element at a time. On return the <code>guid</code> field of the element header is filled in. Element connections and dimension chains are updated automatically.<br></p>
+
+    <p>To change elements having associated markers use the <a href="ACAPI_Element_ChangeExt.html">ACAPI_Element_ChangeExt</a> function instead.</p>Do not forget to call <a href="ACAPI_DisposeElemMemoHdls.html">ACAPI_DisposeElemMemoHdls</a> to dispose the memo handles when they are not needed any more.
+
+    <p>The following element types are supported:</p>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th align="left">Element type</th>
+
+            <th align="left">&#x1F4DD; Notes</th>
+        </tr>
+
+        <tr>
+            <td><code>API_WallID</code></td>
+
+            <td>cannot switch between polygon-based and non-polygon-based wall types;<br>
+            <code>type</code>, <code>begC</code>, <code>endC</code> and <code>angle</code> fields can be modified for non-polygonal walls only;<br>
+            the <code>gables</code> of the wall can be changed</td>
+        </tr>
+
+        <tr>
+            <td><code>API_ColumnID</code></td>
+
+            <td>beside the setting parameters the <code>origoPos</code>, <code>axisRotationAngle</code> fields can be accessed directly; <br>the <code>gables</code>, <code>columnSegments</code>, <code>assemblySegmentCuts</code>, <code>assemblySegmentSchemes</code> and <code>assemblySegmentProfiles</code> memos can be modified</td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_BeamID</code></p>
+            </td>
+
+            <td>beside the setting parameters the <code>begC</code>, <code>endC</code> fields can be accessed directly;<br>
+            the <code>beamHoles</code>, <code>gables</code>, <code>beamSegments</code>, <code>assemblySegmentCuts</code>, <code>assemblySegmentSchemes</code> and <code>assemblySegmentProfiles</code> memos can be modified</td>
+        </tr>
+
+        <tr>
+            <td><code>API_WindowID<br>
+            API_DoorID</code></td>
+
+            <td>beside the setting parameters the following fields can be edited: <code>objLoc</code>, <code>reflected</code>, <code>oSide</code>, <code>refSide</code>, <code>wallCutUsing</code>, <code>libInd</code>;<br>
+            the <code>gables</code> and <code>params</code> memos can also be modified</td>
+        </tr>
+
+        <tr>
+            <td><code>API_ObjectID<br>
+            API_LampID</code></td>
+
+            <td>beside the setting parameters the following fields can be edited: <code>pos</code>, <code>libInd</code>;<br>
+            the <code>gables</code> and <code>params</code> memos can also be modified</td>
+        </tr>
+
+        <tr>
+            <td><code>API_SlabID</code></td>
+
+            <td>beside the setting parameters the polygon of the slab can be modified directly (<code>coords</code>, <code>pends</code>, <code>parcs</code> and <code>vertexIDs</code> memo handles)</td>
+        </tr>
+
+        <tr>
+            <td><code>API_RoofID</code></td>
+
+            <td>beside the setting parameters the <code>baseLine</code> field, the polygon of the roof and the roof sides can be modified directly (<code>coords</code>, <code>pends</code>, <code>parcs</code>, <code>vertexIDs</code> and <code>roofSides</code> memo handles)</td>
+        </tr>
+
+        <tr>
+            <td><code>API_MeshID</code></td>
+
+            <td><img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12">&nbsp; beside the setting parameters the polygon and ridge levels of the mesh can be modified directly (<code>coords</code>, <code>pends</code>, <code>parcs</code> <code>vertexIDs</code>, <code>meshPolyZ</code>, <code>meshLevelCoords</code> and <code>meshLevelEnds</code>memo handles)</td>
+        </tr>
+
+        <tr>
+            <td><code>API_DimensionID</code></td>
+
+            <td>beside the setting parameters the <code>dimElems</code> memo handle can be modified</td>
+        </tr>
+
+        <tr>
+            <td><code>API_RadialDimensionID</code></td>
+
+            <td>beside the setting parameters the following fields can be edited: <code>base</code>, <code>note</code></td>
+        </tr>
+
+        <tr>
+            <td><code>API_LevelDimensionID</code></td>
+
+            <td>beside the setting parameters the following fields can be edited: <code>loc</code>, <code>note1</code>, <code>note2</code>, <code>parentType</code>, <code>parentGuid</code></td>
+        </tr>
+
+        <tr>
+            <td><code>API_AngleDimensionID</code></td>
+
+            <td>beside the setting parameters the <code>note</code> and <code>base</code> fields can be modified</td>
+        </tr>
+
+        <tr>
+            <td><code>API_TextID</code></td>
+
+            <td>beside the setting parameters the following fields can be edited: <code>loc</code>, <code>width</code>, <code>nonBreaking</code>;<br>
+            the content and the style of the text can also be modified (<code>textContent</code>, <code>paragraphs</code> memo)</td>
+        </tr>
+
+        <tr>
+            <td><code>API_LabelID</code></td>
+
+            <td>beside the setting parameters the following fields can be edited: <code>begC</code>, <code>midC</code>, <code>endC</code>, <code>u.text</code> (the same as <code>API_TextID</code>), <code>u.symbol</code> (the same as <code>API_ObjectID</code>);<br>
+            for textual label the content and the style of the text can also be modified (<code>textContent</code>, <code>paragraphs</code> memo);<br>
+            an associative Label cannot be made independent, and an independent Label cannot be made associative.</td>
+        </tr>
+
+        <tr>
+            <td><code>API_ZoneID</code></td>
+
+            <td>beside the setting parameters the following fields can be edited: <code>libInd</code>, <code>pos</code> and the polygon of the zone (<code>coords</code>, <code>pends</code>, <code>parcs</code>, <code>vertexIDs</code> memo handles)</td>
+        </tr>
+
+        <tr>
+            <td><code>API_HatchID</code></td>
+
+            <td>beside the setting parameters the following fields can be edited: <code>note</code> and the polygon of the hatch (<code>coords</code>, <code>pends</code>, <code>parcs</code>, <code>vertexIDs</code> memo handles)</td>
+        </tr>
+
+        <tr>
+            <td><code>API_LineID</code></td>
+
+            <td>beside the setting parameters the <code>begC</code>, <code>endC</code> fields can be accessed directly</td>
+        </tr>
+
+        <tr>
+            <td><code>API_ArcID</code><br>
+            <code>API_CircleID</code></td>
+
+            <td>both the setting and geometry parameters can be modified with <strong>ACAPI_Element_Change</strong></td>
+        </tr>
+
+        <tr>
+            <td><code>API_PolyLineID</code></td>
+
+            <td>beside the setting parameters the the polygon data (<code>coords</code>, <code>pends</code>, <code>parcs</code>, <code>vertexIDs</code> memo handles) can be accessed directly</td>
+        </tr>
+
+        <tr>
+            <td><code>API_SplineID</code></td>
+
+            <td>only the setting parameters can be modified with <strong>ACAPI_Element_Change</strong> in this version;<br>
+            geometry data, <code>autoSmooth</code> and <code>closed</code> fields cannot be accessed</td>
+        </tr>
+
+        <tr>
+            <td><code>API_HotspotID</code></td>
+
+            <td>beside the setting parameters the following fields can be edited: <code>pos</code>, <code>height</code></td>
+        </tr>
+
+        <tr>
+            <td><code>API_CutPlaneID</code></td>
+
+            <td>beside the setting parameters the following fields can be edited: <code>depth</code>, <code>leftDir</code></td>
+        </tr>
+
+        <tr>
+            <td><code>API_ChangeMarkerID</code>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="18" width="19" height="12"></td>
+
+            <td>beside the setting parameters the following fields can be edited: <code>pos</code>. It has effect only when the changed ChangeMarker has no polygon, i.e. it points to a single coordinate marked by <code>pos</code>.</td>
+        </tr>
+
+        <tr>
+            <td><code>API_DetailID</code><br>
+            <code>API_WorksheetID</code></td>
+
+            <td>beside the setting parameters the <code>pos</code> field and the polygon of the detail or worksheet (<code>coords</code>, <code>pends</code>, <code>parcs</code>, <code>vertexIDs</code> memo handles) can be accessed directly</td>
+        </tr>
+
+        <tr>
+            <td><code>API_SectElemID</code>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></td>
+
+            <td>after modifying the parent element on the floor plan database, calling <strong>ACAPI_Element_Change</strong> for the section symbol element on the section database rebuilds the image of the modified element in the section window (use this to avoid unnecessary <code>APIDo_RebuildID</code> and <code>APIDb_RebuildCurrentDatabaseID</code> calls). The function returns <code>APIERR_DELETED</code> if the parent element has been deleted or got out of the scope of the section; otherwise it gives back the new index of the refreshed section element.</td>
+        </tr>
+
+        <tr>
+            <td><code>API_MorphID</code>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="16" width="19" height="12"></td>
+
+            <td>in some cases changing the <code>tranmat</code> field effects the body points themselves and vice versa;<br>
+            the resulting body will be correct, but getting the <code>tranmat</code> field after setting might result different values inside</td>
+        </tr>
+
+         <tr>
+            <td><code>API_HotlinkID</code>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="23" width="19" height="12"></td>
+
+            <td>the <code>type</code>, and <code>hotlinkGroupGuid</code> fields can not be changed.</td>
+        </tr>
+
+       <tr>
+            <td><code>API_OpeningID&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="21" width="19" height="12"></code></td>
+
+            <td> Connected elements can not be removed or added.</td>
+        </tr>
+    </table>
+
+    <p><img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12">&nbsp; You can modify more elements at once with a single call of the <a href="ACAPI_Element_ChangeMore.html">ACAPI_Element_ChangeMore</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+GSErrCode   FlipWall (const API_Guid&amp; wallGuid)
+{
+    API_Element         element, mask;
+    API_Coord           c1, c2;
+    GSErrCode           err = NoError;
+
+    BNZeroMemory (&amp;element, sizeof (API_Element));
+    element.header.guid  = wallGuid;
+    err = ACAPI_Element_Get (&amp;element);
+    if (err != NoError)
+        return err;
+
+    c1 = element.wall.begC;
+    c2 = element.wall.endC;
+
+    if (err == NoError) {
+        ACAPI_ELEMENT_MASK_CLEAR (mask);
+        ACAPI_ELEMENT_MASK_SET (mask, API_WallType, begC);
+        ACAPI_ELEMENT_MASK_SET (mask, API_WallType, endC);
+
+        element.wall.begC = c2;
+        element.wall.endC = c1;
+
+        err = ACAPI_Element_Change (&amp;element, &amp;mask, nullptr, 0, true);
+    }
+
+    return err;
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Element.html">API_Element</a>, <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="ACAPI_Element_ChangeExt.html">ACAPI_Element_ChangeExt</a>, <a href="ACAPI_Element_ChangeMore.html">ACAPI_Element_ChangeMore</a><br>
+    <a href="ACAPI_Element_ChangeMemo.html">ACAPI_Element_ChangeMemo</a>, <a href="ACAPI_Element_ChangeParameters.html">ACAPI_Element_ChangeParameters</a><br>
+    <a href="ACAPI_Element_Edit.html">ACAPI_Element_Edit</a>, <a href="ACAPI_DisposeElemMemoHdls.html">ACAPI_DisposeElemMemoHdls</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 18, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

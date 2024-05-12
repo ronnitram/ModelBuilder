@@ -1,0 +1,33 @@
+﻿
+/*--- Picture ---------------------------------------------------------------*/
+
+'GICN'  10000  "Archicad Picture" {
+}
+
+/*--- Toolbox icons ---------------------------------------------------------*/
+
+'GICN'  20000  "Wall icon" {
+        "WallTool"
+}
+
+'GICN'  20001  "Door icon" {
+        "DoorTool"
+}
+
+'GICN'  20002  "Window icon" {
+        "WindowTool"
+}
+
+'GICN'  20003  "Object icon" {
+        "ObjectTool"
+}
+
+/*--- Teamwork traffic lights -----------------------------------------------*/
+
+'GICN' 30000 "TW On-demand Editable green icon" {
+                "TWEditable"
+}
+
+'GICN' 30001 "TW On-demand Locked red icon" {
+                "TWLocked"
+}

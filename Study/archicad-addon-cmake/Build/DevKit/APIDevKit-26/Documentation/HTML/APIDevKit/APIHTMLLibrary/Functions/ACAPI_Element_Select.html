@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_Select</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_Select.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_Select</h1>
+
+    <p>Adds/removes a number of elements to/from the current selection.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_Select</strong> (
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../Structures/API_Neig.html">API_Neig</a>&gt;&amp;</strong> <em>selNeigs</em>,
+        <strong>bool</strong>                       <em>add</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>selNeigs</em></dt>
+
+        <dd>[in] The elements to be added/removed (array of <a href="../Structures/API_Neig.html">API_Neig</a> objects);</dd>
+
+        <dt><em>add</em></dt>
+
+        <dd>[in] If true, adds the elements to the current selection, otherwise removes them from the selection.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADDATABASE</code></dt>
+
+        <dd>The current database is not proper for the operation.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>The element unique ID is invalid. The element type is invalid, or<br>
+        the element type is not supported by the server application.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed parameter contains invalid data; <code>selNeigs</code>.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You can use this function to add/remove (<code>add</code> flag) a number of (<code>nItem</code>) elements to/from the current selection. The elements are defined by the <code>selNeigs</code> array of type <a href="../Structures/API_Neig.html">API_Neig</a>. Use <a href="./ACAPI_Element_DeselectAll.html">ACAPI_Element_DeselectAll</a> function to remove all elements from the selection.</p>
+
+    <p>The <code>neigID</code> and the <code>guid</code> fields are required (inIndex and/or <code>holeSel</code> only where applicable).</p>
+
+    <p>The <code>API_NeigID</code> is differs from the <code>API_ElemTypeID</code>, because it refers to the selectable parts of the elements, not the elements themselves.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/18.png" alt="API 18" width="19" height="12">&nbsp;You can select not only whole elements but element parts, such as vertices, edges and faces,
+    specified in the <code>elemPartType</code> and <code>elemPartIndex</code> fields of <a href="../Structures/API_Neig.html">API_Neig</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+static GSErrCode    Do_SelectAllWalls (void)
+{
+    ACAPI_Element_DeselectAll ();
+
+    GS::Array&lt;API_Guid&gt; wallGuids;
+    ACAPI_Element_GetElemList (API_WallID, &amp;wallGuids);
+
+    GS::Array&lt;API_Neig&gt; selNeigs;
+    for (const API_Guid&amp; guid : wallGuids) {
+        API_Neig neig (guid);
+        selNeigs.Push (neig);
+        // Note: the following 1 commented line is equivalent to the previous 2 lines
+        // selNeigs.PushNew (guid);
+    }
+
+    return <font color="#FF0066">ACAPI_Element_Select</font> (selNeigs, true);
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Neig.html">API_Neig</a>,<br>
+    <a href="./ACAPI_Element_DeselectAll.html">ACAPI_Element_DeselectAll</a>,<br>
+    <a href="../Level3/Selection_Manager_id.html">Selection Manager</a>, <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on October 5, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

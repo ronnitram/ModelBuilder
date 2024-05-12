@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_SpecFolderID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_SpecFolderID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_SpecFolderID</h1>
+
+    <p>The selector of special folders.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>API_ApplicationPrefsFolderID</em>,
+        <em>API_GraphisoftPrefsFolderID</em>,
+        <em>API_GraphisoftHomeFolderID</em>,
+        <em>API_CacheFolderID</em>,
+        <em>API_DataFolderID</em>,
+        <em>API_UserDocumentsFolderID</em>,
+        <em>API_TemporaryFolderID</em>,
+        <em>API_ApplicationFolderID</em>,
+        <em>API_DefaultsFolderID</em>,
+        <em>API_WebObjectsFolderID</em>,
+        <em>API_TemplatesFolderID</em>,
+        <em>API_HelpFolderID</em>,
+        <em>API_EmbeddedProjectLibraryFolderID</em>,
+        <em>API_EmbeddedProjectLibraryHotlinkFolderID</em>
+    <strong>}</strong> <em>API_SpecFolderID</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>API_ApplicationPrefsFolderID</b></dt>
+
+        <dd>The folder into which the application writes its preferences.</dd>
+
+        <dt><b>API_GraphisoftPrefsFolderID</b></dt>
+
+        <dd>The folder containing general preferences of Graphisoft applications.</dd>
+
+        <dt><b>API_GraphisoftHomeFolder</b></dt>
+
+        <dd>The Graphisoft home folder.</dd>
+
+        <dt><b>API_CacheFolder</b></dt>
+
+        <dd>The folder where the application may write data to speed up its operation.</dd>
+
+        <dt><b>API_DataFolderID</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>The location of the Data folder.</dd>
+
+        <dt><b>API_UserDocumentsFolder</b></dt>
+
+        <dd>The folder where the application places the output files by default.</dd>
+
+        <dt><b>API_TemporaryFolder</b></dt>
+
+        <dd>The folder where the application stores temporary data, and which will be emptied when you launch the application.</dd>
+
+        <dt><b>API_ApplicationFolderID</b>&nbsp;<img border="0" src="../../APIImageLibrary/42.png" alt="4.2" width="19" height="12"></dt>
+
+        <dd>The folder containing the running application. It should be considered as read-only.</dd>
+
+        <dt><b>API_DefaultsFolderID</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>This folder contains the default preferences (e.g. default user profile settings, shortcuts, command layouts, etc.) that come with the program installation. Located in the application folder, and should be considered as read-only.</dd>
+
+        <dt><b>API_WebObjectsFolderID</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>This folder is the recommended place for storing objects and other files downloaded from the Web.</dd>
+
+        <dt><b>API_TemplatesFolderID</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>The default location of Archicad project templates.</dd>
+
+        <dt><b>API_HelpFolderID</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>The default location of the application's Help folder.</dd>
+
+        <dt><b>API_EmbeddedProjectLibraryFolderID</b>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="13" width="19" height="12"></dt>
+
+        <dd>The location of the embedded project library.</dd>
+
+        <dt><b>API_EmbeddedProjectLibraryHotlinkFolderID</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></dt>
+
+        <dd>The location of the embedded project library of hotlinked modules.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIEnv_GetSpecFolderID.html">APIEnv_GetSpecFolderID</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 23, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

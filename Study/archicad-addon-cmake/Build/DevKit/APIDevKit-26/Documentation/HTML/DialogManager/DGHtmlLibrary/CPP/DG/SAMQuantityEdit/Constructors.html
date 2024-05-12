@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>SAMQuantityEdit (SAMQuantityEdit)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/SAMQuantityEdit/Constructors.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="SAMQuantityEdit.html">SAMQuantityEdit</A>::SAMQuantityEdit</H2><!--exp="SAMQuantityEdit::SAMQuantityEdit"-->
+<P><topic id="$DG.$SAMQuantityEdit.$SAMQuantityEdit.BriefDescription">
+		Class constructor.
+	</topic></P>
+<PRE class="syntax"><B>SAMQuantityEdit (</B>
+    <B><a class="nodecorate" href="../../DG/Panel/Panel.html">const Panel &amp;</A>       </B><I>panel</I>,
+    <B>short               </B><I>item</I>
+<B>);</B></PRE>
+<p><topic id="$DG.$SAMQuantityEdit.$SAMQuantityEdit.1.OverloadDescription">
+		Constructs the SAM (Structural Analytical Model) quantity control from resource.
+	</topic></p>
+<PRE class="syntax"><B>SAMQuantityEdit (</B>
+    <B><a class="nodecorate" href="../../DG/Panel/Panel.html">const Panel &amp;</A>       </B><I>panel</I>,
+    <B><a class="nodecorate" href="../../DG/Rect/Rect.html">const Rect &amp;</A>        </B><I>rect</I>,
+    <B>short               </B><I>subType</I>,
+    <B><a class="nodecorate" href="../../DG/EditControl/FrameType.html">FrameType</A>           </B><I>frame</I><B> = Frame</B>,
+    <B><a class="nodecorate" href="../../DG/RealEdit/AbsRelType.html">AbsRelType</A>          </B><I>absRel</I><B> = Absolute</B>,
+    <B><a class="nodecorate" href="../../DG/EditControl/UpdateType.html">UpdateType</A>          </B><I>update</I><B> = Update</B>,
+    <B><a class="nodecorate" href="../../DG/EditControl/ReadOnlyType.html">ReadOnlyType</A>        </B><I>readOnly</I><B> = Editable</B>
+<B>);</B></PRE>
+<p><topic id="$DG.$SAMQuantityEdit.$SAMQuantityEdit.2.OverloadDescription">
+		Constructs the SAM quantity control with the given parameters.
+	</topic></p>
+<H4>Parameters</H4>
+<DL><DT><I>panel</I></DT><DD><topic id="$DG.$SAMQuantityEdit.$SAMQuantityEdit.$panel.ParamDescription">
+		A reference to the parent <a href="../Panel/Panel.html">panel</a> of the SAM quantity control.
+	</topic></DD><DT><I>item</I></DT><DD><topic id="$DG.$SAMQuantityEdit.$SAMQuantityEdit.$item.ParamDescription">
+		The item ID of the control.
+	</topic></DD><DT><I>rect</I></DT><DD><topic id="$DG.$SAMQuantityEdit.$SAMQuantityEdit.$rect.ParamDescription">
+		A reference to the bounding <a href="../Rect/Rect.html">rectangle</a> of the SAM quantity control.
+	</topic></DD><DT><I>subType</I></DT><DD><topic id="$DG.$SAMQuantityEdit.$SAMQuantityEdit.$subType.ParamDescription">
+		The subtype of item.<br/>
+		<I>DG_ET_SAM_PTSTIFFNESS</I>,<BR/>
+		<I>DG_ET_SAM_PRSTIFFNESS</I>,<BR/>
+		<I>DG_ET_SAM_LTSTIFFNESS</I>,<BR/>
+		<I>DG_ET_SAM_LRSTIFFNESS</I>,<BR/>
+		<I>DG_ET_SAM_STSTIFFNESS</I>,<BR/>
+		<I>DG_ET_SAM_TRFORCE</I>,<BR/>
+		<I>DG_ET_SAM_RRMOMENT</I>,<BR/>
+		<I>DG_ET_SAM_PLFORCE</I>,<BR/>
+		<I>DG_ET_SAM_PLMOMENT</I>,<BR/>
+		<I>DG_ET_SAM_ELFORCE</I>,<BR/>
+		<I>DG_ET_SAM_ELMOMENT</I>,<BR/>
+		<I>DG_ET_SAM_SLFORCE</I>
+	</topic></DD><DT><I>frame</I></DT><DD><topic id="$DG.$SAMQuantityEdit.$SAMQuantityEdit.$frame.ParamDescription">
+		The <a href="../EditControl/FrameType.html">frame type</a> of the SAM quantity control.
+	</topic></DD><DT><I>absRel</I></DT><DD><topic id="$DG.$SAMQuantityEdit.$SAMQuantityEdit.$absRel.ParamDescription">
+		The <a href="../RealEdit/AbsRelType.html">absolut/relativ</a> numerical input flag of the SAM quantity control.
+	</topic></DD><DT><I>update</I></DT><DD><topic id="$DG.$SAMQuantityEdit.$SAMQuantityEdit.$update.ParamDescription">
+		The <a href="../EditControl/UpdateType.html">update type</a> of the SAM quantity control.
+	</topic></DD><DT><I>readOnly</I></DT><DD><topic id="$DG.$SAMQuantityEdit.$SAMQuantityEdit.$readOnly.ParamDescription">
+		The <a href="../EditControl/ReadOnlyType.html">readonly/editable</a> flag of the SAM quantity control.
+	</topic></DD>
+</DL>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

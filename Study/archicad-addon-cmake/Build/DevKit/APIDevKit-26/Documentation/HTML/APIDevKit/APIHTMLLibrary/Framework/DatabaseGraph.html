@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <title>GSAPI::DatabaseGraph class</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Framework/DatabaseGraph.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GSAPI::DatabaseGraph class</h1>
+
+    <p>This is a support singleton class which builds the database graph of the Archicad databases.</p>
+
+    <p>The constructor changes to the floor plan (this is the starting point of the graph) and lists all connected databases (sections and dependent details) there. These databases are visited in the next step and yet again new connecting databases are sought (dependent details only this time). This is repeated as long as necessary to map all dependent details while only noting but not following links to databases already seen.</p>
+
+    <p>After the connected databases (floor plan, sections, dependent details) are added to the graph, the remaining databases (independent details, layouts, master layouts) are added connecting to the starting node (the floor plan).</p>
+
+    <p>It is important to note that the singleton does not follow database changes, it only represents the database structure at the time point of it's creation.</p>
+
+    <p>The class exports only one public method: the <i>SelectDatabases ()</i> method. It expects an <!-- Don't index --><a href="IDatabaseSelector.html">IDatabaseSelector</a> object and returns a list of <!-- Don't index --><a href="../Structures/API_WindowInfo.html">API_DatabaseInfo</a> structures selected by the functor.</p>
+
+    <h2 class="SectionHeading">Requirements</h2>
+
+    <p><span class="RequirementsSection">Namespace:</span> GSAPI</p>
+
+    <p><span class="RequirementsSection">Header:</span> DatabaseGraph.hpp</p>
+
+    <p><span class="RequirementsSection">Source:</span> DatabaseGraph.cpp</p>
+
+    <p><span class="RequirementsSection">Version:</span> API 10.21 or later</p>
+
+    <h2 class="SectionHeading">See Also</h2>
+
+    <p><!-- Don't index --><a href="IDatabaseSelector.html">IDatabaseSelector interface</a> | <!-- Don't index --><a href="DatabaseGraphNode.html">DatabaseGraphNode class</a></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

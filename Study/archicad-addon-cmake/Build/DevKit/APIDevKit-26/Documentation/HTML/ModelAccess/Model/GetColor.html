@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>GetColor</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Model/GetColor.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="Model.html">Model</a>::GetColor</h1><br>
+    Get a color from the color table.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>void  GetColor (
+    Int32   colorIndex,
+    <a href="../Color/Color.html">Color</a>*  color
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>colorIndex</em></dt>
+
+        <dd>The index of the color. The index range is [1..n] where n = <a href="GetColorNum.html">GetColorNum</a> ().</dd>
+
+        <dt><em>color</em></dt>
+
+        <dd>A pointer to the result color.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This method reads a color from the model color table and puts it into <i>color</i>. If the <i>colorIndex</i> is out of range, then it throws an exception.</p>
+
+    <p><b>Available from version: 8</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

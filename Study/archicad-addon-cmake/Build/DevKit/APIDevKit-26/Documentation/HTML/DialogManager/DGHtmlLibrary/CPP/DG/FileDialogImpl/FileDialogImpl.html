@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html xmlns:user="helpsystem">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>FileDialogImpl Class</title><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/FileDialogImpl/FileDialogImpl.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <!--<A href="AddSelection.html">AddSelection</A><A href="ClearSelection.html">ClearSelection</A><A href="CreateImpl.html">CreateImpl</A><A href="EnablePreview.html">EnablePreview</A><A href="Destructor.html">~FileDialogImpl</A><A href="GetDefaultLocation.html">GetDefaultLocation</A><A href="GetDefaultOption.html">GetDefaultOption</A><A href="GetDefaultPopup.html">GetDefaultPopup</A><A href="GetDialogType.html">GetDialogType</A><A href="GetFileDialog.html">GetFileDialog</A><A href="GetFolderLocation.html">GetFolderLocation</A><A href="GetPopupCount.html">GetPopupCount</A><A href="GetPopupData.html">GetPopupData</A><A href="GetSelectedPopup.html">GetSelectedPopup</A><A href="IsPreviewEnabled.html">IsPreviewEnabled</A><A href="IsPreviewVisible.html">IsPreviewVisible</A><A href="ProcessFilterChange.html">ProcessFilterChange</A><A href="ProcessFolderChange.html">ProcessFolderChange</A><A href="ProcessIncludeFile.html">ProcessIncludeFile</A><A href="ProcessPreviewUpdate.html">ProcessPreviewUpdate</A><A href="ProcessSelectionChange.html">ProcessSelectionChange</A><A href="Refresh.html">Refresh</A><A href="RemoveSelection.html">RemoveSelection</A><A href="SearchSelection.html">SearchSelection</A><A href="SelectFile.html">SelectFile</A><A href="SelectPopup.html">SelectPopup</A><A href="SetLocation.html">SetLocation</A>-->
+
+    <h2>FileDialogImpl Class</h2><!--exp="FileDialogImpl Class"-->
+    <pre class="syntax">
+<b>class FileDialogImpl</b>
+</pre>
+
+    <h4>Members</h4>
+
+    <p><b><a name="ProtectedMethods" id="ProtectedMethods"></a>Protected Methods</b></p>
+
+    <table class="summary" width="90%">
+        <tr valign="top">
+            <td width="30%"><!----><a href="AddSelection.html">AddSelection</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="ClearSelection.html">ClearSelection</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="EnablePreview.html">EnablePreview</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="Destructor.html">~FileDialogImpl</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="GetDefaultLocation.html">GetDefaultLocation</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="GetDefaultOption.html">GetDefaultOption</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="GetDefaultPopup.html">GetDefaultPopup</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="GetDialogType.html">GetDialogType</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="GetFileDialog.html">GetFileDialog</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="GetFolderLocation.html">GetFolderLocation</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="GetPopupCount.html">GetPopupCount</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="GetPopupData.html">GetPopupData</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="GetSelectedPopup.html">GetSelectedPopup</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="IsPreviewEnabled.html">IsPreviewEnabled</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="IsPreviewVisible.html">IsPreviewVisible</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="ProcessFilterChange.html">ProcessFilterChange</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="ProcessFolderChange.html">ProcessFolderChange</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="ProcessIncludeFile.html">ProcessIncludeFile</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="ProcessPreviewUpdate.html">ProcessPreviewUpdate</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="ProcessSelectionChange.html">ProcessSelectionChange</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="Refresh.html">Refresh</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="RemoveSelection.html">RemoveSelection</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="SearchSelection.html">SearchSelection</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="SelectFile.html">SelectFile</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="SelectPopup.html">SelectPopup</a></td>
+
+            <td width="70%"></td>
+        </tr>
+
+        <tr valign="top">
+            <td width="30%"><!----><a href="SetLocation.html">SetLocation</a></td>
+
+            <td width="70%"></td>
+        </tr>
+    </table>
+
+    <p><b><a name="StaticProtectedMethods" id="StaticProtectedMethods"></a>Static Protected Methods</b></p>
+
+    <table class="summary" width="90%">
+        <tr valign="top">
+            <td width="30%"><!----><a href="CreateImpl.html">CreateImpl</a></td>
+
+            <td width="70%"></td>
+        </tr>
+    </table>
+
+    <h4>Requirements</h4>
+
+    <p><b>Namespace:</b> <!----><a href="../DG.html">DG</a></p>
+
+    <p><b>Header:</b> DGFileDialog.hpp</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

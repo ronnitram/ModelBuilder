@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Init</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/ModuleFunctions/Init.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Init</h1><br>
+    Initializes the <a href="../../InputOutput.html">InputOutput</a> module.
+
+    <p><b><font color="#008080">Header:</font></b> IOMain.hpp<br>
+    <br></p>
+    <pre class="syntax">
+<b>long  Init (
+    void
+);</b>
+</pre>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="369">
+        <tr>
+            <th width="55">Value</th>
+
+            <th width="272">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="55">0</td>
+
+            <td width="272">OK</td>
+        </tr>
+
+        <tr>
+            <td width="55">-1</td>
+
+            <td width="272">an error was occurred during the initialization, module can not be used</td>
+        </tr>
+    </table>
+
+    <h3>Description</h3>
+
+    <p>Before the first use <a href="../../InputOutput.html">InputOutput</a> module must be initialized with this function. This must happen inside the main (). It can be invoked arbitrary times regardless of result of the previous initializations.</p>
+
+    <p>Instances of classes <a href="../Location/Location.html">Location</a> and <a href="../RelativeLocation/RelativeLocation.html">RelativeLocation</a> created with the default constructor, furthermore instances of classes <a href="../Name/Name.html">Name</a> and protocol implementations can be used outside ("before") the main (), for example as static global variables. (Note that their constructor will be executed before the main (), that is before the module initialization!)</p>
+
+    <p>After the last use InputOutput module must be uninitialized. This can be done with the <a href="End.html">End</a> function, which should be invoked exactly the same times as Init.</p>
+
+    <h3>See Also</h3>
+
+    <p><a href="End.html">End</a></p>
+
+    <p><a href="../HowTo/IOInitialization.html">Initializing and uninitializing the InputOutput module</a></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

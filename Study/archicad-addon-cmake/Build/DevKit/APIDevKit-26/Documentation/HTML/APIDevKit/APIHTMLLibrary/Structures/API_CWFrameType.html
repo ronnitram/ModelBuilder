@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>API_CWFrameType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_CWFrameType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_CWFrameType</h1>
+    <p>Represents a Curtain Wall Frame element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>               <em>head</em>;
+        <strong>short</strong>                       <em>pen</em>;
+        <strong>short</strong>                       <em>filler_0</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>          <em>material</em>;
+        <strong>bool</strong>                        <em>useOwnMaterial</em>;
+        <strong>bool</strong>                        <em>filler_1[3]</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>          <em>buildingMaterial</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>          <em>cutLineType</em>;
+        <strong>short</strong>                       <em>cutLinePen</em>;
+        <strong>short</strong>                       <em>filler_2</em>;
+        <strong>double</strong>                      <em>d</em>;
+        <strong>double</strong>                      <em>w</em>;
+        <strong>double</strong>                      <em>a1</em>;
+        <strong>double</strong>                      <em>a2</em>;
+        <strong>double</strong>                      <em>b1</em>;
+        <strong>double</strong>                      <em>b2</em>;
+        <strong>double</strong>                      <em>angle</em>;
+        <strong><a href="API_CWFrameObjectTypeID.html">API_CWFrameObjectTypeID</a></strong>     <em>objectType</em>;
+        <strong>unsigned short</strong>              <em>connPriority</em>;
+        <strong>UInt32</strong>                      <em>classID</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                    <em>owner</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                    <em>symbolID</em>;
+        <strong>bool</strong>                        <em>hasSymbol</em>;
+        <strong>bool</strong>                        <em>deleteFlag</em>;
+        <strong>bool</strong>                        <em>defaultSubElem</em>;
+        <strong>bool</strong>                        <em>filler_3</em>;
+        <strong>UInt32</strong>                      <em>segmentID</em>;
+        <strong><a href="#API_GridElemID">API_GridElemID</a></strong>              <em>cellID</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                   <em>begRel</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                   <em>endRel</em>;
+        <strong><a href="API_Coord3D.html">API_Coord3D</a></strong>                 <em>begC</em>;
+        <strong><a href="API_Coord3D.html">API_Coord3D</a></strong>                 <em>endC</em>;
+        <strong><a href="API_Coord3D.html">API_Coord3D</a></strong>                 <em>orientation</em>;
+        <strong>UInt32</strong>                      <em>joinedCWFramesBegCNum</em>;
+        <strong>UInt32</strong>                      <em>joinedCWFramesEndCNum</em>;
+        <strong>UInt32</strong>                      <em>assocCWPanelsNum</em>;
+        <strong>Int32</strong>                       <em>libInd</em>;
+        <strong>UInt32</strong>                      <em>auxPanelDirsNum</em>;
+        <strong>Int32</strong>                       <em>contourID</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>                 <em>className[256]</em>;
+    <strong>}</strong> <em>API_CWFrameType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+    <dl>
+        <dt><b>head</b></dt>
+        <dd>General element header.</dd>
+
+        <dt><b>pen</b></dt>
+        <dd>For internal use.</dd>
+
+        <dt><b>material</b></dt>
+        <dd>Material index of the surface.</dd>
+
+        <dt><b>useOwnMaterial</b></dt>
+        <dd>Use own material or materials defined in the library part (in case of GDL based frame)?</dd>
+
+        <dt><b>buildingMaterial</b>&nbsp;<img alt="Featuring API 22" border="0" height="12" src="../../APIImageLibrary/22.png" width="19"></dt>
+
+        <dd>Building Material of the frame.</dd>
+
+        <dt><b>cutLineType</b>&nbsp;<img alt="Featuring API 22" border="0" height="12" src="../../APIImageLibrary/22.png" width="19"></dt>
+
+        <dd>Line index of the cut part of the frame on the floorplan.</dd>
+
+        <dt><b>cutLinePen</b>&nbsp;<img alt="Featuring API 22" border="0" height="12" src="../../APIImageLibrary/22.png" width="19"></dt>
+
+        <dd>Pen index of the cut part of the frame on the floorplan.</dd>
+
+        <dt><b>d</b></dt>
+        <dd>Panel connection hole depth.</dd>
+
+        <dt><b>w</b></dt>
+        <dd>Panel connection hole width.</dd>
+
+        <dt><b>a1</b></dt>
+        <dd>Frame contour width inside. <code>a1</code> and <code>a2</code> are always equal and <code>a1 + a2 = a</code> on the Frame Type and Geometry tabpage of the Frame Settings Dialog.</dd>
+
+        <dt><b>a2</b></dt>
+        <dd>Frame contour width outside. <code>a1</code> and <code>a2</code> are always equal and <code>a1 + a2 = a</code> on the Frame Type and Geometry tabpage of the Frame Settings Dialog.</dd>
+
+        <dt><b>b1</b></dt>
+        <dd>Frame contour length inside. <code>b1 = b - h</code> on the Frame Type and Geometry tabpage of the Frame Settings Dialog.</dd>
+
+        <dt><b>b2</b></dt>
+        <dd>Frame contour length outside. <code>b2 = h</code> on the Frame Type and Geometry tabpage of the Frame Settings Dialog.</dd>
+
+        <dt><b>angle</b></dt>
+        <dd>Frame angle.</dd>
+
+        <dt><b>objectType</b></dt>
+        <dd>Type of the frame. See <a href="API_CWFrameObjectTypeID.html">API_CWFrameObjectTypeID</a>.</dd>
+
+        <dt><b>connPriority</b></dt>
+        <dd>The priority of the frame in 3D intersections on a 1 to 19 scale.</dd>
+
+        <dt><b>classID</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Previously known as category.</dd>
+
+        <dt><b>owner</b></dt>
+        <dd>Owner Curtain Wall.</dd>
+
+        <dt><b>symbolID</b></dt>
+        <dd>Object identifier if the frame is GDL based.</dd>
+
+        <dt><b>hasSymbol</b></dt>
+        <dd>True if the frame is GDL based.</dd>
+
+        <dt><b>deleteFlag</b></dt>
+        <dd>Flags a frame class for deletion. In this case, the frame's className should be the name of the class to substitute it with.</dd>
+
+        <dt><b>defaultSubElem</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Set as default sub-element.</dd>
+
+        <dt><b>segmentID</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Identifier of containing segment.</dd>
+
+        <dt><b>cellID</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Identifier of containing cell.</dd>
+
+        <dt><b>begRel</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Relative first point in cell.</dd>
+
+        <dt><b>endRel</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Relative second point in cell.</dd>
+
+        <dt><b>begC</b></dt>
+        <dd>First point of the frame's reference line.</dd>
+
+        <dt><b>endC</b></dt>
+        <dd>Second point of the frame's reference line.</dd>
+
+        <dt><b>orientation</b></dt>
+        <dd>Orientation of the frame. This vector is always perpendicular to the vector defined by <code>begC</code> and <code>endC</code> coordinates.</dd>
+
+        <dt><b>joinedCWFramesBegCNum</b></dt>
+        <dd>Number of frames joined at <code>begC</code>.</dd>
+
+        <dt><b>joinedCWFramesEndCNum</b></dt>
+        <dd>Number of frames joined at <code>endC</code>.</dd>
+
+        <dt><b>assocCWPanelsNum</b></dt>
+        <dd>Number of associated panels - one frame border two panels.</dd>
+
+        <dt><b>libInd</b></dt>
+        <dd>Object Library Part index if the frame is GDL based.</dd>
+
+        <dt><b>auxPanelDirsNum</b></dt>
+        <dd>Number of additional panel clamping vectors.</dd>
+
+        <dt><b>contourID</b></dt>
+        <dd>Contour ID for contour frames other has invalid value.</dd>
+
+        <dt><b>className</b></dt>
+        <dd>Name of the Frame class.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+    <h4>Remarks</h4>
+    <p>
+        The Curtain Wall is a hierarchical (system) element consisting of Frame, Panel, Accessory
+        and Junction components: these are the Members of the Curtain Wall, arranged on a Base
+        Surface according to a pre-defined scheme.
+    </p>
+    <p>
+        <a name="API_GridElemID" id="API_GridElemID"><code>API_GridElemID</code> is a typedef for <code>UInt64</code></a>.
+    </p>
+
+    <p>&nbsp;</p>
+    <h4>Requirements</h4>
+    <dl>
+        <dd><b>Version:</b> API 12.0 or later</dd>
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+    <h4>See Also</h4>
+    <p>
+        <a href="API_CWFrameAncestryType.html">API_CWFrameAncestryType</a>,
+        <a href="API_CWFrameCategory.html">API_CWFrameCategory</a>,
+        <a href="API_CWFrameObjectTypeID.html">API_CWFrameObjectTypeID</a>
+        <br />
+        <a href="API_CurtainWallType.html">API_CurtainWallType</a>,
+        <a href="API_CWAccessoryType.html">API_CWAccessoryType</a>,
+        <a href="API_CWJunctionType.html">API_CWJunctionType</a>,
+        <a href="API_CWPanelType.html">API_CWPanelType</a>,
+        <a href="API_CWSegmentType.html">API_CWSegmentType</a>
+        <br />
+        <a href="API_Guid.html">API_Guid</a>,
+		<a href="API_AttributeIndex.html">API_AttributeIndex</a>,
+        <a href="API_Coord3D.html">API_Coord3D</a>,
+        <a href="API_Elem_Head.html">API_Elem_Head</a>,
+        <a href="API_Element.html">API_Element</a>,
+        <a href="API_ElementMemo.html">API_ElementMemo</a>,
+        <a href="API_Types.html">API Types</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 13, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>EnumerateMountPoints</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/FileSystem/EnumerateMountPoints.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="FileSystem.html">FileSystem</a>::EnumerateMountPoints</h1><br>
+    Enumerates mount points of the file system.<br>
+    <br>
+    <pre class="syntax">
+<b>GSErrCode    EnumerateMountPoints (
+    <a href="EnumMPCallback.html">EnumMPCallback</a> ec,
+    void*          userData = NULL
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>ec</em></dt>
+
+        <dd>
+            Enumerator callback function which will be invoked for each mount point in the file system. Its declaration is:
+            <pre>
+typedef bool   (CCALL *EnumMPCallback) (const Location&amp; mountPoint, void* userData);
+</pre><i>mountPoint</i> is the location of the particular mount point, <i>userData</i> is an arbitrary value passed by the user through this (EnumerateMountPoints) method. If the return value from the callback function is true, then enumeration will continue, otherwise it will be stopped (in this case return value from this method is NoError).
+        </dd>
+
+        <dt><em>userData</em></dt>
+
+        <dd>An arbitrary value which will be passed to the callback function for the user.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="203">
+        <tr>
+            <th width="56">Value</th>
+
+            <th width="105">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="56">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="105">OK</td>
+        </tr>
+
+        <tr>
+            <td width="56">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="105">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>File system tree is a <b>logical</b> construct. File system entries are stored on different <b>physical</b> (or virtual) storage devices called <b>volumes</b>. A volume can contain several entries, and an entry can be distributed on several volumes. In practice only content of folders are distributed. Every folder is uniquely mapped to a single volume. Its child files and child links reside on this volume. Its child folders can be mapped to the same or different volumes. Term <b>mount point</b> is related to folders and is defined as follows. Local root (as folder) is a mount point and is mapped to some (possibly virtual) volume. Every (sub)folder that is mapped to a volume different from the volume of its parent folder is also a mount point.&nbsp;In other words, mount point is a folder (or more precisely its location) where underlying volume changes.</p>
+
+    <p>This method enumerates mount points through the callback function <i>ec</i>, which is invoked for each mount point in the file system. An arbitrary value can be passed to the callback function in <i>userData</i>. Each invocation of the callback function supplies a location of a mount point until enumeration is over or user break is encountered. Note that (local) root is also a mount point, so it will also occur during the enumeration.<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

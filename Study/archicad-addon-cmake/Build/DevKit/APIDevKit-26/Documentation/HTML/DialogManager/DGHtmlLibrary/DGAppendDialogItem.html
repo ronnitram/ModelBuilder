@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGAppendDialogItem</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGAppendDialogItem.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGAppendDialogItem</h1>
+
+    <p>Appends a dialog item to the end of the item list of a dialog.</p>
+    <pre class="syntax">
+    <strong>short DGAppendDialogItem</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>itemType</em>,
+      <strong>short</strong>  <em>itemSubType</em>,
+      <strong>short</strong>  <em>itemData</em>,
+      <strong>short</strong>  <em>hPos</em>,
+      <strong>short</strong>  <em>vPos</em>,
+      <strong>short</strong>  <em>hSize</em>,
+      <strong>short</strong>  <em>vSize</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>itemType</em></dt>
+
+        <dd>Type of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>itemSubType</em></dt>
+
+        <dd>Subtype of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>itemData</em></dt>
+
+        <dd>Additional data of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>hPos</em></dt>
+
+        <dd>Horizontal position of the dialog item in pixels, relative to the dialog client rectangle.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>vPos</em></dt>
+
+        <dd>Vertical position of the dialog item in pixels, relative to the dialog client rectangle.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>hSize</em></dt>
+
+        <dd>Horizontal size of the dialog item in pixels.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>vSize</em></dt>
+
+        <dd>Vertical size of the dialog item in pixels.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>1-based index of the newly created dialog item (equals to the current number of the dialog items), or zero if an error occurs.</p>
+
+    <h4>Remarks</h4>
+
+    <p>Dialog items can be appended to dialogs created either from GRC or from program code. If you create an empty dialog by calling the <a href="DGModalDialog.html">DGModalDialog</a> or <a href="DGModelessInit.html">DGModelessInit</a> functions with zero <em>resId</em> parameter, you can use <b>DGAppendDialogItem</b> to fill the dialog with items when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>.</p>
+
+    <p>The following table summarizes the dialog item types that can be created by <b>DGAppendDialogItem</b>. The table contains the possible values of the function's <em>itemType</em> and <em>itemSubType</em> parameters. Some type of dialog items can have one or more modifier flags that can also be given in the <em>itemSubType</em> parameter using the bitwise or <tt>(|)</tt> operator. For the details of these modifier flags see the description of the dialog items. The last column explains the meaning of the additional <em>itemData</em> parameter.</p>
+
+    <dl>
+        <dd>
+            <table border="0" cellpadding="6">
+                <tr valign="top">
+                    <th align="left" width="180">Item type</th>
+
+                    <th align="left" width="180"><em>itemType</em></th>
+
+                    <th align="left" width="180"><em>itemSubType</em></th>
+
+                    <th align="left" width="240"><em>itemData</em></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="CheckBox.html">Check Box</a></td>
+
+                    <td><tt>DG_ITM_CHECKBOX</tt></td>
+
+                    <td><tt>DG_BT_TEXT</tt><br>
+                    <tt>DG_BT_ICON</tt><br>
+                    <tt>DG_BT_PUSHTEXT</tt><br>
+                    <tt>DG_BT_PUSHICON</tt></td>
+
+                    <td></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DateTimeControl.html">Date &amp; Time Control</a></td>
+
+                    <td><tt>DG_ITM_DATETIME</tt></td>
+
+                    <td><tt>DG_DT_DATE</tt><br>
+                    <tt>DG_DT_TIME</tt></td>
+
+                    <td></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="EditControl.html">Edit Control</a></td>
+
+                    <td><tt>DG_ITM_EDITTEXT</tt></td>
+
+                    <td><tt>DG_ET_TEXT</tt><br>
+                    <tt>DG_ET_MULTILINETEXT</tt><br>
+                    <tt>DG_ET_PASSWORD</tt><br>
+                    <tt>DG_ET_REAL</tt><br>
+                    <tt>DG_ET_ANGLE</tt><br>
+                    <tt>DG_ET_POLARANGLE</tt><br>
+                    <tt>DG_ET_LENGTH</tt><br>
+                    <tt>DG_ET_AREA</tt><br>
+                    <tt>DG_ET_VOLUME</tt><br>
+                    <tt>DG_ET_MM_OR_PT</tt><br>
+                    <tt>DG_ET_INT</tt><br>
+                    <tt>DG_ET_POSINT</tt></td>
+
+                    <td>Maximum length of text in bytes (for <tt>DG_ET_TEXT</tt> and <tt>DG_ET_PASSWORD</tt> subtypes only)</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="GroupBox.html">Group Box</a></td>
+
+                    <td><tt>DG_ITM_GROUPBOX</tt></td>
+
+                    <td><tt>DG_GT_PRIMARY</tt><br>
+                    <tt>DG_GT_SECONDARY</tt></td>
+
+                    <td></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="Icon.html">Icon</a></td>
+
+                    <td><tt>DG_ITM_ICONITEM</tt></td>
+
+                    <td></td>
+
+                    <td>Frame type</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="ListBox.html">List Box</a></td>
+
+                    <td><tt>DG_ITM_LISTBOX</tt></td>
+
+                    <td><tt>DG_LT_SINGLESELECT</tt><br>
+                    <tt>DG_LT_MULTISELECT</tt></td>
+
+                    <td>Header height if the <tt>DG_LT_HEADER</tt> flag is present</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="ListView.html">List View</a></td>
+
+                    <td><tt>DG_ITM_LISTVIEW</tt></td>
+
+                    <td><tt>DG_LVT_SINGLESELECT</tt><br>
+                    <tt>DG_LVT_MULTISELECT</tt></td>
+
+                    <td>View mode</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="Picture.html">Picture</a></td>
+
+                    <td><tt>DG_ITM_PICTITEM</tt></td>
+
+                    <td></td>
+
+                    <td>Frame type</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="Pop-upControl.html">Pop-up Control</a></td>
+
+                    <td><tt>DG_ITM_POPUPCONTROL</tt></td>
+
+                    <td>List height (Windows only)</td>
+
+                    <td>Left margin of item text (Windows only)</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="ProgressBar.html">Progress Bar</a></td>
+
+                    <td><tt>DG_ITM_PROGRESSBAR</tt></td>
+
+                    <td></td>
+
+                    <td>Frame type</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="PushButton.html">Push Button</a></td>
+
+                    <td><tt>DG_ITM_BUTTON</tt></td>
+
+                    <td><tt>DG_BT_ICONTEXT</tt><br>
+                    <tt>DG_BT_ICON</tt><br>
+                    <tt>DG_BT_SPLIT</tt></td>
+
+                    <td></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="PushMenuControl.html">Push Menu Control</a></td>
+
+                    <td><tt>DG_ITM_CHECKBOX</tt><br>
+                    <tt>DG_ITM_RADIOBUTTON</tt></td>
+
+                    <td><tt>DG_BT_PUSHMENUICON</tt></td>
+
+                    <td></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="RadioButton.html">Radio Button</a></td>
+
+                    <td><tt>DG_ITM_RADIOBUTTON</tt></td>
+
+                    <td><tt>DG_BT_TEXT</tt><br>
+                    <tt>DG_BT_ICON</tt><br>
+                    <tt>DG_BT_PUSHTEXT</tt><br>
+                    <tt>DG_BT_PUSHICON</tt></td>
+
+                    <td>Group ID</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="RichEditControl.html">Rich Edit Control</a></td>
+
+                    <td><tt>DG_ITM_EDITTEXT</tt></td>
+
+                    <td><tt>DG_ET_RICHEDITTEXT</tt></td>
+
+                    <td></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="ScrollBar.html">Scroll Bar</a></td>
+
+                    <td><tt>DG_ITM_SCROLLBAR</tt></td>
+
+                    <td><tt>DG_SB_NORMAL</tt><br>
+                    <tt>DG_SB_PROPORTIONAL</tt><br>
+                    <tt>DG_SB_NOAUTOSCROLL</tt><br>
+                    <tt>DG_SB_NONFOCUSABLE</tt></td>
+
+                    <td></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="SeparatorItem.html">Separator Item</a></td>
+
+                    <td><tt>DG_ITM_SEPARATOR</tt></td>
+
+                    <td></td>
+
+                    <td></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="SliderBar.html">Slider Bar</a></td>
+
+                    <td><tt>DG_ITM_SLIDER</tt></td>
+
+                    <td><tt>DG_SL_BOTTOMRIGHT</tt><br>
+                    <tt>DG_SL_TOPLEFT</tt></td>
+
+                    <td>Number of tick marks minus one, or zero for no tick marks</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="SpinControl.html">Spin Control</a></td>
+
+                    <td><tt>DG_ITM_SPINCONTROL</tt></td>
+
+                    <td><tt>DG_ST_SINGLESPIN</tt><br>
+                    <tt>DG_ST_EDITSPIN</tt></td>
+
+                    <td>Index of the related edit control (for <tt>DG_ST_EDITSPIN</tt> subtype only)</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="StaticText.html">Static Text</a></td>
+
+                    <td><tt>DG_ITM_STATICTEXT</tt></td>
+
+                    <td><tt>DG_IS_LEFT</tt><br>
+                    <tt>DG_IS_CENTER</tt><br>
+                    <tt>DG_IS_RIGHT</tt></td>
+
+                    <td>Frame type</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="TabControl.html">Tab Control</a></td>
+
+                    <td><tt>DG_ITM_TABCONTROL</tt></td>
+
+                    <td><tt>DG_TT_NORMALTAB</tt><br>
+                    <tt>DG_TT_SIMPLETAB</tt></td>
+
+                    <td>Frame type</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="TreeView.html">Tree View</a></td>
+
+                    <td><tt>DG_ITM_TREEVIEW</tt></td>
+
+                    <td><tt>DG_TVT_SINGLESELECT</tt><br>
+                    <tt>DG_TVT_MULTISELECT</tt></td>
+
+                    <td>Maximum length of the item label (only if it is editable)</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="UserControl.html">User Control</a></td>
+
+                    <td><tt>DG_ITM_USERCONTROL</tt></td>
+
+                    <td></td>
+
+                    <td>Control definition procedure ID</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="UserItem.html">User Item</a></td>
+
+                    <td><tt>DG_ITM_USERITEM</tt></td>
+
+                    <td><tt>DG_UT_NORMALUPDATE</tt><br>
+                    <tt>DG_UT_PARTIALUPDATE</tt></td>
+
+                    <td>Frame type</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Other properties (text, font, value, etc.) of the appended dialog items can be set using <a href="FunctionList_id.html">DG functions</a> after the item has been created. In these functions use the item index returned by <b>DGAppendDialogItem</b>.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="DGRemoveDialogItems.html">DGRemoveDialogItems</a><br>
+    <a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGModelessInit.html">DGModelessInit</a>, <a href="DGModalDialog.html">DGModalDialog</a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 20, 2006<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

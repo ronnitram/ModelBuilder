@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Pop-up Control</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/Pop-upControl.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Pop-up Control</h1>
+
+    <p>On Macintosh, the pop-up control is the standard system pop-up menu, while on Windows, it is the non-editable style system combo box.</p>
+
+    <dl>
+        <dd>
+            <table cellspacing="0">
+                <tr>
+                    <td><img src="../DGImageLibrary/PopUpControl_Mac.png" width="167" height="70" alt="PopUpControl_Mac">&nbsp;&nbsp;&nbsp;&nbsp;<img src="../DGImageLibrary/PopUpControl_Win.png" alt="PopUpControl_Win"></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_POPUPCONTROL</tt></dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    PopupControl    <i>x  y  dx  dy  listHeight  textOffset</i>
+                    [iconID<b>1</b>  itemText<b>1</b>]
+                           ....
+                    [iconID<b>i</b>  itemText<b>i</b>]
+                           ....
+                    [iconID<b>n</b>  itemText<b>n</b>]
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the pop-up control, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. The <em>listHeight</em> and <em>textOffset</em> are not optional, but they are used on Windows only. <em>listHeight</em> is the height of the drop-down list in pixels. <em>textOffset</em> is the pixel offset of pop-up items' text from the left. If the optional <em>iconID<b>i</b></em> and <em>itemText<b>i</b></em> (<tt>1&nbsp;&lt;=&nbsp;i&nbsp;&lt;=&nbsp;n</tt>) parameters are present, they initialize <em>n</em> pieces of pop-up items. <em>iconID<b>i</b></em> and <em>itemText<b>i</b></em> defines the icon and the text (given between two quotation marks) of the i-th pop-up item, respectively. Although <em>iconID<b>i</b></em> and <em>itemText<b>i</b></em> parameters are optional they must be used or omitted in pairs, i.e. <em>iconID<b>i</b></em> or <em>itemText<b>i</b></em> alone is not allowed.</p>
+
+    <p>Possible values of <i>iconID<b>i</b></i>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>NoIcon</tt></td>
+
+                    <td>The pop-up item has no icon.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>257 &lt;= iconID &lt;= 511</tt></td>
+
+                    <td>The pop-up item has an icon given in resource.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>The selected item in the pop-up control is changed. The message data contains 1-based index of the previously selected pop-up item.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p>The <a href="DGPopUpSelectItem.html">DGPopUpSelectItem</a> function sets the modification flag of the pop-up control except if it is called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. The flag can also be set by user actions that generate <tt>DG_MSG_CHANGE</tt> messages. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>A pop-up control can contain normal and separator pop-up items. Call <a href="DGPopUpInsertItem.html">DGPopUpInsertItem</a> and <a href="DGPopUpInsertSeparator.html">DGPopUpInsertSeparator</a> to insert normal and separator items into a pop-up control and <a href="DGPopUpDeleteItem.html">DGPopUpDeleteItem</a> to delete both type of items. The number of items currently in a pop-up control can be retrieved by <a href="DGPopUpGetItemCount.html">DGPopUpGetItemCount</a>.</p>
+
+    <p>A pop-up item can have an icon and / or an item text. There are two ways to set an icon of a pop up item. One possibility is to specify the icon with its icon handle by <a href="DGPopUpSetItemIcon.html">DGPopUpSetItemIcon</a>, the other is to set it with its resource ID by <a href="DGPopUpSetItemIconId.html">DGPopUpSetItemIconId</a> or by <a href="DGPopUpSetItemIconResource.html">DGPopUpSetItemIconResource</a>. The icon handle can be retrieved by <a href="DGPopUpGetItemIcon.html">DGPopUpGetItemIcon</a>, the icon ID and the resource module ID of the icon can be retrieved by <a href="DGPopUpGetItemIconId.html">DGPopUpGetItemIconId</a> and <a href="DGPopUpGetItemIconResource.html">DGPopUpGetItemIconResource</a>, respectively. <a href="DGPopUpSetItemText.html">DGPopUpSetItemText</a> and <a href="DGPopUpGetItemText.html">DGPopUpGetItemText</a> serve to set and retrieve the text of the pop-up item. The icon is always on the left side of the item text. On Macintosh, the item text is rendered to the left if the item has no icon. On Windows, however, the text keeps its position given by the <em>textOffset</em> parameter in GRC. A separator line can contain neither an icon nor an item text.</p>
+
+    <p>Text style and status of each pop-up item can be changed separately by <a href="DGPopUpSetItemStyle.html">DGPopUpSetItemStyle</a> and <a href="DGPopUpSetItemStatus.html">DGPopUpSetItemStatus</a>. To retrieve these pop-up item properties use <a href="DGPopUpGetItemStyle.html">DGPopUpGetItemStyle</a> and <a href="DGPopUpGetItemStatus.html">DGPopUpGetItemStatus</a>, respectively. Each pop-up item can have a user-defined value that can be used to store any item specific user data. <a href="DGPopUpSetItemUserData.html">DGPopUpSetItemUserData</a> and <a href="DGPopUpGetItemUserData.html">DGPopUpGetItemUserData</a> give an access to this value.</p>
+
+    <p>The user can change the current (selected) pop-up item by the mouse or by keypresses through the usual ways. To change or retrieve the selected pop-up item from the program code call <b>DGPopUpSelectItem</b> or <a href="DGPopUpGetSelected.html">DGPopUpGetSelected</a>, respectively. Before DG version 1.1.1 these functions are not available. Use <a href="DGSetItemValLong.html">DGSetItemValLong</a> and <a href="DGGetItemValLong.html">DGGetItemValLong</a> instead.</p>
+
+    <p>When more normal and/or separator pop-up items are inserted or deleted, it is advisable to enclose these function calls by <a href="DGPopUpDisableDraw.html">DGPopUpDisableDraw</a> and <a href="DGPopUpEnableDraw.html">DGPopUpEnableDraw</a> to avoid unwanted screen updates. As <b>DGPopUpEnableDraw</b> itself does not update the pop-up control, you should call either <a href="DGInvalidateItem.html">DGInvalidateItem</a> or <a href="DGRedrawItem.html">DGRedrawItem</a>.</p>
+
+    <p>The width of the drop-down list depends on the length of the longest string among the pop-up items. If the drop-down list is not wide enough to display the longest pop-up item, it is extended automatically.</p>
+
+    <p><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></p>
+
+    <dl>
+        <dd>The height of the system combo box is determined by its font. DG modifies this default height so that the height of an item is equal to the size specified in GRC.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dd>The <em>listHeight</em> parameter of the GRC specification defines the height of the drop-down list in pixels. The list is automatically shortened by the system to show full pop-up items only. If the list is not large enough to display all the pop-up items at once, a vertical scroll bar appears.</dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a><br>
+    <a href="Pop-upControlSpecific_id.html">Pop-up control specific functions</a>, <a href="DGGetItemValLong.html">DGGetItemValLong</a>, <a href="DGInvalidateItem.html">DGInvalidateItem</a>, <a href="DGModified.html">DGModified</a>, <a href="DGRedrawItem.html">DGRedrawItem</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 27, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

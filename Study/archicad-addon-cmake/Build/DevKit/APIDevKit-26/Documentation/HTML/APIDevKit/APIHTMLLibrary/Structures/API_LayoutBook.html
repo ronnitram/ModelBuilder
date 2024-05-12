@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_RVMChange</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_LayoutBook.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_LayoutBook</h1>
+
+    <p>Represents the Book settings.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>bool</strong>                                    <em>flatNumbering</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>                           <em>prefix</em>;
+        <strong><a href="API_NumberingStyle.html">API_NumberingStyle</a></strong>                      <em>numberingStyle</em>;
+        <strong>Int32</strong>                                   <em>startAt</em>;
+        <strong>bool</strong>                                    <em>useChangeOwnID</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>                           <em>changePrefix</em>;
+        <strong><a href="API_NumberingStyle.html">API_NumberingStyle</a></strong>                      <em>changeNumberingStyle</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/HashTable/HashTable.html">GS::HashTable</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>, GS::UniString&gt;</strong>  <em>customScheme</em>;
+        <strong>Int32</strong>                  <em>filler_1[2]</em>;
+    <strong>}</strong> <em>API_LayoutBook</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>flatNumbering</b></dt>
+
+        <dd>Use flat Layout order or hierarchy (Tree view by Subset).</dd>
+
+        <dt><b>prefix</b></dt>
+
+        <dd>ID Prefix.</dd>
+
+        <dt><b>numberingStyle</b></dt>
+
+        <dd>ID appearance style.</dd>
+
+        <dt><b>startAt</b></dt>
+
+        <dd>Start numbering at.</dd>
+
+        <dt><b>useChangeOwnID</b></dt>
+
+        <dd>Use change ID or Number by Revisions.</dd>
+
+        <dt><b>changePrefix</b></dt>
+
+        <dd>ID prefix in Revisions.</dd>
+
+        <dt><b>changeNumberingStyle</b></dt>
+
+        <dd>ID appearance style in Revisions.</dd>
+
+        <dt><b>customScheme</b></dt>
+
+        <dd>Contains the custom data fields. The custom scheme GUID-value pairs are stored in a GS::HashTable.</dd>
+
+
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You are able to get Book Settings via <a href="../Functions/APIDb_GetLayoutBookID.html">APIDb_GetLayoutBookID</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 18 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIDb_GetLayoutBookID.html">APIDb_GetLayoutBookID</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 09, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

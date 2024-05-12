@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>TIGetGSTime</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/TimeManagers/DateTimeManager/reference/TIGetGSTime.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TIGetGSTime</h1>
+
+    <p>The <strong>TIGetGSTime</strong> function converts the specified time record to <strong>GSTime</strong> format.</p>
+    <pre class="syntax">
+<strong>GSErr TIGetGSTime(
+   const GSTimeRecord</strong><em>  *pTimeRecord,  </em>// time structure to convert
+   <strong>GSTime               </strong><em>*pGSTime,     </em>// buffer receiving converted time
+   <strong>GSFlags       </strong><em>formatFlags  </em>// conversion attributes
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4><strong>Parameters</strong></h4>
+
+    <dl>
+        <dt><em>pTimeRecord</em></dt>
+
+        <dd>Specifies the time record to convert. When the <em>formatFlags</em> parameter is set to&nbsp; TI_CURRENT_TIME, the <em>pTimeRecord</em> parameter is ignored.</dd>
+
+        <dt><em>pGSTime</em></dt>
+
+        <dd>Specifies the buffer receiving the result of the conversion.</dd>
+
+        <dt><em>formatFlags</em></dt>
+
+        <dd>Specifies how to convert. This parameter must be one of the following values:</dd>
+
+        <dd>
+            <dl align="left">
+                <dd>
+                    <table border="0" width="100%">
+                        <tr>
+                            <th width="36%">Value</th>
+
+                            <th width="64%">Meaning</th>
+                        </tr>
+
+                        <tr>
+                            <td width="36%">TI_LOCAL_TIME</td>
+
+                            <td width="64%">Local time</td>
+                        </tr>
+
+                        <tr>
+                            <td width="36%">TI_UTC_TIME</td>
+
+                            <td width="64%">UTC time</td>
+                        </tr>
+
+                        <tr>
+                            <td width="36%">TI_CURRENT_TIME</td>
+
+                            <td width="64%">Current time</td>
+                        </tr>
+                    </table>
+                </dd>
+            </dl>
+        </dd>
+
+        <dd>If you specify the TI_CURRENT_TIME flag, then the <em>pTimeRecord</em> parameter is ignored.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The return value indicates the success of the conversion with an error code. For more information about the error codes, see <b><a href="../../../reference/errorcodes.html">GSRoot error codes</a>.</b></p>
+
+    <h4>Remarks</h4>
+
+    <p>If you want to convert in opposite direction, call <a href="TIGetTimeRecord.html"><strong>TIGetTimeRecord</strong></a>.</p>
+
+    <p>If you specify the TI_CURRENT_TIME flag as <em>formatFlags</em>, the function calls <a href="TIGetTime.html"><strong>TIGetTime</strong></a> function and stores its result in<em>pGSTime</em> parameter. In this case the value of <em>pTimeRecord</em> is ignored.</p>
+
+    <h4>Requirements</h4>
+
+    <p>&nbsp;&nbsp;&nbsp; <strong>Header:</strong> Declared in GSTime.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="types_id.html">Date &amp; Time Manager Simple Types</a>, <a href="structures_id.html">Date &amp; Time Manager Structures</a>, <a href="functions_id.html">Date &amp; Time Manager Functions</a>, <a href="TIGetTimeRecord.html">TIGetTimeRecord</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

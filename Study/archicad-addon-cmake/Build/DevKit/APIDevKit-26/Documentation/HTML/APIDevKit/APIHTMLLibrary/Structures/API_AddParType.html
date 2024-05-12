@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_AddParType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_AddParType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_AddParType</h1>
+
+    <p>Describes a parameter of a Library Part.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+      <a href="API_AddParID.html"><strong>API_AddParID</strong></a>       <em>typeID</em>;
+      <strong>short</strong>              <em>index</em>;
+      <strong>short</strong>              <em>typeMod</em>;
+      <strong>char</strong>               <em>name[API_NameLen]</em>;
+      <strong>GS::uchar_t</strong>        <em>uDescname [API_UAddParDescLen]</em>;
+      <strong>GS::uchar_t</strong>        <em>valueDescription [API_UAddParNumDescLen]</em>;
+      <strong>Int32</strong>              <em>dim1</em>;
+      <strong>Int32</strong>              <em>dim2</em>;
+      <strong>unsigned short</strong>     <em>flags</em>;
+      <strong>short</strong>              <em>filler_1</em>;
+      <strong>Int32</strong>              <em>filler_2</em>;
+      <strong>GSHandle</strong>           <em>arrayDescriptions</em>;
+      <strong>union</strong> {
+             <strong>double</strong>      <em>real</em>;
+             <strong>GS::uchar_t</strong> <em>uStr [API_UAddParStrLen]</em>;
+             <strong>GSHandle</strong>    <em>array</em>;
+      }<em> value</em>;
+    <strong>}</strong> <em>API_AddParType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>typeID</b></dt>
+
+        <dd>The type of the additional parameter.</dd>
+
+        <dt><b>index</b></dt>
+
+        <dd>The index of the additional parameter inside the additional parameter list.</dd>
+
+        <dt><b>typeMod</b></dt>
+
+        <dd>Type modifier; the variable is a simple instance or an array with the type <code>typeID.</code></dd>
+
+        <dt><b>name[API_NameLen]</b></dt>
+
+        <dd>The name of the additional parameter.</dd>
+
+        <dt><b>uDescname[API_UAddParDescLen]</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>The Unicode description of the additional parameter.</dd>
+
+        <dt><b>valueDescription[API_UAddParNumDescLen]</b><img border="0" src="../../APIImageLibrary/18.png" alt="New in API 18" width="19" height="12"></dt>
+
+        <dd>The Unicode parameter value description string in UTF-16 encoding.</dd>
+
+        <dt><b>dim1</b></dt>
+
+        <dd>The first dimension of the array; in case of array modifier</dd>
+
+        <dt><b>dim2</b></dt>
+
+        <dd>The second dimension of the array; in case of array modifier</dd>
+
+        <dt><b>flags</b></dt>
+
+        <dd>Modifier flags.</dd>
+
+        <dd>
+            &nbsp;
+
+            <table>
+                <tr>
+                    <th>
+                        <p><b>Value</b></p>
+                    </th>
+
+                    <th>
+                        <p><b>Description</b></p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_ParFlg_Child</code></p>
+                    </td>
+
+                    <td>
+                        <p>This parameter is a child of the preceding title.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_ParFlg_BoldName</code></p>
+                    </td>
+
+                    <td>
+                        <p>Show the name of the parameter in bold.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_ParFlg_Open</code></p>
+                    </td>
+
+                    <td>
+                        <p>Show the child parameters of this parameter.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_ParFlg_Disabled</code></p>
+                    </td>
+
+                    <td>
+                        <p>Disable this parameter; mainly used for separator lines</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_ParFlg_Hidden</code></p>
+                    </td>
+
+                    <td>
+                        <p>Hidden parameter; does not appear in the Settings dialogs.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_ParFlg_SHidden</code></p>
+                    </td>
+
+                    <td>
+                        <p>Hidden parameter from scripts.</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>arrayDescriptions</b><img border="0" src="../../APIImageLibrary/18.png" alt="New in API 18" width="19" height="12"></dt>
+
+        <dd>Unicode description string values of an array parameter in UTF-16 encoding. Values are stored immediately after each other to conserve space.</dd>
+
+        <dt><b>value:: real</b></dt>
+
+        <dd>contains the value of the parameter; in the case the <code>typeID</code> is not <code>APIParT_CString</code></dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>value:: uStr[API_UAddParStrLen]</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>contains the Unicode value of a string type parameter; when the <code>typeID</code> is <code>APIParT_CString</code></dd>
+
+        <dt><b>value:: array</b></dt>
+
+        <dd>Values of an array parameter. For string type arrays the values are stored immediately after each other to conserve space (e.g.: "alpha\0beta\0gamma\0")</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure describes the additional parameters for a Library Part. It is also used for Library Part-based element (objects, windows, doors, etc.) and attribute types (zone category).</p>
+
+    <p>For parameters with array modifier, you can change the dimensions of the array on the fly when you create or modify an element. This enables you to put just a placeholder for an array into the library part parameter, and adjust that when you actually place the library part.</p>
+
+    <p>The value list type modifier (which was present in API 1.3) disappeared, as the value list script has dead; a new approach introduced in API 2.1 based on the parameter script of the Library Part.</p>
+
+    <p>It is strongly advised to use the <a href="../Functions/APIAny_OpenParametersID.html">APIAny_OpenParametersID</a>, <a href="../Functions/APIAny_ChangeAParameterID.html">APIAny_ChangeAParameterID</a>, <a href="../Functions/APIAny_GetActParametersID.html">APIAny_GetActParametersID</a>, <a href="../Functions/APIAny_CloseParametersID.html">APIAny_CloseParametersID</a> functions to modify a parameter in the parameter list.</p>
+
+    <p>Dictionary parameters are currently inaccessible with this structure.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+static void   DumpOneParam (API_AddParID      typeID,
+                            const char        *varname,
+                            unsigned short    flags,
+                            double            value,
+                            const GS::uchar_t *valueStr,
+                            Int32             dim1,
+                            Int32             dim2)
+
+{
+    char        head[256], val[256];
+
+    if (dim1 == 0 &amp;&amp; dim2 == 0)
+        sprintf (head, "    %s 0x%02X", varname, flags);
+    else {
+        if (dim1 &lt; 0) {
+            sprintf (head, "    %s: [%d][%d] 0x%02X", varname, -dim1, -dim2, flags);
+            ACAPI_WriteReport (head, false);
+            return;
+        }
+        sprintf (head, "       [%d][%d]", dim1, dim2);
+    }
+
+    switch (typeID) {
+        case APIParT_Integer:
+        case APIParT_LightSw:
+        case APIParT_Intens:
+        case APIParT_LineTyp:
+        case APIParT_Mater:
+        case APIParT_FillPat:
+        case APIParT_PenCol:
+        case APIParT_Boolean:
+        case APIParT_BuildingMaterial:
+        case APIParT_Profile:
+                    sprintf (val, "%d", (Int32) value);
+                    break;
+
+        case APIParT_Length:
+        case APIParT_Angle:
+        case APIParT_RealNum:
+        case APIParT_ColRGB:
+                    sprintf (val, "%f", value);
+                    break;
+
+        case APIParT_CString:
+        case APIParT_Title:
+                    sprintf (val, "\"%s\"", (const char *) GS::UniString (valueStr).ToCStr ());
+                    break;
+
+        case APIParT_Separator:
+                    CHCopyC ("-------------------", val);
+                    break;
+
+        default:
+                    CHCopyC ("???????", val);
+                    break;
+    }
+
+    GiveMessage_Str (head, val, false);
+
+    return;
+}
+</code></pre>
+    </blockquote>
+
+    <p>See to example of the <a href="../Functions/ACAPI_LibPart_GetParams.html">ACAPI_LibPart_GetParams</a> function to get the control frame for this example.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_LibraryParts.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AddParID.html">API_AddParID</a>, <a href="API_AttributeDef.html">API_AttributeDef</a>, <a href="API_ElementMemo.html">API_ElementMemo</a>,<br>
+    <a href="../Functions/ACAPI_LibPart_GetParams.html">ACAPI_LibPart_GetParams,</a> <a href="../Functions/APIAny_OpenParametersID.html">APIAny_OpenParametersID</a>, <a href="../Functions/APIAny_ChangeAParameterID.html">APIAny_ChangeAParameterID</a>, <a href="../Functions/APIAny_GetActParametersID.html">APIAny_GetActParametersID</a>, <a href="../Functions/APIAny_CloseParametersID.html">APIAny_CloseParametersID</a>,<br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 26, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_GetParamValuesType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_GetParamValuesType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_GetParamValuesType</h1>
+
+    <p>The possible parameter values of a non-array Library Part parameter.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>char</strong>              <em>name [API_NameLen]</em>;
+        <strong>short</strong>             <em>index</em>;
+        <strong>bool</strong>              <em>locked</em>;
+        <strong>bool</strong>              <em>custom</em>;
+        <strong>Int32</strong>             <em>nVals</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>       <em>**uStrValues</em>;
+        <strong><a href="API_VLNumType.html">API_VLNumType</a></strong>     <em>**realValues</em>;
+        <strong>Int32</strong>             <em>filler_1[4]</em>;
+    <strong>}</strong> <em>API_GetParamValuesType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>name</b></dt>
+
+        <dd>[in] the name of the parameter (optional)</dd>
+
+        <dt><b>index</b></dt>
+
+        <dd>[in] the index of the parameter (<code>0</code>:<code>A</code>, <code>1</code>:<code>B</code>, <code>2..n</code>: other parameters); (optional if <code>name</code> is given)</dd>
+
+        <dt><b>locked</b></dt>
+
+        <dd>[out] the parameter is locked; i.e. the user cannot modify it</dd>
+
+        <dt><b>custom</b></dt>
+
+        <dd>[out] the parameter may have custom values (its <code>VALUES</code> command contains the <code>CUSTOM</code> keyword)</dd>
+
+        <dt><b>nVals</b></dt>
+
+        <dd>[out] the number of values</dd>
+
+        <dt><b>uStrValues</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>[out] the list of possible string values (Unicode strings in UTF-8 encoding)</dd>
+
+        <dt><b>realValues</b></dt>
+
+        <dd>[out] the list of possible numeric values</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The possible parameter values for the given parameter (defined by its name or index) are returned in this structure by the <a href="../Functions/APIAny_GetParamValuesID.html">APIAny_GetParamValuesID</a> function. For more information, see the description of the <code>VALUES</code> command in the <i>Parameter Script</i> section of the <i>GDL Reference Manual</i>.</p>
+
+    <p>Do not forget to dispose the <code>strValues</code> or the <code>realValues</code> handles when they are not needed any more.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Goodies.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIAny_GetParamValuesID.html">APIAny_GetParamValuesID</a>, <a href="API_VLNumType.html">API_VLNumType</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 21, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

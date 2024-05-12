@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_BeamType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_BeamType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_BeamType</h1>
+
+    <p>Represents a beam element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                      <em>head</em>;
+        <strong>short</strong>                              <em>aboveViewLinePen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>aboveViewLineType</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>refLtype</em>;
+        <strong>short</strong>                              <em>refPen</em>;
+        <strong>short</strong>                              <em>cutContourLinePen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>cutContourLineType</em>;
+        <strong>Int32</strong>                              <em>sequence</em>;
+        <strong><a href="API_PenOverrideType.html">API_PenOverrideType</a></strong>                <em>penOverride</em>;
+        <strong><a href="API_StoryVisibility.html">API_StoryVisibility</a></strong>                <em>visibility</em>;
+        <strong><a href="API_LinkToSettings.html">API_LinkToSettings</a></strong>                 <em>linkToSettings</em>;
+        <strong><a href="API_BHoleTypeID.html">API_BHoleTypeID</a></strong>                    <em>holeType</em>;
+        <strong>bool</strong>                               <em>holeContureOn</em>;
+        <strong>bool</strong>                               <em>isAutoOnStoryVisibility</em>;
+        <strong>double</strong>                             <em>holeWidth</em>;
+        <strong>double</strong>                             <em>holeHeight</em>;
+        <strong>double</strong>                             <em>holeLevel</em>;
+        <strong>double</strong>                             <em>offset</em>;
+        <strong>double</strong>                             <em>level</em>;
+        <strong>API_BeamVisibleLinesID</strong>             <em>showContourLines</em>;
+        <strong>API_BeamVisibleLinesID</strong>             <em>showReferenceAxis</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                          <em>begC</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                          <em>endC</em>;
+        <strong>double</strong>                             <em>curveAngle</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>verticalCurveHeight</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>hiddenLineType</em>;
+        <strong>short</strong>                              <em>hiddenLinePen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>belowViewLineType</em>;
+        <strong>short</strong>                              <em>belowViewLinePen</em>;
+        <strong>bool</strong>                               <em>isFlipped</em>;
+        <strong>bool</strong>                               <em>isSlanted</em>;
+        <strong>double</strong>                             <em>slantAngle</em>;
+        <strong>double</strong>                             <em>axisRotationAngle</em>;
+        <strong><a href="API_BeamShapeTypeID.html">API_BeamShapeTypeID</a></strong>                <em>beamShape</em>;
+        <strong><a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a></strong>           <em>displayOption</em>;
+        <strong><a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a></strong>     <em>viewDepthLimitation</em>;
+        <strong><a href="API_ElemProjectionModesID.html">API_ElemViewDepthLimitationsID</a></strong>     <em>uncutProjectionMode</em>;
+        <strong><a href="API_ElemProjectionModesID.html">API_ElemViewDepthLimitationsID</a></strong>     <em>overheadProjectionMode</em>;
+        <strong>UInt32</strong>                             <em>nSegments<em>;
+        <strong>UInt32</strong>                             <em>nCuts<em>;
+        <strong>UInt32</strong>                             <em>nSchemes<em>;
+        <strong>UInt32</strong>                             <em>nProfiles<em>;
+
+        <strong>bool</strong>                               <em>useCoverFill</em>;
+        <strong>bool</strong>                               <em>useCoverFillFromSurface</em>;
+        <strong>bool</strong>                               <em>coverFillOrientationComesFrom3D</em>;
+        <strong>bool</strong>                               <em>filler_6</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                 <em>coverFillType</em>;
+        <strong>short</strong>                              <em>coverFillForegroundPen</em>;
+        <strong>short</strong>                              <em>coverFillBackgroundPen</em>;
+        <strong>short</strong>                              <em>filler_7</em>;
+        <strong><a href="API_CoverFillTransformationTypeID.html">API_CoverFillTransformationTypeID</a></strong>  <em>coverFillTransformationType</em>;
+        <strong>Int32</strong>                              <em>filler_8</em>;
+        <strong><a href="API_CoverFillTransformation.html">API_CoverFillTransformation</a></strong>        <em>coverFillTransformation</em>;
+    <strong>}</strong> <em>API_BeamType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>aboveViewLinePen</b></dt>
+
+        <dd>The pen index.</dd>
+
+        <dt><b>aboveViewLineType</b></dt>
+
+        <dd>The linetype index.</dd>
+
+        <dt><b>refLtype</b></dt>
+
+        <dd>The linetype index of the reference line.</dd>
+
+        <dt><b>refPen</b></dt>
+
+        <dd>The pen index of the reference line.</dd>
+
+        <dt><b>cutContourLinePen</b></dt>
+
+        <dd>The pen index of the cut lines of the beam.</dd>
+
+        <dt><b>cutContourLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/51.png" alt="5.1" width="19" height="12"></dt>
+
+        <dd>The line type index of the beam section countour line.</dd>
+
+        <dt><b>sequence</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Sequence is required when two beams meet with the same priority or when 3 or more beams meet in a junction. It's actual values can be between 0 and 999.</dd>
+
+        <dt><b>penOverride</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Cut fill pens set in the used structure (building material, complex profile) can be overridden on the element level.</dd>
+
+        <dt><b>visibility</b></dt>
+
+        <dd>The option to define which stories display the beam.&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dd>
+
+        <dt><b>linkToSettings</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Mode of linking to home story.</dd>
+
+        <dt><b>holeType</b></dt>
+
+        <dd>The shape of the beam hole (see <a href="API_BHoleTypeID.html">API_BHoleTypeID</a>).</dd>
+
+        <dt><b>holeContureOn</b></dt>
+
+        <dd>Show the hole's conture on the plan.</dd>
+
+        <dt><b>isAutoOnStoryVisibility</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Recalculate the story visibility automatically according to the actual elevation of the beam.</dd>
+
+        <dt><b>holeWidth</b></dt>
+
+        <dd>The default width of the holes.</dd>
+
+        <dt><b>holeHeight</b></dt>
+
+        <dd>The default height of the holes (effective only for the rectangle type - <code>holeType</code> is <code>APIBHole_Rectangular</code>).</dd>
+
+        <dt><b>holeLevel</b></dt>
+
+        <dd>The default level of the holes: the distance between the center of the hole and the top of the beam.</dd>
+
+        <dt><b>offset</b></dt>
+
+        <dd>The offset of beam's reference line from the center.</dd>
+
+        <dt><b>level</b></dt>
+
+        <dd>The top height of the beam relative to the floor level.</dd>
+
+        <dt><b>showContourLines</b></dt>
+
+        <dd></dd>
+
+        <dt><b>showReferenceAxis</b></dt>
+
+        <dd></dd>
+
+        <dt><b>begC</b></dt>
+
+        <dd>The beginning (start) coordinate of the beam.</dd>
+
+        <dt><b>endC</b></dt>
+
+        <dd>The end coordinate of the beam.</dd>
+
+        <dt><b>curveAngle</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="API 17" width="19" height="12"></dt>
+
+        <dd>The arc angle of the curved beam between <code>begC</code> and <code>endC</code> (negative value results an arc on the opposite side). This value is always zero for straight beams.</dd>
+
+        <dt><b>verticalCurveHeight</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>The height of the vertical curvature of the beam.</dd>
+
+        <dt><b>hiddenLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd></dd>
+
+        <dt><b>hiddenLinePen</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd></dd>
+
+        <dt><b>belowViewLinePen</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Pen index of the uncut lines.</dd>
+
+        <dt><b>belowViewLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Linetype of the uncut lines.</dd>
+
+        <dt><b>isFlipped</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="Featuring API 20" width="19" height="12"></dt>
+
+        <dd>Defines whether the beam is mirrored. Applies to profiled beams only.</dd>
+
+        <dt><b>isSlanted</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Defines whether the beam is slanted.</dd>
+
+        <dt><b>slantAngle</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Slant angle.</dd>
+
+        <dt><b>axisRotationAngle</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Profile rotating angle around it's center line.</dd>
+
+        <dt><b>beamShape</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Type to define if beam is straight, horizontally or vertically curved.</dd>
+
+        <dt><b>displayOption</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Display options of the element on the floor plan (see <a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a>).</dd>
+
+        <dt><b>viewDepthLimitation</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Defines the range within the element is shown on the floor plan (see <a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a>).</dd>
+
+        <dt><b>uncutProjectionMode</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Uncut projection mode.</dd>
+
+        <dt><b>overheadProjectionMode</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Overhead projection mode.</dd>
+
+        <dt><b>nSegments</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Number of segments.</dd>
+
+        <dt><b>nCuts</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Number of cuts.</dd>
+
+        <dt><b>nSchemes</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Number of schemes.</dd>
+
+        <dt><b>nProfiles</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Number of profiles.</dd>
+
+        <dt><b>useCoverFill</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Use Floor plan fill.</dd>
+
+        <dt><b>useCoverFillFromSurface</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Use the fill attribute assigned to the surface material of the element.</dd>
+
+        <dt><b>coverFillOrientationComesFrom3D</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Use cover fill orientation from 3D element view.</dd>
+
+        <dt><b>coverFillType</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Type of the fill.</dd>
+
+        <dt><b>coverFillForegroundPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Foreground pen of the cover fill.</dd>
+
+        <dt><b>coverFillBackgroundPen</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Background pen of the cover fill.</dd>
+
+        <dt><b>coverFillTransformationType</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>TransformationType of the fill (see <a href="API_CoverFillTransformationTypeID.html">API_CoverFillTransformationTypeID</a>).</dd>
+
+        <dt><b>coverFillTransformation</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="Featuring API 23" width="19" height="12"></dt>
+
+        <dd>Orientation and distortion parameters of the cover fill. (see <a href="API_CoverFillTransformation.html">API_CoverFillTransformation</a>).</dd>
+
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the type of the elements' structure is defined with the new <code>modelElemStructureType</code> member. The related attribute indices are separated into <code>buildingMaterial</code> and <code>profileAttr</code>.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the the elements' cut fill foreground and background pens inherit from the element structure, and can be overridden on the element level.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the the elements' surface materials inherit from the element structure, and can be overridden on the element level.</p>
+
+    <p>For beam related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_BHoleTypeID.html">API_BHoleTypeID</a>, <a href="API_Coord.html">API_Coord</a>, <a href="API_StoryVisibility.html">API_StoryVisibility</a>, <a href="API_LinkToSettings.html">API_LinkToSettings</a><br>
+    <a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a>, <a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a><br>
+    <a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_Element.html">API_Element</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="API_Gable.html">API_Gable</a> <br>
+    <a href="API_BeamSegmentType.html">API_BeamSegmentType</a>, <a href="API_AssemblySegmentData.html">API_AssemblySegmentData</a><br>
+    <a href="API_AssemblySegmentSchemeData.html">API_AssemblySegmentSchemeData</a>, <a href="API_AssemblySegmentProfileData.html">API_AssemblySegmentProfileData</a><br>
+    <a href="../Structures/API_BeamRelation.html">API_BeamRelation</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a><br>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on March 19, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

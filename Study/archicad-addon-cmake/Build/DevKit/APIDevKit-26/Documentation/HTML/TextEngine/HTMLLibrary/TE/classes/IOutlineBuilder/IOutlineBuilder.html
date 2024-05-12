@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>TE::IOutlineBuilder Class</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <!-- Index -->
+  
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTMLLibrary/TE/classes/IOutlineBuilder/IOutlineBuilder.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">TextEngine</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TE::IOutlineBuilder Class</h1>
+    <!--exp="TE::IOutlineBuilder Class"-->
+    <p>
+      <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">IOutlineBuilder</b> is an interface for a class that handles the output of the outline for the letters.
+  
+    </p>
+    <pre class="Syntax"><span class="SyntaxKeyword">class</span> <span class="SyntaxIdentifier">IOutlineBuilder</span></pre>
+    <h2 class="SectionHeading" id="members">Members</h2>
+    <p>
+      <!-- Don't index --><a href="#NestedStructures">Nested Structures</a><br>
+      <!-- Don't index --><a href="#PublicMethods">Public Methods</a><br>
+    </p>
+    
+    <h2 class="SectionHeading" id="NestedStructures">Nested Structures</h2>
+    <p>
+      
+    </p>
+    <table class="Summary">
+      <tr>
+        <th class="LinkColumn">Structure</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td class="LinkColumn">
+          <a href="PixCoord/PixCoord.html">PixCoord</a>
+        </td>
+        <td>
+          
+    Represents a point in the contours.
+  
+        </td>
+      </tr>
+    </table>
+    
+    <h2 class="SectionHeading" id="PublicMethods">Public Methods</h2>
+    <p>
+      
+    </p>
+    <table class="Summary">
+      <tr>
+        <th class="LinkColumn">Method</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td class="LinkColumn">
+          <a href="AddContour.html">AddContour</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Called before outlining every curve in the glyph.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="BeginGlyph.html">BeginGlyph</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Called before outlining a glyph.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="BeginTextOutline.html">BeginTextOutline</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Called in the begining of outlining the text.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="EndGlyph.html">EndGlyph</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Called after outlining each glyph.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="EndPoly.html">EndPoly</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Called after outlining each contour of a glyph.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="EndTextOutline.html">EndTextOutline</a>
+        </td>
+        <td>
+          <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Pure virtual function.</b> Called at the end of outnlining the text.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetPlotScale.html">GetPlotScale</a>
+        </td>
+        <td>
+          
+    Returns enlargement.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="Destructor.html">~IOutlineBuilder</a>
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="StrikeOut.html">StrikeOut</a>
+        </td>
+        <td>
+          
+    Gives the position of a line for strikethrough.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="Underline.html">Underline</a>
+        </td>
+        <td>
+          
+    Gives the position of an underline.
+  
+        </td>
+      </tr>
+    </table>
+    <h2 class="SectionHeading">Description</h2>
+    
+    Calling any methods for outlining texts (e.g. OutlineRichText) requires the implementation of a class that
+    evaluates this <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">IOutlineBuilder</b> interface. Such a class will be handled all the points on the outlines of each letter.
+    Texts are built up of glyphs that represent one ore more letters or even a part of one. Glyphs can contain more contours
+    such as the outer and inner curves and the accents. <br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">
+    During a whole text outlining process one after the other all the following methods will be called by textengine in this given order:
+    BeginTextOutline, then for each glyph BeginGlyph, for each contour in a glyph the AddContour and the EndPoly and than the EndGlyph.
+    At the end of the whole text the EndTextOutline. StrikeOut and Underline methods are called separatelly giving all the corners
+    of the line for the line. GetPlotScale will be called to determine the resolution to make for the points on the outlining curves.
+  
+    <h2 class="SectionHeading">Example</h2>
+    <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="Invalid link: ../../Examples/IOutlineBuilder.html" shape="rect">Example for using IOutlineBuilder</a>
+    <h2 class="SectionHeading">Requirements</h2>
+    <p>
+      <span class="RequirementsSection">Namespace:</span> <!-- Don't index --><a href="../../TE.html">TE</a>
+    </p>
+    <p>
+      <span class="RequirementsSection">Header:</span> IOutlineBuilder.hpp
+    </p>
+    <p>
+      <span class="RequirementsSection">Platforms:</span> 
+    TextEngine Version 9.0.0 R1 (6306 / 1812)<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Windows 2000, Windows XP, OSX 10.2x, OSX 10.3x
+  
+    </p>
+    <h2 class="SectionHeading">See Also</h2>
+    <p>
+      <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../TextEngine/OutlineRichText.html" shape="rect">TextEngine::OutlineRichText</a> |
+   <!-- Don't index --><a xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" href="../TextEngine/OutlinePlainText.html" shape="rect">TextEngine::OutlinePlainText</a>
+    </p>
+  
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

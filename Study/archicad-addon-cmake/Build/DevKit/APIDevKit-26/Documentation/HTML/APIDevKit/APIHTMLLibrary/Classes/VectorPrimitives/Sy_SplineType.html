@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>Sy_SplineType</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/VectorPrimitives/Sy_SplineType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Sy_SplineType</h1>
+
+    <p>Defines a Bezier spline.</p>
+    <pre class="syntax">
+<strong>struct</strong> Sy_SplineType {
+    <strong>long</strong>             item_Len;
+    <strong>unsigned char</strong>    item_Typ;
+    <strong>char</strong>             drwIndex;
+    <strong>short</strong>            sy_pen;
+    <strong>short</strong>            sy_layer;
+    <strong>short</strong>            pattern;
+    <strong>bool</strong>             autoSm;
+    <strong>bool</strong>             closed;
+    <strong>short</strong>            filler_0;
+    <strong>Coord</strong>            nCoords;
+    <strong>long</strong>             nDirs;
+    <strong>long</strong>             coorLen;
+    <strong>long</strong>             coorOff;
+    <strong>long</strong>             dirsLen;
+    <strong>long</strong>             dirsOff;
+    <strong>long</strong>             filler_1;
+    <strong>long</strong>             filler_2;
+};
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><em>item_Len</em></dt>
+
+        <dd>The length of the data record = endsOff+Round_UP_8(dirsLen).</dd>
+
+        <dt><em>item_Typ</em></dt>
+
+        <dd>Constant SySpline.</dd>
+
+        <dt><em>drwIndex</em></dt>
+
+        <dd>Index in drawing order or 0.</dd>
+
+        <dt><em>sy_pen</em></dt>
+
+        <dd>Pen (color and line thickness) information or 0 if deleted.</dd>
+
+        <dt><em>sy_layer</em></dt>
+
+        <dd>The number of the fragment (layer) this element belongs to (Ranges 1 - 16).</dd>
+
+        <dt><em>pattern</em></dt>
+
+        <dd>The line type of the spline.</dd>
+
+        <dt><em>autoSm</em></dt>
+
+        <dd>Only the base points are valid the data in DirTypes are invalid.</dd>
+
+        <dt><em>closed</em></dt>
+
+        <dd>Closed curve: the first point is the next of the last.</dd>
+
+        <dt><em>filler_0</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>nCoords</em></dt>
+
+        <dd>Number of base points.</dd>
+
+        <dt><em>nDirs</em></dt>
+
+        <dd>Number of direction information records.</dd>
+
+        <dt><em>coorLen</em></dt>
+
+        <dd>The size of base points data in bytes.</dd>
+
+        <dt><em>coorOff</em></dt>
+
+        <dd>Offset of the base points data from record start = sizeof(Sy_SplineType).</dd>
+
+        <dt><em>dirsLen</em></dt>
+
+        <dd>The size of direction information data in bytes.</dd>
+
+        <dt><em>dirsOff</em></dt>
+
+        <dd>Offset of the direction information data from record start = sizeof(Sy_SplineType)+ROUND_UP_8(coorLen).</dd>
+
+        <dt><em>filler_1</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+
+        <dt><em>filler_2</em></dt>
+
+        <dd>Reserved, should be 0.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>A spline record consists of a fixed-size part(the above structure) and two variable-sized parts (the base points and the direction information).</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10.0 or later, ModelerGraphics 8 or later</dd>
+
+        <dd><b>Header:</b> Symb2D.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><!-- Not Index --><a href="../VectorImage/VectorImage.html">VectorImage</a> <!-- FOOTER  FOOTEREND --></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 3, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

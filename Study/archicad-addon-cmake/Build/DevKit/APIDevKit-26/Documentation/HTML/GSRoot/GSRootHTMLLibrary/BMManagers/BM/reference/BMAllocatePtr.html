@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>BMAllocatePtr</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/BMManagers/BM/reference/BMAllocatePtr.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>BMAllocatePtr</h1>
+
+    <p>The <strong>BMAllocatePtr</strong> function allocates a non-relocatable block of memory of a specified size and returns a pointer referring to the allocated block.</p>
+    <pre class="syntax">
+<strong>GSPtr BMAllocatePtr(
+  GSSize</strong>          <em>nBytes,</em>                // number of bytes to allocate
+  <strong>GSFlags</strong>         <em>allocFlags,</em>    // allocation attributes
+  <strong>short</strong>           <em>actionCode</em>     // user specific code
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>nBytes</em></dt>
+
+        <dd>Specified the requested size (in bytes) of the non-relocatable block.</dd>
+
+        <dt><em>allocFlags</em></dt>
+
+        <dd>
+            Specifies how to allocate memory. This parameter can be any combination of the following values.<br>
+
+            <dl align="left">
+                <dd>
+                    <table border="0" width="76%">
+                        <tr>
+                            <th width="34%"><strong>Value</strong></th>
+
+                            <th width="66%"><strong>Meaning</strong></th>
+                        </tr>
+
+                        <tr>
+                            <td width="34%">ALLOCATE_ACTION</td>
+
+                            <td width="66%">User action is enabled.</td>
+                        </tr>
+
+                        <tr>
+                            <td width="34%">ALLOCATE_CLEAR</td>
+
+                            <td width="66%">Memory block is zeroed.</td>
+                        </tr>
+                    </table>
+                </dd>
+            </dl>
+        </dd>
+
+        <dt><em>actionCode</em></dt>
+
+        <dd>User specific code for differentiating error locations or functions.</dd>
+    </dl>
+
+    <h4>Return values</h4>
+
+    <p>If the function succeeds, the return value is a handle referring to the allocated block of the requested size.</p>
+
+    <p>If the function fails, the return value is NULL.</p>
+
+    <h4>Requirements</h4>
+
+    <p><strong>&nbsp;&nbsp; Header:</strong> Declared in BM.hpp<br>
+    &nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="functions_id.html">Basic Memory Manager Functions</a>, <a href="BMReallocPtr.html">BMReallocPtr</a>, <a href="BMKillPtr.html">BMKillPtr</a>, <a href="BMOptProc.html">BMOptProc</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

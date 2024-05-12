@@ -1,0 +1,1120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_NeigID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_NeigID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_NeigID</h1>
+
+    <p>Describes the various special points of elements.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>APINeig_None                        = 0</em>,
+        <em>APINeig_Wall                        = 1</em>,
+        <em>APINeig_WallPl                      = 2</em>,
+        <em>APINeig_WallOn                      = 3</em>,
+        <em>APINeig_WallPlOn                    = 4</em>,
+        <em>APINeig_Colu                        = 5</em>,
+        <em>APINeig_Beam                        = 6</em>,
+        <em>APINeig_BeamOn                      = 7</em>,
+        <em>APINeig_BeamHole                    = 8</em>,
+        <em>APINeig_Wind                        = 9</em>,
+        <em>APINeig_WindHole                    = 10</em>,
+        <em>APINeig_Door                        = 11</em>,
+        <em>APINeig_DoorHole                    = 12</em>,
+        <em>APINeig_Symb                        = 13</em>,
+        <em>APINeig_Light                       = 14</em>,
+        <em>APINeig_Ceil                        = 15</em>,
+        <em>APINeig_CeilOn                      = 16</em>,
+        <em>APINeig_Roof                        = 17</em>,
+        <em>APINeig_RoofOn                      = 18</em>,
+        <em>APINeig_RBL                         = 19</em>,
+        <em>APINeig_RBLOn                       = 20</em>,
+        <em>APINeig_Mesh                        = 21</em>,
+        <em>APINeig_MeshOn                      = 22</em>,
+        <em>APINeig_MeshRidge                   = 23</em>,
+        <em>APINeig_MeshRidgeOn                 = 24</em>,
+        <em>APINeig_DimInt                      = 25</em>,
+        <em>APINeig_DimPt                       = 26</em>,
+        <em>APINeig_DimOn                       = 27</em>,
+        <em>APINeig_RadDim                      = 28</em>,
+        <em>APINeig_LevDim                      = 29</em>,
+        <em>APINeig_AngDim                      = 30</em>,
+        <em>APINeig_AngDimOn                    = 31</em>,
+        <em>APINeig_Word                        = 32</em>,
+        <em>APINeig_Label                       = 33</em>,
+        <em>APINeig_Room                        = 34</em>,
+        <em>APINeig_RoomStamp                   = 35</em>,
+        <em>APINeig_RoomOn                      = 36</em>,
+        <em>APINeig_RoomRefPt                   = 37</em>,
+        <em>APINeig_Hatch                       = 38</em>,
+        <em>APINeig_HatchOn                     = 39</em>,
+        <em>APINeig_Line                        = 40</em>,
+        <em>APINeig_LineOn                      = 41</em>,
+        <em>APINeig_PolyLine                    = 42</em>,
+        <em>APINeig_PolyLineOn                  = 43</em>,
+        <em>APINeig_Arc                         = 44</em>,
+        <em>APINeig_ArcOn                       = 45</em>,
+        <em>APINeig_Circ                        = 46</em>,
+        <em>APINeig_CircOn                      = 47</em>,
+        <em>APINeig_Spline                      = 48</em>,
+        <em>APINeig_SplineOn                    = 49</em>,
+        <em>APINeig_Hot                         = 50</em>,
+        <em>APINeig_CutPlane                    = 51</em>,
+        <em>APINeig_CutPlOn                     = 52</em>,
+        <em>APINeig_Camera                      = 53</em>,
+        <em>APINeig_CamSet                      = 54</em>,
+        <em>APINeig_VirtSy                      = 55</em>,
+        <em>APINeig_VirtSyOn                    = 56</em>,
+        <em>APINeig_PictObj                     = 57</em>,
+        <em>APINeig_Detail                      = 58</em>,
+        <em>APINeig_DetailPoly                  = 59</em>,
+        <em>APINeig_DetailPolyOn                = 60</em>,
+        <em>APINeig_DetailMarker                = 61</em>,
+        <em>APINeig_Symb3D                      = 62</em>,
+        <em>APINeig_Light3D                     = 63</em>,
+        <em>APINeig_Wind3D                      = 64</em>,
+        <em>APINeig_Door3D                      = 65</em>,
+        <em>APINeig_WindMark                    = 66</em>,
+        <em>APINeig_DoorMark                    = 67</em>,
+        <em>APINeig_CutPlMarker                 = 68</em>,
+        <em>APINeig_WallPlClOff                 = 69</em>,
+        <em>APINeig_WallPlOnClOff               = 70</em>,
+        <em>APINeig_SymbOn                      = 71</em>,
+        <em>APINeig_WindOn                      = 72</em>,
+        <em>APINeig_DoorOn                      = 73</em>,
+        <em>APINeig_LightOn                     = 74</em>,
+        <em>APINeig_Note                        = 75</em>,
+        <em>APINeig_SplineDir                   = 76</em>,
+        <em>APINeig_DrawingCenter               = 77</em>,
+        <em>APINeig_DrawingFrame                = 78</em>,
+        <em>APINeig_DrawingFrameOn              = 79</em>,
+        <em>APINeig_DrawingIDF                  = 80</em>,
+        <em>APINeig_DrawingIDFOn                = 81</em>,
+        <em>APINeig_DrawingTitle                = 82</em>,
+        <em>APINeig_DrawingTitleOn              = 83</em>,
+        <em>APINeig_Worksheet                   = 84</em>,
+        <em>APINeig_WorksheetPoly               = 85</em>,
+        <em>APINeig_WorksheetPolyOn             = 86</em>,
+        <em>APINeig_WorksheetMarker             = 87</em>,
+        <em>APINeig_Elevation                   = 88</em>,
+        <em>APINeig_ElevationOn                 = 89</em>,
+        <em>APINeig_ElevationMarker             = 90</em>,
+        <em>APINeig_InteriorElevation           = 91</em>,
+        <em>APINeig_InteriorElevationOn         = 92</em>,
+        <em>APINeig_InteriorElevationMarker     = 93</em>,
+        <em>APINeig_SectionSegment              = 94</em>,
+        <em>APINeig_SectionSegmentOn            = 95</em>,
+        <em>APINeig_SectionSegmentMarker        = 96</em>,
+        <em>APINeig_CurtainWall                 = 97</em>,
+        <em>APINeig_CurtainWallOn               = 98</em>,
+        <em>APINeig_CurtainWallCut              = 99</em>,
+        <em>APINeig_CurtainWallCutOn            = 100</em>,
+        <em>APINeig_CWSegment                   = 101</em>,
+        <em>APINeig_CWSegmentOn                 = 102</em>,
+        <em>APINeig_CWSegmentBaseLine           = 103</em>,
+        <em>APINeig_CWSegmentBaseLineOn         = 104</em>,
+        <em>APINeig_CWFrame                     = 105</em>,
+        <em>APINeig_CWFrameOn                   = 106</em>,
+        <em>APINeig_CWFrame3D                   = 107</em>,
+        <em>APINeig_CWPanel                     = 108</em>,
+        <em>APINeig_CWPanel3D                   = 109</em>,
+        <em>APINeig_CWJunction                  = 110</em>,
+        <em>APINeig_CWJunction3D                = 111</em>,
+        <em>APINeig_CWAccessory                 = 112</em>,
+        <em>APINeig_CWAccessory3D               = 113</em>,
+        <em>APINeig_Shell                       = 114</em>,
+        <em>APINeig_ShellOn                     = 115</em>,
+        <em>APINeig_Skylight                    = 116</em>,
+        <em>APINeig_SkylightHole                = 117</em>,
+        <em>APINeig_Skylight3D                  = 118</em>,
+        <em>APINeig_SkylightOn3D                = 119</em>,
+        <em>APINeig_SkylightOn                  = 120</em>,
+        <em>APINeig_SkylightMark                = 121</em>,
+        <em>APINeig_Morph                       = 122</em>,
+        <em>APINeig_MorphOn                     = 123</em>,
+        <em>APINeig_ChangeMarker                = 124</em>,
+        <em>APINeig_ChangeMarkerPoly            = 125</em>,
+        <em>APINeig_ChangeMarkerPolyOn          = 126</em>,
+        <em>APINeig_ChangeMarkerMarker          = 127</em>,
+        <em>APINeig_ColuOn                      = 128</em>,
+        <em>APINeig_WordOn                      = 129</em>,
+        <em>APINeig_CurtainWallBaseLine         = 130</em>,
+        <em>APINeig_CurtainWallBaseLineOn       = 131</em>,
+        <em>APINeig_StairOn                     = 132</em>,
+        <em>APINeig_Tread                       = 133</em>,
+        <em>APINeig_TreadOn                     = 134</em>,
+        <em>APINeig_Riser                       = 135</em>,
+        <em>APINeig_RiserOn                     = 136</em>,
+        <em>APINeig_Stair                       = 137</em>,
+        <em>APINeig_StairStructure              = 138</em>,
+        <em>APINeig_StairStructureOn            = 139</em>,
+        <em>APINeig_Railing                     = 140</em>,
+        <em>APINeig_RailingOn                   = 141</em>,
+        <em>APINeig_RailingToprail              = 142</em>,
+        <em>APINeig_RailingToprailOn            = 143</em>,
+        <em>APINeig_RailingHandrail             = 144</em>,
+        <em>APINeig_RailingHandrailOn           = 145</em>,
+        <em>APINeig_RailingRail                 = 146</em>,
+        <em>APINeig_RailingRailOn               = 147</em>,
+        <em>APINeig_RailingPost                 = 148</em>,
+        <em>APINeig_RailingPostOn               = 149</em>,
+        <em>APINeig_RailingInnerPost            = 150</em>,
+        <em>APINeig_RailingInnerPostOn          = 151</em>,
+        <em>APINeig_RailingBaluster             = 152</em>,
+        <em>APINeig_RailingBalusterOn           = 153</em>,
+        <em>APINeig_RailingPanel                = 154</em>,
+        <em>APINeig_RailingPanelOn              = 155</em>,
+        <em>APINeig_RailingToprailEnd           = 156</em>,
+        <em>APINeig_RailingToprailEndOn         = 157</em>,
+        <em>APINeig_RailingHandrailEnd          = 158</em>,
+        <em>APINeig_RailingHandrailEndOn        = 159</em>,
+        <em>APINeig_RailingRailEnd              = 160</em>,
+        <em>APINeig_RailingRailEndOn            = 161</em>,
+        <em>APINeig_RailingToprailConnection    = 162</em>,
+        <em>APINeig_RailingToprailConnectionOn  = 163</em>,
+        <em>APINeig_RailingHandrailConnection   = 164</em>,
+        <em>APINeig_RailingHandrailConnectionOn = 165</em>,
+        <em>APINeig_RailingRailConnection       = 166</em>,
+        <em>APINeig_RailingRailConnectionOn     = 167</em>,
+        <em>APINeig_RailingEndFinish            = 168</em>,
+        <em>APINeig_RailingEndFinishOn          = 169</em>,
+        <em>APINeig_BeamSegment                 = 170</em>,
+        <em>APINeig_BeamSegmentOn               = 171</em>,
+        <em>APINeig_ColumnSegment               = 172</em>,
+        <em>APINeig_ColumnSegmentOn             = 173</em>
+    <strong>}</strong> <em>API_NeigID</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>APINeig_None</b></dt>
+
+        <dd>No neig. Can be a return value e.g. in the <a href="../Functions/APIIo_GetPointID.html">APIIo_GetPointID</a> functions.</dd>
+
+        <dt><b>APINeig_Wall</b></dt>
+
+        <dd>Wall end points (see picture <a href="#wallneig">below</a>).</dd>
+
+        <dt><b>APINeig_WallPl</b></dt>
+
+        <dd>Wall corrected connection point (see picture <a href="#wallneig">below</a>).</dd>
+
+        <dt><b>APINeig_WallOn</b></dt>
+
+        <dd>Wall reference line (see picture <a href="#wallneig">below</a>).</dd>
+
+        <dt><b>APINeig_WallPlOn</b></dt>
+
+        <dd>Wall nonreference line (see picture <a href="#wallneig">below</a>).</dd>
+
+        <dt><b>APINeig_Colu</b></dt>
+
+        <dd>Column origo and corners (see picture <a href="#columnneig">below</a>).</dd>
+
+        <dt><b>APINeig_Beam</b></dt>
+
+        <dd>Beam points (see picture <a href="#beamneig">below</a>).</dd>
+
+        <dt><b>APINeig_BeamOn</b></dt>
+
+        <dd>Beam segments (see picture <a href="#beamneig">below</a>).</dd>
+
+        <dt><b>APINeig_BeamHole</b></dt>
+
+        <dd>Beam's hole points (see picture <a href="#beamneig">below</a>).</dd>
+
+        <dt><b>APINeig_Wind</b></dt>
+
+        <dd>Hotspots in the window object (see picture <a href="#windneig">below</a>).</dd>
+
+        <dt><b>APINeig_WindHole</b></dt>
+
+        <dd>Corners of window hole (see picture <a href="#windneig">below</a>).</dd>
+
+        <dt><b>APINeig_Door</b></dt>
+
+        <dd>Hotspots in the door object (see picture <a href="#windneig">below</a>).</dd>
+
+        <dt><b>APINeig_DoorHole</b></dt>
+
+        <dd>Corners of door hole (see picture <a href="#windneig">below</a>).</dd>
+
+        <dt><b>APINeig_Symb</b></dt>
+
+        <dd>Hotspots in the general object (see picture <a href="#symbneig">below</a>). The inIndices are counted the way they were defined in the library part.</dd>
+
+        <dt><b>APINeig_Light</b></dt>
+
+        <dd>Hotspots in the light object (see picture <a href="#symbneig">below</a>).</dd>
+
+        <dt><b>APINeig_Ceil</b></dt>
+
+        <dd>Vertices of the slab (see picture <a href="#slabneig">below</a>). The inIndices are counted in the creation order starting from 1, i.e. the point the user first clicked will have inIndex 1. Later they can be taken from the vertexIDs.</dd>
+
+        <dt><b>APINeig_CeilOn</b></dt>
+
+        <dd>Edges of the slab (see picture <a href="#slabneig">below</a>). The inIndices are counted in the creation order (the edge between corners 1 and 2 will have the inIndex 1, etc.); later they can be taken from the vertexIDs.</dd>
+
+        <dt><b>APINeig_Roof</b></dt>
+
+        <dd>Vertices of the roof polygon (see picture <a href="#roofneig">below</a>). The inIndices are counted in the creation order starting from 1, i.e. the point the user first clicked will have inIndex 1. Later they can be taken from the vertexIDs.</dd>
+
+        <dt><b>APINeig_RoofOn</b></dt>
+
+        <dd>Edges of the roof polygon (see picture <a href="#roofneig">below</a>). The inIndices are counted in the creation order (the edge between corners 1 and 2 will have the inIndex 1, etc.); later they can be taken from the vertexIDs.</dd>
+
+        <dt><b>APINeig_RBL</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Roof reference line points (see picture <a href="#roofneig">below</a>).</dd>
+
+        <dt><b>APINeig_RBLOn</b></dt>
+
+        <dd>Roof reference line itself.</dd>
+
+        <dt><b>APINeig_Mesh</b></dt>
+
+        <dd>Vertices of the mesh (see picture <a href="#meshneig">below</a>). The inIndices are counted in the creation order, starting from 1, i.e. the point the user first clicked will have inIndex 1. Later they can be taken from the vertexIDs.</dd>
+
+        <dt><b>APINeig_MeshOn</b></dt>
+
+        <dd>Edges of the mesh (see picture <a href="#meshneig">below</a>). The inIndices are counted in the creation order (the edge between corners 1 and 2 will have the inIndex 1, etc.); later they can be taken from the vertexIDs.</dd>
+
+        <dt><b>APINeig_MeshRidge</b></dt>
+
+        <dd>Vertices of the mesh ridges (see picture <a href="#meshneig">below</a>). The inIndices are counted in the creation order starting from 0 (!); the first ridge point the user clicked will have inIndex 0, etc. Later they can be taken from the vertexIDs.</dd>
+
+        <dt><b>APINeig_MeshRidgeOn</b></dt>
+
+        <dd>Edges of the mesh ridges (see picture <a href="#meshneig">below</a>). The inIndices are counted in the creation order starting from 0 (!); the edge between ridge points 0 and 1 will have inIndex 1, etc. Later they can be taken from the vertexIDs.</dd>
+
+        <dt><b>APINeig_DimInt</b></dt>
+
+        <dd>Dimension segment (interval) as in old dimension.</dd>
+
+        <dt><b>APINeig_DimPt</b></dt>
+
+        <dd>Dimensioning point in the dimension chain (see picture <a href="#dimneig">below</a>).</dd>
+
+        <dt><b>APINeig_DimOn</b></dt>
+
+        <dd>Dimension line (see picture <a href="#dimneig">below</a>).</dd>
+
+        <dt><b>APINeig_RadDim</b></dt>
+
+        <dd>Radial dimension's location (see picture <a href="#rdimneig">below</a>).</dd>
+
+        <dt><b>APINeig_LevDim</b></dt>
+
+        <dd>Level dimension marker's center point (see picture <a href="#ldimneig">below</a>).</dd>
+
+        <dt><b>APINeig_AngDim</b></dt>
+
+        <dd>Angle dimension point (see picture <a href="#adimneig">below</a>).</dd>
+
+        <dt><b>APINeig_AngDimOn</b></dt>
+
+        <dd>Angle dimension arc (see picture <a href="#adimneig">below</a>).</dd>
+
+        <dt><b>APINeig_Word</b></dt>
+
+        <dd>Multiline text corners (see picture <a href="#textneig">below</a>).</dd>
+
+        <dt><b>APINeig_Label</b></dt>
+
+        <dd>Label points (see picture <a href="#labelneig">below</a>).</dd>
+
+        <dt><b>APINeig_Room</b></dt>
+
+        <dd>Room corners (see picture <a href="#roomneig">below</a>). The inIndices are counted in the creation order starting from 1, i.e. the point the user first clicked will have inIndex 1. Later they can be taken from the vertexIDs.</dd>
+
+        <dt><b>APINeig_RoomStamp</b></dt>
+
+        <dd>Room stamp hotspots (see picture <a href="#roomneig">below</a>). The inIndices are counted in the order the hotspots are defined in the zone category library part.</dd>
+
+        <dt><b>APINeig_RoomOn</b></dt>
+
+        <dd>Room side lines (see picture <a href="#roomneig">below</a>). The inIndices are counted in the creation order (the edge between corners 1 and 2 will have the inIndex 1, etc.); later they can be taken from the vertexIDs.</dd>
+
+        <dt><b>APINeig_RoomRefPt</b></dt>
+
+        <dd>Room reference point (see picture <a href="#roomneig">below</a>).</dd>
+
+        <dt><b>APINeig_Hatch</b></dt>
+
+        <dd>Vertices of the hatch (see picture <a href="#hatchneig">below</a>). The inIndices are counted in the creation order starting from 1, i.e. the point the user first clicked will have inIndex 1. Later they can be taken from the vertexIDs.</dd>
+
+        <dt><b>APINeig_HatchOn</b></dt>
+
+        <dd>Edges of the hatch (see picture <a href="#hatchneig">below</a>). The inIndices are counted in the creation order (the edge between corners 1 and 2 will have the inIndex 1, etc.); later they can be taken from the vertexIDs.</dd>
+
+        <dt><b>APINeig_Line</b></dt>
+
+        <dd>Line end / middle points (see picture <a href="#lineneig">below</a>).</dd>
+
+        <dt><b>APINeig_LineOn</b></dt>
+
+        <dd>The line itself (see picture <a href="#lineneig">below</a>).</dd>
+
+        <dt><b>APINeig_PolyLine</b></dt>
+
+        <dd>The vertices of the polyline.</dd>
+
+        <dt><b>APINeig_PolyLineOn</b></dt>
+
+        <dd>The edges of the polyLine.</dd>
+
+        <dt><b>APINeig_Arc</b></dt>
+
+        <dd>Arc endpoints and center (see picture <a href="#arcneig">below</a>).</dd>
+
+        <dt><b>APINeig_ArcOn</b></dt>
+
+        <dd>The arc itself (see picture <a href="#arcneig">below</a>).</dd>
+
+        <dt><b>APINeig_Circ</b></dt>
+
+        <dd>Diagonals and center of circle (see picture <a href="#circneig">below</a>).</dd>
+
+        <dt><b>APINeig_CircOn</b></dt>
+
+        <dd>The circle itself (see picture <a href="#circneig">below</a>).</dd>
+
+        <dt><b>APINeig_Spline</b></dt>
+
+        <dd>Spline corners (see picture <a href="#splineneig">below</a>).</dd>
+
+        <dt><b>APINeig_SplineOn</b></dt>
+
+        <dd>Spline segments (see picture <a href="#splineneig">below</a>).</dd>
+
+        <dt><b>APINeig_Hot</b></dt>
+
+        <dd>The hotspot itself (see picture <a href="#hotneig">below</a>).</dd>
+
+        <dt><b>APINeig_CutPlane</b></dt>
+
+        <dd>CutPlane points (see picture <a href="#cutneig">below</a>).</dd>
+
+        <dt><b>APINeig_CutPlOn</b></dt>
+
+        <dd>CutPlane segments (see picture <a href="#cutneig">below</a>).</dd>
+
+        <dt><b>APINeig_Camera</b></dt>
+
+        <dd>Camera points (see picture <a href="#camneig">below</a>).</dd>
+
+        <dt><b>APINeig_CamSet</b></dt>
+
+        <dd>Camera set points (see picture <a href="#camsetneig">below</a>).</dd>
+
+        <dt><b>APINeig_VirtSy</b></dt>
+
+        <dd>Virtual symbol hotspots (see picture <a href="#virtsyneig">below</a>), in section/elevation windows.</dd>
+
+        <dt><b>APINeig_VirtSyOn</b></dt>
+
+        <dd>Virtual symbol lines (see picture <a href="#virtsyneig">below</a>), in section/elevation windows.</dd>
+
+        <dt><b>APINeig_PictObj</b></dt>
+
+        <dd>Corners and center of pasted pictures (see picture <a href="#pictneig">below</a>).</dd>
+
+        <dt><b>APINeig_Detail</b></dt>
+
+        <dd>Detail points.</dd>
+
+        <dt><b>APINeig_DetailPoly</b></dt>
+
+        <dd>Detail points.</dd>
+
+        <dt><b>APINeig_DetailPolyOn</b></dt>
+
+        <dd>Detail points.</dd>
+
+        <dt><b>APINeig_DetailMarker</b></dt>
+
+        <dd>Detail points.</dd>
+
+        <dt><b>APINeig_Symb3D</b></dt>
+
+        <dd>3D Hotspots in the general object.</dd>
+
+        <dt><b>APINeig_Light3D</b></dt>
+
+        <dd>3D Hotspots in the light object.</dd>
+
+        <dt><b>APINeig_Wind3D</b></dt>
+
+        <dd>3D Hotspots in the window object.</dd>
+
+        <dt><b>APINeig_Door3D</b></dt>
+
+        <dd>3D Hotspots in the door object.</dd>
+
+        <dt><b>APINeig_WindMark</b></dt>
+
+        <dd>Window marker points.</dd>
+
+        <dt><b>APINeig_DoorMark</b></dt>
+
+        <dd>Door marker points.</dd>
+
+        <dt><b>APINeig_CutPlMarker</b><img border="0" src="../../APIImageLibrary/52.png" alt="5.2" width="19" height="12"></dt>
+
+        <dd>Section marker points.</dd>
+
+        <dt><b>APINeig_WallPlClOff</b><img border="0" src="../../APIImageLibrary/52.png" alt="5.2" width="19" height="12"></dt>
+
+        <dd>Wall corner point when Clean Wall Intersections switch is off.</dd>
+
+        <dt><b>APINeig_WallPlOnClOff</b><img border="0" src="../../APIImageLibrary/52.png" alt="5.2" width="19" height="12"></dt>
+
+        <dd>Wall non-reference line when Clean Wall Intersections switch is off.</dd>
+
+        <dt><b>APINeig_SymbOn</b><img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Line status in the general object.</dd>
+
+        <dt><b>APINeig_WindOn</b><img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Line status in the window object.</dd>
+
+        <dt><b>APINeig_DoorOn</b><img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Line status in the door object.</dd>
+
+        <dt><b>APINeig_LightOn</b><img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Line status in the light object.</dd>
+
+        <dt><b>APINeig_Note</b><img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Note text hotspot.</dd>
+
+        <dt><b>APINeig_SplineDir</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Endpoint of spline direction handle (see picture <a href="#splineneig">below</a>).</dd>
+
+        <dt><b>APINeig_DrawingCenter</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Center point of a drawing element (see picture <a href="#drawingneig">below</a>).</dd>
+
+        <dt><b>APINeig_DrawingFrame</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Corner point of the frame of a drawing element (see picture <a href="#drawingneig">below</a>).</dd>
+
+        <dt><b>APINeig_DrawingFrameOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Frame edge of a drawing element (see picture <a href="#drawingneig">below</a>).</dd>
+
+        <dt><b>APINeig_DrawingIDF</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Point status of the drawing content inside of a drawing element (see picture <a href="#drawingneig">below</a>).</dd>
+
+        <dt><b>APINeig_DrawingIDFOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Line status of the drawing content inside of a drawing element (see picture <a href="#drawingneig">below</a>).</dd>
+
+        <dt><b>APINeig_DrawingTitle</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Point status of a drawing title element (see picture <a href="#drawingneig">below</a>).</dd>
+
+        <dt><b>APINeig_DrawingTitleOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Line status of a drawing title element (see picture <a href="#drawingneig">below</a>).</dd>
+
+        <dt><b>APINeig_Worksheet</b></dt>
+
+        <dd>Worksheet points.</dd>
+
+        <dt><b>APINeig_WorksheetPoly</b></dt>
+
+        <dd>Worksheet polygon points.</dd>
+
+        <dt><b>APINeig_WorksheetPolyOn</b></dt>
+
+        <dd>Worksheet polygon line segments.</dd>
+
+        <dt><b>APINeig_WorksheetMarker</b></dt>
+
+        <dd>Worksheet marker points.</dd>
+
+        <dt><b>APINeig_Elevation</b></dt>
+
+        <dd>Elevation points.</dd>
+
+        <dt><b>APINeig_ElevationOn</b></dt>
+
+        <dd>Elevation line segments.</dd>
+
+        <dt><b>APINeig_ElevationMarker</b></dt>
+
+        <dd>Elevation marker points.</dd>
+
+        <dt><b>APINeig_InteriorElevation</b></dt>
+
+        <dd>Interior elevation points.</dd>
+
+        <dt><b>APINeig_InteriorElevationOn</b></dt>
+
+        <dd>Interior elevation line segments.</dd>
+
+        <dt><b>APINeig_InteriorElevationMarker</b></dt>
+
+        <dd>Interior elevation marker points.</dd>
+
+        <dt><b>APINeig_SectionSegment</b></dt>
+
+        <dd>Section segment points (for cut plane, elevation, and interior elevation).</dd>
+
+        <dt><b>APINeig_SectionSegmentOn</b></dt>
+
+        <dd>Section segment line segments (for cut plane, elevation, and interior elevation).</dd>
+
+        <dt><b>APINeig_SectionSegmentMarker</b></dt>
+
+        <dd>Section segment marker points (for cut plane, elevation, and interior elevation).</dd>
+
+        <dt><b>APINeig_CurtainWall</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Curtain wall end points.</dd>
+
+        <dt><b>APINeig_CurtainWallOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Curtain wall reference line.</dd>
+
+        <dt><b>APINeig_CurtainWallCut</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Curtain wall's cutaway frames and panels points.</dd>
+
+        <dt><b>APINeig_CurtainWallCutOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Curtain wall's cutaway frames and panels lines.</dd>
+
+        <dt><b>APINeig_CWSegment</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Curtain wall segment end points.</dd>
+
+        <dt><b>APINeig_CWSegmentOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Curtain wall segment reference line.</dd>
+
+        <dt><b>APINeig_CWSegmentBaseLine</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Curtain wall segment base reference line.</dd>
+
+        <dt><b>APINeig_CWSegmentBaseLineOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Curtain wall segment base reference line end points.</dd>
+
+        <dt><b>APINeig_CWFrame</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Vertexes of curtain wall frame.</dd>
+
+        <dt><b>APINeig_CWFrameOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Edges of curtain wall frame.</dd>
+
+        <dt><b>APINeig_CWFrame3D</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>3D hotspots of curtain wall frame.</dd>
+
+        <dt><b>APINeig_CWPanel</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Vertexes of curtain wall panel.</dd>
+
+        <dt><b>APINeig_CWPanel3D</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>3D hotspots in the curtain wall panel.</dd>
+
+        <dt><b>APINeig_CWJunction</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Vertexes of curtain wall junction.</dd>
+
+        <dt><b>APINeig_CWJunction3D</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>3D hotspots of curtain wall junction.</dd>
+
+        <dt><b>APINeig_CWAccessory</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Vertexes of curtain wall accessory.</dd>
+
+        <dt><b>APINeig_CWAccessory3D</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>3D hotspots in the curtain wall accessory.</dd>
+
+        <dt><b>APINeig_Shell</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Vertices of the shell polygon.</dd>
+
+        <dt><b>APINeig_ShellOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Edges of the shell polygon.</dd>
+
+        <dt><b>APINeig_Skylight</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Hotspots of the skylight object.</dd>
+
+        <dt><b>APINeig_SkylightHole</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Corners of skylight hole.</dd>
+
+        <dt><b>APINeig_Skylight3D</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>3D hotspots of the skylight object.</dd>
+
+        <dt><b>APINeig_SkylightOn3D</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>3D edges of the skylight object.</dd>
+
+        <dt><b>APINeig_SkylightOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Line status of the skylight object.</dd>
+
+        <dt><b>APINeig_SkylightMark</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Skylight marker points.</dd>
+
+        <dt><b>APINeig_Morph</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="Featuring API 16" width="19" height="12"></dt>
+
+        <dd>Vertices of the morph.</dd>
+
+        <dt><b>APINeig_MorphOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="Featuring API 16" width="19" height="12"></dt>
+
+        <dd>Edges of the morph.</dd>
+
+        <dt><b>APINeig_ChangeMarker</b></dt>
+
+        <dd>ChangeMarker points.</dd>
+
+        <dt><b>APINeig_ChangeMarkerPoly</b></dt>
+
+        <dd>ChangeMarker polygon points.</dd>
+
+        <dt><b>APINeig_ChangeMarkerPolyOn</b></dt>
+
+        <dd>ChangeMarker polygon line segments.</dd>
+
+        <dt><b>APINeig_ChangeMarkerMarker</b></dt>
+
+        <dd>ChangeMarker marker points.</dd>
+
+        <dt><b>APINeig_ColuOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Area of the Column on Floor Plan (except Hotspots).</dd>
+
+        <dt><b>APINeig_WordOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Area of Text (except Hotspots).</dd>
+
+        <dt><b>APINeig_CurtainWallBaseLine</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Hotspots on a Curtain Wall's Reference Line.</dd>
+
+        <dt><b>APINeig_CurtainWallBaseLineOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></dt>
+
+        <dd>Curtain Wall's Reference Line (except Hotspots).</dd>
+
+        <dt><b>APINeig_StairOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_Tread</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_TreadOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_Riser</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RiserOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_Stair</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_StairStructure</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_StairStructureOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_Railing</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingToprail</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingToprailOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingHandrail</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingHandrailOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingRail</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingRailOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingPost</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingPostOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingInnerPost</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingInnerPostOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingBaluster</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingBalusterOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingPanel</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingPanelOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingToprailEnd</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingToprailEndOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingHandrailEnd</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingHandrailEndOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingRailEnd</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingRailEndOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingToprailConnection</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingToprailConnectionOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingHandrailConnection</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingHandrailConnectionOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingRailConnection</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingRailConnectionOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingEndFinish</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_RailingEndFinishOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_BeamSegment</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="23" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_BeamSegmentOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="23" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_ColumnSegment</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="23" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+        <dt><b>APINeig_ColumnSegmentOn</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="23" width="19" height="12"></dt>
+
+        <dd>.</dd>
+
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p><a name="wallneig" id="wallneig"></a>Here are the neigIDs with their inIndex in brackets for <b>walls</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_wall1.gif" border="0" alt="Wall neig 1" width="386" height="117">
+    </blockquote>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_wall2.gif" border="0" alt="Wall neig 2" width="430" height="117">
+    </blockquote>
+
+    <p><a name="columnneig" id="columnneig"></a>Here are the neigIDs with their inIndex in brackets for <b>columns</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_column.gif" border="0" alt="Column neig" width="420" height="199">
+    </blockquote>
+
+    <p><a name="windneig" id="windneig"></a>Here are the neigIDs with their inIndex in brackets for <b>windows</b> (and very similar for <b>doors</b>):</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_wind.gif" border="0" alt="Window neig" width="448" height="121">
+    </blockquote>
+
+    <p><a name="symbneig" id="symbneig"></a>Here are the neigIDs with their inIndex in brackets for <b>objects</b> (and very similar for <b>lamps</b>):</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_symb.gif" border="0" alt="Symbol neig" width="361" height="181">
+    </blockquote>
+
+    <p><a name="slabneig" id="slabneig"></a>Here are the neigIDs with their inIndex in brackets for <b>slabs</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_slab.gif" border="0" alt="Slab neig" width="462" height="214">
+    </blockquote>
+
+    <p><a name="roofneig" id="roofneig"></a>Here are the neigIDs with their inIndex in brackets for <b>roofs</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_roof.gif" border="0" alt="Roof neig" width="460" height="198">
+    </blockquote>
+
+    <p><a name="meshneig" id="meshneig"></a>Here are the neigIDs with their inIndex in brackets for <b>meshes</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_mesh.gif" border="0" alt="Mesh neig" width="424" height="184">
+    </blockquote>
+
+    <p><a name="dimneig" id="dimneig"></a>Here are the neigIDs with their inIndex in brackets for <b>dimensions</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_dim.gif" border="0" alt="Dimension neig" width="402" height="160">
+    </blockquote>
+
+    <p><a name="rdimneig" id="rdimneig"></a>Here are the neigIDs with their inIndex in brackets for <b>radial dimensions</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_rdim.gif" border="0" alt="Radial dimension neig" width="305" height="126">
+    </blockquote>
+
+    <p><a name="ldimneig" id="ldimneig"></a>Here are the neigIDs with their inIndex in brackets for <b>level dimensions</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_ldim.gif" border="0" alt="Level dimension neig" width="230" height="127">
+    </blockquote>
+
+    <p><a name="adimneig" id="adimneig"></a>Here are the neigIDs with their inIndex in brackets for <b>angle dimensions</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_adim.gif" border="0" alt="Angle dimension neig" width="375" height="179">
+    </blockquote>
+
+    <p><a name="textneig" id="textneig"></a>Here are the neigIDs with their inIndex in brackets for <b>texts</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_text.gif" border="0" alt="Text neig" width="326" height="155">
+    </blockquote>
+
+    <p><a name="labelneig" id="labelneig"></a>Here are the neigIDs with their inIndex in brackets for <b>labels</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_label.gif" border="0" alt="Label neig" width="338" height="146">
+    </blockquote>
+
+    <p><a name="roomneig" id="roomneig"></a>Here are the neigIDs with their inIndex in brackets for <b>zones</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_room.gif" border="0" alt="Zone neig" width="385" height="254">
+    </blockquote>
+
+    <p><a name="hatchneig" id="hatchneig"></a>Here are the neigIDs with their inIndex in brackets for <b>hatches</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_hatch.gif" border="0" alt="Hatch neig" width="283" height="210">
+    </blockquote>
+
+    <p><a name="lineneig" id="lineneig"></a>Here are the neigIDs with their inIndex in brackets for <b>lines</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_line.gif" border="0" alt="Line neig" width="327" height="128">
+    </blockquote>
+
+    <p><a name="arcneig" id="arcneig"></a>Here are the neigIDs with their inIndex in brackets for <b>arcs</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_arc.gif" border="0" alt="Arc neig" width="306" height="147">
+    </blockquote>
+
+    <p><a name="circneig" id="circneig"></a>Here are the neigIDs with their inIndex in brackets for <b>circles</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_circ.gif" border="0" alt="Circle neig" width="241" height="160">
+    </blockquote>
+
+    <p><a name="splineneig" id="splineneig"></a>Here are the neigIDs with their inIndex in brackets for <b>splines</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_spline.png" border="0" alt="Spline neig" width="534" height="357">
+    </blockquote>
+
+    <p><a name="hotneig" id="hotneig"></a>Here are the neigIDs with their inIndex in brackets for <b>hotspots</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_hot.gif" border="0" alt="Hot neig" width="117" height="39">
+    </blockquote>
+
+    <p><a name="cutneig" id="cutneig"></a>Here are the neigIDs with their inIndex in brackets for <b>cutplanes</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_cut.gif" border="0" alt="Cutplane neig" width="524" height="224">
+    </blockquote>
+
+    <p><a name="camneig" id="camneig"></a>Here are the neigIDs with their inIndex in brackets for <b>cameras</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_cam1.gif" border="0" alt="Perspective camera neig" width="466" height="208">
+    </blockquote>
+
+    <p><a name="virtsyneig" id="virtsyneig"></a>Here are the neigIDs with their inIndex in brackets for <b>virtual symbols</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_virtsy.gif" border="0" alt="Virtual symbol neig" width="354" height="181">
+    </blockquote>
+
+    <p><a name="pictneig" id="pictneig"></a>Here are the neigIDs with their inIndex in brackets for <b>pictures</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_pict.gif" border="0" alt="Picture neig" width="309" height="217">
+    </blockquote>
+
+    <p><a name="camsetneig" id="camsetneig"></a>Here are the neigIDs with their inIndex in brackets for <b>camera sets</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_camset.gif" border="0" alt="Camera set neig" width="276" height="121">
+    </blockquote>
+
+    <p><a name="beamneig" id="beamneig"></a>Here are the neigIDs with their inIndex in brackets for <b>beams</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_beam.gif" border="0" alt="Beam neig" width="430" height="224">
+    </blockquote>
+
+    <p><a name="drawingneig" id="drawingneig"></a>Here are the neigIDs with their inIndex in brackets for <b>drawings</b>:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/neig_drawing.png" border="0" alt="Drawing neig" width="939" height="561">
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_DimElem.html">API_DimElem</a><br>
+    <a href="API_DimBase.html">API_DimBase</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

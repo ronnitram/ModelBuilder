@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>AddHatchWhole</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/VectorImage/AddHatchWhole.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><!-- Not Index --><a href="VectorImage.html">VectorImage</a>::AddHatchWhole</h1><br>
+    Adds a hatch to the VectorImage.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>GSErrCode  AddHatchWhole (
+    short               contPen,
+    short               contLTyp,
+    short               fillPen,
+    short               bkgPen,
+    short               layer,
+    short               drwIndex,
+    ULong               unId,
+    const Coord*        offset,
+    double              refAngle,
+    short               fillind,
+    long                npb,
+    const long*         boends,
+    long                npc,
+    double*             coords,
+    double*             angles
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>contPen</em></dt>
+
+        <dd>The drawing pen of the contour of the hatch.</dd>
+
+        <dt><em>contLTyp</em></dt>
+
+        <dd>The used line type attribute.</dd>
+
+        <dt><em>fillPen</em></dt>
+
+        <dd>The pen of the fill.</dd>
+
+        <dt><em>bkgPen</em></dt>
+
+        <dd>The pen of the fill background. Zero means transparent.</dd>
+
+        <dt><em>layer</em></dt>
+
+        <dd>The containing layer of the hatch It should range from 1 to 16.</dd>
+
+        <dt><em>drwIndex</em></dt>
+
+        <dd>The drawing index of the hatch. It influences the drawing order of the item.</dd>
+
+        <dt><em>unId</em></dt>
+
+        <dd>Reserved, should be zero.</dd>
+
+        <dt><em>offset</em></dt>
+
+        <dd>The origo of the fill will be offseted with this vector. Can be NULL.</dd>
+
+        <dt><em>refAngle</em></dt>
+
+        <dd>The co-ordinate system of the fill will be rotated by this angle. Its unit is radian.</dd>
+
+        <dt><em>fillind</em></dt>
+
+        <dd>The fill shape of the hatch.</dd>
+
+        <dt><em>npb</em></dt>
+
+        <dd>The count of the contours of the polygon.</dd>
+
+        <dt><em>boends</em></dt>
+
+        <dd>The ending vertex indices of contours. It should consist of nbp longs.</dd>
+
+        <dt><em>npc</em></dt>
+
+        <dd>The count of vertices of the whole polygon.</dd>
+
+        <dt><em>coords</em></dt>
+
+        <dd>The vertices: a pair of doubles means a point. It should consist of 2 * npc doubles.</dd>
+
+        <dt><em>angles</em></dt>
+
+        <dd>The view angles of the edges. It should consist of npc doubles.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <p>If the function succeeds, the return value is NoError. If the function fails, the return value is the error code.</p>
+
+    <h3>Description</h3>
+
+    <p>Addition always merges the new item to the end of the primitives list but drawing order can differ from placing order.</p>
+
+    <h3>Requirements</h3>
+
+    <dl>
+        <dd><b>Version:</b>API 10.0 or later, ModelerGraphics 8 or later</dd>
+
+        <dd><b>Library:</b>ModelerGraphicsImp.lib (Win) or ModelerGraphics.framework (Mac)</dd>
+
+        <dd><b>Header:</b>VectorImage.hpp</dd>
+    </dl><!-- FOOTER  FOOTEREND -->
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Language" content="en-us">
+    <meta name="Author" content="Magyari Denes">
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta name="ProgId" content="FrontPage.Editor.Document">
+
+    <title>File Type Manager introduction</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/introduction.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">File&nbsp;Type&nbsp;Manager</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Introduction</h1>
+
+    <p>The purpose of the File Type Manager is to provide a platform independent way of <b>file type identification and administration</b>. As the number of registered file types grown in AC, they become unidentifiable, because the usage of three byte extensions on Win32 plus the MacType on the Mac could not distinguish certain types of files form each other. Some types can only be identified by reading into the file and identify it by its content. There is also a need to reduce the number of used extensions, and use the same extension for "families" of file types.</p>
+
+    <p>The File Type Manager implements two classes to manage type information. A small class called <!-- --><a href="FileType/filetype.html"><b>FileType</b></a> used to store basic information on a specific type of file such as extensions, description and MacType. This class is also used as a standalone object for exchanging type information between some IO functions.</p>
+
+    <p>The second class called <!-- --><a href="FileTypeManager/filetypemanager.html"><b>FileTypeManager</b></a> organizes file type information. This class stores FileType objects in&nbsp; hierarchical <b>groups</b>. Each file type can be member of multiply groups. It enables one level many-to-many relation between groups and types, but group to group relations are restricted to single parent, tree type hierarchy.</p>
+
+    <p align="center"><img border="0" src="../Image_Library/hier1.jpg" alt="hier1" width="163" height="178"></p>
+
+    <p align="left">&nbsp;</p>
+
+    <p>The <b>database</b> of the FileTypeManager is <b>static</b>. This means that all FileTypeManager objects can use information stored by other FileTypeManager objects with some restrictions. It also enables the usage many of the <b>member functions</b> to be <b>static</b>, so they can be used without an instance of the FileTypeManager object. As a general rule functions that administer type information are connected to the FileTypeManager object that entered that FileType object into the manager. Important behavior of the FileTypeManager is that it <b>cleans up its own data</b> from the static database on destruction of the instance. Most searching and other querying functions are static. A FileType entered and queried by the same FileTypeManager has <b>privilege</b> over FileTypes entered by other FileTypeManagers. This means that if an AddOn creates its own FileTypeManager object it can't enter any data into the static database that would corrupt the usage of a FileTypeManager created by AC or another AddOn.</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../FileTypeManager.html">File Type Manager</a>, <a href="FileTypeManager/filetypemanager.html">FileTypeManager class</a>, <a href="FileType/filetype.html">FileType class</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 20, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

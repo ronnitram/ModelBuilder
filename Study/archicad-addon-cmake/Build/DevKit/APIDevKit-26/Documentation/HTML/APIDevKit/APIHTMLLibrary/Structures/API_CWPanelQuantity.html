@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_CWPanelQuantity</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_CWPanelQuantity.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_CWPanelQuantity</h1>
+
+    <p>Describes the different calculated values for curtain wall panels.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>        <em>typeText[API_UniLongNameLen]</em>;
+        <strong>double</strong>             <em>vertDirection</em>;
+        <strong>double</strong>             <em>horDirection</em>;
+        <strong>double</strong>             <em>thickness</em>;
+        <strong>double</strong>             <em>surface</em>;
+        <strong>double</strong>             <em>grossSurface</em>;
+        <strong>double</strong>             <em>perimeter</em>;
+        <strong>double</strong>             <em>grossPerimeter</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong> <em>material_outer</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong> <em>material_inner</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong> <em>material_cut</em>;
+        <strong>short</strong>              <em>function</em>;
+        <strong>short</strong>              <em>filler_1</em>;
+        <strong>double</strong>             <em>width</em>;
+        <strong>double</strong>             <em>nominalWidth</em>;
+        <strong>double</strong>             <em>height</em>;
+        <strong>double</strong>             <em>nominalHeight</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>        <em>orientationText[API_UniLongNameLen]</em>;
+        <strong>double</strong>             <em>filler[4]</em>;
+    <strong>}</strong> <em>API_CWPanelQuantity</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>typeText</b></dt>
+
+        <dd>Generic or the name of the GDL object in case of GDL based panel.</dd>
+
+        <dt><b>vertDirection</b></dt>
+
+        <dd>Vertical direction.</dd>
+
+        <dt><b>horDirection</b></dt>
+
+        <dd>Horizontal direction.</dd>
+
+        <dt><b>thickness</b></dt>
+
+        <dd>Thickness of the panel.</dd>
+
+        <dt><b>surface</b></dt>
+
+        <dd>Net surface of the panel. Equal to <code>grossSurface</code> minus the surface covered by neighbouring frames.</dd>
+
+        <dt><b>grossSurface</b></dt>
+
+        <dd>Gross Surface of the panel. Equal to <code>surface</code> plus the surface covered by neighbouring frames.</dd>
+
+        <dt><b>perimeter</b></dt>
+
+        <dd>Net perimeter of the frame.</dd>
+
+        <dt><b>grossPerimeter</b></dt>
+
+        <dd>Gross perimeter of the frame.</dd>
+
+        <dt><b>material_outer</b></dt>
+
+        <dd>Material index of the exterior surface of the panel.</dd>
+
+        <dt><b>material_inner</b></dt>
+
+        <dd>Material index of the edge of the panel.</dd>
+
+        <dt><b>material_cut</b></dt>
+
+        <dd>Material index of the interior surface of the panel.</dd>
+
+        <dt><b>function</b></dt>
+
+        <dd>Type of the panel. Possible values: 0 - fixed, 1 - door, 2 - window (value of <code>AC_Panel_Type</code> GDL parameter)</dd>
+
+        <dt><b>filler_1</b></dt>
+
+        <dd>Reserved for later use.</dd>
+
+        <dt><b>width</b></dt>
+
+        <dd>Width of the panel. (The visible part of the panel. It doesn't includes the part covered by neighbouring frames.)</dd>
+
+        <dt><b>nominalWidth</b></dt>
+
+        <dd>Nominal panel width (it is equal to <code>width</code> if the panel is generic [non GDL based].)</dd>
+
+        <dt><b>height</b></dt>
+
+        <dd>Reserved for later use. (The visible part of the panel. It doesn't includes the part covered by neighbouring frames.)</dd>
+
+        <dt><b>nominalHeight</b></dt>
+
+        <dd>Nominal panel height (it is equal to <code>height</code> if the panel is generic [non GDL based].)</dd>
+
+        <dt><b>filler</b></dt>
+
+        <dd>Reserved for later use.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>See also the curtain wall panel parameters for listing in Appendix A of the GDL Reference manual.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 12.0 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="../Functions/ACAPI_Element_GetQuantities.html">ACAPI_Element_GetQuantities</a>, <a href="../Functions/ACAPI_Element_GetMoreQuantities.html">ACAPI_Element_GetMoreQuantities</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 14, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

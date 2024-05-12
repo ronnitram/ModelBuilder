@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>StableArray Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/StableArray/StableArray.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="AllocationStrategy.html">AllocationStrategy</A><A href="Begin.html">Begin</A><A href="Compact.html">Compact</A><A href="CompactionStrategy.html">CompactionStrategy</A><A href="ConstIterator.html">ConstIterator</A><A href="End.html">End</A><A href="Enumerate.html">Enumerate</A><A href="GetAllocationStrategy.html">GetAllocationStrategy</A><A href="GetCapacity.html">GetCapacity</A><A href="GetCompactionStrategy.html">GetCompactionStrategy</A><A href="GetFillFactor.html">GetFillFactor</A><A href="GetPageSize.html">GetPageSize</A><A href="Iterator.html">Iterator</A><A href="Constructors.html">StableArray</A><A href="Swap.html">Swap</A>--><H2>StableArray Class</H2><!--exp="StableArray Class"-->
+<P><topic id="$GS.$StableArray.BriefDescription">
+		Random container that holds addresses of items unchanged.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>Type</I><B>&gt;
+</B>class StableArray : public <!----><a class="nodecorate" href="../RandomContainer/RandomContainer.html">RandomContainer&lt; Type &gt;</A></B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>Type</I></DT><DD><topic id="$GS.$StableArray.$Type.TemplateParamDescription">
+		Type of items the array stores.
+	</topic></DD>
+</DL>
+<H4>Members</H4>
+<P><B><A name="Constructors"></A>Constructors</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">StableArray</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$StableArray.BriefDescription">
+		StableArray constructor.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ContentManagement"></A>Content management</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Swap.html">Swap</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$Swap.BriefDescription">
+		Swaps content of two arrays.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ContentQuery"></A>Content query</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Enumerate.html">Enumerate</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$Enumerate.BriefDescription">
+		Allows enumeration of the array's content.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Begin.html">Begin</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$Begin.BriefDescription">
+		Returns an iterator referring to the first item in the array.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="End.html">End</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$End.BriefDescription">
+		Returns an iterator referring to the one past last item in the array.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PerformanceTuning"></A>Performance tuning</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetCapacity.html">GetCapacity</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$GetCapacity.BriefDescription">
+		Returns capacity of the array.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetFillFactor.html">GetFillFactor</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$GetFillFactor.BriefDescription">
+		Returns fill factor of the array.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetPageSize.html">GetPageSize</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$GetPageSize.BriefDescription">
+		Returns size of a storage page.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetAllocationStrategy.html">GetAllocationStrategy</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$GetAllocationStrategy.BriefDescription">
+		Returns the allocation strategy.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetCompactionStrategy.html">GetCompactionStrategy</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$GetCompactionStrategy.BriefDescription">
+		Returns the compaction strategy.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Compact.html">Compact</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$Compact.BriefDescription">
+		Compacts storage pages and frees the unused memory.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicTypes"></A>Public Types</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="AllocationStrategy.html">AllocationStrategy</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$AllocationStrategy.BriefDescription">
+		Possible allocation strategies.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="CompactionStrategy.html">CompactionStrategy</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$CompactionStrategy.BriefDescription">
+		Possible compaction strategies.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ConstIterator.html">ConstIterator</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$ConstIterator.BriefDescription">
+		Type of the StableArray's constant random iterator.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Iterator.html">Iterator</A></TD>
+<TD width="70%"><topic id="$GS.$StableArray.$Iterator.BriefDescription">
+		Type of the StableArray's random iterator.
+	</topic></TD>
+</TR>
+</table>
+<H4>Description</H4>
+<P><topic id="$GS.$StableArray.LongDescription">
+		StableArray is a RandomContainer implementation that can hold addresses of stored items unchanged.
+		This is achieved using a map table storing pointers to items residing on memory pages.
+		At insertion or deletion the map table is manipulated, the items themselves are not affected.
+		It allocates memory in allocation units which contain one or more pages depending on the
+		allocation strategy.<br>
+		StableArray's public methods are non-virtual and are inline if appropriate.<br>
+		<br>
+		Among random container implementations StableArray has the following <b>advantages</b>:
+		<ul>
+			<li>Addresses of items are by default stable so references to items can be stored in
+				long term. There is no reallocation and at insertion and deletion only the map table
+				storing pointers to items is manipulated. Items themselves reside on memory pages.
+				When a new item does not fit into the array then a new page (ore new pages, depending
+				on the allocation strategy) is allocated and as always a new pointer to the item on
+				the new page is stored in the map table.<br>
+				However deletions leave holes on pages causing fragmentation and memory wasting.
+				This can be	corrected by compacting items on pages (either manually or automatically)
+				but this operation moves items so addresses of items will change! Note that subsequent
+				insertions will also fill the holes.</li>
+			<li>Insertion and deletion is relatively fast because only pointers to items above the
+				insertion or deletion point are copied using fast memory copy instead of copying items
+				one by one by invoking their assigment operators. As a result, insertion and deletion can
+				be easily be 10 times faster than at other random container implementations.</li>
+			<li>Memory utilization is good. With constant allocation strategy it wastes at most
+				two pages. With linear allocation strategy it wastes at most
+				<TT>sqrt (8 * page_count + 1) - 2</TT> pages.
+				However memory utilization of the exponential allocation strategy is bad and its
+				characteristics are similar	to that of <!----><a href="../Array/Array.html">Array's</a>.</li>
+			<li>It rarely allocates memory and holds little allocation units with linear (in 4 Gb at most
+				approximately 10000) and exponential (in 4 Gb at most 32) allocation strategies.
+				However with constant allocation strategy and large number of items it allocates often
+				and holds relatively large number of allocation units (in this cases single pages).</li>
+		</ul>
+		Among random container implementations StableArray has the following <b>disadvantages</b>:
+		<ul>
+			<li>Deletions leave holes on pages causing fragmentation. This can be corrected by compacting
+				items on pages (either manually or automatically) but this operation moves items so
+				addresses of items will change! Note that subsequent insertions will also fill the holes.</li>
+			<li>Imposes considerable storage overhead on items: total cost of an item storage cell
+				involves the item itself, a pointer to the item and a little overhead due to the page
+				table that contains pointers to pages. If the array contains inetegers this overhead
+				will at least double the total cost.</li>
+			<li>It has large own size: currently 40 bytes.</li>
+		</ul>		
+		<br>
+		Items are required to have default and copy constructors and assigment operator. 
+		In addition if they have comparison operators (== and !=) then value dependent 
+		operations (eg. Find, Count, Contains etc.) will be also useable.<br>
+		<br>
+		The following figure shows the internal layout of the StableArray:<br>
+		<br>
+		<p align="center">
+		<img src="../../../GSRootImageLibrary/stable_array.JPG">
+		</p>
+		<br>
+	</topic></P>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../GS.html">GS</A></P>
+<P><B>Header: </B>StableArray.hpp</P>
+<H4>See Also</H4>
+<P><topic id="$GS.$StableArray.SeeAlso">
+		<!----><a href="../Array/Array.html">Array</a> | <!----><a href="../PagedArray/PagedArray.html">PagedArray</a>
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

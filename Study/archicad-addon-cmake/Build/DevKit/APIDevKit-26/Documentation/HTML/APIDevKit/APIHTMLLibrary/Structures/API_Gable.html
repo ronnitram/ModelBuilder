@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_Gable</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_Gable.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_Gable</h1>
+
+    <p>Defines a cutting plane applied to spatial elements.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>double</strong>             <em>a</em>;
+        <strong>double</strong>             <em>b</em>;
+        <strong>double</strong>             <em>c</em>;
+        <strong>double</strong>             <em>d</em>;
+        <strong>double</strong>             <em>xb</em>;
+        <strong>double</strong>             <em>xe</em>;
+        <strong>double</strong>             <em>nx</em>;
+        <strong>double</strong>             <em>ny</em>;
+        <strong>short</strong>              <em>cutElem</em>;
+        <strong>short</strong>              <em>filler_1</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong> <em>material</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>          <em>**coords</em>;
+        <strong>Int32</strong>              <em>**pends</em>;
+        <strong><a href="API_PolyArc.html">API_PolyArc</a></strong>        <em>**parcs</em>;
+    <strong>}</strong> <em>API_Gable</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>a, b, c, d</b></dt>
+
+        <dd>Plane coefficients relative to the parent element.</dd>
+
+        <dt><b>xb, xe</b></dt>
+
+        <dd>Distance of vertical cut planes from local origin.</dd>
+
+        <dt><b>nx, ny</b></dt>
+
+        <dd>Normal vector of vertical cut planes (nz always 0.0).</dd>
+
+        <dt><b>cutElem</b></dt>
+
+        <dd>Element the gable is generated from (output only).</dd>
+
+        <dt><b>material</b></dt>
+
+        <dd>Material for the cut surface (output only).</dd>
+
+        <dt><b>coords</b></dt>
+
+        <dd>Coordinate array, not nullptr if cut is limited to a polygon.</dd>
+
+        <dt><b>pends</b></dt>
+
+        <dd>Polygon endpoints; see <a href="API_Polygon.html">API_Polygon</a> for more information.</dd>
+
+        <dt><b>parcs</b></dt>
+
+        <dd>Polygon arcs; see <a href="API_PolyArc.html">API_PolyArc</a> and <a href="API_Polygon.html">API_Polygon</a> for more information.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <strong>a</strong>, <strong>b</strong>, <strong>c</strong>, <strong>d</strong> plane coefficients are the parameters of the plane equation:</p>
+
+    <blockquote>
+        <strong>a</strong><em>x</em> + <strong>b</strong><em>y</em> + <strong>c</strong><em>z</em> = <strong>d</strong>
+    </blockquote>
+
+    <p>Where <em>x</em>, <em>y</em> and <em>z</em> are points in 3D space, <strong>a</strong>, <strong>b</strong> and <strong>c</strong> are the x, y and z components of the surface normal, and <strong>d</strong> is the distance value. A point whose components are put into <em>x</em>, <em>y</em> and <em>z</em> is on the plane if the above equality is satisfied.</p>
+
+    <p>All gable data is defined in the local coordinate system of the element.</p>
+
+    <p>The picture below shows how gable parameters should be interpreted for curved walls:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/WallGable.png" class="size2x" border="0" alt="" width="515" height="421">
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <p>Note that the coordinates of the limit polygon are transformed (shifted and rotated) into a position relative to the first edge of the zone polygon. To get the real gable polygon coordinates you should transform them back.</p>
+
+    <p>Check the <em>Dump Zone</em> function in the <strong>Element_Manager</strong> example project.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_ElementMemo.html">API_ElementMemo</a>, <a href="API_AttributeIndex.html">API_AttributeIndex</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

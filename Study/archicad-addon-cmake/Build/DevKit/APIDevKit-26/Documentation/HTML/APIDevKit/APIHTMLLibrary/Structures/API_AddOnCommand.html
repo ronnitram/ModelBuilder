@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_AddOnCommand</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_AddOnCommand.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_AddOnCommand</h1>
+
+    <p>Base class for the Add-On commands.</p>
+    <pre class="syntax">
+    <strong>class API_AddOnCommand {</strong>
+    <strong>public:</strong>
+        virtual <strong><a href="ddid://GSRoot.String Class">GS::String</a></strong>                          <em>GetName () const = 0;</em>
+        virtual <strong><a href="ddid://GSRoot.String Class">GS::String</a></strong>                          <em>GetNamespaceName () const = 0;</em>
+        virtual <strong><a href="API_AddOnCommandExecutionPolicy.html"><strong>API_AddOnCommandExecutionPolicy</strong></a></strong>     <em>GetExecutionPolicy () const = 0;</em>
+        virtual <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt<a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&gt</strong>         <em>GetSchemaDefinitions () const = 0;</em>
+        virtual <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt<a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&gt</strong>         <em>GetInputParametersSchema () const = 0;</em>
+        virtual <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt<a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&gt</strong>         <em>GetResponseSchema () const = 0;</em>
+        virtual <strong>bool</strong>                                <em>IsProcessWindowVisible () const = 0;</em>
+        virtual <strong><a href="ddid://GSRoot.ObjectState Class">GS::ObjectState</a></strong>                     <em>Execute (const <a href="ddid://GSRoot.ObjectState Class">GS::ObjectState</a>&amp; parameters, <a href="ddid://GSRoot.ProcessControl Class">GS::ProcessControl</a>&amp; processControl) const = 0;</em>
+        virtual void                                <em>OnResponseValidationFailed (const <a href="ddid://GSRoot.ObjectState Class">GS::ObjectState</a>&amp; response) const = 0;</em>
+    <strong>}</strong>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>GetName ()</b></dt>
+
+        <dd>Returns the unique name of the command. This name cannot be an empty string or contain <code>'.'</code> characters.</dd>
+
+        <dt><b>GetNamespaceName ()</b></dt>
+
+        <dd>Returns the namespace of the command. This string must be unique for each Add-On. It cannot be an empty string or contain <code>'.'</code> characters.</dd>
+
+        <dt><b>GetExecutionPolicy ()</b></dt>
+
+        <dd>Returns the execution policy.</dd>
+
+        <dt><b>GetSchemaDefinitions ()</b></dt>
+
+        <dd>Returns the schema definitions. Must be a valid JSON string. Types defined in the schema definitions can be used in the input/output schemas.</dd>
+
+        <dt><b>GetInputParametersSchema ()</b></dt>
+
+        <dd>This schema will be used to validate the incoming request parameters. Must be a valid JSON string.</dd>
+
+        <dt><b>GetResponseSchema ()</b></dt>
+
+        <dd>This schema will be used to validate the incoming request response. Must be a valid JSON string.</dd>
+
+        <dt><b>IsProcessWindowVisible ()</b>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="New in API 26" width="19" height="12"></dt>
+
+        <dd>Controls the visibility of the process window during the command's execution.</dd>
+
+        <dt><b>Execute ()</b></dt>
+
+        <dd>Write the Add-On command logic inside this function.<br>
+
+        <dt><b>OnResponseValidationFailed ()</b></dt>
+
+        <dd>This function is called when an error occurred inside the Add-On command logic and the output schema validation failed.<br>
+
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Inherit from this abstract class and implement the required functions to specify an Add-On command.</p>
+	
+	<p>Validating the <code>"{}"</code> string, matches all the input/output schemas.</p>
+
+    <p>You can install an Add-On command handler with the <a href="../Functions/ACAPI_Install_AddOnCommandHandler.html">ACAPI_Install_AddOnCommandHandler</a> function.
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 25 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Registration.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

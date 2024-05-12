@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>PG3DPOLYEXT</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Polygon3DOperations/PG3DPOLYEXT.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>PG3DPOLYEXT</h1>
+
+    <p>Describes a callback polygon.</p>
+    <pre class="syntax">
+    <strong>typedef struct</strong> PG3DPOLYEXT {
+      <strong><a href="../Polygon2DOperations/PGPOLYEXT.html">PGPOLYEXT</a></strong>           <em>d2</em>;
+      <strong>double</strong>              <em>zmin</em>;
+      <strong>double</strong>              <em>zmax</em>;
+      <strong>double</strong>              <em>plana</em>;
+      <strong>double</strong>              <em>planb</em>;
+      <strong>double</strong>              <em>planc</em>;
+      <strong>double</strong>              <em>pland</em>;
+      <strong>GetPG3DEdgeProcExt</strong>  <em>getEdge</em>;
+      } <strong>PG3DPOLYEXT</strong>;
+
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>d2</b></dt>
+
+        <dd>2D polygon for the common data fields of 3D and 2D polygons.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>zmin</b></dt>
+
+        <dd>Addition to the minimal bounding box.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>zmax</b></dt>
+
+        <dd>Addition to the minimal bounding box.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>plana</b></dt>
+
+        <dd>Plane coefficient.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>planb</b></dt>
+
+        <dd>Plane coefficient.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>planc</b></dt>
+
+        <dd>Plane coefficient.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>pland</b></dt>
+
+        <dd>Plane coefficient.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>getEdge</b></dt>
+
+        <dd>The user-defined callback function which can give back a 3D edge with random indexing.</dd>
+
+        <dd>&nbsp;</dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Polygon3DOperations.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Polygon3DOperations_id.html">3D Polygon operations</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 17, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ChangeMarkerType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ChangeMarkerType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ChangeMarkerType</h1>
+
+    <p>Represents a ChangeMarker (a placeable element, not to be confused with the Change from the Change Manager palette).</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                     <em>head</em>;
+        <strong><a href="API_ChangeMarkerLinkType.html">API_ChangeMarkerLinkType</a></strong>          <em>linkType</em>;
+        <strong><a href="API_ChangeMarkerComponentType.html">API_ChangeMarkerComponentType</a></strong>     <em>markerComponent</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>                       <em>changeId[API_UniLongNameLen]</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>                       <em>changeName[API_UniLongNameLen]</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                         <em>pos</em>;
+        <strong><a href="API_Polygon.html">API_Polygon</a></strong>                       <em>poly</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                          <em>markerGuid</em>;
+        <strong>double</strong>                            <em>angle</em>;
+        <strong>bool</strong>                              <em>horizontalMarker</em>;
+        <strong>char</strong>                              <em>filler_1[3]</em>;
+        <strong>Int32</strong>                             <em>filler_2</em>;
+    <strong>}</strong> <em>API_ChangeMarkerType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+        <dd>General element header.</dd>
+
+        <dt><b>linkType</b></dt>
+        <dd><ul>
+                <li>When creating/changing a ChangeMarker or changing the ChangeMarker Default, this field is used to make the ChangeMarker/ChangeMarker Default linked or unlinked.
+                    When <code>linkType</code> is <code>APICMLT_CreateNewChange</code>, first a new Change will be created, then the ChangeMarker will be made linked to this Change.</li>
+                <li>When creating/changing a ChangeMarker or changing the ChangeMarker Default
+                    <ul>
+                        <li>if <code>linkType</code> is <code>APICMLT_CreateNewChange</code>, <code>changeId</code> and <code>changeName</code> also has to be supplied,</li>
+                        <li>if <code>linkType</code> is <code>APICMLT_Linked</code>, <code>changeId</code> also has to be supplied (<code>changeName</code> won't be used).</li>
+                    </ul>
+                </li>
+                <li>When querying a placed ChangeMarker, in this field it is returned, whether the ChangeMarker is linked or unlinked. If linked, <code>changeId</code> and <code>changeName</code> shows the linked Change.</li>
+                <li>When querying the ChangeMarker Default, in this field it is returned, whether the Default is linked, unlinked or a new Change will be created when placing a ChangeMarker (<code>APICMLT_CreateNewChange</code>). If linked, <code>changeId</code> and <code>changeName</code> shows the linked Change. If <code>APICMLT_CreateNewChange</code>, <code>changeId</code> and <code>changeName</code> shows what Change will be created when placing a ChangeMarker.</li>
+            </ul>
+        </dd>
+
+        <dt><b>markerComponent</b></dt>
+        <dd>This field specifies whether the ChangeMarker has a Marker Head and/or Marker Cloud.</dd>
+
+        <dt><b>changeId</b></dt>
+        <dd>Specifies the Id of the linked Change.</dd>
+
+        <dt><b>changeName</b></dt>
+        <dd>Specifies the Name of the linked Change.</dd>
+
+        <dt><b>pos</b></dt>
+        <dd>If the ChangeMarker has no polygon, this coordinate means the reference position, where the ChangeMarker points to.</dd>
+
+        <dt><b>poly</b></dt>
+        <dd>If the ChangeMarker has polygon, this field contains some data of the polygon (see <a href="API_Polygon.html">API_Polygon</a>). The polygon itself can be set/queried through memo.</dd>
+
+        <dt><b>markerGuid</b></dt>
+        <dd>After querying, changing, or creating a ChangeMarker, when the ChangeMarker has a Marker, this field contains the GUID of the associated Marker symbol.</dd>
+
+        <dt><b>angle</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Marker rotation angle (radian).</dd>
+
+        <dt><b>horizontalMarker</b>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="New in API 22" width="19" height="12"></dt>
+
+        <dd>Marker is always horizontal.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>For ChangeMarker related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 18 or later</dd>
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Element.html">API_Element</a>, <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_ChangeMarkerLinkType.html">API_ChangeMarkerLinkType</a>, <a href="API_Coord.html">API_Coord</a>, <a href="API_Polygon.html">API_Polygon</a>, <a href="API_Guid.html">API_Guid</a><br>
+    <a href="../Functions/ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a>, <a href="../Functions/ACAPI_Element_ChangeExt.html">ACAPI_Element_ChangeExt</a><br>
+    <a href="../Functions/ACAPI_Element_GetDefaultsExt.html">ACAPI_Element_GetDefaultsExt</a>, <a href="../Functions/ACAPI_Element_ChangeDefaultsExt.html">ACAPI_Element_ChangeDefaultsExt</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

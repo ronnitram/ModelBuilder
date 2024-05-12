@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_FilltypeType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_FilltypeType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_FilltypeType</h1>
+
+    <p>Fill type attribute representation.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Attr_Head.html">API_Attr_Head</a></strong>       <em>head</em>;
+        <strong><a href="#API_FillSubtype">API_FillSubtype</a></strong>     <em>subType</em>;
+        <strong>bool</strong>                <em>isPercentFill</em>;
+        <strong>bool</strong>                <em>filler_1[3]</em>;
+        <strong><a href="#API_Pattern">API_Pattern</a></strong>         <em>bitPat</em>;
+        <strong>double</strong>              <em>hXSpac</em>;
+        <strong>double</strong>              <em>hYSpac</em>;
+        <strong>double</strong>              <em>hAngle</em>;
+        <strong>Int32</strong>               <em>linNumb</em>;
+        <strong>Int32</strong>               <em>hotNumb</em>;
+        <strong>Int32</strong>               <em>arcNumb</em>;
+        <strong>Int32</strong>               <em>filNumb</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>           <em>c1</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>           <em>c2</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>         <em>textureName [API_UniLongNameLen]</em>;
+        <strong>short</strong>               <em>textureStatus</em>;
+        <strong>short</strong>               <em>filler_2[3]</em>;
+        <strong>double</strong>              <em>textureXSize</em>;
+        <strong>double</strong>              <em>textureYSize</em>;
+        <strong>double</strong>              <em>textureRotAng</em>;
+        <strong>double</strong>              <em>percent</em>;
+        <strong>Int32</strong>               <em>filler_3[8]</em>;
+    <strong>}</strong> <em>API_FilltypeType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>Contains the name and the index of the fill. The <code>flags</code> field tells whether the fill is for drafting, cover, or cut fills, and scales with the plan or scale-independent.</dd>
+
+        <dt><b>subType</b></dt>
+
+        <dd>Describes the type of the fill. The possible values are enumerated in <a href="#API_FillSubtype">API_FillSubtype</a>.</dd>
+
+        <dt><b>isPercentFill</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd>Indicates a "percent" fill, e.g. 100%, 75%. This is an output-only parameter; detected from the bitmap pattern.</dd>
+
+        <dt><b><a name="API_Pattern" id="API_Pattern">bitPat</a></b></dt>
+
+        <dd>Pattern of the fill. It is an eight-character constant; the first character corresponds to the the first line of the pattern, the second character to the second, etc. Example: the bitPat <code>0x8080808F888888F8</code> means the following pattern:</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dd><code><br>
+        0x80 *-------<br>
+        0x80 *-------<br>
+        0x80 *-------<br>
+        0x8F *---****<br>
+        0x88 *---*---<br>
+        0x88 *---*---<br>
+        0x88 *---*---<br>
+        0xF8 *****---<br></code></dd>
+
+        <dt><b>hXSpac</b></dt>
+
+        <dd>The fill's spacing factor in the X direction.</dd>
+
+        <dt><b>hYSpac</b></dt>
+
+        <dd>The fill's spacing factor in the Y direction.</dd>
+
+        <dt><b>hAngle</b></dt>
+
+        <dd>The angle of the fill.</dd>
+
+        <dt><b>linNumb</b></dt>
+
+        <dd>The number of fill line items.</dd>
+
+        <dt><b>hotNumb</b></dt>
+
+        <dd>The number of hotspot items (symbol fill only).</dd>
+
+        <dt><b>arcNumb</b></dt>
+
+        <dd>The number of arc items (symbol fill only).</dd>
+
+        <dt><b>filNumb</b></dt>
+
+        <dd>The number of simple fill items (symbol fill only).</dd>
+
+        <dt><b>c1</b></dt>
+
+        <dd>The symbol fill offset. Corresponds to the X1, Y1 values in the Fill Types dialog.</dd>
+
+        <dt><b>c2</b></dt>
+
+        <dd>The symbol fill offset. Corresponds to the X2, Y2 values in the Fill Types dialog.</dd>
+
+        <dt><b>textureName</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Texture file name.</dd>
+
+        <dt><b>textureStatus</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Texture status APITxtr_MirrorY | APITxtr_MirrorX.</dd>
+
+        <dt><b>textureXSize</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>x size of the texture.</dd>
+
+        <dt><b>textureYSize</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>y size of the texture.</dd>
+
+        <dt><b>textureRotAng</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Rotation angle of the texture in radians.</dd>
+
+        <dt><b>percent</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Percent of the translucent fill.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The <code>flags</code> field of the header can take the following values:</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><b>Value</b></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APIFill_ScaleWithPlan</code></p>
+                </td>
+
+                <td>
+                    <p>The fill type is scale dependent.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APIFill_ForWall</code></p>
+                </td>
+
+                <td>
+                    <p>This fill can be used for cut fills.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APIFill_ForPoly</code></p>
+                </td>
+
+                <td>
+                    <p>This fill can be used for drafting fills.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APIFill_ForCover</code></p>
+                </td>
+
+                <td>
+                    <p>This fill can be used for cover fills.</p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p><a name="API_FillSubtype" id="API_FillSubtype"></a>The <code>subType</code> of the fill can take the following values:</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><b>Value</b></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APIFill_Vector</code></p>
+                </td>
+
+                <td>
+                    <p>Vectorial fill.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APIFill_Symbol</code></p>
+                </td>
+
+                <td>
+                    <p>Symbol fill.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APIFill_Solid</code></p>
+                </td>
+
+                <td>
+                    <p>Solid fill. Only one solid fill may exist for polygons, and one for walls.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APIFill_Empty</code></p>
+                </td>
+
+                <td>
+                    <p>Empty fill. Only one empty fill may exist for polygons, and one for walls.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APIFill_LinearGradient</code>&nbsp;<img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Linear gradient fill.<br>
+                    &nbsp;&nbsp;<img src="../../APIImageLibrary/grad_fill_linear.png" width="23" height="24" alt="Linear gradient fill"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APIFill_RadialGradient</code>&nbsp;<img src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Radial gradient fill.<br>
+                    &nbsp;&nbsp;<img src="../../APIImageLibrary/grad_fill_radial.png" width="23" height="24" alt="Radial gradient fill"></p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><code>APIFill_Image</code></p>
+                </td>
+
+                <td>
+                    <p>Image fill.<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></p>
+                </td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p>Most of the fields in this structure correspond to the items of the Fill Types dialog in Archicad.</p>
+
+    <p>There is additional data assigned to fill attributes in the <a href="API_AttributeDef.html">API_AttributeDef</a> structure; the definition of a fill is passed through the <code>fill_lineItems</code> and <code>fill_lineLength</code> fields. Refer to the <a href="API_FillLine.html">API_FillLine</a> structure to get more details on them.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="API 17" width="19" height="12">&nbsp;Note that in AC17 the Energy Evaluation property parameters (<code>thermalConductivity</code>, <code>density</code> and <code>heatCapacity</code>) have been removed from this structure; they are now part of <a href="API_BuildingMaterialType.html">API_BuildingMaterialType</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Attributes.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Coord.html">API_Coord</a>, <a href="API_Attr_Head.html">API_Attr_Head</a>, <a href="API_Attribute.html">API_Attribute</a>, <a href="API_FillLine.html">API_FillLine</a>, <a href="API_AttributeDef.html">API_AttributeDef</a>,<br>
+    <a href="../Level3/Attribute_Manager_id.html">Attribute Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on March 29, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

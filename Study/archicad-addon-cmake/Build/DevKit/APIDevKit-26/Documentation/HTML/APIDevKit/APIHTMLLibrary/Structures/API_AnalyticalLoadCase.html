@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_AnalyticalLoadCase</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_AnalyticalLoadCase.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_AnalyticalLoadCase</h1>
+
+    <p>Describes a Structural Analytical Load Case.</p>
+	<p>Individual loads are not defined "freely". They must be included in load cases. A load case is a group, commonly used to group loads from the same action source. The load cases correspond with the professional terminology specified in national technical standards dealing with loads of civil engineering structures.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong> 			 		<em>name</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong> 			 		<em>description</em>;
+        <strong><a href="API_AnalyticalLoadCaseActionType.html">API_AnalyticalLoadCaseActionType</a></strong> 		<em>actionType</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong> 			 		<em>loadGroupGuid</em>;
+        <strong><a href="API_AnalyticalLoadCaseLoadType.html">API_AnalyticalLoadCaseLoadType</a></strong> 	 		<em>loadType</em>;
+        <strong><a href="ddid://GSRoot.Optional Class">GS::Optional</a>&lt<a href="API_AnalyticalLoadCaseDuration.html">API_AnalyticalLoadCaseDuration</a>&gt</strong> 	<em>duration</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong> 			 		<em>loadCaseGuid</em>;
+    <strong>}</strong> <em>API_AnalyticalLoadCase</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>name</b>&nbsp;</dt>
+
+        <dd>Name of the load case.</dd>
+		
+        <dt><b>description</b>&nbsp;</dt>
+
+        <dd>Description of the load case.</dd>
+		
+        <dt><b>actionType</b>&nbsp;</dt>
+
+        <dd>Action type of the load case.</dd>
+		
+        <dt><b>loadGroupGuid</b>&nbsp;</dt>
+
+        <dd>A unique identifier of the load group which contains the represented load case.</dd>
+		
+        <dt><b>loadType</b>&nbsp;</dt>
+
+        <dd>Load type of the load case.</dd>
+		
+        <dt><b>duration</b>&nbsp;</dt>
+
+        <dd>Duration of the load case.</dd>
+		
+        <dt><b>loadCaseGuid</b>&nbsp;</dt>
+
+        <dd>A unique identifier of the represented load case.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 25 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_AnalyticalModel.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Types.html">API Types</a></p>
+	<p><a href="../Functions/ACAPI_AnalyticalModel_GetAllAnalyticalLoadCases.html">ACAPI_AnalyticalModel_GetAllAnalyticalLoadCases</a></p>
+	<p><a href="../Functions/ACAPI_AnalyticalModel_GetAnalyticalLoadCases.html">ACAPI_AnalyticalModel_GetAnalyticalLoadCases</a></p>
+	<p><a href="../Functions/ACAPI_AnalyticalModel_GetAnalyticalLoadCase.html">ACAPI_AnalyticalModel_GetAnalyticalLoadCase</a></p>
+	<p><a href="../Functions/ACAPI_AnalyticalModel_CreateAnalyticalLoadCase.html">ACAPI_AnalyticalModel_CreateAnalyticalLoadCase</a></p>
+	<p><a href="../Functions/ACAPI_AnalyticalModel_DeleteAnalyticalLoadCase.html">ACAPI_AnalyticalModel_DeleteAnalyticalLoadCase</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on October 1, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

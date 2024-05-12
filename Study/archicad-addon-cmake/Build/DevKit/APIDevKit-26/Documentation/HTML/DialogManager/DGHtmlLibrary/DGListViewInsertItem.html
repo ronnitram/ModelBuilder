@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGListViewInsertItem</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListViewInsertItem.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListViewInsertItem</h1>
+
+    <p>Inserts a new item into a <a href="ListView.html">list view</a>.</p>
+    <pre class="syntax">
+    <strong>void DGListViewInsertItem</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>short</strong>  <em>listItem</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>listItem</em></dt>
+
+        <dd>1-based index of the list view item before which the new item should be inserted. <tt>DG_LIST_TOP</tt> specifies the first item of the list, <tt>DG_LIST_BOTTOM</tt> inserts the new item after the last item of the list. If <em>listItem</em> is the number of items in the list plus 1, it has the same effect as <tt>DG_LIST_BOTTOM</tt>.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The new item will have the following default properties:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Property</th>
+
+                    <th align="left">Value</th>
+                </tr>
+
+                <tr valign="top">
+                    <td>Color</td>
+
+                    <td>The system default foreground (text) color.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Image data</td>
+
+                    <td>empty (<tt>nullptr</tt>)</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Image type</td>
+
+                    <td><tt>DG_LVIT_ICON</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Long</td>
+
+                    <td>0</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Status</td>
+
+                    <td><tt>DG_IS_ENABLE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Style</td>
+
+                    <td>The style of the font of the list view.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Text</td>
+
+                    <td>empty</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>These default item properties can be modified by the <a href="ListViewSpecific_id.html">list view specific functions</a>.</p>
+
+    <p>Use the <a href="DGListViewDisableDraw.html">DGListViewDisableDraw</a> and <a href="DGListViewEnableDraw.html">DGListViewEnableDraw</a> functions if you insert more items to avoid unwanted screen updates.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.1.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ListView.html">List View</a>, <a href="DGListViewDeleteItem.html">DGListViewDeleteItem</a>, <a href="DGListViewGetItemCount.html">DGListViewGetItemCount</a><br>
+    <a href="DGListViewDisableDraw.html">DGListViewDisableDraw</a>, <a href="DGListViewEnableDraw.html">DGListViewEnableDraw</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 18, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

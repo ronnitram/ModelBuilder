@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ListBoxDropped (ListBoxDropTargetObserver)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/ListBoxDropTargetObserver/ListBoxDropped.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="ListBoxDropTargetObserver.html">ListBoxDropTargetObserver</A>::ListBoxDropped</H2><!--exp="ListBoxDropTargetObserver::ListBoxDropped"-->
+<P><topic id="$DG.$ListBoxDropTargetObserver.$ListBoxDropped.BriefDescription">
+		Event handler for the drag dropped notification.
+	</topic></P>
+<PRE class="syntax"><B>virtual void ListBoxDropped (</B>
+    <B><a class="nodecorate" href="../../DG/ListBoxDropTargetEvent/ListBoxDropTargetEvent.html">const ListBoxDropTargetEvent &amp;</A> </B><I>ev</I>,
+    <B><a class="nodecorate" href="../../DG_DragDrop/Effect.html">DragDrop::Effect *</A>  </B><I>effect</I>
+<B>);</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>ev</I></DT><DD><topic id="$DG.$ListBoxDropTargetObserver.$ListBoxDropped.$ev.ParamDescription">
+		A reference to the <a href="../ListBoxDropTargetEvent/ListBoxDropTargetEvent.html">event</a>.
+	</topic></DD><DT><I>effect</I></DT><DD><topic id="$DG.$ListBoxDropTargetObserver.$ListBoxDropped.$effect.ParamDescription">
+		Drag and drop effect can take the following values: DragDrop::Reject, DragDrop::Accept, DragDrop::Copy,
+		DragDrop::Move, DragDrop::Link, DragDrop::Delete.
+	</topic></DD>
+</DL>
+<H4>Description</H4>
+<P><topic id="$DG.$ListBoxDropTargetObserver.$ListBoxDropped.LongDescription">
+		When a drop event occurs it is time to insert data into the drop target. If you provided custom feedback, now is the time to erase it.
+	</topic></P>
+<H4>Example</H4><topic id="$DG.$ListBoxDropTargetObserver.$ListBoxDropped.Example">
+		<PRE class="code">// Method Example:
+void	DragTab2Observer::ListBoxDropped (const DG::ListBoxDropTargetEvent&amp; ev, DG::DragDrop::Effect* effect)
+{
+    if (ev.GetSource () == &amp;tabPage-&gt;listBox) {
+        ULong i;
+        short insertPos = ev.GetInsertPosition ();
+        GS::Array&lt;GS::UniString&gt; textArray;    // Array used to memorize list item texts
+
+        if (ev.HasDataFormat ('FILE')) {
+            ULong nLocation = ev.GetLocationCount ();
+
+            char itemText[256];
+            sprintf (itemText, "%lu ", (GS::ULongForStdio) nLocation);
+            tabPage-&gt;staticNumber.SetText (itemText);
+
+            tabPage-&gt;listBox.DeleteItem (DG::ListBox::AllItems);
+            for (ULong m = 0; m &lt; nLocation; m++) {
+                IO::Location location;
+                if (ev.GetLocation (m, location)) {
+                    GS::UniString filename;
+                    location.ToPath (&amp;filename);
+                    tabPage-&gt;listBox.AppendItem ();
+                    tabPage-&gt;listBox.SetTabItemText (DG::ListBox::BottomItem, 1, filename);
+                }
+            }
+        } else if (ev.HasDataFormat ('LBEX') || ev.HasDataFormat ('LBDR')) {
+            DG::ListBox* sourceList = ev.GetListBoxSource ();            // Getting the source listbox control
+            for (i = 0; i &lt; ev.GetItemCount (); i++) {
+                short listItem = ev.GetListBoxItem (i);
+                textArray.Insert (i, sourceList-&gt;GetTabItemText (listItem, 1));    // Getting the text of the selected items
+            }
+            if (*effect == DG::DragDrop::Move) {                         // If move occurs than delete the selected elements from the source
+                for (Int32 j = ev.GetItemCount () - 1; j &gt;= 0 ; j--) {
+                    short listItem = ev.GetListBoxItem (j);
+                    sourceList-&gt;DeleteItem (listItem);
+                    if (listItem &lt;= insertPos &amp;&amp; sourceList-&gt;GetId () == tabPage-&gt;listBox.GetId () &amp;&amp;
+                        sourceList-&gt;GetPanelId () == tabPage-&gt;listBox.GetPanelId ())
+                        insertPos--;
+                }
+            }
+            short tempInsPos = insertPos == 0 || ev.GetRelativePosition () == DG::DragDrop::InsertUnder ? static_cast&lt;short&gt; (insertPos + 1) : insertPos;
+            tabPage-&gt;listBox.DeselectItem (DG::ListBox::AllItems);       // Deselect the original selection
+            for (i = 0; i &lt; ev.GetItemCount (); i++) {                   // Insert elements in the target list, than select them.
+                tabPage-&gt;listBox.InsertItem (tempInsPos);
+                tabPage-&gt;listBox.SelectItem (tempInsPos);
+                tabPage-&gt;listBox.SetTabItemText (tempInsPos++, 1, textArray[i]);
+            }
+        } else if (ev.HasDataFormat ('TVEX')) {
+            DG::TreeView* sourceTree = ev.GetTreeViewSource ();
+            for (i = 0; i &lt; ev.GetItemCount (); i++) {
+                Int32 treeItem = ev.GetTreeViewItem (i);
+                textArray.Insert (i, sourceTree-&gt;GetItemText (treeItem));
+            }
+
+            if (*effect == DG::DragDrop::Move) {                         // If move occurs than delete the selected elements from the source
+                for (Int32 j = ev.GetItemCount () - 1; j &gt;= 0 ; j--) {
+                    Int32 treeItem = ev.GetTreeViewItem (j);
+                    sourceTree-&gt;DeleteItem (treeItem);
+                }
+            }
+
+            short tempInsPos = insertPos == 0 || ev.GetRelativePosition () == DG::DragDrop::InsertUnder ? static_cast&lt;short&gt; (insertPos + 1) : insertPos;
+            tabPage-&gt;listBox.DeselectItem (DG::ListBox::AllItems);       // Deselect the original selection
+            for (i = 0; i &lt; ev.GetItemCount (); i++) {                   // Insert elements in the target list, than select them.
+                tabPage-&gt;listBox.InsertItem (tempInsPos);
+                tabPage-&gt;listBox.SelectItem (tempInsPos);
+                tabPage-&gt;listBox.SetTabItemText (tempInsPos++, 1, textArray[i]);
+            }
+        }
+    }
+}</PRE><P>Dropped event handler for list box controls. This example includes file and list box drag source drag and drop operations.</P>
+	</topic>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

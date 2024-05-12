@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_CallUndoableCommand</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_CallUndoableCommand.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_CallUndoableCommand</h1>
+
+    <p>Performs an undoable operation.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_CallUndoableCommand</strong> (
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&amp;</strong>                <em>undoString</em>
+        <strong>const std::function&lt;GSErrCode ()&gt;&amp;</strong>  <em>command</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>undoString</em></dt>
+
+        <dd>[in] This string will appear after "Undo " in the Edit menu. Should be localizable. When left empty:
+        <ul>
+        <li>"Paste" appears for merging and drag'n'drop operations</li>
+        <li>the name of the command will be shown after "Undo " when the user chooses normal menu driven commands</li>
+        </ul>
+        </dd>
+
+        <dt><em>command</em></dt>
+
+        <dd>[in] The lambda function (C++11 function wrapper) that encapsulates the command to be called during the undoable operation.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_UNDOEMPTY</code></dt>
+
+        <dd>The current action is not undoable.</dd>
+
+        <dt><code>APIERR_REFUSEDCMD</code></dt>
+
+        <dd>The current action is not undoable.</dd>
+
+        <dt><code>APIERR_COMMANDFAILED</code></dt>
+
+        <dd>The current command threw an exception.</dd>
+
+        <dt><code>APIERR_NOTMINE</code></dt>
+
+        <dd>Another add-on has already opened an undoable operation.</dd>
+
+        <dt>&nbsp;</dt>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function encapsulates a (series of) undoable steps (e.g. element creation). All the database modification operations check whether they are performed within an undoable command scope (a database transaction).</p>
+
+    <p>For some add-on types (e.g. I/O type add-ons) this function doesn't have to be called, as it doesn't make any sense to 'undo' opening a file.</p>
+
+    <p>Add-ons may not call this function from their element database event handler callback, because those notifications are sent from within an existing database transaction.</p>
+
+    <p>An add-on can perform more than one undoable command during one call. Just be aware that if the user completes an action in one step, it wouldn't be too convenient for her/him to restore the previous state (perform an "undo") in more than one step.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+    GSErrCode err = <font color="#FF0066">ACAPI_CallUndoableCommand</font> ("Create text",
+        [&amp;] () -> GSErrCode {
+            return ACAPI_Element_Create (&amp;element, &amp;memo);
+        });
+
+    if (err != NoError)
+        ErrorBeep ("ACAPI_Element_Create (text)", err);
+
+    ACAPI_DisposeElemMemoHdls (&amp;memo);
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 19 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="ACAPI_CallCommand.html">ACAPI_CallCommand</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

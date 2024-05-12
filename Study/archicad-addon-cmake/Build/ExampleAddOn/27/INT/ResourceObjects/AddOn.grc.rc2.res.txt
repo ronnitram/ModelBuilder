@@ -1,0 +1,4 @@
+﻿DLG_Example	32600	0	Example Dialog	""
+DLG_Example-Button_0	32600	1	Example Dialog	""
+DLG_Example-Button_1	32600	2	Example Dialog	""
+DLG_Example-Separator_0	32600	3	Example Dialog	""

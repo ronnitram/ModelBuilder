@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>BMReallocPtr</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/BMManagers/BM/reference/BMReallocPtr.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>BMReallocPtr</h1>
+
+    <p>The <strong>BMReallocPtr</strong> function reallocates a non-relocatable block of memory of the specified size.</p>
+    <pre class="syntax">
+<strong>GSPtr BMReallocPtr(</strong>
+  <strong>GSPtr</strong>           <em>p,  </em>   // pointer to reallocate
+  <strong>GSSize</strong>          <em>nBytes,</em>                // number of bytes
+  <strong>GSFlags</strong>         <em>reallocFlags</em>   // reallocation attributes
+  <strong>short</strong>           <em>actionCode</em>     // user specified code
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>p</em></dt>
+
+        <dd>Specifies the pointer to the non-relocatable block of memory to reallocate.</dd>
+
+        <dt><em>nBytes</em></dt>
+
+        <dd>Specifies the desired size (in bytes) of the non-relocatable block</dd>
+
+        <dt><em>reallocFlags</em></dt>
+
+        <dd>
+            Specifies how to reallocate memory. This parameter can be any combination of the following values:
+
+            <dl align="left">
+                <dd>
+                    <table border="0" width="76%">
+                        <tr>
+                            <th width="28%"><strong>Value</strong></th>
+
+                            <th width="72%"><strong>Meaning</strong></th>
+                        </tr>
+
+                        <tr>
+                            <td width="28%">REALLOC_ACTION</td>
+
+                            <td width="72%">User action is enabled.</td>
+                        </tr>
+
+                        <tr>
+                            <td width="28%">REALLOC_CLEAR</td>
+
+                            <td width="72%">Newly allocated memory block is zeroed.</td>
+                        </tr>
+
+                        <tr>
+                            <td width="28%">REALLOC_FULLCLEAR</td>
+
+                            <td width="72%">The full memory block is zeroed.</td>
+                        </tr>
+
+                        <tr>
+                            <td width="28%">REALLOC_SHRINK</td>
+
+                            <td width="72%">The new size must be smaller than the old.</td>
+                        </tr>
+
+                        <tr>
+                            <td width="28%">REALLOC_DISPOSE</td>
+
+                            <td width="72%">Dispose if reallocation fails.</td>
+                        </tr>
+
+                        <tr>
+                            <td width="28%">REALLOC_MOVEABLE</td>
+
+                            <td width="72%">The new memory block is moveable.</td>
+                        </tr>
+                    </table>
+                </dd>
+            </dl>
+        </dd>
+
+        <dt><em>actionCode</em></dt>
+
+        <dd>User specified code for the <a href="BMOptProc.html"><strong>BMOptProc</strong></a> function.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>If the function succeeds, the return value is a handle referring to the allocated block of the requested size.</p>
+
+    <p>If the function fails, the return value is NULL.</p>
+
+    <h4>Remarks</h4>
+
+    <p>If the pointer refers to an existing block, the <strong>BMReallocPtr</strong> releases that block before creating a new one.</p>
+
+    <h4>Requirements</h4>
+
+    <p><strong>&nbsp;&nbsp;&nbsp; Header:</strong> Declared in BM.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../../../../GSRootHTMLLibrary/BMManagers/BM/reference/functions_id.html">BM Manager Functions</a>, <a href="BMAllocatePtr.html">BMAllocatePtr</a>, <a href="BMKillPtr.html">BMKillPtr</a>, <a href="BMOptProc.html">BMOptProc</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

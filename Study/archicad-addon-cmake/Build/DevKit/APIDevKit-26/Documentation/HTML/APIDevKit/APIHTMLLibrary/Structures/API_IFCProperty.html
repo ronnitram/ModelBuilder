@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_IFCProperty</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_IFCProperty.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_IFCProperty</h1>
+
+    <p>IFC property container structure.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_IFCPropertyHead.html">API_IFCPropertyHead</a></strong>                <em>head</em>;
+        <strong><a href="API_IFCPropertySingleValue.html">API_IFCPropertySingleValue</a></strong>         <em>singleValue</em>;
+        <strong><a href="API_IFCPropertyBoundedValue.html">API_IFCPropertyBoundedValue</a></strong>        <em>boundedValue</em>;
+        <strong><a href="API_IFCPropertyListValue.html">API_IFCPropertyListValue</a></strong>           <em>listValue</em>;
+        <strong><a href="API_IFCPropertyEnumeratedValue.html">API_IFCPropertyEnumeratedValue</a></strong>     <em>enumeratedValue</em>;
+        <strong><a href="API_IFCPropertyTableValue.html">API_IFCPropertyTableValue</a></strong>          <em>tableValue</em>;
+    <strong>}</strong> <em>API_IFCProperty</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>Property header information</dd>
+
+        <dt><b>singleValue</b></dt>
+
+        <dd>IfcPropertySingleValue values</dd>
+
+        <dt><b>boundedValue</b></dt>
+
+        <dd>IfcPropertyBoundedValue values</dd>
+
+        <dt><b>listValue</b></dt>
+
+        <dd>IfcPropertyListValue values</dd>
+
+        <dt><b>enumeratedValue</b></dt>
+
+        <dd>IfcPropertyEnumeratedValue values</dd>
+
+        <dt><b>tableValue</b></dt>
+
+        <dd>IfcPropertyTableValue values</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure contains the data of an Ifc(Simple)Property.<br>
+    <code>head</code> contains common information for each type.<br>
+    <code>head.propertyType</code> determines which value member contains value data.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 16 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_IFCPropertySingleValue.html">API_IFCPropertySingleValue</a>, <a href="API_IFCPropertyListValue.html">API_IFCPropertyListValue</a>, <a href="API_IFCPropertyBoundedValue.html">API_IFCPropertyBoundedValue</a>, <a href="API_IFCPropertyEnumeratedValue.html">API_IFCPropertyEnumeratedValue</a>, <a href="API_IFCPropertyTableValue.html">API_IFCPropertyTableValue</a><br>
+    <a href="API_IFCPropertyHead.html">API_IFCPropertyHead</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 6, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

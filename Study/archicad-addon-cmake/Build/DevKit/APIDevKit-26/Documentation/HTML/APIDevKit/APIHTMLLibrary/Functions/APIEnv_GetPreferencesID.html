@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIEnv_GetPreferencesID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIEnv_GetPreferencesID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIEnv_GetPreferencesID</h1>
+
+    <p>Returns the preferences data.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_environment_id.html">ACAPI_Environment</a></strong> (
+        <strong>APIEnv_GetPreferencesID</strong>,
+        <strong>...*</strong> <em>prefs</em>,
+        <strong><a href="../Structures/API_PrefsTypeID.html">API_PrefsTypeID</a></strong>          <em>prefsTypeID</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>prefs</em></dt>
+
+        <dd>[out] Data of a preferences tab page. The type depends on the <code>prefsType</code> parameter.</dd>
+
+        <dt><em>prefsTypeID</em></dt>
+
+        <dd>[in] The type of the preferences you want to get.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>API_WorkingUnitPrefs
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>prefs</code> is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd><code>prefsTypeID</code> is invalid.</dd>
+
+        <dt><code>APIERR_NOPLAN</code></dt>
+
+        <dd>No open project.</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>Low memory condition.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Many switches and values are returned which can be set in the different tab pages of the Project Preferences dialog and the Work Environment settings.</p>
+
+    <p>Usable structures of preference types (for <code>par1</code>) are:</p>
+
+    <ul>
+        <li><a href="../Structures/API_WorkingUnitPrefs.html">API_WorkingUnitPrefs</a></li>
+
+        <li><!--@4.1--><a href="../Structures/API_RefLevelsPrefs.html">API_RefLevelsPrefs</a></li>
+
+        <li><a href="../Structures/API_DimensionPrefs.html">API_DimensionPrefs</a></li>
+
+        <li><!--@4.1--><a href="../Structures/API_CalcUnitPrefs.html">API_CalcUnitPrefs</a></li>
+
+        <li><!--@4.1--><a href="../Structures/API_CalcRulesPrefs.html">API_CalcRulesPrefs</a>&nbsp;<img border="0" src="../../APIImageLibrary/13.png" alt="Changed in API 13" width="19" height="12"></li>
+
+        <li><a href="../Structures/API_LegacyPrefs.html">API_LegacyPrefs</a></li>
+
+        <li><a href="../Structures/API_ZonePrefs.html">API_ZonePrefs</a></li>
+
+        <li><a href="../Structures/API_SafetyPrefs.html">API_SafetyPrefs</a></li>
+
+        <li><a href="../Structures/API_ImagingAndCalcPrefs.html">API_ImagingAndCalcPrefs</a>&nbsp; <img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></li>
+
+        <li><a href="../Structures/API_FloorPlanCutDefinition.html">API_FloorPlanCutDefinition</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></li>
+
+        <li><a href="../Structures/API_LayoutsPrefs.html">API_LayoutsPrefs</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></li>
+    </ul>
+
+    <p>Note: the <code>prefsType</code> should be passed as a value instead of a pointer. See the example.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_WorkingUnitPrefs   unitPrefs;
+ACAPI_Environment (APIEnv_GetPreferencesID, &amp;unitPrefs, (void *) APIPrefs_WorkingUnitsID);
+</code></pre>
+    </blockquote>
+
+    <blockquote>
+        <p>See also the <em><strong>Environment_Control</strong></em> example project.</p>
+    </blockquote>
+
+    <h4>&nbsp;</h4>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_PrefsTypeID.html">API_PrefsTypeID</a><br>
+    <a href="../Structures/API_WorkingUnitPrefs.html">API_WorkingUnitPrefs</a>, <a href="../Structures/API_RefLevelsPrefs.html">API_RefLevelsPrefs</a>, <a href="../Structures/API_DimensionPrefs.html">API_DimensionPrefs</a><br>
+    <a href="../Structures/API_CalcUnitPrefs.html">API_CalcUnitPrefs</a>, <a href="../Structures/API_CalcRulesPrefs.html">API_CalcRulesPrefs</a>, <a href="../Structures/API_LegacyPrefs.html">API_LegacyPrefs</a>, <a href="../Structures/API_ZonePrefs.html">API_ZonePrefs</a><br>
+    <a href="../Structures/API_SafetyPrefs.html">API_SafetyPrefs</a>, <a href="../Structures/API_ImagingAndCalcPrefs.html">API_ImagingAndCalcPrefs</a><br>
+    <a href="../Structures/API_FloorPlanCutDefinition.html">API_FloorPlanCutDefinition</a>, <a href="../Structures/API_LayoutsPrefs.html">API_LayoutsPrefs</a><br>
+    <a href="acapi_environment_id.html">ACAPI_Environment</a>, <a href="API_Functions.html">API Functions</a><br></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 21, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

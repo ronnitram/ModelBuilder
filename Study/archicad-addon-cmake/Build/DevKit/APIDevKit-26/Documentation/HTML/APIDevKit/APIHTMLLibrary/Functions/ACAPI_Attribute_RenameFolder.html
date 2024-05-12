@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Attribute_RenameFolder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Attribute_RenameFolder.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Attribute_RenameFolder</h1>
+
+    <p>Deletes an attribute folder and all the folders and attributes it contains.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Attribute_DeleteFolder</strong> (
+        <strong>const <a href="../Structures/API_AttributeFolder.html">API_AttributeFolder</a>&amp;</strong>        <em>folder</em>,
+        <strong>const GS::UniString&amp;</strong>              <em>newName</em>,
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>folder</em></dt>
+
+        <dd>[in] The folder to rename.</dd>
+
+        <dt><em>newName</em></dt>
+
+        <dd>[in] The new name for the folder.</dd>
+
+    </dl>
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>Incorrect <code>folder</code> was specified.</dd>
+
+        <dt><code>APIERR_NOPLAN</code></dt>
+
+        <dd>There is no open project.</dd>
+
+        <dt><code>APIERR_NOACCESSRIGHT</code></dt>
+
+        <dd>User has no permission to rename folders under <code>folder.typeID</code>.</dd>
+		
+		<dt><code>APIERR_NOTMINE</code></dt>
+
+        <dd>Attribute type <code>folder.typeID</code> is not reserved.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Folder has to be an existing folder identified by it's <code>typeID</code>, and <code>path</code> or <code>guid</code>..</p>
+
+    <p><em>newName</em> has to be legal, must not be empty, and must not begin or end with whitespace.</p>
+
+	<p>Renames the specified folder (while preserving it's guid). The root folder can't be renamed, two folders in the same parent folder can't have the same name.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 26 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+  
+    <p><a href="ACAPI_Attribute_GetFolder.html">ACAPI_Attribute_GetFolder</a>,<br>
+       <a href="ACAPI_Attribute_CreateFolder.html">ACAPI_Attribute_CreateFolder</a>,<br>
+       <a href="ACAPI_Attribute_DeleteFolder.html">ACAPI_Attribute_DeleteFolder</a>,<br>
+	   <a href="ACAPI_Attribute_GetFolderContent.html">ACAPI_Attribute_GetFolderContent</a>,<br>
+	   <a href="ACAPI_Attribute_Move.html">ACAPI_Attribute_Move</a>,<br>
+       <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

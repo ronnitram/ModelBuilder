@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Install_PanelHandler</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Install_PanelHandler.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Install_PanelHandler</h1>
+
+    <p>Installs the create/destroy handlers for the registered custom settings panel.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Install_PanelHandler</strong> (
+        <strong>Int32</strong>                    <em>refCon</em>,
+        <strong><a href="APIPanelCreateProc.html">APIPanelCreateProc</a>*</strong>      <em>handlerCreateProc</em>,
+        <strong><a href="APIPanelDestroyProc.html">APIPanelDestroyProc</a>*</strong>     <em>handlerDestroyProc</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>refCon</em></dt>
+
+        <dd>[in] Panel reference number</dd>
+
+        <dt><em>handlerCreateProc</em></dt>
+
+        <dd>[in] Callback function, called when the panel is created.</dd>
+
+        <dt><em>handlerDestroyProc</em></dt>
+
+        <dd>[in] Callback function, called when the panel is destroyed.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>APIERR_REFUSEDPAR</code></dt>
+
+        <dd>There is no panel registered with <code>refcon</code> by the add-on.</dd>
+
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function installs the callback functions for handling create/delete events of the dialog panel registered by <a href="ACAPI_Register_SettingsPanel.html">ACAPI_Register_SettingsPanel</a>, <a href="ACAPI_Register_InfoBoxPanel.html">ACAPI_Register_InfoBoxPanel</a> or <a href="ACAPI_Register_AttributePanel.html">ACAPI_Register_AttributePanel</a>.</p>
+
+    <p>The <code>ACAPI_Install_PanelHandler</code> function should be called from <a href="Initialize.html">Initialize</a>.</p>
+
+    <p>The 'create' handler is called when the panel is created. The handler must create the tabpage and the observer. The 'destroy' handler is called when the panel is destroyed. The handler must destroy the tabpage and the observer.</p>
+
+    <p>For more details refer to the general description of <a href="../Level3/Custom_Panels.html">Custom Panels in Settings Dialogs</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>Refer to the <strong><em>Panel_Test</em></strong> example project of the API Development Kit.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="APIPanelCreateProc.html">APIPanelCreateProc</a><br>
+    <a href="APIPanelDestroyProc.html">APIPanelDestroyProc</a><br>
+    <a href="ACAPI_Register_SettingsPanel.html">ACAPI_Register_SettingsPanel</a><br>
+    <a href="ACAPI_Register_InfoBoxPanel.html">ACAPI_Register_InfoBoxPanel</a><br>
+    <a href="ACAPI_Register_AttributePanel.html">ACAPI_Register_AttributePanel</a><br>
+    <a href="../Level3/Custom_Panels.html">Custom Panels in Settings Dialogs</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

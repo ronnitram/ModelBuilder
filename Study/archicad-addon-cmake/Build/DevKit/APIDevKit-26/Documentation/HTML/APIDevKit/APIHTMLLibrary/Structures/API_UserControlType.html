@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_UserControlType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_UserControlType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_UserControlType</h1>
+
+    <p>Describes the different types of user controls.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>APIUserControlType_Pen</em>,
+        <em>APIUserControlType_PenWithNull</em>,
+        <em>APIUserControlType_PolyFill</em>,
+        <em>APIUserControlType_WallFill</em>,
+        <em>APIUserControlType_WallCompFill</em>,
+        <em>APIUserControlType_AllFill</em>,
+        <em>APIUserControlType_AllFillGradNoComp</em>,
+        <em>APIUserControlType_WallSetsFill</em>,
+        <em>APIUserControlType_WallComposites</em>,
+        <em>APIUserControlType_SlabSetsFill</em>,
+        <em>APIUserControlType_SlabComposites</em>,
+        <em>APIUserControlType_RoofSetsFill</em>,
+        <em>APIUserControlType_RoofComposites</em>,
+        <em>APIUserControlType_ShellSetsFill</em>,
+        <em>APIUserControlType_ShellComposites</em>,
+        <em>APIUserControlType_OnlyCompFill</em>,
+        <em>APIUserControlType_Material</em>,
+        <em>APIUserControlType_MaterialWithGeneral</em>,
+        <em>APIUserControlType_Layer</em>,
+        <em>APIUserControlType_ZoneCategory</em>,
+        <em>APIUserControlType_DashedLine</em>,
+        <em>APIUserControlType_SymbolLine</em>,
+        <em>APIUserControlType_CoverFill</em>,
+        <em>APIUserControlType_WallProfile</em>,
+        <em>APIUserControlType_BeamProfile</em>,
+        <em>APIUserControlType_ColumnProfile</em>,
+        <em>APIUserControlType_AllProfile</em>,
+        <em>APIUserControlType_PolyFillWithGradient</em>,
+        <em>APIUserControlType_BuildingMaterial</em>,
+        <em>APIUserControlType_HandrailProfile</em>,
+        <em>APIUserControlType_OtherGDLObjectProfile</em>
+    <strong>}</strong> <em>API_UserControlType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>APIUserControlType_Pen</b></dt>
+
+        <dd>pen control</dd>
+
+        <dt><b>APIUserControlType_PenWithNull</b></dt>
+
+        <dd>pen control with background pen</dd>
+
+        <dt><b>APIUserControlType_PolyFill</b></dt>
+
+        <dd>polygon fill control (drafting fills)</dd>
+
+        <dt><b>APIUserControlType_WallFill</b></dt>
+
+        <dd>wall fill control (cut fills)</dd>
+
+        <dt><b>APIUserControlType_WallCompFill</b></dt>
+
+        <dd>wall fill control without composites</dd>
+
+        <dt><b>APIUserControlType_AllFill</b></dt>
+
+        <dd>all fill types control</dd>
+
+        <dt><b>APIUserControlType_AllFillGradNoComp</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>all fill types without composites</dd>
+
+        <dt><b>APIUserControlType_WallSetsFill</b></dt>
+
+        <dd>fill control like in the Wall Settings dialog</dd>
+
+        <dt><b>APIUserControlType_WallComposites</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="15" width="19" height="12"></dt>
+
+        <dd>composite control like in the Wall Settings dialog</dd>
+
+        <dt><b>APIUserControlType_SlabSetsFill</b></dt>
+
+        <dd>fill control like in the Slab Settings dialog</dd>
+
+        <dt><b>APIUserControlType_SlabComposites</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="15" width="19" height="12"></dt>
+
+        <dd>composite control like in the Slab Settings dialog</dd>
+
+        <dt><b>APIUserControlType_RoofSetsFill</b></dt>
+
+        <dd>fill control like in the Roof Settings dialog</dd>
+
+        <dt><b>APIUserControlType_RoofComposites</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="15" width="19" height="12"></dt>
+
+        <dd>composite control like in the Roof Settings dialog</dd>
+
+        <dt><b>APIUserControlType_ShellSetsFill</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></dt>
+
+        <dd>fill control like in the Shell Settings dialog</dd>
+
+        <dt><b>APIUserControlType_ShellComposites</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="15" width="19" height="12"></dt>
+
+        <dd>composite control like in the Shell Settings dialog</dd>
+
+        <dt><b>APIUserControlType_OnlyCompFill</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>fill control containing composite fills only</dd>
+
+        <dt><b>APIUserControlType_Material</b></dt>
+
+        <dd>material control</dd>
+
+        <dt><b>APIUserControlType_MaterialWithGeneral</b></dt>
+
+        <dd>material control with general material</dd>
+
+        <dt><b>APIUserControlType_Layer</b></dt>
+
+        <dd>layer control</dd>
+
+        <dt><b>APIUserControlType_ZoneCategory</b></dt>
+
+        <dd>zone category control</dd>
+
+        <dt><b>APIUserControlType_DashedLine</b></dt>
+
+        <dd>dashed line control</dd>
+
+        <dt><b>APIUserControlType_SymbolLine</b></dt>
+
+        <dd>all line types</dd>
+
+        <dt><b>APIUserControlType_CoverFill</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>cover fill type control</dd>
+
+        <dt><b>APIUserControlType_WallProfile</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>wall profiles control</dd>
+
+        <dt><b>APIUserControlType_BeamProfile</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>beam profiles control</dd>
+
+        <dt><b>APIUserControlType_ColumnProfile</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>column profiles control</dd>
+
+        <dt><b>APIUserControlType_AllProfile</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>all profiles control</dd>
+
+        <dt><b>APIUserControlType_PolyFillWithGradient</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="10" width="19" height="12"></dt>
+
+        <dd>polygon fill control with gradient fills</dd>
+
+        <dt><b>APIUserControlType_BuildingMaterial</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="10" width="19" height="12"></dt>
+
+        <dd>building material control</dd>
+
+        <dt><b>APIUserControlType_HandrailProfile</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+
+        <dd>handrail profiles control</dd>
+
+        <dt><b>APIUserControlType_OtherGDLObjectProfile</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></dt>
+
+        <dd>other GDL object profiles control</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>These are the special constants used in <a href="../Functions/acapi_interface_id.html">ACAPI_Interface</a> (<a href="../Functions/APIIo_SetUserControlCallbackID.html">APIIo_SetUserControlCallbackID</a>, ...) function. They define the attribute set used in the user control.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Interface.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_UCCallbackType.html">API_UCCallbackType</a><br>
+    <a href="../Functions/APIIo_SetUserControlCallbackID.html">APIIo_SetUserControlCallbackID</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 21, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

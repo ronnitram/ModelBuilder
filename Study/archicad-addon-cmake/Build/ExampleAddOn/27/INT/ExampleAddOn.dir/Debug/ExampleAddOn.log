@@ -1,0 +1,11 @@
+﻿  Compiling resources...
+  AddOn.grc
+  AddOnFix.grc
+  Microsoft (R) Windows (R) Resource Compiler Version 10.0.10011.16384
+  
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  
+  Building Custom Rule C:/FREELANCE/Archicad/ModelBuilder/Study/archicad-addon-cmake/CMakeLists.txt
+  AddOnMain.cpp
+  ExampleAddOn.vcxproj -> C:\FREELANCE\Archicad\ModelBuilder\Study\archicad-addon-cmake\Build\ExampleAddOn\27\INT\Debug\ExampleAddOn.apx

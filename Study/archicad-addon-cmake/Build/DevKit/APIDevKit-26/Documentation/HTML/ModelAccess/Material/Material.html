@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>Material</title><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Material/Material.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1>Material class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>Reference to a material attribute. <!-- Not Index --><a href="#Detailed%20description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td><!-- Not Index --><a href="../ModelAccessAPI.html">Model Access API</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>ModelMaterial.hpp</td>
+        </tr>
+    </table><br>
+    <br>
+
+    <h3>Public methods</h3>
+
+    <p>&nbsp;&nbsp;&nbsp; <a href="Constructors.html">Constructors</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Constructors.html">Copy constructor</a><br>
+    &nbsp;&nbsp;&nbsp; operator=<br>
+    <br>
+    <b>Comparing</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Compare.html">Compare</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorEqu.html">operator==</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorNotEqu.html">operator!=</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorLe.html">operator&lt;</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorGr.html">operator&gt;</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorLeEqu.html">operator&lt;=</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorGrEqu.html">operator&gt;=</a><br>
+    <br>
+    <b>Name query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetName.html">GetName</a><br>
+    <br>
+    <b>Type query and set</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetType.html">GetType</a><br>
+    <br>
+    <b>Base reflection data query and set</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetSurfaceColor.html">GetSurfaceColor</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetAmbientReflection.html">GetAmbientReflection</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetDiffuseReflection.html">GetDiffuseReflection</a><br>
+    <br>
+    <b>Specular reflection data query and set</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetSpecularReflection.html">GetSpecularReflection</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetSpecularColor.html">GetSpecularColor</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetShining.html">GetShining</a><br>
+    <br>
+    <b>Transparency data query and set</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetTransparency.html">GetTransparency</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetTransparencyAttenuation.html">GetTransparencyAttenuation</a><br>
+    <br>
+    <b>Emission data query and set</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetEmissionColor.html">GetEmissionColor</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetEmissionAttenuation.html">GetEmissionAttenuation</a><br>
+    <br>
+    <b>Fill data query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetFillIndex.html">GetFillIndex</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetFillColorIndex.html">GetFillColorIndex</a><br>
+    <br>
+    <b>Texture data query and set</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetTextureIndex.html">GetTextureIndex</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetTextureName.html">GetTextureName</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetTextureRotationAngle.html">GetTextureRotationAngle</a><br>
+    <br>
+    <b>Extra parameters query and set</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetExtraParameters.html">GetExtraParameters</a><br>
+   <br>
+    <b>External reference query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetExternalReference.html">GetExternalReference</a><br></p>
+
+    <h3>Public types</h3>
+
+    <p>&nbsp;&nbsp;&nbsp; <a href="Type.html">Type</a><br></p>
+
+    <h3><a name="#Detailed description"></a>Detailed description</h3>
+
+    <p>This object is reference to a material attribute. Materials contain some predeclared parameters. These parameters exist in all materials. Add-ons can extend this parameter set by own parameters. These parameters are the extra parameters, and are stored in the parameter list.</p>
+
+    <p><br>
+    <br>
+    <br></p>
+
+    <h3>See Also</h3>
+
+    <p><!-- Not Index --> <a href="../Model/Model.html">Model</a> , <!-- Not Index --> <a href="../Body/Body.html">Body</a> , <!-- Not Index --> <a href="../Polygon/Polygon.html">Polygon</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

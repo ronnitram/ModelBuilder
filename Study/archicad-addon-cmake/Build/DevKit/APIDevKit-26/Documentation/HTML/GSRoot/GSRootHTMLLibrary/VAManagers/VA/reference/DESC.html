@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>DESC</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/VAManagers/VA/reference/DESC.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DESC</h1>
+
+    <p>The <strong>DESC</strong> structure describes a Virtual Array.</p>
+    <pre class="syntax">
+typedef struct DESC{
+  long             lastind;
+  long             maxind;
+  long             npage;
+  long             size;
+  GSHandle arrhdl;
+} DESC;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><strong>lastind</strong></dt>
+
+        <dd>Specifies the index of the last element in the Virtual Array. This is the length of the Virtual Array. If you want to increase the size of the Virtual Array you can do it by calling the <a href="VASpac.html"><strong>VASpac</strong></a>, <a href="VANspac.html"><strong>VANspac</strong></a> or <a href="VAReal.html"><strong>VAReal</strong></a> function.</dd>
+
+        <dt><strong>maxind</strong></dt>
+
+        <dd>Specifies the last allocated index of the Virtual Array. For more information see <strong>Remarks</strong>.</dd>
+
+        <dt><strong>npage</strong></dt>
+
+        <dd>Specifies the number of elements by which the Virtual Array is increased or decreased. For more information see <strong>Remarks</strong>.</dd>
+
+        <dt><strong>size</strong></dt>
+
+        <dd>Specifies the size of the elements stored in the Virtual Array.</dd>
+
+        <dt><strong>arrhdl</strong></dt>
+
+        <dd>Specifies the handle of the buffer where the elements of the Virtual Array are stored.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The Virtual Array has an allocated buffer <strong>arrhdl</strong> which stores the elements of the Virtual Array. The allocated buffer can store <strong>maxind</strong> elements. <strong>VASpac</strong> and <strong>VANspac</strong> functions increase the size of the Virtual Array (but not the size of the buffer), then check weather the new elements fits into the existing allocated buffer. If it fits into the existing buffer, the function increase the <strong>lastind</strong> pointer of the <strong>DESC</strong> structure. If it does not fit into the existing buffer, the function increases the size of the buffer continuously and increase the <strong>lastind</strong> pointer. The size of the buffer is always increased by <strong>npage</strong> elements.</p>
+
+    <p>Note the <strong>maxind</strong> pointer always must be greater than or equal to the <strong>lastind</strong> pointer.</p>
+
+    <p>By calling <a href="VARelease.html"><strong>VARelease</strong></a> function you can decrease the size of the buffer. The <strong>VARelease</strong> function checks the size of the allocated buffer and the number of elements stored in it. If the stored elements fit in a smaller buffer then decreases the buffer size by <strong>npage</strong> elements.</p>
+
+    <p>Note, if you clear an element from the Virtual Array by calling the <a href="VAClearIndex.html"><strong>VAClearIndex</strong></a> function, then the size of the Virtual Array is decreased, but the size of the internal buffer remains untouched. If you want to save memory you must call the <strong>VARelease</strong> function after the <strong>VAClearIndex</strong> function.</p>
+
+    <h4>Requirements</h4>
+
+    <p><strong>&nbsp;&nbsp; Header:</strong> Declared in VA.hpp</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="functions_id.html">Virtual Array Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

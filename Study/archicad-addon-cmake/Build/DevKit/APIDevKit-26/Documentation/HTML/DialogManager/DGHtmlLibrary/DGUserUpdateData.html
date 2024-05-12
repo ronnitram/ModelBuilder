@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Csonka Ferenc">
+
+    <title>DGUserUpdateData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGUserUpdateData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGUserUpdateData</h1>
+
+    <p>If the <a href="CallbackFunctions.html">dialog callback function</a> receives a <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a> message for a <a href="UserItem.html">user item</a>, the <i>msgData</i> parameter is a pointer to a <b>DGUserUpdateData</b> structure that contains information about the update event.</p>
+    <pre class="syntax">
+    <strong>struct</strong> <em>DGUserUpdateData</em> {
+      <strong>void*</strong>  <em>drawContext;</em>
+      <strong>void*</strong>  <em>updateRgn;</em>
+      <strong>short</strong>  <em>updateType;</em>
+      <strong>short</strong>  <em>left;</em>
+      <strong>short</strong>  <em>top;</em>
+      <strong>short</strong>  <em>right;</em>
+      <strong>short</strong>  <em>bottom;</em>
+      <strong>short</strong>  <em>filler;</em>
+    };
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>drawContext</b></dt>
+
+        <dd>The drawing context of the image field. Cast this value to <strong><tt>CGContextRef</tt></strong> on Macintosh or <strong><tt>HDC</tt></strong> on Windows. The origin of the drawing context is set to the upper left corner of the user item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>updateRgn</b></dt>
+
+        <dd>The update region. Cast this value to <strong><tt>HRGN</tt></strong> on Windows and on Macintosh it is always nullptr.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>updateType</b></dt>
+
+        <dd>The type of the update message. This value can be one of the following constants:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left" width="150">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UUT_NORMAL</tt></td>
+
+                    <td>Normal update</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UUT_PARTIAL</tt></td>
+
+                    <td>Partial update</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_UUT_INUPDATE</tt></td>
+
+                    <td>A previous update is still processing</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>left</b></dt>
+
+        <dd>Horizontal position of the upper left corner of the item client rectangle in pixels.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>top</b></dt>
+
+        <dd>Vertical position of the upper left corner of the item client rectangle in pixels.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>right</b></dt>
+
+        <dd>Horizontal position of the lower right corner of the item client rectangle in pixels.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>bottom</b></dt>
+
+        <dd>Vertical position of the lower right corner of the item client rectangle in pixels.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>filler</b></dt>
+
+        <dd>Reserved.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>On Macintosh the <em>updateRgn</em> member of the structure is always nullptr and the <em>drawContext</em> member to <strong><tt>CGContextRef</tt></strong>, since the application can draw just on the CGContextRef. On Windows, <em>updateRgn</em> should be cast to <strong><tt>HRGN*</tt></strong> and the <em>drawContext</em> to <strong><tt>HDC*</tt></strong>, since the application can draw just on the hDC. The origin of the drawing context is set to the upper left corner of the user item.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Structures_id.html">DG Structures</a>, <a href="UserItem.html">User Item</a><br>
+    <a href="CallbackFunctions.html">Callback functions</a> <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 2, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

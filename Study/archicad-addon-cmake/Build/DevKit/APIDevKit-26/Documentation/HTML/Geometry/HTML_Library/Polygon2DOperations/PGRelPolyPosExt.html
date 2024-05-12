@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>PGRelPolyPosExt</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Polygon2DOperations/PGRelPolyPosExt.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>PGRelPolyPosExt</h1>
+
+    <p>Relative position of two polygons.</p>
+    <pre class="syntax">
+    <strong>typedef enum</strong> PGRelPolyPosExt {
+        UnkownStatus=-1,
+        PolysOverlap=0,
+        Poly1CoversPoly2=1,
+        Poly2CoversPoly1=2,
+        PolysEqual=3,
+        PolysDisjunct=4,
+        PolysDisjunct_Node=5,
+        PolysDisjunct_Edge=6
+    } PGRelPolyPosExt;
+</pre>
+
+    <table border="1">
+        <tr>
+            <th align="left" width="200">Enumerator Value</th>
+
+            <th align="left">Meaning</th>
+        </tr>
+
+        <tr>
+            <td>UnkownStatus</td>
+
+            <td>Unknown</td>
+        </tr>
+
+        <tr>
+            <td>PolysOverlap</td>
+
+            <td>The two polygons have a real intersection.</td>
+        </tr>
+
+        <tr>
+            <td>Poly1CoversPoly2</td>
+
+            <td>Poly1 entirely covers poly2.</td>
+        </tr>
+
+        <tr>
+            <td>Poly2CoversPoly1</td>
+
+            <td>Poly2 entirely covers poly1.</td>
+        </tr>
+
+        <tr>
+            <td>PolysEqual</td>
+
+            <td>The two polygons equal.</td>
+        </tr>
+
+        <tr>
+            <td>PolysDisjunct</td>
+
+            <td>The two polygons have no intersection.</td>
+        </tr>
+
+        <tr>
+            <td>PolysDisjunct_Node</td>
+
+            <td>The polygons have only overlapping vertices.</td>
+        </tr>
+
+        <tr>
+            <td>PolysDisjunct_Edge</td>
+
+            <td>The polygons have only overlapping edges.</td>
+        </tr>
+    </table><!--
+<h4>Remarks</h4>
+
+<p>@@@_Detailed_description_of_the_entity_@@@
+-->
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Polygon2DOperations.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Polygon2DOperations_id.html">2D Polygon operations</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 14, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

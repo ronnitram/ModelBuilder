@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Bartke Peter">
+
+    <title>GetNormalVectorByVertex</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Polygon/GetNormalVectorByVertex.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="Polygon.html">Polygon</a>::GetNormalVectorByVertex</h1><br>
+    Get normal vector by vertex.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>ModelerAPI::<a href="../Vector/Vector.html">Vector</a>  GetNormalVectorByVertex (
+    Int32 polygonVertexIndex
+) const;</b>
+</pre>
+
+    <h3>Return value</h3>
+
+    <p>The normal vector for given vertex.</p>
+
+    <h3>Description</h3>
+
+    <p>Returns the normal Vector of <b>this</b> polygon at given vertex. Here is an example how to enumerate polygons and their vertexes whith normal vectors:</p>
+    <pre class="syntax">
+<b>
+// body: The body, which is enumerated.
+
+for (Int32 polygonIndex = 1; polygonIndex &lt;= body.<a href="Invalid link: ../Body/GetPolygonNum.html">GetPolygonNum</a> (); polygonIndex++) {
+    ModelerAPI::<a href="Polygon.html">Polygon</a> polygon;
+    body.<a href="../Body/GetPolygon.html">GetPolygon</a> (polygonIndex, &amp;polygon);
+    ModelerAPI::<a href="../Vector/Vector.html">Vector</a> polygonNormal;
+    body.<a href="../Body/GetVector.html">GetVector</a> (polygon.GetNormalVectorIndex (), &amp;polygonNormal);
+    // Begin of polygon.
+    Int32 vertexIndex = 1;
+    while (vertexIndex &lt;= polygon.<a href="GetEdgeNum.html">GetEdgeNum</a> ()) {
+        // Begin of contour.
+        for ( ; vertexIndex &lt;= polygon.<a href="GetEdgeNum.html">GetEdgeNum</a> (); vertexIndex++) {
+            ModelerAPI::<a href="../Vector/Vector.html">Vector</a> vertexNormal = polygon.GetNormalVectorByVertex (vertexIndex));
+            // vertex processing
+        }
+        // End of contour.
+        vertexIndex++;
+    }
+    // End of polygon.
+}
+</b>
+</pre>
+
+    <p><b>Available from version: 8</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

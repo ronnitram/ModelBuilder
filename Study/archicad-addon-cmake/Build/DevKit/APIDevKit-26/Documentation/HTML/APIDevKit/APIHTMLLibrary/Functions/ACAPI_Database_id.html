@@ -1,0 +1,1351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Database</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Database_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Database</h1>
+
+    <p>Controls all of the database dependent operations.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Database</strong> (
+        <strong><a href="#API_DatabaseID">API_DatabaseID</a></strong>     <em>code</em>,
+        <strong>void*</strong>              <em>par1</em> = nullptr,
+        <strong>void*</strong>              <em>par2</em> = nullptr,
+        <strong>void*</strong>              <em>par3</em> = nullptr
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>code</em></dt>
+
+        <dd>[in] Database function identifier.</dd>
+
+        <dt><em>par1</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par2</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+
+        <dt><em>par3</em></dt>
+
+        <dd>[in/out] The parameter depends on the <code>code</code> parameter.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>Invalid <code>code</code> parameter was passed.</dd>
+    </dl>
+
+    <p>More return values can be found at the description of each environment function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function collects all of the database control functions that can be used from an API tool add-on.</p>
+
+    <p>It is very important to understand what is the difference between a project window and a database in Archicad.</p>
+
+    <p>A <b>Database</b> is a data structure which are associated to a project window. It contains mainly the following database items:</p>
+
+    <ul>
+        <li>elements data,</li>
+
+        <li>selection information,</li>
+
+        <li>cursor gravity information,</li>
+
+        <li>grid parameters</li>
+
+        <li>the drawing scale,</li>
+
+        <li>the active zoom etc.</li>
+    </ul>
+
+    <p>A <b>Project Window</b> is itself make possible to display database information assigned to it.</p>
+
+    <p>It is absolutely important to understand the all of the API functions work on the current (active) database and not on the current (active) project window. It means that for example the <!--NoCHM--><a href="ACAPI_Element_Create.html">ACAPI_Element_Create</a> function places a new element into the current database, independently which project window is the active one.</p>
+
+    <p>By general you are allowed to switch among the different databases, to specify the target for the subsequent database dependent API operations. Switching the current database do not results that the current project window will be changed. The current database always changed in the background.</p>
+
+    <p>When the current project window has been changed for some reason, the current database is changed also.</p>
+
+    <p>The type of the database function is specified with the <code>code</code> parameter.</p>
+
+    <blockquote>
+        <table>
+            <tr>
+                <th>
+                    <p><!-- comment --><a name="API_DatabaseID" id="API_DatabaseID"></a><b><code>API_DatabaseID</code></b></p>
+                </th>
+
+                <th>
+                    <p><b>Description</b></p>
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Database Control Functions</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetCurrentWindowID.html">APIDb_GetCurrentWindowID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the identifier of current (active) window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_ResetCurrentWindowID.html">APIDb_ResetCurrentWindowID</a></p>
+                </td>
+
+                <td>
+                    <p>Deletes the database elements of the current window and sets up a new, empty environment.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_NewWindowID.html">APIDb_NewWindowID</a></p>
+                </td>
+
+                <td>
+                    <p>Opens a new window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_CloseWindowID.html">APIDb_CloseWindowID</a></p>
+                </td>
+
+                <td>
+                    <p>Closes a window.</p>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>
+                    <p><a href="APIDb_SetWindowIdID.html">APIDb_SetWindowIdID</a></p>
+                </td>
+
+                <td>
+                    <p>Set a window's guid.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Database Control Functions</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetCurrentDatabaseID.html">APIDb_GetCurrentDatabaseID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the identifier of the current (active) database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetDBUnIdFromGuidID.html">APIDb_GetDBUnIdFromGuidID</a>&nbsp; <img border="0" src="../../APIImageLibrary/18.png" alt="Featuring API 18" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the old database identifiers from the database GUID.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetGuidFromDBUnIdID.html">APIDb_GetGuidFromDBUnIdID</a>&nbsp; <img border="0" src="../../APIImageLibrary/18.png" alt="Featuring API 18" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the database GUID from old database identifiers.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_ResetCurrentDatabaseID.html">APIDb_ResetCurrentDatabaseID</a></p>
+                </td>
+
+                <td>
+                    <p>Deletes the database elements of the current database and sets up a new, empty environment.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_ChangeCurrentDatabaseID.html">APIDb_ChangeCurrentDatabaseID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the active database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_RedrawCurrentDatabaseID.html">APIDb_RedrawCurrentDatabaseID</a></p>
+                </td>
+
+                <td>
+                    <p>Redraws the current database, even it's associated window is in the background.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_RebuildCurrentDatabaseID.html">APIDb_RebuildCurrentDatabaseID</a></p>
+                </td>
+
+                <td>
+                    <p>Rebuilds the current database, even it's associated window is in the background.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_NewDatabaseID.html">APIDb_NewDatabaseID</a></p>
+                </td>
+
+                <td>
+                    <p>Creates a new independent detail, layout or master layout database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_ModifyDatabaseID.html">APIDb_ModifyDatabaseID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Modifies the parameters of an independent detail, layout or master layout database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_DeleteDatabaseID.html">APIDb_DeleteDatabaseID</a>&nbsp; <img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Deletes an independent detail, layout or master layout database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetDatabaseInfoID.html">APIDb_GetDatabaseInfoID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Retrieves information of a given database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetDetailDatabasesID.html">APIDb_GetDetailDatabasesID</a>&nbsp; <img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the list of unique IDs of all detail databases.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetWorksheetDatabasesID.html">APIDb_GetWorksheetDatabasesID</a>&nbsp; <img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the list of unique IDs of all worksheet databases.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetLayoutDatabasesID.html">APIDb_GetLayoutDatabasesID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the list of unique IDs of all layout databases.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetMasterLayoutDatabasesID.html">APIDb_GetMasterLayoutDatabasesID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the list of unique IDs of all master layout databases.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>General Functions</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_AddTextWindowContentID.html">APIDb_AddTextWindowContentID</a></p>
+                </td>
+
+                <td>
+                    <p>Adds new lines to the content of a text window.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_CoordToPointID.html">APIDb_CoordToPointID</a></p>
+                </td>
+
+                <td>
+                    <p>Converts a coordinate into pixel in the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_PointToCoordID.html">APIDb_PointToCoordID</a></p>
+                </td>
+
+                <td>
+                    <p>Converts a pixel into coordinate in the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetDrawingScaleID.html">APIDb_GetDrawingScaleID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the drawing scale of the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_ChangeDrawingScaleID.html">APIDb_ChangeDrawingScaleID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the drawing scale of the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetGridSettingsID.html">APIDb_GetGridSettingsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the grid setting parameters of the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_ChangeGridSettingsID.html">APIDb_ChangeGridSettingsID</a></p>
+                </td>
+
+                <td>
+                    <p>Changes the grid setting parameters of the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetZoomID.html">APIDb_GetZoomID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the actual zoom parameters of the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_SetZoomID.html">APIDb_SetZoomID</a></p>
+                </td>
+
+                <td>
+                    <p>Sets the zoom parameters of the current database (available from 6.5 R2/v2).</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_ReSetZoomID.html">APIDb_ReSetZoomID</a></p>
+                </td>
+
+                <td>
+                    <p>Resets the zoom parameters of the current database by a given number of steps.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetExtentID.html">APIDb_GetExtentID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the drawing extent of the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetExtent3DID.html">APIDb_GetExtent3DID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the model extent of the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_StartClippingSessionID.html">APIDb_StartClippingSessionID</a></p>
+                </td>
+
+                <td>
+                    <p>Sets up temporary database for newly created elements to be clipped.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_DoClipID.html">APIDb_DoClipID</a></p>
+                </td>
+
+                <td>
+                    <p>Clips the elements created during the clipping session with the given region and transformation.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_StopClippingSessionID.html">APIDb_StopClippingSessionID</a></p>
+                </td>
+
+                <td>
+                    <p>Stops the clipping session opened with <code>APIDb_StartClippingSessionID</code>.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_StartDrawingDataID.html">APIDb_StartDrawingDataID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Redirects element creation into temporary database for creating drawing data.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_StopDrawingDataID.html">APIDb_StopDrawingDataID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Finalizes the direct creation of drawing elements.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_DrawOrderInitID.html">APIDb_DrawOrderInitID</a></p>
+                </td>
+
+                <td>
+                    <p>Initializes a loop on the current database to get the elements in the order specified by the BTF/STB system.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_DrawOrderGetNextID.html">APIDb_DrawOrderGetNextID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns a reference to the next element of the current database in the order specified by the BTF/STB system.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_DrawOrderTermID.html">APIDb_DrawOrderTermID</a></p>
+                </td>
+
+                <td>
+                    <p>Terminates the drawing order loop on the current database; cleans up the internal cache.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_DrawStoryControlID.html">APIDb_DrawStoryControlID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Draws the primitives of the Story Control elements of the given database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_CalcBoundsID.html">APIDb_CalcBoundsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the model extent of an element of the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_RoomReductionsID.html">APIDb_RoomReductionsID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns reduction data assigned to a room of the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetElementURLRefID.html">APIDb_GetElementURLRefID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the URL reference assigned to an element.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_SetElementURLRefID.html">APIDb_SetElementURLRefID</a></p>
+                </td>
+
+                <td>
+                    <p>Assigns a URL reference to an element.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_RefreshElementID.html">APIDb_RefreshElementID</a></p>
+                </td>
+
+                <td>
+                    <p>Refreshes a library part instance.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_DrawElementID.html">APIDb_DrawElementID</a></p>
+                </td>
+
+                <td>
+                    <p>Draws/shows an element.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_InitCreationOrderTableID.html">APIDb_InitCreationOrderTableID</a>&nbsp; <img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Initializes an internal table for fast access of the next element in creation order.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_CreationOrderGetNextID.html">APIDb_CreationOrderGetNextID</a>&nbsp; <img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the next element's <code>guid</code> from the previously initialized creation order table.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_DisposeCreationOrderTableID.html">APIDb_DisposeCreationOrderTableID</a>&nbsp; <img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Disposes the previously allocated creation order table.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_Switch3DSightID.html">APIDb_Switch3DSightID</a></p>
+                </td>
+
+                <td>
+                    <p>Switches between the 3D databases.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetContainingDatabaseID.html">APIDb_GetContainingDatabaseID</a>&nbsp; <img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Obtains the unique ID of database contains the given element.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetElementFromAnywhereID.html">APIDb_GetElementFromAnywhereID</a>&nbsp; <img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the element irrespectively of the current database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_IsCWPanelDegenerateID.html">APIDb_IsCWPanelDegenerateID</a>&nbsp; <img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Checks whether the curtain wall panel is degenerate.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="Invalid link: APIDb_SetLast3DDefLevelsID.html">APIDb_SetLast3DDefLevelsID</a>&nbsp; <img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Sets the 3D default levels for the passed construction element types.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="Invalid link: APIDb_GetLast3DDefLevelsID.html">APIDb_GetLast3DDefLevelsID</a>&nbsp; <img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the 3D default levels for the construction elems.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetRenovationFiltersID.html">APIDb_GetRenovationFiltersID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="18" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the array of renovation filters.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetActualRenovationFilterID.html">APIDb_GetActualRenovationFilterID</a> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the current renovation filter.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_SetActualRenovationFilterID.html">APIDb_SetActualRenovationFilterID</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="15" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Changes the current renovation filter.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetElementCategoriesID.html">APIDb_GetElementCategoriesID</a> &nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the array of categories.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetElementCategoryValuesID.html">APIDb_GetElementCategoryValuesID</a> &nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the array of category values in the given category.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetElementInfoStringID.html">APIDb_GetElementInfoStringID</a>&nbsp; <img border="0" src="../../APIImageLibrary/19.png" alt="Featuring API 19" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the info string of the given element.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_ChangeElementInfoStringID.html">APIDb_ChangeElementInfoStringID</a>&nbsp; <img border="0" src="../../APIImageLibrary/22.png" alt="Featuring API 22" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Changes the info string of the given element.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Position Reference Functions</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetOffsetID.html">APIDb_GetOffsetID</a>&nbsp; <img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the origin of the virtual coordinate system.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetLocOrigoID.html">APIDb_GetLocOrigoID</a>&nbsp; <img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the local origin set by the user.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Drawing Link and View Settings</b></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetDrawingLinkID.html">APIDb_GetDrawingLinkID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns various information on a drawing link.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_CheckDrawingStatusID.html">APIDb_CheckDrawingStatusID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Checks whether the given drawing is up-to-date.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_StoreViewSettingsID.html">APIDb_StoreViewSettingsID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Stores/restores the actual view settings.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetTWOwnerID.html">APIDb_GetTWOwnerID</a>&nbsp; <img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the Teamwork owner of a given database.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetSectionDatabasesID.html">APIDb_GetSectionDatabasesID</a>&nbsp; <img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the array of section databases.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetElevationDatabasesID.html">APIDb_GetElevationDatabasesID</a>&nbsp; <img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the array of elevation databases.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetInteriorElevationDatabasesID.html">APIDb_GetInteriorElevationDatabasesID</a>&nbsp; <img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the array of interior elevation databases.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetWorksheetDatabasesID.html">APIDb_GetWorksheetDatabasesID</a>&nbsp; <img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the array of worksheet drawing databases.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetDocumentFrom3DDatabasesID.html">APIDb_GetDocumentFrom3DDatabasesID</a>&nbsp; <img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the list of unique IDs of all document 3D databases.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetFullDrawingContentBoxID.html">APIDb_GetFullDrawingContentBoxID</a>&nbsp; <img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>Returns the full boundary box of a drawing's content.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Hotlink Management Functions</b>&nbsp; <img border="0" src="../../APIImageLibrary/12.png" alt="Featuring API 12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetHotlinkNodeID.html">APIDb_GetHotlinkNodeID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns a hotlink node identified by its guid.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_CreateHotlinkNodeID.html">APIDb_CreateHotlinkNodeID</a></p>
+                </td>
+
+                <td>
+                    <p>Creates a hotlink node without updating its cache content.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_ModifyHotlinkNodeID.html">APIDb_ModifyHotlinkNodeID</a></p>
+                </td>
+
+                <td>
+                    <p>Modifies the parameters of a hotlink node.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_DeleteHotlinkNodeID.html">APIDb_DeleteHotlinkNodeID</a></p>
+                </td>
+
+                <td>
+                    <p>Deletes a hotlink node identified by its guid.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_BreakHotlinkNodeID.html">APIDb_BreakHotlinkNodeID</a></p>
+                </td>
+
+                <td>
+                    <p>Breaks the link of a hotlink node identified by its guid.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_UpdateHotlinkCacheID.html">APIDb_UpdateHotlinkCacheID</a></p>
+                </td>
+
+                <td>
+                    <p>Updates the cache of the given hotlink node.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetHotlinkNodesID.html">APIDb_GetHotlinkNodesID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the list of hotlink nodes.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetHotlinkRootNodeGuidID.html">APIDb_GetHotlinkRootNodeGuidID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the Guid of the Hotlink Module type or XRef type hotlink root node.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetHotlinkNodeTreeID.html">APIDb_GetHotlinkNodeTreeID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the tree structure under a given hotlink node.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetHotlinkInstancesID.html">APIDb_GetHotlinkInstancesID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns a list of hotlink instance elements placed from the given hotlink node.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetHotlinkProxyElementTableID.html">APIDb_GetHotlinkProxyElementTableID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the mapping table of the proxy elements and the source elements of the given hotlink instance.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetCompoundInfoStringID.html">APIDb_GetCompoundInfoStringID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the compound info string of the given element.</p>
+                </td>
+            </tr>
+
+             <tr>
+                <td>
+                    <p><a href="APIDb_GetHotLinkOwnerID.html">APIDb_GetHotLinkOwnerID</a></p>
+                </td>
+
+                <td>
+                    <p>Returns the identifier of the hotlink instance the element belongs to.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><b>Revision Management Functions</b>&nbsp; <img border="0" src="../../APIImageLibrary/18.png" alt="Featuring API 12" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetRVMChangesID.html">APIDb_GetRVMChangesID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves all changes.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetRVMChangeCustomSchemeID.html">APIDb_GetRVMChangeCustomSchemeID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves change custom scheme.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetRVMChangesFromChangeIdsID.html">APIDb_GetRVMChangesFromChangeIdsID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves all changes given by unique change IDs.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetRVMIssuesID.html">APIDb_GetRVMIssuesID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves all issues.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetRVMIssueCustomSchemeID.html">APIDb_GetRVMIssueCustomSchemeID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves issue custom scheme.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetRVMDocumentRevisionsID.html">APIDb_GetRVMDocumentRevisionsID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves all document revisions.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetRVMIssueDocumentRevisionsID.html">APIDb_GetRVMIssueDocumentRevisionsID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves all document revisions belong to the given issue.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetRVMDocumentRevisionChangesID.html">APIDb_GetRVMDocumentRevisionChangesID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves all changes belong to the given document revision.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetRVMLayoutCurrentRevisionChangesID.html">APIDb_GetRVMLayoutCurrentRevisionChangesID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves all changes belong to the last revision of the given layout.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetRVMElemChangeIdsID.html">APIDb_GetRVMElemChangeIdsID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the change IDs of the given elem identified by GUID.</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_GetRVMChangeFirstIssueID.html">APIDb_GetRVMChangeFirstIssueID</a></p>
+                </td>
+
+                <td>
+                    <p>Retrieves the first issue in which the given change is issued.</p>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>
+                    <p><b>Window content validator</b>&nbsp; <img border="0" src="../../APIImageLibrary/22.png" alt="Featuring API 22" width="19" height="12"></p>
+                </td>
+
+                <td>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p><a href="APIDb_BuildWindowValidatorID.html">APIDb_BuildWindowValidatorID</a></p>
+                </td>
+
+                <td>
+                    <p>Registers a new validator.</p>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>
+                    <p><a href="APIDb_DestroyWindowValidatorID.html">APIDb_DestroyWindowValidatorID</a></p>
+                </td>
+
+                <td>
+                    <p>Deletes an existing validator.</p>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>
+                    <p><a href="APIDb_CheckWindowValidatorID.html">APIDb_CheckWindowValidatorID</a></p>
+                </td>
+
+                <td>
+                    <p>Checks for any changes since the last update of the validator.</p>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>
+                    <p><a href="APIDb_RebuildWindowValidatorID.html">APIDb_RebuildWindowValidatorID</a></p>
+                </td>
+
+                <td>
+                    <p>Updates the validator.</p>
+                </td>
+            </tr>			
+        </table>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later (certain functions require greater API versions)</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><!--X--><a href="../Level3/General_Functions_id.html">General Functions</a>, <!--X--><a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on October 28, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

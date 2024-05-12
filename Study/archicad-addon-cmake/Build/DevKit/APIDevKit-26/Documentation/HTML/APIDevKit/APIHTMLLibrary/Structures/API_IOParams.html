@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_IOParams</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_IOParams.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_IOParams</h1>
+
+    <p>Describes the file to work on in your callback procedure.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>short</strong>             <em>refCon</em>;
+        <strong>short</strong>             <em>method</em>;
+        <strong>UInt32</strong>            <em>fileTypeID</em>;
+        <strong><a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a></strong>      <em>*fileLoc</em>;
+        <strong><a href="../../../InputOutput/IOHTMLLibrary/Location/Location.html">IO::Location</a></strong>      <em>*fileLocOnServer</em>;
+        <strong><a href="../../../InputOutput/IOHTMLLibrary/Name/Name.html">IO::Name</a></strong>          <em>*saveFileIOName</em>;
+        <strong>bool</strong>              <em>noDialog</em>;
+        <strong>bool</strong>              <em>fromDragDrop</em>;
+        <strong>bool</strong>              <em>filler_1 [6]</em>;
+        <strong><a href="API_Coord.html">API_Vector</a></strong>        <em>dropOffset</em>;
+        <strong>GSPtr</strong>             <em>additionalData</em>;
+        <strong>Int32</strong>             <em>filler_2</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>          <em>drawingGuid</em>;
+        <strong>Int32</strong>             <em>filler_3 [6]</em>;
+    <strong>}</strong> <em>API_IOParams</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>refCon</b></dt>
+
+        <dd>The identifier of your file type. It's is the same what you called <a href="../Functions/ACAPI_Install_FileTypeHandler.html">ACAPI_Install_FileTypeHandler</a> with, and also the same what you used in the <a href="../Functions/ACAPI_Register_FileType.html">ACAPI_Register_FileType</a> as a reference number in the <a href="../Functions/RegisterInterface.html">RegisterInterface</a> function.</dd>
+
+        <dt><b>method</b></dt>
+
+        <dd>
+            Tells the type of operation your add-on was called to perform; basically identifies the dialog. Its value can be one of the followings:
+
+            <table>
+                <tr>
+                    <td><code>IO_OPEN</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>IO_MERGE</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>IO_OPENLIBPART</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>IO_SAVEAS</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>IO_SAVEAS3D</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>IO_SAVEASFLY3D</code></td>
+                </tr>
+
+                <tr>
+                    <td><code>IO_IMPORT</code>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>fileTypeID</b></dt>
+
+        <dd>The file type registered with the internal File Type Manager.</dd>
+
+        <dt><b>fileLoc</b></dt>
+
+        <dd>The location of the file in the file system.</dd>
+		
+        <dt><b>fileLocOnServer</b>&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Contains the BIMcloud location of the file without authentication info if the file was originally downloaded from BIMcloud. Only set for Save and Merge operations. <code>nullptr</code> otherwise.</dd>
+
+        <dt><b>saveFileIOName</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>Contains the Unicode name of the file entered into the Save dialog (in this case <code>fileLoc</code> refers to a scratch file).</dd>
+
+        <dt><b>noDialog</b></dt>
+
+        <dd>Work in silent mode (for normal drag &amp; drop operations its default value is <code>true</code> <img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12">).</dd>
+
+        <dt><b>fromDragDrop</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>Indicates whether a merge operation (<code>IO_MERGE</code> method) was initiated via drag &amp; drop. In this case the <code>dropOffset</code> field contains the dropping coordinates.</dd>
+
+        <dt><b>dropOffset</b>&nbsp;<img border="0" src="../../APIImageLibrary/61.png" alt="6.1" width="19" height="12"></dt>
+
+        <dd>At a drag &amp; drop merge this field contains the drop position relative to project origin; in all the other cases it is null vector.</dd>
+
+        <dt><b>additionalData</b></dt>
+
+        <dd>Reserved for internal use.</dd>
+
+        <dt><b>drawingGuid</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Changed in API 11" width="19" height="12"></dt>
+
+        <dd>GUID of the drawing element during relink.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is used as the parameter of the <a href="../Functions/APIIOCommandProc.html">APIIOCommandProc</a> callback function for identifying the file you should work on.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Callback.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIIOCommandProc.html">APIIOCommandProc</a><br>
+    <a href="../Functions/ACAPI_Install_FileTypeHandler.html">ACAPI_Install_FileTypeHandler</a><br>
+    <a href="../Functions/ACAPI_Register_FileType.html">ACAPI_Register_FileType</a><br>
+    <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 17, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

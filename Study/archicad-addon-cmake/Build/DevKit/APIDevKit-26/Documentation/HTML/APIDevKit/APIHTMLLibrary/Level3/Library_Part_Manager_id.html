@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Library Part Manager</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Library_Part_Manager_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Library Part Manager</h1>
+
+    <p><br>
+    To have an overview what the Library Parts are, and how they fit into the entire database please refer to the <!--NoCHM--><a href="../Level2/LibPart_Overview.html">LibPart Overview</a> chapter.</p>
+
+    <p>In these papers only the handler functions are explained in full details.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Handler Functions</h4>
+
+    <p>All of the Library Part handler functions begins with the <b>ACAPI_LibPart_</b> prefix. This function family gives support to query the Library Part database, to modify the existing items, and also to create new instances. Refer to the functions below to have details on these topics.</p>
+
+    <p>The following functions work on the actual Library Part registration:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_LibPart_GetNum.html">ACAPI_LibPart_GetNum</a><br>
+        <a href="../Functions/ACAPI_LibPart_Search.html">ACAPI_LibPart_Search</a><br>
+        <a href="../Functions/ACAPI_LibPart_Register.html">ACAPI_LibPart_Register</a><br>
+        <a href="../Functions/ACAPI_LibPart_RegisterAll.html">ACAPI_LibPart_RegisterAll</a>&nbsp; <img border="0" src="../../APIImageLibrary/18.png" alt="18" width="19" height="12">
+    </blockquote>
+
+    <p>The following functions are available to get data of a registered Library Part:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_LibPart_Get.html">ACAPI_LibPart_Get</a><br>
+        <a href="../Functions/ACAPI_LibPart_GetSectionList.html">ACAPI_LibPart_GetSectionList</a><br>
+        <a href="../Functions/ACAPI_LibPart_GetSection.html">ACAPI_LibPart_GetSection</a><br>
+        <a href="../Functions/ACAPI_LibPart_GetParams.html">ACAPI_LibPart_GetParams</a><br>
+        <a href="../Functions/ACAPI_LibPart_GetDetails.html">ACAPI_LibPart_GetDetails</a><br>
+        <a href="../Functions/ACAPI_LibPart_ShapePrims.html">ACAPI_LibPart_ShapePrims</a><br>
+        <a href="../Functions/ACAPI_LibPart_GetHotspots.html">ACAPI_LibPart_GetHotspots</a>&nbsp; <img border="0" src="../../APIImageLibrary/52.png" alt="5.2" width="19" height="12">
+    </blockquote>
+
+    <p>The following functions are available to modify data of a registered Library Part:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_LibPart_UpdateSection.html">ACAPI_LibPart_UpdateSection</a><br>
+        <a href="../Functions/ACAPI_LibPart_SetDetails_ParamDef.html">ACAPI_LibPart_SetDetails_ParamDef</a>
+    </blockquote>
+
+    <p>The following functions are available to create and register a new Library Part:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a><br>
+        <a href="../Functions/ACAPI_LibPart_AddSection.html">ACAPI_LibPart_AddSection</a><br>
+        <a href="../Functions/ACAPI_LibPart_NewSection.html">ACAPI_LibPart_NewSection</a><br>
+        <a href="../Functions/ACAPI_LibPart_WriteSection.html">ACAPI_LibPart_WriteSection</a><br>
+        <a href="../Functions/ACAPI_LibPart_EndSection.html">ACAPI_LibPart_EndSection</a><br>
+        <a href="../Functions/ACAPI_LibPart_Save.html">ACAPI_LibPart_Save</a><br>
+        <a href="../Functions/ACAPI_LibPart_SetUpSect_2DDrawHdl.html">ACAPI_LibPart_SetUpSect_2DDrawHdl</a><br>
+        <a href="../Functions/ACAPI_LibPart_GetSect_2DDrawHdl.html">ACAPI_LibPart_GetSect_2DDrawHdl</a><br>
+        <a href="../Functions/ACAPI_LibPart_GetSect_ParamDef.html">ACAPI_LibPart_GetSect_ParamDef</a>
+    </blockquote><b>Notes</b>
+
+    <p>These functions work on the registered Library Parts only, in the manner that they access the internal data sections of the Library Part; but they do not manipulate on the active library folders itself. To get information on this operations refer to the <!--NoCHM--><a href="../Functions/acapi_environment_id.html">ACAPI_Environment</a> function.</p>
+
+    <h4>&nbsp;</h4>
+
+    <h4>Auxiliary Functions Related to Library Parts</h4>
+
+    <p>The following functions are available to support accessing the additional parameters of a Library Part:</p>
+
+    <blockquote>
+        <a href="../Functions/APIAny_OpenParametersID.html">APIAny_OpenParametersID</a><br>
+        <a href="../Functions/APIAny_GetParamValuesID.html">APIAny_GetParamValuesID</a><br>
+        <a href="../Functions/APIAny_ChangeAParameterID.html">APIAny_ChangeAParameterID</a><br>
+        <a href="../Functions/APIAny_GetActParametersID.html">APIAny_GetActParametersID</a><br>
+        <a href="../Functions/APIAny_CloseParametersID.html">APIAny_CloseParametersID</a><br>
+    </blockquote>
+
+    <p>The following functions are available to handle subtypes and Library Part Unique IDs:</p>
+
+    <blockquote>
+        <a href="../Functions/APIAny_GetBuiltInLibpartUnIdID.html">APIAny_GetBuiltInLibpartUnIdID</a><br>
+        <a href="../Functions/APIAny_CheckLibPartSubtypeOfID.html">APIAny_CheckLibPartSubtypeOfID</a><br>
+        <a href="../Functions/APIAny_CompareLibPartUnIdsID.html">APIAny_CompareLibPartUniqueIdsID</a><br>
+        <a href="../Functions/APIAny_GetElemCreatorToolUnIdID.html">APIAny_GetElemCreatorToolUnIdID</a><br>
+        <a href="../Functions/APIAny_SetEmptyHoleUnIdID.html">APIAny_SetEmptyHoleUnIdID</a><br>
+        <a href="../Functions/APIAny_GetElemLibPartUnIdID.html">APIAny_GetElemLibPartUnIdID</a><br>
+    </blockquote>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 31, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

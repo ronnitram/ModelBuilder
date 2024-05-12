@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>TE::FontFamilySubstituter Class</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <!-- Index -->
+  
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTMLLibrary/TE/classes/FontFamilySubstituter/FontFamilySubstituter.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">TextEngine</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TE::FontFamilySubstituter Class</h1>
+    <!--exp="TE::FontFamilySubstituter Class"-->
+    <p>
+      
+    Font family substituter.
+  
+    </p>
+    <pre class="Syntax"><span class="SyntaxKeyword">class</span> <span class="SyntaxIdentifier">FontFamilySubstituter</span></pre>
+    <h2 class="SectionHeading" id="members">Members</h2>
+    <p>
+      <!-- Don't index --><a href="#NestedStructures">Nested Structures</a><br>
+      <!-- Don't index --><a href="#PublicMethods">Public Methods</a><br>
+    </p>
+    
+    <h2 class="SectionHeading" id="NestedStructures">Nested Structures</h2>
+    <p>
+      
+    </p>
+    <table class="Summary">
+      <tr>
+        <th class="LinkColumn">Structure</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td class="LinkColumn">
+          <a href="FontPair/FontPair.html">FontPair</a>
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    </table>
+    
+    <h2 class="SectionHeading" id="PublicMethods">Public Methods</h2>
+    <p>
+      
+    </p>
+    <table class="Summary">
+      <tr>
+        <th class="LinkColumn">Method</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td class="LinkColumn">
+          <a href="Constructors.html">FontFamilySubstituter</a>
+        </td>
+        <td>
+          
+    Constructor.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="Destructor.html">~FontFamilySubstituter</a>
+        </td>
+        <td>
+          
+    Destructor.
+  
+        </td>
+      </tr>
+    
+      <tr>
+        <td class="LinkColumn">
+          <a href="GetFontPairs.html">GetFontPairs</a>
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+    </table>
+    <h2 class="SectionHeading">Description</h2>
+    
+    If you use a non-existing font family, then TextEngine substitute font family. TextEngine create a new virtual font family and other font family use.
+  
+    <h2 class="SectionHeading">Example</h2>
+    <pre xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" class="code" space="preserve">
+// ================================
+class MySubstituter  : public TE::FontFamilySubstituter {
+public:
+  MySubstituter () {}
+  ~MySubstituter () {}
+
+  virtual const GS::UniString&amp;  Substitute (const GS::UniString&amp; name, GSCharCode charCode = CC_Default)
+  {
+    return name;  // not substitute
+  }
+};
+
+// ================================
+class MyFontRegistryObserver : public TE::FontRegistryObserver {
+public:
+
+  virtual void  FontAdded (const TE::FontFamily&amp; fontFamily)
+  {
+    printf ("Create new fontfamily: %s - %s\n", family1.GetLocalName ().ToCStr (), family1.GetActualLocalName ().ToCStr ());
+  }
+};
+
+// ================================
+
+MySubstituter           mySubstituter;  // create substituter object
+MyFontRegistryObserver  myFontRegistryObserver;
+
+TE::textEngine.Attach (myFontRegistryObserver);
+TE::textEngine.AddFontFamilySubstituter (&amp;mySubstituter);
+
+TE::FontFamily  family1 ("Arial");
+TE::FontFamily  family2 ("example1");
+TE::FontFamily  family3 ("example2", CC_Japanese);
+TE::FontFamily  family4 ("example3", CC_EastEuropean);
+TE::FontFamily  family5 ("Arial Symbol");
+
+TE::textEngine.Detach (myFontRegistryObserver);
+TE::textEngine.DeleteFontFamilySubstituter (&amp;mySubstituter);
+
+printf ("%s - %s\n", family1.GetLocalName ().ToCStr (), family1.GetActualLocalName ().ToCStr ());
+printf ("%s - %s\n", family2.GetLocalName ().ToCStr (), family2.GetActualLocalName ().ToCStr ());
+printf ("%s - %s\n", family3.GetLocalName ().ToCStr (), family3.GetActualLocalName ().ToCStr ());
+printf ("%s - %s\n", family4.GetLocalName ().ToCStr (), family4.GetActualLocalName ().ToCStr ());
+printf ("%s - %s\n", family5.GetLocalName ().ToCStr (), family5.GetActualLocalName ().ToCStr ());
+
+// ~MySubstituter, ~MyFontRegistryObserver
+</pre>
+    <h2 class="SectionHeading">Requirements</h2>
+    <p>
+      <span class="RequirementsSection">Namespace:</span> <!-- Don't index --><a href="../../TE.html">TE</a>
+    </p>
+    <p>
+      <span class="RequirementsSection">Header:</span> FontFamilySubstituter.hpp
+    </p>
+    <p>
+      <span class="RequirementsSection">Platforms:</span> 
+    TextEngine Version 9.0.0 R1 (6306 / 1812)<br xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Windows 2000, Windows XP, OSX 10.2x, OSX 10.3x
+  
+    </p>
+    
+  
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

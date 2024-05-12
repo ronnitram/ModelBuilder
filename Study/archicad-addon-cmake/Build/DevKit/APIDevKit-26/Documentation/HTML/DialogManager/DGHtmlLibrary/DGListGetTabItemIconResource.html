@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Urban Eszter">
+
+    <title>DGListGetTabItemIconResource</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListGetTabItemIconResource.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListGetTabItemIconResource</h1>
+
+    <p>Retrieves the resource module ID of the icon in the given tabulator field of a <a href="ListBox.html">list box</a> item.</p>
+    <pre class="syntax">
+    <strong>GSResModule DGListGetTabItemIconResource</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>short</strong>  <em>listItem</em>,
+      <strong>short</strong>  <em>tabIndex</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>listItem</em></dt>
+
+        <dd>1-based index of the list item. <tt>DG_LIST_TOP</tt> specifies the first item of the list, <tt>DG_LIST_BOTTOM</tt> specifies the last item of the list.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>tabIndex</em></dt>
+
+        <dd>1-based index of the tabulator field.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The resource module ID of the icon in the given tabulator field, or <tt>InvalidResModule</tt> if the field has no icon.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The content of list items can be divided into more columns. A DG listbox can be imagined as a two-dimensional list consisting of rows and columns. One column is called a "tabulator field", a "tabulator item" is the intersection of a tabulator field and a row. The names "tabulator field" and "tabulator item" are inherited from the previous versions of DG. In the earlier versions texts of columns could be separated within a list item by inserting tabulator (<tt>'\t'</tt>) characters into its text. You can specify an icon and/or text to the tabulator item: see <a href="DGListSetTabItemIconId.html">DGListSetTabItemIconId</a> and <a href="DGListSetTabItemText.html">DGListSetTabItemText</a> for details.</p>
+
+    <p>A tabulator item can contain an icon and/or text also, but only one icon can appear in a tabulator item. In case of using an icon with text in a tabulator item, the item text can be set with the <strong>DGListSetTabItemText</strong> function. If a tabulator item contains an icon and text also, the icon will be positioned either at the beginning or at the end of the text according to the justification. (The <tt>DG_IS_LEFT</tt> justification is applied for the tabulator item containing an icon and text also, even if the <tt>DG_IS_CENTER</tt> justification was given.)</p>
+
+    <p>Call this routine only after you set the number of tabulator fields and their properties by <a href="DGListSetTabFieldCount.html">DGListSetTabFieldCount</a> and <a href="DGListSetTabFieldData.html">DGListSetTabFieldData</a>.</p>
+
+    <p>The resource module of the dialog can be set and retrieved by <a href="DGSetDialogResourceModule.html">DGSetDialogResourceModule</a> or <a href="DGSetDialogResourceModules.html">DGSetDialogResourceModules</a> and <a href="DGGetDialogResourceModule.html">DGGetDialogResourceModule</a> or <a href="DGGetDialogIconResourceModule.html">DGGetDialogIconResourceModule</a>, respectively.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ListBox.html">List Box</a>, <a href="DGListSetTabItemIconResource.html">DGListSetTabItemIconResource</a><br>
+    <a href="DGListGetTabItemIcon.html">DGListGetTabItemIcon</a>, <a href="DGListGetTabItemIconId.html">DGListGetTabItemIconId</a>, <a href="DGListGetTabItemText.html">DGListGetTabItemText</a><br>
+    <a href="DGListSetTabItemIcon.html">DGListSetTabItemIcon</a>, <a href="DGListSetTabItemIconId.html">DGListSetTabItemIconId</a>, <a href="DGListSetTabItemText.html">DGListSetTabItemText</a><br>
+    <a href="DGListSetTabFieldCount.html">DGListSetTabFieldCount</a>, <a href="DGListSetTabFieldData.html">DGListSetTabFieldData</a>, <a href="DGGetDialogResourceModule.html">DGGetDialogResourceModule</a>, <a href="DGGetDialogIconResourceModule.html">DGGetDialogIconResourceModule</a>, <a href="DGSetDialogResourceModule.html">DGSetDialogResourceModule</a>, <a href="DGSetDialogResourceModules.html">DGSetDialogResourceModules</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 27, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

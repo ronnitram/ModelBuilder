@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_RVMLayoutInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_RVMLayoutInfo.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_RVMLayoutInfo</h1>
+
+    <p>Represents layout meta data in API_RVMDocumentRevision.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>                           <em>id</em>;
+        <strong><a href="API_DatabaseUnId.html">API_DatabaseUnId</a></strong>                        <em>dbId</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>                           <em>name</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>                           <em>masterLayoutName</em>;
+        <strong>double</strong>                                  <em>width</em>;
+        <strong>double</strong>                                  <em>height</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&gt;</strong>                <em>drawingScales</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>                           <em>subsetId</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a></strong>                           <em>subsetName</em>;
+        <strong><a href="../../../GSRoot/GSRootHTMLLibrary/GS/HashTable/HashTable.html">GS::HashTable</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>, <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&gt;</strong>  <em>customData</em>;
+        <strong>short</strong>                                   <em>teamworkOwner</em>;
+        <strong>short</strong>                                   <em>filler[3]</em>;
+    <strong>}</strong> <em>API_RVMLayoutInfo</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>id</b></dt>
+
+        <dd>ID of the layout.</dd>
+
+        <dt><b>dbId</b></dt>
+
+        <dd>Database unique identifier. Valid only for opened issue.</dd>
+
+        <dt><b>name</b></dt>
+
+        <dd>Name of the layout.</dd>
+
+        <dt><b>masterLayoutName</b></dt>
+
+        <dd>Name of the master layout.</dd>
+
+        <dt><b>width</b></dt>
+
+        <dd>Width of the layout.</dd>
+
+        <dt><b>height</b></dt>
+
+        <dd>Height of the layout.</dd>
+
+        <dt><b>drawingScales</b></dt>
+
+        <dd>Array of the drawing scales.</dd>
+
+        <dt><b>subsetId</b></dt>
+
+        <dd>ID of the subset.</dd>
+
+        <dt><b>subsetName</b></dt>
+
+        <dd>Name of the subset.</dd>
+
+        <dt><b>customData</b></dt>
+
+        <dd>Contains the custom data fields. The custom scheme GUID-value pairs are stored in a GS::HashTable.</dd>
+
+        <dt><b>teamworkOwner</b></dt>
+
+        <dd>Teamwork owner of the layout.</dd>
+
+
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure contains layout meta data for <a href="API_RVMDocumentRevision.html">API_RVMDocumentRevision</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 18 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_RVMDocumentRevision.html">API_RVMDocumentRevision</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on March 4, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Folder</title><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/Folder/Folder.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Folder class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>A file system entry that contains other file system entries (files, folders and links). <!-- Not Index --><a href="#Description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td><!-- Not Index --><a href="../../InputOutput.html">InputOutput</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>Folder.hpp</td>
+        </tr>
+    </table><br>
+    <br>
+
+    <h3>Public methods</h3>
+
+    <p><br>
+    &nbsp;&nbsp;&nbsp; <a href="Constructors.html">Constructors<br></a><br>
+    &nbsp;&nbsp;&nbsp; <b>static</b> <a href="New.html">New</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <b><font color="#FF0000">Note:</font></b> copy constructor and assignment operator are disabled<br>
+    <br>
+    <b>State query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetStatus.html">GetStatus</a><br>
+    <br>
+    <b>Folder content manipulation</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="CreateFile.html">CreateFile</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="CreateFolder.html">CreateFolder</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="CreateLink.html">CreateLink</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Rename.html">Rename</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Move.html">Move</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Copy.html">Copy</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Exchange.html">Exchange</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Delete.html">Delete</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="DeleteAll.html">DeleteAll</a><br>
+    <br>
+    <b>Folder content query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Contains.html">Contains</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetType.html">GetType<br></a> &nbsp;&nbsp;&nbsp; <a href="GetResolvedType.html">GetResolvedType</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="CountFiles.html">CountFiles</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="CountFolders.html">CountFolders</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="CountEntries.html">CountEntries</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsEmpty.html">IsEmpty</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Enumerate.html">Enumerate</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="PrintContent.html">PrintContent</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GenerateUnusedName.html">GenerateUnusedName</a><br>
+    <br>
+    <b>Folder attributes setting / query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="SetCreationTime.html">SetCreationTime</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetCreationTime.html">GetCreationTime</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetModificationTime.html">SetModificationTime</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetModificationTime.html">GetModificationTime</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetFreeSpace.html">GetFreeSpace</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsReadable.html">IsReadable</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsWriteable.html">IsWriteable</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsOnLocalVolume.html">IsOnLocalVolume</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsOnFixedVolume.html">IsOnFixedVolume<br></a><br>
+    <b>Location query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetLocation.html">GetLocation</a><br>
+    <br>
+    <br></p>
+
+    <h3>Public types</h3>
+
+    <p><a href="OnNotFound.html">OnNotFound</a><br>
+    <a href="EntryType.html">EntryType</a><br>
+    <a href="DataSafety.html">DataSafety</a><br>
+    <a href="EnumCallback.html">EnumCallback</a><br>
+    <br>
+    <br></p>
+
+    <h3><a name="Description"></a>Description</h3>
+
+    <p>Folder is a file system entry that contains other file system entries (files, folders and links) referred to as its content or children. Number of child entries is limited only by OS. Every child entry has a name associated with it, which is unique within its parent folder (that is in its context).<br>
+    Folder has few attributes to query and set including its creation date, modification date, amount of free space in it and other properties.</p>
+
+    <p>Local file system of every machine has a single root parent folder. (It can be created from the location initialized with the default constructor). On some systems this root folder is virtual and it contains volumes (logical drives). However to obtain mount points, user should use <!-- Not Index --><a href="../FileSystem/EnumerateMountPoints.html">EnumerateMountPoints</a> method of the class <!-- Not Index --><a href="../FileSystem/FileSystem.html">FileSystem</a>, instead of enumerating the root folder.</p>
+
+    <p>Folder is responsible for its <b>direct</b> content (direct children). This content can be enumerated with the <!-- Not Index --><a href="Enumerate.html">Enumerate</a> method. However often recursive enumeration of a whole folder tree is needed. This task is supported by the class <!-- Not Index --><a href="../TreeEnumerator/TreeEnumerator.html">TreeEnumerator</a>.<br>
+    <br>
+    <br></p>
+
+    <h3>See Also</h3>
+
+    <p><a href="../File/File.html">File</a>, <a href="../Location/Location.html">Location</a>, <a href="../Name/Name.html">Name</a>, <a href="../TreeEnumerator/TreeEnumerator.html">TreeEnumerator</a></p>
+
+    <p><a href="../HowTo/RecursiveEnumeration.html">Recursive enumeration of a folder tree</a></p>
+
+    <p><a href="../HowTo/FileCreateRenameDelete.html">Creating, renaming and deleting a file</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

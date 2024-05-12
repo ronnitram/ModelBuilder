@@ -1,0 +1,382 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+    <title>Callback functions</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CallbackFunctions.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Callback functions</h1>
+
+    <p>The application has to implement a callback function for each <a href="ModalDialogs.html">modal</a>, <a href="ModelessDialogs.html">modeless</a>, and <a href="PaletteDialogs.html">palette</a> dialog. The callback function is called with <a href="Messages_id.html">DG messages</a> to handle user actions not handled by DG. The prototype of the callback function is the following:</p>
+    <pre class="syntax">
+    <strong>typedef short</strong> (*DGDialCallBack) (
+      <strong>short</strong>            <em>message</em>,
+      <strong>short</strong>            <em>dialId</em>,
+      <strong>short</strong>            <em>itemId</em>,
+      <a href="DGUserData.html">DGUserData</a>     <em>userData</em>
+      <a href="DGMessageData.html">DGMessageData</a>  <em>msgData</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>message</em></dt>
+
+        <dd>One of the DG messages.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>itemId</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>userData</em></dt>
+
+        <dd>The user-specified data of the dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>Message-specific data.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The return value of the callback function is not investigated except for the following cases:</p>
+
+    <dl>
+        <dd>
+            <table class="members">
+                <tr valign="top">
+                    <th align="left" width="160">Message</th>
+
+                    <th align="left" width="120">Item type</th>
+
+                    <th align="left" width="160">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="6"><a href="DG_MSG_CLICK.html"><tt>DG_MSG_CLICK</tt></a></td>
+
+                    <td rowspan="2"><a href="PushButton.html">Push Button</a></td>
+
+                    <td>Index of the button.</td>
+
+                    <td>The dialog will be closed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The dialog will <u>not</u> be closed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="TabControl.html">Tab Control</a></td>
+
+                    <td>1</td>
+
+                    <td>Changing of tab pages is <u>not</u> permitted.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>Changing of tab pages is permitted.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="TreeView.html">Tree View</a></td>
+
+                    <td>1</td>
+
+                    <td>The previous selection is kept and further processing of the click event is omitted. This message is sent only if the user clicks the state icon of a tree item</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The click message is processed by the usual way.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="DG_MSG_CONTEXTMENU.html"><tt>DG_MSG_CONTEXTMENU</tt></a></td>
+
+                    <td rowspan="2"></td>
+
+                    <td>1</td>
+
+                    <td>The message is handled, and further processing of the context menu event is omitted.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The message is <u>not</u> handled. The context sensitive help will be displayed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="DG_MSG_FILTERCHAR.html"><tt>DG_MSG_FILTERCHAR</tt></a></td>
+
+                    <td rowspan="2"><a href="EditControl.html">Edit Control</a></td>
+
+                    <td>1</td>
+
+                    <td>The character will be filtered out.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The character will <u>not</u> be filtered out.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="DG_MSG_HOTKEY.html"><tt>DG_MSG_HOTKEY</tt></a></td>
+
+                    <td rowspan="2"></td>
+
+                    <td>1</td>
+
+                    <td>The hotkey is handled and further processing of the keyboard event is omitted.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The hotkey is <u>not</u> handled. Processing of the keyboard event is going on.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="DG_MSG_ITEMHELP.html"><tt>DG_MSG_ITEMHELP</tt></a></td>
+
+                    <td rowspan="2"></td>
+
+                    <td>1</td>
+
+                    <td>The message is handled, help text is returned by the application.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The message is <u>not</u> handled. Help text will be displayed from the GRC resource, if it is possible.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="DG_MSG_LISTHEADERCLICK.html"><tt>DG_MSG_LISTHEADERCLICK</tt></a></td>
+
+                    <td rowspan="2"><a href="ListBox.html">List box</a></td>
+
+                    <td>1</td>
+
+                    <td>The event is handled by the application and further processing of the click event is omitted.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The message is <u>not</u> handled. Processing of the click event is going on.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="DG_MSG_LISTHEADERDRAG.html"><tt>DG_MSG_LISTHEADERDRAG</tt></a></td>
+
+                    <td rowspan="2"><a href="ListBox.html">List box</a></td>
+
+                    <td>1</td>
+
+                    <td>The event is handled by the application and further processing of the drag event is omitted.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The message is <u>not</u> handled. Processing of the drag event is going on.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="DG_MSG_LISTHEADERRESIZE.html"><tt>DG_MSG_LISTHEADERRESIZE</tt></a></td>
+
+                    <td rowspan="2"><a href="ListBox.html">List box</a></td>
+
+                    <td>1</td>
+
+                    <td>The event is handled by the application and further processing of the resizing event is omitted.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The message is <u>not</u> handled. Processing of the resizing event is going on.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="DG_MSG_LISTHEADERBUTTONCLICK.html"><tt>DG_MSG_LISTHEADERBUTTONCLICK</tt></a></td>
+
+                    <td rowspan="2"><a href="ListBox.html">List box</a></td>
+
+                    <td>1</td>
+
+                    <td>The event is handled by the application and further processing of the click event is omitted.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The message is <u>not</u> handled. Processing of the click event is going on.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="4"><a href="DG_MSG_MOUSEMOVE.html"><tt>DG_MSG_MOUSEMOVE</tt></a></td>
+
+                    <td rowspan="2"><a href="ListBox.html">List Box</a></td>
+
+                    <td><tt>DG_LIST_INDRAGAREA</tt></td>
+
+                    <td>The cursor is above the drag area of a list item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The cursor is <u>not</u> above the drag area.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="UserItem.html">User Item</a></td>
+
+                    <td>1</td>
+
+                    <td>The application changes the cursor to a desired custom form.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The default arrow cursor is acceptable over the user item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="DG_MSG_NULL.html"><tt>DG_MSG_NULL</tt></a></td>
+
+                    <td rowspan="2"></td>
+
+                    <td>Any positive number.</td>
+
+                    <td>The dialog will be closed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The dialog will <u>not</u> be closed.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2"><a href="DG_MSG_WHEELTRACK.html"><tt>DG_MSG_WHEELTRACK</tt></a></td>
+
+                    <td rowspan="2"></td>
+
+                    <td>1</td>
+
+                    <td>The message is handled, and further processing of the wheel event is omitted.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The message is <u>not</u> handled. Processing of the wheel event is going on.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>In all other cases the application should return zero.</p>
+
+    <h4>Remarks</h4>
+
+    <p>The pointer to the callback function should be passed in the <em>dCallBack</em> parameter of the <a href="DGModalDialog.html">DGModalDialog</a> or <a href="DGModelessInit.html">DGModelessInit</a> functions. For the simplest modal dialogs that have only buttons and static items (static text, picture, icon, etc.) there is no need to implement a callback function. In this case <b>DGModalDialog</b> returns only if a button is clicked.</p>
+
+    <p><a href="TabPages.html">Tab pages</a> are special dialogs, because they have no dialog callback function. Messages for controls on tab pages are sent to the callback function of the main dialog (the dialog that contains the tab control). For these messages, however, the ID of the tab page subdialog is passed to the callback function in the <em>dialId</em> parameter instead of the ID of the main dialog.</p>
+
+    <p>For DG messages that related to a dialog instead of a particular dialog item, the <em>itemId</em> parameter is zero. These messages are the following: <tt>DG_MSG_ACTIVATE</tt>, <tt>DG_MSG_GROW</tt>, <tt>DG_MSG_HOTKEY</tt>, <tt>DG_MSG_INIT</tt> and <tt>DG_MSG_NULL</tt>.</p>
+
+    <p>The application can assign a <strong><tt>DGUserData</tt></strong> value to every dialog. This value can be used to store any dialog-specific user data. It can be given when creating the dialog by <b>DGModalDialog</b> or <b>DGModelessInit</b> as the <em>userData</em> parameter of these functions, or can be modified later by <a href="DGSetDialogUserData.html">DGSetDialogUserData</a>. When handling DG messages in the dialog callback function, this dialog specific data is available as the <em>userData</em> parameter of the message. You can retrieve this value whenever you need by <a href="DGGetDialogUserData.html">DGGetDialogUserData</a>. It is advised to gather all the dialog related data into a user-defined structure. After filling this structure, give its pointer to <b>DGModalDialog</b> or <b>DGModelessInit</b>. If a dialog has one ore more tab pages, they have a common user data.</p>
+
+    <p>In the <em>msgData</em> parameter of the callback function you can get message-specific data. For details see the description of the DG messages.</p>
+
+<h4 class="also">See Also</h4>
+<div id="wrapper">
+    <div id="first">
+		<dl>
+			<dd class="also"><a href="../DialogManager.html">Dialog Manager</a></dd>
+			<dd class="also"><a href="Messages_id.html">DG Messages</a></dd>
+			<dd class="also"><a href="ModalDialogs.html">Modal dialogs</a></dd>
+			<dd class="also"><a href="ModelessDialogs.html">Modeless dialogs</a></dd>
+			<dd class="also"><a href="PaletteDialogs.html">Palette dialogs</a></dd>
+			<dd class="also"><a href="TabPages.html">Tab pages</a></dd>
+		</dl>
+	</div>
+    <div id="second">
+		<dl>
+			<dd class="also"><a href="DlgItemTypes_id.html">Dialog item types</a></dd>
+			<dd class="also"><a href="DGGetDialogUserData.html">DGGetDialogUserData</a></dd>
+			<dd class="also"><a href="DGModalDialog.html">DGModalDialog</a></dd>
+			<dd class="also"><a href="DGModelessInit.html">DGModelessInit</a></dd>
+			<dd class="also"><a href="DGSetDialogUserData.html">DGSetDialogUserData</a></dd>
+		</dl>
+    </div>
+</div>
+
+    <footer> <p class="footer"> Graphisoft August 6, 2014 </p> </footer>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

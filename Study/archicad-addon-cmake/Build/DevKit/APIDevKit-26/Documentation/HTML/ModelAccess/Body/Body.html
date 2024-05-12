@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>Body</title><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Body/Body.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1>Body class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>Reference to a body of the model element. <!-- Not Index --><a href="#Detailed%20description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td><!-- Not Index --><a href="../ModelAccessAPI.html">Model Access API</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>ModelBody.hpp</td>
+        </tr>
+    </table><br>
+    <br>
+
+    <h3>Public methods</h3>
+
+    <p>&nbsp;&nbsp;&nbsp; <a href="Constructors.html">Constructors</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="Constructors.html">Copy constructor</a><br>
+    &nbsp;&nbsp;&nbsp; operator=<br>
+    <br>
+    <b>Comparing</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="Compare.html">Compare</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorEqu.html">operator==</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorNotEqu.html">operator!=</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorLe.html">operator&lt;</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorGr.html">operator&gt;</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorLeEqu.html">operator&lt;=</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="OperatorGrEqu.html">operator&gt;=</a><br>
+    <br>
+    <b>Properties query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="IsWireBody.html">IsWireBody</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsSurfaceBody.html">IsSurfaceBody</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsSolidBody.html">IsSolidBody</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsClosed.html">IsClosed</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsCurved.html">IsCurved</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="HasSharpEdge.html">HasSharpEdge</a><br>
+    <br>
+    <b>Bounding box query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetBounds.html">GetBounds</a><br>
+    <br>
+    <b>Vertex data query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetVertexNum.html">GetVertexNum</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetVertex.html">GetVertex</a><br>
+    <br>
+    <b>Edge data query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetEdgeNum.html">GetEdgeNum</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetEdge.html">GetEdge</a><br>
+    <br>
+    <b>Polygon data query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetPolygonCount.html">GetPolygonCount</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetPolygon.html">GetPolygon</a><br>
+    <br>
+    <b>Vector data query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetPolygonVectorNum.html">GetPolygonVectorNum</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetVector.html">GetVector</a><br>
+    <br>
+    <b>Vizualization attributes query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetColorIndex.html">GetColorIndex</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetMaterialIndex.html">GetMaterialIndex</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="GetTextureIndex.html">GetTextureIndex</a><br>
+    <br>
+    <b>Shadow casting attributes query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="AlwaysCastsShadow.html">AlwaysCastsShadow</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="NeverCastsShadow.html">NeverCastsShadow</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="DoesNotReceiveShadow.html">DoesNotReceiveShadow</a><br>
+    <br>
+    <b>Texture coordinate system query</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="GetTextureCoordinateSystem.html">GetTextureCoordinateSystem</a><br>
+    <br>
+    <h3>Public Types</h3>
+
+    <p>&nbsp;&nbsp;&nbsp; <a href="TextureCoordinateSystem.html">TextureCoordinateSystem</a><br>
+
+    <h3><a name="#Detailed description"></a>Detailed description</h3>
+
+    <p>The body object is a reference to a body of the model element. This is the least independent part of the model. It contains vertexes, edges, polygons and normal vectors. These primitives contain only references (index number) to each other. These indexes can be used to access the primitive data from the body object.</p>
+
+    <p><br>
+    <br>
+    <br></p>
+
+    <h3>See Also</h3>
+
+    <p><!-- Not Index --> <a href="../Box3D/Box3D.html">Box3D</a> , <!-- Not Index --> <a href="../Vertex/Vertex.html">Vertex</a> , <!-- Not Index --> <a href="../Edge/Edge.html">Edge</a> , <!-- Not Index --> <a href="../Polygon/Polygon.html">Polygon</a> , <!-- Not Index --> <a href="../Vector/Vector.html">Vector</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

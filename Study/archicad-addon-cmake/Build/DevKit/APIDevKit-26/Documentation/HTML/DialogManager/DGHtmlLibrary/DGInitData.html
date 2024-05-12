@@ -1,0 +1,636 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DGInitData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGInitData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGInitData</h1>
+
+    <p>The <em>DGInitData</em> structure contains information about general DG settings and preferences.</p>
+    <pre class="syntax">
+      <strong>struct</strong> <em>DGInitData</em> {
+        <strong>UChar</strong>                           <i>mainVersion</i>;
+        <strong>UChar</strong>                           <i>subVersion</i>;
+        <strong>UChar</strong>                           <i>revision</i>;
+        <strong>Int8</strong>                            <i>filler1</i>;
+        <strong>GS::UniString</strong>                   <i>northSymb</i>;
+        <strong>GS::UniString</strong>                   <i>southSymb</i>;
+        <strong>GS::UniString</strong>                   <i>eastSymb</i>;
+        <strong>GS::UniString</strong>                   <i>westSymb</i>;
+        <strong>GS::UniString</strong>                   <i>gradSymb</i>;
+        <strong>GS::UniString</strong>                   <i>radSymb</i>;
+        <strong>GS::UniString</strong>                   <i>degSymb</i>;
+        <strong>GS::UniString</strong>                   <i>degreeSymb</i>;
+        <strong>GS::UniString</strong>                   <i>minuteSymb</i>;
+        <strong>GS::UniString</strong>                   <i>secondSymb</i>;
+        <strong>double</strong>                          <i>internalUnit</i>;
+        <strong>IO::Location*</strong>                   <i>pPrefsFileLoc</i>;            // Macintosh only!
+        <strong>GSResModule</strong>                     <i>contextMenuResModule</i>;
+        <strong>short</strong>                           <i>contextMenuStrListId</i>;     // Windows only!
+        <strong>GSResModule</strong>                     <i>applIconResModule</i>;        // Windows only!
+        <strong>short</strong>                           <i>applIconId</i>;               // Windows only!
+        <strong>UShort</strong>                          <i>applLanguageId</i>;           // Windows only!
+        <strong>Int32</strong>                           <i>fontCharSet</i>;              // Windows only!
+        <strong>Int32</strong>                           <i>largeFontSize</i>;            // Windows only!
+        <strong>Int32</strong>                           <i>smallFontSize</i>;            // Windows only!
+        <strong>Int32</strong>                           <i>xSmallFontSize</i>;           // Windows only!
+        <strong>Int32</strong>                           <i>largeFontWeight</i>;          // Windows only!
+        <strong>Int32</strong>                           <i>smallFontWeight</i>;          // Windows only!
+        <strong>Int32</strong>                           <i>xSmallFontWeight</i>;         // Windows only!
+        <strong>GS::UniString</strong>                   <i>largeFontName</i>;            // Windows only!
+        <strong>GS::UniString</strong>                   <i>smallFontName</i>;            // Windows only!
+        <strong>GS::UniString</strong>                   <i>xSmallFontName</i>;           // Windows only!
+        <strong>GS::UniString</strong>                   <i>closeMenuText</i>;            // Windows only!
+        <strong>GS::UniString</strong>                   <i>nextMenuText</i>;             // Windows only!
+        <strong>GS::UniString</strong>                   <i>errorText</i>;                // Windows only!
+        <strong>GS::UniString</strong>                   <i>warningText</i>;              // Windows only!
+        <strong>GS::UniString</strong>                   <i>infoText</i>;                 // Windows only!
+        <strong>GS::UniString</strong>                   <i>applRegKey</i>;               // Windows only!
+        <strong>GS::UniString</strong>                   <i>allFilesText</i>;
+        <strong>GS::UniString</strong>                   <i>allTypesText</i>;
+        <strong>DGMenuChoiceDialogUniStrings</strong>    <i>menuChoiceTexts</i>;
+        <strong>GSResModule</strong>                     <i>fileNameAlertResModule</i>;
+        <strong>short</strong>                           <i>fileNameAlertId</i>;
+        <strong>DGRulerUniStrings</strong>               <i>rulerStrings</i>;
+        <strong>GS::Int32</strong>                       <i>rtlOrder</i>;                 // Windows only!
+        <strong>GS::UniString</strong>                   <i>openingBracket</i>;
+        <strong>GS::UniString</strong>                   <i>closingBracket</i>;
+        <strong>DGFileDialogUniStrings</strong>          <i>fileDialogStrings</i>;        // Windows only!
+        <strong>DGApplMenuUniStrings</strong>            <i>applMenuStrings</i>;          // Macintosh only!
+        <strong>DGColorPanelUniStrings</strong>          <i>colorPanelStrings</i>;        // Macintosh only!
+        <strong>GS::UniString</strong>                   <i>fileTypeTitleOpen</i>;        // Macintosh only!
+        <strong>GS::UniString</strong>                   <i>fileTypeTitleSave</i>;        // Macintosh only!
+        <strong>GS::UniString</strong>                   <i>chooseButtonTitle</i>;        // Macintosh only!
+        <strong>GS::UniString</strong>                   <i>fontCollections</i>;          // Macintosh only!
+    };
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>mainVersion</b></dt>
+
+        <dd>Main version number of DG library (0-9) as decimal number [and not as character ('0'-'9')]. When calling <a href="DGInit.html">DGInit</a> use the <tt>DGLIB_MAINVERSION</tt> define.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>subVersion</b></dt>
+
+        <dd>Sub version number of DG library (0-9) as decimal number [and not as character ('0'-'9')]. When calling <b>DGInit</b> use the <tt>DGLIB_SUBVERSION</tt> define.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>revision</b></dt>
+
+        <dd>Revision number of DG library (0-9) as decimal number [and not as character ('0'-'9')]. When calling <b>DGInit</b> use the <tt>DGLIB_REVISION</tt> define.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>filler1</b></dt>
+
+        <dd>Reserved.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>northSymb</b></dt>
+
+        <dd>North symbol for angle type <a href="EditControl.html">edit controls</a>. If <b>northSymb</b> is an empty string, DG uses the internally stored "N&nbsp;".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>southSymb</b></dt>
+
+        <dd>South symbol for angle type edit controls. If <b>southSymb</b> is an empty string, DG uses the internally stored "S&nbsp;".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>eastSymb</b></dt>
+
+        <dd>East symbol for angle type edit controls. If <b>eastSymb</b> is an empty string, DG uses the internally stored "E&nbsp;".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>westSymb</b></dt>
+
+        <dd>West symbol for angle type edit controls. If <b>westSymb</b> is an empty string, DG uses the internally stored "W&nbsp;".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>gradSymb</b></dt>
+
+        <dd>Grad symbol for angle type edit controls. If <b>gradSymb</b> is an empty string, DG uses the internally stored "G&nbsp;".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>radSymb</b></dt>
+
+        <dd>Radian symbol for angle type edit controls. If <b>radSymb</b> is an empty string, DG uses the internally stored "R&nbsp;".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>degSymb</b></dt>
+
+        <dd>Degree #1 symbol for angle type edit controls. If <b>degSymb</b> is an empty string, DG uses the internally stored "D&nbsp;".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>degreeSymb</b></dt>
+
+        <dd>Degree #2 symbol for angle type edit controls. If <b>degreeSymb</b> is an empty string, DG uses the internally stored "°&nbsp;".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>minuteSymb</b></dt>
+
+        <dd>Minute symbol for angle type edit controls. If <b>minuteSymb</b> is an empty string, DG uses the internally stored "´&nbsp;".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>secondSymb</b></dt>
+
+        <dd>Second symbol for angle edit control. If <b>secondSymb</b> is an empty string, DG uses the internally stored ""&nbsp;".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>internalUnit</b></dt>
+
+        <dd>Application's internal length unit in mm.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>contextMenuResModule</b></dt>
+
+        <dd>If the user finishes a drag&amp;drop operation with the right mouse button, or clicks on an edit control item with the right mouse button, or clicks on a non-edit control item with the right mouse button, a context menu appears on the screen to choose an action. <b>contextMenuResModule</b> is the resource module of the module which contains the a special stringlist resource. The various context menus are constructed from the items of this stringlist. If <b>contextMenuResModule</b> is <tt>InvalidResModule</tt> or 0, DG uses the internal resource module.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>allFilesText</b></dt>
+
+        <dd>'All Files' text for file dialog. If it is empty, DG uses the internally stored English text "All Files"</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>allTypesText</b></dt>
+
+        <dd>'All types' text when serializing command layouts. If it is empty, DG uses the internally stored English text "All types"</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>menuChoiceTexts</b></dt>
+
+        <dd>'Select Item', 'Select', and 'Cancel' texts for the dynamic menu item choice dialog. If any of them is empty, DG uses the internally stored English texts "Select Item", "Select", and "Cancel".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>fileNameAlertResModule</b></dt>
+
+        <dd>If the user gives a too long path or filename in a filedialog, an alert will appear.<b>fileNameAlertResModule</b> is the resource module of this file name alert.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>fileNameAlertId</b></dt>
+
+        <dd>If the user gives a too long path or filename in a filedialog, an alert will appear.<b>fileNameAlertResModule</b> is the resource ID of this file name alert.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>rulerStrings</b></dt>
+
+        <dd>These texts appear when the user drags a tabulator in the ruler.<br>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="240">Text</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>mmText</tt></td>
+
+                    <td>'mm' unit text;<br>the default is "mm".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>cmText</tt></td>
+
+                    <td>'cm' unit text;<br>the default is "cm".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>mText</tt></td>
+
+                    <td>'m' unit text;<br>the default is "m".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>kmText</tt></td>
+
+                    <td>'km' unit text;<br>the default is "km".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>leftTabText</tt></td>
+
+                    <td>Text describing the left tabulator type;<br>the default is the English text "Left".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>rightTabText</tt></td>
+
+                    <td>Text describing the right tabulator type;<br>the default is the English text "Right".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>middleTabText</tt></td>
+
+                    <td>Text describing the middle tabulator type;<br>the default is the English text "Middle".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>decimalTabText</tt></td>
+
+                    <td>Text describing the decimal tabulator type;<br>the default is the English text "Decimal".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>firstLineIndentText</tt></td>
+
+                    <td>Text describing that the first line is indented;<br>the default is the English text "First Line Indent".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>leftIndentText</tt></td>
+
+                    <td>Text describing the line is indented to the left;<br>the default is the English text "Left Indent".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>rightIndentText</tt></td>
+
+                    <td>Text describing that the line is indented to the right;<br>the default is the English text "Right Indent".</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>openingBracket</b></dt>
+
+        <dd>Appended as an opening bracket to a text which describes a shortcut. If empty, the default " (" is used.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>closingBracket</b></dt>
+
+        <dd>Appended as a closing bracket to a text which describes a shortcut. If empty, the default ")" is used.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><img src="../DGImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh only:</b></dt>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>pPrefsFileLoc</b></dt>
+
+        <dd>DG saves the screen position/size of every dialog when closing them. When dialogs are reopened they appear at their last position. These positions are stored in a preferences file in the system Preferences folder. <b>pPrefsFileLoc</b> is the location of this file. If <b>pPrefsFileLoc</b> is <tt>nullptr</tt>, DG does not save the positions and sizes of dialogs.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>applMenuStrings</b></dt>
+
+        <dd>These menu strings appear in the Application menu.<br>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="240">Text</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>servicesText</tt></td>
+
+                    <td>'Services' menu item name;<br>the default is the English text "Services".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>hideText</tt></td>
+
+                    <td>'Hide [application name]' menu item prefix;<br>the default is the English text "Hide".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>hideothersText</tt></td>
+
+                    <td>'Hide Others' menu item name;<br>the default is the English text "Hide Others".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>showAllText</tt></td>
+
+                    <td>'Show All' menu item name;<br>the default is the English text "Show All".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>quitText</tt></td>
+
+                    <td>'Quit [application name]' menu item prefix;<br>the default is the English text "Quit".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>helpMenuText</tt></td>
+
+                    <td>'Help' menu title;<br>the default is the English text "Help".</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>colorPanelStrings</b></dt>
+
+        <dd>These texts appear on modal color panels.<br>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="240">Text</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>okText</tt></td>
+
+                    <td>'OK' button text;<br>the default is the English text "OK".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>cancelText</tt></td>
+
+                    <td>'Cancel' button text;<br>the default is the English text "Cancel".</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>fileTypeTitleOpen</b></dt>
+
+        <dd>Static text shown in front of the file type popup on custom Open dialog panels. If empty then uses the default English text "Enable:".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>fileTypeTitleSave</b></dt>
+
+        <dd>Static text shown in front of the file type popup on custom Save dialog panels. If empty then uses the default English text "Format:".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>chooseButtonTitle</b></dt>
+
+        <dd>Title and text of the default button in folder selection dialogs. If empty then uses the default English text "Choose".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>fontCollections</b></dt>
+
+        <dd>Menu text of the font collections item in font popups. If empty then uses the default English text "Font Collections".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><img src="../DGImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows only:</b></dt>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>contextMenuStrListId</b></dt>
+
+        <dd><b>contextMenuStrListId</b> is the resource ID of the stringlist id of the localized context menu items stored in a stringlist. If <b>contextMenuStrListId</b> is 0, DG uses the internally stored English default menus. The stringlist has a strict format. The items are in the following order, and has the corresponding meaning: "Help", "Undo", "Cut", "Copy", "Paste", "Clear", "Select All", "Copy Here", "Move Here", "Cancel". If the user clicks on an edit control item with the right mouse button, a context menu appears on the screen to choose an action (Help/Undo/Cut/Copy/Paste/Clear/SelectAll). If the user finishes a drag&amp;drop operation with the right mouse button, a context menu appears on the screen to choose an action (Copy/Move/Cancel). If the user clicks on a non-edit control item with the right mouse button, a context menu appears on the screen with a single item (Help).</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>applIconId</b></dt>
+
+        <dd>Resource ID of the application's icon. This icon appears on the alert, modal and modeless dialog captions.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>fontCharSet</b></dt>
+
+        <dd>Character set of dialog fonts. If <b>fontCharSet</b> is 0, DG uses <tt>ANSI_CHARSET</tt>.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>largeFontSize</b></dt>
+
+        <dd>Character size of the large dialog font in points. If <b>largeFontSize</b> is 0, DG uses 13.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>smallFontSize</b></dt>
+
+        <dd>Character size of the small dialog font in points. If <b>smallFontSize</b> is 0, DG uses 13.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>xSmallFontSize</b></dt>
+
+        <dd>Character size of the extra small dialog font in points. If <b>xSmallFontSize</b> is 0, DG uses 12.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>largeFontWeight</b></dt>
+
+        <dd>Weight of the bold large font (it must be in the range of 400-1000). If <b>largeFontWeight</b> is 0, DG uses 700 (<tt>FW_BOLD</tt>).</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>smallFontWeight</b></dt>
+
+        <dd>Weight of the bold small font (it must be in the range of 400-1000). If <b>smallFontWeight</b> is 0, DG uses 600 (<tt>FW_SEMIBOLD</tt>).</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>xSmallFontWeight</b></dt>
+
+        <dd>Weight of the bold extra small font (it must be in the range of 400- 1000). If <b>xSmallFontWeight</b> is 0, DG uses 700 (<tt>FW_BOLD</tt>).</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>largeFontName</b></dt>
+
+        <dd>Typeface name of the large dialog font. If <b>largeFontName</b> is an empty string, DG uses "MS Sans Serif".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>smallFontName</b></dt>
+
+        <dd>Typeface name of the small dialog font. If <b>smallFontName</b> is an empty string, DG uses "Arial".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>xSmallFontName</b></dt>
+
+        <dd>Typeface name of the extra small font. If <b>xSmallFontName</b> is an empty string, DG uses "Arial".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>closeMenuText</b></dt>
+
+        <dd>Close menu item text in the system menu of modeless dialogs. If <b>closeMenuText</b> is an empty string, DG uses the internally stored English text "&amp;Close".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>nextMenuText</b></dt>
+
+        <dd>Next window menu item text in the system menu of modeless dialogs. If <b>nextMenuText</b> is an empty string, DG uses the internally stored English text "Nex&amp;t".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>errorText</b></dt>
+
+        <dd>Title of error alert created by <a href="DGAlert.html">DGAlert</a>. If <b>errorText</b> is an empty string, DG uses the internally stored English text "Error!".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>warningText</b></dt>
+
+        <dd>Title of warning alert created by <b>DGAlert</b>. If <b>warningText</b> is an empty string, DG uses the internally stored English text "Warning!".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>infoText</b></dt>
+
+        <dd>Title of information alert created by <b>DGAlert</b>. If <b>infoText</b> is an empty string, DG uses the internally stored English text "Information".</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>applRegKey</b></dt>
+
+        <dd>DG saves the screen position/size of every dialog when closing them. When dialogs are reopened they appear at their last position. These positions are stored in the Windows system registry under the application's registry key. <b>applRegKey</b> is the full path of this registry key. If <b>applRegKey</b> is an empty string, DG does not save the positions and sizes of dialogs.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>rtlOrder</b></dt>
+
+        <dd>Specify for systems which use right to left writing order (Arabic, Hebrew). Affects the creation of text-like dialog items, the behavior of the ruler. Its value can be 0 (non-RTL) or 1 (RTL).</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>fileDialogStrings</b></dt>
+
+        <dd>These texts appear in file dialogs and related warnings.<br>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="240">Text</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>openText</tt></td>
+
+                    <td>'Open' text for the Open Folder dialog OK button;<br>the default is "Open".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>chooseText</tt></td>
+
+                    <td>'Choose' text for the Open Folder dialog OK button;<br>the default is "Choose".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>fileNameText</tt></td>
+
+                    <td>'File name:' text for the Open Folder dialog static text;<br>the default is "File name:".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>folderNameText</tt></td>
+
+                    <td>'Folder name:' text for the Open Folder dialog static text;<br>the default is "Folder name:".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>fileOrFolderText</tt></td>
+
+                    <td>'File or folder:' text for the OpenFolder dialog static text;<br>the default is the English text "File or folder:".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>warningCaptionText</tt></td>
+
+                    <td>'Warning' title of the alert in the file dialog;<br>the default is the English text "Warning".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>warningAlertText</tt></td>
+
+                    <td>Alert text of the Warning in the file dialog;<br>the default is the English text "The selected file is not a %s file. Please select a valid %s file.".</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>warningAlertAllTypeText</tt></td>
+
+                    <td>Alert text of the Warning in the file dialog when "All file type (*.*)" selected;<br>the default is the English text "Can not open %s.".</td>
+                </tr>
+            </table>
+        </dd>
+
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The <b>DGInitData</b> structure is used by the <b>DGInit</b> function. The structure should be zeroed before calling <b>DGInit</b> because in case of empty fields DG uses internal defaults. Only fields with different values from the above mentioned defaults are to be set.</p>
+
+    <p>There is a version check in the DG dialog manager when calling the <b>DGInit</b> function. The relation between version numbers given in the <b>DGInitData</b> structure (external versions) and the ones in the DG dialog manager (internal versions) must be the following: <b>mainVersion</b> members must be equal, internal <b>subVersion</b> must be greater or equal than the external one, and if <b>subVersion</b>s are equal the internal <b>revision</b> must be greater than or equal to the external one. This procedure ensures that no older version of the DG dialog manager can be used.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4><a href="Structures_id.html">DG Structures</a>, <a href="EditControl.html">Edit Control</a>, <a href="DGAlert.html">DGAlert</a>, <a href="DGInit.html">DGInit</a>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

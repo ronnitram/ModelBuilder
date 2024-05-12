@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Akos Somorjai">
+
+    <title>Localizability</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APISGHTMLLibrary/Localizability.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Style&nbsp;Guide</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Localizability</h1>
+
+    <p>All error messages and texts appearing to the user should come from '<tt>STR#</tt>' resources or '<tt>STRf</tt>' resources. The first type should contain all localizable texts; the second type can be used for non-localizable messages.</p>
+
+    <p>It is also important to separate debugging error messages ('Error 28' is probably not very meaningful to the user) from normal error messages which the user sees in the final version. The debugging option is usually indicated by the <tt>DEBUVERS</tt> compiler switch (you can also define that in the make environment when compiling the debug version). You should put all the debugging messages into a grc file in the <tt>RFIX</tt> folders, indicating that these strings don't need localization. You can also bracket these messages within <tt>#ifdef DEBUVERS - #endif</tt>, so that they don't go into the release version. (See the '<tt>GALR</tt>' #32600 resource in the <tt>Attribute_ManagerFix.grc</tt> file.)</p>
+
+    <p>The same is true for other non-localizable strings (like names of library part parameters): they should also go into the files in the RFIX folder.</p>
+
+    <p>You should also be aware of multibyte systems (Japanese, Korean etc.); use the <a href="../../GSRoot/GSRootHTMLLibrary/StringManager/def_id.html">String Manager</a> in the development kit to avoid such problems. The typical places where problems can occur are: static and edit text items, numeric input fields (e.g. degree symbol).</p>
+
+    <p><em>Commandments:</em></p>
+
+    <ul>
+        <li><em>Create a correct interface</em>: if you make mistakes (graphically incorrect, bad, incorrect, confusing wording, etc.), then these mistakes could go into 20 localized versions. These have to be corrected anyhow, and it makes a lot of difference in time and money if you have to do it in 20 versions.</li>
+
+        <li><em>Very good quality of the English text is a must</em>: it is a crucial point in the usability of the software (and also for the localizers). Rely on the support of a language proofreader and interface designers. Never use slang or offending expressions (be aware of cultural differences!), and don't invent a new terminology -- the user will be confused.</li>
+
+        <li><em>Don't make unnecessary changes</em>: don't modify the resources of a released add-on just for the sake of modification or minor advantages. These modifications have to be carried through 20 different language versions.</li>
+
+        <li><em>You are not ready when you finished coding</em>: you have to add help and a documentation at minimum. This is the task of the programmer and the specificator.</li>
+    </ul>
+
+    <p><em>Language problems:</em></p>
+
+    <ul>
+        <li><em>Avoid concatenation</em>: don't create sentences out of concatenated strings. Even if it worked in English, it will never work in any other language (order of words etc.). One sentence or expression should be one item/resource.</li>
+
+        <li><em>Using very short English expressions</em>: expressions which can be expressed in English in a compact form could never be expressed in the same form in any other language. The interface should leave place for the longer localized strings (so that the localizer wouldn't have to rearrange the whole dialog).</li>
+
+        <li><em>Put comments behind the localizable resources</em>: it is much easier for the localizer to figure out what that string means, or what its maximum length should be.</li>
+
+        <li><em>Never use the same string for different semantic meanings</em>: this can be confusing for the localizer; besides it is very likely that the localized expression would be different in the different contexts in a foreign language.</li>
+
+        <li><em>Don't use abbreviations or play games with words</em>.</li>
+
+        <li><em>Related information</em>: should be stored side by side in the resource. If not, then place comments to indicate the relationship.</li>
+
+        <li><em>Changing menus and buttons</em>: please place comments to indicate that a string from a resource would go into a menu or button.</li>
+    </ul>
+
+    <p><em>Colors, icons:</em></p>
+
+    <ul>
+        <li>Be careful in using colors and icons -- this is the job of the interface designer. Generally, you should use icons as replacements for text items (icons require less localization).</li>
+
+        <li>Don't put text into bitmaps, pictures or icons unless absolutely necessary.</li>
+    </ul>
+
+    <p><em>Fonts:</em></p>
+
+    <ul>
+        <li><em>Do not hardwire font names into the source code</em>: put the font names into resources so that they would be localizable. Also leave place in the dialogs for bigger sized fonts (Mac vs Windows, Roman vs Japanese etc.). If you store font names, then leave place for longer font names (don't create checksums for 'Arial').</li>
+    </ul>
+
+    <p><em>Delimiters, measurement units:</em></p>
+
+    <ul>
+        <li><em>Don't hardwire decimal and thousand separators or measurement units into the source code</em>: they all depend on a language/font/platform. Be prepared to handle double-byte versions as well (e.g. degree symbol).</li>
+    </ul>
+
+    <p><em>About dialogs:</em></p>
+
+    <ul>
+        <li><em>Don't use offsets</em>: DG gives you the possibility of moving many dialog items at the same time with Offset. Use this only in the design phase; take it out from the release version.</li>
+
+        <li><em>DY</em>: in a dialog use the same height for each item type. For example, LargePlain static/edit texts, radiobuttons should be 16, LargePlain checkboxes would be 18 pixel high. Use these values in all your dialogs! You can find the recommended values in the documentation of the <a href="../../DialogManager/DialogManager.html">Dialog Manager</a>.</li>
+
+        <li><em>Overlapping/hidden items</em>: avoid placing 20-30 dialog items in position (0, 0), then distributing them from the source code. Place them onto tab pages group by group at least, so that the localizers would see which items will appear together in the dialog.</li>
+
+        <li><em>Leave enough place for text items</em>: replacing compact English terms with much longer German or Japanese terms is one of the most difficult tasks for the localizers. This hurts the original intent of the designer not only by making the dialog 'lighter', but also by forcing the localizer to make unnecessary abbreviations or to reorganize the dialog completely.</li>
+
+        <li><em>Give name and ID number to each resource</em>: at least put some information about the usage of the resource into comments (after the resource type!). Please also indicate at least with initials the programmer of the dialog (so that the localizers can figure out who to contact).</li>
+    </ul>
+
+    <p><em>General rules for writing resources:</em></p>
+
+    <ul>
+        <li><em>Stick to a certain format</em>: as shown in the API examples. For example for dialogs: put the item index at the beginning of the line between comments (like: "/* 23 */"), and put other comments at the end of the line -- some of the localization tools used internally by Graphisoft rely on this.</li>
+
+        <li><em>Don't limit the length of text items if possible</em>: but if you have to, then indicate this with a comment (e.g. "/* max 32 chars */"), so that the localizer should also learn this. Imposing an uncountable limit (like 1024) is completely unnecessary...</li>
+
+        <li><em>Spring cleaning</em>: do this once in a while. Unused dialogs, string resources should be deleted.</li>
+    </ul>
+
+    <p><em>Make environment:</em></p>
+
+    <ul>
+        <li>The make environment supplied to Localization should work on both platforms. Take into account the possibilities supplied by environment: use the common files (like EmuLocal.h for defining language-specific things). Don't hardwire into your source code the language of the add-on (e.g. don't use <tt>#define JAPANESE</tt> to distinguish in your source code between a Japanese and an English version). Localizers hate to touch the source code; they work with resources.</li>
+
+        <li>Avoid defining <tt>INT_APP</tt> in the resource file. The code page depends on the value of the <em>language_version</em>_APP define (unless you really want to see the international code page in your Korean add-on :)).</li>
+
+        <li><em>Create a correct '<tt>VERS</tt>' resource</em>: for example, update the copyright date on year change.</li>
+
+        <li>If possible avoid including header files from other directories (like <tt>#include "..\Src\Mydefs.h"</tt>) in the grc file. The GRC compiler only supports one extra access path, and that is usually reserved for the <tt>RFIX\Images</tt> folder. You can adjust this by modifying the <tt>RESCONVFLAGS</tt> variable in the make environment.</li>
+    </ul>
+
+    <p><em>Other:</em></p>
+
+    <ul>
+        <li><em>Consider technology changes seriously</em>: introducing a new technology may have a serious impact on localization as well.</li>
+
+        <li><em>Check whether the technology you use is available and localized in many system versions/platforms</em>.</li>
+    </ul>&nbsp;
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 7, 2004<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_3DImageInfo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_3DImageInfo.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_3DImageInfo</h1>
+
+    <p>Parameters of the 'Filter and Cut Elements in 3D' dialog.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>short</strong>                  <em>firstStory3D</em>;
+        <strong>short</strong>                  <em>lastStory3D</em>;
+        <strong>bool</strong>                   <em>allStories</em>;
+        <strong>bool</strong>                   <em>inSelect</em>;
+        <strong>bool</strong>                   <em>trimToMark</em>;
+        <strong>bool</strong>                   <em>wall</em>;
+        <strong>bool</strong>                   <em>colu</em>;
+        <strong>bool</strong>                   <em>symb</em>;
+        <strong>bool</strong>                   <em>light</em>;
+        <strong>bool</strong>                   <em>ceil</em>;
+        <strong>bool</strong>                   <em>mesh</em>;
+        <strong>bool</strong>                   <em>roof</em>;
+        <strong>bool</strong>                   <em>shell</em>;
+        <strong>bool</strong>                   <em>curtainWall</em>;
+        <strong>bool</strong>                   <em>wind</em>;
+        <strong>bool</strong>                   <em>door</em>;
+        <strong>bool</strong>                   <em>skylight</em>;
+        <strong>bool</strong>                   <em>morph</em>;
+        <strong>bool</strong>                   <em>beam</em>;
+        <strong>bool</strong>                   <em>room</em>;
+        <strong>bool</strong>                   <em>filler_1</em>;
+        <strong>bool</strong>                   <em>trimToStoryRange</em>;
+        <strong>short</strong>                  <em>markRectFloor</em>;
+        <strong>short</strong>                  <em>markVertType</em>;
+        <strong><a href="API_3DFilterModeID.html">API_3DFilterModeID</a></strong>     <em>filterMode</em>;
+        <strong>Int32</strong>                  <em>filler_2[8]</em>;
+    <strong>}</strong> <em>API_3DImageInfo</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>firstStory3D</b></dt>
+
+        <dd>First story to convert. Valid only if <code>allStories</code> is <code>false</code></dd>
+
+        <dt><b>lastStory3D</b></dt>
+
+        <dd>Last story to convert. Valid only if <code>allStories</code> is <code>false</code></dd>
+
+        <dt><b>allStories</b></dt>
+
+        <dd>Create a 3D projection of all stories rather than a range of stories defined by <code>firstStory3D</code>..<code>lastStory3D</code></dd>
+
+        <dt><b>inSelect</b></dt>
+
+        <dd>Image only the elements that are within or outside the marquee area defined in the floor plan</dd>
+
+        <dt><b>trimToMark</b></dt>
+
+        <dd>Cut the 3D model by the marquee defined in the floor plan</dd>
+
+        <dt><b>wall</b></dt>
+
+        <dd>Show wall type elements in the 3D projection</dd>
+
+        <dt><b>colu</b></dt>
+
+        <dd>Show column type elements in the 3D projection</dd>
+
+        <dt><b>symb</b></dt>
+
+        <dd>Show object type elements in the 3D projection</dd>
+
+        <dt><b>light</b></dt>
+
+        <dd>Show lamp type elements in the 3D projection</dd>
+
+        <dt><b>ceil</b></dt>
+
+        <dd>Show slab type elements in the 3D projection</dd>
+
+        <dt><b>mesh</b></dt>
+
+        <dd>Show mesh type elements in the 3D projection</dd>
+
+        <dt><b>roof</b></dt>
+
+        <dd>Show roof type elements in the 3D projection</dd>
+
+        <dt><b>shell</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></dt>
+
+        <dd>Show shells in the 3D projection</dd>
+
+        <dt><b>curtainWall</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>Show curtain walls in the 3D projection</dd>
+
+        <dt><b>wind</b></dt>
+
+        <dd>Show window type elements in the 3D projection. If this value is <code>false</code>, empty holes are shown in the walls</dd>
+
+        <dt><b>door</b></dt>
+
+        <dd>Show door type elements in the 3D projection. If this value is <code>false</code>, empty holes are shown in the walls</dd>
+
+        <dt><b>skylight</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="15" width="19" height="12"></dt>
+
+        <dd>Show skylight type elements in the 3D projection. If this value is <code>false</code>, empty holes are shown in the roofs</dd>
+
+        <dt><b>morph</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="16" width="19" height="12"></dt>
+
+        <dd>Show morphs in the 3D projection</dd>
+
+        <dt><b>beam</b></dt>
+
+        <dd>Show beam type elements in the 3D projection</dd>
+
+        <dt><b>room</b></dt>
+
+        <dd>Show zone type elements in the 3D projection</dd>
+
+        <dt><b>trimToStoryRange</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="11" width="19" height="12"></dt>
+
+        <dd>Trims elements to the story range (see the <em>Trim Elements to story range</em> checkbox in the <b>Filter and Cut Elements in 3D</b> dialog.</dd>
+
+        <dt><b>markRectFloor</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>The story for the single-story marquee rectangle.</dd>
+
+        <dt><b>markVertType</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="12" width="19" height="12"></dt>
+
+        <dd>Whether it is a single story or an all story marquee rectangle.</dd>
+
+        <dt><b>filterMode</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></dt>
+
+        <dd>The 3D filter mode. For available modes see <a href="API_3DFilterModeID.html">API_3DFilterModeID</a> enumeration. (output only)</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is used to retrieve and modify the data of the 3D image item settings by the <a href="../Functions/APIEnv_Get3DImageSetsID.html">APIEnv_Get3DImageSetsID</a> and <a href="../Functions/APIEnv_Change3DImageSetsID.html">APIEnv_Change3DImageSetsID</a> environment functions.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Types.html">API Types</a>, <a href="../Functions/APIEnv_Get3DImageSetsID.html">APIEnv_Get3DImageSetsID</a>, <a href="../Functions/APIEnv_Change3DImageSetsID.html">APIEnv_Change3DImageSetsID</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 7, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+    <title>How to create a template and a placeable library part</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/FAQ/template_un.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>How to create a template library part to be used in my add-on?</h1>
+
+    <ol>
+        <li>
+            <p>Create a new library part in Archicad, and insert it into the correct place in the subtype hierarchy with the <b>Select Subtype</b> button: (in this example I shall insert the object as the subtype of Model Element). Also check the '<b>Use as subtype</b>' checkbox.</p>
+
+            <blockquote>
+                <img src="../../../APIImageLibrary/lp_template1.png" class="size2x" width="852" height="164" alt="LibPart template 1">
+            </blockquote>
+
+            <p>&nbsp;</p>
+
+            <p>Then save this object as, let's say "Zoom GDL Object". You can check whether this has been inserted into the object hierarchy correctly if you bring up the <i>File</i> / <i>GDL Object</i> / <i>Open Object by Subtype...</i> dialog.</p>
+
+            <blockquote>
+                <img border="0" src="../../../APIImageLibrary/lp_template2.png" class="size2x" width="512" height="436" alt="LibPart template 2">
+            </blockquote>
+        </li>
+
+        <li>
+            <p>Add this 'Zoom GDL Object' to your Add-On in a FILE resource:</p>
+
+            <blockquote>
+                <pre><code>
+'FILE' 132 "Zoom Object.gsm" {
+    "Zoom GDL Object.gsm"
+}
+</code></pre>
+            </blockquote>
+
+            <p>The name of the resource ("Zoom Object.gsm") will appear in the Object Settings dialog, and the content of the resource refers to name of the file ("Zoom GDL Object.gsm") you would like to include in your add-on.</p>
+        </li>
+
+        <li>
+            <p>Call <code><a href="../../Functions/ACAPI_Register_BuiltInLibrary.html">ACAPI_Register_BuiltInLibrary</a></code> from your <code>RegisterInterface ()</code> function.</p>
+        </li>
+
+        <li>
+            <p>If you want to create a new object whose parent is this object in the subtype hierarchy, then before calling <code><a href="../../Functions/ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a></code> fill in the <code>parentUnID</code> field of the <a href="../../Structures/API_LibPart.html"><code>API_LibPart</code></a> structure this way:</p>
+
+            <blockquote>
+                <pre><code>
+ACAPI_Goodies (APIAny_GetBuiltInLibpartUnIdID, (void*)(Int32) 132, libPart.parentUnID);   // 132 is the 'FILE' resource ID
+</code></pre>
+            </blockquote>
+        </li>
+
+        <li>
+            <p>Set the <code>placeable</code>, and clear the <code>template</code> field of the <code>API_LibPart</code> structure.</p>
+        </li>
+
+        <li>
+            <p>After this you can call <code><a href="../../Functions/ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a></code>, and the library part will be inserted into the correct place in the subtype hierarchy.</p>
+        </li>
+    </ol>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 25, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

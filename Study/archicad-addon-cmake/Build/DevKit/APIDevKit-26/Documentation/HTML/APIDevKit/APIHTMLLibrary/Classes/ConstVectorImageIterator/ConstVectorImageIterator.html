@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>ConstVectorImageIterator</title><!-- index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Classes/ConstVectorImageIterator/ConstVectorImageIterator.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ConstVectorImageIterator class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>An iterator of the VectorImage. <!-- Not Index --><a href="#Detailed%20description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td>Advanced graphics</td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>VectorImageIterator.hpp</td>
+        </tr>
+    </table><br>
+    <br>
+
+    <h3>Public methods</h3>
+
+    <p>&nbsp;&nbsp;&nbsp; <a href="Constructors.html">Constructors</a><br>
+    &nbsp;&nbsp;&nbsp; Copy constructor<br>
+    &nbsp;&nbsp;&nbsp; operator=<br>
+    <br>
+    <b>Conversions</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="op_ptr.html">operator*</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="op_ref.html">operator-&gt;</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="op_const_Sy_EndType_ptr.html">operator const Sy_EndType*</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="op_const_Sy_HotType_ptr.html">operator const Sy_HotType*</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="op_const_Sy_LinType_ptr.html">operator const Sy_LinType*</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="op_const_Sy_PolyLinType_ptr.html">operator const Sy_PolyLinType*</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="op_const_Sy_ArcType_ptr.html">operator const Sy_ArcType*</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="op_const_Sy_TextType_ptr.html">operator const Sy_TextType*</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="op_const_Sy_HatchType_ptr.html">operator const Sy_HatchType*</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="op_const_Sy_SplineType_ptr.html">operator const Sy_SplineType*</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="op_const_Sy_PictureType_ptr.html">operator const Sy_PictureType*</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="op_const_Sy_PixMapType_ptr.html">operator const Sy_PixMapType*</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="op_const_Sy_FontType_ptr.html">operator const Sy_FontType*</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="op_GSConstPtr.html">operator GSConstPtr</a><br>
+    <br>
+    <b>Iteration</b><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="SortRecord.html">SortRecord</a><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; <a href="op_plusplus.html">operator++</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="IsEOI.html">IsEOI</a><br>
+    &nbsp;&nbsp;&nbsp; <a href="SetSorting.html">SetSorting</a><br></p>
+
+    <h3><a name="Detailed description"></a>Detailed description</h3>
+
+    <p>This class is for iteration of the elements of a <!-- Not Index --><a href="../VectorImage/VectorImage.html">VectorImage</a>. You can control the order of elements in the iteration with the <!-- Not Index --><a href="SetSorting.html">SetSorting</a> method. If you need to modify the primitives to some extent you should see the <!-- Not Index --><a href="../VectorImageIterator/VectorImageIterator.html">VectorImageIterator</a>.</p>
+
+    <h3>See Also</h3>
+
+    <p>&nbsp;&nbsp;&nbsp; <!-- Not Index --><a href="../VectorPrimitives/VectorPrimitives.html">Graphical Primitives</a> &nbsp;&nbsp;&nbsp; <!-- Not Index --><a href="../VIDrawContext/VIDrawContext.html">Draw Context</a></p><!-- FOOTER  FOOTEREND -->
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 10, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

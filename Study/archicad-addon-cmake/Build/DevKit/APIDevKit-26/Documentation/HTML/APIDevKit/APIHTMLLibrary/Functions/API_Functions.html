@@ -1,0 +1,987 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <!-- Index -->
+
+    <title>API Functions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/API_Functions.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API Functions</h1>
+
+    <blockquote>
+        <!--NoIdx--><a href="ACAPI_3D_CreateSight.html">ACAPI_3D_CreateSight</a><br>
+        <!--NoIdx--><a href="ACAPI_3D_DecomposePgon.html">ACAPI_3D_DecomposePgon</a><br>
+        <!--NoIdx--><a href="ACAPI_3D_DeleteSight.html">ACAPI_3D_DeleteSight</a><br>
+        <!--NoIdx--><a href="ACAPI_3D_GetComponent.html">ACAPI_3D_GetComponent</a><br>
+        <!--NoIdx--><a href="ACAPI_3D_GetCurrentWindowSight.html">ACAPI_3D_GetCurrentWindowSight</a><br>
+        <!--NoIdx--><a href="ACAPI_3D_GetCutPolygonInfo.html">ACAPI_3D_GetCutPolygonInfo</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_3D_GetNum.html">ACAPI_3D_GetNum</a><br>
+        <!--NoIdx--><a href="ACAPI_3D_SelectSight.html">ACAPI_3D_SelectSight</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_ActionCenter_Check.html">ACAPI_ActionCenter_Check</a>&nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_ActivatePropertyObjectHandler.html">ACAPI_ActivatePropertyObjectHandler</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_CreateObject.html">ACAPI_AddOnObject_CreateObject</a><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_CreateClientOnlyObject.html">ACAPI_AddOnObject_CreateClientOnlyObject</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_CreateUniqueObject.html">ACAPI_AddOnObject_CreateUniqueObject</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_CreateUniqueObjectMore.html">ACAPI_AddOnObject_CreateUniqueObjectMore</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_DeleteObject.html">ACAPI_AddOnObject_DeleteObject</a><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_ExistsObject.html">ACAPI_AddOnObject_ExistsObject</a><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_GetObjectContent.html">ACAPI_AddOnObject_GetObjectContent</a><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_GetObjectGuidFromName.html">ACAPI_AddOnObject_GetObjectGuidFromName</a><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_GetClientOnlyObjectGuidFromName.html">ACAPI_AddOnObject_GetClientOnlyObjectGuidFromName</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_GetUniqueObjectGuidFromName.html">ACAPI_AddOnObject_GetUniqueObjectGuidFromName</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_GetObjectList.html">ACAPI_AddOnObject_GetObjectList</a><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_GetTeamworkOwnerId.html">ACAPI_AddOnObject_GetTeamworkOwnerId</a><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_GrantObjects.html">ACAPI_AddOnObject_GrantObjects</a><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_ModifyObject.html">ACAPI_AddOnObject_ModifyObject</a><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_ReleaseObjects.html">ACAPI_AddOnObject_ReleaseObjects</a><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_RequestObjects.html">ACAPI_AddOnObject_RequestObjects</a><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_ReserveObjects.html">ACAPI_AddOnObject_ReserveObjects</a><br>
+        <!--NoIdx--><a href="ACAPI_AddOnObject_SetUIProperties.html">ACAPI_AddOnObject_SetUIProperties</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_AddLoadCaseToLoadCombination.html">ACAPI_AnalyticalModel_AddLoadCaseToLoadCombination</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_ConvertAnalyticalLinkToNonShortest.html">ACAPI_AnalyticalModel_ConvertAnalyticalLinkToNonShortest</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_CreateAnalyticalLoadCase.html">ACAPI_AnalyticalModel_CreateAnalyticalLoadCase</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_CreateAnalyticalLoadCombination.html">ACAPI_AnalyticalModel_CreateAnalyticalLoadCombination</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_CreateAnalyticalLoadGroup.html">ACAPI_AnalyticalModel_CreateAnalyticalLoadGroup</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_CreateElementFromCurveMember.html">ACAPI_AnalyticalModel_CreateElementFromCurveMember</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_CreateElementFromSegmentedSurfaceMember.html">ACAPI_AnalyticalModel_CreateElementFromSegmentedSurfaceMember</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_CreateElementFromSurfaceMember.html">ACAPI_AnalyticalModel_CreateElementFromSurfaceMember</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_DeleteAnalyticalLoadCase.html">ACAPI_AnalyticalModel_DeleteAnalyticalLoadCase</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_DeleteAnalyticalLoadCombination.html">ACAPI_AnalyticalModel_DeleteAnalyticalLoadCombination</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_DeleteAnalyticalLoadGroup.html">ACAPI_AnalyticalModel_DeleteAnalyticalLoadGroup</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAllAnalyticalLoadCases.html">ACAPI_AnalyticalModel_GetAllAnalyticalLoadCases</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalEdgeLoadGeometry.html">ACAPI_AnalyticalModel_GetAnalyticalEdgeLoadGeometry</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalLinkGeometry.html">ACAPI_AnalyticalModel_GetAnalyticalLinkGeometry</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalLoadCase.html">ACAPI_AnalyticalModel_GetAnalyticalLoadCase</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalLoadCases.html">ACAPI_AnalyticalModel_GetAnalyticalLoadCases</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalLoadCombination.html">ACAPI_AnalyticalModel_GetAnalyticalLoadCombination</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalLoadCombinations.html">ACAPI_AnalyticalModel_GetAnalyticalLoadCombinations</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalLoadGroup.html">ACAPI_AnalyticalModel_GetAnalyticalLoadGroup</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalLoadGroups.html">ACAPI_AnalyticalModel_GetAnalyticalLoadGroups</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalMemberConnections.html">ACAPI_AnalyticalModel_GetAnalyticalMemberConnections</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalModel.html">ACAPI_AnalyticalModel_GetAnalyticalModel</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalModelVariation.html">ACAPI_AnalyticalModel_GetAnalyticalModelVariation</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetVisibilitySettings.html">ACAPI_AnalyticalModel_GetVisibilitySettings</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_SetVisibilitySettings.html">ACAPI_AnalyticalModel_SetVisibilitySettings</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalPointLoadGeometry.html">ACAPI_AnalyticalModel_GetAnalyticalPointLoadGeometry</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalRelease.html">ACAPI_AnalyticalModel_GetAnalyticalRelease</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalSupportGeometry.html">ACAPI_AnalyticalModel_GetAnalyticalSupportGeometry</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetAnalyticalSurfaceLoadGeometry.html">ACAPI_AnalyticalModel_GetAnalyticalSurfaceLoadGeometry</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetComplementaryProjectMemberType.html">ACAPI_AnalyticalModel_GetComplementaryProjectMemberType</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetCurrentAnalyticalModel.html">ACAPI_AnalyticalModel_GetCurrentAnalyticalModel</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetCurveElements.html">ACAPI_AnalyticalModel_GetCurveElements</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetCurveMember.html">ACAPI_AnalyticalModel_GetCurveMember</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetEdgeLoadFromElement.html">ACAPI_AnalyticalModel_GetEdgeLoadFromElement</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetLCSOfAnalyticalMember.html">ACAPI_AnalyticalModel_GetLCSOfAnalyticalMember</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetLCSOfAnalyticalMemberInIntersection.html">ACAPI_AnalyticalModel_GetLCSOfAnalyticalMemberInIntersection</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetLinkFromElement.html">ACAPI_AnalyticalModel_GetLinkFromElement</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetPointLoadFromElement.html">ACAPI_AnalyticalModel_GetPointLoadFromElement</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetSupportFromElement.html">ACAPI_AnalyticalModel_GetSupportFromElement</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetSurfaceElements.html">ACAPI_AnalyticalModel_GetSurfaceElements</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetSurfaceLoadFromElement.html">ACAPI_AnalyticalModel_GetSurfaceLoadFromElement</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_GetSurfaceMember.html">ACAPI_AnalyticalModel_GetSurfaceMember</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_SetAnalyticalRelease.html">ACAPI_AnalyticalModel_SetAnalyticalRelease</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_SetElementFromEdgeLoad.html">ACAPI_AnalyticalModel_SetElementFromEdgeLoad</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_SetElementFromLink.html">ACAPI_AnalyticalModel_SetElementFromLink</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_SetElementFromPointLoad.html">ACAPI_AnalyticalModel_SetElementFromPointLoad</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_SetElementFromSupport.html">ACAPI_AnalyticalModel_SetElementFromSupport</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_SetElementFromSurfaceLoad.html">ACAPI_AnalyticalModel_SetElementFromSurfaceLoad</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_UpdateAnalyticalModel.html">ACAPI_AnalyticalModel_UpdateAnalyticalModel</a> &nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_AnalyticalModel_SetGenerationSettingsToNoRule.html">ACAPI_AnalyticalModel_SetGenerationSettingsToNoRule</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_Attribute_Create.html">ACAPI_Attribute_Create</a><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_CreateExt.html">ACAPI_Attribute_CreateExt</a><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_Delete.html">ACAPI_Attribute_Delete</a><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_DeleteMore.html">ACAPI_Attribute_DeleteMore</a><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_Get.html">ACAPI_Attribute_Get</a><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_GetDef.html">ACAPI_Attribute_GetDef</a><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_GetDefExt.html">ACAPI_Attribute_GetDefExt</a><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_GetNum.html">ACAPI_Attribute_GetNum</a><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_GetUserData.html">ACAPI_Attribute_GetUserData</a><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_Modify.html">ACAPI_Attribute_Modify</a><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_ModifyExt.html">ACAPI_Attribute_ModifyExt</a><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_Search.html">ACAPI_Attribute_Search</a><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_SetUserData.html">ACAPI_Attribute_SetUserData</a><br>
+		<!--NoIdx--><a href="ACAPI_Attribute_GetClassificationItems.html">ACAPI_Attribute_GetClassificationItems</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="ACAPI_Attribute_GetClassificationInSystem.html">ACAPI_Attribute_GetClassificationInSystem</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="ACAPI_Attribute_AddClassificationItem.html">ACAPI_Attribute_AddClassificationItem</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="ACAPI_Attribute_RemoveClassificationItem.html">ACAPI_Attribute_RemoveClassificationItem</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="ACAPI_Attribute_IsClassificationItemVisible.html">ACAPI_Attribute_IsClassificationItemVisible</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_GetFolder.html">ACAPI_Attribute_GetFolder</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_CreateFolder.html">ACAPI_Attribute_CreateFolder</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="ACAPI_Attribute_DeleteFolder.html">ACAPI_Attribute_DeleteFolder</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_GetFolderContent.html">ACAPI_Attribute_GetFolderContent</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_RenameFolder.html">ACAPI_Attribute_RenameFolder</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_GetFolderContent.html">ACAPI_Attribute_GetFolderContent</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="ACAPI_Interface_CreateAttributePicker.html">ACAPI_Interface_CreateAttributePicker</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_CreateAttributeFolderPicker.html">ACAPI_Attribute_CreateAttributeFolderPicker</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_GetCurrentAttributeSetReader.html">ACAPI_Attribute_GetCurrentAttributeSetReader</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_Move.html">ACAPI_Attribute_Move</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_GetPropertyDefinitions.html">ACAPI_Attribute_GetPropertyDefinitions</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_GetPropertyValue.html">ACAPI_Attribute_GetPropertyValue</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_GetPropertyValues.html">ACAPI_Attribute_GetPropertyValues</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_GetPropertyValuesByGuid.html">ACAPI_Attribute_GetPropertyValuesByGuid</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_SetProperty.html">ACAPI_Attribute_SetProperty</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_SetProperties.html">ACAPI_Attribute_SetProperties</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_IsPropertyDefinitionValueEditable.html">ACAPI_Attribute_IsPropertyDefinitionValueEditable</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_IsPropertyDefinitionAvailable.html">ACAPI_Attribute_IsPropertyDefinitionAvailable</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Attribute_IsPropertyDefinitionVisible.html">ACAPI_Attribute_IsPropertyDefinitionVisible</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="ACAPI_AttributeList_AddProperty.html">ACAPI_AttributeList_AddProperty</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="ACAPI_AttributeList_DeleteProperty.html">ACAPI_AttributeList_DeleteProperty</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="ACAPI_AttributeList_ModifyPropertyValue.html">ACAPI_AttributeList_ModifyPropertyValue</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="acapi_automate_id.html">ACAPI_Automate</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_Body_AddEdge.html">ACAPI_Body_AddEdge</a><br>
+        <!--NoIdx--><a href="ACAPI_Body_AddPolygon.html">ACAPI_Body_AddPolygon</a><br>
+        <!--NoIdx--><a href="ACAPI_Body_AddPolyNormal.html">ACAPI_Body_AddPolyNormal</a><br>
+        <!--NoIdx--><a href="ACAPI_Body_AddVertex.html">ACAPI_Body_AddVertex</a><br>
+        <!--NoIdx--><a href="ACAPI_Body_Create.html">ACAPI_Body_Create</a><br>
+        <!--NoIdx--><a href="ACAPI_Body_Dispose.html">ACAPI_Body_Dispose</a><br>
+        <!--NoIdx--><a href="ACAPI_Body_Finish.html">ACAPI_Body_Finish</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_CallCommand.html">ACAPI_CallCommand</a><br>
+        <!--NoIdx--><a href="ACAPI_CallUndoableCommand.html">ACAPI_CallUndoableCommand</a><br>
+        <!--NoIdx--><a href="ACAPI_Classification_ChangeClassificationItem.html">ACAPI_Classification_ChangeClassificationItem</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Classification_ChangeClassificationSystem.html">ACAPI_Classification_ChangeClassificationSystem</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Classification_CreateClassificationItem.html">ACAPI_Classification_CreateClassificationItem</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Classification_CreateClassificationSystem.html">ACAPI_Classification_CreateClassificationSystem</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Classification_DeleteClassificationItem.html">ACAPI_Classification_DeleteClassificationItem</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Classification_DeleteClassificationSystem.html">ACAPI_Classification_DeleteClassificationSystem</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Classification_GetClassificationItem.html">ACAPI_Classification_GetClassificationItem</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Classification_GetClassificationItemChildren.html">ACAPI_Classification_GetClassificationItemChildren</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Classification_GetClassificationItemParent.html">ACAPI_Classification_GetClassificationItemParent</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Classification_GetClassificationSystem.html">ACAPI_Classification_GetClassificationSystem</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Classification_GetClassificationSystemRootItems.html">ACAPI_Classification_GetClassificationSystemRootItems</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Classification_GetClassificationSystems.html">ACAPI_Classification_GetClassificationSystems</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Classification_Import.html">ACAPI_Classification_Import</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Command_Call.html">ACAPI_Command_Call</a><br>
+        <!--NoIdx--><a href="ACAPI_Command_CallFromEventLoop.html">ACAPI_Command_CallFromEventLoop</a> &nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="API 19 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Command_ExternalCall.html">ACAPI_Command_ExternalCall</a><br>
+        <!--NoIdx--><a href="ACAPI_Command_Test.html">ACAPI_Command_Test</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_Database_id.html">ACAPI_Database</a><br>
+        <!--NoIdx--><a href="ACAPI_Database_GetLast3DDefLevels.html">ACAPI_Database_GetLast3DDefLevels</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Database_SetLast3DDefLevels.html">ACAPI_Database_SetLast3DDefLevels</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_DisposeAddParHdl.html">ACAPI_DisposeAddParHdl</a><br>
+        <!--NoIdx--><a href="ACAPI_DisposeAttrDefsHdls.html">ACAPI_DisposeAttrDefsHdls</a><br>
+        <!--NoIdx--><a href="ACAPI_DisposeAttrDefsHdlsExt.html">ACAPI_DisposeAttrDefsHdlsExt</a><br>
+        <!--NoIdx--><a href="ACAPI_DisposeBeamRelationHdls.html">ACAPI_DisposeBeamRelationHdls</a><br>
+        <!--NoIdx--><a href="ACAPI_DisposeBeamSegmentRelationHdls.html">ACAPI_DisposeBeamSegmentRelationHdls</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_DisposeElemMemoHdls.html">ACAPI_DisposeElemMemoHdls</a><br>
+        <!--NoIdx--><a href="ACAPI_DisposeParagraphsHdl.html">ACAPI_DisposeParagraphsHdl</a><br>
+        <!--NoIdx--><a href="ACAPI_DisposeRoomRelationHdls.html">ACAPI_DisposeRoomRelationHdls</a><br>
+        <!--NoIdx--><a href="ACAPI_DisposeWallRelationHdls.html">ACAPI_DisposeWallRelationHdls</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_ElemComponent_GetPropertyDefinitions.html">ACAPI_ElemComponent_GetPropertyDefinitions</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_ElemComponent_GetPropertyValue.html">ACAPI_ElemComponent_GetPropertyValue</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_ElemComponent_GetPropertyValues.html">ACAPI_ElemComponent_GetPropertyValues</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_ElemComponent_GetPropertyValuesByGuid.html">ACAPI_ElemComponent_GetPropertyValuesByGuid</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_ElementGroup_Create.html">ACAPI_ElementGroup_Create</a><br>
+        <!--NoIdx--><a href="ACAPI_ElementGroup_GetAllGroupedElems.html">ACAPI_ElementGroup_GetAllGroupedElems</a><br>
+        <!--NoIdx--><a href="ACAPI_ElementGroup_GetGroup.html">ACAPI_ElementGroup_GetGroup</a><br>
+        <!--NoIdx--><a href="ACAPI_ElementGroup_GetGroupedElems.html">ACAPI_ElementGroup_GetGroupedElems</a><br>
+        <!--NoIdx--><a href="ACAPI_ElementGroup_GetRootGroup.html">ACAPI_ElementGroup_GetRootGroup</a><br>
+        <!--NoIdx--><a href="ACAPI_ElementGroup_GetUserData.html">ACAPI_ElementGroup_GetUserData</a><br>
+        <!--NoIdx--><a href="ACAPI_ElementGroup_SetUserData.html">ACAPI_ElementGroup_SetUserData</a><br>
+        <!--NoIdx--><a href="ACAPI_ElementSet_Create.html">ACAPI_ElementSet_Create</a><br>
+        <!--NoIdx--><a href="ACAPI_ElementSet_Delete.html">ACAPI_ElementSet_Delete</a><br>
+        <!--NoIdx--><a href="ACAPI_ElementSet_GetData.html">ACAPI_ElementSet_GetData</a><br>
+        <!--NoIdx--><a href="ACAPI_ElementSet_Identify.html">ACAPI_ElementSet_Identify</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_AddClassificationItem.html">ACAPI_Element_AddClassificationItem</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_AddClassificationItemDefault.html">ACAPI_Element_AddClassificationItemDefault</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_AttachObserver.html">ACAPI_Element_AttachObserver</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Change.html">ACAPI_Element_Change</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_ChangeDefaults.html">ACAPI_Element_ChangeDefaults</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_ChangeDefaultsExt.html">ACAPI_Element_ChangeDefaultsExt</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_ChangeExt.html">ACAPI_Element_ChangeExt</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_ChangeMemo.html">ACAPI_Element_ChangeMemo</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_ChangeMore.html">ACAPI_Element_ChangeMore</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_ChangeParameters.html">ACAPI_Element_ChangeParameters</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Create.html">ACAPI_Element_Create</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Decompose.html">ACAPI_Element_Decompose</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Delete.html">ACAPI_Element_Delete</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_DeleteSelected.html">ACAPI_Element_DeleteSelected</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_DeleteUserData.html">ACAPI_Element_DeleteUserData</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_DetachObserver.html">ACAPI_Element_DetachObserver</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_DrwGuidToLinkId.html">ACAPI_Element_DrwGuidToLinkId</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Edit.html">ACAPI_Element_Edit</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Filter.html">ACAPI_Element_Filter</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Get.html">ACAPI_Element_Get</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetActualOverrideStyle.html">ACAPI_Element_GetActualOverrideStyle</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_Get3DInfo.html">ACAPI_Element_Get3DInfo</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetClassificationInSystem.html">ACAPI_Element_GetClassificationInSystem</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetClassificationInSystemDefault.html">ACAPI_Element_GetClassificationInSystemDefault</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetClassificationItems.html">ACAPI_Element_GetClassificationItems</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetClassificationItemsDefault.html">ACAPI_Element_GetClassificationItemsDefault</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetCollisions.html">ACAPI_Element_GetCollisions</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetComponents.html">ACAPI_Element_GetComponents</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetComponents_Obsolete.html">ACAPI_Element_GetComponents_Obsolete</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetConnectedElements.html">ACAPI_Element_GetConnectedElements</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetDefaults.html">ACAPI_Element_GetDefaults</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetDefaultsExt.html">ACAPI_Element_GetDefaultsExt</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetDescriptors.html">ACAPI_Element_GetDescriptors</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetElemList.html">ACAPI_Element_GetElemList</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetElemListByIFCIdentifier.html">ACAPI_Element_GetElemListByIFCIdentifier</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetHeader.html">ACAPI_Element_GetHeader</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetHotspots.html">ACAPI_Element_GetHotspots</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetIFCAttributes.html">ACAPI_Element_GetIFCAttributes</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetIFCClassificationReferences.html">ACAPI_Element_GetIFCClassificationReferences</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetIFCIdentifier.html">ACAPI_Element_GetIFCIdentifier</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetIFCProperties.html">ACAPI_Element_GetIFCProperties</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetIFCPropertyValuePrimitiveType.html">ACAPI_Element_GetIFCPropertyValuePrimitiveType</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetIFCType.html">ACAPI_Element_GetIFCType</a> &nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="API 19 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetLinkFlags.html">ACAPI_Element_GetLinkFlags</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetLinkedPropertyObjects.html">ACAPI_Element_GetLinkedPropertyObjects</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetCategoryValue.html">ACAPI_Element_GetCategoryValue</a> &nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="API 19 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetCategoryValueDefault.html">ACAPI_Element_GetCategoryValueDefault</a> &nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="API 19 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetLinks.html">ACAPI_Element_GetLinks</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Merge_Elements.html">ACAPI_Element_Merge_Elements</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_Merge_GetMergedElements.html">ACAPI_Element_Merge_GetMergedElements</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_Merge_Remove.html">ACAPI_Element_Merge_Remove</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetObservedElements.html">ACAPI_Element_GetObservedElements</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetPropertyValues.html">ACAPI_Element_GetPropertyValues</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetPropertyValuesByGuid.html">ACAPI_Element_GetPropertyValuesByGuid</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetPropertiesDefault.html">ACAPI_Element_GetPropertiesDefault</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetPropertyDefinitions.html">ACAPI_Element_GetPropertyDefinitions</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetPropertyValuesOfDefaultElem.html">ACAPI_Element_GetPropertyValuesOfDefaultElem</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_IsClassificationItemVisible.html">ACAPI_Element_IsClassificationItemVisible</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_IsClassificationItemVisibleDefault.html">ACAPI_Element_IsClassificationItemVisibleDefault</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_IsPropertyDefinitionAvailable.html">ACAPI_Element_IsPropertyDefinitionAvailable</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_IsPropertyDefinitionAvailableDefault.html">ACAPI_Element_IsPropertyDefinitionAvailableDefault</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_IsPropertyDefinitionValueEditable.html">ACAPI_Element_IsPropertyDefinitionValueEditable</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_IsPropertyDefinitionValueEditableDefault.html">ACAPI_Element_IsPropertyDefinitionValueEditableDefault</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_IsPropertyDefinitionVisible.html">ACAPI_Element_IsPropertyDefinitionVisible</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_IsPropertyDefinitionVisibleDefault.html">ACAPI_Element_IsPropertyDefinitionVisibleDefault</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_ElementList_AddProperty.html">ACAPI_ElementList_AddProperty</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_ElementList_ModifyPropertyValue.html">ACAPI_ElementList_ModifyPropertyValue</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_ElementList_DeleteProperty.html">ACAPI_ElementList_DeleteProperty</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetElementsWithClassification.html">ACAPI_Element_GetElementsWithClassification</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetPropertyObjects.html">ACAPI_Element_GetPropertyObjects</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetQuantities.html">ACAPI_Element_GetQuantities</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetMoreQuantities.html">ACAPI_Element_GetMoreQuantities</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetRelations.html">ACAPI_Element_GetRelations</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetSurfaceQuantities.html">ACAPI_Element_GetSurfaceQuantities</a>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetSyTran.html">ACAPI_Element_GetSyTran</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetUserData.html">ACAPI_Element_GetUserData</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetVisualOverriddenImage.html">ACAPI_Element_GetVisualOverriddenImage</a>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GuidToUnId.html">ACAPI_Element_GuidToUnId</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Link.html">ACAPI_Element_Link</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_LinkIdToDrwGuid.html">ACAPI_Element_LinkIdToDrwGuid</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_RemoveClassificationItem.html">ACAPI_Element_RemoveClassificationItem</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_RemoveClassificationItemDefault.html">ACAPI_Element_RemoveClassificationItemDefault</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_RemoveIFCClassificationReference.html">ACAPI_Element_RemoveIFCClassificationReference</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_RemoveIFCProperty.html">ACAPI_Element_RemoveIFCProperty</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Select.html">ACAPI_Element_Select</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_DeselectAll.html">ACAPI_Element_DeselectAll</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_SetCategoryValue.html">ACAPI_Element_SetCategoryValue</a> &nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="API 19 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_SetCategoryValueDefault.html">ACAPI_Element_SetCategoryValueDefault</a> &nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="API 19 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_SetIFCAttribute.html">ACAPI_Element_SetIFCAttribute</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_SetIFCClassificationReference.html">ACAPI_Element_SetIFCClassificationReference</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_SetIFCProperty.html">ACAPI_Element_SetIFCProperty</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_SetLinkedPropertyObjects.html">ACAPI_Element_SetLinkedPropertyObjects</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_SetProperties.html">ACAPI_Element_SetProperties</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_SetPropertiesOfDefaultElem.html">ACAPI_Element_SetPropertiesOfDefaultElem</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_SetProperty.html">ACAPI_Element_SetProperty</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_SetUserData.html">ACAPI_Element_SetUserData</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_ShapePrims.html">ACAPI_Element_ShapePrims</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_ShapePrimsExt.html">ACAPI_Element_ShapePrimsExt</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_SolidLink_Create.html">ACAPI_Element_SolidLink_Create</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_SolidLink_GetFlags.html">ACAPI_Element_SolidLink_GetFlags</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_SolidLink_GetOperation.html">ACAPI_Element_SolidLink_GetOperation</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_SolidLink_GetOperators.html">ACAPI_Element_SolidLink_GetOperators</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_SolidLink_GetTargets.html">ACAPI_Element_SolidLink_GetTargets</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_SolidLink_GetTime.html">ACAPI_Element_SolidLink_GetTime</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_SolidLink_Remove.html">ACAPI_Element_SolidLink_Remove</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_SolidOperation_Create.html">ACAPI_Element_SolidOperation_Create</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_Tool.html">ACAPI_Element_Tool</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Trim_Elements.html">ACAPI_Element_Trim_Elements</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Trim_ElementsWith.html">ACAPI_Element_Trim_ElementsWith</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Trim_Remove.html">ACAPI_Element_Trim_Remove</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Trim_GetTrimType.html">ACAPI_Element_Trim_GetTrimType</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Trim_GetTrimmedElements.html">ACAPI_Element_Trim_GetTrimmedElements</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Trim_GetTrimmingElements.html">ACAPI_Element_Trim_GetTrimmingElements</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_UnIdToGuid.html">ACAPI_Element_UnIdToGuid</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_Unlink.html">ACAPI_Element_Unlink</a><br>
+        <!--NoIdx--><a href="ACAPI_Element_GrantElements.html">ACAPI_Element_GrantElements</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetNoteAutotexts.html">ACAPI_Element_GetNoteAutotexts</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Element_GetNoteKeywordForAutotextID.html">ACAPI_Element_GetNoteKeywordForAutotextID</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br><br>
+        <!--NoIdx--><a href="ACAPI_ElemDifferenceGenerator_GetState.html">ACAPI_ElemDifferenceGenerator_GetState</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_ElemDifferenceGenerator_GenerateDifference.html">ACAPI_ElemDifferenceGenerator_GenerateDifference</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="acapi_environment_id.html">ACAPI_Environment</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_Favorite_Create.html">ACAPI_Favorite_Create</a><br>
+        <!--NoIdx--><a href="ACAPI_Favorite_Change.html">ACAPI_Favorite_Change</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Favorite_Rename.html">ACAPI_Favorite_Rename</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Favorite_Delete.html">ACAPI_Favorite_Delete</a><br>
+        <!--NoIdx--><a href="ACAPI_Favorite_Export.html">ACAPI_Favorite_Export</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Favorite_Get.html">ACAPI_Favorite_Get</a><br>
+        <!--NoIdx--><a href="ACAPI_Favorite_GetNum.html">ACAPI_Favorite_GetNum</a><br>
+        <!--NoIdx--><a href="ACAPI_Favorite_GetPreviewImage.html">ACAPI_Favorite_GetPreviewImage</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Favorite_Import.html">ACAPI_Favorite_Import</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Favorite_Read.html">ACAPI_Favorite_Read</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_FreeCWContourPtr.html">ACAPI_FreeCWContourPtr</a><br>
+        <!--NoIdx--><a href="ACAPI_FreeGDLModelViewOptionsPtr.html">ACAPI_FreeGDLModelViewOptionsPtr</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_GetExtensionInstance.html">ACAPI_GetExtensionInstance</a><br>
+        <!--NoIdx--><a href="ACAPI_GetMainWindow.html">ACAPI_GetMainWindow</a><br>
+        <!--NoIdx--><a href="ACAPI_GetOwnLocation.html">ACAPI_GetOwnLocation</a><br>
+        <!--NoIdx--><a href="ACAPI_GetOwnResModule.html">ACAPI_GetOwnResModule</a><br>
+        <!--NoIdx--><a href="ACAPI_GetPreferences.html">ACAPI_GetPreferences</a><br>
+        <!--NoIdx--><a href="ACAPI_GetPreferences_Platform.html">ACAPI_GetPreferences_Platform</a><br>
+        <!--NoIdx--><a href="ACAPI_GetReleaseNumber.html">ACAPI_GetReleaseNumber</a><br>
+        <!--NoIdx--><a href="ACAPI_GetToken.html">ACAPI_GetToken</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a><br>
+        <!--NoIdx--><a href="ACAPI_Goodies_ElemTypeToNeigID.html">ACAPI_Goodies_ElemTypeToNeigID</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Goodies_GetElemTypeName.html">ACAPI_Goodies_GetElemTypeName</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Goodies_GetMarkerParent.html">ACAPI_Goodies_GetMarkerParent</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Goodies_NeigIDToElemType.html">ACAPI_Goodies_NeigIDToElemType</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="../Functions/ACAPI_IFC_APIGuidToIFCGuid.html">ACAPI_IFC_APIGuidToIFCGuid</a>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="../Functions/ACAPI_IFC_ComplementIFCDifferenceAndMergeIFCRelationshipData.HTML">ACAPI_IFC_ComplementIFCDifferenceAndMergeIFCRelationshipData</a>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="../Functions/ACAPI_IFC_GetIFCDifference.html">ACAPI_IFC_GetIFCDifference</a>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="../Functions/ACAPI_IFC_GetIFCDifferenceState.html">ACAPI_IFC_GetIFCDifferenceState</a>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="../Functions/ACAPI_IFC_GetIFCExportTranslatorsList.html">ACAPI_IFC_GetIFCExportTranslatorsList</a>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="../Functions/ACAPI_IFC_GetIFCRelationshipData.html">ACAPI_IFC_GetIFCRelationshipData</a>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="../Functions/ACAPI_IFC_IFCGuidToAPIGuid.html">ACAPI_IFC_IFCGuidToAPIGuid</a>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="../Functions/ACAPI_IFC_InvokeIFCDifferenceExportSettingsDlg.html">ACAPI_IFC_InvokeIFCDifferenceExportSettingsDlg</a>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+		&nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_Inform_AdditionalFileWasCreated.html">ACAPI_Inform_AdditionalFileWasCreated</a>&nbsp;<img border="0" src="../../APIImageLibrary/24.png" alt="API 24 feature" width="19" height="12"><br>
+	    &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_Install_AttrManagerImportMethod.html">ACAPI_Install_AttrManagerImportMethod</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Install_ElemSetSaveOldFormatHandler.html">ACAPI_Install_ElemSetSaveOldFormatHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Install_ESYMHandler.html">ACAPI_Install_ESYMHandler</a><br>
+        <!--NoIdx--><a href="ACAPI_Install_FileTypeHandler.html">ACAPI_Install_FileTypeHandler</a><br>
+        <!--NoIdx--><a href="ACAPI_Install_FileTypeHandler3D.html">ACAPI_Install_FileTypeHandler3D</a><br>
+        <!--NoIdx--><a href="ACAPI_Install_MenuHandler.html">ACAPI_Install_MenuHandler</a><br>
+        <!--NoIdx--><a href="ACAPI_Install_ModulCommandHandler.html">ACAPI_Install_ModulCommandHandler</a><br>
+        <!--NoIdx--><a href="ACAPI_Install_ModulDataMergeHandler.html">ACAPI_Install_ModulDataMergeHandler</a><br>
+        <!--NoIdx--><a href="ACAPI_Install_ModulDataSaveOldFormatHandler.html">ACAPI_Install_ModulDataSaveOldFormatHandler</a><br>
+        <!--NoIdx--><a href="ACAPI_Install_NavigatorAddOnViewPointDataConvertNewFormatHandler.html">ACAPI_Install_NavigatorAddOnViewPointDataConvertNewFormatHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Install_NavigatorAddOnViewPointDataMergeHandler.html">ACAPI_Install_NavigatorAddOnViewPointDataMergeHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Install_NavigatorAddOnViewPointDataSaveOldFormatHandler.html">ACAPI_Install_NavigatorAddOnViewPointDataSaveOldFormatHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Install_PanelHandler.html">ACAPI_Install_PanelHandler</a><br>
+        <!--NoIdx--><a href="ACAPI_Install_PropertyObjectHandler.html">ACAPI_Install_PropertyObjectHandler</a><br>
+        <!--NoIdx--><a href="ACAPI_Install_SettingsHandler.html">ACAPI_Install_SettingsHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Install_ClassificationVisibilityHandler.html">ACAPI_Install_ClassificationVisibilityHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Install_PropertyVisibilityHandler.html">ACAPI_Install_PropertyVisibilityHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+
+        <!--NoIdx--><a href="ACAPI_Install_PublisherSaveOption.html">ACAPI_Install_PublisherSaveOption</a> &nbsp; <img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Install_PublisherSaveMethod.html">ACAPI_Install_PublisherSaveMethod</a> &nbsp; <img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Install_PublisherTranslatorGetter.html">ACAPI_Install_PublisherTranslatorGetter</a> &nbsp; <img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Install_PublisherDefaultTranslatorGetter.html">ACAPI_Install_PublisherDefaultTranslatorGetter</a> &nbsp; <img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="ACAPI_Install_AddOnCommandHandler.html">ACAPI_Install_AddOnCommandHandler</a> &nbsp; <img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="acapi_interface_id.html">ACAPI_Interface</a><br>
+        <!--NoIdx--><a href="ACAPI_Interface_ClearElementHighlight.html">ACAPI_Interface_ClearElementHighlight</a>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="Invalid link: ACAPI_Interface_InvokeForwardDialog.html">ACAPI_Interface_InvokeForwardDialog</a>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Interface_SetElementHighlight.html">ACAPI_Interface_SetElementHighlight</a>&nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_KeepInMemory.html">ACAPI_KeepInMemory</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_LibPart_AddSection.html">ACAPI_LibPart_AddSection</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_EndSection.html">ACAPI_LibPart_EndSection</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_Get.html">ACAPI_LibPart_Get</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_GetDetails.html">ACAPI_LibPart_GetDetails</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_GetHotspots.html">ACAPI_LibPart_GetHotspots</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_GetNum.html">ACAPI_LibPart_GetNum</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_GetParams.html">ACAPI_LibPart_GetParams</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_GetSect_2DDrawHdl.html">ACAPI_LibPart_GetSect_2DDrawHdl</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_GetSect_ParamDef.html">ACAPI_LibPart_GetSect_ParamDef</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_GetSection.html">ACAPI_LibPart_GetSection</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_GetSectionList.html">ACAPI_LibPart_GetSectionList</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_NewSection.html">ACAPI_LibPart_NewSection</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_PatternSearch.html">ACAPI_LibPart_PatternSearch</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_Register.html">ACAPI_LibPart_Register</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_RegisterAll.html">ACAPI_LibPart_RegisterAll</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_Save.html">ACAPI_LibPart_Save</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_Search.html">ACAPI_LibPart_Search</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_SetDetails_ParamDef.html">ACAPI_LibPart_SetDetails_ParamDef</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_SetUpSect_2DDrawHdl.html">ACAPI_LibPart_SetUpSect_2DDrawHdl</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_ShapePrims.html">ACAPI_LibPart_ShapePrims</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_UpdateSection.html">ACAPI_LibPart_UpdateSection</a><br>
+        <!--NoIdx--><a href="ACAPI_LibPart_WriteSection.html">ACAPI_LibPart_WriteSection</a><br>
+        <!--NoIdx--><a href="ACAPI_ListData_Get.html">ACAPI_ListData_Get</a><br>
+        <!--NoIdx--><a href="ACAPI_ListData_GetLocal.html">ACAPI_ListData_GetLocal</a><br>
+        <!--NoIdx--><a href="ACAPI_ListData_GetNum.html">ACAPI_ListData_GetNum</a><br>
+        <!--NoIdx--><a href="ACAPI_ListData_GetSet.html">ACAPI_ListData_GetSet</a><br>
+        <!--NoIdx--><a href="ACAPI_ListData_GetSetNum.html">ACAPI_ListData_GetSetNum</a><br>
+        <!--NoIdx--><a href="ACAPI_ListData_Search.html">ACAPI_ListData_Search</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_MarkUp_AddComment.html">ACAPI_MarkUp_AddComment</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_MarkUp_AttachElements.html">ACAPI_MarkUp_AttachElements</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_MarkUp_Create.html">ACAPI_MarkUp_Create</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_MarkUp_Change.html">ACAPI_MarkUp_Change</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_MarkUp_Delete.html">ACAPI_MarkUp_Delete</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_MarkUp_DetachElements.html">ACAPI_MarkUp_DetachElements</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="ACAPI_MarkUp_ExportToBCF.html">ACAPI_MarkUp_ExportToBCF</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_MarkUp_GetAttachedElements.html">ACAPI_MarkUp_GetAttachedElements</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_MarkUp_GetComments.html">ACAPI_MarkUp_GetComments</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_MarkUp_GetList.html">ACAPI_MarkUp_GetList</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_MarkUp_ImportFromBCF.html">ACAPI_MarkUp_ImportFromBCF</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_ModulData_Delete.html">ACAPI_ModulData_Delete</a><br>
+        <!--NoIdx--><a href="ACAPI_ModulData_Get.html">ACAPI_ModulData_Get</a><br>
+        <!--NoIdx--><a href="ACAPI_ModulData_GetInfo.html">ACAPI_ModulData_GetInfo</a><br>
+        <!--NoIdx--><a href="ACAPI_ModulData_GetList.html">ACAPI_ModulData_GetList</a><br>
+        <!--NoIdx--><a href="ACAPI_ModulData_Store.html">ACAPI_ModulData_Store</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_Navigator_id.html">ACAPI_Navigator</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_Notify_CatchAttributeReplacement.html">ACAPI_Notify_AttributeReplacement</a>&nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Notify_CatchChangeDefaults.html">ACAPI_Notify_CatchChangeDefaults</a><br>
+        <!--NoIdx--><a href="ACAPI_Notify_CatchNewElement.html">ACAPI_Notify_CatchNewElement</a><br>
+        <!--NoIdx--><a href="ACAPI_Notify_CatchProjectEvent.html">ACAPI_Notify_CatchProjectEvent</a><br>
+        <!--NoIdx--><a href="ACAPI_Notify_CatchSelectionChange.html">ACAPI_Notify_CatchSelectionChange</a><br>
+        <!--NoIdx--><a href="ACAPI_Notify_CatchToolChange.html">ACAPI_Notify_CatchToolChange</a><br>
+        <!--NoIdx--><a href="ACAPI_Notify_CatchViewEvent.html">ACAPI_Notify_CatchViewEvent</a><br>
+        <!--NoIdx--><a href="ACAPI_Notify_GetParentElement.html">ACAPI_Notify_GetParentElement</a><br>
+        <!--NoIdx--><a href="ACAPI_Notify_GetTranParams.html">ACAPI_Notify_GetTranParams</a><br>
+        <!--NoIdx--><a href="ACAPI_Notify_InstallElementObserver.html">ACAPI_Notify_InstallElementObserver</a><br>
+        <!--NoIdx--><a href="ACAPI_Notify_ClassificationVisibilityChanged.html">ACAPI_Notify_ClassificationVisibilityChanged</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Notify_PropertyVisibilityChanged.html">ACAPI_Notify_PropertyVisibilityChanged</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Notify_RegisterEventHandler.html">ACAPI_Notify_RegisterEventHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="Featuring API 26" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Notify_UnregisterEventHandler.html">ACAPI_Notify_UnregisterEventHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="Featuring API 26" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_Override_ChangeOverrideCombination.html">ACAPI_Override_ChangeOverrideCombination</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Override_ChangeOverrideRule.html">ACAPI_Override_ChangeOverrideRule</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Override_CreateOverrideCombination.html">ACAPI_Override_CreateOverrideCombination</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Override_CreateOverrideRule.html">ACAPI_Override_CreateOverrideRule</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Override_DeleteOverrideCombination.html">ACAPI_Override_DeleteOverrideCombination</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Override_DeleteOverrideRule.html">ACAPI_Override_DeleteOverrideRule</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Override_GetOverrideCombination.html">ACAPI_Override_GetOverrideCombination</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Override_GetOverrideCombinationList.html">ACAPI_Override_GetOverrideCombinationList</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Override_GetOverrideRule.html">ACAPI_Override_GetOverrideRule</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Override_GetOverrideCombinationList.html">ACAPI_Override_GetOverrideCombinationList</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_Property_ChangePropertyDefinition.html">ACAPI_Property_ChangePropertyDefinition</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Property_ChangePropertyGroup.html">ACAPI_Property_ChangePropertyGroup</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Property_CreatePropertyDefinition.html">ACAPI_Property_CreatePropertyDefinition</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Property_CreatePropertyGroup.html">ACAPI_Property_CreatePropertyGroup</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Property_DeletePropertyDefinition.html">ACAPI_Property_DeletePropertyDefinition</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Property_DeletePropertyGroup.html">ACAPI_Property_DeletePropertyGroup</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Property_GetPropertyDefinition.html">ACAPI_Property_GetPropertyDefinition</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Property_GetPropertyDefinitions.html">ACAPI_Property_GetPropertyDefinitions</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Property_GetPropertyGroup.html">ACAPI_Property_GetPropertyGroup</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Property_GetPropertyGroups.html">ACAPI_Property_GetPropertyGroups</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Property_Import.html">ACAPI_Property_Import</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="ACAPI_Property_IsValidValue.html">ACAPI_Property_IsValidValue</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="../Functions/ACAPI_Property_SetPropertyValueFromString.html">ACAPI_Property_SetPropertyValueFromString</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Property_GetPropertyValueString.html">ACAPI_Property_GetPropertyValueString</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_Protection_GetProtectionMode.html">ACAPI_Protection_GetProtectionMode</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Protection_GetSerialNumber.html">ACAPI_Protection_GetSerialNumber</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Protection_GetBoxMask.html">ACAPI_Protection_GetBoxMask</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Protection_GetConfigurationNumber.html">ACAPI_Protection_GetConfigurationNumber</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Protection_GetNumberOfLicenses.html">ACAPI_Protection_GetNumberOfLicenses</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Protection_GetExpirationTime.html">ACAPI_Protection_GetExpirationTime</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Protection_GetPartnerId.html">ACAPI_Protection_GetPartnerId</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Protection_IsSSALevelAtLeast.html">ACAPI_Protection_IsSSALevelAtLeast</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_RegisterModelessWindow.html">ACAPI_RegisterModelessWindow</a><br>
+        <!--NoIdx--><a href="ACAPI_Register_AttributeImportFormat.html">ACAPI_Register_AttributeImportFormat</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Register_AttributePanel.html">ACAPI_Register_AttributePanel</a><br>
+        <!--NoIdx--><a href="ACAPI_Register_BuiltInLibrary.html">ACAPI_Register_BuiltInLibrary</a><br>
+        <!--NoIdx--><a href="ACAPI_Register_ESYM.html">ACAPI_Register_ESYM</a><br>
+        <!--NoIdx--><a href="ACAPI_Register_FileType.html">ACAPI_Register_FileType</a><br>
+        <!--NoIdx--><a href="ACAPI_Register_InfoBoxPanel.html">ACAPI_Register_InfoBoxPanel</a><br>
+        <!--NoIdx--><a href="ACAPI_Register_Menu.html">ACAPI_Register_Menu</a><br>
+        <!--NoIdx--><a href="ACAPI_Register_ModulDataHandler.html">ACAPI_Register_ModulDataHandler</a><br>
+        <!--NoIdx--><a href="ACAPI_Register_NavigatorAddOnViewPointDataHandler.html">ACAPI_Register_NavigatorAddOnViewPointDataHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Register_PropertyObjectHandler.html">ACAPI_Register_PropertyObjectHandler</a><br>
+        <!--NoIdx--><a href="ACAPI_Register_RequiredService.html">ACAPI_Register_RequiredService</a><br>
+        <!--NoIdx--><a href="ACAPI_Register_SettingsPanel.html">ACAPI_Register_SettingsPanel</a><br>
+        <!--NoIdx--><a href="ACAPI_Register_Subtype.html">ACAPI_Register_Subtype</a><br>
+        <!--NoIdx--><a href="ACAPI_Register_SupportedService.html">ACAPI_Register_SupportedService</a><br>
+        <!--NoIdx--><a href="ACAPI_Register_SettingsObserver.html">ACAPI_Register_SettingsObserver</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Register_ClassificationVisibilityHandler.html">ACAPI_Register_ClassificationVisibilityHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Register_PropertyVisibilityHandler.html">ACAPI_Register_PropertyVisibilityHandler</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Register_PublishFormat.html">ACAPI_Register_PublishFormat</a>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_Resource_GetFixStr.html">ACAPI_Resource_GetFixStr</a><br>
+        <!--NoIdx--><a href="ACAPI_Resource_GetLocStr.html">ACAPI_Resource_GetLocStr</a><br>
+        <!--NoIdx--><a href="ACAPI_Resource_GetLocUStr.html">ACAPI_Resource_GetLocUStr</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_Selection_Get.html">ACAPI_Selection_Get</a><br>
+        <!--NoIdx--><a href="ACAPI_Selection_SetMarquee.html">ACAPI_Selection_SetMarquee</a><br>
+        <!--NoIdx--><a href="ACAPI_SetDllTermHookProc.html">ACAPI_SetDllTermHookProc</a><br>
+        <!--NoIdx--><a href="ACAPI_SetPreferences.html">ACAPI_SetPreferences</a><br>
+        <!--NoIdx--><a href="ACAPI_SetPreferences_OldVersion.html">ACAPI_SetPreferences_OldVersion</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_HasConnection.html">ACAPI_TeamworkControl_HasConnection</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_IsOnline.html">ACAPI_TeamworkControl_IsOnline</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_IsServerLibPart.html">ACAPI_TeamworkControl_IsServerLibPart</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_HasCreateRight.html">ACAPI_TeamworkControl_HasCreateRight</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_HasDeleteModifyRight.html">ACAPI_TeamworkControl_HasDeleteModifyRight</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_GetLockableStatus.html">ACAPI_TeamworkControl_GetLockableStatus</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_FindLockableObjectSet.html">ACAPI_TeamworkControl_FindLockableObjectSet</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_ReserveLockable.html">ACAPI_TeamworkControl_ReserveLockable</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_ReleaseLockable.html">ACAPI_TeamworkControl_ReleaseLockable</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_ReserveElements.html">ACAPI_TeamworkControl_ReserveElements</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_ReleaseElements.html">ACAPI_TeamworkControl_ReleaseElements</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_ReserveHotlinkCacheManagement.html">ACAPI_TeamworkControl_ReserveHotlinkCacheManagement</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_ReleaseHotlinkCacheManagement.html">ACAPI_TeamworkControl_ReleaseHotlinkCacheManagement</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_GetHotlinkCacheManagementOwner.html">ACAPI_TeamworkControl_GetHotlinkCacheManagementOwner</a><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_GetUsernameFromId.html">ACAPI_TeamworkControl_GetUsernameFromId</a>&nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_SendChanges.html">ACAPI_TeamworkControl_SendChanges</a>&nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_ReceiveChanges.html">ACAPI_TeamworkControl_ReceiveChanges</a>&nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="ACAPI_TeamworkControl_GetTeamworkProjectDetails.html">ACAPI_TeamworkControl_GetTeamworkProjectDetails</a>&nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_UnregisterModelessWindow.html">ACAPI_UnregisterModelessWindow</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="ACAPI_WriteReport.html">ACAPI_WriteReport</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIAny_ActivateSessionReportID.html">APIAny_ActivateSessionReportID</a> &nbsp;<img border="0" src="../../APIImageLibrary/26.png" alt="API 26 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIAny_AddMDCLParameterID.html">APIAny_AddMDCLParameterID</a><br>
+        <!--NoIdx--><a href="APIAny_CalcCoreOffsetToSideOffsetID.html">APIAny_CalcCoreOffsetToSideOffsetID</a><br>
+        <!--NoIdx--><a href="APIAny_CalcSideOffsetToCoreOffsetID.html">APIAny_CalcSideOffsetToCoreOffsetID</a><br>
+        <!--NoIdx--><a href="APIAny_CalcSunOnPlaceID.html">APIAny_CalcSunOnPlaceID</a><br>
+        <!--NoIdx--><a href="APIAny_ChangeAParameterID.html">APIAny_ChangeAParameterID</a><br>
+        <!--NoIdx--><a href="APIAny_ChangeAutoTextFlagID.html">APIAny_ChangeAutoTextFlagID</a><br>
+        <!--NoIdx--><a href="APIAny_ChangeContentID.html">APIAny_ChangeContentID</a><br>
+        <!--NoIdx--><a href="APIAny_ChangeMDCLParameterID.html">APIAny_ChangeMDCLParameterID</a><br>
+        <!--NoIdx--><a href="APIAny_CheckLibPartSubtypeOfID.html">APIAny_CheckLibPartSubtypeOfID</a><br>
+        <!--NoIdx--><a href="APIAny_CloseParametersID.html">APIAny_CloseParametersID</a><br>
+        <!--NoIdx--><a href="APIAny_CompareLibPartUnIdsID.html">APIAny_CompareLibPartUnIdsID</a><br>
+        <!--NoIdx--><a href="APIAny_ConvertMimePictureID.html">APIAny_ConvertMimePictureID</a><br>
+        <!--NoIdx--><a href="APIAny_ConvertPictureID.html">APIAny_ConvertPictureID</a><br>
+        <!--NoIdx--><a href="APIAny_DeletePolyNodeID.html">APIAny_DeletePolyNodeID</a><br>
+        <!--NoIdx--><a href="APIAny_DeleteSubPolyID.html">APIAny_DeleteSubPolyID</a><br>
+        <!--NoIdx--><a href="APIAny_Elem2UIPriorityID.html">APIAny_Elem2UIPriorityID</a><br>
+        <!--NoIdx--><a href="Invalid link: APIAny_ElemTypeToNeigID.html">APIAny_ElemTypeToNeigID</a><br>
+        <!--NoIdx--><a href="APIAny_EnableRenovationOverrideID.html">APIAny_EnableRenovationOverrideID</a><br>
+        <!--NoIdx--><a href="APIAny_EnableVisualOverrideID.html">APIAny_EnableVisualOverrideID</a><br>
+        <!--NoIdx--><a href="APIAny_FreeMDCLParameterListID.html">APIAny_FreeMDCLParameterListID</a><br>
+        <!--NoIdx--><a href="APIAny_GetActParametersID.html">APIAny_GetActParametersID</a><br>
+        <!--NoIdx--><a href="APIAny_GetAutoTextFlagID.html">APIAny_GetAutoTextFlagID</a><br>
+        <!--NoIdx--><a href="APIAny_GetAutoTextKeysID.html">APIAny_GetAutoTextKeysID</a><br>
+        <!--NoIdx--><a href="APIAny_GetAutoTextsID.html">APIAny_GetAutoTextsID</a><br>
+        <!--NoIdx--><a href="APIAny_GetBuiltInLibpartUnIdID.html">APIAny_GetBuiltInLibpartUnIdID</a><br>
+        <!--NoIdx--><a href="APIAny_GetElemCreatorToolUnIdID.html">APIAny_GetElemCreatorToolUnIdID</a><br>
+        <!--NoIdx--><a href="APIAny_GetElemCreatorToolUnIdID.html">APIAny_GetElemCreatorToolUnIdID</a><br>
+        <!--NoIdx--><a href="APIAny_GetElemLibPartUnIdID.html">APIAny_GetElemLibPartUnIdID</a><br>
+        <!--NoIdx--><a href="APIAny_GetLibPartToolVariationID.html">APIAny_GetLibPartToolVariationID</a><br>
+        <!--NoIdx--><a href="APIAny_GetMDCLParameterID.html">APIAny_GetMDCLParameterID</a><br>
+        <!--NoIdx--><a href="APIAny_GetMDCLParameterNumID.html">APIAny_GetMDCLParameterNumID</a><br>
+        <!--NoIdx--><a href="APIAny_GetMainGroupGuidID.html">APIAny_GetMainGroupGuidID</a><br>
+        <!--NoIdx--><a href="Invalid link: APIAny_GetMarkerParentID.html">APIAny_GetMarkerParentID</a><br>
+        <!--NoIdx--><a href="APIAny_GetOpeningTransformationID.html">APIAny_GetOpeningTransformationID</a><br>
+        <!--NoIdx--><a href="APIAny_GetParamValuesID.html">APIAny_GetParamValuesID</a><br>
+        <!--NoIdx--><a href="APIAny_GetRenovationFilterNameID.html">APIAny_GetRenovationFilterNameID</a><br>
+        <!--NoIdx--><a href="APIAny_GetRenovationStatusNameID.html">APIAny_GetRenovationStatusNameID</a><br>
+        <!--NoIdx--><a href="APIAny_GetRoomImageID.html">APIAny_GetRoomImageID</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIAny_GetSelectedElementID.html">APIAny_GetSelectedElementID</a><br>
+        <!--NoIdx--><a href="APIAny_GetSkylightHolePolygonID.html">APIAny_GetSkylightHolePolygonID</a><br>
+        <!--NoIdx--><a href="APIAny_GetSplineMaxDistID.html">APIAny_GetSplineMaxDistID</a><br>
+        <!--NoIdx--><a href="APIAny_GetTextLineLengthID.html">APIAny_GetTextLineLengthID</a><br>
+        <!--NoIdx--><a href="APIAny_GetTextSizeFactorID.html">APIAny_GetTextSizeFactorID</a><br>
+        <!--NoIdx--><a href="APIAny_GetTextureCoordID.html">APIAny_GetTextureCoordID</a><br>
+        <!--NoIdx--><a href="APIAny_GetUnloadedLibpartNameID.html">APIAny_GetUnloadedLibpartNameID</a><br>
+        <!--NoIdx--><a href="APIAny_InitMDCLParameterListID.html">APIAny_InitMDCLParameterListID</a><br>
+        <!--NoIdx--><a href="APIAny_InsertPolyNodeID.html">APIAny_InsertPolyNodeID</a><br>
+        <!--NoIdx--><a href="APIAny_InsertSubPolyID.html">APIAny_InsertSubPolyID</a><br>
+        <!--NoIdx--><a href="Invalid link: APIAny_NeigIDToElemTypeID.html">APIAny_NeigIDToElemTypeID</a><br>
+        <!--NoIdx--><a href="APIAny_NeigToCoordID.html">APIAny_NeigToCoordID</a><br>
+        <!--NoIdx--><a href="APIAny_OpenParametersID.html">APIAny_OpenParametersID</a><br>
+        <!--NoIdx--><a href="APIAny_SearchElementByCoordID.html">APIAny_SearchElementByCoordID</a><br>
+        <!--NoIdx--><a href="APIAny_SetAnAutoTextID.html">APIAny_SetAnAutoTextID</a><br>
+        <!--NoIdx--><a href="APIAny_SetEmptyHoleUnIdID.html">APIAny_SetEmptyHoleUnIdID</a><br>
+        <!--NoIdx--><a href="APIAny_SetSelectedElementNeigID.html">APIAny_SetSelectedElementNeigID</a><br>
+        <!--NoIdx--><a href="APIAny_TriangulatePolyID.html">APIAny_TriangulatePolyID</a><br>
+        <!--NoIdx--><a href="APIAny_UI2ElemPriorityID.html">APIAny_UI2ElemPriorityID</a><br>
+        <!--NoIdx--><a href="APIAny_UsableGDLStringID.html">APIAny_UsableGDLStringID</a><br>
+        <!--NoIdx--><a href="APIAny_SetMasterLayoutOnLayoutID.html">APIAny_SetMasterLayoutOnLayoutID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIAny_ElemHasVisibleSkinID.html">APIAny_ElemHasVisibleSkinID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIAttributeReplacementHandlerProc.html">APIAttributeReplacementHandlerProc</a>&nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APICustomWindowHandlerProc.html">APICustomWindowHandlerProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIDb_AddTextWindowContentID.html">APIDb_AddTextWindowContentID</a><br>
+        <!--NoIdx--><a href="APIDb_CalcBoundsID.html">APIDb_CalcBoundsID</a><br>
+        <!--NoIdx--><a href="APIDb_BuildWindowValidatorID.html">APIDb_BuildWindowValidatorID</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_ChangeCurrentDatabaseID.html">APIDb_ChangeCurrentDatabaseID</a><br>
+        <!--NoIdx--><a href="APIDb_ChangeDrawingScaleID.html">APIDb_ChangeDrawingScaleID</a><br>
+        <!--NoIdx--><a href="APIDb_ChangeGridSettingsID.html">APIDb_ChangeGridSettingsID</a><br>
+        <!--NoIdx--><a href="APIDb_CheckDrawingStatusID.html">APIDb_CheckDrawingStatusID</a><br>
+        <!--NoIdx--><a href="APIDb_CheckWindowValidatorID.html">APIDb_CheckWindowValidatorID</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_CloseWindowID.html">APIDb_CloseWindowID</a><br>
+        <!--NoIdx--><a href="APIDb_CoordToPointID.html">APIDb_CoordToPointID</a><br>
+        <!--NoIdx--><a href="APIDb_CreateSubSetID.html">APIDb_CreateSubSetID</a><br>
+        <!--NoIdx--><a href="APIDb_CreationOrderGetNextID.html">APIDb_CreationOrderGetNextID</a><br>
+        <!--NoIdx--><a href="APIDb_DeleteDatabaseID.html">APIDb_DeleteDatabaseID</a><br>
+        <!--NoIdx--><a href="APIDb_DestroyWindowValidatorID.html">APIDb_DestroyWindowValidatorID</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_DisposeCreationOrderTableID.html">APIDb_DisposeCreationOrderTableID</a><br>
+        <!--NoIdx--><a href="APIDb_DoClipID.html">APIDb_DoClipID</a><br>
+        <!--NoIdx--><a href="APIDb_DrawElementID.html">APIDb_DrawElementID</a><br>
+        <!--NoIdx--><a href="APIDb_DrawOrderGetNextID.html">APIDb_DrawOrderGetNextID</a><br>
+        <!--NoIdx--><a href="APIDb_DrawOrderInitID.html">APIDb_DrawOrderInitID</a><br>
+        <!--NoIdx--><a href="APIDb_DrawOrderTermID.html">APIDb_DrawOrderTermID</a><br>
+        <!--NoIdx--><a href="APIDb_DrawStoryControlID.html">APIDb_DrawStoryControlID</a><br>
+        <!--NoIdx--><a href="APIDb_GetActualRenovationFilterID.html">APIDb_GetActualRenovationFilterID</a><br>
+        <!--NoIdx--><a href="APIDb_GetCurrentDatabaseID.html">APIDb_GetCurrentDatabaseID</a><br>
+        <!--NoIdx--><a href="APIDb_GetDBUnIdFromGuidID.html">APIDb_GetDBUnIdFromGuidID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetGuidFromDBUnIdID.html">APIDb_GetGuidFromDBUnIdID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetCurrentWindowID.html">APIDb_GetCurrentWindowID</a><br>
+        <!--NoIdx--><a href="APIDb_GetDatabaseInfoID.html">APIDb_GetDatabaseInfoID</a><br>
+        <!--NoIdx--><a href="APIDb_GetDetailDatabasesID.html">APIDb_GetDetailDatabasesID</a><br>
+        <!--NoIdx--><a href="APIDb_GetDocumentFrom3DDatabasesID.html">APIDb_GetDocumentFrom3DDatabasesID</a><br>
+        <!--NoIdx--><a href="APIDb_GetDrawingLinkID.html">APIDb_GetDrawingLinkID</a><br>
+        <!--NoIdx--><a href="APIDb_GetDrawingScaleID.html">APIDb_GetDrawingScaleID</a><br>
+        <!--NoIdx--><a href="APIDb_GetElementURLRefID.html">APIDb_GetElementURLRefID</a><br>
+        <!--NoIdx--><a href="APIDb_GetElevationDatabasesID.html">APIDb_GetElevationDatabasesID</a><br>
+        <!--NoIdx--><a href="APIDb_GetExtent3DID.html">APIDb_GetExtent3DID</a><br>
+        <!--NoIdx--><a href="APIDb_GetExtentID.html">APIDb_GetExtentID</a><br>
+        <!--NoIdx--><a href="APIDb_GetFullDrawingContentBoxID.html">APIDb_GetFullDrawingContentBoxID</a><br>
+        <!--NoIdx--><a href="APIDb_GetGridSettingsID.html">APIDb_GetGridSettingsID</a><br>
+        <!--NoIdx--><a href="APIDb_GetHotlinkNodeTreeID.html">APIDb_GetHotlinkNodeTreeID</a><br>
+        <!--NoIdx--><a href="APIDb_GetHotlinkNodesID.html">APIDb_GetHotlinkNodesID</a><br>
+        <!--NoIdx--><a href="APIDb_GetHotlinkInstancesID.html">APIDb_GetHotlinkInstancesID</a><br>
+        <!--NoIdx--><a href="APIDb_GetCompoundInfoStringID.html">APIDb_GetCompoundInfoStringID</a><br>
+        <!--NoIdx--><a href="APIDb_GetElementInfoStringID.html">APIDb_GetElementInfoStringID</a><br>
+        <!--NoIdx--><a href="APIDb_GetHotLinkOwnerID.html">APIDb_GetHotLinkOwnerID</a><br>
+        <!--NoIdx--><a href="APIDb_GetHotlinkRootNodeGuidID.html">APIDb_GetHotlinkRootNodeGuidID</a><br>
+        <!--NoIdx--><a href="APIDb_GetHotlinkProxyElementTableID.html">APIDb_GetHotlinkProxyElementTableID</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetInteriorElevationDatabasesID.html">APIDb_GetInteriorElevationDatabasesID</a><br>
+        <!--NoIdx--><a href="APIDb_GetLayoutBookID.html">APIDb_GetLayoutBookID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetLayoutDatabasesID.html">APIDb_GetLayoutDatabasesID</a><br>
+        <!--NoIdx--><a href="Invalid link: APIDb_GetLast3DDefLevelsID.html">APIDb_GetLast3DDefLevelsID</a><br>
+        <!--NoIdx--><a href="APIDb_GetLocOrigoID.html">APIDb_GetLocOrigoID</a><br>
+        <!--NoIdx--><a href="APIDb_GetMasterLayoutDatabasesID.html">APIDb_GetMasterLayoutDatabasesID</a><br>
+        <!--NoIdx--><a href="APIDb_GetOffsetID.html">APIDb_GetOffsetID</a><br>
+        <!--NoIdx--><a href="APIDb_GetOwnWindowsID.html">APIDb_GetOwnWindowsID</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIDb_GetRVMChangeCustomSchemeID.html">APIDb_GetRVMChangeCustomSchemeID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetRVMChangeFirstIssueID.html">APIDb_GetRVMChangeFirstIssueID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetRVMChangesFromChangeIdsID.html">APIDb_GetRVMChangesFromChangeIdsID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetRVMChangesID.html">APIDb_GetRVMChangesID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetRVMDocumentRevisionChangesID.html">APIDb_GetRVMDocumentRevisionChangesID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetRVMDocumentRevisionsID.html">APIDb_GetRVMDocumentRevisionsID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetRVMElemChangeIdsID.html">APIDb_GetRVMElemChangeIdsID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetRVMIssueCustomSchemeID.html">APIDb_GetRVMIssueCustomSchemeID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetRVMIssueDocumentRevisionsID.html">APIDb_GetRVMIssueDocumentRevisionsID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetRVMIssuesID.html">APIDb_GetRVMIssuesID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetRVMLayoutCurrentRevisionChangesID.html">APIDb_GetRVMLayoutCurrentRevisionChangesID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIDb_GetSectionDatabasesID.html">APIDb_GetSectionDatabasesID</a><br>
+        <!--NoIdx--><a href="APIDb_GetSubSetDefaultID.html">APIDb_GetSubSetDefaultID</a><br>
+        <!--NoIdx--><a href="APIDb_GetSubSetID.html">APIDb_GetSubSetID</a><br>
+        <!--NoIdx--><a href="APIDb_GetTWOwnerID.html">APIDb_GetTWOwnerID</a><br>
+        <!--NoIdx--><a href="APIDb_GetWorksheetDatabasesID.html">APIDb_GetWorksheetDatabasesID</a><br>
+        <!--NoIdx--><a href="APIDb_GetZoomID.html">APIDb_GetZoomID</a><br>
+        <!--NoIdx--><a href="APIDb_GetRenovationFiltersID.html">APIDb_GetRenovationFiltersID</a> &nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="API 18 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetElementCategoriesID.html">APIDb_GetElementCategoriesID</a> &nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="API 19 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_GetElementCategoryValuesID.html">APIDb_GetElementCategoryValuesID</a> &nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="API 19 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_InitCreationOrderTableID.html">APIDb_InitCreationOrderTableID</a><br>
+        <!--NoIdx--><a href="APIDb_ModifyDatabaseID.html">APIDb_ModifyDatabaseID</a><br>
+        <!--NoIdx--><a href="APIDb_NewDatabaseID.html">APIDb_NewDatabaseID</a><br>
+        <!--NoIdx--><a href="APIDb_NewWindowID.html">APIDb_NewWindowID</a><br>
+        <!--NoIdx--><a href="APIDb_PointToCoordID.html">APIDb_PointToCoordID</a><br>
+        <!--NoIdx--><a href="APIDb_ReSetZoomID.html">APIDb_ReSetZoomID</a><br>
+        <!--NoIdx--><a href="APIDb_RebuildCurrentDatabaseID.html">APIDb_RebuildCurrentDatabaseID</a><br>
+        <!--NoIdx--><a href="APIDb_RebuildWindowValidatorID.html">APIDb_RebuildWindowValidatorID</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_RedrawCurrentDatabaseID.html">APIDb_RedrawCurrentDatabaseID</a><br>
+        <!--NoIdx--><a href="APIDb_RefreshElementID.html">APIDb_RefreshElementID</a><br>
+        <!--NoIdx--><a href="APIDb_ResetCurrentDatabaseID.html">APIDb_ResetCurrentDatabaseID</a><br>
+        <!--NoIdx--><a href="APIDb_ResetCurrentWindowID.html">APIDb_ResetCurrentWindowID</a><br>
+        <!--NoIdx--><a href="APIDb_RoomReductionsID.html">APIDb_RoomReductionsID</a><br>
+        <!--NoIdx--><a href="APIDb_SetActualRenovationFilterID.html">APIDb_SetActualRenovationFilterID</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDb_SetElementURLRefID.html">APIDb_SetElementURLRefID</a><br>
+        <!--NoIdx--><a href="Invalid link: APIDb_SetLast3DDefLevelsID.html">APIDb_SetLast3DDefLevelsID</a><br>
+        <!--NoIdx--><a href="APIDb_SetZoomID.html">APIDb_SetZoomID</a><br>
+        <!--NoIdx--><a href="APIDb_SetWindowIdID.html">APIDb_SetWindowIdID</a><br>
+        <!--NoIdx--><a href="APIDb_StartClippingSessionID.html">APIDb_StartClippingSessionID</a><br>
+        <!--NoIdx--><a href="APIDb_StartDrawingDataID.html">APIDb_StartDrawingDataID</a><br>
+        <!--NoIdx--><a href="APIDb_StopClippingSessionID.html">APIDb_StopClippingSessionID</a><br>
+        <!--NoIdx--><a href="APIDb_StopDrawingDataID.html">APIDb_StopDrawingDataID</a><br>
+        <!--NoIdx--><a href="APIDb_StoreViewSettingsID.html">APIDb_StoreViewSettingsID</a><br>
+        <!--NoIdx--><a href="APIDb_Switch3DSightID.html">APIDb_Switch3DSightID</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIDefaultsChangeHandlerProc.html">APIDefaultsChangeHandlerProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIDllTermHookProc.html">APIDllTermHookProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIDo_ChangeWindowID.html">APIDo_ChangeWindowID</a><br>
+        <!--NoIdx--><a href="APIDo_CloseID.html">APIDo_CloseID</a><br>
+        <!--NoIdx--><a href="APIDo_GoToViewID.html">APIDo_GoToViewID</a><br>
+        <!--NoIdx--><a href="APIDo_LoadLibrariesID.html">APIDo_LoadLibrariesID</a><br>
+        <!--NoIdx--><a href="APIDo_ReloadLibrariesID.html">APIDo_ReloadLibrariesID</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDo_NewProjectID.html">APIDo_NewProjectID</a><br>
+        <!--NoIdx--><a href="APIDo_OpenID.html">APIDo_OpenID</a><br>
+        <!--NoIdx--><a href="APIDo_PhotoRenderID.html">APIDo_PhotoRenderID</a><br>
+        <!--NoIdx--><a href="APIDo_PrintID.html">APIDo_PrintID</a><br>
+        <!--NoIdx--><a href="APIDo_PublishID.html">APIDo_PublishID</a><br>
+        <!--NoIdx--><a href="APIDo_QuitID.html">APIDo_QuitID</a><br>
+        <!--NoIdx--><a href="APIDo_RebuildID.html">APIDo_RebuildID</a><br>
+        <!--NoIdx--><a href="APIDo_RedrawID.html">APIDo_RedrawID</a><br>
+        <!--NoIdx--><a href="APIDo_SaveAsModuleFileID.html">APIDo_SaveAsModuleFileID</a><br>
+        <!--NoIdx--><a href="APIDo_SaveID.html">APIDo_SaveID</a><br>
+        <!--NoIdx--><a href="APIDo_ShowAllIn3DID.html">APIDo_ShowAllIn3DID</a><br>
+        <!--NoIdx--><a href="APIDo_ShowSelectionIn3DID.html">APIDo_ShowSelectionIn3DID</a><br>
+        <!--NoIdx--><a href="APIDo_ZoomID.html">APIDo_ZoomID</a><br>
+        <!--NoIdx--><a href="APIDo_ZoomToElementsID.html">APIDo_ZoomToElementsID</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIDo_ZoomToSelectedID.html">APIDo_ZoomToSelectedID</a><br>
+        <!--NoIdx--><a href="APIDo_EditHierarchicalElemID.html">APIDo_EditHierarchicalElemID</a><br>
+        <!--NoIdx--><a href="APIDo_OkHierarchicalElemID.html">APIDo_OkHierarchicalElemID</a><br>
+        <!--NoIdx--><a href="APIDo_CancelHierarchicalElemID.html">APIDo_CancelHierarchicalElemID</a><br>
+
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIElementEventHandlerProc.html">APIElementEventHandlerProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIEnv_AddLibrariesID.html">APIEnv_AddLibrariesID</a><br>
+        <!--NoIdx--><a href="APIEnv_ApplicationID.html">APIEnv_ApplicationID</a><br>
+        <!--NoIdx--><a href="APIEnv_CanChangePlaceSetsID.html">APIEnv_CanChangePlaceSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_Change3DCuttingPlanesID.html">APIEnv_Change3DCuttingPlanesID</a><br>
+        <!--NoIdx--><a href="APIEnv_Change3DImageSetsID.html">APIEnv_Change3DImageSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_Change3DProjectionSetsID.html">APIEnv_Change3DProjectionSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_Change3DStyleID.html">APIEnv_Change3DStyleID</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_Change3DWindowSetsID.html">APIEnv_Change3DWindowSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeAutoIntersectID.html">APIEnv_ChangeAutoIntersectID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeDocumentFrom3DDefaultsID.html">APIEnv_ChangeDocumentFrom3DDefaultsID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeDocumentFrom3DSettingsID.html">APIEnv_ChangeDocumentFrom3DSettingsID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeCurrLayerCombID.html">APIEnv_ChangeCurrLayerCombID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeGDLDateID.html">APIEnv_ChangeGDLDateID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeGhostRecordID.html">APIEnv_ChangeGhostRecordID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeLayoutSetsID.html">APIEnv_ChangeLayoutSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeMarkerDrawingEnabledID.html">APIEnv_ChangeMarkerDrawingEnabledID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangePlaceSetsID.html">APIEnv_ChangePlaceSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeProjectNotesID.html">APIEnv_ChangeProjectNotesID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeRenderingSetsID.html">APIEnv_ChangeRenderingSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeShowHideStateID.html">APIEnv_ChangeShowHideStateID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeStorySettingsID.html">APIEnv_ChangeStorySettingsID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeStructureDisplayID.html">APIEnv_ChangeStructureDisplayID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeSunSetsID.html">APIEnv_ChangeSunSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_ChangeViewOptionsID.html">APIEnv_ChangeViewOptionsID</a><br>
+        <!--NoIdx--><a href="APIEnv_CheckLibrariesID.html">APIEnv_CheckLibrariesID</a><br>
+        <!--NoIdx--><a href="APIEnv_CopyFilesIntoLibraryID.html">APIEnv_CopyFilesIntoLibraryID</a><br>
+        <!--NoIdx--><a href="APIEnv_Create3DStyleID.html">APIEnv_Create3DStyleID</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_CreateCopyOfGdlUserGlobalsHandleID.html">APIEnv_CreateCopyOfGdlUserGlobalsHandleID</a> &nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="API 19 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_CreateFolderInLibraryID.html">APIEnv_CreateFolderInLibraryID</a><br>
+        <!--NoIdx--><a href="APIEnv_DeleteEmbeddedLibItemID.html">APIEnv_DeleteEmbeddedLibItemID</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_DeleteEmbeddedLibItemsID.html">APIEnv_DeleteEmbeddedLibItemsID</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_DeleteGhostRecordID.html">APIEnv_DeleteGhostRecordID</a><br>
+        <!--NoIdx--><a href="APIEnv_DeleteGhostRecordID.html">APIEnv_DeleteGhostRecordID</a><br>
+        <!--NoIdx--><a href="APIEnv_DestroyCopyOfGdlUserGlobalsHandleID.html">APIEnv_DestroyCopyOfGdlUserGlobalsHandleID</a> &nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="API 19 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_Get3DCuttingPlanesID.html">APIEnv_Get3DCuttingPlanesID</a><br>
+        <!--NoIdx--><a href="APIEnv_Get3DImageSetsID.html">APIEnv_Get3DImageSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_Get3DProjectionSetsID.html">APIEnv_Get3DProjectionSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_Get3DStyleID.html">APIEnv_Get3DStyleID</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_Get3DStyleListID.html">APIEnv_Get3DStyleListID</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_Get3DWindowSetsID.html">APIEnv_Get3DWindowSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetConvertedUnitValueID.html">APIEnv_GetConvertedUnitValueID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetCurrLayerCombID.html">APIEnv_GetCurrLayerCombID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetCurrPenSetID.html">APIEnv_GetCurrPenSetID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetDocumentFrom3DDefaultsID.html">APIEnv_GetDocumentFrom3DDefaultsID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetDocumentFrom3DSettingsID.html">APIEnv_GetDocumentFrom3DSettingsID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetGDLDateID.html">APIEnv_GetGDLDateID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetGeoLocationID.html">APIEnv_GetGeoLocationID</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_GetGhostRecordID.html">APIEnv_GetGhostRecordID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetGhostStorySettingsID.html">APIEnv_GetGhostStorySettingsID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetLayoutSetsID.html">APIEnv_GetLayoutSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetLibPartLockStatusID.html">APIEnv_GetLibPartLockStatusID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetLibPartRefGuidID.html">APIEnv_GetLibPartRefGuidID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetLibPartUnIDStrID.html">APIEnv_GetLibPartUnIDStrID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetLibrariesID.html">APIEnv_GetLibrariesID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetMagicWandSetsID.html">APIEnv_GetMagicWandSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetExportToleranceID.html">APIEnv_GetExportToleranceID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetMiscAppInfoID.html">APIEnv_GetMiscAppInfoID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetMiscPlotterInfoID.html">APIEnv_GetMiscPlotterInfoID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetMiscPrinterInfoID.html">APIEnv_GetMiscPrinterInfoID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetNumberingGridLinesID.html">APIEnv_GetNumberingGridLinesID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetPlaceSetsID.html">APIEnv_GetPlaceSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetPreferencesID.html">APIEnv_GetPreferencesID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetPrinterParsID.html">APIEnv_GetPrinterParsID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetProjectNotesID.html">APIEnv_GetProjectNotesID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetRenderingSceneNamesID.html">APIEnv_GetRenderingSceneNamesID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetRenderingSetsID.html">APIEnv_GetRenderingSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetShowHideStateID.html">APIEnv_GetShowHideStateID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetSpecFolderID.html">APIEnv_GetSpecFolderID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetStorySettingsID.html">APIEnv_GetStorySettingsID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetStructureDisplayID.html">APIEnv_GetStructureDisplayID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetSunSetsID.html">APIEnv_GetSunSetsID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetSurveyPointTransformationID.html">APIEnv_GetSurveyPointTransformationID</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_GetToolBoxInfoID.html">APIEnv_GetToolBoxInfoID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetToolBoxModeID.html">APIEnv_GetToolBoxModeID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetTWAccessRightID.html">APIEnv_GetTWAccessRightID</a><br>
+        <!--NoIdx--><a href="APIEnv_GetViewOptionsID.html">APIEnv_GetViewOptionsID</a><br>
+        <!--NoIdx--><a href="APIEnv_IsAutoGroupOnID.html">APIEnv_IsAutoGroupOnID</a><br>
+        <!--NoIdx--><a href="APIEnv_IsAutoIntersectOnID.html">APIEnv_IsAutoIntersectOnID</a><br>
+        <!--NoIdx--><a href="APIEnv_IsInCurtainWallEditModeID.html">APIEnv_IsInCurtainWallEditModeID</a><br>
+        <!--NoIdx--><a href="APIEnv_IsInStairEditModeID.html">APIEnv_IsInStairEditModeID</a><br>
+        <!--NoIdx--><a href="APIEnv_IsInBeamEditModeID.html">APIEnv_IsInBeamEditModeID</a><br>
+        <!--NoIdx--><a href="APIEnv_IsInColumnEditModeID.html">APIEnv_IsInColumnEditModeID</a><br>
+        <!--NoIdx--><a href="APIEnv_IsMarkerDrawingEnabledID.html">APIEnv_IsMarkerDrawingEnabledID</a><br>
+		<!--NoIdx--><a href="APIEnv_IsSurveyPointLockedID.html">APIEnv_IsSurveyPointLockedID</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="APIEnv_IsSurveyPointVisibleID.html">APIEnv_IsSurveyPointVisibleID</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_IsSuspendGroupOnID.html">APIEnv_IsSuspendGroupOnID</a><br>
+        <!--NoIdx--><a href="APIEnv_NewLibDialID.html">APIEnv_NewLibDialID</a><br>
+        <!--NoIdx--><a href="APIEnv_OverwriteLibPartID.html">APIEnv_OverwriteLibPartID</a><br>
+        <!--NoIdx--><a href="APIEnv_ProjectID.html">APIEnv_ProjectID</a><br>
+        <!--NoIdx--><a href="APIEnv_ProjectSharingID.html">APIEnv_ProjectSharingID</a><br>
+        <!--NoIdx--><a href="APIEnv_ResetLibrariesID.html">APIEnv_ResetLibrariesID</a><br>
+        <!--NoIdx--><a href="APIEnv_SetCurrent3DStyleID.html">APIEnv_SetCurrent3DStyleID</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_SetCurrentRenderingSceneID.html">APIEnv_SetCurrentRenderingSceneID</a><br>
+        <!--NoIdx--><a href="APIEnv_SetGeoLocationID.html">APIEnv_SetGeoLocationID</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_SetLibrariesID.html">APIEnv_SetLibrariesID</a><br>
+		<!--NoIdx--><a href="APIEnv_SetSurveyPointLockedID.html">APIEnv_SetSurveyPointLockedID</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+		<!--NoIdx--><a href="APIEnv_SetSurveyPointVisibilityID.html">APIEnv_SetSurveyPointVisibilityID</a> &nbsp;<img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIEnv_SetToolBoxModeID.html">APIEnv_SetToolBoxModeID</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIESYMCommandProc.html">APIESYMCommandProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIExternalCallBackProc.html">APIExternalCallBackProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIIFCRelationshipDataProc.html">APIIFCRelationshipDataProc</a><br>
+        &nbsp;<br>
+		<!--NoIdx--><a href="APIIO3DCommandProc.html">APIIO3DCommandProc</a><br>
+        <!--NoIdx--><a href="APIIOCommandProc.html">APIIOCommandProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIIo_AddMenuItemTextID.html">APIIo_AddMenuItemTextID</a><br>
+        <!--NoIdx--><a href="APIIo_CancelUserInputID.html">APIIo_CancelUserInputID</a><br>
+        <!--NoIdx--><a href="APIIo_ClearNeigFilterID.html">APIIo_ClearNeigFilterID</a><br>
+        <!--NoIdx--><a href="APIIo_CloseProcessWindowID.html">APIIo_CloseProcessWindowID</a><br>
+        <!--NoIdx--><a href="APIIo_CompleteUserInputID.html">APIIo_CompleteUserInputID</a><br>
+        <!--NoIdx--><a href="APIIo_DrawRubberArcID.html">APIIo_DrawRubberArcID</a><br>
+        <!--NoIdx--><a href="APIIo_DrawRubberLineID.html">APIIo_DrawRubberLineID</a><br>
+        <!--NoIdx--><a href="APIIo_GetArcID.html">APIIo_GetArcID</a><br>
+        <!--NoIdx--><a href="APIIo_GetLastValidEmbeddedLPNameID.html">APIIo_GetLastValidEmbeddedLPNameID</a><br>
+        <!--NoIdx--><a href="APIIo_GetLineID.html">APIIo_GetLineID</a><br>
+        <!--NoIdx--><a href="APIIo_GetMenuItemFlagsID.html">APIIo_GetMenuItemFlagsID</a><br>
+        <!--NoIdx--><a href="APIIo_GetMenuItemTextID.html">APIIo_GetMenuItemTextID</a><br>
+        <!--NoIdx--><a href="APIIo_GetPointID.html">APIIo_GetPointID</a><br>
+        <!--NoIdx--><a href="APIIo_GetPolyID.html">APIIo_GetPolyID</a><br>
+        <!--NoIdx--><a href="APIIo_GetProcessOnOffSwitchID.html">APIIo_GetProcessOnOffSwitchID</a><br>
+        <!--NoIdx--><a href="Invalid link: APIIo_HighlightElementsID.html">APIIo_HighlightElementsID</a><br>
+        <!--NoIdx--><a href="APIIo_IncProcessValueID.html">APIIo_IncProcessValueID</a><br>
+        <!--NoIdx--><a href="APIIo_InitNeigFilterID.html">APIIo_InitNeigFilterID</a><br>
+        <!--NoIdx--><a href="APIIo_InitProcessWindowID.html">APIIo_InitProcessWindowID</a><br>
+        <!--NoIdx--><a href="APIIo_Is3DCutawayEnabledID.html">APIIo_Is3DCutawayEnabledID</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIIo_IsCuttingPlanesVisibleID.html">APIIo_IsCuttingPlanesVisibleID</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIIo_IsProcessCanceledID.html">APIIo_IsProcessCanceledID</a><br>
+        <!--NoIdx--><a href="APIIo_ObjectSettingsID.html">APIIo_ObjectSettingsID</a><br>
+        <!--NoIdx--><a href="APIIo_OpenLibPartFileDialogID.html">APIIo_OpenLibPartFileDialogID</a><br>
+        <!--NoIdx--><a href="APIIo_OpenOtherObjectDialogID.html">APIIo_OpenOtherObjectDialogID</a><br>
+        <!--NoIdx--><a href="APIIo_OpenPictureDialogID.html">APIIo_OpenPictureDialogID</a><br>
+        <!--NoIdx--><a href="APIIo_PetPaletteID.html">APIIo_PetPaletteID</a><br>
+        <!--NoIdx--><a href="APIIo_ResetConstraintID.html">APIIo_ResetConstraintID</a><br>
+        <!--NoIdx--><a href="APIIo_SaveLibPartFileDialogID.html">APIIo_SaveLibPartFileDialogID</a><br>
+        <!--NoIdx--><a href="APIIo_Set3DCutawayStatusID.html">APIIo_Set3DCutawayStatusID</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIIo_SetConstraintID.html">APIIo_SetConstraintID</a><br>
+        <!--NoIdx--><a href="APIIo_SetCuttingPlanesVisibilityID.html">APIIo_SetCuttingPlanesVisibilityID</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APIIo_SetMenuItemFlagsID.html">APIIo_SetMenuItemFlagsID</a><br>
+        <!--NoIdx--><a href="APIIo_SetMenuItemTextID.html">APIIo_SetMenuItemTextID</a><br>
+        <!--NoIdx--><a href="APIIo_SetNeigFilterID.html">APIIo_SetNeigFilterID</a><br>
+        <!--NoIdx--><a href="APIIo_SetNextProcessPhaseID.html">APIIo_SetNextProcessPhaseID</a><br>
+        <!--NoIdx--><a href="APIIo_SetProcessOnOffSwitchID.html">APIIo_SetProcessOnOffSwitchID</a><br>
+        <!--NoIdx--><a href="APIIo_SetProcessValueID.html">APIIo_SetProcessValueID</a><br>
+        <!--NoIdx--><a href="APIIo_SetUserControlCallbackID.html">APIIo_SetUserControlCallbackID</a><br>
+        <!--NoIdx--><a href="APIIo_SettingsDialogID.html">APIIo_SettingsDialogID</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APILockChangeHandlerProc.html">APILockChangeHandlerProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIMenuCommandProc.html">APIMenuCommandProc</a><br>
+        <!--NoIdx--><a href="APIModulCommandProc.html">APIModulCommandProc</a><br>
+        <!--NoIdx--><a href="APIModulDataMergeHandlerProc.html">APIModulDataMergeHandlerProc</a><br>
+        <!--NoIdx--><a href="APIModulDataSaveOldFormatHandlerProc.html">APIModulDataSaveOldFormatHandlerProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APINavigatorAddOnViewPointDataConvertNewFormatHandlerProc.html">APINavigatorAddOnViewPointDataConvertNewFormatHandlerProc</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APINavigatorAddOnViewPointDataMergeHandlerProc.html">APINavigatorAddOnViewPointDataMergeHandlerProc</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APINavigatorAddOnViewPointDataSaveOldFormatHandlerProc.html">APINavigatorAddOnViewPointDataSaveOldFormatHandlerProc</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APINavigator_ChangeNavigatorItemID.html">APINavigator_ChangeNavigatorItemID</a><br>
+        <!--NoIdx--><a href="APINavigator_ChangeNavigatorViewID.html">APINavigator_ChangeNavigatorViewID</a><br>
+        <!--NoIdx--><a href="APINavigator_ChangeNavigatorVPItemID.html">APINavigator_ChangeNavigatorVPItemID</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APINavigator_CreateNavigatorVPItemID.html">APINavigator_CreateNavigatorVPItemID</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APINavigator_DeleteNavigatorViewID.html">APINavigator_DeleteNavigatorViewID</a><br>
+        <!--NoIdx--><a href="APINavigator_DeleteNavigatorVPItemID.html">APINavigator_DeleteNavigatorVPItemID</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APINavigator_GetNavigatorChildNumID.html">APINavigator_GetNavigatorChildNumID</a><br>
+        <!--NoIdx--><a href="APINavigator_GetNavigatorChildrenItemsID.html">APINavigator_GetNavigatorChildrenItemsID</a><br>
+        <!--NoIdx--><a href="APINavigator_GetNavigatorItemID.html">APINavigator_GetNavigatorItemID</a><br>
+        <!--NoIdx--><a href="APINavigator_GetNavigatorParentItemID.html">APINavigator_GetNavigatorParentItemID</a><br>
+        <!--NoIdx--><a href="APINavigator_GetNavigatorSetID.html">APINavigator_GetNavigatorSetID</a><br>
+        <!--NoIdx--><a href="APINavigator_GetNavigatorSetNumID.html">APINavigator_GetNavigatorSetNumID</a><br>
+        <!--NoIdx--><a href="APINavigator_GetNavigatorViewID.html">APINavigator_GetNavigatorViewID</a><br>
+        <!--NoIdx--><a href="APINavigator_GetNavigatorVPItemChildrenID.html">APINavigator_GetNavigatorVPItemChildrenID</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APINavigator_GetNavigatorVPItemID.html">APINavigator_GetNavigatorVPItemID</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APINavigator_GetNavigatorVPRootGroupsID.html">APINavigator_GetNavigatorVPRootGroupsID</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APINavigator_NewNavigatorViewID.html">APINavigator_NewNavigatorViewID</a><br>
+        <!--NoIdx--><a href="APINavigator_SearchNavigatorItemID.html">APINavigator_SearchNavigatorItemID</a><br>
+        <!--NoIdx--><a href="APINavigator_RegisterCallbackInterfaceID.html">APINavigator_RegisterCallbackInterfaceID</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APINavigator_SetNavigatorItemPositionID.html">APINavigator_SetNavigatorItemPositionID</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APINumberingGridLineProc.html">APINumberingGridLineProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIPaletteControlCallBackProc.html">APIPaletteControlCallBackProc</a><br>
+        <!--NoIdx--><a href="APIPanelCreateProc.html">APIPanelCreateProc</a><br>
+        <!--NoIdx--><a href="APIPanelDestroyProc.html">APIPanelDestroyProc</a><br>
+        <!--NoIdx--><a href="APIPetPaletteCallBackProc.html">APIPetPaletteCallBackProc</a><br>
+        <!--NoIdx--><a href="APIProjectEventHandlerProc.html">APIProjectEventHandlerProc</a><br>
+        <!--NoIdx--><a href="APIPropertyObjectCommandProc.html">APIPropertyObjectCommandProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIReservationChangeHandlerProc.html">APIReservationChangeHandlerProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APISelectionChangeHandlerProc.html">APISelectionChangeHandlerProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APISettingsCreateProc.html">APISettingsCreateProc</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        <!--NoIdx--><a href="APISettingsDestroyProc.html">APISettingsDestroyProc</a> &nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIToolChangeHandlerProc.html">APIToolChangeHandlerProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="APIViewEventHandlerProc.html">APIViewEventHandlerProc</a><br>
+        &nbsp;<br>
+        <!--NoIdx--><a href="AddPolyNodeProc.html">AddPolyNodeProc</a><br>
+        <!--NoIdx--><a href="CheckEnvironment.html">CheckEnvironment</a><br>
+        <!--NoIdx--><a href="DelPolyNodeProc.html">DelPolyNodeProc</a><br>
+        <!--NoIdx--><a href="FreeData.html">FreeData</a><br>
+        <!--NoIdx--><a href="Initialize.html">Initialize</a><br>
+        <!--NoIdx--><a href="RegisterInterface.html">RegisterInterface</a><br>
+        <!--NoIdx--><a href="RoomReductionPolyProc.html">RoomReductionPolyProc</a><br>
+        <!--NoIdx--><a href="Get3DComponentProc.html">Get3DComponentProc</a><br>
+        <!--NoIdx--><a href="RubberLineInfoProc.html">RubberLineInfoProc</a><br>
+        <!--NoIdx--><a href="ShapePrimsProc.html">ShapePrimsProc</a><br>
+    </blockquote>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ShellContourData</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ShellContourData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ShellContourData</h1>
+
+    <p>Shell contour or shell hole contour definition. This structure is used in <a href="API_ElementMemo.html">API_ElementMemo</a>.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Polygon.html">API_Polygon</a></strong>             <em>poly</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>               <em>**coords</em>;
+        <strong>Int32</strong>                   <em>**pends</em>;
+        <strong><a href="API_PolyArc.html">API_PolyArc</a></strong>             <em>**parcs</em>;
+        <strong>UInt32</strong>                  <em>**vertexIDs</em>;
+        <strong>UInt32</strong>                  <em>**edgeIDs</em>;
+        <strong>UInt32</strong>                  <em>**contourIDs</em>;
+        <strong><a href="API_ContourEdgeData.html">API_ContourEdgeData</a></strong>     <em>*edgeData</em>;
+        <strong><a href="API_Tranmat.html">API_Tranmat</a></strong>             <em>plane</em>;
+        <strong>double</strong>                  <em>height</em>;
+        <strong>UInt32</strong>                  <em>id</em>;
+    <strong>}</strong> <em>API_ShellContourData</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>poly</b></dt>
+
+        <dd>
+            <dl>
+                <dt>The dimensions of the variable size polygon data (see <a href="API_Polygon.html">API_Polygon</a>).</dt>
+            </dl>
+        </dd>
+
+        <dt><b>coords</b></dt>
+
+        <dd>Coordinate array.</dd>
+
+        <dt><b>pends</b></dt>
+
+        <dd>Polygon endpoints; see <a href="API_Polygon.html">API_Polygon</a> for more information.</dd>
+
+        <dt><b>parcs</b></dt>
+
+        <dd>Polygon arcs; see <a href="API_PolyArc.html">API_PolyArc</a> and <a href="API_Polygon.html">API_Polygon</a> for more information.</dd>
+
+        <dt><b>vertexIDs</b></dt>
+
+        <dd>Unique identifiers the polygon vertices (unique inside the polygon).</dd>
+
+        <dt><b>edgeIDs</b></dt>
+
+        <dd>Unique identifiers the polygon edges (unique inside the polygon).</dd>
+
+        <dt><b>contourIDs</b></dt>
+
+        <dd>Unique identifiers the polygon contours (unique inside the polygon).</dd>
+
+        <dt><b>edgeData</b></dt>
+
+        <dd>Data associated to the edges of the contour polygon (see <a href="API_ContourEdgeData.html">API_ContourEdgeData</a>).</dd>
+
+        <dt><b>plane</b></dt>
+
+        <dd>The contour polygon lies on this plane. The coordinates are given in its 2D coordinate system.</dd>
+
+        <dt><b>height</b></dt>
+
+        <dd>Height (depth) of the cutting body extruded from the hole polygon. Always 0 for the outside contour.</dd>
+
+        <dt><b>id</b></dt>
+
+        <dd>Id of the hole polygon. Always 0 for the outside contour.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure describes the data for the clipping polygon contour (in this case the <em>height</em> and <em>id</em> members are irrelevant), and the hole contours of a shell element.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 15 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_ContourEdgeData.html">API_ContourEdgeData</a>, <a href="API_Tranmat.html">API_Tranmat</a><br>
+    <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 25, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

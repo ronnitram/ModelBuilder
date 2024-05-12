@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>GetEdge</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Body/GetEdge.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="Body.html">Body</a>::GetEdge</h1><br>
+    Get an reference to an edge of the body.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>void  GetEdge (
+    Int32  edgeIndex,
+    <a href="../Edge/Edge.html">Edge</a>*  edge
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>edgeIndex</em></dt>
+
+        <dd>The absolute value of this parameter is the index of the edge. The index range is [1..n] where n = <a href="GetEdgeNum.html">GetEdgeNum</a> (). If this parameter is negative, then the edge will be stored with opposite direction.</dd>
+
+        <dt><em>edge</em></dt>
+
+        <dd>A pointer to the result edge.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This method get a reference to an edge of the body and put it into <i>edge</i>. All edges have direction. If the <i>edgeIndex</i> is negative, then the result edge direction will be changed. If the absolute value of the <i>edgeIndex</i> is out of range, then it throws an exception.</p>
+
+    <p><b>Available from version: 8</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

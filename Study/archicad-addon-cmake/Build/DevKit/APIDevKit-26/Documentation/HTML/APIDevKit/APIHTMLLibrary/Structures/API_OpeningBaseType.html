@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_OpeningBaseType</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_OpeningBaseType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_OpeningBaseType</h1>
+
+    <p>Represents the common part of window, door and skylight elements.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>short</strong>                        <em>pen</em>;
+        <strong>short</strong>                        <em>filler_0</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>           <em>ltypeInd</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>           <em>mat</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>           <em>sectFill</em>;
+        <strong>short</strong>                        <em>sectFillPen</em>;
+        <strong>short</strong>                        <em>sectBGPen</em>;
+        <strong>short</strong>                        <em>sectContPen</em>;
+        <strong>short</strong>                        <em>filler_1</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>           <em>cutLineType</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>           <em>aboveViewLineType</em>;
+        <strong>short</strong>                        <em>aboveViewLinePen</em>;
+        <strong>short</strong>                        <em>belowViewLinePen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>           <em>belowViewLineType</em>;
+        <strong>bool</strong>                         <em>useObjPens</em>;
+        <strong>bool</strong>                         <em>useObjLtypes</em>;
+        <strong>bool</strong>                         <em>useObjMaterials</em>;
+        <strong>bool</strong>                         <em>useObjSectAttrs</em>;
+        <strong>bool</strong>                         <em>filler_2[4]</em>;
+        <strong>double</strong>                       <em>width</em>;
+        <strong>double</strong>                       <em>height</em>;
+        <strong>double</strong>                       <em>subFloorThickness</em>;
+        <strong>char</strong>                         <em>filler_3[16]</em>;
+        <strong>Int32</strong>                        <em>libInd</em>;
+        <strong><a href="API_VerticalLink.html">API_VerticalLink</a></strong>             <em>verticalLink</em>;
+        <strong>bool</strong>                         <em>reflected</em>;
+        <strong>bool</strong>                         <em>oSide</em>;
+        <strong>bool</strong>                         <em>refSide</em>;
+        <strong>bool</strong>                         <em>wallCutUsing</em>;
+        <strong>bool</strong>                         <em>filler_4[4]</em>;
+        <strong>GS::Int64</strong>                    <em>lookId</em>;
+        <strong><a href="API_Guid.html">API_Guid</a></strong>                     <em>markGuid</em>;
+        <strong><a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a></strong>     <em>displayOption</em>;
+        <strong>Int32</strong>                        <em>filler_5</em>;
+    <strong>}</strong> <em>API_OpeningBaseType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>pen</b></dt>
+
+        <dd>Pen index.</dd>
+
+        <dt><b>ltypeInd</b></dt>
+
+        <dd>Line type index.</dd>
+
+        <dt><b>mat</b></dt>
+
+        <dd>Material index.</dd>
+
+        <dt><b>sectFill</b></dt>
+
+        <dd>Fill index of section of the opening.</dd>
+
+        <dt><b>sectFillPen</b></dt>
+
+        <dd>Pen index of the fill of the section of the opening.</dd>
+
+        <dt><b>sectBGPen</b></dt>
+
+        <dd>Background pen index of the fill of the section of the opening.</dd>
+
+        <dt><b>sectContPen</b></dt>
+
+        <dd>Contour pen index of the fill of the section of the opening.</dd>
+
+        <dt><b>cutLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Line type index for cut lines of the opening.</dd>
+
+        <dt><b>aboveViewLinePen</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Pen used when "Overhead All" is selected from the "Floor Plan Display" popup. Corresponds to the "Overhead Line Pens" value in the Door/Window Settings dialog.</dd>
+
+        <dt><b>aboveViewLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Line type used when "Overhead All" is selected from the "Floor Plan Display" popup. Corresponds to the "Overhead Lines" value in the Door/Window Settings dialog.</dd>
+
+        <dt><b>belowViewLinePen</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Pen index of the uncut lines of the opening.</dd>
+
+        <dt><b>belowViewLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Line type used when "OutLines Only" is selected from the "Floor Plan Display" popup. Corresponds to the "Uncut Lines" value in the Door/Window Settings dialog.</dd>
+
+        <dt><b>useObjPens</b></dt>
+
+        <dd>Use the pens defined in the library part.</dd>
+
+        <dt><b>useObjLtypes</b></dt>
+
+        <dd>Use the line types defined in the library part.</dd>
+
+        <dt><b>useObjMaterials</b></dt>
+
+        <dd>Use the materials defined in the library part.</dd>
+
+        <dt><b>useObjSectAttrs</b></dt>
+
+        <dd>Use the section attributes defined in the library part.</dd>
+
+        <dt><b>width</b></dt>
+
+        <dd>Width of the opening.</dd>
+
+        <dt><b>height</b></dt>
+
+        <dd>Vertical size of the opening.</dd>
+
+        <dt><b>subFloorThickness</b>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></dt>
+
+        <dd>Sub-floor thickness (used to be Parapet correction <code>ppCorr</code>).</dd>
+
+        <dt><b>libInd</b></dt>
+
+        <dd>Index to the symbol in the library. If 0, an empty window/door/skylight hole is created.</dd>
+
+        <dt><b>verticalLink</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>The anchor position defining how the window/door element to be kept fixed during elevation changes.</dd>
+
+        <dt><b>reflected</b></dt>
+
+        <dd>True if mirrored to Y axis.</dd>
+
+        <dt><b>oSide</b></dt>
+
+        <dd>True if mirrored to X axis.</dd>
+
+        <dt><b>refSide</b></dt>
+
+        <dd>True if mirrored to X axis (same as <code>oSide</code>).</dd>
+
+        <dt><b>wallCutUsing</b></dt>
+
+        <dd>True if the window inherits the gables of the owner wall.</dd>
+
+        <dt><b>lookId</b>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="Changed in API 16" width="19" height="12"></dt>
+
+        <dd>Same number for similar-looking windows/doors/skylights 2D draw.</dd>
+
+        <dt><b>markGuid</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Guid of the dimension marker symbol.</dd>
+
+        <dt><b>displayOption</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Display options of the element on the floor plan (see <a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a>).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p><img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12">&nbsp; This structure is created from <code>API_WindowType</code> to hold the common parameters of <a href="API_WindowType.html">API_WindowType</a> and <a href="API_SkylightType.html">API_SkylightType</a>.</p>
+
+    <p>For window/door/skylight related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 15 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_AttributeIndex.html">API_AttributeIndex</a>, <a href="API_VerticalLink.html">API_VerticalLink</a>, <a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a><br>
+    <a href="API_WindowType.html">API_WindowType</a>, <a href="API_SkylightType.html">API_SkylightType</a>, <a href="API_Element.html">API_Element</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 13, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

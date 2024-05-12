@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Introduction into CIO interface</title><!-- index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/CIOInterface/Introduction.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Introduction into CIO interface</h1><br>
+
+    <p>InputOutput module has two interfaces regarding the compatibility issues: the "traditional" one, where user code is linked against the InputOutput (import) library through decorated names (decorated method, function and class names), and the "binary" one, where functiontality of the InputOutput module is accessed through handmade virtual function tables residing in appropriate header files.<br>
+    <br>
+    The "traditional" interface is fragile regarding the compatibility because decorated name based linking is compiler dependent (and compiler version dependent). Moreover subsequent versions of the InputOutput module may be (so surely will be) incompatible because name and parameter list of methods may change (for example due to addition of new default parameters) which causes changes in decorated names. As a result, a newer version of the InputOutput library (DLL) will cause run-time errors with the "old" program.<br>
+    <br>
+    The "binary" compatible interface is a thin layer on the top of the InputOutput module which eliminates most of the cross-version and cross-compiler problems. It uses handmade virtual function tables (like in COM) to access the "internal" IO methods, which will remain compatible cross versions. The exposed virtual functions will never change to assure stable compatibility, only new functions will be added to virtual function tables (of course new classes and consequently new virtual function tables can be also safely added). Virtual function tables are handmade structures with stable and known layout to assure the cross-compiler compatibility.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

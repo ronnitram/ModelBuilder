@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIEnv_GetToolBoxModeID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIEnv_GetToolBoxModeID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIEnv_GetToolBoxModeID</h1>
+
+    <p>Returns the actual toolbox mode.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_environment_id.html">ACAPI_Environment</a></strong> (
+        <strong>APIEnv_GetToolBoxModeID</strong>,
+        <strong><a href="../Structures/API_ToolBoxItem.html">API_ToolBoxItem</a>*</strong>     <em>toolBoxItem</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>toolBoxItem</em></dt>
+
+        <dd>[out] Current toolbox mode data.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>toolBoxItem</code> is nullptr</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to get the current toolbox mode. The mode is returned in the <code>type</code> field. For those types which can have more toolbox modes (<code>ID_Wind</code>, <code>ID_Door</code>, <code>ID_Symb</code>, <code>ID_Light</code>), the owner ID of the tool is returned, too. If the current toolbox mode has no element type associated with (e.g. arrow mode and marquee mode), the <code>typeID</code> will be <code>API_ZombieElemID</code>.</p>
+
+    <p>To change the active toolbox item use the <a href="APIEnv_SetToolBoxModeID.html">APIEnv_SetToolBoxModeID</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_ToolBoxItem tboxInfo;
+BNZeroMemory (&amp;tboxInfo, sizeof (API_ToolBoxItem));
+
+GSErrCode err = ACAPI_Environment (APIEnv_GetToolBoxModeID, &amp;tboxInfo, nullptr);
+if (err == NoError) {
+    GS::UniString elemName = "unknown";
+    ACAPI_Goodies_GetElemTypeName (tboxInfo.type, amp;elemName);
+
+    char buffer[256];
+    if (tboxInfo.type == API_ZombieElemID) {
+        sprintf (buffer, "Previous toolbox mode: Arrow or Marquee");
+    } else if (tboxInfo.type.variationID == APIVarId_Generic) {
+        sprintf (buffer, "Previous toolbox mode: %s", (const char*) elemName.ToCStr ());
+    } else {
+        char *p = (char *) &amp;tboxInfo.type.variationID;
+        sprintf (buffer, "Previous toolbox mode: %s  variation \"%c%c%c%c\"",
+                    (const char*) elemName.ToCStr (), p[0], p[1], p[2], p[3]);
+    }
+
+    ACAPI_WriteReport (buffer, false);
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_ToolBoxItem.html">API_ToolBoxItem</a>,<br>
+    <a href="APIEnv_SetToolBoxModeID.html">APIEnv_SetToolBoxModeID</a>,<br>
+    <a href="acapi_environment_id.html">ACAPI_Environment</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 9, 2006<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>AddOnObject Manager</title>
+    <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/AddOnObject_Manager_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>AddOnObject Manager</h1>
+
+    <p><br>
+    The AddOnData Manager is a service introduced in API v19.</p>
+
+    <p>It allows each add-on to store custom data in Archicad project database. No limitation is imposed on the structure or content, not even on the amount of saved bytes. Archicad knows nothing about its internal format, it just preserves a number of bytes in the project database and returns them upon requests.</p>
+
+    <p>The container of the stored data is an object called AddOnObject. This data structure has a GUID and a name. The name is optional.</p>
+
+    <p>AddOnobjects are identified uniquely by the GUID of the object.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Unique AddOnObjects &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"></h4>
+
+    <p>Unique AddOnObjects were introduced to support more restricted but safer TeamWork behaviour. Because multiple general (non-unique) AddOnObjects can exist with the same name, in TeamWork it could happen that two users created "the same" AddOnObject simultaneously, but at the end they ended up with two different AddOnObjects (with the same name). This led to a lot of confusion.</p>
+
+    <p>With Unique AddOnObjects - like general AddOnObjects - you can store custom data in the project database. However - unlike general AddOnObjects - their names must be and will be unique among each other. Please note that names of a Unique AddOnObject and general AddOnObjects may still be equal.</p>
+
+    <p>In a TeamWork project creating Unique AddOnObjects will result in a Full Send to ensure project consistency. Due to this inconvenience, it is possible to create more Unique AddOnObjects at once with the <a href="../Functions/ACAPI_AddOnObject_CreateUniqueObjectMore.html">ACAPI_AddOnObject_CreateUniqueObjectMore</a> function.</p>
+
+    <p>All functions that work for general AddOnObjects work for Unique AddOnObjects, too, except <a href="../Functions/ACAPI_AddOnObject_GetObjectGuidFromName.html">ACAPI_AddOnObject_GetObjectGuidFromName</a>: to get the GUID of a Unique AddOnObject from its name use <a href="../Functions/ACAPI_AddOnObject_GetUniqueObjectGuidFromName.html">ACAPI_AddOnObject_GetUniqueObjectGuidFromName</a> instead.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Functions</h4>
+
+    <p>All of the ModulData Manager functions begin with the <b>ACAPI_AddOnObject_</b> prefix. They are as follows:</p>
+
+    <blockquote>
+        <a href="../Functions/ACAPI_AddOnObject_CreateObject.html">ACAPI_AddOnObject_CreateObject</a><br>
+        <a href="../Functions/ACAPI_AddOnObject_CreateClientOnlyObject.html">ACAPI_AddOnObject_CreateClientOnlyObject</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_AddOnObject_CreateUniqueObject.html">ACAPI_AddOnObject_CreateUniqueObject</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_AddOnObject_CreateUniqueObjectMore.html">ACAPI_AddOnObject_CreateUniqueObjectMore</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_AddOnObject_ModifyObject.html">ACAPI_AddOnObject_ModifyObject</a><br>
+        <a href="../Functions/ACAPI_AddOnObject_DeleteObject.html">ACAPI_AddOnObject_DeleteObject</a><br>
+        <a href="../Functions/ACAPI_AddOnObject_GetObjectList.html">ACAPI_AddOnObject_GetObjectList</a><br>
+        <a href="../Functions/ACAPI_AddOnObject_GetObjectContent.html">ACAPI_AddOnObject_GetObjectContent</a><br>
+        <a href="../Functions/ACAPI_AddOnObject_GetObjectGuidFromName.html">ACAPI_AddOnObject_GetObjectGuidFromName</a><br>
+        <a href="../Functions/ACAPI_AddOnObject_GetClientOnlyObjectGuidFromName.html">ACAPI_AddOnObject_GetClientOnlyObjectGuidFromName</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_AddOnObject_GetUniqueObjectGuidFromName.html">ACAPI_AddOnObject_GetUniqueObjectGuidFromName</a> &nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="API 21 feature" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_AddOnObject_ExistsObject.html">ACAPI_AddOnObject_ExistsObject</a><br>
+        <a href="../Functions/ACAPI_AddOnObject_ReserveObjects.html">ACAPI_AddOnObject_ReserveObjects</a><br>
+        <a href="../Functions/ACAPI_AddOnObject_ReleaseObjects.html">ACAPI_AddOnObject_ReleaseObjects</a><br>
+        <a href="../Functions/ACAPI_AddOnObject_RequestObjects.html">ACAPI_AddOnObject_RequestObjects</a><br>
+        <a href="../Functions/ACAPI_AddOnObject_GrantObjects.html">ACAPI_AddOnObject_GrantObjects</a><br>
+        <a href="../Functions/ACAPI_AddOnObject_GetTeamworkOwnerId.html">ACAPI_AddOnObject_GetTeamworkOwnerId</a><br>
+        <a href="../Functions/ACAPI_AddOnObject_SetUIProperties.html">ACAPI_AddOnObject_SetUIProperties</a><br>
+    </blockquote>
+
+    <p>Refer to the <b>AddOnObject Manager</b> example project to see detailed examples on using these functions.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Merging AddOnObjects</h4>
+
+    <p>When merging another plan into the project, it might be necessary to keep both the original and the incoming objects, and to combine them together. Since the host application does not know the content of the objects, the owner add-on is requested to resolve the conflict.</p>
+
+    <p>For this purpose the add-on needs to implement an <a href="../Functions/APIAddonObjectMergeHandlerProc.html">APIAddOnObjectMergeHandlerProc</a> callback handler function, and pass the function pointer to Archicad with the <a href="../Functions/ACAPI_Install_AddOnObjectMergeHandler.html">ACAPI_Install_AddOnObjectMergeHandler</a> in the <a href="../Functions/Initialize.html">Initialize</a> routine. It is also necessary to inform Archicad that the add-on is prepared for merging custom data: this can be done with the <a href="../Functions/ACAPI_Register_AddOnObjectHandler.html">ACAPI_Register_AddOnObjectHandler</a> function called from <a href="../Functions/RegisterInterface.html">RegisterInterface</a>.</p>
+
+    <p>In Teamwork mode the AddOnObject can only be modified by the owner of the object. The add-on can reserve or release one or more AddOnObject using <a href="../Functions/ACAPI_AddOnObject_ReserveObjects.html">ACAPI_AddOnObject_ReserveObjects</a> and <a href="../Functions/ACAPI_AddOnObject_ReleaseObjects.html">ACAPI_AddOnObject_ReleaseObjects</a>. Only one user can modifiy an object at one time, so no conflict resolution is needed.</p>
+
+    <p>&nbsp;</p>
+
+
+    <h4>&nbsp;Saving data into old format project</h4>
+
+    <p>If the structure of the custom data has changed since the previous version, you need to implement an <a href="../Functions/APIAddonObjectSaveOldFormatHandlerProc.html">APIAddonObjectSaveOldFormatHandlerProc</a> callback function to be able to convert your data when saving into an older format project. In order to be called this handler, the function pointer must be passed with <a href="../Functions/ACAPI_Install_AddOnObjectSaveOldFormatHandler.html">ACAPI_Install_AddOnObjectSaveOldFormatHandler</a>, and the data handling feature must be registered with <a href="../Functions/ACAPI_Register_AddOnObjectHandler.html">ACAPI_Register_AddOnObjectHandler</a>.</p>
+
+    <p>When Archicad calls this function, the add-on should create the converted data according to the given plan file format, and pass it back to the application.</p>
+
+    <p>If the add-on does not install this converter callback routine, the available current format data is saved into the old version project as well.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>&nbsp;Converting data when reading an old format project</h4>
+
+    <p>If the structure of the custom data has changed since the older versions, you need to implement an <a href="../Functions/APIAddonObjectConvertNewFormatHandlerProc.html">APIAddonObjectConvertNewFormatHandlerProc</a> callback function to be able to convert your data when opening an older format project. In order to be called this handler, the function pointer must be passed with <a href="../Functions/ACAPI_Install_AddOnObjectConvertNewFormatHandler.html">ACAPI_Install_AddOnObjectConvertNewFormatHandler</a>, and registration with <a href="../Functions/ACAPI_Register_AddOnObjectHandler.html">ACAPI_Register_AddOnObjectHandler</a> is also needed.</p>
+
+    <p>When Archicad calls this function, the add-on should create the current version data, and pass it back to the application.</p>
+
+    <p>If the add-on does not install this converter callback routine, the available orignal format data will be kept in the current version project as well.</p>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

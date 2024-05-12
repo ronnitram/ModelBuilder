@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Group Box</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/GroupBox.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Group Box</h1>
+
+    <p>A group box control is a rectangle that groups other controls together on a dialog or tab page. The controls are grouped by drawing a border around them and displaying a specified caption text in the upper-left corner.</p>
+
+    <p>On Macintosh, there are two types of group boxes: the so called primary and secondary ones. Primary and secondary group boxes differ from each other in their appearance. A secondary-type group box is usually applied when dialog items should be grouped within another group box or on a tab control page. On Windows, however, there is only one type of group box.</p>
+
+    <p>Sometimes a simple rectangle may be more sufficient to group dialog items than a normal group box. In this case use a rectangle-style <a href="SeparatorItem.html">separator item</a> instead of a group box with empty caption text.</p>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_GROUPBOX</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_GT_PRIMARY</tt></td>
+
+                    <td>Simple group box.<br>
+                    <br>
+                    <img src="../DGImageLibrary/GroupBoxPrimary_Mac.png" width="156" height="54" alt="GroupBoxPrimary_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/GroupBox_Win.png" alt="GroupBox_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_GT_SECONDARY</tt></td>
+
+                    <td>Nested group box.<br>
+                    <br>
+                    <img src="../DGImageLibrary/GroupBoxSecondary_Mac.png" width="156" height="54" alt="GroupBoxSecondary_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/GroupBox_Win.png" alt="GroupBox_Win"><br>
+                    <br></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    GroupBox    <i>x  y  dx  dy  fontSpec  groupStyle  "text"</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the group box, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>fontSpec</em> declares the font size and style of the caption <em>text</em>. <em>groupStyle</em> specifies the appearance of the control on Macintosh. This flag has no effect on Windows.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <p>Possible values of <em>groupStyle</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Primary</tt></td>
+
+                    <td>The <tt>DG_GT_PRIMARY</tt> subtype is set.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>Secondary</tt></td>
+
+                    <td>The <tt>DG_GT_SECONDARY</tt> subtype is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The text of a group box can be set, modified and retrieved by <a href="DGSetItemText.html">DGSetItemText</a>, <a href="DGCatItemText.html">DGCatItemText</a> and <a href="DGGetItemText.html">DGGetItemText</a>, respectively. The group box can display its text with any type of DG fonts. The font can be specified not only in GRC, but by the <a href="DGSetItemFont.html">DGSetItemFont</a> function as well. Use <a href="DGGetItemFont.html">DGGetItemFont</a> to retrieve the font currently assigned to a group box.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="SeparatorItem.html">Separator Item</a><br>
+    <a href="DGCatItemText.html">DGCatItemText</a>, <a href="DGGetItemFont.html">DGGetItemFont</a>, <a href="DGGetItemText.html">DGGetItemText</a>, <a href="DGSetItemFont.html">DGSetItemFont</a>, <a href="DGSetItemText.html">DGSetItemText</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 2, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

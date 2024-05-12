@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_WallReferenceLineLocationID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_WallReferenceLineLocationID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_WallReferenceLineLocationID</h1>
+
+    <p>Distinguishes among the different wall reference line locations.</p>
+    <pre class="syntax">
+    <strong>typedef enum {</strong>
+        <em>APIWallRefLine_Outside</em>,
+        <em>APIWallRefLine_Center</em>,
+        <em>APIWallRefLine_Inside</em>,
+        <em>APIWallRefLine_CoreOutside</em>,
+        <em>APIWallRefLine_CoreCenter</em>,
+        <em>APIWallRefLine_CoreInside</em>
+    <strong>}</strong> <em>API_WallReferenceLineLocationID</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>APIWallRefLine_Outside</b></dt>
+
+        <dd>The reference line location is on the outside face of the wall.</dd>
+
+        <dt><b>APIWallRefLine_Center</b></dt>
+
+        <dd>The reference line location is on the center of the wall.</dd>
+
+        <dt><b>APIWallRefLine_Inside</b></dt>
+
+        <dd>The reference line location is on the inside face of the wall.</dd>
+
+        <dt><b>APIWallRefLine_CoreOutside</b></dt>
+
+        <dd>The reference line location is on the core outside skin of the composite structure.</dd>
+
+        <dt><b>APIWallRefLine_CoreCenter</b></dt>
+
+        <dd>The reference line location is on the center of core skin of the composite structure.</dd>
+
+        <dt><b>APIWallRefLine_CoreInside</b></dt>
+
+        <dd>The reference line location is on the core inside skin of the composite structure.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>These constants determine the location of the reference line in the wall. This &mdash; along with the new <tt>flipped</tt> member in <a href="API_WallType.html">API_WallType</a> &mdash; replace the old <tt>API_WallDirID</tt>, and allow you to exactly position the reference line, instead of coding both this position and the 'flippedness' of the wall into one member.</p>
+
+    <p>Imagine a horizontal unflipped composite wall drawn from left to right (as shown in the Composite Settings dialog): outside is the top, inside is the bottom.</p>
+
+    <p><img src="../../APIImageLibrary/WallReferenceLineLocationID.png" class="size2x" width="447" height="470" alt="Wall reference line location"></p>
+
+    <p>Note that only composite walls may have a core-related reference line location; polygonal and complex walls always use <tt>APIWallRefLine_Outside</tt>. Profiled walls don't use this member, as their reference line always goes through their origin.</p>
+
+    <p>When its value is <tt>APIWallRefLine_Center</tt> or <tt>APIWallRefLine_CoreCenter</tt>, you cannot specify an <tt>offset</tt> in the <a href="API_WallType.html">API_WallType</a> structure.</p>
+
+    <p>The new <tt>offsetFromOutside</tt> output only member in <a href="API_WallType.html">API_WallType</a> tells you the distance between the 'top' of the wall (as shown in the Composite Settings dialog) and the reference line's position.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 17 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_WallType.html">API_WallType</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 21, 2013<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

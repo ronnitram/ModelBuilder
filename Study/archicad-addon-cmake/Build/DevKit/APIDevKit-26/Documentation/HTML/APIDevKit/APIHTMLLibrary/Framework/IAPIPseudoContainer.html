@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>GSAPI::IAPIPseudoContainer interface</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Framework/IAPIPseudoContainer.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GSAPI::IAPIPseudoContainer interface</h1>
+
+    <p>This template interface provides the necessary abstract methods which allow the user to access the current Archicad database through the API as if it were a real container object.</p>
+    <pre class="Syntax">
+<span class="SyntaxKeyword">template</span> <span class="SyntaxSymbol">&lt;</span><span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">APIType</span><span class="SyntaxSymbol">,</span> <span class="SyntaxKeyword">typename</span> <span class="SyntaxTemplateIdentifier">FilterType</span><span class="SyntaxSymbol">,</span> <span class="SyntaxKeyword">class</span> <span class="SyntaxTemplateIdentifier">Iterator</span><span class="SyntaxSymbol">&gt;</span>
+<span class="SyntaxKeyword">class</span> <span class="SyntaxIdentifier">GSAPI::IAPIPseudoContainer</span><span class="SyntaxSymbol">;</span>
+</pre>
+
+    <h2 class="SectionHeading">Template parameters</h2>
+
+    <dl>
+        <dt><span class="Parameter">APIType</span></dt>
+
+        <dd>The element type of the container.</dd>
+    </dl>
+
+    <dl>
+        <dt><span class="Parameter">FilterType</span></dt>
+
+        <dd>The type of the element filter (<!-- Don't index --><a href="../Structures/API_ElemFilter.html">API_ElemFilter</a> or GSAPI::AttributeFilter in the implementations in the <b>DefaultImplementations</b> folder).</dd>
+    </dl>
+
+    <dl>
+        <dt><span class="Parameter">Iterator</span></dt>
+
+        <dd>The type of the iterator returned by the container (which must be derived from the <!-- Don't index --><a href="IAPIPseudoIterator.html">IAPIPseudoIterator</a> interface).</dd>
+    </dl>
+
+    <h2 class="SectionHeading">Description</h2>
+
+    <p>The interface is called PseudoContainer because for once it doesn't contain anything, but forwards the element accessor calls to the API; and for twice because it defines the order of element access through it's GetNext () method instead of the usual way of the iterator deciding on how to access the next element. It exports a <i>Begin ()</i> and an <i>End ()</i> method which return <!-- Don't index --><a href="IAPIPseudoIterator.html">IAPIPseudoIterator</a>s referencing the first and one past the last elements in the "container". It also supports the filtering of the database elements with a <i>SetFilter ()</i> method. The container also holds an optional pointer to an <!-- Don't index --><a href="IAPIAttributeAdapterFactory.html">IAPIAttributeAdapterFactory</a> object.</p>
+
+    <p>There are 4 different implementations in the <b>DefaultImplementation</b> folder:</p>
+
+    <ul>
+        <li>AttributeProxy is a special container, which indeed contains the attributes it proxies.</li>
+
+        <li>CreationOrderElementContainer returns the elements in growing creation time order. <img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></li>
+
+        <li>DrawOrderElementContainer returns the elements in drawing order.</li>
+
+        <li>IndexedElementContainer returns the elements in the order of their type and element index.</li>
+    </ul>
+
+    <p>It is possible to use these containers independent of the framework (on their own - together with the iterator type of course).</p>
+
+    <p>See also IAPIPseudoContainer and IAPIPseudoIterator <a href="ImplementationDetails.html" title="Implementation details">implementation details</a>.</p>
+
+    <h2 class="SectionHeading">Requirements</h2>
+
+    <p><span class="RequirementsSection">Namespace:</span> GSAPI</p>
+
+    <p><span class="RequirementsSection">Header:</span> IAPIPseudoContainer.hpp</p>
+
+    <p><span class="RequirementsSection">Version:</span> API 10.21 or later</p>
+
+    <h2 class="SectionHeading">See Also</h2>
+
+    <p><!-- Don't index --><a href="IAPIPseudoIterator.html">IAPIPseudoIterator interface</a> | <!-- Don't index --><a href="IAttributeProxy.html">IAttributeProxy interface</a> | <!-- Don't index --><a href="ImplementationDetails.html">Implementation details</a></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

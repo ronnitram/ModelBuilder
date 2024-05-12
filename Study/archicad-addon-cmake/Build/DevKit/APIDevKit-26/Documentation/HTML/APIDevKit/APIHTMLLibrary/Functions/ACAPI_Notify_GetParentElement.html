@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Notify_GetParentElement</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Notify_GetParentElement.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Notify_GetParentElement</h1>
+
+    <p>Returns the parent of the actual element your addon received notification for.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Notify_GetParentElement</strong> (
+        <strong><a href="../Structures/API_Element.html">API_Element</a>*</strong>         <em>element</em>,
+        <strong><a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>*</strong>     <em>memo</em>,
+        <strong>UInt64</strong>               <em>mask</em>,
+        <strong><a href="../Structures/API_ElementUserData.html">API_ElementUserData</a>*</strong> <em>userData</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>element</em></dt>
+
+        <dd>[out] The parent element to be retrieved.</dd>
+
+        <dt><em>memo</em></dt>
+
+        <dd>[out] Additional data of the parent element.</dd>
+
+        <dt><em>mask</em></dt>
+
+        <dd>[in] Mask for specifying the relevant memo handles to be retrieved.</dd>
+
+        <dt><em>userData</em></dt>
+
+        <dd>[out] Userdata of the parent element.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function was executed without error.</dd>
+
+        <dt><code>APIERR_REFUSEDCMD</code></dt>
+
+        <dd>There was no parent element during the action.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to retrieve the original element data from which the notified element has been derived. If you pass <code>nullptr</code> values in the <code>memo</code> and <code>userData</code> parameters, the function performs an <a href="ACAPI_Element_Get.html">ACAPI_Element_Get</a> operation, otherwise it behaves like the <a href="ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> or the <a href="ACAPI_Element_GetUserData.html">ACAPI_Element_GetUserData</a> function.</p>
+
+    <p>You can use this function to find out what changes have been made to the original element during the operation.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>See the example for <a href="ACAPI_Notify_CatchNewElement.html">ACAPI_Notify_CatchNewElement</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Element.html">API_Element</a><br>
+    <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="../Structures/API_ElementUserData.html">API_ElementUserData</a><br>
+    <a href="ACAPI_Notify_CatchNewElement.html">ACAPI_Notify_CatchNewElement</a><br>
+    <a href="../Structures/API_NotifyElementType.html">API_NotifyElementType</a><br>
+    <a href="../Level3/notification_manager_id.html">Notification Manager</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 26, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

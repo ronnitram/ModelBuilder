@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>TMRotatePoint</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Vector3D/TMRotatePoint.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Geometry::TMRotatePoint</h1>
+
+    <p>Rotates a 3D point around an axis. The axis is specified by its direction and an arbitrary point on it.</p>
+    <pre class="syntax">
+    <strong> void</strong> TMRotatePoint (
+      <strong>double</strong>   <em>vx</em>,
+      <strong>double</strong>   <em>vy</em>,
+      <strong>double</strong>   <em>vz</em>,
+      <strong>double</strong>   <em>rx</em>,
+      <strong>double</strong>   <em>ry</em>,
+      <strong>double</strong>   <em>rz</em>,
+      <strong>double</strong>   <em>alpha</em>,
+      <strong>double</strong>*  <em>px</em>,
+      <strong>double</strong>*  <em>py</em>,
+      <strong>double</strong>*  <em>pz</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>vx</em></dt>
+
+        <dd>Coordinate <em>x</em> of the direction vector of the axis of rotation.</dd>
+
+        <dt><em>vy</em></dt>
+
+        <dd>Coordinate <em>y</em> of the direction vector of the axis of rotation.</dd>
+
+        <dt><em>vz</em></dt>
+
+        <dd>Coordinate <em>z</em> of the direction vector of the axis of rotation.</dd>
+
+        <dt><em>rx</em></dt>
+
+        <dd>Coordinate <em>x</em> of an arbitrary point of the axis of rotation.</dd>
+
+        <dt><em>ry</em></dt>
+
+        <dd>Coordinate <em>y</em> of an arbitrary point of the axis of rotation.</dd>
+
+        <dt><em>rz</em></dt>
+
+        <dd>Coordinate <em>z</em> of an arbitrary point of the axis of rotation.</dd>
+
+        <dt><em>alpha</em></dt>
+
+        <dd>Angle of rotation.</dd>
+
+        <dt><em>px</em></dt>
+
+        <dd>Coordinate <em>x</em> of the point to rotate.</dd>
+
+        <dt><em>py</em></dt>
+
+        <dd>Coordinate <em>y</em> of the point to rotate.</dd>
+
+        <dt><em>pz</em></dt>
+
+        <dd>Coordinate <em>z</em> of the point to rotate.</dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> Point3DData.h</dd>
+
+        <dd><b>Import Library:</b> GeometryImp.lib [Win]</dd>
+
+        <dd><b>Module:</b> Geometry.dll [WIN] GeometryLib [Mac]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Vector3D_id.html">Vector3D, Point3D functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 6, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

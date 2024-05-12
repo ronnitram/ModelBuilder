@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>Radio Button</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/RadioButton.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Radio Button</h1>
+
+    <p>A radio button is a two-state interactive dialog item. There are two basic kinds of radio buttons: simple and button-like. Radio buttons are used to select one option from a set. When an option is selected, a dot mark appears in the circle or the button appears pushed according to the radio button subtype.</p>
+
+    <p>Radio buttons belonging to the same set of options are called a "radio button group". Selecting one button in a set deselects the previously selected button, so one and only one of the options in the set can be selected at any given time. In contrast, <a href="CheckBox.html">check boxes</a> are used when more than one option in the set can be selected at the same time.</p>
+
+    <p>In DG there is another special kind of radio button, the so called push menu control (<tt>DG_BT_PUSHMENUICON</tt> subtype). The push menu control is a radio button combined with a pop-up menu of icon buttons. In addition to the standard button-like radio button's behavior, this control has some special functionality. This is why it has a set of handling functions in DG. For details see <a href="PushMenuControl.html">push menu control</a> and <a href="PushMenuSpecific_id.html">push menu specific functions</a>.</p>
+
+    <h4>Item type</h4>
+
+    <dl>
+        <dd><tt>DG_ITM_RADIOBUTTON</tt></dd>
+    </dl>
+
+    <h4>Subtypes</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left" colspan="2">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_TEXT</tt></td>
+
+                    <td>Simple text radio button.<br>
+                    <br>
+                    <img src="../DGImageLibrary/RadioButtonText_Mac.png" width="76" height="80" alt="RadioButtonText_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/RadioButtonText_Win.png" alt="RadioButtonText_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_ICON</tt></td>
+
+                    <td>Simple icon radio button.<br>
+                    <br>
+                    <img src="../DGImageLibrary/RadioButtonIcon_Mac.png" width="46" height="64" alt="RadioButtonIcon_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/RadioButtonIcon_Win.png" alt="RadioButtonIcon_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_PUSHTEXT</tt></td>
+
+                    <td>Button-like text radio button.<br>
+                    <br>
+                    <img src="../DGImageLibrary/RadioButtonPushText_Mac.png" width="74" height="78" alt="RadioButtonPushText_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/RadioButtonPushText_Win.png" alt="RadioButtonPushText_Win"><br>
+                    <br></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_PUSHICON</tt></td>
+
+                    <td>Button-like icon radio button.<br>
+                    <br>
+                    <img src="../DGImageLibrary/RadioButtonPushIcon_Mac.png" width="56" height="72" alt="RadioButtonPushIcon_Mac">&nbsp;&nbsp;<img src="../DGImageLibrary/RadioButtonPushIcon_Win.png" alt="RadioButtonPushIcon_Win"><br>
+                    <br></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>GRC Specification</h4>
+    <pre class="syntax">
+    RadioButton        <i>x  y  dx  dy  fontSpec  groupID  "text"</i>
+    PushRadio          <i>x  y  dx  dy  fontSpec  groupID  "text"</i>
+
+    IconRadioButton    <i>x  y  dx  dy  groupID  iconID</i>
+    IconPushRadio      <i>x  y  dx  dy  groupID  iconID</i>
+</pre>
+
+    <p>where <em>x</em> and <em>y</em> are the pixel coordinates of the upper left corner of the radio button, <em>dx</em> and <em>dy</em> are the width and height of the control in pixels. <em>groupID</em> defines the 1-based index of a group of radio buttons to which the control belongs. <em>fontSpec</em> declares the font size and style of the radio button <em>text</em>. <em>iconID</em> defines the icon resource ID of the icon-style radio button.</p>
+
+    <p>Possible values of <em>fontSpec</em>:</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">DG constant combination used in <a href="DGSetItemFont.html">DGSetItemFont</a></th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>ExtraSmall</tt></td>
+
+                    <td><tt>DG_IS_EXTRASMALL</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallPlain</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallBold</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallItalic</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>SmallUnderline</tt></td>
+
+                    <td><tt>DG_IS_SMALL | DG_IS_UNDERLINE</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargePlain</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_PLAIN</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeBold</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_BOLD</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeItalic</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_ITALIC</tt></td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>LargeUnderline</tt></td>
+
+                    <td><tt>DG_IS_LARGE | DG_IS_UNDERLINE</tt></td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Suggested sizes</h4>
+
+    <p>For text-style radio buttons the following item heights are suggested. It is advised to use these values in GRC or when radio buttons are created from program code.</p>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Subtype</th>
+
+                    <th align="left"><tt>dy</tt> (pixels)</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_TEXT</tt></td>
+
+                    <td>18</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_BT_PUSHTEXT</tt></td>
+
+                    <td>20</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Messages</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Message</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a></td>
+
+                    <td>The radio button is checked (switched on). The message data parameter contains the 1-based index of the previously selected radio button in the same group.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a></td>
+
+                    <td>The radio button is double clicked. The message data parameter is always zero. The dialog callback function receives this message for button-like radio buttons (<tt>DG_BT_PUSHTEXT</tt>, <tt>DG_BT_PUSHICON</tt>) only.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Modification Flag</h4>
+
+    <p>The <a href="DGSelectRadio.html">DGSelectRadio</a> or <a href="DGSetItemValLong.html">DGSetItemValLong</a> function sets the radio button's modification flag except if it is called when handling the <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a> message in the <a href="CallbackFunctions.html">dialog callback function</a>. The flag can also be set by user actions that generate <tt>DG_MSG_CHANGE</tt> messages. Use <a href="DGModified.html">DGModified</a> or <a href="DGResetModified.html">DGResetModified</a> to retrieve or reset (clear) the state of the modification flag.</p>
+
+    <h4>Remarks</h4>
+
+    <p>There are two states of a radio button: checked (pressed) and unchecked (released). In DG these states are represented by the item values of the radio button. Item value of 1 means the checked, while zero the unchecked state. To set and retrieve the state of a radio button call <b>DGSelectRadio</b> or <b>DGSetItemValLong</b> and <a href="DGGetItemValLong.html">DGGetItemValLong</a>. Note that <b>DGSetItemValLong</b> cannot be used to uncheck a radio button. Check another radio button in the same group instead.</p>
+
+    <p>A radio button can be grouped with other radio buttons of the same dialog or tab page. The grouping information can be specified in the GRC only. When switching on a radio button of a group (either by user action or from program code), DG automatically switches off the other radio buttons of the group. If a radio button in a group is switched on by user action, the dialog callback function is called with <tt>DG_MSG_CHANGE</tt> only for the radio button pressed. However, the modification flag of all the radio buttons in the group are set (<b>DGModified</b> will return 1). Use <a href="DGGetCheckedRadio.html">DGGetCheckedRadio</a> to retrieve the 1-based index of the checked radio button in a group.</p>
+
+    <p>The text of a text-style radio button (<tt>DG_BT_TEXT</tt>, <tt>DG_BT_PUSHTEXT</tt>) can be set, modified and retrieved by <a href="DGSetItemText.html">DGSetItemText</a>, <a href="DGCatItemText.html">DGCatItemText</a> and <a href="DGGetItemText.html">DGGetItemText</a>, respectively. The text can be displayed with any type of DG fonts. The font can be specified not only in GRC, but by the <a href="DGSetItemFont.html">DGSetItemFont</a> function as well. Use <a href="DGGetItemFont.html">DGGetItemFont</a> to retrieve the font currently assigned to a radio button.</p>
+
+    <p>The icon of an icon-style radio button (<tt>DG_BT_ICON</tt>, <tt>DG_BT_PUSHICON</tt>) can be assigned either by the resource ID or by the handle of the icon. To set and retrieve the icon of a radio button use <a href="DGSetItemImageId.html">DGSetItemImageId</a> or <a href="DGSetItemImage.html">DGSetItemImage</a> and <a href="DGGetItemImageId.html">DGGetItemImageId</a> or <a href="DGGetItemImage.html">DGGetItemImage</a>, respectively. Note that icon resource ID can be defined in GRC, too.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="DlgItemTypes_id.html">Dialog item types</a>, <a href="PushMenuControl.html">Push Menu Control</a>, <a href="CheckBox.html">Check Box</a><br>
+    <a href="PushMenuSpecific_id.html">Push menu specific functions</a>, <a href="DGCatItemText.html">DGCatItemText</a>, <a href="DGGetCheckedRadio.html">DGGetCheckedRadio</a>, <a href="DGGetItemFont.html">DGGetItemFont</a>, <a href="DGGetItemImage.html">DGGetItemImage</a>, <a href="DGGetItemImageId.html">DGGetItemImageId</a>, <a href="DGGetItemText.html">DGGetItemText</a>, <a href="DGGetItemValLong.html">DGGetItemValLong</a>, <a href="DGModified.html">DGModified</a>, <a href="DGResetModified.html">DGResetModified</a>, <a href="DGSetItemFont.html">DGSetItemFont</a>, <a href="DGSetItemImage.html">DGSetItemImage</a>, <a href="DGSetItemImageId.html">DGSetItemImageId</a>, <a href="DGSetItemText.html">DGSetItemText</a>, <a href="DGSetItemValLong.html">DGSetItemValLong</a>, <a href="CallbackFunctions.html">Callback functions</a><br>
+    <a href="DG_MSG_CHANGE.html"><tt>DG_MSG_CHANGE</tt></a>, <a href="DG_MSG_DOUBLECLICK.html"><tt>DG_MSG_DOUBLECLICK</tt></a>, <a href="DG_MSG_INIT.html"><tt>DG_MSG_INIT</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 2, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

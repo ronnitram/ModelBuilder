@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIEnv_ChangeRenderingSetsID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIEnv_ChangeRenderingSetsID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIEnv_ChangeRenderingSetsID</h1>
+
+    <p>Changes the photorendering settings.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_environment_id.html">ACAPI_Environment</a></strong> (
+        <strong>APIEnv_ChangeRenderingSetsID</strong>,
+        <strong>API_RendEffects...*</strong>     <em>rendEffects</em>,
+        <strong><a href="../Structures/API_RendSetTypeID.html">API_RendSetTypeID</a></strong>       <em>rendSetType</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>rendEffects</em></dt>
+
+        <dd>[in] Data of a "PhotoRendering Settings..." tab page. The type depends on the <code>prefsType</code> parameter</dd>
+
+        <dt><em>rendSetType</em></dt>
+
+        <dd>[in] Type of the PhotoRendering Settings you want to modify</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>rendInfo</code> is <code>nullptr</code> or <code>rendSetType</code> is invalid</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to modify the settings of the different tab pages of the "PhotoRendering Settings..." dialog.</p>
+
+    <p>Usable structures of photorendering types (for <code>rendInfo</code>) are:</p>
+
+    <ul>
+        <li><a href="../Structures/API_RendEffects.html">API_RendEffects</a>,</li>
+
+        <li><a href="../Structures/API_RendImage.html">API_RendImage</a>,</li>
+    </ul>
+
+    <p>Note: the <code>rendSetType</code> should be passed as a value instead of a pointer; see the example below.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/14.png" alt="API 14" width="19" height="12">&nbsp; If you pass a valid location in the <code>bkgPictFile</code> pointer of the <a href="../Structures/API_RendImage.html">API_RendImage</a> parameter, and the referenced file does not belong to any currently loaded library, then the image file will be copied into the embedded library of the project. This also means that any subsequent modifications to the original image file will not affect the rendering backround picture until you remove it, and add it again to the library.</p>
+
+    <p>This function is a non-undoable data structure modifier function. See more details on this topic at <a href="../Level2/Command_Overview.html">Command Overview</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_RendEffects      rendEffects;
+API_RendImage        rendImage;
+GSErrCode            err;
+
+BNZeroMemory (&amp;rendEffects, sizeof (API_RendEffects));
+err = ACAPI_Environment (APIEnv_GetRenderingSetsID, &amp;rendEffects, (void *) (Int32) APIRendSet_EffectsID);
+if (err == NoError) {
+    rendEffects.useBkgAlpha = true;
+    err = ACAPI_Environment (APIEnv_ChangeRenderingSetsID, &amp;rendEffects, (void *) (Int32) APIRendSet_EffectsID);
+}
+
+BNZeroMemory (&amp;rendImage, sizeof (API_RendImage));
+err = ACAPI_Environment (APIEnv_GetRenderingSetsID, &amp;rendImage, (void *) (Int32) APIRendSet_ImageID);
+if (err == NoError) {
+    rendImage.bkgSkyRGB.f_red   = 0.7;
+    rendImage.bkgSkyRGB.f_green = 0.5;
+    rendImage.bkgSkyRGB.f_blue  = 1.0;
+    err = ACAPI_Environment (APIEnv_ChangeRenderingSetsID, &amp;rendImage, (void *) (Int32) APIRendSet_ImageID);
+}
+delete rendImage.bkgPictFile;
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_RendEffects.html">API_RendEffects</a>, <a href="../Structures/API_RendImage.html">API_RendImage</a>, <a href="../Structures/API_RendSetTypeID.html">API_RendSetTypeID</a>,<br>
+    <a href="acapi_environment_id.html">ACAPI_Environment</a>, <a href="APIEnv_GetRenderingSetsID.html">APIEnv_GetRenderingSetsID</a>, <a href="APIEnv_GetRenderingSceneNamesID.html">APIEnv_GetRenderingSceneNamesID</a>, <a href="APIEnv_SetCurrentRenderingSceneID.html">APIEnv_SetCurrentRenderingSceneID</a>, <a href="APIDo_PhotoRenderID.html">APIDo_PhotoRenderID</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 6, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

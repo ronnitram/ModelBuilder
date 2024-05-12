@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Graphisoft Resource Compiler</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level4/Tools_ResConv_Mac_Example.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Graphisoft Resource Compiler Example on Macintosh</h1>
+
+    <p>In this example, we will create a native binary Macintosh resource for an Example dialog, which contains few icons, a picture, text items and two buttons:</p>
+
+    <blockquote>
+        <img src="../../APIImageLibrary/MacExampleDlg.png" alt="Example Dialog ScreenShot">
+    </blockquote>
+
+    <p>The resource files corresponding to this dialog are:</p>
+
+	<ul>
+		<li><a href="RINT/ExampleGRC.grc"><tt>ExampleGRC.grc</tt></a>: this <tt>GRC</tt> file contains the localizable resources (<tt>'GDLG'</tt> and <tt>'DLGH'</tt>)</li>
+
+		<li><a href="RFIX/ExampleFixGRC.grc"><tt>ExampleFixGRC.grc</tt></a>: this <tt>GRC</tt> file contains the non-localizable resources (<tt>'GICN'</tt>)</li>
+	</ul>
+
+    <p>The results will be native binary Archicad resource files (<tt>GSDG_10000.rsrd</tt> and <tt>DLGH_10000.rsrd</tt>), a platform-native <tt>.strings</tt> file (ExampleGRC.grc.strings), and TIFF image files for the icons.</p>
+
+    <p>Note that the Resource Compiler can handle only one input file (<tt>.grc</tt>) per one run.</p>
+
+    <p>We compile the resources in two steps. Later, every step is thoroughly explained:</p>
+
+    <ol>
+
+        <li>Step: Compile non-localizable <tt>GRC</tt> file with <tt>ResConv</tt> tool<br>
+            <pre>ResConv -m r -t M -q utf8 utf16 -p .\RFIX\Images -w 2 -i .\RFIX\ExampleFixGRC.grc -o .\RO\ExampleFixGRC.rc2</pre>
+        </li>
+
+        <li>Step: Compile localizable <tt>GRC</tt> file with <tt>ResConv</tt> tool<br>
+            <pre>ResConv -m r -t M -q utf8 utf16 -i .\RINT\ExampleGRC.grc -o .\RO\ExampleGRC.grc.ro</pre>
+        </li>
+
+    </ol>
+
+        <p>Every command should be typed as a single line into the command line.</p>
+
+    <ol>
+
+        <li>Step
+
+            <ul>
+                <li>Input: <a href="RFIX/ExampleFixGRC.grc"><tt>ExampleFixGRC.grc</tt></a>, images (<a href="RFIX/Images/10000.png"><tt>10000.png</tt></a>, <a href="RFIX/Images/WallTool_18x18.svg"><tt>WallTool_18x18.svg</tt></a>, <a href="RFIX/Images/DoorTool_18x18.svg"><tt>DoorTool_18x18.svg</tt></a>, <a href="RFIX/Images/WindowTool_18x18.svg"><tt>WindowTool_18x18.svg</tt></a>, <a href="RFIX/Images/ObjectTool_18x18.svg"><tt>ObjectTool_18x18.svg</tt></a>, <a href="RFIX/Images/TWEditable_16x16.svg"><tt>TWEditable_16x16.svg</tt></a>, <a href="RFIX/Images/TWLocked_16x16.svg"><tt>TWLocked_16x16.svg</tt></a>)</li>
+
+                <li>Output: TIFF image files (<tt>10000.tif</tt>, <tt>WallTool.tif</tt>, <tt>DoorTool.tif</tt>, <tt>WindowTool.tif</tt>, <tt>ObjectTool.tif</tt>, <tt>TWEditable.tif</tt>, <tt>TWLocked.tif</tt>)</li>
+            </ul>
+
+            <p>In this step the image conversions takes place. From the information in the <tt>GRC</tt> file and the image sources, <tt>ResConv</tt> creates .tif (TIFF) files.</p>
+            <p><img border="0" src="../../APIImageLibrary/20.png" alt="API version 20" width="19" height="12">&nbsp;The possible source image formats of an icon resource are PNG and SVG. For further information, read <a href="How_to_Compile_Icon_Resources.html">how to compile icon resources</a>.</p>
+
+            <p>The first parameter (<tt>-m r</tt>) specifies the converter operation mode of the ResConv (<tt>-m r</tt> is the default, so you may omit that). The second option is important, we instruct the compiler to convert to Macintosh platform, so it knows that it should generate Macitosh specific binary resources. We could add the output codepage (should be set to <tt>utf16</tt>). The <tt>-p</tt> parameter defines the path to the source images. And finally the last two parameters specify the input and the output files.</p>
+
+            <p>Because of the <tt>-w 2</tt> parameter, the output TIFF image files will contain two representations of the icon (with 100% and 200% of the default resolution).</p>
+        </li>
+
+        <li>Step
+
+            <ul>
+                <li>Input: <a href="RINT/ExampleGRC.grc"><tt>ExampleGRC.grc</tt></a></li>
+
+                <li>Output: <a href="RO/GSDG_10000.rsrd"><tt>GSDG_10000.rsrd</tt></a>, <a href="RO/DLGH_10000.rsrd"><tt>DLGH_10000.rsrd</tt></a>, <a href="RO/ExampleGRC.grc.strings"><tt>ExampleGRC.grc.strings</tt></a></li>
+            </ul>
+
+            <p>In this step the native binary Archicad resource files are translated from the localizable <tt>GRC</tt> file.</p>
+            <p><img border="0" src="../../APIImageLibrary/18.png" alt="API version 18" width="19" height="12">&nbsp;Also, the <tt>'STR#'</tt> resources are converted into platform-native <tt>.strings</tt> files. The individual <tt>.strings</tt> files have to be merged into one <tt>Localizable.strings</tt> file inside the resulting bundle's <tt>Resources/[lang].lproj</tt> folder.</p>
+
+            <p>Parameters are the same as described in the first step, but here no need to define the path of the images.</p>
+        </li>
+
+    </ol>
+
+    <p>Note: if you want to use preprocessor definitions (<tt>#define</tt>-s) or formulate conditional preprocessor expressions in the <tt>GRC</tt> file, it's recommended to run the C pre-processor command for each <tt>GRC</tt> before resource compilation:</p>
+    <pre style="margin-left: 20px">xcrun clang -x c++ -E -P -DPREPROCESS_GRC -DGS_64BIT -Dmacintosh -DINT__APP -I &lt;include_headers_dir&gt; .\RINT\ExampleGRC.grc &gt; .\RO\ExampleGRC.grc.ro.i
+ResConv -m r -t M -q utf8 utf16 -i .\RO\ExampleGRC.grc.ro.i -o .\RO\ExampleGRC.grc.ro</pre>
+
+    <p>If you build your Add-On project with Xcode, you can use the <tt>compileGRCs.pl</tt> script, which is attached to each example Add-On. This script automatically finds and compiles <tt>GRC</tt> files, and uses the C prerocessor as well.</p>
+
+    <p>We are ready!</p>
+
+    
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 16, 2016<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

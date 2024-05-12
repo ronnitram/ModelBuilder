@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>DeleteAll</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/Folder/DeleteAll.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="Folder.html">Folder</a>::DeleteAll</h1><br>
+    Deletes all entries in the folder.<br>
+    <br>
+    <pre class="syntax">
+<b>virtual GSErrCode  DeleteAll (
+    <a href="DataSafety.html">DataSafety</a> safety = Normal
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>safety</em></dt>
+
+        <dd>Data safety level controlling scope of the operation.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="489">
+        <tr>
+            <th width="92">Value</th>
+
+            <th width="355">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="92">NoError<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="355">OK</td>
+        </tr>
+
+        <tr>
+            <td width="92">AccessDenied<sup><font color="#FF0000">*</font></sup></td>
+
+            <td width="355">operation is not allowed on this folder or on any of its entries</td>
+        </tr>
+
+        <tr>
+            <td width="92">Error<sup><font color="#0000FF">*</font></sup></td>
+
+            <td width="355">unspecified error</td>
+        </tr>
+    </table>
+
+    <blockquote>
+        <p><font color="#FF0000"><sup>*</sup></font> declared in Folder class scope<br>
+        <font color="#0000FF"><sup>*</sup></font> declared in GS namespace, but accessible in the global scope</p>
+    </blockquote>
+
+    <h3>Description</h3>
+
+    <p>This method deletes all entries in the folder (so it will be empty). Delete operation is applied to whole entries (together with their internal content), meaning that delete operation is inherently recursive.</p>
+
+    <p>DeleteAll fails if the folder is not writeable.</p>
+
+    <p>DeleteAll fails on write-protected entries (read-only entries on Windows and locked entries on Macintosh) unless IgnoreWriteProtection value is passed in the <i>safety</i> parameter.<br>
+    <br></p><img src="../../IOImageLibrary/WinLogo.png" alt="Windows logo"><b>&nbsp;Windows notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>This method fails on the root folder (because it is virtual and not writeable).</li>
+        </ul>
+    </blockquote><img src="../../IOImageLibrary/MacLogo.png" alt="Mac logo"><b>&nbsp;Macintosh notes:</b>
+
+    <blockquote>
+        <ul>
+            <li>This method fails on the root folder (because it is virtual and not writeable).</li>
+        </ul>
+    </blockquote><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

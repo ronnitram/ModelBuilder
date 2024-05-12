@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DG_MSG_MOUSEMOVE</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_MOUSEMOVE.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_MOUSEMOVE</h1>
+
+    <p>The mouse moves over a <a href="ListBox.html">list box</a>, a <a href="UserItem.html">user item</a>, or a <a href="StaticText.html">static tex item</a>.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Item type</th>
+
+                    <th align="left"><em>msgData</em></th>
+                </tr>
+
+                <tr valign="top">
+                    <td>List box</td>
+
+                    <td>Pointer to a <a href="DGListMsgData.html">DGListMsgData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>User item</td>
+
+                    <td>Pointer to a <a href="DGUserMsgData.html">DGUserMsgData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Static text item</td>
+
+                    <td>Pointer to a <a href="DGStaticItemMsgData.html">DGStaticItemMsgData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Item type</th>
+
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2">List box</td>
+
+                    <td><tt>DG_LIST_INDRAGAREA</tt></td>
+
+                    <td>The cursor is above the drag area of a list item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The cursor is not above the drag area.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2">User item</td>
+
+                    <td>1</td>
+
+                    <td>The application changes the cursor to a desired custom form.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The default arrow cursor is acceptable over the user item.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td rowspan="2">Static text item</td>
+
+                    <td>non-0</td>
+
+                    <td>The application leaves the form of the cursor set by the callback.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>0</td>
+
+                    <td>The default arrow cursor is set.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The <a href="CallbackFunctions.html">dialog callback function</a> can receive this message for list boxes and user items only after it was enabled by calling the <a href="DGEnableMessage.html">DGEnableMessage</a> function.</p>
+
+    <p>List items in a single-selection list box can be reordered by clicking and tracking them with the mouse. When handling the <tt>DG_MSG_MOUSEMOVE</tt> message and the cursor is above the drag area (a list tabulator field which contains an icon with the ID of <tt>DG_LIST_DRAGICON</tt>), the dialog callback function should return <tt>DG_LIST_INDRAGAREA</tt> to change the cursor to the list drag cursor (small up and down arrows). As the cursor becomes this drag cursor, the user can drag list items, i.e. change their order, by clicking and tracking the mouse. During dragging a thin dotted frame indicates the dragged item. List items can only be dragged between separator lines.</p>
+
+    <p>User items can receive <tt>DG_MSG_MOUSEMOVE</tt> messages when the cursor is moving over them. If you change the cursor to your custom form when handling <tt>DG_MSG_MOUSEMOVE</tt>, you must return one to prevent DG from setting back the default cursor over the user item. If you return zero DG sets the default arrow cursor.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 1.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="ListBox.html">List Box</a>, <a href="UserItem.html">User Item</a>, <a href="StaticText.html">Static Text</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGEnableMessage.html">DGEnableMessage</a>, <a href="DGListMsgData.html">DGListMsgData</a>, <a href="DGUserMsgData.html">DGUserMsgData</a>, <a href="DGStaticItemMsgData.html">DGStaticItemMsgData</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

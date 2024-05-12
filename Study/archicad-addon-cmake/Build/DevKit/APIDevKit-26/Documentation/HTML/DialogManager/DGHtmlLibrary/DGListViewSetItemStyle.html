@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Domotor Akos">
+
+    <title>DGListViewSetItemStyle</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListViewSetItemStyle.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListViewSetItemStyle</h1>
+
+    <p>Sets the style of a <a href="ListView.html">list view</a> item text.</p>
+    <pre class="syntax">
+    <strong>void DGListViewSetItemStyle</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>short</strong>  <em>listItem</em>,
+      <strong>short</strong>  <em>style</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>listItem</em></dt>
+
+        <dd>1-based index of the list item. <tt>DG_LIST_TOP</tt> specifies the first item of the list, <tt>DG_LIST_BOTTOM</tt> specifies the last item of the list. Use <tt>DG_ALL_ITEMS</tt> to change the style of all items.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>style</em></dt>
+
+        <dd>One of the following values:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_PLAIN</tt></td>
+
+                    <td>Item text is plain.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_BOLD</tt></td>
+
+                    <td>Item text is bold.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_ITALIC</tt></td>
+
+                    <td>Item text is italic.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_IS_UNDERLINE</tt></td>
+
+                    <td>Item text is underlined</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>Before the text style is set by <b>DGListViewSetItemStyle</b>, all the list view items have the text style of the list view defined in the resource or set by the <a href="DGSetItemFont.html">DGSetItemFont</a> function.</p>
+
+    <p>Only the text style can be set item-by-item. The font size can be changed by <b>DGSetItemFont</b>, for all the items.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ListView.html">List View</a>, <a href="DGListViewGetItemStyle.html">DGListViewGetItemStyle</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 2, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Lipcsei Peter">
+
+    <title>DGSetDialogResourceModules</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGSetDialogResourceModules.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGSetDialogResourceModules</h1>
+
+    <p>Sets the resource module associated with the dialog.</p>
+    <pre class="syntax">
+    <strong>void DGSetDialogResourceModules</strong> (
+      <strong>short</strong>        <em>dialId</em>
+      <strong>GSResModule</strong>  <em>resModule</em>,
+      <strong>GSResModule</strong>  <em>dialIconResModule</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>The Id of the dialog.</dd>
+
+        <dt><em>resModule</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Platform</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td>Macintosh</td>
+
+                    <td>File reference number of an opened resource file cast to <strong><tt>GSResModule</tt></strong>.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Windows</td>
+
+                    <td><strong><tt>HINSTANCE</tt></strong> of an executable (*.exe or *.dll) module cast to <strong><tt>GSResModule</tt></strong>.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><em>dialIconResModule</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="150">Platform</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td>Macintosh</td>
+
+                    <td>File reference number of an opened resource file cast to <strong><tt>GSResModule</tt></strong>.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td>Windows</td>
+
+                    <td><strong><tt>HINSTANCE</tt></strong> of an executable (*.exe or *.dll) module cast to <strong><tt>GSResModule</tt></strong>.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>Use this function to specify the resource modules of a dialog and its icons newly created from code.</p>
+
+    <p>DG associates the currently active resource module to a dialog when it is being created by <a href="DGModalDialog.html">DGModalDialog</a> or <a href="DGModelessInit.html">DGModelessInit</a>. The application can affect which module will be associated with a dialog by calling this function before creating the dialog. DG uses the associated modules whenever it wants to load a resource belonging to the dialog.</p>
+
+    <p>Dialog resources can be placed into one single module (see <a href="DGSetDialogResourceModule.html">DGSetDialogResourceModule</a>). Same type of resources can have identical ID in different modules, although resource IDs are unique within a module.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="DGGetDialogResourceModule.html">DGGetDialogResourceModule</a>, <a href="DGGetDialogIconResourceModule.html">DGGetDialogIconResourceModule</a>, <a href="DGSetDialogResourceModule.html">DGSetDialogResourceModule</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 5, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

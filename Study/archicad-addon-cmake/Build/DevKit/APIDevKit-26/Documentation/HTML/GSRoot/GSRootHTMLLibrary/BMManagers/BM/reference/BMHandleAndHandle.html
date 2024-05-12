@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>BMHandleAndHandle</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/BMManagers/BM/reference/BMHandleAndHandle.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>BMHandleAndHandle</h1>
+
+    <p>The <strong>BMHandleAndHandle</strong> function concatenates two relocatable memory blocks.</p>
+    <pre class="syntax">
+<strong>GSErr BMHandleAndHandle(
+  GSHandle</strong>        <em>inpH,</em>  // input handle
+  <strong>GSHandle</strong>        <em>outH</em>   // output handle
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>inpH</em></dt>
+
+        <dd>Specifies the handle of the first relocatable memory block, of which contents do not change but concatenated to the end of the second relocatable block. It can not be NULL and it must be a nonempty handle.</dd>
+
+        <dt><em>outH</em></dt>
+
+        <dd>Specifies the handle of the second relocatable block, of which size the BM Manager expands in order toconcatenate the data from <em>inpH</em> to the end of the contents of this block. It can not be NULL.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>If the function succeeds, the return value is 0 (<strong>NoError</strong>).</p>
+
+    <p>If the function fails, the return value is a Graphisoft error code. To get extended error information, call <a href="BMError.html"><strong>BMError</strong></a>.</p>
+
+    <p>If the <em>inpH</em> or <em>outH</em> parameters is NULL, the return value is <strong>ErrNilHandle</strong>.</p>
+
+    <p>If the <em>inpH</em> parameter specifies an empty handle, the return value is <strong>ErrEmptyHandle</strong>.</p>
+
+    <h4>Requirements</h4>
+
+    <p><strong>&nbsp;&nbsp;&nbsp; Header:</strong> Declared in BM.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="functions_id.html">BM Manager Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

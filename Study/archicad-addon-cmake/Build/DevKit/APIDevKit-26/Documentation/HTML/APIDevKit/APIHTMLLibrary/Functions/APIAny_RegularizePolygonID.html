@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIAny_RegularizePolygonID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIAny_RegularizePolygonID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIAny_RegularizePolygonID</h1>
+
+    <p>Regularizes a polygon and returns the regularized polygons.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a></strong> (
+        <strong>APIAny_RegularizePolygonID</strong>,
+        <strong><a href="../Structures/API_RegularizedPoly.html">API_RegularizedPoly</a>*</strong>       <em>polygon</em>,
+        <strong>Int32*</strong>                     <em>nResult</em>,
+        <strong><a href="../Structures/API_RegularizedPoly.html">API_RegularizedPoly</a>***</strong>     <em>regularizedPolygons</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>polygon</em></dt>
+
+        <dd>[in] The polygon to regularize.</dd>
+
+        <dt><em>nResult</em></dt>
+
+        <dd>[out] The number of resulting regularized polygons.</dd>
+
+        <dt><em>regularizedPolygons</em></dt>
+
+        <dd>[out] The result of regularization.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>any of the parameters are <code>nullptr</code> or <code>polygon</code> or <code>regularizedPolygons</code> is not initialized</dd>
+
+        <dt><code>APIERR_MEMFULL</code></dt>
+
+        <dd>low memory condition</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to regularize a polygon. The result may be 0, 1 or more regularized polygons.</p>
+
+    <p>Refer to the <a href="../Structures/API_RegularizedPoly.html">API_RegularizedPoly</a> structure to have more details on the polygon data structure.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Goodies.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_RegularizedPoly.html">API_RegularizedPoly</a>,<br>
+    <a href="APIAny_RegularizePolylineID.html">APIAny_RegularizePolylineID</a>, <a href="APIAny_DisposeRegularizedPolyID.html">APIAny_DisposeRegularizedPolyID</a>,<br>
+    <a href="ACAPI_Goodies_id.html">ACAPI_Goodies</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 1, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

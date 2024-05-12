@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Favorite_Rename</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Favorite_Rename.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Favorite_Rename&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"></h1>
+
+    <p>Renames an existing Favorite (identifed by name).</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Favorite_Rename</strong> (
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&amp;</strong>    <em>oldName,</em>
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&amp;</strong>    <em>newName</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+    <dl>
+        <dt><em>oldName</em></dt>
+        <dd>[in] The name of the existing Favorite entry.</dd>
+
+        <dt><em>newName</em></dt>
+        <dd>[in] The new name.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADNAME</code></dt>
+        <dd>Invalid name given (empty name is invalid, or there is no Favorite with the given <code>oldName</code>).</dd>
+
+        <dt><code>APIERR_GENERAL</code></dt>
+        <dd>The Favorites list entry could not be changed.</dd>
+
+        <dt><code>APIERR_NAMEALREADYUSED</code></dt>
+        <dd><code>newName</code> is already used as a Favorite name.</dd>
+    </dl>
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+// -----------------------------------------------------------------------------
+// Rename favorite named "Favorite_Test"
+//  - appends "[Renamed]" to it's name
+// -----------------------------------------------------------------------------
+
+static void     Do_RenameFavorite (void)
+{
+    GSErrCode           err;
+    GS::UniString       oldName = "Favorite_Test";
+    GS::UniString       newName = oldName + " [Renamed]";
+
+    ACAPI_WriteReport ("### Favorite_Test Do_RenameFavorite ###", false);
+
+    err = <font color="#FF0066">ACAPI_Favorite_Rename</font> (oldName, newName);
+    if (err != NoError) {
+        if (err == APIERR_BADNAME)
+            ACAPI_WriteReport ("ACAPI_Favorite_Rename failed because bad name was given", false);
+        if (err == APIERR_NAMEALREADYUSED)
+            ACAPI_WriteReport ("ACAPI_Favorite_Rename failed because the new name is alerady in used", false);
+        else if (err == APIERR_NOTMINE)
+            ACAPI_WriteReport ("ACAPI_Favorite_Rename failed because the given favorite does not belong to the client", false);
+        else
+            ACAPI_WriteReport ("ACAPI_Favorite_Rename failed", false);
+    } else {
+        ACAPI_WriteReport ("ACAPI_Favorite_Rename successfully renamed favorite \"%s\" to \"%s\"", false, oldName.ToCStr ().Get (), newName.ToCStr ().Get ());
+    }
+
+    return;
+}       /* Do_RenameFavorite */
+</code></pre>
+    </blockquote>
+
+    For more detailed examples, please see the Favorite_Test example Add-On.
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+    <dl>
+        <dd><b>Version:</b> API 23 or later</dd>
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+    <p>
+        <a href="ACAPI_Favorite_Change.html">ACAPI_Favorite_Change</a>,<br>
+        <a href="ACAPI_Favorite_Create.html">ACAPI_Favorite_Create</a>,<br>
+        <a href="ACAPI_Favorite_Delete.html">ACAPI_Favorite_Delete</a>,<br>
+        <a href="ACAPI_Favorite_Export.html">ACAPI_Favorite_Export</a>,<br>
+        <a href="ACAPI_Favorite_Get.html">ACAPI_Favorite_Get</a>,<br>
+        <a href="ACAPI_Favorite_GetNum.html">ACAPI_Favorite_GetNum</a>,<br>
+        <a href="ACAPI_Favorite_Import.html">ACAPI_Favorite_Import</a>,<br>
+        <a href="ACAPI_Favorite_Read.html">ACAPI_Favorite_Read</a>,<br>
+        <br>
+        <a href="API_Functions.html">API Functions</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on October 29, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

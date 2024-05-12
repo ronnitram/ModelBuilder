@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>ACAPI_Attribute_IsPropertyDefinitionAvailable</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Attribute_IsPropertyDefinitionAvailable.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Attribute_IsPropertyDefinitionAvailable</h1>
+    <p>Tells whether a property definition is available for an attribute.</p>
+    <pre class="syntax">
+    <strong>bool  ACAPI_Attribute_IsPropertyDefinitionAvailable</strong> (        
+        <strong>const <a href="../Structures/API_Attr_Head.html">API_Attr_Head</a>&amp;</strong>      <em>attrHead</em>,
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>           <em>propertyGuid</em>
+    );
+</pre>
+    <p>&nbsp;</p>
+    <h4>Parameters</h4>
+    <dl>
+        <dt><em>attrHead</em></dt>
+
+        <dd>[in] Header of the attribute. The attribute is identified by typeID and index</dd>
+		
+        <dt><em>propertyGuid</em></dt>
+		
+        <dd>[in] The property definition GUID to search for.</dd>
+    </dl>
+    <p>&nbsp;</p>
+    <h4>Return Values</h4>
+    <dl>
+        <dt><code>true</code></dt>
+        <dd>The given property definition is available for the attribute.</dd>
+
+        <dt><code>false</code></dt>
+        <dd>The given property definition is not available for the attribute or invalid parameters.</dd>
+    </dl>
+    <h4>Example</h4>
+    <blockquote>
+        <pre>
+GSErrCode GetAvailablePropertyDefinitions (API_AttrTypeID attributeTypeID, short attributeIndex, GS::Array&lt;API_PropertyDefinition&gt;&amp; availableProperties)
+{
+    GS::Array&lt;API_PropertyDefinition&gt; definitions;
+    API_Attr_Head                     attributeHeader;
+
+    BNZeroMemory (&attributeHeader, sizeof (API_Attr_Head));
+    attributeHeader.typeID = attributeTypeID;
+    attributeHeader.index = attributeIndex;
+	
+    GSErrCode error = ACAPI_Property_GetPropertyDefinitions (APINULLGuid, definitions);
+    if (error == NoError) {
+        for (UInt32 i = 0; i &lt; definitions.GetSize (); ++i) {
+            if (<font color="#FF0066">ACAPI_Attribute_IsPropertyDefinitionAvailable</font> (attributeHeader, definitions[i].guid)) {
+                availableProperties.Push (definitions[i]);
+            }
+        }
+    }
+    return error;
+}
+        </pre>
+    </blockquote>
+    <p>Note: this example function is identical to calling <a href="ACAPI_Attribute_GetPropertyDefinitions.html">ACAPI_Attribute_GetPropertyDefinitions</a>, but that one is more efficient.</p>
+    <p>For more detailed examples, please see the Property_Test add-on.</p>
+
+    <p>&nbsp;</p>
+    <h4>Requirements</h4>
+    <dl>
+        <dd><b>Version:</b> [Not yet released]</dd>
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+    <p>&nbsp;</p>
+    <h4>See Also</h4>
+
+    <p><a href="../Level3/Properties_id.html#PropertyDefinitionManipulation">Properties</a>,<br><a href="API_Functions.html">API Functions</a></p>
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

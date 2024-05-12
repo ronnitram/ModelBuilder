@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>DBBreak</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/DebugManager/reference/DBBreak.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DBBreak</h1>
+
+    <p>The <strong>DBBreak</strong> function performs a debug break: throws a debug string (containing the name of the source file and the line number and an optional message string) and breaks into the debugger.&nbsp;</p>
+    <pre class="syntax">
+<strong>bool DBBreak(
+  const char    </strong><em>*fileName, </em>// name of the source file
+  <strong>unsigned long </strong><em>*lineCount,        </em>// current line number
+  <strong>const char    </strong><em>*pMessage  </em>   // optional message
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>fileName</em></dt>
+
+        <dd>Specifies the name of the source file where the break occurs.</dd>
+
+        <dt><em>lineCount</em></dt>
+
+        <dd>Specifies the line number exactly where the break occurs.</dd>
+
+        <dt><em>pMessage</em></dt>
+
+        <dd>Specifies the message. This parameter is optional, i.e. NULL is allowed.</dd>
+    </dl>
+
+    <h4>Return Value</h4>
+
+    <p>The return value is always <strong>true</strong>.</p>
+
+    <h4>Remarks:&nbsp;</h4>
+
+    <p>Behavior of the <b>BDBreak</b> function is platform-dependent.&nbsp;</p>
+
+    <p><strong>Windows:<br>
+    DBBreak</strong> displays an assertion message box where you can choose to break into the debugger or not.</p>
+
+    <p><strong>DBBreak</strong> uses the <strong>DebugBreak</strong> Win32 function to break into the debugger. <strong>DebugBreak</strong> raises a breakpoint exception in the current process that is, the calling thread can awake the debugger and force it to take some action. If the process is not under debug, the search logic of a standard exception handler is used. In most cases, this causes the calling process to terminate, throwing an unhandled breakpoint exception.</p>
+
+    <p><strong>Macintosh:<br>
+    DBBreak</strong> does not break into the debugger only sends a debug string.</p>
+
+    <h4>Requirements</h4>
+
+    <p>&nbsp;&nbsp;&nbsp; <strong>Header:</strong> Declared in GSDebug.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong>Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../../../GSRootHTMLLibrary/DebugManager/reference/macros_id.html">Debug Manager Macros</a>, <a href="../../../GSRootHTMLLibrary/DebugManager/reference/functions_id.html">Debug Manager Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

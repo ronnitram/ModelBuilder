@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_RegularizedPoly</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_RegularizedPoly.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_RegularizedPoly</h1>
+
+    <p>Structure for regularizing polygon or polyline.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Coord.html">API_Coord</a></strong>       <em>**coords</em>;
+        <strong>Int32</strong>           <em>**pends</em>;
+        <strong><a href="API_PolyArc.html">API_PolyArc</a></strong>     <em>**parcs</em>;
+        <strong>UInt32</strong>          <em>**vertexIDs</em>;
+        <strong>UInt32</strong>          <em>**edgeIDs</em>;
+        <strong>UInt32</strong>          <em>**contourIDs</em>;
+        <strong>bool</strong>            <em>needVertexAncestry</em>;
+        <strong>Int32</strong>           <em>**vertexAncestry</em>;
+        <strong>bool</strong>            <em>needEdgeAncestry</em>;
+        <strong>Int32</strong>           <em>**edgeAncestry</em>;
+        <strong>bool</strong>            <em>needContourAncestry</em>;
+        <strong>Int32</strong>           <em>**contourAncestry</em>;
+    <strong>}</strong> <em>API_RegularizedPoly</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>coords</b></dt>
+
+        <dd>Coordinate array.</dd>
+
+        <dt><b>pends</b></dt>
+
+        <dd>Polygon endpoints; see <a href="API_Polygon.html">API_Polygon</a> for more information.</dd>
+
+        <dt><b>parcs</b></dt>
+
+        <dd>Polygon arcs; see <a href="API_PolyArc.html">API_PolyArc</a> and <a href="API_Polygon.html">API_Polygon</a> for more information.</dd>
+
+        <dt><b>vertexIDs</b></dt>
+
+        <dd>Unique identifiers the polygon vertices (unique inside the polygon). Optional.</dd>
+
+        <dt><b>edgeIDs</b></dt>
+
+        <dd>Unique identifiers the polygon edges (unique inside the polygon). Optional.</dd>
+
+        <dt><b>contourIDs</b></dt>
+
+        <dd>Unique identifiers the polygon contours (unique inside the polygon). Optional.</dd>
+
+        <dt><b>needVertexAncestry</b></dt>
+
+        <dd>Set to true if you would like to receive vertex ancestry after regularization. Input only parameter.</dd>
+
+        <dt><b>vertexAncestry</b></dt>
+
+        <dd>Array holding the indices of the vertices in the original polygon. Output only parameter. The array is filled only if it was requested with the <b>needVertexAncestry</b> parameter. The index value is 0 in case of new vertices. There is an index for all vertices. The array is indexed from 1.</dd>
+
+        <dt><b>needEdgeAncestry</b></dt>
+
+        <dd>Set to true if you would like to receive edge ancestry after regularization. Input only parameter.</dd>
+
+        <dt><b>edgeAncestry</b></dt>
+
+        <dd>Array holding the indices of the edges in the original polygon. Output only parameter. The array is filled only if it was requested with the <b>needEdgeAncestry</b> parameter. The index value is 0 in case of new edges. There is an index for all edges. The array is indexed from 1.</dd>
+
+        <dt><b>needContourAncestry</b></dt>
+
+        <dd>Set to true if you would like to receive contour ancestry after regularization. Input only parameter.</dd>
+
+        <dt><b>contourAncestry</b></dt>
+
+        <dd>Array holding the indices of the contours in the original polygon. Output only parameter. The array is filled only if it was requested with the <b>needContourAncestry</b> parameter. The index value is 0 in case of new contours. There is an index for all contours. The array is indexed from 1.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure is used to regularize a polygon or a polyline. <a href="../Functions/APIAny_RegularizePolygonID.html">APIAny_RegularizePolygonID</a> and <a href="../Functions/APIAny_RegularizePolylineID.html">APIAny_RegularizePolylineID</a> goody functions use this as input and output.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 5.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Goodies.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIAny_RegularizePolygonID.html">APIAny_RegularizePolygonID</a><br>
+    <a href="../Functions/APIAny_RegularizePolylineID.html">APIAny_RegularizePolylineID</a><br>
+    <a href="../Functions/APIAny_DisposeRegularizedPolyID.html">APIAny_DisposeRegularizedPolyID</a><br></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 12, 2008<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

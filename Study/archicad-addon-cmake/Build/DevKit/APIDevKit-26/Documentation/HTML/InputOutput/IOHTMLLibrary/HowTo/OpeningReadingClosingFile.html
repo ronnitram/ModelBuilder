@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>Opening reading and closing a file</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/HowTo/OpeningReadingClosingFile.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Opening, reading and closing a file</h1><br>
+    <br>
+
+    <p>The following sample code demonstrates the basic file management task: opening a file (<a href="../File/File.html">File</a>), reading data from it and closing the file.</p>
+
+    <p>To operate on an OS file, you have to obtain its location (address, path) in the file system. Class <a href="../Location/Location.html">Location</a> is responsible for holding and managing these locations. User can obtain or build a location in many ways (<a href="ObtainingLocation.html">=&gt; more information</a>). Here we will assume that our test file named "<font face="Courier New">Test.dat</font>" is located beside the running application.</p>
+
+    <p>Note that error codes of operations in the sample code are not processed, only their possibility is shown.</p>
+
+    <p>To this sample work, <a href="../../InputOutput.html">InputOutput</a> module must be initialized (<a href="IOInitialization.html">=&gt; more information</a>).</p><br>
+    <br>
+    <pre>
+#include "File.hpp"          // brings everything needed to use the File (e.g. Location)
+#include "FileSystem.hpp"    // to query location of the running application
+</pre>
+    <pre>
+GSErrCode errorCode;    // holds error codes of operations
+
+    // obtaining location of the file: application folder's location + name of the file
+
+IO::Location fileLoc;    // Location instance
+errorCode = IO::fileSystem.GetSpecialLocation (IO::FileSystem::ApplicationFolder, &amp;fileLoc);
+errorCode = fileLoc.AppendToLocal ("Test.dat");
+
+    // creating a File instance which will be used to operate on the desired OS file
+
+IO::File file (fileLoc);
+
+    // using the file
+
+errorCode = file.Open (IO::File::ReadMode);    // opening the file in read-only mode
+
+char buffer[256];
+errorCode = file.ReadBin (buffer, 16);         // reading 16 bytes from the file into the buffer
+
+errorCode = file.Close ();                     // closing the file
+</pre><br>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

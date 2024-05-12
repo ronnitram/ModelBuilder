@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ShellQuantity</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ShellQuantity.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ShellQuantity</h1>
+
+    <p>Returns the shell quantity values.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>double</strong>     <em>referenceSurface</em>;
+        <strong>double</strong>     <em>oppositeSurface</em>;
+        <strong>double</strong>     <em>edgeSurface</em>;
+        <strong>double</strong>     <em>referenceSurface_cond</em>;
+        <strong>double</strong>     <em>oppositeSurface_cond</em>;
+        <strong>double</strong>     <em>volume</em>;
+        <strong>double</strong>     <em>volume_cond</em>;
+        <strong>double</strong>     <em>perimeter</em>;
+        <strong>double</strong>     <em>holesSurf</em>;
+        <strong>double</strong>     <em>holesPrm</em>;
+        <strong>double</strong>     <em>grossReferenceSurf</em>;
+        <strong>double</strong>     <em>grossOppositeSurf</em>;
+        <strong>double</strong>     <em>grossEdgeSurf</em>;
+        <strong>double</strong>     <em>grossVolume</em>;
+        <strong>double</strong>     <em>insuThickness</em>;
+        <strong>double</strong>     <em>ridgesLength</em>;
+        <strong>double</strong>     <em>valleysLength</em>;
+        <strong>double</strong>     <em>gablesLength</em>;
+        <strong>double</strong>     <em>hipsLength</em>;
+        <strong>double</strong>     <em>eavesLength</em>;
+        <strong>double</strong>     <em>peaksLength</em>;
+        <strong>double</strong>     <em>sideWallConLength</em>;
+        <strong>double</strong>     <em>endWallConLength</em>;
+        <strong>double</strong>     <em>domeConLength</em>;
+        <strong>double</strong>     <em>hollowConLength</em>;
+        <strong>double</strong>     <em>openingSurf</em>;
+        <strong>double</strong>     <em>floorplanArea</em>;
+        <strong>Int32</strong>      <em>numOfHoles</em>;
+        <strong>Int32</strong>      <em>numOfSkylight</em>;
+        <strong>Int32</strong>      <em>filler_1</em>;
+        <strong>Int32</strong>      <em>filler_2</em>;
+    <strong>}</strong> <em>API_ShellQuantity</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>referenceSurface</b></dt>
+
+        <dd>Net area of the reference surface (without holes).</dd>
+
+        <dt><b>oppositeSurface</b></dt>
+
+        <dd>Net area of the surface opposite to the reference (without holes).</dd>
+
+        <dt><b>edgeSurface</b></dt>
+
+        <dd>Total are of the edges.</dd>
+
+        <dt><b>referenceSurface_cond</b></dt>
+
+        <dd>Conditional area of the reference surface.</dd>
+
+        <dt><b>oppositeSurface_cond</b></dt>
+
+        <dd>Conditional area of the opposite surface.</dd>
+
+        <dt><b>volume</b></dt>
+
+        <dd>Volume of the shell.</dd>
+
+        <dt><b>volume_cond</b></dt>
+
+        <dd>Conditional volume of the shell.</dd>
+
+        <dt><b>perimeter</b></dt>
+
+        <dd>Perimeter of the contour polygon.</dd>
+
+        <dt><b>holesSurf</b></dt>
+
+        <dd>Total area of the holes.</dd>
+
+        <dt><b>holesPrm</b></dt>
+
+        <dd>Total perimeter of the holes.</dd>
+
+        <dt><b>grossReferenceSurf</b></dt>
+
+        <dd>Gross reference surface area (holes included).</dd>
+
+        <dt><b>grossOppositeSurf</b></dt>
+
+        <dd>Gross area of the opposite surface (holes included).</dd>
+
+        <dt><b>grossEdgeSurf</b></dt>
+
+        <dd>Gross area of the edge surface.</dd>
+
+        <dt><b>grossVolume</b></dt>
+
+        <dd>Gross volume of the shell (holes included).</dd>
+
+        <dt><b>insuThickness</b></dt>
+
+        <dd>Insulation thickness of the shell.</dd>
+
+        <dt><b>ridgesLength</b></dt>
+
+        <dd>Total length of the ridges.</dd>
+
+        <dt><b>valleysLength</b></dt>
+
+        <dd>Total length of the valleys.</dd>
+
+        <dt><b>gablesLength</b></dt>
+
+        <dd>Total length of the gables.</dd>
+
+        <dt><b>hipsLength</b></dt>
+
+        <dd>Total length of the hips.</dd>
+
+        <dt><b>eavesLength</b></dt>
+
+        <dd>Total length of the eaves.</dd>
+
+        <dt><b>peaksLength</b></dt>
+
+        <dd>Total length of the peaks.</dd>
+
+        <dt><b>sideWallConLength</b></dt>
+
+        <dd>Total length of the connecting line with side walls.</dd>
+
+        <dt><b>endWallConLength</b></dt>
+
+        <dd>Total length of the connecting line with wall ends.</dd>
+
+        <dt><b>domeConLength</b></dt>
+
+        <dd>Total length of the connecting line with domes.</dd>
+
+        <dt><b>hollowConLength</b></dt>
+
+        <dd>Total length of the connecting line with hollows.</dd>
+
+        <dt><b>openingSurf</b></dt>
+
+        <dd>Total area of the openings.</dd>
+
+        <dt><b>floorplanArea</b></dt>
+
+        <dd>Projected floor plan area of the contour polygon.</dd>
+
+        <dt><b>numOfHoles</b></dt>
+
+        <dd>Number of holes in contour polygon.</dd>
+
+        <dt><b>numOfSkylight</b></dt>
+
+        <dd>Number of skylight.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 15 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

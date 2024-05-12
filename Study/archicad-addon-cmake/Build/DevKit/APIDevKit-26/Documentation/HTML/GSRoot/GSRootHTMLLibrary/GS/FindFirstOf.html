@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>FindFirstOf</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/FindFirstOf.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>FindFirstOf</H2><!--exp="FindFirstOf Enum"-->
+<P><topic id="$GS.$FindFirstOf.BriefDescription">
+		Searches for the first occurrence of any of several values within a target range 
+		or for the first occurrence of any of several elements that are equivalent in a 
+		sense specified by a binary predicate to a specified set of the elements.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For1</I>, <B>class</B> <I>For2</I><B>&gt;
+</B>For1 FindFirstOf (</B>
+    <B>For1                </B><I>first1</I>,
+    <B>For1                </B><I>last1</I>,
+    <B>For2                </B><I>first2</I>,
+    <B>For2                </B><I>last2</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For1</I>, <B>class</B> <I>For2</I>, <B>class</B> <I>BinPred</I><B>&gt;
+</B>For1 FindFirstOf (</B>
+    <B>For1                </B><I>first1</I>,
+    <B>For1                </B><I>last1</I>,
+    <B>For2                </B><I>first2</I>,
+    <B>For2                </B><I>last2</I>,
+    <B>BinPred             </B><I>pred</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>For1</I></DT><DD><topic id="$GS.$FindFirstOf.$For1.TemplateParamDescription">
+		Forward iterator.
+	</topic></DD><DT><I>For2</I></DT><DD><topic id="$GS.$FindFirstOf.$For2.TemplateParamDescription">
+		Forward iterator.
+	</topic></DD><DT><I>BinPred</I></DT><DD><topic id="$GS.$FindFirstOf.$BinPred.TemplateParamDescription">
+		Binary predicate.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first1</I></DT><DD><topic id="$GS.$FindFirstOf.$first1.ParamDescription">
+		A forward iterator addressing the position of the first element in the range to 
+		be searched.
+	</topic></DD><DT><I>last1</I></DT><DD><topic id="$GS.$FindFirstOf.$last1.ParamDescription">
+		A forward iterator addressing the position one past the final element in the 
+		range to be searched.
+	</topic></DD><DT><I>first2</I></DT><DD><topic id="$GS.$FindFirstOf.$first2.ParamDescription">
+		A forward iterator addressing the position of the first element in the range to 
+		be matched.
+	</topic></DD><DT><I>last2</I></DT><DD><topic id="$GS.$FindFirstOf.$last2.ParamDescription">
+		A forward iterator addressing the position one past the final element in the 
+		range to be matched.
+	</topic></DD><DT><I>pred</I></DT><DD><topic id="$GS.$FindFirstOf.$pred.ParamDescription">
+		User-defined predicate function object that defines the condition to be 
+		satisfied if two elements are to be taken as equivalent. A binary predicate 
+		takes two arguments and returns <B>true </B>when satisfied and <B>false</B> when 
+		not satisfied.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$FindFirstOf.ReturnDescription">
+		A forward iterator addressing the position of the first element of the first 
+		subsequence that matches the specified sequence or that is equivalent in a sense 
+		specified by a binary predicate.
+	</topic></P><P><topic id="$GS.$FindFirstOf.1.ReturnDescription"></topic></P><P><topic id="$GS.$FindFirstOf.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$FindFirstOf.LongDescription">
+		<B>FindFirstOf</B> is similar to <B>Find</B>, in 
+		that it performs linear seach through a range of Input iterators. The difference is that while 
+		<B>Find</B> searches for one particular value, 
+		<B>FindFirstOf</B> searches for any of several values. Specifically, 
+		<B>FindFirstOf</B> searches for the first occurrance in the range 
+		<TT>[first1, last1)</TT> of any of the elements in <TT>[first2, last2)</TT>. 
+		(Note that this behavior is reminiscent of the function <B>strpbrk</B> from 
+		the standard C library.) 
+		The two versions of <B>FindFirstOf</B> differ in how they compare 
+		elements for equality. The first uses <B>operator==</B>, and the second uses 
+		and arbitrary user-supplied predicate
+		<TT>pred</TT>. The first version returns the first iterator <TT>i</TT> in 
+		<TT>[first1, last1)</TT> such that, for some iterator <TT>j</TT> in <TT>[first2, 
+		last2)</TT>, <TT>*i == *j</TT>. The second returns the first iterator <TT>i</TT> 
+		in <TT>[first1, last1)</TT> such that, for some iterator <TT>j</TT> in 
+		<TT>[first2, last2)</TT>, <TT>comp(*i, *j)</TT> is <TT>true</TT>. As usual, both 
+		versions return <TT>last1</TT> if no such iterator <TT>i</TT> exists.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$FindFirstOf.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

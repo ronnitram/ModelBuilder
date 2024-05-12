@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Balla Mihaly">
+
+    <title>DG_MSG_PARTIALUPDATE</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DG_MSG_PARTIALUPDATE.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DG_MSG_PARTIALUPDATE</h1>
+
+    <p>This message is obsolete, use the <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a> message instead.</p>
+
+    <p>A <a href="UserItem.html">user item</a> should be partially redrawn.</p>
+
+    <h4>Message parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>msgData</em></dt>
+
+        <dd>Pointer to a <a href="DGUserMsgData.html">DGUserMsgData</a> structure cast to <tt><strong>DGMessageData</strong></tt>.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>Not used, should be set to zero.</p>
+
+    <h4>Remarks</h4>
+
+    <p>On Macintosh, user items always receive <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a> messages whenever it should be updated. On Windows, however, user items of <tt>DG_UT_PARTIALUPDATE</tt> subtype can receive <tt>DG_MSG_PARTIALUPDATE</tt> messages, too. This subtype can be specified in GRC. It is highly recommended to set the partial update flag of a user item if its update is a very time consuming process.</p>
+
+    <p>On Windows, if the full drag mode is switched on in the system, DG sends <tt>DG_MSG_PARTIALUPDATE</tt> messages while the user moves or sizes the parent dialog of the user item and sends one <tt>DG_MSG_UPDATE</tt> as soon as the user finishes moving or sizing. When the <a href="CallbackFunctions.html">dialog callback function</a> receives a <tt>DG_MSG_PARTIALUPDATE</tt> message the application can do a partial update, e.g. you can erase the background and draw only the frame of the item while it is resized, but when a user item receives <tt>DG_MSG_UPDATE</tt> you must redraw it entirely.</p>
+
+    <p>The message data parameter of the update messages is a pointer to a <b>DGUserMsgData</b> structure that contains all the necessary information to update the user item by the application. On Macintosh and on the emulation the <em>drawData</em> member of the structure should be cast to <strong><tt>ControlHandle</tt></strong> and the application can draw into the GrafPort pointed to by the <em>contrlOwner</em> member of the ControlHandle. On Windows, <em>drawData</em> should be cast to <strong><tt>DRAWITEMSTRUCT*</tt></strong> and the application can draw into the <em>hDC</em> member of the structure. The origin of the drawing context is set to the upper left corner of the user item.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Messages_id.html">DG Messages</a>, <a href="UserItem.html">User Item</a>, <a href="CallbackFunctions.html">Callback functions</a>, <a href="DGUserMsgData.html">DGUserMsgData</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 2, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

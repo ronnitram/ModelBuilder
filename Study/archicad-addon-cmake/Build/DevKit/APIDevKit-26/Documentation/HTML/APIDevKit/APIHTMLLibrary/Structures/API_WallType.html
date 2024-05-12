@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_WallType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_WallType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_WallType</h1>
+
+    <p>Represents a wall element.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Elem_Head.html">API_Elem_Head</a></strong>                       <em>head</em>;
+        <strong>short</strong>                               <em>contPen</em>;
+        <strong>short</strong>                               <em>contPen3D</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                  <em>contLtype</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                  <em>belowViewLineType</em>;
+        <strong><a href="API_ModelElemStructureType.html">API_ModelElemStructureType</a></strong>          <em>modelElemStructureType</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                  <em>buildingMaterial</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                  <em>composite</em>;
+        <strong>Int32</strong>                               <em>sequence</em>;
+        <strong>Int32</strong>                               <em>filler_0</em>;
+        <strong><a href="API_PenOverrideType.html">API_PenOverrideType</a></strong>                 <em>penOverride</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>             <em>refMat</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>             <em>oppMat</em>;
+        <strong><a href="API_OverriddenAttribute.html">API_OverriddenAttribute</a></strong>             <em>sidMat</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                   <em>profileAttr</em>;
+        <strong>short</strong>                               <em>profileType</em>;
+        <strong>bool</strong>                                <em>polyCanChange</em>;
+        <strong>bool</strong>                                <em>materialsChained</em>;
+        <strong>bool</strong>                                <em>flipped</em>;
+        <strong>bool</strong>                                <em>filler_1[7]</em>;
+        <strong><a href="API_WallTypeID.html">API_WallTypeID</a></strong>                      <em>type</em>;
+        <strong><a href="API_WallReferenceLineLocationID.html">API_WallReferenceLineLocationID</a></strong>     <em>referenceLineLocation</em>;
+        <strong>double</strong>                              <em>height</em>;
+        <strong>double</strong>                              <em>bottomOffset</em>;
+        <strong>double</strong>                              <em>topOffset</em>;
+        <strong>double</strong>                              <em>thickness</em>;
+        <strong>double</strong>                              <em>thickness1</em>;
+        <strong>double</strong>                              <em>offset</em>;
+        <strong>double</strong>                              <em>offsetFromOutside</em>;
+        <strong>double</strong>                              <em>logHeight</em>;
+        <strong>Int32</strong>                               <em>beamFlags</em>;
+        <strong><a href="API_ZoneRelID.html">API_ZoneRelID</a></strong>                       <em>zoneRel</em>;
+        <strong>char</strong>                                <em>filler_2[16]</em>;
+        <strong>bool</strong>                                <em>isAutoOnStoryVisibility</em>;
+        <strong>bool</strong>                                <em>inheritEndSurface</em>;
+        <strong>bool</strong>                                <em>alignTexture</em>;
+        <strong>bool</strong>                                <em>filler_3</em>;
+        <strong><a href="API_StoryVisibility.html">API_StoryVisibility</a></strong>                 <em>visibility</em>;
+        <strong><a href="API_LinkToSettings.html">API_LinkToSettings</a></strong>                  <em>linkToSettings</em>;
+        <strong>short</strong>                               <em>relativeTopStory</em>;
+        <strong>short</strong>                               <em>filler_4[3]</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                           <em>begC</em>;
+        <strong><a href="API_Coord.html">API_Coord</a></strong>                           <em>endC</em>;
+        <strong><a href="API_Polygon.html">API_Polygon</a></strong>                         <em>poly</em>;
+        <strong>Int32</strong>                               <em>rLinInd</em>;
+        <strong>Int32</strong>                               <em>rLinEndInd</em>;
+        <strong>Int32</strong>                               <em>refInd</em>;
+        <strong>Int32</strong>                               <em>refEndInd</em>;
+        <strong>Int32</strong>                               <em>oppInd</em>;
+        <strong>Int32</strong>                               <em>oppEndInd</em>;
+        <strong>double</strong>                              <em>angle</em>;
+        <strong>bool</strong>                                <em>hasWindow</em>;
+        <strong>bool</strong>                                <em>hasDoor</em>;
+        <strong>bool</strong>                                <em>filler_5[2]</em>;
+        <strong>Int32</strong>                               <em>wallConnPriority</em>;
+        <strong>bool</strong>                                <em>useCompositePriority</em>;
+        <strong>bool</strong>                                <em>filler_6</em>;
+        <strong>short</strong>                               <em>aboveViewLinePen</em>;
+        <strong><a href="API_AttributeIndex.html">API_AttributeIndex</a></strong>                  <em>aboveViewLineType</em>;
+        <strong>short</strong>                               <em>filler_7</em>;
+        <strong><a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a></strong>            <em>displayOption</em>;
+        <strong><a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a></strong>      <em>viewDepthLimitation</em>;
+        <strong>double</strong>                              <em>slantAlpha</em>;
+        <strong>double</strong>                              <em>slantBeta</em>;
+        <strong>Int32</strong>                               <em>filler_8[4]</em>;
+    <strong>}</strong> <em>API_WallType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General element header.</dd>
+
+        <dt><b>contPen</b></dt>
+
+        <dd>Pen attribute index of wall's contour.</dd>
+
+        <dt><b>contPen3D</b></dt>
+
+        <dd>The pen index of wall's contour in 3D.</dd>
+
+        <dt><b>contLtype</b></dt>
+
+        <dd>The linetype index of wall's contour.</dd>
+
+        <dt><b>belowViewLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Line type used when "OutLines Only" is selected from the "Floor Plan Display" popup. Corresponds to the "Uncut Lines" value in the Wall Settings dialog.</dd>
+
+        <dt><b>modelElemStructureType</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>The structure type of the wall.</dd>
+
+        <dt><b>buildingMaterial</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Building Material index of wall's hatch. Used only, if structure type is <a href="API_ModelElemStructureType.html">API_BasicStrucure</a>.</dd>
+
+        <dt><b>composite</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Composite index of wall. Used only, if structure type is <a href="API_ModelElemStructureType.html">API_CompositeStructure</a>.</dd>
+
+        <dt><b>sequence</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Sequence is required when two walls meet with the same priority or when 3 or more walls meet in a junction. It's actual values can be between 0 and 999.</dd>
+
+        <dt><b>penOverride</b>&nbsp;<img alt="Featuring API 17" border="0" height="12" src="../../APIImageLibrary/17.png" width="19"></dt>
+
+        <dd>Cut fill pens set in the used structure (building material, composite, complex profile) can be overridden on the element level.</dd>
+
+        <dt><b>refMat</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Material override structure of the surface on the reference line side.</dd>
+
+        <dt><b>oppMat</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Material override structure of the opposite surface.</dd>
+
+        <dt><b>sidMat</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>Material override structure of the side surfaces.</dd>
+
+        <dt><b>profileAttr</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Attribute index of the extruded profile (0 if not profiled). See <a href="API_ProfileAttrType.html">API_ProfileAttrType</a>.<br>
+        Used only, if structure type is <a href="API_ModelElemStructureType.html">API_ProfileStructure</a>.</dd>
+
+        <dt><b>profileType</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>
+            The type of the cross section of the wall:
+
+            <table>
+                <tr>
+                    <td>
+                        <p><code>APISect_Normal</code></p>
+                    </td>
+
+                    <td>
+                        <p>Simple cross section element</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APISect_Poly</code></p>
+                    </td>
+
+                    <td>
+                        <p>Profiled cross section element</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APISect_Slanted</code></p>
+                    </td>
+
+                    <td>
+                        <p>Slanted cross section element</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APISect_Trapez</code></p>
+                    </td>
+
+                    <td>
+                        <p>Trapezoid cross section element</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>polyCanChange</b></dt>
+
+        <dd>The polygon wall's corners can be changed in case of L and T connections.</dd>
+
+        <dt><b>materialsChained</b>&nbsp;<img border="0" src="../../APIImageLibrary/20.png" alt="20" width="19" height="12"></dt>
+
+        <dd>Are surface materials chained?</dd>
+
+        <dt><b>flipped</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>If true then the wall is mirrored to the reference line. (<tt>true</tt> == <tt>APIWdir_Left</tt> or <tt>APIWdir_LCenter</tt>; <tt>false</tt> == <tt>APIWdir_Right</tt> or <tt>APIWdir_Center</tt> in the old <tt>API_WallDirID</tt> enum).</dd>
+
+        <dt><b>type</b></dt>
+
+        <dd>The type of the geometry of the wall (see <a href="API_WallTypeID.html">API_WallTypeID</a>).</dd>
+
+        <dt><b>referenceLineLocation</b></dt>
+
+        <dd>The location of the reference line (see <a href="API_WallReferenceLineLocationID.html">API_WallReferenceLineLocationID</a>).</dd>
+
+        <dt><b>height</b></dt>
+
+        <dd>The height of the wall relative to its bottom.</dd>
+
+        <dt><b>bottomOffset</b></dt>
+
+        <dd>Base height of the wall relative to the floor level.</dd>
+
+        <dt><b>topOffset</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>The offset from top floor if wall is top linked.</dd>
+
+        <dt><b>thickness</b></dt>
+
+        <dd>The thickness of the wall at the beginning point.</dd>
+
+        <dt><b>thickness1</b></dt>
+
+        <dd>The thickness of the wall at the end point.</dd>
+
+        <dt><b>offset</b></dt>
+
+        <dd>The offset of the wall's base line from reference line at the beginning point (invalid for center wall directions).</dd>
+
+        <dt><b>offset1</b></dt>
+
+        <dd>The offset of the wall's base line from reference line at the end point (invalid for center wall directions).</dd>
+
+        <dt><b>logHeight</b></dt>
+
+        <dd>The height of the log for log walls (0 means normal wall).</dd>
+
+        <dt><b>beamFlags</b></dt>
+
+        <dd>
+            <table>
+                <tr>
+                    <td>
+                        <p><code>APIWBeam_RefMater</code></p>
+                    </td>
+
+                    <td>
+                        <p>Apply Reference side material on horizontal edges.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIWBeam_OppMater</code></p>
+                    </td>
+
+                    <td>
+                        <p>Apply Opposite side material on horizontal edges.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIWBeam_HalfLog</code></p>
+                    </td>
+
+                    <td>
+                        <p>Start with half log.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIWBeam_QuadricLog</code></p>
+                    </td>
+
+                    <td>
+                        <p>Use square (quadric) logs.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIWBeam_Stretched</code></p>
+                    </td>
+
+                    <td>
+                        <p>The log radius is measured from the opposite side.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIWBeam_RightLog</code></p>
+                    </td>
+
+                    <td>
+                        <p>The logs are curved on the right side of the wall.</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>APIWBeam_LeftLog</code></p>
+                    </td>
+
+                    <td>
+                        <p>The logs are curved on the left side of the wall.</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>zoneRel</b></dt>
+
+        <dd>Defines the wall's relation to zones (see <a href="API_ZoneRelID.html">API_ZoneRelID</a>).</dd>
+
+        <dt><b>visibility</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>The option to define which stories display the wall.</dd>
+
+        <dt><b>isAutoOnStoryVisibility</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Recalculate the story visibility automatically according to the actual vertical extent of the wall.</dd>
+
+        <dt><b>inheritEndSurface</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="Featuring API 19" width="19" height="12"></dt>
+
+        <dd>The end surface of the wall is inherited from the adjoining wall.</dd>
+
+        <dt><b>alignTexture</b>&nbsp;<img border="0" src="../../APIImageLibrary/19.png" alt="Featuring API 19" width="19" height="12"></dt>
+
+        <dd>Align texture mapping to wall edges.</dd>
+
+        <dt><b>linkToSettings</b>&nbsp;<img border="0" src="../../APIImageLibrary/11.png" alt="Featuring API 11" width="19" height="12"></dt>
+
+        <dd>Mode of linking to home story.</dd>
+
+        <dt><b>relativeTopStory</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>The top linked story (relative to home story). Negative values are invalid. 0 = not top linked.</dd>
+
+        <dt><b>begC</b></dt>
+
+        <dd>The start (beginning) coordinate of the wall.</dd>
+
+        <dt><b>endC</b></dt>
+
+        <dd>The end coordinate of the wall.</dd>
+
+        <dt><b>poly</b></dt>
+
+        <dd>The original outline of the wall.</dd>
+
+        <dt><b>rLinInd</b></dt>
+
+        <dd>The index of the reference line beginning edge (starting from 1). Note that the direction can be reversed if the polygonal wall is mirrored.</dd>
+
+        <dt><b>rLinEndInd</b></dt>
+
+        <dd>The index of the reference line end edge.</dd>
+
+        <dt><b>refInd</b></dt>
+
+        <dd>The index of the reference material start edge index.</dd>
+
+        <dt><b>refEndInd</b></dt>
+
+        <dd>The index of the reference material end edge index.</dd>
+
+        <dt><b>oppInd</b></dt>
+
+        <dd>The index of the opposite side material edge start.</dd>
+
+        <dt><b>oppEndInd</b></dt>
+
+        <dd>The index of the opposite side material end edge index.</dd>
+
+        <dt><b>angle</b></dt>
+
+        <dd>The rotation angle of the wall in radians.</dd>
+
+        <dt><b>hasWindow</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Output only: <code>true</code>, if the Wall has at least one Window.</dd>
+
+        <dt><b>hasDoor</b>&nbsp;<img border="0" src="../../APIImageLibrary/12.png" alt="Changed in API 12" width="19" height="12"></dt>
+
+        <dd>Output only: <code>true</code>, if the Wall has at least one Door.</dd>
+
+        <dt><b>aboveViewLinePen</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Pen used when "Overhead All" is selected from the "Floor Plan Display" popup. Corresponds to the "Overhead Line Pens" value in the Wall Settings dialog.</dd>
+
+        <dt><b>aboveViewLineType</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Line type used when "Overhead All" is selected from the "Floor Plan Display" popup. Corresponds to the "Overhead Lines" value in the Wall Settings dialog.</dd>
+
+        <dt><b>displayOption</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Determines how the wall appears on the floor plan.</dd>
+
+        <dt><b>viewDepthLimitation</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Determines which part of the wall is visible for multi-story walls.</dd>
+
+        <dt><b>slantAlpha</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Defines the angle for slanted and double slanted walls.</dd>
+
+        <dt><b>slantBeta</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Defines the angle for double slanted walls.</dd>
+
+        <dt><b>offsetFromOutside</b>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="17" width="19" height="12"></dt>
+
+        <dd>Distance between reference line and outside face of the wall (output only).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the type of the elements' structure is defined with the new <code>modelElemStructureType</code> member. The related attribute indices are separated into <code>buildingMaterial</code>, <code>composite</code> and <code>profileAttr</code>. The composite index is a non-negative index.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the the elements' cut fill foreground and background pens inherit from the element structure, and can be overridden on the element level.</p>
+
+    <p><img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12">&nbsp; In Archicad 17 the the elements' surface materials inherit from the element structure, and can be overridden on the element level.</p>
+
+    <p>For wall related memo data see the <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_WallTypeID.html">API_WallTypeID</a>, <a href="API_WallReferenceLineLocationID.html">API_WallReferenceLineLocationID</a>, <a href="API_ZoneRelID.html">API_ZoneRelID</a>, <a href="API_Coord.html">API_Coord</a>, <a href="API_AttributeIndex.html">API_AttributeIndex</a><br>
+    <a href="API_StoryVisibility.html">API_StoryVisibility</a>, <a href="API_LinkToSettings.html">API_LinkToSettings</a>, <a href="API_ElemDisplayOptionsID.html">API_ElemDisplayOptionsID</a>, <a href="API_ElemViewDepthLimitationsID.html">API_ElemViewDepthLimitationsID</a><br>
+    <a href="API_Gable.html">API_Gable</a>, <a href="API_Polygon.html">API_Polygon</a>, <a href="API_ProfileAttrType.html">API_ProfileAttrType</a><br>
+    <a href="API_Elem_Head.html">API_Elem_Head</a>, <a href="API_Element.html">API_Element</a>, <a href="API_ElementMemo.html">API_ElementMemo</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2018<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

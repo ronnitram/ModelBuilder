@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>IsOnLine</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/FileSystem/IsOnLine.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1><a href="FileSystem.html">FileSystem</a>::IsOnLine</h1><br>
+    Returns whether is the location online.<br>
+    <br>
+    <pre class="syntax">
+<b>bool  IsOnLine (
+    const <a href="../Location/Location.html">Location</a>&amp; loc
+) const;</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>loc</em></dt>
+
+        <dd>Location which should be examined for the direct accessibility.</dd>
+    </dl>
+
+    <h3>Return value</h3>
+
+    <table class="enumeration" width="270">
+        <tr>
+            <th width="50">Value</th>
+
+            <th width="180">Meaning</th>
+        </tr>
+
+        <tr>
+            <td width="50">true</td>
+
+            <td width="180">location is online</td>
+        </tr>
+
+        <tr>
+            <td width="50">false</td>
+
+            <td width="180">location is not online (offline)</td>
+        </tr>
+    </table>
+
+    <h3>Description</h3>
+
+    <p>This method determines whether is the location online. If a location is online then it can be used quickly and without side-effects regardless of whether it refers to an existing file system entry or not. Otherwise operations can be slow or can imply user interactions etc. Online/offline property has effect to virtually all classes and methods where locations can occur.</p>
+
+    <p>Note that while offline property is inherited (so descendants of an offline location are also offline) online is not (so a descendant of an online location can be either online or offline).</p>
+
+    <p>An offline location may become online due to its usage (for example through login dialog).<br></p><br>
+
+    <h4>Available from version: 1.0</h4>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

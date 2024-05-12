@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_ElementQuantityMask</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_ElementQuantityMask.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_ElementQuantityMask<img border="0" src="../../APIImageLibrary/19.png" alt="19" width="19" height="12"></h1>
+
+    <p>Describes the filter for the different calculated values for elements.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_WallQuantity.html">API_WallQuantity</a></strong>                          <em>wall</em>;
+        <strong><a href="API_ColumnQuantity.html">API_ColumnQuantity</a></strong>                        <em>column</em>;
+        <strong><a href="API_BeamQuantity.html">API_BeamQuantity</a></strong>                          <em>beam</em>;
+        <strong><a href="API_WindowQuantity.html">API_DoorQuantity</a></strong>                          <em>door</em>;
+        <strong><a href="API_WindowQuantity.html">API_WindowQuantity</a></strong>                        <em>window</em>;
+        <strong><a href="API_SkylightQuantity.html">API_SkylightQuantity</a></strong>                      <em>skylight</em>;
+        <strong><a href="API_ObjectQuantity.html">API_ObjectQuantity</a></strong>                        <em>symb</em>;
+        <strong><a href="API_ObjectQuantity.html">API_LightQuantity</a></strong>                         <em>light</em>;
+        <strong><a href="API_SlabQuantity.html">API_SlabQuantity</a></strong>                          <em>slab</em>;
+        <strong><a href="API_MeshQuantity.html">API_MeshQuantity</a></strong>                          <em>mesh</em>;
+        <strong><a href="API_RoofQuantity.html">API_RoofQuantity</a></strong>                          <em>roof</em>;
+        <strong><a href="API_ShellQuantity.html">API_ShellQuantity</a></strong>                         <em>shell</em>;
+        <strong><a href="API_MorphQuantity.html">API_MorphQuantity</a></strong>                         <em>morph</em>;
+        <strong><a href="API_HatchQuantity.html">API_HatchQuantity</a></strong>                         <em>hatch</em>;
+        <strong><a href="API_ZoneAllQuantity.html">API_ZoneAllQuantity</a></strong>                       <em>zone</em>;
+        <strong><a href="API_CurtainWallQuantity.html">API_CurtainWallQuantity</a></strong>                   <em>cw</em>;
+        <strong><a href="API_CWFrameQuantity.html">API_CWFrameQuantity</a></strong>                       <em>cwFrame</em>;
+        <strong><a href="API_CWPanelQuantity.html">API_CWPanelQuantity</a></strong>                       <em>cwPanel</em>;
+        <strong><a href="API_CWJunctionQuantity.html">API_CWJunctionQuantity</a></strong>                    <em>cwJunction</em>;
+        <strong><a href="API_CWAccessoryQuantity.html">API_CWAccessoryQuantity</a></strong>                   <em>cwAccessory</em>;
+        <strong><a href="API_StairQuantity.html">API_StairQuantity</a></strong>                         <em>stair</em>;
+        <strong><a href="API_StairRiserQuantity.html">API_StairRiserQuantity</a></strong>                    <em>stairRiser</em>;
+        <strong><a href="API_StairTreadQuantity.html">API_StairTreadQuantity</a></strong>                    <em>stairTread</em>;
+        <strong><a href="API_StairStructureQuantity.html">API_StairStructureQuantity</a></strong>                <em>stairStructure</em>;
+        <strong><a href="API_RailingQuantity.html">API_RailingQuantity</a></strong>                       <em>railing</em>;
+        <strong><a href="API_RailingToprailQuantity.html">API_RailingToprailQuantity</a></strong>                <em>railingToprail</em>;
+        <strong><a href="API_RailingHandrailQuantity.html">API_RailingHandrailQuantity</a></strong>               <em>railingHandrail</em>;
+        <strong><a href="API_RailingRailQuantity.html">API_RailingRailQuantity</a></strong>                   <em>railingRail</em>;
+        <strong><a href="API_RailingToprailEndQuantity.html">API_RailingToprailEndQuantity</a></strong>             <em>railingToprailEnd</em>;
+        <strong><a href="API_RailingHandrailEndQuantity.html">API_RailingHandrailEndQuantity</a></strong>            <em>railingHandrailEnd</em>;
+        <strong><a href="API_RailingRailEndQuantity.html">API_RailingRailEndQuantity</a></strong>                <em>railingRailEnd</em>;
+        <strong><a href="API_RailingToprailConnectionQuantity.html">API_RailingToprailConnectionQuantity</a></strong>      <em>railingToprailConnection</em>;
+        <strong><a href="API_RailingHandrailConnectionQuantity.html">API_RailingHandrailConnectionQuantity</a></strong>     <em>railingHandrailConnection</em>;
+        <strong><a href="API_RailingRailConnectionQuantity.html">API_RailingRailConnectionQuantity</a></strong>         <em>railingRailConnection</em>;
+        <strong><a href="API_RailingPostQuantity.html">API_RailingPostQuantity</a></strong>                   <em>railingPost</em>;
+        <strong><a href="API_RailingInnerPostQuantity.html">API_RailingInnerPostQuantity</a></strong>              <em>railingInnerPost</em>;
+        <strong><a href="API_RailingBalusterQuantity.html">API_RailingBalusterQuantity</a></strong>               <em>railingBaluster</em>;
+        <strong><a href="API_RailingPanelQuantity.html">API_RailingPanelQuantity</a></strong>                  <em>railingPanel</em>;
+        <strong><a href="API_RailingSegmentQuantity.html">API_RailingSegmentQuantity</a></strong>                <em>railingSegment</em>;
+        <strong><a href="API_BeamSegmentQuantity.html">API_BeamSegmentQuantity</a></strong>                   <em>beamSegment</em>;
+        <strong><a href="API_ColumnSegmentQuantity.html">API_ColumnSegmentQuantity</a></strong>                 <em>columnSegment</em>;
+    <strong>}</strong> <em>API_ElementQuantityMask</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>wall</b></dt>
+
+        <dd>Describes the mask of different calculated values for wall. <a href="../Structures/API_WallQuantity.html">API_WallQuantity</a></dd>
+
+        <dt><b>column</b></dt>
+
+        <dd>Describes the mask of different calculated values for column. <a href="../Structures/API_ColumnQuantity.html">API_ColumnQuantity</a></dd>
+
+        <dt><b>beam</b></dt>
+
+        <dd>Describes the mask of different calculated values for beam. <a href="../Structures/API_BeamQuantity.html">API_BeamQuantity</a></dd>
+
+        <dt><b>door</b></dt>
+
+        <dd>Describes the mask of different calculated values for door. <a href="../Structures/API_WindowQuantity.html">API_DoorQuantity</a></dd>
+
+        <dt><b>window</b></dt>
+
+        <dd>Describes the mask of different calculated values for window. <a href="../Structures/API_WindowQuantity.html">API_WindowQuantity</a></dd>
+
+        <dt><b>skylight</b></dt>
+
+        <dd>Describes the mask of different calculated values for skylight. <a href="../Structures/API_SkylightQuantity.html">API_SkylightQuantity</a></dd>
+
+        <dt><b>symb</b></dt>
+
+        <dd>Describes the mask of different calculated values for symb. <a href="../Structures/API_ObjectQuantity.html">API_ObjectQuantity</a></dd>
+
+        <dt><b>light</b></dt>
+
+        <dd>Describes the mask of different calculated values for light. <a href="../Structures/API_ObjectQuantity.html">API_LightQuantity</a></dd>
+
+        <dt><b>slab</b></dt>
+
+        <dd>Describes the mask of different calculated values for slab. <a href="../Structures/API_SlabQuantity.html">API_SlabQuantity</a></dd>
+
+        <dt><b>mesh</b></dt>
+
+        <dd>Describes the mask of different calculated values for mesh. <a href="../Structures/API_MeshQuantity.html">API_MeshQuantity</a></dd>
+
+        <dt><b>roof</b></dt>
+
+        <dd>Describes the mask of different calculated values for roof. <a href="../Structures/API_RoofQuantity.html">API_RoofQuantity</a></dd>
+
+        <dt><b>shell</b></dt>
+
+        <dd>Describes the mask of different calculated values for shell. <a href="../Structures/API_RoofQuantity.html">API_ShellQuantity</a></dd>
+
+        <dt><b>morph</b></dt>
+
+        <dd>Describes the mask of different calculated values for morph. <a href="../Structures/API_MorphQuantity.html">API_MorphQuantity</a></dd>
+
+        <dt><b>hatch</b></dt>
+
+        <dd>Describes the mask of different calculated values for hatch. <a href="../Structures/API_HatchQuantity.html">API_HatchQuantity</a></dd>
+
+        <dt><b>zone</b></dt>
+
+        <dd>Describes the mask of different calculated values for zone. <a href="../Structures/API_ZoneAllQuantity.html">API_ZoneAllQuantity</a></dd>
+
+        <dt><b>cw</b></dt>
+
+        <dd>Describes the mask of different calculated values for curtain wall. <a href="../Structures/API_CurtainWallQuantity.html">API_CurtainWallQuantity</a></dd>
+
+        <dt><b>cwFrame</b></dt>
+
+        <dd>Describes the mask of different calculated values for frame of curtain wall. <a href="../Structures/API_CWFrameQuantity.html">API_CWFrameQuantity</a></dd>
+
+        <dt><b>cwPanel</b></dt>
+
+        <dd>Describes the mask of different calculated values for panel of curtain wall. <a href="../Structures/API_CWPanelQuantity.html">API_CWPanelQuantity</a></dd>
+
+        <dt><b>cwJunction</b></dt>
+
+        <dd>Describes the mask of different calculated values for junction of curtain wall. <a href="../Structures/API_CWJunctionQuantity.html">API_CWJunctionQuantity</a></dd>
+
+        <dt><b>cwAccessory</b></dt>
+
+        <dd>Describes the mask of different calculated values for accessory of curtain wall. <a href="../Structures/API_CWAccessoryQuantity.html">API_CWAccessoryQuantity</a></dd>
+
+        <dt><b>stair</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for stair s.</dd>
+
+        <dt><b>stairRiser</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for stair risers.</dd>
+
+        <dt><b>stairTread</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for stair treads.</dd>
+
+        <dt><b>stairStructure</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for stair structures.</dd>
+
+        <dt><b>railing</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railings.</dd>
+
+        <dt><b>railingToprail</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing toprails.</dd>
+
+        <dt><b>railingHandrail</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing handrails.</dd>
+
+        <dt><b>railingRail</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing rails.</dd>
+
+        <dt><b>railingToprailEnd</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing toprail ends.</dd>
+
+        <dt><b>railingHandrailEnd</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing handrail ends.</dd>
+
+        <dt><b>railingRailEnd</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing rail ends.</dd>
+
+        <dt><b>railingToprailConnection</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing toprail connections.</dd>
+
+        <dt><b>railingHandrailConnection</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing handrail connections.</dd>
+
+        <dt><b>railingRailConnection</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing rail connections.</dd>
+
+        <dt><b>railingPost</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing posts.</dd>
+
+        <dt><b>railingInnerPost</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing inner posts.</dd>
+
+        <dt><b>railingBaluster</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing balusters.</dd>
+
+        <dt><b>railingPanel</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing panels.</dd>
+
+        <dt><b>railingSegment</b>&nbsp;<img border="0" src="../../APIImageLibrary/21.png" alt="21" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for railing segments.</dd>
+
+        <dt><b>beamSegment</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="23" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for beam segments.<a href="../Structures/API_BeamSegmentQuantity.html">API_BeamSegmentQuantity</a></dd>
+
+        <dt><b>columnSegment</b>&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="23" width="19" height="12"></dt>
+
+        <dd>Describes the different calculated values for column segments.<a href="../Structures/API_ColumnSegmentQuantity.html">API_ColumnSegmentQuantity</a></dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 19.0 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/ACAPI_Element_GetQuantities.html">ACAPI_Element_GetQuantities</a>, <a href="../Functions/ACAPI_Element_GetMoreQuantities.html">ACAPI_Element_GetMoreQuantities</a>, <a href="API_QuantityPar.html">API_QuantityPar</a>, <a href="../Structures/API_Quantities.html">API_Quantities</a>, <a href="../Structures/API_QuantitiesMask.html">API_QuantitiesMask</a>, <a href="API_Types.html">API Types</a>,<br>
+    <a href="../Structures/API_ElementQuantity.html">API_ElementQuantity</a>, <a href="../Structures/API_ElementQuantityMask.html">API_ElementQuantityMask</a>, <a href="../Structures/API_CompositeQuantity.html">API_CompositeQuantity</a>, <a href="../Structures/API_CompositeQuantityMask.html">API_CompositeQuantityMask</a>, <a href="API_ElemPartQuantity.html">API_ElemPartQuantity</a>, <a href="API_ElemPartCompositeQuantity.html">API_ElemPartCompositeQuantity</a>,<br>
+    <a href="../Structures/API_BeamQuantity.html">API_BeamQuantity</a>, <a href="../Structures/API_WallQuantity.html">API_WallQuantity</a>, <a href="../Structures/API_ColumnQuantity.html">API_ColumnQuantity</a>, <a href="../Structures/API_WindowQuantity.html">API_WindowQuantity</a>, <a href="../Structures/API_WindowQuantity.html">API_DoorQuantity</a>, <a href="../Structures/API_SkylightQuantity.html">API_SkylightQuantity</a>, <a href="../Structures/API_ObjectQuantity.html">API_ObjectQuantity</a>, <a href="../Structures/API_ObjectQuantity.html">API_LightQuantity</a>, <a href="../Structures/API_SlabQuantity.html">API_SlabQuantity</a>,
+    <a href="../Structures/API_RoofQuantity.html">API_RoofQuantity</a>, <a href="../Structures/API_MeshQuantity.html">API_MeshQuantity</a>, <a href="../Structures/API_ZoneAllQuantity.html">API_ZoneAllQuantity</a>, <a href="../Structures/API_HatchQuantity.html">API_HatchQuantity</a>,
+    <a href="../Structures/API_CurtainWallQuantity.html">API_CurtainWallQuantity</a>, <a href="../Structures/API_CWFrameQuantity.html">API_CWFrameQuantity</a>, <a href="../Structures/API_CWPanelQuantity.html">API_CWPanelQuantity</a>, <a href="../Structures/API_CWJunctionQuantity.html">API_CWJunctionQuantity</a>, <a href="../Structures/API_CWAccessoryQuantity.html">API_CWAccessoryQuantity</a>,
+    <a href="API_StairQuantity.html">API_StairQuantity</a>,
+    <a href="API_StairRiserQuantity.html">API_StairRiserQuantity</a>,
+    <a href="API_StairTreadQuantity.html">API_StairTreadQuantity</a>,
+    <a href="API_StairStructureQuantity.html">API_StairStructureQuantity</a>,
+    <a href="API_RailingQuantity.html">API_RailingQuantity</a>,
+    <a href="API_RailingToprailQuantity.html">API_RailingToprailQuantity</a>,
+    <a href="API_RailingHandrailQuantity.html">API_RailingHandrailQuantity</a>,
+    <a href="API_RailingRailQuantity.html">API_RailingRailQuantity</a>,
+    <a href="API_RailingToprailEndQuantity.html">API_RailingToprailEndQuantity</a>,
+    <a href="API_RailingHandrailEndQuantity.html">API_RailingHandrailEndQuantity</a>,
+    <a href="API_RailingRailEndQuantity.html">API_RailingRailEndQuantity</a>,
+    <a href="API_RailingToprailConnectionQuantity.html">API_RailingToprailConnectionQuantity</a>,
+    <a href="API_RailingHandrailConnectionQuantity.html">API_RailingHandrailConnectionQuantity</a>,
+    <a href="API_RailingRailConnectionQuantity.html">API_RailingRailConnectionQuantity</a>,
+    <a href="API_RailingPostQuantity.html">API_RailingPostQuantity</a>,
+    <a href="API_RailingInnerPostQuantity.html">API_RailingInnerPostQuantity</a>,
+    <a href="API_RailingBalusterQuantity.html">API_RailingBalusterQuantity</a>,
+    <a href="API_RailingPanelQuantity.html">API_RailingPanelQuantity</a>,
+    <a href="API_RailingSegmentQuantity.html">API_RailingSegmentQuantity</a>
+    <a href="API_BeamSegmentQuantity.html">API_BeamSegmentQuantity</a>
+    <a href="API_ColumnSegmentQuantity.html">API_ColumnSegmentQuantity</a>
+    </p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on April 24, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

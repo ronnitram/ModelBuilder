@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>AddFilter (FileDialog)</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/FileDialog/AddFilter.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2><a href="FileDialog.html">FileDialog</A>::AddFilter</H2><!--exp="FileDialog::AddFilter"-->
+<P><topic id="$DG.$FileDialog.$AddFilter.BriefDescription">
+		Adds a new item to the end of the filter selection popup.
+	</topic></P>
+<PRE class="syntax"><B>UIndex AddFilter (</B>
+    <B>FTM::GeneralID      </B><I>id</I>,
+    <B><a class="nodecorate" href="../../DG/FileDialog/ExtensionOptions.html">ExtensionOptions</A>    </B><I>options</I><B> = SystemDefault</B>
+<B>);</B></PRE>
+<H4>Parameters</H4>
+<DL><DT><I>id</I></DT><DD><topic id="$DG.$FileDialog.$AddFilter.$id.ParamDescription">
+		A file type manager <a href="../../../../../FileTypeManager/HTML_Library/FileTypeManager/GeneralID/generalid.html">id</a>.
+	</topic></DD><DT><I>options</I></DT><DD><topic id="$DG.$FileDialog.$AddFilter.$options.ParamDescription">
+		Option for diplaying description.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$DG.$FileDialog.$AddFilter.ReturnDescription">
+		Zero based index of the position of the new item. Can be used
+		as an index for other filter handling functions.
+	</topic></P>
+<H4>Description</H4>
+<P><topic id="$DG.$FileDialog.$AddFilter.LongDescription">
+		If a <a href="../../../../../FileTypeManager/HTML_Library/FileTypeManager/GroupID/groupid.html">GroupID</a> is passed only one
+		item is created, but it will include all extensions and mac types of the types
+		under this group.
+	</topic></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

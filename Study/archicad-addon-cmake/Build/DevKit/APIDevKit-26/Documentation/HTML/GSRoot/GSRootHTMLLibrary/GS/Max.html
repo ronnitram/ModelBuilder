@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>Max</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/Max.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>Max</H2><!--exp="Max Enum"-->
+<P><topic id="$GS.$Max.BriefDescription">
+		Compares two objects and returns the larger of the two, where the ordering 
+		criterion may be specified by a binary predicate.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>T</I>, <B>class</B> <I>BinPred</I><B>&gt;
+</B>T Max (</B>
+    <B>const T &amp;           </B><I>a</I>,
+    <B>const T &amp;           </B><I>b</I>,
+    <B>BinPred             </B><I>cmp</I>
+<B>);</B></PRE>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>T</I><B>&gt;
+</B>T Max (</B>
+    <B>const T &amp;           </B><I>a</I>,
+    <B>const T &amp;           </B><I>b</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>T</I></DT><DD><topic id="$GS.$Max.$T.TemplateParamDescription">
+		T type template parameter.
+	</topic></DD><DT><I>BinPred</I></DT><DD><topic id="$GS.$Max.$BinPred.TemplateParamDescription">
+		Binary predicate.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>a</I></DT><DD><topic id="$GS.$Max.$a.ParamDescription">
+		The first of the two objects being compared.
+	</topic></DD><DT><I>b</I></DT><DD><topic id="$GS.$Max.$b.ParamDescription">
+		The second of the two objects being compared.
+	</topic></DD><DT><I>cmp</I></DT><DD><topic id="$GS.$Max.$cmp.ParamDescription">
+		A binary predicate used to compare the two objects.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$Max.ReturnDescription">
+		The greater of the two objects unless neither is greater, in which case it 
+		returns the first of the two objects.
+	</topic></P><P><topic id="$GS.$Max.1.ReturnDescription"></topic></P><P><topic id="$GS.$Max.2.ReturnDescription"></topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$Max.LongDescription">
+		<B>Max</B> returns the greater of its two arguments; it returns the first 
+		argument if neither is greater than the other. Compares objects using the predicate 
+		<TT>pred</TT>.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$Max.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Properties</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/Properties_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Properties <img border="0" src="../../APIImageLibrary/20.png" alt="API 20 feature" width="19" height="12"></h1>
+
+    <h2>Overview</h2>
+
+    <p>This feature of the Archicad allows one to store user-defined name-value pairs for Model elements. The keys (names) of the properties are represented with <a href="../Structures/API_PropertyDefinition.html">Property Definitions</a>, that are stored per project, not per element. The definitions are part of a two-level deep tree structure. On the top level there are <a href="../Structures/API_PropertyGroup.html">Property Groups</a>, which are a collection of definitions with a unique name. The definitions' name also has to be unique within its group.</p>
+    <p>The definitions also have descriptions and they store the value type (e.g int, double) and collection type (e.g single value, list) of the data it can store. If a definition is made available for a classification, then all the elements in that classification will have that property - initially with a default value, that is part of the definition.</p>
+    <p>Properties can also have an enumerated collection type, which means that their values are limited to a finite number of predefined valid values. In this case these predefined values are part of the definition</p>
+
+    <h2>Handler functions</h2>
+
+    Please refer to the functions below the header of a thematic group to get details on that topic.
+
+    <p><a name="PropertyGroupManipulation" id="PropertyGroupManipulation">The</a> following functions let you manipulate <a href="../Structures/API_PropertyGroup.html">API_PropertyGroups</a>.</p>
+    <blockquote>
+        <a href="../Functions/ACAPI_Property_ChangePropertyGroup.html">ACAPI_Property_ChangePropertyGroup</a><br>
+        <a href="../Functions/ACAPI_Property_CreatePropertyGroup.html">ACAPI_Property_CreatePropertyGroup</a><br>
+        <a href="../Functions/ACAPI_Property_DeletePropertyGroup.html">ACAPI_Property_DeletePropertyGroup</a><br>
+        <a href="../Functions/ACAPI_Property_GetPropertyGroup.html">ACAPI_Property_GetPropertyGroup</a><br>
+        <a href="../Functions/ACAPI_Property_GetPropertyGroups.html">ACAPI_Property_GetPropertyGroups</a><br>
+        <a href="../Functions/ACAPI_Property_Import.html">ACAPI_Property_Import</a>&nbsp; <img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"><br>
+    </blockquote>
+
+	   <p><a name="PropertyDefinitionManipulation" id="PropertyDefinitionManipulation">The</a> following functions let you manipulate <a href="../Structures/API_PropertyDefinition.html">API_PropertyDefinitions</a></p>
+	   <blockquote>
+	   	<a href="../Functions/ACAPI_Property_ChangePropertyDefinition.html">ACAPI_Property_ChangePropertyDefinition</a><br>
+	   	<a href="../Functions/ACAPI_Property_CreatePropertyDefinition.html">ACAPI_Property_CreatePropertyDefinition</a><br>
+	   	<a href="../Functions/ACAPI_Property_DeletePropertyDefinition.html">ACAPI_Property_DeletePropertyDefinition</a><br>
+	   	<a href="../Functions/ACAPI_Property_GetPropertyDefinition.html">ACAPI_Property_GetPropertyDefinition</a><br>
+	   	<a href="../Functions/ACAPI_Property_GetPropertyDefinitions.html">ACAPI_Property_GetPropertyDefinitions</a><br>
+	   	<a href="../Functions/ACAPI_Property_IsValidValue.html">ACAPI_Property_IsValidValue</a>&nbsp; <img border="0" src="../../APIImageLibrary/25.png" alt="API 25 feature" width="19" height="12"><br>
+	   </blockquote>
+	
+    <p><a name="PropertyDefinitionManipulation" id="PropertyDefinitionManipulation">The</a> following functions let you manipulate <a href="../Structures/API_PropertyDefinition.html">API_PropertyDefinitions</a> attached to elements.</p>
+    <blockquote>
+        <a href="../Functions/ACAPI_Element_GetPropertyDefinitions.html">ACAPI_Element_GetPropertyDefinitions</a><br>
+        <a href="../Functions/ACAPI_Element_GetPropertyValuesOfDefaultElem.html">ACAPI_Element_GetPropertyValuesOfDefaultElem</a><br>
+        <a href="../Functions/ACAPI_Element_IsPropertyDefinitionAvailable.html">ACAPI_Element_IsPropertyDefinitionAvailable</a>&nbsp; <img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_Element_IsPropertyDefinitionAvailableDefault.html">ACAPI_Element_IsPropertyDefinitionAvailableDefault</a>&nbsp; <img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_Element_IsPropertyDefinitionVisible.html">ACAPI_Element_IsPropertyDefinitionVisible</a>&nbsp; <img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_Element_IsPropertyDefinitionVisibleDefault.html">ACAPI_Element_IsPropertyDefinitionVisibleDefault</a>&nbsp; <img border="0" src="../../APIImageLibrary/21.png" alt="Featuring API 21" width="19" height="12"><br>
+    </blockquote>
+
+    <p><a name="PropertyValueManipulation" id="PropertyValueManipulation">The</a> following functions let you manipulate <a href="../Structures/API_PropertyValue.html">API_PropertyValues</a> attached to elements.</p>
+    <blockquote>
+        <a href="../Functions/ACAPI_Element_GetPropertyValues.html">ACAPI_Element_GetPropertyValues</a><br>
+        <a href="../Functions/ACAPI_Element_GetPropertyValuesByGuid.html">ACAPI_Element_GetPropertyValuesByGuid</a><br>
+        <a href="../Functions/ACAPI_Element_GetPropertiesDefault.html">ACAPI_Element_GetPropertiesDefault</a><br>
+        <a href="../Functions/ACAPI_Element_SetProperties.html">ACAPI_Element_SetProperties</a><br>
+        <a href="../Functions/ACAPI_Element_SetPropertiesOfDefaultElem.html">ACAPI_Element_SetPropertiesOfDefaultElem</a>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Featuring API 22" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_Element_SetProperty.html">ACAPI_Element_SetProperty</a>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Featuring API 22" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_Element_IsPropertyDefinitionAvailable.html">ACAPI_Element_IsPropertyDefinitionAvailable</a><br>
+        <a href="../Functions/ACAPI_Element_IsPropertyDefinitionAvailableDefault.html">ACAPI_Element_IsPropertyDefinitionAvailableDefault</a><br>
+        <a href="../Functions/ACAPI_Element_IsPropertyDefinitionValueEditable.html">ACAPI_Element_IsPropertyDefinitionValueEditable</a>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Featuring API 22" width="19" height="12"><br>
+        <a href="../Functions/ACAPI_Element_IsPropertyDefinitionValueEditableDefault.html">ACAPI_Element_IsPropertyDefinitionValueEditableDefault</a>&nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="Featuring API 22" width="19" height="12"><br>
+    </blockquote>
+
+    <p><a name="MassPropertyFunctions" id="MassPropertyFunctions">The</a> following functions let you to efficiently manipulate properties for a list of elements.</p>
+    <blockquote>
+        <a href="../Functions/ACAPI_ElementList_AddProperty.html">ACAPI_ElementList_AddProperty</a><br>
+        <a href="../Functions/ACAPI_ElementList_ModifyPropertyValue.html">ACAPI_ElementList_ModifyPropertyValue</a><br>
+        <a href="../Functions/ACAPI_ElementList_DeleteProperty.html">ACAPI_ElementList_DeleteProperty</a><br>
+    </blockquote>
+	
+	<p><a name="AttributePropertyManipulation" id="AttributePropertyManipulation">The following functions let you manipulate the properties of the attributes</a></p>
+    <blockquote>
+		<a href="../Functions/ACAPI_Attribute_GetPropertyDefinitions.html">ACAPI_Attribute_GetPropertyDefinitions</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<a href="../Functions/ACAPI_Attribute_GetPropertyValue.html">ACAPI_Attribute_GetPropertyValue</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<a href="../Functions/ACAPI_Attribute_GetPropertyValues.html">ACAPI_Attribute_GetPropertyValues</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<a href="../Functions/ACAPI_Attribute_GetPropertyValuesByGuid.html">ACAPI_Attribute_GetPropertyValuesByGuid</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<a href="../Functions/ACAPI_Attribute_SetProperty.html">ACAPI_Attribute_SetProperty</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<a href="../Functions/ACAPI_Attribute_SetProperties.html">ACAPI_Attribute_SetProperties</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<a href="../Functions/ACAPI_Attribute_IsPropertyDefinitionValueEditable.html">ACAPI_Attribute_IsPropertyDefinitionValueEditable</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<a href="../Functions/ACAPI_Attribute_IsPropertyDefinitionAvailable.html">ACAPI_Attribute_IsPropertyDefinitionAvailable</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+		<a href="../Functions/ACAPI_Attribute_IsPropertyDefinitionVisible.html">ACAPI_Attribute_IsPropertyDefinitionVisible</a> &nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="API 23 feature" width="19" height="12"><br>
+    </blockquote>
+    
+	<p><a name="PropertyGoodieFunctions" id="PropertyGoodieFunctions">You can find several Goodie functions which help you handle properties more easily here:</a></p>
+    <blockquote>
+        <a href="../Functions/ACAPI_Goodies_id.html">ACAPI_Goodies</a> &nbsp;<img border="0" src="../../APIImageLibrary/22.png" alt="API 22 feature" width="19" height="12"><br>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on July 10, 2020<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Keresztely Viktoria">
+
+    <title>TIGS2WinTime</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/TimeManagers/DateTimeManager/reference/TIGS2WinTime.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TIGS2WinTime</h1>
+
+    <p>The <strong>TIGS2WinTime</strong> function converts the platform independent <strong>GSTime</strong> format to Windows time format.</p>
+    <pre class="syntax">
+<strong>GSErr TIGS2WinTime(
+  GSTime                </strong><em>gsTime,            </em>// platform independent time
+  <strong>long          </strong><em>*pWinTime  </em>   // buffer receiving converted time
+<strong>);</strong>
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4><strong>Parameters</strong></h4>
+
+    <dl>
+        <dt><em>gsTime</em></dt>
+
+        <dd>Specifies the time variable to convert.</dd>
+
+        <dt><em>pWinTime</em></dt>
+
+        <dd>Specifies the buffer receiving the Windows time.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p>The return value indicates the success of the conversion with an error code. For more information about the error codes, see <a href="../../../reference/errorcodes.html"><b>GSRoot error codes</b></a>.</p>
+
+    <h4>Remarks</h4>
+
+    <p>If you want to convert to the opposite direction, call <a href="TIWin2GSTime.html"><strong>TIWin2GSTime</strong></a>.</p>
+
+    <h4>Requirements</h4>
+
+    <p>&nbsp;&nbsp;&nbsp; <strong>Header:</strong> Declared in GSTime.hpp<br>
+    &nbsp;&nbsp;&nbsp; <strong>Import Library:</strong> Link with GSRootImp.lib</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="types_id.html">Date &amp; Time Manager Simple Types</a>, <a href="functions_id.html">Date &amp; Time Manager Functions</a>, <a href="TIWin2GSTime.html">TIWin2GSTime</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on January 13, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

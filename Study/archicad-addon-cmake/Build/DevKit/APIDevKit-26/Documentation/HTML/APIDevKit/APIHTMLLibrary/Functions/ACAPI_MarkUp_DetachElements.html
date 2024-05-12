@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_MarkUp_DetachElements</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_MarkUp_DetachElements.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_MarkUp_DetachElements</h1>
+
+    <p>Detach elements from an existing Mark-Up.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_MarkUp_DetachElements</strong> (
+        <strong>const <a href="../Structures/API_Guid.html">API_Guid</a>&amp;</strong>                <em>markUpGuid</em>,
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;<a href="../Structures/API_Guid.html">API_Guid</a>&gt;&amp;</strong>     <em>elemList</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>markUpGuid</em></dt>
+
+        <dd>[in] GUID of the existing Mark-Up.</dd>
+
+        <dt><em>elemList</em></dt>
+
+        <dd>[in] The list of elements to detach.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_NEEDSUNDOSCOPE</code></dt>
+
+        <dd>The function must be undoable, it wasn't called from an <a href="ACAPI_CallUndoableCommand.html">undoable command scope</a>.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed <code>markUpGuid</code> parameter or at least one of the given element GUIDs was incorrect.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Using this function (corrected or highlighted) elements can be detached from an existing Mark-Up entry.<br>
+    Use <a href="ACAPI_MarkUp_GetAttachedElements.html">ACAPI_MarkUp_GetAttachedElements</a> function to return the already attached elements of the Mark-Up entry and <a href="ACAPI_MarkUp_AttachElements.html">ACAPI_MarkUp_AttachElements</a> function to attach elements.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>Mark-Up related code samples can be found in the <strong><em>MarkUp_Manager</em></strong> example add-on.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 21 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_MarkUpType.html">API_MarkUpType</a><br>
+    <a href="ACAPI_MarkUp_GetList.html">ACAPI_MarkUp_GetList</a>, <a href="ACAPI_MarkUp_GetAttachedElements.html">ACAPI_MarkUp_GetAttachedElements</a>, <a href="ACAPI_MarkUp_AttachElements.html">ACAPI_MarkUp_AttachElements</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 02, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

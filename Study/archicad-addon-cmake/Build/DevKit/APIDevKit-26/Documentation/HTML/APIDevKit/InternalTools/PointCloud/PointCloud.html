@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>Import Point Clouds from Archicad Add-Ons</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="InternalTools/PointCloud/PointCloud.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Import Point Clouds from Archicad Add-Ons</h1>
+
+    <p>Before you start, please refer to the Communication Manager article in the API Documentation.</p>
+
+    <h2>Introduction</h2>
+
+    <p>As described in the Communication Manager article, there is a way to call an Archicad add-on from another add-on with the support of the Communication Manager.</p>
+
+    <p>In Archicad, we use our internal GSPC file format to store and use point cloud data. This file format is not public; you can create such a file with the
+    Point Cloud Importer add-on in Archicad, or by calling its functionality from another add-on with the support of Communication Manager.</p>
+
+    <p>A GSM object can include a GSPC-format point cloud file, using the POINTCLOUD GDL command. For further information, please refer to the GDL Reference Guide.</p>
+
+    <p>This documentation shows you how to convert external point cloud files into GSPC files by calling Archicad's Point Cloud Importer add-on.
+    (If you want to use this new GSPC file in a GSM object, you have to do it yourself.)</p>
+
+
+    <h2>Supported point cloud file formats</h2>
+
+    <p>Currently, through the Communication Manager we support e57 format only. So to create GSPC files, you have to convert your data into a standard e57 file first.
+    For further information, please refer to <a href="http://www.libe57.org/"> http://www.libe57.org</a>.</p>
+
+    <h2>GSPC coordinates</h2>
+
+    <p>To avoid numerical errors caused by very remote points when storing GSPC coordinates, we always translate the point cloud to place the minimum of its 3D bounding
+    box at the (0, 0, 0) 3D coordinate. This translation offset is returned by the add-on.</p>
+
+    <pre>
+    #define POINTCLOUDIN 'PCIN' // defined by the Point Cloud Importer add- on
+    #define POINTCLOUDIN_VER 1L // required command version
+    IO::Location pcToImportLoc ("D:\\myPC.e57"); point cloud file to import
+    IO::Location pcTargetLoc ("D:\\myARCHICADPC"); the GSPC file
+    API_ModulID pcInMdid = { 1198731108, 797613762 }; Cloud Importer add-on
+    // location of the
+    // target folder of
+    // MDID of the Point
+    GSHandle parHdl = nullptr; // handle of command call parameters
+    GSErrCode err = ACAPI_Goodies (APIAny_InitMDCLParameterListID, &amp;parHdl, nullptr, nullptr);
+    if (err == NoError) {
+        API_MDCLParameter par; // parameter struct
+        BNZeroMemory (&amp;par, sizeof (API_MDCLParameter)); par.name = "PCToImportLoc";
+        par.type = MDCLPar_pointer;
+        par.ptr_par = &amp;pcToImportLoc;
+        err = ACAPI_Goodies (APIAny_AddMDCLParameterID, parHdl, &amp;par);
+        if (err == NoError) {
+            BNZeroMemory (&amp;par, sizeof (API_MDCLParameter));
+            par.name = "PCTargetLoc";
+            par.type = MDCLPar_pointer;
+            par.ptr_par = &amp;pcTargetLoc;
+            err = ACAPI_Goodies (APIAny_AddMDCLParameterID, parHdl, &amp;par);
+        }
+
+        if (err == NoError) {
+            API_Coord3D offset;
+            err = ACAPI_Command_Call (&amp;pcInMdid, POINTCLOUDIN, POINTCLOUDIN_VER, parHdl, (GSPtr)&amp;offset, true);
+            if (err != NoError) {
+                // Point cloud import failed...
+            }
+        }
+
+        err = ACAPI_Goodies (APIAny_FreeMDCLParameterListID, &amp;parHdl, nullptr);
+    }
+    </pre>
+
+
+    <h2>Parameters</h2>
+
+    <p>The command expects two parameters in the <em>parHdl</em> parameter:</p>
+
+    <ul>
+        <li><em>"PCToImportLoc"</em> (pointer type, pointer to an IO::Location): the location must be a valid <em>existing e57 file</em> (file extension should also be e57).</li>
+        <li><em>"PCTargetLoc"</em> (pointer type, pointer to an IO::Location): the location must be a valid, already <em>existing folder</em>.
+        The command will place a single GSPC file in this folder. Its name will be the same as the name of the input file, but with the "gspc" extension
+        (e.g. myPC.e57 &rArr; myPC.gspc).</li>
+    </ul>
+
+    <h2>Result data</h2>
+
+    <p>If the <em>offset</em> parameter is not nullptr then the command returns the used offset in it. For example: <em>OriginalCoords - offset = GSPCCoords</em>.</p>
+
+
+    <h2>Return codes</h2>
+
+    <ul>
+        <li><strong>NoError:</strong> the operation was completed successfully. A GSPC file has been created in the specified folder.</li>
+        <li><strong>APIERR_BADNAME:</strong> if "PCToImportLoc" or "PCTargetLoc" parameter is not set in the parHdl.</li>
+        <li><strong>APIERR_BADPARS:</strong> first see ACAPI_Command_Call "Return Values" section. Other possible issues:
+            <ul>
+                <li>if parHdl is nullptr</li>
+                <li>if a parameter type is not MDCLPar_Pointer</li>
+                <li>if ptr_par field of a parameter is nullptr</li>
+                <li>if one of the given IO::Locations is empty or invalid</li>
+                <li>if the given target folder does not exist</li>
+                <li>if the given input point cloud file does not have the "e57" extension</li>
+            </ul>
+        </li>
+        <li><strong>APIERR_GENERAL:</strong>
+            <ul>
+                <li>if it was not possible to get any point data from the given file</li>
+                <li>if a GSPC file already exists with the same name in the target folder</li>
+                <li>if the program failed to create the GSPC file for any reason</li>
+            </ul>
+        </li>
+        <li><strong>APIERR_CANCEL:</strong> if the process was canceled.</li>
+    </ul>
+
+
+    <h2>Test command availability</h2>
+
+    <p><strong><em>Add-on dependency:</em></strong> if your add-on depends on this functionality, you should call <code>ACAPI_Register_RequiredService</code> function from the
+    <code>RegisterInterface</code> function of the add-on. Don't register your add-on if the Point Cloud Importer command is not available:</p>
+
+    <pre>
+    //------------------------------------------------------
+    // Interface definitions
+    //------------------------------------------------------
+    GSErrCode __ACENV_CALL RegisterInterface (void)
+    {
+        GSErrCode     err;
+
+        //
+        // Register command services
+        //
+        API_ModulID pcInMdid = { 1198731108, 797613762 }; // MDID of the Point
+        Cloud Importer add-on
+        err = ACAPI_Register_RequiredService (&amp;pcInMdid, 'PCIN', 1L);
+
+        return err;
+    }           // RegisterInterface
+</pre>
+
+
+    <p><strong><em>Function dependency:</em></strong> if only some part of your add-on would use this command, then you can test the availability of the command
+    with the <code>ACAPI_Command_Test</code> function before calling <code>ACAPI_Command_Call</code>:</p>
+
+    <pre>
+    #define POINTCLOUDIN 'PCIN' // defined by the Point Cloud Importer add- on
+    #define POINTCLOUDIN_VER 1L // required command version
+
+    API_ModulID pcInMdid = { 1198731108, 797613762 }; // MDID of the Point Cloud Importer add-on
+
+    GSErrCode err = ACAPI_Command_Test (&amp;pcInMdid, POINTCLOUDIN, POINTCLOUDIN_VER);
+    if (err != NoError) {
+        // Point Cloud Importer add-on command is not available
+        if (err == APIERR_MODULNOTINSTALLED) {
+            // Point Cloud Importer add-on is not loaded
+        } else {
+            // incompatible version of Point Cloud Importer add-on
+        }
+    } else {
+        // ... do the work with ACAPI_Command_Call
+    }
+</pre>
+
+    <p>&nbsp;</p>
+
+    <hr>
+    <p>Product availability information, technical details, upgrades etc. provided at <!--NoIdx--><a href="http://www.graphisoft.com/support/developer/">http://www.graphisoft.com/support/developer/</a>.</p>
+
+    <p>Version 19 Copyright &copy; Graphisoft 2016</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on Feb 18, 2015
+<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

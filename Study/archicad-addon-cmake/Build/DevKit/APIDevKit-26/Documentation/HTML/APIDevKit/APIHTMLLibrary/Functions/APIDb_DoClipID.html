@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIDb_DoClipID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIDb_DoClipID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIDb_DoClipID</h1>
+
+    <p>Clips the elements created during a clipping session.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="ACAPI_Database_id.html">ACAPI_Database</a></strong> (
+        <strong>APIDb_DoClipID</strong>,
+        <strong><a href="../Structures/API_Region.html">API_Region</a>*</strong>       <em>clipRegion</em>,
+        <strong><a href="../Structures/API_ClipTran.html">API_ClipTran</a>*</strong>     <em>clipTran</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>clipRegion</em></dt>
+
+        <dd>the region to clip elements to</dd>
+
+        <dt><em>clipTran</em></dt>
+
+        <dd>clipping transformation</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>clipRegion</code> is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_NESTING</code></dt>
+
+        <dd>the clip session is opened for the database</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>You can create elements to be clipped into the current database with a clipping region and transformation. Use the <a href="APIDb_StartClippingSessionID.html">APIDb_StartClippingSessionID</a> database function to open a temporary database, create the elements with <a href="ACAPI_Element_Create.html">ACAPI_Element_Create</a> into it, then call <code>APIDb_DoClipID</code> to merge them into the actual database applying the given clipping parameters. Don't forget to close the clipping session with the <a href="APIDb_StopClippingSessionID.html">APIDb_StopClippingSessionID</a> database function to restore the target database.</p>
+
+    <p>Note that only the 2D drawing elements will be clipped. Construction elements, like walls, columns will NOT take part in the clipping algorithm.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_Region          clipRegion;
+API_Element         element;
+GSErrCode           err;
+
+BNZeroMemory (&amp;clipRegion, sizeof (API_Region));
+clipRegion.box.xMin = 0.0;
+clipRegion.box.xMax = 2.0;
+clipRegion.box.yMin = 1.54;
+clipRegion.box.yMax = 2.54;
+
+err = ACAPI_Database (APIDb_StartClippingSessionID, nullptr, nullptr);
+if (err == NoError) {
+    /* ... */
+    err = ACAPI_Element_Create (&amp;element, nullptr);
+    /* ... */
+    err = ACAPI_Database (<font color="#FF0066">APIDb_DoClipID</font>, &amp;clipRegion, nullptr);
+}
+err = ACAPI_Database (APIDb_StopClippingSessionID, nullptr, nullptr);
+</code></pre>
+    </blockquote>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 4.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Region.html">API_Region</a><br>
+    <a href="APIDb_StartClippingSessionID.html">APIDb_StartClippingSessionID</a><br>
+    <a href="APIDb_StopClippingSessionID.html">APIDb_StopClippingSessionID</a><br>
+    <a href="ACAPI_Element_Create.html">ACAPI_Element_Create</a><br>
+    <a href="ACAPI_Database_id.html">ACAPI_Database</a><br>
+    <a href="API_Functions.html">API Functions</a><br></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on June 18, 2004<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

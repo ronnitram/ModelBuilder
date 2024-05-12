@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_LibPart_Save</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_LibPart_Save.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_LibPart_Save</h1>
+
+    <p>Saves the Library Part has been created and registers it.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_LibPart_Save</strong> (
+        <strong><a href="../Structures/API_LibPart.html">API_LibPart</a>*</strong>     <em>libPart</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>libPart</em></dt>
+
+        <dd>[in/out] Parameters of the library part to create</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The <code>libPart</code> parameter is <code>nullptr</code></dd>
+
+        <dt><code>APIERR_GENERAL</code></dt>
+
+        <dd>No scratch file has been opened with the <a href="ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a> function.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to save the recently created library part by the <a href="ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a> function.</p>
+
+    <p>The same parameters should be passed in the <a href="../Structures/API_LibPart.html">API_LibPart</a> structure as it was pass to the <a href="ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a> function. In the <code>index</code> field, the library index of the currently created library part is returned, which you can use in subsequent operations.</p>
+
+    <p>This function <b>must be called to close the scratch</b> if the <a href="ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a> function has succeed; even if any of the in-between function calls have failed.</p>
+
+    <p>This function is a non-undoable data structure modifier function. See more details on this topic at <a href="../Level2/Command_Overview.html">Command Overview</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <p>See the example of the <a href="ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a> function. &nbsp;</p>
+
+    <h4>&nbsp;</h4>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_LibPart.html">API_LibPart</a>,<br>
+    <a href="ACAPI_LibPart_Create.html">ACAPI_LibPart_Create</a>, <a href="APIEnv_OverwriteLibPartID.html">APIEnv_OverwriteLibPartID</a>,<br>
+    <a href="../Level3/Library_Part_Manager_id.html">LibPart Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 6, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

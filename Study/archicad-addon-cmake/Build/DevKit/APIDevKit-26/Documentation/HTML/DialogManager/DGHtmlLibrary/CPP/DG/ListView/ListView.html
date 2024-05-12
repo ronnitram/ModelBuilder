@@ -1,0 +1,461 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>ListView Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/ListView/ListView.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="AppendItem.html">AppendItem</A><A href="Attach.html">Attach</A><A href="DeleteItem.html">DeleteItem</A><A href="DeselectItem.html">DeselectItem</A><A href="Detach.html">Detach</A><A href="DisableDraw.html">DisableDraw</A><A href="DisableItem.html">DisableItem</A><A href="EnableDraw.html">EnableDraw</A><A href="EnableItem.html">EnableItem</A><A href="GetIcon.html">GetIcon</A><A href="GetImage.html">GetImage</A><A href="GetImageHeight.html">GetImageHeight</A><A href="GetImageLayout.html">GetImageLayout</A><A href="GetImageSize.html">GetImageSize</A><A href="GetImageType.html">GetImageType</A><A href="GetImageWidth.html">GetImageWidth</A><A href="GetItemColor.html">GetItemColor</A><A href="GetItemCount.html">GetItemCount</A><A href="GetItemFontStyle.html">GetItemFontStyle</A><A href="GetItemHeight.html">GetItemHeight</A><A href="GetItemIcon.html">GetItemIcon</A><A href="GetItemImage.html">GetItemImage</A><A href="GetItemImageIndex.html">GetItemImageIndex</A><A href="GetItemImageType.html">GetItemImageType</A><A href="GetItemPicture.html">GetItemPicture</A><A href="GetItemSize.html">GetItemSize</A><A href="GetItemText.html">GetItemText</A><A href="GetItemValue.html">GetItemValue</A><A href="GetItemWidth.html">GetItemWidth</A><A href="GetPicture.html">GetPicture</A><A href="GetSelectedCount.html">GetSelectedCount</A><A href="GetSelectedItem.html">GetSelectedItem</A><A href="GetSelectedItems.html">GetSelectedItems</A><A href="GetSubImageCount.html">GetSubImageCount</A><A href="GetSubImageRowCount.html">GetSubImageRowCount</A><A href="GetViewMode.html">GetViewMode</A><A href="ImageType.html">ImageType</A><A href="InsertItem.html">InsertItem</A><A href="IsItemEnabled.html">IsItemEnabled</A><A href="IsItemImageOwnerDrawn.html">IsItemImageOwnerDrawn</A><A href="ItemType.html">ItemType</A><A href="Destructor.html">~ListView</A><A href="Constructors.html">ListView</A><A href="SelectItem.html">SelectItem</A><A href="SetIcon.html">SetIcon</A><A href="SetImage.html">SetImage</A><A href="SetImageHeight.html">SetImageHeight</A><A href="SetImageSize.html">SetImageSize</A><A href="SetImageWidth.html">SetImageWidth</A><A href="SetItemColor.html">SetItemColor</A><A href="SetItemFontStyle.html">SetItemFontStyle</A><A href="SetItemHeight.html">SetItemHeight</A><A href="SetItemIcon.html">SetItemIcon</A><A href="SetItemImage.html">SetItemImage</A><A href="SetItemImageIndex.html">SetItemImageIndex</A><A href="SetItemImageOwnerDrawFlag.html">SetItemImageOwnerDrawFlag</A><A href="SetItemPicture.html">SetItemPicture</A><A href="SetItemSize.html">SetItemSize</A><A href="SetItemStatus.html">SetItemStatus</A><A href="SetItemText.html">SetItemText</A><A href="SetItemValue.html">SetItemValue</A><A href="SetItemWidth.html">SetItemWidth</A><A href="SetPicture.html">SetPicture</A><A href="SetViewMode.html">SetViewMode</A><A href="ViewMode.html">ViewMode</A>--><H2>ListView Class</H2><!--exp="ListView Class"-->
+<P><topic id="$DG.$ListView.BriefDescription">
+		Dialog item class for list view controls.
+	</topic></P>
+<PRE class="syntax"><B>class ListView : public <!----><a class="nodecorate" href="../Item/Item.html">Item</A>, public <!----><A class="nodecorate" href="../ItemFontProperty/ItemFontProperty.html">ItemFontProperty</A>, public <!----><A class="nodecorate" href="../FocusableProperty/FocusableProperty.html">FocusableProperty</A></B></PRE>
+<H4>Members</H4>
+<P><B><A name="PublicMethods"></A>Public Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="AppendItem.html">AppendItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$AppendItem.BriefDescription">
+		Appends an item to the list view.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Attach.html">Attach</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$Attach.BriefDescription">
+		Attaches an observer object to this event source.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DeleteItem.html">DeleteItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$DeleteItem.BriefDescription">
+		Deletes an item from the list view.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DeselectItem.html">DeselectItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$DeselectItem.BriefDescription">
+		Deselects an item in the list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Detach.html">Detach</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$Detach.BriefDescription">
+		Detaches an observer object from this event source.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DisableDraw.html">DisableDraw</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$DisableDraw.BriefDescription">
+		Disables screen update of the list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="DisableItem.html">DisableItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$DisableItem.BriefDescription">
+		Disables a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnableDraw.html">EnableDraw</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$EnableDraw.BriefDescription">
+		Enables screen update of the list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="EnableItem.html">EnableItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$EnableItem.BriefDescription">
+		Enables a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetIcon.html">GetIcon</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetIcon.BriefDescription">
+		Retrieves the global icon of a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetImage.html">GetImage</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetImage.BriefDescription">
+		Retrieves the data of the global image of a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetImageHeight.html">GetImageHeight</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetImageHeight.BriefDescription">
+		Retrieves the height of the global image of a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetImageLayout.html">GetImageLayout</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetImageLayout.BriefDescription">
+		Retrieves the layout (sub image count and sub image rows) of the global
+		image of a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetImageSize.html">GetImageSize</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetImageSize.BriefDescription">
+		Retrieves the width and height of the global image of a list view
+		control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetImageType.html">GetImageType</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetImageType.BriefDescription">
+		Retrieves the type of the global image of a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetImageWidth.html">GetImageWidth</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetImageWidth.BriefDescription">
+		Retrieves the width of the global image of a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemColor.html">GetItemColor</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetItemColor.BriefDescription">
+		Retrieves the foreground (text) color of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemCount.html">GetItemCount</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetItemCount.BriefDescription">
+		Retrieves the number of items in the list view.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemFontStyle.html">GetItemFontStyle</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetItemFontStyle.BriefDescription">
+		Retrieves the font style of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemHeight.html">GetItemHeight</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetItemHeight.BriefDescription">
+		Retrieves the height of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemIcon.html">GetItemIcon</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetItemIcon.BriefDescription">
+		Retrieves the icon of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemImage.html">GetItemImage</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetItemImage.BriefDescription">
+		Retrieves the image data of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemImageIndex.html">GetItemImageIndex</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetItemImageIndex.BriefDescription">
+		Retrieves the image index of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemImageType.html">GetItemImageType</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetItemImageType.BriefDescription">
+		Retrieves the image type of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemPicture.html">GetItemPicture</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetItemPicture.BriefDescription">
+		Retrieves the picture of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemSize.html">GetItemSize</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetItemSize.BriefDescription">
+		Retrieves the width and height of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemText.html">GetItemText</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetItemText.BriefDescription">
+		Retrieves the text of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemValue.html">GetItemValue</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetItemValue.BriefDescription">
+		Retrieves the user-defined value associated with a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetItemWidth.html">GetItemWidth</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetItemWidth.BriefDescription">
+		Retrieves the width of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetPicture.html">GetPicture</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetPicture.BriefDescription">
+		Retrieves the global picture of a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSelectedCount.html">GetSelectedCount</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetSelectedCount.BriefDescription">
+		Retrieves the number of selected list view items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSelectedItem.html">GetSelectedItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetSelectedItem.BriefDescription">
+		For single-selection list views retrieves the index of the selected
+		item.<br>
+		For multiple-selection list views retrieves the index of the next
+		selected list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSelectedItems.html">GetSelectedItems</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetSelectedItems.BriefDescription">
+		Retrieves the indices of the selected list view items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSubImageCount.html">GetSubImageCount</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetSubImageCount.BriefDescription">
+		Retrieves the number of the sub images in the global image of a list
+		view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetSubImageRowCount.html">GetSubImageRowCount</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetSubImageRowCount.BriefDescription">
+		Retrieves the number of rows of the sub images in the global image of a
+		list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetViewMode.html">GetViewMode</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$GetViewMode.BriefDescription">
+		Retrieves the current view mode of the list view.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="InsertItem.html">InsertItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$InsertItem.BriefDescription">
+		Inserts an item into the list view.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsItemEnabled.html">IsItemEnabled</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$IsItemEnabled.BriefDescription">
+		Checks whether a list view item is enabled.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="IsItemImageOwnerDrawn.html">IsItemImageOwnerDrawn</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$IsItemImageOwnerDrawn.BriefDescription">
+		Checks if the image type of a list item is <tt>ListView::OwnerDraw</tt>
+		or not.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Destructor.html">~ListView</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$~ListView.BriefDescription">
+		Class destructor.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SelectItem.html">SelectItem</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SelectItem.BriefDescription">
+		Selects an item in the list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetIcon.html">SetIcon</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetIcon.BriefDescription">
+		Sets the global icon of a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetImage.html">SetImage</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetImage.BriefDescription">
+		Sets the type and data of the global image of a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetImageHeight.html">SetImageHeight</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetImageHeight.BriefDescription">
+		Sets the height of the global image of a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetImageSize.html">SetImageSize</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetImageSize.BriefDescription">
+		Sets the width and height of the global image of a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetImageWidth.html">SetImageWidth</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetImageWidth.BriefDescription">
+		Sets the width of the global image of a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemColor.html">SetItemColor</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetItemColor.BriefDescription">
+		Sets the foreground (text) color of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemFontStyle.html">SetItemFontStyle</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetItemFontStyle.BriefDescription">
+		Sets the font style of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemHeight.html">SetItemHeight</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetItemHeight.BriefDescription">
+		Sets the height of the items in a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemIcon.html">SetItemIcon</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetItemIcon.BriefDescription">
+		Sets the icon of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemImage.html">SetItemImage</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetItemImage.BriefDescription">
+		Sets the image type and the image data of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemImageIndex.html">SetItemImageIndex</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetItemImageIndex.BriefDescription">
+		Sets the image index of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemImageOwnerDrawFlag.html">SetItemImageOwnerDrawFlag</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetItemImageOwnerDrawFlag.BriefDescription">
+		Sets the image type to <tt>ListView::OwnerDraw</tt> of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemPicture.html">SetItemPicture</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetItemPicture.BriefDescription">
+		Sets the picture of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemSize.html">SetItemSize</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetItemSize.BriefDescription">
+		Sets the width and height of the items in a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemStatus.html">SetItemStatus</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetItemStatus.BriefDescription">
+		Sets the enabled or disabled status of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemText.html">SetItemText</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetItemText.BriefDescription">
+		Sets the text of a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemValue.html">SetItemValue</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetItemValue.BriefDescription">
+		Sets the user-defined value associated with a list view item.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetItemWidth.html">SetItemWidth</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetItemWidth.BriefDescription">
+		Sets the width of the items in a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetPicture.html">SetPicture</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetPicture.BriefDescription">
+		Sets the global picture of a list view control.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetViewMode.html">SetViewMode</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$SetViewMode.BriefDescription">
+		Sets the view mode of the list view control.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="ProtectedMethods"></A>Protected Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Constructors.html">ListView</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$ListView.BriefDescription">
+		Class constructor.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicTypes"></A>Public Types</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ImageType.html">ImageType</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$ImageType.BriefDescription">
+		The type of the image.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ItemType.html">ItemType</A></TD>
+<TD width="70%"><topic id="$DG.$ListView.$ItemType.BriefDescription">
+		Special list view item, or collection of items.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="ViewMode.html">ViewMode</A></TD>
+<TD width="70%"></TD>
+</TR>
+</table>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../DG.html">DG</A></P>
+<P><B>Header: </B>DGListView.hpp</P>
+<H4>See Also</H4>
+<P><a href="../MultiSelListView/MultiSelListView.html">MultiSelListView</A> | <a href="../SingleSelListView/SingleSelListView.html">SingleSelListView</A></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

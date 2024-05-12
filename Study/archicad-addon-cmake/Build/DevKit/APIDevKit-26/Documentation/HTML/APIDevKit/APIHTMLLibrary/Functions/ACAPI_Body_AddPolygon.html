@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Body_AddPolygon</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Body_AddPolygon.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Body_AddPolygon</h1>
+
+    <p>Adds a polygon to the body data object.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Body_AddPolygon</strong> (
+        <strong>void*</strong>                     <em>bodyData</em>,
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/Array/Array.html">GS::Array</a>&lt;Int32&gt;&amp;</strong>                    <em>edges</em>,
+        <strong>const Int32</strong>                     <em>polyNormal</em>,
+        <strong>const <a href="../Structures/API_OverriddenAttribute.html">API_OverriddenAttribute</a>&amp;</strong>  <em>material</em>,
+        <strong>UInt32&amp;</strong>                   <em>index</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>bodyData</em></dt>
+
+        <dd>[in] The body data object to add the polygon to.</dd>
+
+        <dt><em>edges</em></dt>
+
+        <dd>[in] List of the edges of the polygon.</dd>
+
+        <dt><em>polyNormal</em></dt>
+
+        <dd>[in] Signed index of the normal vector.</dd>
+
+        <dt><em>material</em>&nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></dt>
+
+        <dd>[in] Material override structure of the polygon.</dd>
+
+        <dt><em>index</em></dt>
+
+        <dd>[out] The index of the created polygon.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed parameter is <code>nullptr</code>; <code>bodyData</code></dd>
+
+        <dd>There are less than 3 edges passed; <code>edges</code></dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to add a polygon to a body data object.</p>
+
+    <p>The <code>edges</code> list contains edge indices returned by the <a href="ACAPI_Body_AddEdge.html">ACAPI_Body_AddEdge</a> function. The list shall look like the following:</p>
+
+    <ul>
+        <li>First pass the indices of contour edges as they sorruond the polygon counterclockwise. (An edge can be used backwards with a negative index)</li>
+
+        <li>For each hole pass a 0, then the indices of hole contour edges clockwise.</li>
+    </ul>
+
+    <p><code>polyNormal</code> is the index of a normal vector returned by the <a href="ACAPI_Body_AddPolyNormal.html">ACAPI_Body_AddPolyNormal</a> function.</p>
+
+    <ul>
+        <li>A negative value indicates, that the vector is used in the opposite direction. (So a cube can be created making 3 normal vectors instead of 6)</li>
+
+        <li>If you pass 0, the normal vector is calculated automatically, but doing so, the same vector may be created multiple times, as duplicates are not detected. (A plane containing many polygons generates the same normal for each polygon)</li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+
+// setup a new morph element
+API_Element element;
+BNZeroMemory (&amp;element, sizeof (API_Element));
+element.header.type = API_MorphID;
+GSErrCode err = ACAPI_Element_GetDefaults (&amp;element, nullptr);
+
+// setup a new memo
+API_ElementMemo memo;
+BNZeroMemory (&amp;memo, sizeof (API_ElementMemo));
+
+// create a new body data object
+void* bodyData = nullptr;
+err = ACAPI_Body_Create(nullptr, nullptr, &amp;bodyData);
+
+API_Coord3D coord;
+UInt32  vertices[8];
+Int32   edges[8];
+Int32   polyNormals[1];
+UInt32  polygons[1];
+
+// add vertices of square countour
+coord.x = -2.0; coord.y = -2.0; coord.z = 0.0;
+err = ACAPI_Body_AddVertex(bodyData, coord, vertices[0]);
+coord.x = 2.0; coord.y = -2.0; coord.z = 0.0;
+err = ACAPI_Body_AddVertex(bodyData, coord, vertices[1]);
+coord.x = 2.0; coord.y = 2.0; coord.z = 0.0;
+err = ACAPI_Body_AddVertex(bodyData, coord, vertices[2]);
+coord.x = -2.0; coord.y = 2.0; coord.z = 0.0;
+err = ACAPI_Body_AddVertex(bodyData, coord, vertices[3]);
+
+// add vertices of square hole
+coord.x = -1.0; coord.y = -1.0; coord.z = 0.0;
+err = ACAPI_Body_AddVertex(bodyData, coord, vertices[4]);
+coord.x = 1.0; coord.y = -1.0; coord.z = 0.0;
+err = ACAPI_Body_AddVertex(bodyData, coord, vertices[5]);
+coord.x = 1.0; coord.y = 1.0; coord.z = 0.0;
+err = ACAPI_Body_AddVertex(bodyData, coord, vertices[6]);
+coord.x = -1.0; coord.y = 1.0; coord.z = 0.0;
+err = ACAPI_Body_AddVertex(bodyData, coord, vertices[7]);
+
+// add edges of square countour
+err = ACAPI_Body_AddEdge(bodyData, vertices[0], vertices[1], edges[0]);
+err = ACAPI_Body_AddEdge(bodyData, vertices[1], vertices[2], edges[1]);
+err = ACAPI_Body_AddEdge(bodyData, vertices[2], vertices[3], edges[2]);
+err = ACAPI_Body_AddEdge(bodyData, vertices[3], vertices[1], edges[3]);
+
+// add edges of square hole
+err = ACAPI_Body_AddEdge(bodyData, vertices[4], vertices[5], edges[4]);
+err = ACAPI_Body_AddEdge(bodyData, vertices[5], vertices[6], edges[5]);
+err = ACAPI_Body_AddEdge(bodyData, vertices[6], vertices[7], edges[6]);
+err = ACAPI_Body_AddEdge(bodyData, vertices[7], vertices[4], edges[7]);
+
+// add normal vector
+API_Vector3D normal;
+normal.x = normal.y = 0.0; normal.z = 1.0;
+err = ACAPI_Body_AddPolyNormal(bodyData, normal, polyNormals[0]);
+
+// add square polygon with square hole (with surface material override enabled)
+Int32 polyEdges[] = {
+        edges[0],
+        edges[1],
+        edges[2],
+        edges[3],
+        0,
+        -edges[7],
+        -edges[6],
+        -edges[5],
+        -edges[4]
+};
+API_OverriddenAttribute material;
+material.attributeIndex   = 1;
+material.overridden       = true;
+
+err = ACAPI_Body_AddPolygon(bodyData, polyEdges, 9, polyNormals[0], material, polygons[0]);
+
+// insert the resulting body and materials to the memo
+err = ACAPI_Body_Finish(bodyData, &amp;memo.morphBody, &amp;memo.morphMaterialMapTable);
+
+// create the morph element
+err = ACAPI_Element_Create (&amp;element, &amp;memo);
+
+// dispose the body data object &amp; the memo
+err = ACAPI_Body_Dispose(&amp;bodyData);
+err = ACAPI_DisposeElemMemoHdls (&amp;memo);
+
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 16 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/ACAPI_Body_AddVertex.html">ACAPI_Body_AddVertex</a>, <a href="../Functions/ACAPI_Body_AddEdge.html">ACAPI_Body_AddEdge</a>, <a href="../Functions/ACAPI_Body_AddPolyNormal.html">ACAPI_Body_AddPolyNormal</a>,<br>
+    <a href="../Functions/ACAPI_Body_Create.html">ACAPI_Body_Create</a>, <a href="../Functions/ACAPI_Body_Finish.html">ACAPI_Body_Finish</a>, <a href="../Functions/ACAPI_Body_Dispose.html">ACAPI_Body_Dispose</a>,<br>
+    <a href="../Level3/Body_Manager_id.html">Body Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on February 27, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>SystemDialog Class</TITLE><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/SystemDialog/SystemDialog.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+<!--<A href="Attach.html">Attach</A><A href="Detach.html">Detach</A><A href="GetCustomPanel.html">GetCustomPanel</A><A href="Invoke.html">Invoke</A><A href="PostCloseRequest.html">PostCloseRequest</A><A href="Response.html">Response</A><A href="SetCancelButtonText.html">SetCancelButtonText</A><A href="SetCustomPanel.html">SetCustomPanel</A><A href="SetOKButtonText.html">SetOKButtonText</A><A href="SetTitle.html">SetTitle</A>--><H2>SystemDialog Class</H2><!--exp="SystemDialog Class"-->
+<P><topic id="$DG.$SystemDialog.BriefDescription">
+		The SystemDialog class is the base class for operating
+		system specific dialogs, like file and folder dialogs.
+	</topic></P>
+<PRE class="syntax"><B>class SystemDialog</B></PRE>
+<H4>Members</H4>
+<P><B><A name="PublicMethods"></A>Public Methods</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Attach.html">Attach</A></TD>
+<TD width="70%"><topic id="$DG.$SystemDialog.$Attach.BriefDescription">
+		Attaches an observer to the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Detach.html">Detach</A></TD>
+<TD width="70%"><topic id="$DG.$SystemDialog.$Detach.BriefDescription">
+		Detaches an observer from the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="GetCustomPanel.html">GetCustomPanel</A></TD>
+<TD width="70%"></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Invoke.html">Invoke</A></TD>
+<TD width="70%"><topic id="$DG.$SystemDialog.$Invoke.BriefDescription">
+		Displays the modal dialog and returns the response of the user.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="PostCloseRequest.html">PostCloseRequest</A></TD>
+<TD width="70%"><topic id="$DG.$SystemDialog.$PostCloseRequest.BriefDescription">
+		Posts a close request to the dialog in the same way as if the user would close it.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetCancelButtonText.html">SetCancelButtonText</A></TD>
+<TD width="70%"><topic id="$DG.$SystemDialog.$SetCancelButtonText.BriefDescription">
+		Sets the caption of the [Cancel] button.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetCustomPanel.html">SetCustomPanel</A></TD>
+<TD width="70%"><topic id="$DG.$SystemDialog.$SetCustomPanel.BriefDescription">
+		Attaches a custom panel to the dialog.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetOKButtonText.html">SetOKButtonText</A></TD>
+<TD width="70%"><topic id="$DG.$SystemDialog.$SetOKButtonText.BriefDescription">
+		Sets the caption of the [OK] button.
+	</topic></TD>
+</TR>
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="SetTitle.html">SetTitle</A></TD>
+<TD width="70%"><topic id="$DG.$SystemDialog.$SetTitle.BriefDescription">
+		Sets the caption text of the dialog.
+	</topic></TD>
+</TR>
+</table>
+<P><B><A name="PublicTypes"></A>Public Types</B></P>
+<table class="summary" width="90%">
+<TR VALIGN="top">
+<TD width="30%"><!----><A href="Response.html">Response</A></TD>
+<TD width="70%"><topic id="$DG.$SystemDialog.$Response.BriefDescription">
+		The response, that comes at <a href="PostCloseRequest.html">PostCloseRequest</a>.
+	</topic></TD>
+</TR>
+</table>
+<H4>Description</H4>
+<P><topic id="$DG.$SystemDialog.LongDescription">
+		The SystemDialog class provides support for handling system specific
+		dialogs in a very similar way as native DG dialogs handled, although
+		these dialogs are not created and managed by DG directly. Additionally
+		this class enables the customization of the system dialogs with a native
+		DG panel (<!-- --><a href="../SystemDialogPanel/SystemDialogPanel.html">SystemDialogPanel</a>). This
+		panel is inserted into a specific place in each dialog and operating system.<br>
+		Some of the methods of the SystemDialogPanel class and its derived classes can be used only before
+		and after the dialog is displayed, others only during the modal state of the dialog.
+		When a restriction applies to a method it is noted in its description.
+		For example the <!-- --><a href="PostCloseRequest.html">PostCloseRequest</a> method is only useable when the
+		dialog is displayed. Other methods like <!-- --><a href="SetOKButtonText.html">SetOKButtonText</a> are
+		restricted for initialization use only, usually because of some operating system restriction.
+	</topic></P>
+<H4>Requirements</H4>
+<P><B>Namespace: </B><!----><a href="../DG.html">DG</A></P>
+<P><B>Header: </B>DGSystemDialog.hpp</P>
+<P><B>Platforms: </B><topic id="$DG.$SystemDialog.Platforms">
+		Windows NT 4.0, Windows 2000, Windows XP, Mac OSX 10.6 or above
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$DG.$SystemDialog.SeeAlso">
+		<a href="../SystemDialogPanel/SystemDialogPanel.html">SystemDialogPanel</a>
+	</topic> | <a href="../FileDialog/FileDialog.html">FileDialog</A> | <a href="../FolderDialog/FolderDialog.html">FolderDialog</A></P>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

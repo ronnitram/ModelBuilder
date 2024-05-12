@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>RotateCopy</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/RotateCopy.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>RotateCopy</H2><!--exp="RotateCopy Enum"-->
+<P><topic id="$GS.$RotateCopy.BriefDescription">
+		Exchanges the elements in two adjacent ranges within a source range and copies 
+		the result to a destination range.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>For</I>, <B>class</B> <I>Out</I><B>&gt;
+</B>Out RotateCopy (</B>
+    <B>For                 </B><I>first</I>,
+    <B>For                 </B><I>mid</I>,
+    <B>For                 </B><I>last</I>,
+    <B>Out                 </B><I>res</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>For</I></DT><DD><topic id="$GS.$RotateCopy.$For.TemplateParamDescription">
+		Forward iterator.
+	</topic></DD><DT><I>Out</I></DT><DD><topic id="$GS.$RotateCopy.$Out.TemplateParamDescription">
+		Output iterator.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first</I></DT><DD><topic id="$GS.$RotateCopy.$first.ParamDescription">
+		A forward iterator addressing the position of the first element in the range to be rotated.
+	</topic></DD><DT><I>mid</I></DT><DD><topic id="$GS.$RotateCopy.$mid.ParamDescription">
+		A forward iterator defining the boundary within the range that addresses the 
+		position of the first element in the second part of the range whose elements are 
+		to be exchanged with those in the first part of the range.
+	</topic></DD><DT><I>last</I></DT><DD><topic id="$GS.$RotateCopy.$last.ParamDescription">
+		A forward iterator addressing the position one past the final element in the 
+		range to be rotated.
+	</topic></DD><DT><I>res</I></DT><DD><topic id="$GS.$RotateCopy.$res.ParamDescription">
+		An output iterator addressing the position of the first element in the 
+		destination range.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$RotateCopy.ReturnDescription">
+		An output iterator addressing the position one past the final element in the 
+		destination range.
+	</topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$RotateCopy.LongDescription">
+		<B>RotateCopy</B> copies elements from the range <TT>[first, last)</TT> to 
+		the range <TT>[result, result + (last - first))</TT> such that <TT>*mid</TT> 
+		is copied to <TT>*result</TT>, <TT>*(mid + 1)</TT> is copied to <TT>*(result 
+		+ 1)</TT>, and so on. Formally, for every integer <TT>n</TT> such that <TT>0 
+		&lt;= n &lt; last - first</TT>, <B>RotateCopy</B> performs the assignment 
+		<TT>*(result + (n + (last - mid)) % (last - first)) = *(first + n)</TT>. 
+		<B>RotateCopy</B> is similar to <B><A href="Copy.html">Copy</A></B> followed by 
+		<B><A href="Rotate.html">Rotate</A></B>, but is more efficient.
+		The return value is <TT>result + (last - first)</TT>.
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$RotateCopy.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

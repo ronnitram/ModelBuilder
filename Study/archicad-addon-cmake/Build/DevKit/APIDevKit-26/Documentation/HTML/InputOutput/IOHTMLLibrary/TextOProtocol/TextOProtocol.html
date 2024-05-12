@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Marosi Balazs">
+
+    <title>TextOProtocol</title><!-- Index -->
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="IOHTMLLibrary/TextOProtocol/TextOProtocol.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">InputOutput</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TextOProtocol class</h1><br>
+    <br>
+
+    <table class="summary">
+        <tr>
+            <th><b>Description</b></th>
+
+            <td>Output protocol implementation writing text representation of (simple) types. <!-- Not Index -->
+             <a href="#Description">Details...</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Module</b></th>
+
+            <td><!-- Not Index -->
+            <a href="../../InputOutput.html">InputOutput</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Base&nbsp;classes</b></th>
+
+            <td><!-- Not Index --><a href="../../../GSRoot/GSRootHTMLLibrary/GS/OProtocol/OProtocol.html">GS::OProtocol</a></td>
+        </tr>
+
+        <tr>
+            <th><b>Derived&nbsp;classes</b></th>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th><b>Header</b></th>
+
+            <td>TextOProtocol.hpp</td>
+        </tr>
+    </table><br>
+    <br>
+
+    <h3>Public methods</h3>
+
+    <p><a href="Constructors.html"><br>
+    Constructors<br></a><br>
+    Copy constructor<br>
+    operator=<br>
+    <br>
+    <br></p>
+
+    <h3><a name="Description"></a>Description</h3>
+
+    <p>TextOProtocol is a text based output protocol which decomposes simple C++ types by writing their text representation to the data destination (given output channel). TextOProtocol instances can be selected into arbitrary number of output channels.</p>
+
+    <p>There is a default instance named <font face="Courier New">textOProtocol</font> declared in the IO namespace.</p>
+
+    <p>The following table summarizes output formats for simple types:</p>
+
+    <blockquote>
+        <table class="enumeration" width="237">
+            <tr>
+                <th width="97">Type</th>
+
+                <th width="98">Format</th>
+            </tr>
+
+            <tr>
+                <td width="97">char</td>
+
+                <td width="98">%c</td>
+            </tr>
+
+            <tr>
+                <td width="97">unsigned char</td>
+
+                <td width="98">%c</td>
+            </tr>
+
+            <tr>
+                <td width="97">bool</td>
+
+                <td width="98">true / false</td>
+            </tr>
+
+            <tr>
+                <td width="97">short</td>
+
+                <td width="98">%hd</td>
+            </tr>
+
+            <tr>
+                <td width="97">unsigned short</td>
+
+                <td width="98">%hu</td>
+            </tr>
+
+            <tr>
+                <td width="97">int</td>
+
+                <td width="98">%d</td>
+            </tr>
+
+            <tr>
+                <td width="97">unsigned int</td>
+
+                <td width="98">%u</td>
+            </tr>
+
+            <tr>
+                <td width="97">long</td>
+
+                <td width="98">%ld</td>
+            </tr>
+
+            <tr>
+                <td width="97">unsigned long</td>
+
+                <td width="98">%lu</td>
+            </tr>
+
+            <tr>
+                <td width="97">float</td>
+
+                <td width="98">%f</td>
+            </tr>
+
+            <tr>
+                <td width="97">double</td>
+
+                <td width="98">%.16g</td>
+            </tr>
+
+            <tr>
+                <td width="97">long double</td>
+
+                <td width="98">%.20lg</td>
+            </tr>
+
+            <tr>
+                <td width="97">const void*</td>
+
+                <td width="98">0x%08X / NULL</td>
+            </tr>
+
+            <tr>
+                <td width="97">const char*</td>
+
+                <td width="98">%s</td>
+            </tr>
+        </table>
+    </blockquote>
+
+    <p><br>
+    <br></p>
+
+    <h3>See Also</h3>
+
+    <p><a href="../BinOProtocol/BinOProtocol.html">BinOProtocol</a>,&nbsp; <a href="../../../GSRoot/GSRootHTMLLibrary/GS/OChannel/OChannel.html">GS::OChannel</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 26, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

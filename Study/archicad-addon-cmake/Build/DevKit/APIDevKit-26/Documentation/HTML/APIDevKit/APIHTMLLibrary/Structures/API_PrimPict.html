@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_PrimPict</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_PrimPict.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_PrimPict</h1>
+
+    <p>A picture inside a placed drawing.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="API_Prim_Head.html">API_Prim_Head</a></strong>         <em>head</em>;
+        <strong>short</strong>                 <em>pixelSizeX</em>;
+        <strong>short</strong>                 <em>pixelSizeY</em>;
+        <strong>Int32</strong>                 <em>filler_1</em>;
+        <strong>double</strong>                <em>rotAngle</em>;
+        <strong><a href="API_Box.html">API_Box</a></strong>               <em>destBox</em>;
+        <strong><a href="API_ColorDepthID.html">API_ColorDepthID</a></strong>      <em>colorDepth</em>;
+        <strong><a href="API_PictureFormat.html">API_PictureFormat</a></strong>     <em>storageFormat</em>;
+        <strong><a href="ddid://GSRoot.uchar_t Class">GS::uchar_t</a></strong>           <em>pictName[API_UniLongNameLen]</em>;
+        <strong>char</strong>                  <em>mime[128]</em>;
+        <strong><a href="API_AnchorID.html">API_AnchorID</a></strong>          <em>anchor</em>;
+        <strong>bool</strong>                  <em>transparent</em>;
+        <strong>bool</strong>                  <em>mirrored</em>;
+        <strong>short</strong>                 <em>filler_2</em>;
+        <strong>Int32</strong>                 <em>filler_3[4]</em>;
+    <strong>}</strong> <em>API_PrimPict</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>head</b></dt>
+
+        <dd>General primitive element header.</dd>
+
+        <dt><b>pixelSizeX</b></dt>
+
+        <dd>Physical x size in pixels of the original picture.</dd>
+
+        <dt><b>pixelSizeY</b></dt>
+
+        <dd>Physical y size in pixels of the original picture.</dd>
+
+        <dt><b>rotAngle</b></dt>
+
+        <dd>The rotation angle.</dd>
+
+        <dt><b>destBox</b></dt>
+
+        <dd>Bounding box of the picture on the layout (without rotation and mirroring).</dd>
+
+        <dt><b>colorDepth</b></dt>
+
+        <dd>Color depth of the image.</dd>
+
+        <dt><b>storageFormat</b></dt>
+
+        <dd>Storage format of the picture.</dd>
+
+        <dt><b>pictName[API_UniLongNameLen]</b>&nbsp;<img border="0" src="../../APIImageLibrary/18.png" alt="Modified in 18" width="19" height="12"></dt>
+
+        <dd>Unicode (UTF-16) name of the picture.</dd>
+
+        <dt><b>mime[128]</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>MIME string identifying the image format.</dd>
+
+        <dt><b>anchor</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>The anchor point of the picture.</dd>
+
+        <dt><b>transparent</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Tells if the picture is transparent.</dd>
+
+        <dt><b>mirrored</b>&nbsp;<img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12"></dt>
+
+        <dd>Tells if the picture is mirrored.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p><img border="0" src="../../APIImageLibrary/10.png" alt="Featuring API 10" width="19" height="12">&nbsp; This structure formerly described a picture on a placed drawing on a PlotMaker layout. Since layouting was integrated into Archicad, it is the part of the drawing content of a <a href="API_DrawingType.html">API_DrawingType</a> element.</p>
+
+    <p>Many of the data members have similar meanings to those of <a href="API_PictureType.html">API_PictureType</a>.</p>
+
+    <p>The picture data is passed in the <code>par1</code> parameter of the <a href="../Functions/ShapePrimsProc.html">ShapePrimsProc</a> function. The <code>par2</code> parameter contains the standard MIME type of the picture.</p>
+
+    <p>The picture is not clipped by the border of the drawing on the layout. <font size="-1">(Note: this is different from the behavior in PlotMaker.)</font></p>
+
+    <p>The picture here was imported as drawing, rotated, then placed on the layout, and rotated back. Its bounding polygon was also adjusted.</p>
+
+    <p align="center"><img src="../../APIImageLibrary/fertod.png" class="size2x" width="398" border="0" alt="Layout"></p>
+
+    <p>If you need the original picture data, switch to the drawing database, and fetch the information from there with <a href="../Functions/ACAPI_Element_Get.html">ACAPI_Element_Get</a> and <a href="../Functions/ACAPI_Element_GetMemo.html">ACAPI_Element_GetMemo</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 6.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_PrimElement.html">API_PrimElement</a>, <a href="API_Prim_Head.html">API_Prim_Head</a>, <a href="API_Box.html">API_Box</a>, <a href="API_ColorDepthID.html">API_ColorDepthID</a>, <a href="API_PictureFormat.html">API_PictureFormat</a>, <a href="API_AnchorID.html">API_AnchorID</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 31, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Vegh Miklos, Urban Eszter">
+
+    <title>DGListGetHeaderFlags</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListGetHeaderFlags.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListGetHeaderFlags</h1>
+
+    <p>Retrieves the properties of the <a href="ListBox.html">list box</a> header.</p>
+    <pre class="syntax">
+    <strong>void DGListGetHeaderFlags</strong> (
+      <strong>short</strong>        <em>dialId</em>,
+      <strong>short</strong>        <em>item</em>,
+      <strong>bool*</strong>        <em>isSynchron</em>,
+      <strong>bool*</strong>        <em>isPushable</em>,
+      <strong>bool*</strong>        <em>isDragable</em>
+   );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>isSynchron</em></dt>
+
+        <dd>Output parameter: if the header items are automatically synchronized with the corresponding tabulator fields this flag is set.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>isPushable</em></dt>
+
+        <dd>Output parameter: if the header items are pushable buttons this flag is set.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>isDragable</em></dt>
+
+        <dd>Output parameter: if the order of the header items can be modified by mouse interaction this flag is set.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The list box header is displayed at the top of the list box. The header can be divided into more header items. The header is used to display information about the list box columns and can be configured to enable the user to dynamically adjust the size and the order of the list box columns. The header flags can be set by the <a href="DGListSetHeaderFlags.html">DGListSetHeaderFlags</a> function.</p>
+
+    <p>If the <em>isSynchron</em> flag is set to <tt>true</tt> on the list box header, the properties of the header items are synchronized with the corresponding tabulator fields by DG otherwise they should be handled independently by the application. These properties are: the number and size of the header items, the font type and size, the alignment, the truncation of the text of the header items. If this flag is set, these properties are automatically updated when a property of a tabulator field is changed.<br>
+    The following functions will affect the list box header items only if the <em>isSynchron</em> flag is set to <tt>false</tt>: <a href="DGListSetHeaderItemCount.html">DGListSetHeaderItemCount</a>, <a href="DGListSetHeaderItemFont.html">DGListSetHeaderItemFont</a>, <a href="DGListSetHeaderItemFlags.html">DGListSetHeaderItemFlags</a>, <a href="DGListSetHeaderItemSize.html">DGListSetHeaderItemSize</a>.</p>
+
+    <p>If the <em>isPushable</em> flag is set to <tt>true</tt> on the list box header, DG sends a click event to the application if a header item was clicked. The <a href="DG_MSG_LISTHEADERCLICK.html"><tt>DG_MSG_LISTHEADERCLICK</tt></a> event need to be handled by the application. Additionally DG sends the 1-based index of the clicked header item in the <a href="DGListHeaderMsgData.html">DGListHeaderMsgData</a> structure.<br>
+    A typical use of the pushable header items is sorting the list elements. It is possible to indicate the sorting order of a list box coloumn in a header item. Primary and secondary sorting order are shown with simple and double triangles, pointing up or downwards. To show or hide the sorting arrow the <a href="DGListSetHeaderItemArrowType.html">DGListSetHeaderItemArrowType</a> function is used.</p>
+
+    <p>If the <em>isDragable</em> flag is set to <tt>true</tt> on the list box header, header items can be reordered by clicking and tracking them with the mouse. In this case DG sends a <a href="DG_MSG_LISTHEADERDRAG.html"><tt>DG_MSG_LISTHEADERDRAG</tt></a> message to the application and additional information is sent in the <strong>DGListHeaderMsgData</strong> structure.</p>
+
+    <p>If any of the pointer parameters is <tt>nullptr</tt>, that value is not returned.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.2.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ListBox.html">List Box</a>, <a href="DGListSetHeaderFlags.html">DGListSetHeaderFlags</a><br>
+    <a href="DGListGetHeaderItemCount.html">DGListGetHeaderItemCount</a>, <a href="DGListSetHeaderItemCount.html">DGListSetHeaderItemCount</a>, <a href="DGListSetHeaderItemFont.html">DGListSetHeaderItemFont</a>, <a href="DGListSetHeaderItemFlags.html">DGListSetHeaderItemFlags</a>, <a href="DGListSetHeaderItemSize.html">DGListSetHeaderItemSize</a>, <a href="DGListSetHeaderItemArrowType.html">DGListSetHeaderItemArrowType</a>, <a href="DG_MSG_LISTHEADERCLICK.html"><tt>DG_MSG_LISTHEADERCLICK</tt></a>, <a href="DG_MSG_LISTHEADERDRAG.html"><tt>DG_MSG_LISTHEADERDRAG</tt></a>, <a href="DGListHeaderMsgData.html">DGListHeaderMsgData</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on March 21, 2007<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_SubElementType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_SubElementType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_SubElementType</h1>
+
+    <p>Describes the filter for the different subtypes of elements.</p>
+    <pre class="syntax">
+    <strong>enum API_SubElementType : UInt64{</strong>
+	<em>APISubElement_MainMarker                   = 0x0000000000000001</em>,
+	<em>APISubElement_SHMarker                     = 0x0000000000000002</em>,
+	<em>APISubElement_CommonMarker                 = 0x0000000000000004</em>,
+	<em>APISubElement_CWFrameClass                 = 0x0000000000000008</em>,
+	<em>APISubElement_CWPanelClass                 = 0x0000000000000010</em>,
+	<em>APISubElement_CWJunction                   = 0x0000000000000020</em>,
+	<em>APISubElement_CWAccessory                  = 0x0000000000000040</em>,
+	<em>APISubElement_StairRiser                   = 0x0000000000000080</em>,
+	<em>APISubElement_StairTread                   = 0x0000000000000100</em>,
+	<em>APISubElement_StairStructure               = 0x0000000000000200</em>,
+	<em>APISubElement_StairFPDMarker               = 0x0000000000000400</em>,
+	<em>APISubElement_StairRCPDMarker              = 0x0000000000000800</em>,
+	<em>APISubElement_RailingNode                  = 0x0000000000001000</em>,
+	<em>APISubElement_RailingSegment               = 0x0000000000002000</em>,
+	<em>APISubElement_RailingPost                  = 0x0000000000004000</em>,
+	<em>APISubElement_RailingInnerPost             = 0x0000000000008000</em>,
+	<em>APISubElement_RailingRail                  = 0x0000000000010000</em>,
+	<em>APISubElement_RailingHandrail              = 0x0000000000020000</em>,
+	<em>APISubElement_RailingToprail               = 0x0000000000040000</em>,
+	<em>APISubElement_RailingPanel                 = 0x0000000000080000</em>,
+	<em>APISubElement_RailingBaluster              = 0x0000000000100000</em>,
+	<em>APISubElement_RailingPattern               = 0x0000000000200000</em>,
+	<em>APISubElement_RailingBalusterSet           = 0x0000000000400000</em>,
+	<em>APISubElement_RailingRailEnd               = 0x0000000000800000</em>,
+	<em>APISubElement_RailingHandrailEnd           = 0x0000000001000000</em>,
+	<em>APISubElement_RailingToprailEnd            = 0x0000000002000000</em>,
+	<em>APISubElement_RailingRailConnection        = 0x0000000004000000</em>,
+	<em>APISubElement_RailingHandrailConnection    = 0x0000000008000000</em>,
+	<em>APISubElement_RailingToprailConnection     = 0x0000000010000000</em>,
+	<em>APISubElement_RailingFinish                = 0x0000000020000000</em>,
+	<em>APISubElement_CWTag                        = 0x1000000000000000</em>,
+	<em>APISubElement_NoElem                       = 0x2000000000000000</em>,
+	<em>APISubElement_NoParams                     = 0x4000000000000000</em>
+    <strong>}</strong>;
+</pre>
+
+    <p>&nbsp;</p>
+	
+	<h4>Remarks</h4>
+	
+	<p><img border="0" src="../../APIImageLibrary/25.png" alt="API version 25" width="19" height="12"> This enumeration was renamed in Archicad 25, the previous name was <code>API_SubElemMemoMaskType</code>. </p>
+    <p>&nbsp;</p>
+	 
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 12 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_SubElement.html">API_SubElement</a></p>
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 13, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

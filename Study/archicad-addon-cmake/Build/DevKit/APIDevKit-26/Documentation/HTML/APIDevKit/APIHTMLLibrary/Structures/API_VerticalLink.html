@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_VerticalLink</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_VerticalLink.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_VerticalLink</h1>
+
+    <p>Option for anchoring the vertical position of an opening within the wall or the roof.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong><a href="#API_VerticalLinkID">API_VerticalLinkID</a></strong>     <em>linkType</em>;
+        <strong>short</strong>                  <em>filler_1</em>;
+        <strong>short</strong>                  <em>linkValue</em>;
+    <strong>}</strong> <em>API_VerticalLink</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>linkType</b></dt>
+
+        <dd>
+            Type of the vertical anchor
+
+            <table border="1" cellpadding="5">
+                <tr>
+                    <th>
+                        <p><b><code><a name="API_VerticalLinkID" id="API_VerticalLinkID">API_VerticalLinkID</a></code></b></p>
+                    </th>
+
+                    <th>
+                        <p><b>Meaning</b></p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_NoLink</code> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></p>
+                    </td>
+
+                    <td>
+                        <p>Undefined vertical link type, not applicable for windows/doors and skylights</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_LinkSillToWallBottom</code></p>
+                    </td>
+
+                    <td>
+                        <p>Position the sill of the opening relative to the bottom of the containing wall</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_LinkSillToStory</code></p>
+                    </td>
+
+                    <td>
+                        <p>Position the sill of the opening relative to a given story</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_LinkHeaderToWallBottom</code></p>
+                    </td>
+
+                    <td>
+                        <p>Position the header of the opening relative to the bottom of the containing wall</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_LinkHeaderToStory</code></p>
+                    </td>
+
+                    <td>
+                        <p>Position the header of the opening relative to a given story</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_LinkSkylightToRoofPivot</code> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></p>
+                    </td>
+
+                    <td>
+                        <p>Position the skylight anchor vertically relative to the roof pivot lines</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_LinkSkylightToStory</code> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></p>
+                    </td>
+
+                    <td>
+                        <p>Position the skylight anchor vertically relative to a given story</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_LinkSkylightToShellBase</code> &nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></p>
+                    </td>
+
+                    <td>
+                        <p>Position the skylight anchor relative to ShellBase</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_LinkSillToWallTop</code> &nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></p>
+                    </td>
+
+                    <td>
+                        <p>Position the sill of the opening relative to the top of the containing wall</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p><code>API_LinkHeaderToWallTop</code> &nbsp;<img border="0" src="../../APIImageLibrary/17.png" alt="Featuring API 17" width="19" height="12"></p>
+                    </td>
+
+                    <td>
+                        <p>Position the header of the opening relative to the top of the containing wall</p>
+                    </td>
+                </tr>
+            </table>
+        </dd>
+
+        <dt><b>linkValue</b></dt>
+
+        <dd>The index of the anchor story if linked to story, 0 otherwise.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This structure defines the vertical anchor</p>
+
+    <ul>
+        <li>of a window/door element (see <a href="API_WindowType.html">API_WindowType</a>), to wall or story, by sill height or header,</li>
+
+        <li>of a skylight element (see <a href="API_SkylightType.html">API_SkylightType</a>), to roof or story, by the selected anchor point.</li>
+    </ul>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 10 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Elements.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="API_WindowType.html">API_WindowType</a>, <a href="API_SkylightType.html">API_SkylightType</a>, <a href="API_OpeningBaseType.html">API_OpeningBaseType</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on August 29, 2012<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

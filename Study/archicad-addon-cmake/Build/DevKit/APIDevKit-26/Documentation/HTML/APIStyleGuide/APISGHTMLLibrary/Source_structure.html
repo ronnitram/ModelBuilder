@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>Source structure and compilation issues</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APISGHTMLLibrary/Source_structure.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Style&nbsp;Guide</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Source structure and compilation issues</h1>
+
+    <p>The picture below represents the recommended source structure.</p>
+
+    <p align="center"><img src="../APISGImageLibrary/folders.png" align="bottom"></p>
+
+    <p>The <em>Support</em> folder contains the <tt>Inc</tt>, <tt>Lib</tt>, <tt>Modules</tt> and <tt>Tools</tt> folders of the API Development Kit (without the documentation). The <em>Attribute_Test</em> folder (taken from the DevKit Examples) contains all the files specific to the add-on. The <em>RFIX</em> folders contain the language-independent resources (usually <tt>GBMP</tt>, <tt>GICN</tt>, <tt>MDID</tt>, <tt>VERS</tt>), and the related image files in the appropriate <em>RFIX/Images</em> folder. The <em>Src</em> folder contains all the source and header files, and any external shared libraries/DLLs.</p>
+
+    <p>Localizable resources (dialogs, strings, help messages, etc.) should go into the <tt>R<i>lang_code</i></tt> folder. The <i>lang_code</i> is a three-letter abbreviation of the language; you can find the accepted variations in <tt>GSLocalization.h</tt> header file in the <tt>Includes</tt> folder. Optionally, library parts required by the add-on may also go into the <tt>R<i>lang_code</i>/Library</tt> folder, as <tt>.xml</tt> files.</p>
+
+    <p>The <em>Make</em> folders (<em>Make.win</em>, <em>Make.mac</em>) or the top level of the add-on's folder should contain those files which enable compilation from the appropriate integrated development environment (Xcode, VS .NET). If you are supplying your source code to Graphisoft, try to create a <tt>.jam</tt> make file as well, with the help of the developer support team. This generic <tt>Make</tt> folder may also contain scripts necessary to build add-on.</p>
+
+    <p>The DevKit contains an Add-In Wizard on Windows, and a project template for Xcode on Macintosh in the platform-specific folder inside the <tt>Support/Tools</tt> folder, which enforces this structure.</p>
+
+    <p>The <em>MergeNum.dat</em> file contains the build number of the development kit; it is also put into the '<tt>VERS</tt>' resource. It helps tracking problems back to a certain version of the Development Kit.</p>
+
+    <p><em>Non-standard DLLs</em> or <em>shared libraries</em> should also be included, usually in the <tt>Src</tt>, or optionally in a <tt>Lib</tt> folder.</p>
+
+    <p>As the add-on is the result of a close work between the specificator and the programmer, the <em>specification</em> in Word or plain text format should also accompany the source; put it into the <em>Doc</em> folder. It should match the functionality of the add-on; so if the add-on contains more functionality than the specification, this should be documented in the specification to distinguish between features and bugs. Storing a version history as well is always recommended.</p>
+
+    <p>Please also name the main file of the add-on to <tt>Attribute_Test.c(pp)</tt>, the main grc file to <tt>Attribute_Test.grc</tt>, the main files in the RFIX.win and RFIX.mac folders to <tt>Attribute_Test.rc2</tt> and <tt>Attribute_Test.r</tt> (respectively). The name 'Attribute Test' should also match the main menu title (for tool type add-ons) or the name of the export/import add-on (for I/O type add-ons). In the name of the folders and files you should put an underscore (_) character instead of spaces. For example:</p>
+
+    <ul>
+        <li style="list-style: none">API name/menu string: <tt>Attribute Test</tt></li>
+
+        <li>Folder name: <tt>Attribute_Test</tt></li>
+
+        <li>Main files: <tt>Attribute_Test.cpp</tt>, <tt>Attribute_Test.grc</tt>, etc.</li>
+    </ul>
+
+    <p>The source code should <em>compile</em> without any errors or warnings on the platforms given in the specification. Please also describe the compiler and header versions you used to compile your add-on. It's good practice to switch off compiler and linker warnings one by one, so that the source can still be compiled and linked.</p>
+
+    <p>The platform-dependent parts should be clearly separated in the source (preferably in a separate file, or you can use the 'Bridge' design pattern); the empty function declarations and definitions for the other platform should be given as well unless the code is very much platform specific.</p>
+
+    <p>Don't be afraid of placing meaningful comments in your source code, as in some cases someone else has to debug your code. This is especially true if you use C++ to its extent. You can also use external documentation generation tools (doxygen, etc.) to create the description of the source code out of the comments.</p>
+
+    <p>The person <em>responsible</em> for the programmer is also responsible to keep the programmer along these guidelines. If something has to be different from what's written here, then make a note of that in a separate ReadMe file. The responsible person should also become familiar with the source code to the level that he should be able to correct bugs in the code if the programmer is not available or the timeframe is very short.</p>
+
+    <p>All documentation, comments, variable and function names should be in <em>English</em>.</p>
+
+    <p>The specificator or the programmer should also create a working material for the <em>ReadMe</em> that will go with the add-on.</p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 7, 2004<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

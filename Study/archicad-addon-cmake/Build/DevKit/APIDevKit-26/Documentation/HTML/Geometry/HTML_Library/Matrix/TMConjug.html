@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Faller Gyula">
+
+    <title>TMConjug</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/Matrix/TMConjug.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Geometry::TMConjug</h1>
+
+    <p>Calculates the conjugate of a matrix with respect to another matrix.</p>
+    <pre class="syntax">
+    <strong> bool</strong> TMConjug (
+      <strong><a href="../Matrix/TRANMAT.html">TRANMAT</a></strong>*  <em>ctran</em>,
+      <strong><a href="../Matrix/TRANMAT.html">TRANMAT</a></strong>*  <em>atran</em>,
+      <strong><a href="../Matrix/TRANMAT.html">TRANMAT</a></strong>*  <em>btran</em>,
+      <strong>bool</strong>      <em>avers</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>ctran</em></dt>
+
+        <dd>Pointer to tha calculated conjugate matrix.</dd>
+
+        <dt><em>atran</em></dt>
+
+        <dd>Pointer to the matrix used for the conjugation.</dd>
+
+        <dt><em>btran</em></dt>
+
+        <dd>Pointer to the matrix to conjugate.</dd>
+
+        <dt><em>avers</em></dt>
+
+        <dd>If <em>avers</em> is true, C := A^-1 * B * A, else C := A * B *A^-1.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>false</code></dt>
+
+        <dd>Operation is not completed successfully, or <em>*atran</em> is the identity matrix.</dd>
+
+        <dt><code>true</code></dt>
+
+        <dd>Operation is completed successfully.</dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>If <em>*atran</em> is the identity matrix, then <em>*ctran = *btran.</em></p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> 1.0 or later</dd>
+
+        <dd><b>Header:</b> MatrixData.h</dd>
+
+        <dd><b>Import Library:</b> GeometryImp.lib [Win]</dd>
+
+        <dd><b>Module:</b> Geometry.dll [WIN] GeometryLib [Mac]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Matrix_id.html">Matrix functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on July 6, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+  <head>
+    <title>TE::IRichText::RunIndexFromPos Method</title>
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+  
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTMLLibrary/TE/classes/IRichText/RunIndexFromPos.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">TextEngine</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>TE::IRichText::RunIndexFromPos Method</h1>
+    <!--exp="TE::IRichText::RunIndexFromPos Method"-->
+    <p>
+      <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">Implemented method</b>. Retrieves the index of the paragraph and the index of the run contains the given character position.
+  
+    </p>
+    <pre class="Syntax"><span class="SyntaxTypename">bool</span> <span class="SyntaxIdentifier">RunIndexFromPos</span> <span class="SyntaxSymbol">(</span>
+    <span class="SyntaxTypename">Int32</span>               <span class="SyntaxParameter">charPos</span><span class="SyntaxSymbol">,</span>
+    <span class="SyntaxTypename">Int32 *</span>             <span class="SyntaxParameter">paragraphIndex</span><span class="SyntaxSymbol">,</span>
+    <span class="SyntaxTypename">Int32 *</span>             <span class="SyntaxParameter">runIndex</span>
+<span class="SyntaxSymbol">)</span> <span class="SyntaxKeyword">const</span><span class="SyntaxSymbol">;</span></pre>
+    <h2 class="SectionHeader">Parameters</h2>
+    <dl>
+      <dt><span class="Parameter">charPos</span></dt>
+      <dd>
+        <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[in]</i> Questionable position.
+  
+      </dd>
+      <dt><span class="Parameter">paragraphIndex</span></dt>
+      <dd>
+        <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[out]</i> Index of the paragraph contains the given position.
+  
+      </dd>
+      <dt><span class="Parameter">runIndex</span></dt>
+      <dd>
+        <i xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">[out]</i> Index of the run contains the given position.
+  
+      </dd>
+    </dl>
+    <h2 class="SectionHeader">Return Value</h2>
+    <p>
+      
+    Returns false if <b xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance">charPos</b> is out of range else returns true.
+  
+    </p>
+    
+    <h2 class="SectionHeader">Description</h2>
+    
+    Retrieves the index of the paragraph and the index of the run contains the given character position.
+  
+    
+    <h2 class="SectionHeader">Example</h2>
+    <pre xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance" class="code" space="preserve">GS::UniString ucontent ("Test\rstring");
+Gfx::Color    color;
+
+TE::Font      font;
+TE::CharStyle cStyle;
+TE::Run       run;
+TE::Paragraph paragraph;
+TE::RichText  richText;
+
+cStyle.Set (0, color, font);
+run.SetStyle (cStyle);
+paragraph.SetRun (0, run);
+
+paragraph.SetFirstPos (0);
+paragraph.SetRange (4);
+paragraph.SetNumOfRuns (1);
+TE::IRun* irun;
+irun = paragraph.GetRun (0);
+irun-&gt;SetFirstPos (0);
+irun-&gt;SetRange (4);
+richText.SetParagraph (0, paragraph);
+
+paragraph.SetFirstPos (5);
+paragraph.SetRange (6);
+paragraph.SetNumOfRuns (2);
+irun = paragraph.GetRun (0);
+irun-&gt;SetFirstPos (0);
+irun-&gt;SetRange (3);
+irun = paragraph.GetRun (1);
+irun-&gt;SetFirstPos (3);
+irun-&gt;SetRange (3);
+richText.AddParagraph (paragraph);
+
+long parIndex, runIndex;
+if (richText.RunIndexFromPos (7, &amp;parIndex, &amp;runIndex))
+  DBPRINTF ("%d. paragraph %d. run", parIndex, runIndex);
+else
+  DBPRINTF ("Out of range");
+</pre><p xmlns:ns0="http://www.w3.org/2001/XMLSchema-instance"><b>Output</b></p>
+    1. paragraph 1. run
+  
+    
+    <h2 class="SectionHeader">See Also</h2>
+    <p>
+      <!-- Don't index --><a href="IRichText.html">IRichText Overview</a> | 
+      <!-- Don't index --><a href="IRichText.html#members">Class Members</a>
+    </p>
+  
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

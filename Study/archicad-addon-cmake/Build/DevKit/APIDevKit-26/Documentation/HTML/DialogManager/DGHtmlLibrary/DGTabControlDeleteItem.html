@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Vegh Miklos">
+
+    <title>DGTabControlDeleteItem</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGTabControlDeleteItem.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGTabControlDeleteItem</h1>
+
+    <p>Deletes an item from the <a href="TabControl.html">tab control</a>.</p>
+    <pre class="syntax">
+    <strong>bool DGTabControlDeleteItem</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>short</strong>  <em>tabItem</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>tabItem</em></dt>
+
+        <dd>1-based index of the tab control item to be deleted. <tt>DG_TAB_FIRSTITEM</tt> specifies the first item of the tab control, <tt>DG_TAB_LASTITEM</tt> specifies the last item of the tab control. Use <tt>DG_TAB_ALLITEMS</tt> to delete all items.</dd>
+    </dl>
+
+    <h4>Return Values</h4>
+
+    <p><tt>true</tt> if the function was successful otherwise <tt>false</tt>.</p>
+
+    <h4>Remarks</h4>
+
+    <p>Before deleting a tab control item the assigned tab page must be destroyed with the <a href="DGDestroyTabPage.html">DGDestroyTabPage</a> function.</p>
+
+    <p>To insert new items to the tab control use the <a href="DGTabControlInsertItem.html">DGTabControlInsertItem</a> function. A <a href="TabPages.html">tab page</a> can be assigned to a tab control item either with the <a href="DGCreateTabPage.html">DGCreateTabPage</a> or with the <a href="DGCreateBlankTabPage.html">DGCreateBlankTabPage</a> function.</p>
+
+    <p>The number of tab control items can be retrieved by <a href="DGTabControlGetItemCount.html">DGTabControlGetItemCount</a>.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="TabControl.html">Tab Control</a>, <a href="TabPages.html">Tab Pages</a><br>
+    <a href="DGTabControlInsertItem.html">DGTabControlInsertItem</a>, <a href="DGTabControlGetItemCount.html">DGTabControlGetItemCount</a>, <a href="DGCreateTabPage.html">DGCreateTabPage</a>, <a href="DGCreateBlankTabPage.html">DGCreateBlankTabPage</a>, <a href="DGDestroyTabPage.html">DGDestroyTabPage</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on February 4, 2003<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

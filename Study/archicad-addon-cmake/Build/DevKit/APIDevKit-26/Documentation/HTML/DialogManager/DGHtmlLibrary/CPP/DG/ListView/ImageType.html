@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE> Class</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/CPP/DG/ListView/ImageType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>ListView::ImageType Enum</H2><!--exp="ListView::ImageType Enum"-->
+<P><topic id="$DG.$ListView.$ImageType.BriefDescription">
+		The type of the image.
+	</topic></P>
+<PRE class="syntax"><B>enum ImageType
+{</B>
+    <I>NoImage</I><B> =  DG_LVIT_NOIMAGE,</B>
+    <I>Icon</I><B> =  DG_LVIT_ICON,</B>
+    <I>Picture</I><B> =  DG_LVIT_PICTURE,</B>
+    <I>DIBitmap</I><B> =  DG_LVIT_DIBITMAP,</B>
+    <I>IconId</I><B> =  DG_LVIT_ICONID,</B>
+    <I>PictureId</I><B> =  DG_LVIT_PICTUREID,</B>
+    <I>ImageIndex</I><B> =  DG_LVIT_IMAGEINDEX,</B>
+    <I>OwnerDraw</I><B> =  DG_LVIT_OWNERDRAW</B><B>
+};</B></PRE>
+<H4>Value Definitions</H4>
+<DL>
+<DT><I>NoImage</I></DT>
+<DD><topic id="$DG.$ListView.$ImageType.$NoImage.EnumDescription">
+		No image is specified.
+	</topic></DD>
+<DT><I>Icon</I></DT>
+<DD><topic id="$DG.$ListView.$ImageType.$Icon.EnumDescription">
+		The image is an icon given with <tt>HICON</tt> cast to <tt>void*</tt> on Windows,
+		<tt>NSImage*</tt> cast to <tt>void*</tt> on Macintosh.
+	</topic></DD>
+<DT><I>Picture</I></DT>
+<DD><topic id="$DG.$ListView.$ImageType.$Picture.EnumDescription">
+		The image is a picture given with <tt>HBITMAP</tt> cast to <tt>void*</tt> on Windows,
+		<tt>NSImage*</tt> cast to <tt>void*</tt> on Macintosh.
+	</topic></DD>
+<DT><I>DIBitmap</I></DT>
+<DD><topic id="$DG.$ListView.$ImageType.$DIBitmap.EnumDescription">
+		Device independent bitmap given with <tt>BITMAPINFO*</tt> cast to <tt>void*</tt> (Windows).
+	</topic></DD>
+<DT><I>IconId</I></DT>
+<DD><topic id="$DG.$ListView.$ImageType.$IconId.EnumDescription">
+		The image is an icon given with its resource ID.
+	</topic></DD>
+<DT><I>PictureId</I></DT>
+<DD><topic id="$DG.$ListView.$ImageType.$PictureId.EnumDescription">
+		The image is a picture given with its resource ID.
+	</topic></DD>
+<DT><I>ImageIndex</I></DT>
+<DD><topic id="$DG.$ListView.$ImageType.$ImageIndex.EnumDescription">
+		The image is a part of the image attached to the list view, and the image is referenced with image index.
+	</topic></DD>
+<DT><I>OwnerDraw</I></DT>
+<DD><topic id="$DG.$ListView.$ImageType.$OwnerDraw.EnumDescription">
+		The image has an own draw method.
+	</topic></DD>
+</DL>
+
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>

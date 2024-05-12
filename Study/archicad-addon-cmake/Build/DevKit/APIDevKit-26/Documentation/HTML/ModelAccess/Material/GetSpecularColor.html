@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Palotas Csaba">
+
+    <title>GetSpecularColor</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="Material/GetSpecularColor.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="Material.html">Material</a>::GetSpecularColor</h1><br>
+    Get color for specular reflection.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b><a href="../Color/Color.html">Color</a>  GetSpecularColor (
+    void
+);</b>
+</pre>
+
+    <h3>Return value</h3>
+
+    <p>The specular color.</p>
+
+    <h3>Description</h3>
+
+    <p>This method returns the specular reflection color of the material. It can be used in specular reflection calculation.<br>
+    The reflected specular color in a given point can be calculated using the next algorithm:</p>
+    <pre class="syntax">
+<b>
+// material:               The material of the drawable polygon.
+// lightColor:             The color of the light.
+// normal:                 The normal vector of the surface in the given point.
+// lightDirection:         The direction of the light source from the given point.
+// mirorredLightDirection: The direction of the reflected light rays in the given point.
+// ViewDirection:          The direction of the view point from the given point.
+// ScalarProduct:          The scalar product of two vector.
+// color:                  The result color.
+
+color.red   = 0.0;
+color.green = 0.0;
+color.blue  = 0.0;
+
+if (ScalarProduct (normal, lightDirection) &gt; 0.0) {
+    ModelerAPI::<a href="../Color/Color.html">Color</a> specularColor = material.GetSpecularColor ();
+    double reflectionRatio = material.<a href="GetSpecularReflection.html">GetSpecularReflection</a> ();
+    double shining = material.<a href="GetShining.html">GetShining</a> ();
+    double specularReflection = reflectionRatio * exp (shining * log(ScalarProduct (mirorredLightDirection, viewDirection));
+
+    color.red   = surfaceColor.red   * specularReflection * lightColor.red;
+    color.green = surfaceColor.green * specularReflection * lightColor.green;
+    color.blue  = surfaceColor.blue  * specularReflection * lightColor.blue;
+}
+</b>
+</pre>
+
+    <p><b>Available from version: 8</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

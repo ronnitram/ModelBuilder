@@ -1,0 +1,358 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>What's the required format of User Controls in the .grc file?</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Level3/FAQ/usercontrols.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>What's the required format of User Controls in the .grc file?</h1>
+
+    <p>The required format of UserControl items in the .grc files always caused a headache. In this document, we'll explain the meaning of the different numbers behind the UserControl definition. Let's see them type by type. The examples were mostly taken from <b>DG_Test</b>, which is part of the development kit.</p>
+
+    <p>&nbsp;</p>
+
+    <h2>UserControl 257</h2>
+
+    <p>This control is a collection of special controls; it encapsulates controls which are very different in appearance, but not in functionality. Basically this control consists of a button, which pops up a palette when clicked. The content of the button is updated as the user moves the mouse above the palette.</p>
+
+    <p>Examples: material, pen, layer palette pop-up.</p>
+
+    <blockquote>
+        <img src="../../../APIImageLibrary/257.png" class="size2x" width="196" alt="257">
+    </blockquote>
+
+    <p>The generic format of this control is:</p>
+
+    <blockquote>
+        <pre><code>
+UserControl   87 82 33 19 257   0x0001   0x1100   0   /* Line Pen Setting */
+</code></pre>
+    </blockquote>
+
+    <p>Let's see the 'numbers' one by one:</p>
+
+    <table border="1" cellspacing="0" cellpadding="4">
+        <tr>
+            <th width="10%">Item</th>
+
+            <th>Description</th>
+
+            <th width="25%">Example</th>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>UserControl</code></td>
+
+            <td>the type of the dialog item</td>
+
+            <td width="25%">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>87 82 33 19</code></td>
+
+            <td>the item's rectangle (top, left, width, height)</td>
+
+            <td width="25%">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>257</code></td>
+
+            <td>the type of the user control</td>
+
+            <td width="25%">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>0x0001</code></td>
+
+            <td>defines the subtype of the user control (see the constants starting with <code>T257_</code> in <code>UCDefs.h</code>)</td>
+
+            <td width="25%"><code>0x0001</code> is <code>T257_PEN</code>, so this is a pen control</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>0x1100</code></td>
+
+            <td>the upper byte modifies the appearance of the user control (see the constants starting with <code>CS257_</code> in <code>UCDefs.h</code>)<br>
+            <i>Note: not all the flags are valid for all types of controls</i><br>
+            the lower byte is always <code>00</code></td>
+
+            <td width="25%"><code>0x11</code> is <code>CS257_HEADER | CS257_SMALLFONT</code>, so the pop-up palette will have a header, and the menu items and the header will use the small application font.</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>0</code></td>
+
+            <td>used in textual pop-ups only <code>T257_TEXT</code> and <code>T257_MENU</code>; it contains the id of the <code>'STR#'</code> resource containing the menu items<br>
+            <i>Note: due to a bug in the dialog manager, this cannot be used at the moment</i></td>
+
+            <td width="25%">&nbsp;</td>
+        </tr>
+    </table>
+
+    <p>&nbsp;</p>
+
+    <h2>UserControl 258</h2>
+
+    <p>This control is an icon-based pop-up control. The icons coming from the specified resource appear on the pop-up palette.</p>
+
+    <p>Example: suspend groups selector on the control box.</p>
+
+    <blockquote>
+        <img src="../../../APIImageLibrary/258.png" class="size2x" width="255" height="92" alt="258">
+    </blockquote>
+
+    <p>The generic format of this control is:</p>
+
+    <blockquote>
+        <pre><code>
+UserControl   12  8  66 22  258  2  14  0  1  32520
+</code></pre>
+    </blockquote>
+
+    <p>Let's see the 'numbers' one by one:</p>
+
+    <table border="1" cellspacing="0" cellpadding="4">
+        <tr>
+            <th width="10%">Item</th>
+
+            <th>Description</th>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>UserControl</code></td>
+
+            <td>the type of the dialog item</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>12  8  66  22</code></td>
+
+            <td>the item's rectangle (top, left, width, height)</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>258</code></td>
+
+            <td>the type of the user control</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>2</code></td>
+
+            <td>specifies the number of rows you would like to see the icons</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>14</code></td>
+
+            <td>tells the total number of icons</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>0</code></td>
+
+            <td>always</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>1</code></td>
+
+            <td>modifies the appearance of the user control (combination of the constants starting with <code>CS258_</code> in <code>UCDefs.h</code>)<br><br>
+
+            &ensp;<code>1</code> is <code>CS258_HEADER</code> &rArr; the pop-up palette will have a header<br>
+            &ensp;<code>2</code> is <code>CS258_MOUSEPOSOPEN</code> &rArr; the pop-up palette will appear relative to the mouse position, (as opposed to the control's rectangle)<br>
+            &ensp;<code>4</code> is <code>CS258_SIMPLEFRAME</code> &rArr; the pop-up palette will have a simpler frame (Windows only)
+            </td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>32510</code></td>
+
+            <td>id of the icon resource; contains all the icons. This icon is cut into pieces to create the individual icons.<br>
+            This also servers as the resource ID of the title strings, if the popup palette has a header (<tt>CS258_HEADER</tt>).</td>
+        </tr>
+    </table>
+
+    <p>&nbsp;</p>
+
+    <h2>UserControl 259</h2>
+
+    <p>This control is an icon-based control. The icons coming from the specified resource are layed out flat.</p>
+
+    <p>Example: type selector in the library browser.</p>
+
+    <blockquote>
+        <img src="../../../APIImageLibrary/259.png" class="size2x" width="76" height="30" alt="259">
+    </blockquote>
+
+    <p>The generic format of this control is:</p>
+
+    <blockquote>
+        <pre><code>
+UserControl   12  8  30  28  259  1  3  0  0  32510
+</code></pre>
+    </blockquote>
+
+    <p>Let's see the 'numbers' one by one:</p>
+
+    <table border="1" cellspacing="0" cellpadding="4">
+        <tr>
+            <th width="10%">Item</th>
+
+            <th>Description</th>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>UserControl</code></td>
+
+            <td>the type of the dialog item</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>12 8 30 28</code></td>
+
+            <td>the item's rectangle (top, left, width, height)</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>259</code></td>
+
+            <td>the type of the user control</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>1</code></td>
+
+            <td>specifies the number of rows you would like to see the icons</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>3</code></td>
+
+            <td>tells the total number of icons</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>0</code></td>
+
+            <td>always</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>0</code></td>
+
+            <td>always</td>
+       </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>32510</code></td>
+
+            <td>id of the icon resource; contains all the icons</td>
+        </tr>
+    </table>
+
+    <p>&nbsp;</p>
+
+    <h2>UserControl 261</h2>
+
+    <p>This control is the line type pop-up control. The content of the button is updated as the user moves the mouse above the palette. The specialty of this control is that it calls back to the server application to draw the line type into the control.</p>
+
+    <p>Example: any line type pop-up.</p>
+
+    <blockquote>
+        <img src="../../../APIImageLibrary/261.png" class="size2x" width="435" height="444" alt="261">
+    </blockquote>
+
+    <p>The generic format of this control is:</p>
+
+    <blockquote>
+        <pre><code>
+UserControl   42  0  260  40  261  0x0100   /* Line type for Line Tool */
+</code></pre>
+    </blockquote>
+
+    <p>Let's see the 'numbers' one by one:</p>
+
+    <table border="1" cellspacing="0" cellpadding="4">
+        <tr>
+            <th width="10%">Item</th>
+
+            <th>Description</th>
+
+            <th width="25%">Example</th>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>UserControl</code></td>
+
+            <td>the type of the dialog item</td>
+
+            <td width="25%">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>42  0  260  40</code></td>
+
+            <td>the item's rectangle (top, left, width, height)</td>
+
+            <td width="25%">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>261</code></td>
+
+            <td>the type of the user control</td>
+
+            <td width="25%">&nbsp;</td>
+        </tr>
+
+        <tr>
+            <td width="10%" align="center"><code>0x0100</code></td>
+
+            <td>the upper byte modifies the appearance of the user control (see the constants starting with <code>CS261_</code> in <code>UCDefs.h</code>)<br>
+            the lower byte is always <code>00</code></td>
+
+            <td width="25%"><code>0x01</code> is <code>CS261_HEADER</code>, so the pop-up palette will have a header.</td>
+        </tr>
+    </table>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

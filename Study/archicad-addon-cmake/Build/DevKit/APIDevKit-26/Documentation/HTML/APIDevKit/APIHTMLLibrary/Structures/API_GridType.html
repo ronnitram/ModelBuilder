@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>API_GridType</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Structures/API_GridType.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>API_GridType</h1>
+
+    <p>The grid parameters.</p>
+    <pre class="syntax">
+    <strong>typedef struct {</strong>
+        <strong>double</strong>            <em>spaceMainX</em>;
+        <strong>double</strong>            <em>spaceMainY</em>;
+        <strong>short</strong>             <em>nLineMainX</em>;
+        <strong>short</strong>             <em>nLineMainY</em>;
+        <strong>short</strong>             <em>filler_0</em>;
+        <strong>bool</strong>              <em>filler_1</em>;
+        <strong>bool</strong>              <em>gridSwitch</em>;
+        <strong>double</strong>            <em>spaceAuxX</em>;
+        <strong>double</strong>            <em>spaceAuxY</em>;
+        <strong>short</strong>             <em>nLineAuxX</em>;
+        <strong>short</strong>             <em>nLineAuxY</em>;
+        <strong>short</strong>             <em>filler_2</em>;
+        <strong>bool</strong>              <em>filler_3</em>;
+        <strong>unsigned char</strong>     <em>gridMode</em>;
+        <strong>double</strong>            <em>snapOffsX</em>;
+        <strong>double</strong>            <em>snapOffsY</em>;
+        <strong>double</strong>            <em>snapStepX</em>;
+        <strong>double</strong>            <em>snapStepY</em>;
+        <strong>short</strong>             <em>status</em>;
+        <strong>short</strong>             <em>filler_4</em>;
+        <strong>Int32</strong>             <em>filler_5</em>;
+        <strong>double</strong>            <em>gridAngle</em>;
+        <strong>double</strong>            <em>gridOffsX</em>;
+        <strong>double</strong>            <em>gridOffsY</em>;
+        <strong>double</strong>            <em>gridOffsZ</em>;
+        <strong><a href="API_RGBAColor.html">API_RGBAColor</a></strong>     <em>backColor</em>;
+        <strong><a href="API_RGBAColor.html">API_RGBAColor</a></strong>     <em>gridColor</em>;
+    <strong>}</strong> <em>API_GridType</em>;
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>spaceMainX, spaceMainY</b></dt>
+
+        <dd>horizontal / vertical spacing of the main grid</dd>
+
+        <dt><b>nLineMainX, nLineMainY</b></dt>
+
+        <dd>horizontal / vertical number of lines of the main grid</dd>
+
+        <dt><b>gridSwitch</b></dt>
+
+        <dd>true if grid is visible</dd>
+
+        <dt><b>spaceAuxX, spaceAuxY</b></dt>
+
+        <dd>horizontal / vertical spacing of the auxiliary grid</dd>
+
+        <dt><b>nLineAuxX, nLineAuxY</b></dt>
+
+        <dd>horizontal / vertical number of lines of the auxiliary grid</dd>
+
+        <dt><b>gridMode</b></dt>
+
+        <dd>Gravity to the grid; 0:none, 1:grid, 2:snap</dd>
+
+        <dt><b>snapOffsX, snapOffsY</b></dt>
+
+        <dd>horizontal / vertical offset of the snap grid</dd>
+
+        <dt><b>snapStepX, snapStepY</b></dt>
+
+        <dd>horizontal / vertical spacing of the snap grid</dd>
+
+        <dt><b>status</b></dt>
+
+        <dd>status of the grid</dd>
+
+        <dt><b>gridAngle</b></dt>
+
+        <dd>rotation angle of the grid, relative to horizontal</dd>
+
+        <dt><b>gridOffsX, gridOffsY, gridOffsZ</b></dt>
+
+        <dd>(x,y,z) offset of the grid</dd>
+
+        <dt><b>backColor</b></dt>
+
+        <dd>background color. Transparency is effective only in the Model window.</dd>
+
+        <dt><b>gridColor</b></dt>
+
+        <dd>color of main grid lines. Transparency is effective only in the Model window.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>Each database window may have different grid setting parameters.</p>
+
+    <p>To get the actual settings associated to a database use the <a href="../Functions/APIDb_GetGridSettingsID.html">APIDb_GetGridSettingsID</a> function; to change the parameters refer to the <a href="../Functions/APIDb_ChangeGridSettingsID.html">APIDb_ChangeGridSettingsID</a> function.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 2.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Database.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Functions/APIDb_GetGridSettingsID.html">APIDb_GetGridSettingsID</a>, <a href="../Functions/APIDb_ChangeGridSettingsID.html">APIDb_ChangeGridSettingsID</a>, <a href="API_RGBColor.html">API_RGBColor</a>, <a href="API_Types.html">API Types</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on November 9, 2010<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

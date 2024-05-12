@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+    <title>Common semantic geometry functions</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="HTML_Library/CommonSemantics_id.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Geometry</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>Common semantic geometry functions</h1>
+
+    <table cellspacing="2" cellpadding="2" border="2">
+        <tr>
+            <th>Type</th>
+
+            <th>Creation</th>
+
+            <th>Initialization</th>
+
+            <th>Equality test</th>
+
+            <th>Bounding box</th>
+        </tr>
+
+        <tr>
+            <th>2D Point (<a href="Vector2D/Coord.html">Coord</a>)</th>
+
+            <td><a href="Vector2D/SetCoord.html">SetCoord</a></td>
+
+            <td><a href="Vector2D/SetCoordPtr.html">SetCoordPtr</a></td>
+
+            <td><a href="Vector2D/IsEqualCoord.html">IsEqualCoord</a></td>
+
+            <td><a href="Box2D/CoordToBox.html">CoordToBox</a></td>
+        </tr>
+
+        <tr>
+            <th>2D <a href="Sector2D/Sector.html">Sector</a></th>
+
+            <td><a href="Sector2D/SetSector.html">SetSector</a></td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td><a href="Box2D/SectorBox.html">SectorBox</a></td>
+        </tr>
+
+        <tr>
+            <th>2D Ray</th>
+
+            <td><a href="Sector2D/SetSector.html">SetSector</a></td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th>2D Line</th>
+
+            <td><a href="Sector2D/SetSector.html">SetSector</a></td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th>2D Circle</th>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td><a href="Box2D/BoxBoundR.html">BoxBoundR</a></td>
+        </tr>
+
+        <tr>
+            <th>2D <a href="Ellipse2D/Ellipse.html">Ellipse</a></th>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+        </tr>
+
+        <tr>
+            <th>2D Arc</th>
+
+            <td><a href="GenArc2D/SetGenArc.html">SetGenArc</a></td>
+
+            <td><a href="GenArc2D/SetGenArcPtr.html">SetGenArcPtr</a></td>
+
+            <td>n.a.</td>
+
+            <td><a href="GenArc2D/GetGenArcBoundBox.html">GetGenArcBoundBox</a></td>
+        </tr>
+
+        <tr>
+            <th>2D Spline</th>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+        </tr>
+
+        <tr>
+            <th>2D Polygon</th>
+
+            <td>n.a.</td>
+
+            <td><a href="Polygon2D/InitPolygon2DData.html">InitPolygon2DData</a></td>
+
+            <td>n.a.</td>
+
+            <td><a href="Polygon2D/GetPolygon2DDataBoundBox.html">GetPolygon2DDataBoundBox</a></td>
+        </tr>
+
+        <tr>
+            <th>3D Point</th>
+
+            <td><a href="Vector3D/SetVector3D.html">SetVector3D</a></td>
+
+            <td><a href="Vector3D/SetVectorPtr3D.html">SetVectorPtr3D</a></td>
+
+            <td><a href="Vector3D/IsEqualCoordPtr3D.html">IsEqualCoordPtr3D</a></td>
+
+            <td>n.a.</td>
+        </tr>
+
+        <tr>
+            <th>3D Sector</th>
+
+            <td><a href="Sector3D/SetSector3D.html">SetSector3D</a></td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+        </tr>
+
+        <tr>
+            <th>3D Ray</th>
+
+            <td><a href="Sector3D/SetSector3D.html">SetSector3D</a></td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th>3D Line</th>
+
+            <td><a href="Sector3D/SetSector3D.html">SetSector3D</a></td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td>-</td>
+        </tr>
+
+        <tr>
+            <th>3D Sphere</th>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+        </tr>
+
+        <tr>
+            <th>3D Plane</th>
+
+            <td><a href="Plane3D/SetPlane.html">SetPlane</a>,<br>
+            <a href="Plane3D/SetUpGenPlane.html">SetUpGenPlane</a></td>
+
+            <td>n.a.</td>
+
+            <td>n.a.</td>
+
+            <td>-</td>
+        </tr>
+    </table>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Geometry.html">Geometry</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on June 21, 2000<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

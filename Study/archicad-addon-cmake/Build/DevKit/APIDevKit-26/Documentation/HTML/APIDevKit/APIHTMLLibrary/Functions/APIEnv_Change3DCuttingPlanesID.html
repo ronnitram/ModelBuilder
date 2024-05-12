@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>APIEnv_Change3DCuttingPlanesID</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/APIEnv_Change3DCuttingPlanesID.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>APIEnv_Change3DCuttingPlanesID</h1>
+
+    <p>Changes the 3D cutting planes.</p>
+    <pre class="syntax">
+    <strong>GSErrCode <a href="acapi_environment_id.html">ACAPI_Environment</a></strong> (
+        <strong>APIEnv_Change3DCuttingPlanesID</strong>,
+        <strong><a href="../Structures/API_3DCutPlanesInfo.html">API_3DCutPlanesInfo</a>*</strong>     <em>cutInfo</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>cutInfo</em></dt>
+
+        <dd>Data of the "3D Cutting Planes..." dialog</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd><code>cutInfo</code> is <code>nullptr</code> or contains invalid data</dd>
+
+        <dt><code>APIERR_NOPLAN</code></dt>
+
+        <dd>No open project</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to change the 3D cutting plane parameters.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Example</h4>
+
+    <blockquote>
+        <pre><code>
+API_3DCutPlanesInfo cutInfo;
+BNZeroMemory (&amp;cutInfo, sizeof (API_3DCutPlanesInfo));
+
+GSErrCode err = ACAPI_Environment (APIEnv_Get3DCuttingPlanesID, &amp;cutInfo, nullptr);
+if (err == NoError) {
+    if (cutInfo.shapes != nullptr)
+        BMKillHandle ((GSHandle *) &amp;(cutInfo.shapes));
+
+    cutInfo.isCutPlanes = true;
+    cutInfo.nShapes = 2;
+    cutInfo.shapes = reinterpret_cast&lt;API_3DCutShapeType**&gt; (BMAllocateHandle (cutInfo.nShapes * sizeof (API_3DCutShapeType), ALLOCATE_CLEAR, 0));
+    if (cutInfo.shapes != nullptr) {
+        (*cutInfo.shapes)[0].cutStatus = 2;
+        (*cutInfo.shapes)[0].cutPen = 3;
+        (*cutInfo.shapes)[0].cutMater = 11;
+        (*cutInfo.shapes)[0].pa = -3.0499805934954503;
+        (*cutInfo.shapes)[0].pb = 0.43107875694662845;
+        (*cutInfo.shapes)[0].pc = 3.5670423669734248;
+        (*cutInfo.shapes)[0].pd = 2.4161856450872907;
+        (*cutInfo.shapes)[1].cutStatus = 3;
+        (*cutInfo.shapes)[1].cutPen = 4;
+        (*cutInfo.shapes)[1].cutMater = 12;
+        (*cutInfo.shapes)[1].pa = -2.9081872443425456;
+        (*cutInfo.shapes)[1].pb = 0.37912781320386035;
+        (*cutInfo.shapes)[1].pc = 3.4016167929617027;
+        (*cutInfo.shapes)[1].pd = -1.1569668026192714;
+    }
+
+    err = ACAPI_Environment (APIEnv_Change3DCuttingPlanesID, &amp;cutInfo, nullptr);
+    if (err == NoError) {
+        API_WindowInfo windowInfo;
+        BNZeroMemory (&amp;windowInfo, sizeof (API_WindowInfo));
+        windowInfo.typeID = APIWind_3DModelID;
+        err = ACAPI_Automate (APIDo_ChangeWindowID, &amp;windowInfo, nullptr);
+    }
+
+    BMKillHandle ((GSHandle *) &amp;(cutInfo.shapes));
+}
+</code></pre>
+    </blockquote>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 3.1 or later</dd>
+
+        <dd><b>Header:</b> APIdefs_Environment.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_3DCutPlanesInfo.html">API_3DCutPlanesInfo</a><br>
+    <a href="APIEnv_Get3DCuttingPlanesID.html">APIEnv_Get3DCuttingPlanesID</a><br>
+    <a href="acapi_environment_id.html">ACAPI_Environment</a><br>
+    <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on December 9, 2011<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,639 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_Element_Create</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="@@@_author_@@@">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_Element_Create.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_Element_Create</h1>
+
+    <p>Places a new element into current database.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_Element_Create</strong> (
+        <strong><a href="../Structures/API_Element.html">API_Element</a>*</strong>         <em>element</em>,
+        <strong><a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>*</strong>     <em>memo</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>element</em></dt>
+
+        <dd>[in/out] The desired element will be created in the pointed structure. The <code>element-&gt;header.type</code> must specify the type of the element to be created.</dd>
+
+        <dt><em>memo</em></dt>
+
+        <dd>[in] The memo field of the desired element will be created from the pointed structure (if the memo field is needed).</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+
+        <dt><code>APIERR_BADDATABASE</code></dt>
+
+        <dd>The current database is not proper for the operation.</dd>
+
+        <dt><code>APIERR_BADPARS</code></dt>
+
+        <dd>The passed parameter is <code>nullptr; element</code></dd>
+
+        <dt><code>APIERR_BADID</code></dt>
+
+        <dd>The element type is invalid, or<br>
+        the element type is not supported by the server application</dd>
+
+        <dt><code>APIERR_REFUSEDPAR</code></dt>
+
+        <dd>The <code>element-&gt;header.type</code> parameter was incorrect. It might happen if you want to create something in a window not capable to display it, for example a wall in a section window.</dd>
+
+        <dt><code>APIERR_INVALFLOOR</code></dt>
+
+        <dd>The <code>element-&gt;header.floorInd</code> parameter is out of range.</dd>
+
+		<dt><code>APIERR_IRREGULARPOLY</code></dt>
+
+        <dd>Input polygon or polyline is irregular.</dd>
+
+        <dt>&nbsp;</dt>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>The type of the element to be created is defined by <code>type</code> in the element header. On return, the <code>guid</code> field of the header is filled in. Don't forget to call <a href="ACAPI_DisposeElemMemoHdls.html">ACAPI_DisposeElemMemoHdls</a> to dispose the handles when you're done.</p>
+
+    <p>The meaning of the different parameters is explained in the table below:</p>
+
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>
+                <p align="left"><code>element-&gt;header.type</code></p>
+            </th>
+
+            <th>
+                <p align="left"><code>memo</code> fields</p>
+            </th>
+
+            <th>
+                <p>&#x1F4DD; Notes</p>
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_WallID</code></p>
+            </td>
+
+            <td>
+                <p>optional/required</p>
+            </td>
+
+            <td>
+                <p>The <code>gables</code> are optional, the <code>coords</code>, <code>pends</code>, and <code>parcs</code> are required only for walls of type <code>APIWtyp_Poly</code> (polygon-based walls)</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_ColumnID</code></p>
+            </td>
+
+            <td>
+                <p>optional (gables, assemblySegmentProfiles)<br>
+                   required (columnSegments, assemblySegmentCuts, assemblySegmentSchemes)</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_BeamID</code></p>
+            </td>
+
+            <td>
+                <p>optional (gables, beam holes, assemblySegmentProfiles)<br>
+                required (beamSegments, assemblySegmentCuts, assemblySegmentSchemes)</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_WindowID<br>
+                API_DoorID</code></p>
+            </td>
+
+            <td>
+                <p>required (<code>params</code>)</p>
+            </td>
+
+            <td>
+                <p>See also <a href="ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a>.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td nowrap>
+                <p><code>API_SkylightID</code>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></p>
+            </td>
+
+            <td>
+                <p>required (<code>params</code>)</p>
+            </td>
+
+            <td>
+                <p>See also <a href="ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a>.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_ObjectID<br>
+                API_LampID</code></p>
+            </td>
+
+            <td>
+                <p>required</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_SlabID</code></p>
+            </td>
+
+            <td>
+                <p>required/optional</p>
+            </td>
+
+            <td>
+                <p>The slab polygon is required; the <code>edgeTrims</code> and <code>sideMaterials</code> are optional.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_RoofID</code></p>
+            </td>
+
+            <td>
+                <p>required/optional</p>
+            </td>
+
+            <td>
+                <p>The roof polygon is required; the <code>edgeTrims</code>, <code>roofEdgeTypes</code> and <code>sideMaterials</code> are optional.<br>
+                <img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12">&nbsp;Besides these parameters for Multi-plane roofs the <code>pivotPolyCoords</code>, <code>pivotPolyPends</code> and <code>pivotPolyParcs</code> are also required; the <code>pivotPolyEdges</code> are optional.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_MeshID</code></p>
+            </td>
+
+            <td>
+                <p>required/optional</p>
+            </td>
+
+            <td>
+                <p>The mesh polygon is required, the <code>meshPolyZ</code> (mesh points' Z coordinates), the <code>meshLevelCoords</code> (level line coordinates), and the <code>meshLevelEnds</code> (level lines' endpoints) fields are optional.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td nowrap>
+                <p><code>API_ShellID</code>&nbsp;<img border="0" src="../../APIImageLibrary/15.png" alt="Featuring API 15" width="19" height="12"></p>
+            </td>
+
+            <td>
+                <p>required/optional</p>
+            </td>
+
+            <td>
+                <p>Shell shape data is required (first record of <code>shellShapes</code> for <a href="../Structures/API_ExtrudedShellData.html">extruded</a> and <a href="../Structures/API_RevolvedShellData.html">revolved shells</a>, both records for <a href="../Structures/API_RuledShellData.html">ruled shells</a>; <code>shellContours</code> are optional.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td nowrap>
+                <p><code>API_MorphID</code>&nbsp;<img border="0" src="../../APIImageLibrary/16.png" alt="Featuring API 16" width="19" height="12"></p>
+            </td>
+
+            <td>
+                <p>required/optional</p>
+            </td>
+
+            <td>
+                <p>The <code>morphBody</code> field is required and the <code>morphMaterialMapTable</code> field is optional.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_DimensionID</code></p>
+            </td>
+
+            <td>
+                <p>required (dimension data)</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_RadialDimensionID<br>
+                API_AngleDimensionID</code></p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_LevelDimensionID</code></p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+
+            <td>
+                <p>If the <code>ceilNum</code> is set to <code>0</code>, the level dimension's reference is the floor, otherwise the given ceiling.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_TextID</code></p>
+            </td>
+
+            <td>
+                <p>required (content)</p>
+
+                <p>optional (paragraphs) for multistyle content</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_LabelID</code></p>
+            </td>
+
+            <td>
+                <p>optional (content) for textual labels</p>
+
+                <p>optional (paragraphs) for multistyle content</p>
+
+                <p>required (parameters) for symbol labels</p>
+            </td>
+
+            <td>
+                The <code><a href="../Structures/API_LabelType.html">API_LabelType</a>::parent</code> member determines whether an independent or an associative Label will be created.
+                <ul>
+                    <li>Set this member to <code>APINULLGuid</code> to create an independent Label.</li>
+                    <li>Set this member to the GUID of the owner element (a labelable element) to create an associative Label.</li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_ZoneID</code></p>
+            </td>
+
+            <td>
+                <p>required (polygon and parameters)</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_HatchID</code></p>
+            </td>
+
+            <td>
+                <p>required (fill polygon)</p>
+            </td>
+
+            <td>
+                <p>If the <code>hatchGlobal</code> field is set to <code>false</code> (the fill is linked to an element), the <code>refPos</code> and <code>refAngle</code> fields are used to calculate the orientation, otherwise the global origin is used for this. If the <code>showArea</code> field is set to <code>true</code>, the <code>note</code> and the <code>noteC</code> fields are used for the appearance of the area, otherwise these fields are ignored.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_LineID<br>
+                API_ArcID<br>
+                API_CircleID</code></p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_PolyLineID</code></p>
+            </td>
+
+            <td>
+                <p>required (polygon)</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_SplineID</code></p>
+            </td>
+
+            <td>
+                <p>required/optional</p>
+            </td>
+
+            <td>
+                <p>The curve point coordinates are required. If the <code>bezierDirs</code> field is <code>nullptr</code> (<code>autoSmooth</code> is <code>true</code>), the direction parameters are automatically calculated from the first two points' relative position (the <code>autoSmooth</code> field must be set to true in this case).</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_HotspotID</code></p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_PictureID</code></p>
+            </td>
+
+            <td>
+                <p>required (picture content)</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_DrawingID</code></p>
+            </td>
+
+            <td>
+                <p>optional (polygon, drawing data)</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_CutPlaneID</code></p>
+            </td>
+
+            <td>
+                <p>required</p>
+            </td>
+
+            <td>
+                <p>The cutplane coordinates are required.<br>
+                See also <a href="ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a>.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_ChangeMarkerID</code></p>
+            </td>
+
+            <td>
+                <p>optional (polygon)</p>
+            </td>
+
+            <td>
+                <p>See also <a href="ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a>.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_DetailID<br>
+                API_WorksheetID</code></p>
+            </td>
+
+            <td>
+                <p>optional (polygon)</p>
+            </td>
+
+            <td>
+                <p>See also <a href="ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a>.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_CameraID</code></p>
+            </td>
+
+            <td>
+                <p>optional (linklist)</p>
+            </td>
+
+            <td>
+                <p>Optional for panoramic cameras only.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_CamSetID</code></p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_SectElemID</code></p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+
+            <td>
+                <p>This type of element cannot be created.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_StairID</code> <img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></p>
+            </td>
+
+            <td>
+                <p>required (polyline)</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <p><code>API_RailingID</code> <img border="0" src="../../APIImageLibrary/21.png" alt="New in API 21" width="19" height="12"></p>
+            </td>
+
+            <td>
+                <p>required (polyline)</p>
+            </td>
+
+            <td>
+                <p>&nbsp;</p>
+            </td>
+        </tr>
+ 
+       <tr>
+            <td>
+                <p><code>API_OpeningID&nbsp;<img border="0" src="../../APIImageLibrary/23.png" alt="21" width="19" height="12"></code></p>
+            </td>
+            <td>
+                <p></p>
+            </td>
+            <td>
+                <p>Extrusion base plane (extrusionGeometryData.frame) and owner element required.</p>
+            </td>
+        </tr>
+
+   </table>
+
+    <p>The creation process for elements follows the same process as the one you use for creating elements graphically in Archicad. This means for example, that you have to create a wall for windows and doors, etc. The API always checks for the presence of the necessary information, and returns with an error code if something is missing.</p>
+
+    <p>The created element may be redirected into the 2D binary section of a Library Part. Refer to the <a href="ACAPI_LibPart_SetUpSect_2DDrawHdl.html">ACAPI_LibPart_SetUpSect_2DDrawHdl</a> function for details. In these case no information is returned, what indices, guids were generated. In this environment only 2D drawing elements can be generated.</p>
+
+    <p>The element also can be clipped by a clipping region. Refer to the <a href="APIDb_StartClippingSessionID.html">APIDb_StartClippingSessionID</a> function for details. In these case no information is returned, what indices, guids were generated, since more parts may be generated.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 1.3 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <p><a href="../Structures/API_Element.html">API_Element</a>, <a href="../Structures/API_ElementMemo.html">API_ElementMemo</a>, <a href="ACAPI_Element_CreateExt.html">ACAPI_Element_CreateExt</a><br>
+    <a href="ACAPI_LibPart_SetUpSect_2DDrawHdl.html">ACAPI_LibPart_SetUpSect_2DDrawHdl</a>, <a href="APIDb_StartClippingSessionID.html">APIDb_StartClippingSessionID</a>, <a href="ACAPI_DisposeElemMemoHdls.html">ACAPI_DisposeElemMemoHdls</a><br>
+    <a href="../Level3/Element_Manager_id.html">Element Manager</a>, <a href="API_Functions.html">API Functions</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 18, 2017<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

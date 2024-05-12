@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Bende Laszlo">
+
+    <title>DGTopStatusMsgData</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGTopStatusMsgData.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGTopStatusMsgData</h1>
+
+    <p>If the <a href="CallbackFunctions.html">dialog callback function</a> receives a <a href="DG_MSG_TOPSTATUSCHANGE.html"><tt>DG_MSG_TOPSTATUSCHANGE</tt></a> message for a <a href="ModelessDialogs.html">modeless</a> or <a href="PaletteDialogs.html">palette</a> dialog, the <i>msgData</i> parameter is a pointer to a <b>DGTopStatusMsgData</b> structure that contains information about the top status change event.</p>
+    <pre class="syntax">
+    <strong>struct</strong> <em>DGTopStatusMsgData</em> {
+      <strong>short</strong>  <em>subMessage;</em>
+      <strong>short</strong>  <em>prevDialId;</em>
+      <strong>short</strong>  <em>nextDialId;</em>
+      <strong>bool</strong>   <em>byClick;</em>
+      <strong>Int8</strong>   <em>filler;</em>
+    };
+</pre>
+
+    <h4>Members</h4>
+
+    <dl>
+        <dt><b>subMessage</b></dt>
+
+        <dd>It can be one of the following values:</dd>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left">subMessage</th>
+
+                    <th align="left">meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_TOPSTATUSLOST</tt></td>
+
+                    <td>The dialog has lost the top-status.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><tt>DG_TSM_TOPSTATUSGAINED</tt></td>
+
+                    <td>The dialog has gained the top-status.</td>
+                </tr>
+            </table>
+        </dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>prevDialId</b></dt>
+
+        <dd>ID of the dialog losing the top status.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>nextDialId</b></dt>
+
+        <dd>ID of the dialog gaining the top status.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>byClick</b></dt>
+
+        <dd><tt>true</tt> if the dialog gained the top status by a mouse click.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><b>filler</b></dt>
+
+        <dd>Reserved.</dd>
+    </dl>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="Structures_id.html">DG Structures</a>, <a href="ModelessDialogs.html">Modeless Dialogs</a>, <a href="PaletteDialogs.html">Palette Dialogs</a><br>
+    <a href="CallbackFunctions.html">Callback functions</a>, <a href="DG_MSG_TOPSTATUSCHANGE.html">DG_MSG_TOPSTATUSCHANGE</a><br>
+    <a href="DGActivateModelessDialog.html">DGActivateModelessDialog</a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on September 12, 2014<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

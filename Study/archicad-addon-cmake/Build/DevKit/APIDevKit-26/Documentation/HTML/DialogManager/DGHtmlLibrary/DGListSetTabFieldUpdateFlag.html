@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Vegh Miklos">
+
+    <title>DGListSetTabFieldUpdateFlag</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="DGHtmlLibrary/DGListSetTabFieldUpdateFlag.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Dialog&nbsp;Manager</span><span class="TitleVersion">Version: 2.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>DGListSetTabFieldUpdateFlag</h1>
+
+    <p>Sets the update flag of a tabulator field of a <a href="ListBox.html">list box</a>.</p>
+    <pre class="syntax">
+    <strong>void DGListSetTabFieldUpdateFlag</strong> (
+      <strong>short</strong>  <em>dialId</em>,
+      <strong>short</strong>  <em>item</em>,
+      <strong>short</strong>  <em>tabIndex</em>,
+      <strong>bool</strong>   <em>updateFlag</em>
+    );
+</pre>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>dialId</em></dt>
+
+        <dd>ID of the dialog or tab page. <tt>DG_TOP_MODAL</tt> specifies the topmost modal dialog.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>item</em></dt>
+
+        <dd>1-based index of the dialog item.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>tabIndex</em></dt>
+
+        <dd>1-based index of the tabulator field.</dd>
+
+        <dd>&nbsp;</dd>
+
+        <dt><em>updateFlag</em></dt>
+
+        <dd>
+            <table border="0">
+                <tr valign="top">
+                    <th align="left" width="100">Value</th>
+
+                    <th align="left">Meaning</th>
+                </tr>
+
+                <tr valign="top">
+                    <td><strong><tt>false</tt></strong></td>
+
+                    <td>If the tabulator field is drawn by DG.</td>
+                </tr>
+
+                <tr valign="top">
+                    <td><strong><tt>true</tt></strong></td>
+
+                    <td>The tabulator field must be drawn by the application.</td>
+                </tr>
+            </table>
+        </dd>
+    </dl>
+
+    <h4>Remarks</h4>
+
+    <p>The content of list items can be divided into more columns. In this documentation the notation "tabulator field" is used instead of "column". The reason for this is that texts of columns can be separated within a list item by inserting tabulator (<tt>'\t'</tt>) characters into its text.</p>
+
+    <p>Call this routine only after you set the number of tabulator fields and their properties by <a href="DGListSetTabFieldCount.html">DGListSetTabFieldCount</a> and <a href="DGListSetTabFieldData.html">DGListSetTabFieldData</a>.</p>
+
+    <p>After the update flag of a tabulator field is set to <strong><tt>true</tt></strong>, the dialog callback function receives a <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a> message whenever the tabulator field must be updated. The message data parameter is a pointer to a <a href="DGListUpdateData.html">DGListUpdateData</a> structure that contains all the information needed to update the tabulator field.</p>
+
+    <p>The update flag is assigned to the list and not to its items. This means that the <em>tabIndex</em> tabulator field of all list items must be updated by the application.</p>
+
+    <p>If the list box has horizontal scrollbar then the extent of the horizontal scrollbar is calculated depending the properties of the last tabulator field. If the truncation flag or the user update flag is turned on in this field then the scrollbar's extent equals the end position of the last tabulator field, otherwise it is dynamically calculated from the content of the longest listbox item.</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> DG 2.0.0 or later</dd>
+
+        <dd><b>Header:</b> DG.h</dd>
+
+        <dd><b>Import Library:</b> DG.lib [WIN]</dd>
+
+        <dd><b>Module:</b> DGLib [MAC], DG.dll [WIN]</dd>
+    </dl>
+
+    <h4>See Also</h4>
+
+    <p><a href="FunctionList_id.html">DG Functions</a>, <a href="ListBox.html">List Box</a>, <a href="DGListGetTabFieldUpdateFlag.html">DGListGetTabFieldUpdateFlag</a><br>
+    <a href="DGListSetTabFieldCount.html">DGListSetTabFieldCount</a> <a href="DGListSetTabFieldData.html">DGListSetTabFieldData</a>, <a href="DGListUpdateData.html">DGListUpdateData</a>, <a href="DG_MSG_UPDATE.html"><tt>DG_MSG_UPDATE</tt></a></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Built on December 5, 2002<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

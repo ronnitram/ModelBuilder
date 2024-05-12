@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+    <title>GSAPI::IAPIPseudoContainer and GSAPI::IAPIPseudoIterator implementation details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Framework/ImplementationDetails.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>GSAPI::IAPIPseudoContainer and GSAPI::IAPIPseudoIterator implementation details</h1>
+
+    <p>The <!-- Don't index --><a href="IAPIPseudoContainer.html">IAPIPseudoContainer</a> has a <i>CreateIterator ()</i> method, which takes an <b>Iterator::Parameters</b> object reference as parameter. This solution was necessary for the following reason:</p>
+
+    <ul>
+        <li>The aim was to allow only the containers to create their iterators.</li>
+
+        <li>To achieve this all iterators have protected constructors and they declare their container type as friend.</li>
+
+        <li>To avoid having to declare all derived containers as friends to the iterators (since there's no template friend relation) the parent class (<!-- Don't index --><a href="IAPIPseudoContainer.html">IAPIPseudoContainer</a>) was given a <i>CreateIterator ()</i> method, and was declared friend instead.</li>
+
+        <li>Now, since the iterators need different parameters, but the <!-- Don't index --><a href="IAPIPseudoContainer.html">IAPIPseudoContainer</a> interface cannot now about this, it was necessary to hide this fact.</li>
+
+        <li>Thus, there's a compulsory <b>Parameters</b> nested class in each iterator, which holds the constructor parameters (typically a reference to the container and the current element), which is then passed to the protected iterator constructor.</li>
+    </ul>
+
+    <p>This also means that although the <!-- Don't index --><a href="IAPIPseudoIterator.html">IAPIPseudoIterator</a> interface doesn't force this nested class, the <!-- Don't index --><a href="IAPIPseudoContainer.html">IAPIPseudoContainer</a> does.</p>
+
+    <h2 class="SectionHeading">See Also</h2>
+
+    <p><!-- Don't index --><a href="IAPIPseudoContainer.html">IAPIPseudoContainer interface</a> | <!-- Don't index --><a href="IAPIPseudoIterator.html">IAPIPseudoIterator interface</a></p>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <title>ACAPI_AddOnObject_CreateClientOnlyObject</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="###_author_###">
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="APIHTMLLibrary/Functions/ACAPI_AddOnObject_CreateClientOnlyObject.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">API&nbsp;Development&nbsp;Kit</span><span class="TitleVersion">Version: 26</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+    <h1>ACAPI_AddOnObject_CreateClientOnlyObject</h1>
+
+    <p>Creates an AddOnObject.</p>
+    <pre class="syntax">
+    <strong>GSErrCode  ACAPI_AddOnObject_CreateClientOnlyObject</strong> (
+        <strong>const <a href="../../../GSRoot/GSRootHTMLLibrary/GS/UniString/UniString.html">GS::UniString</a>&amp;</strong>     <em>objectName</em>,
+        <strong>const GSHandle&amp;</strong>          <em>content</em>,
+        <strong><a href="../Structures/API_Guid.html">API_Guid</a>*</strong>                <em>objectGuid</em>
+    );
+</pre>
+
+    <p>&nbsp;</p>
+
+    <h4>Parameters</h4>
+
+    <dl>
+        <dt><em>objectName</em></dt>
+
+        <dd>[in] The name of the AddOnObject.</dd>
+
+        <dt><em>content</em></dt>
+
+        <dd>[in] The content of the AddOnObject.</dd>
+
+        <dt><em>objectGuid</em></dt>
+
+        <dd>[out] The GUID of the created object.</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>Return Values</h4>
+
+    <dl>
+        <dt><code>NoError</code></dt>
+
+        <dd>The function has completed with success.</dd>
+    </dl>
+
+    <p>For other common API errors see the <a href="../Level2/Error_Codes.html">API Errors</a> document.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Remarks</h4>
+
+    <p>This function is used to store custom data into project database. The custom data is represented by AddOnObject.</p>
+
+	<p>This data is avaible in teamwork only in clinet side, it won't be send to the teamwork server. If you need to ensure that the AddOnObject send between users use <a href="ACAPI_AddOnObject_CreateObject.html">ACAPI_AddOnObject_CreateObject</a>.</p>
+
+	<p>The <em>content</em> handle will be copied inside the function so it has to be deleted after the function call.</p>
+
+    <p>The stored data can be accessed using <em>objectGuid</em> parameter. The <em>objectName</em> parameter can also be used for identifying the custom data. It can be also emtpy. Archicad does not check if the name is unique.</p>
+
+    <p>If you need to ensure that only one AddOnObject exists with the same name, then use Unique AddOnObjects. See more: <a href="ACAPI_AddOnObject_CreateUniqueObject.html">ACAPI_AddOnObject_CreateUniqueObject</a>.</p>
+
+    <p>&nbsp;</p>
+
+    <h4>Requirements</h4>
+
+    <dl>
+        <dd><b>Version:</b> API 23 or later</dd>
+
+        <dd><b>Header:</b> ACAPinc.h</dd>
+    </dl>
+
+    <p>&nbsp;</p>
+
+    <h4>See Also</h4>
+
+    <a href="ACAPI_AddOnObject_DeleteObject.html">ACAPI_AddOnObject_DeleteObject</a>, <a href="../Level3/AddOnObject_Manager_id.html">AddOnObject Manager</a>, <a href="API_Functions.html">API Functions</a>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on January 30, 2019<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

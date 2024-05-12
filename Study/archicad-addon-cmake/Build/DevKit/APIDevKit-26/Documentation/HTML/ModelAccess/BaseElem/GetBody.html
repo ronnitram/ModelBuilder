@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="Siklodi Jozsef">
+
+    <title>GetBody</title>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <link rel="stylesheet" type="text/css" href="../StyleLibrary/Style.css">
+    <meta name="Microsoft.Help.F1" content="BaseElem/GetBody.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">Model&nbsp;Access</span><span class="TitleVersion">Version: 10</span></p>
+</div>
+<div id="content" class="inset">
+
+    <h1><a href="BaseElem.html">BaseElem</a>::GetBody</h1><br>
+    Get a body from the base element.<br>
+    <br>
+    <br>
+    <pre class="syntax">
+<b>void  GetBody (
+    Int32  bodyIndex,
+    <a href="../Body/Body.html">Body</a>*  body
+);</b>
+</pre>
+
+    <h3>Parameters</h3>
+
+    <dl>
+        <dt><em>bodyIndex</em></dt>
+
+        <dd>The index of the body. The index range is [1..n] where n = <a href="GetBodyNum.html">GetBodyNum</a> ().</dd>
+
+        <dt><em>body</em></dt>
+
+        <dd>A pointer to the result body.</dd>
+    </dl>
+
+    <h3>Description</h3>
+
+    <p>This method gets a reference to a body of the base element and puts it to the <i>body</i>. If the <i>bodyIndex</i> is out of range, then it throws an exception.</p>
+
+    <p><b>Available from version: 18</b></p>
+
+    
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</html>

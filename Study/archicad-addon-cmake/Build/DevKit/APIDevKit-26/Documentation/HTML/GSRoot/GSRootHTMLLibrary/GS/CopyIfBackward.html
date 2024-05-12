@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<HTML xmlns:user="helpsystem">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=Windows-1252">
+<TITLE>CopyIfBackward</TITLE>
+
+    <meta http-equiv="Content-Language" content="en-US">
+    <meta name="Author" content="GRAPHISOFT SE">
+    <link rel="stylesheet" type="text/css" href="../../StyleLibrary/Style.css">
+    <script type="text/javascript" src="../../StyleLibrary/Java.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/TOCscript.js"></script>
+    <script type="text/javascript">
+      LEVELSTR = "../../";
+      ICONPATH = LEVELSTR + "StyleLibrary/Images/Treeview/";
+    </script>
+    <script type="text/javascript" src="../../StyleLibrary/TOC.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree_tpl.js"></script>
+    <script type="text/javascript" src="../../StyleLibrary/tree.js"></script>
+    <meta name="Microsoft.Help.F1" content="GSRootHTMLLibrary/GS/CopyIfBackward.html">
+    <xml>
+      <MSHelp:Attr Name = "DocSet" Value = "Graphisoft"/>
+    </xml>
+</head>
+<body>
+<div id="docBegin">
+  <p id="graphisoft_title">&nbsp;<span>Graphisoft&reg;</span></p>
+  <p class="hdr"><span class="TitleMain">GSRoot</span><span class="TitleVersion">Version: 1.0</span></p>
+</div>
+<div id="content" class="inset">
+          <script type="text/javascript">
+            insertTOC ();
+          </script>
+
+
+<H2>CopyIfBackward</H2><!--exp="CopyIfBackward Enum"-->
+<P><topic id="$GS.$CopyIfBackward.BriefDescription">
+		Assigns the values of elements from a source range to a destination range, 
+		iterating through the source sequence of elements and assigning them new 
+		positions in a backward direction.
+	</topic></P>
+<PRE class="syntax"><B>template &lt;<B>class</B> <I>Bi1</I>, <B>class</B> <I>Bi2</I>, <B>class</B> <I>Pred</I><B>&gt;
+</B>Bi2 CopyIfBackward (</B>
+    <B>Bi1                 </B><I>first</I>,
+    <B>Bi1                 </B><I>last</I>,
+    <B>Bi2                 </B><I>result</I>,
+    <B>Pred                </B><I>pred</I>
+<B>);</B></PRE>
+<H4>Template parameters</H4>
+<DL><DT><I>Bi1</I></DT><DD><topic id="$GS.$CopyIfBackward.$Bi1.TemplateParamDescription">
+		Bidirectional iterator.
+	</topic></DD><DT><I>Bi2</I></DT><DD><topic id="$GS.$CopyIfBackward.$Bi2.TemplateParamDescription">
+		Bidirectional iterator.
+	</topic></DD><DT><I>Pred</I></DT><DD><topic id="$GS.$CopyIfBackward.$Pred.TemplateParamDescription">
+		Unary predicate.
+	</topic></DD>
+</DL>
+<H4>Parameters</H4>
+<DL><DT><I>first</I></DT><DD><topic id="$GS.$CopyIfBackward.$first.ParamDescription">
+		A bidirectional iterator addressing the position of the first element in the source range.
+	</topic></DD><DT><I>last</I></DT><DD><topic id="$GS.$CopyIfBackward.$last.ParamDescription">
+		A bidirectional iterator addressing the position that is one past the final element in the source range.
+	</topic></DD><DT><I>result</I></DT><DD><topic id="$GS.$CopyIfBackward.$result.ParamDescription">
+		A bidirectional iterator addressing the position of the one past the final element in the destination range.
+	</topic></DD><DT><I>pred</I></DT><DD><topic id="$GS.$CopyIfBackward.$pred.ParamDescription">
+		User-defined predicate function object that defines the condition to be 
+		satisfied if an element is to be counted. A predicate takes single argument and 
+		returns <B>true </B>or <B>false</B>.
+	</topic></DD>
+</DL>
+<H4>Return Value</H4>
+<P><topic id="$GS.$CopyIfBackward.ReturnDescription">
+		An output iterator addressing the position that is one past the final element 
+		in the destination range.
+	</topic></P>
+<H4>Description</H4>
+<P><topic id="$GS.$CopyIfBackward.LongDescription">
+		<P>The source range must be valid and there must be sufficient space at the 
+		destination to hold all the elements being copied.</P>
+		<P>The <B>CopyBackwardIf</B> algorithm imposes more stringent requirements than 
+		that the CopyIf algorithm. Both its input and output iterators must be 
+		bidirectional.</P>
+		<P>The <B>CopyBackward</B> algorithm is the only
+		algorithm designating the output range with an iterator pointing to the end of 
+		the destination range.</P>
+		<P>Because the algorithm copies the source elements in order beginning with the 
+		last element, the destination range can overlap with the source range provided 
+		the <I>last</I> position of the source range is not contained in the 
+		destination range. <B>Copy</B> can be used to shift elements to the right but 
+		not the left, unless there is no overlap between the source and destination 
+		ranges. To shift to the left any number of positions, use the <A href="CopyIf.html">CopyIf</A> algorithm.</P>
+		<P>The <B>CopyBackward</B> algorithm only modifies values pointed to by the 
+		iterators, assigning new values to elements in the destination range. It cannot 
+		be used to create new elements and cannot insert elements into an empty 
+		container directly.</P>
+	</topic></P>
+<H4>See Also</H4>
+<P><topic id="$GS.$CopyIfBackward.SeeAlso">
+		<A href="GS.html#Algorithms">Algorithms</A>
+	</topic></P>
+
+</div>
+<div id="footer">
+    <p class="hdr1">      <span class="Credits">Copyright &copy; 2022 - GRAPHISOFT SE. All rights reserved worldwide. <br />Modified on May 29, 2022<br/>
+      </span>
+    </p>
+    <p id="toplink"><a href="#docBegin"><img src="../../StyleLibrary/Images/top.gif" alt="top" width="31" height="14" id="toTopImg" /></a></p>
+</div>
+</body>
+</HTML>
